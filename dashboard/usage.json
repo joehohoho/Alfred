@@ -1,0 +1,8 @@
+{
+  "budget": {
+    "monthlyTokens": null,
+    "monthlyCost": null,
+    "note": "Set your budget here. null = unlimited"
+  },
+  "sessions": []
+}

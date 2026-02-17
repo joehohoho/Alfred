@@ -1,0 +1,46 @@
+{
+  "name": "signal-app-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stock/Crypto buy-sell signal app MVP with SMA+RSI strategy",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "psql $DATABASE_URL -f db/migrations/001_init.sql",
+    "signals:run": "tsx src/services/pipeline/runPipeline.ts",
+    "scheduler:start": "tsx src/services/scheduler/index.ts"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "axios": "1.7.7",
+    "pg": "8.13.0",
+    "node-cron": "3.0.3",
+    "recharts": "2.12.7",
+    "zod": "3.23.8",
+    "clsx": "2.1.1",
+    "tailwind-merge": "2.5.2",
+    "lucide-react": "0.468.0"
+  },
+  "devDependencies": {
+    "typescript": "5.6.2",
+    "@types/node": "22.7.4",
+    "@types/react": "18.3.9",
+    "@types/react-dom": "18.3.0",
+    "@types/pg": "8.11.10",
+    "@types/node-cron": "3.0.11",
+    "tsx": "4.19.1",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.5",
+    "tailwindcss": "3.4.13",
+    "postcss": "8.4.47",
+    "autoprefixer": "10.4.20"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

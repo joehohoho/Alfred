@@ -1,0 +1,153 @@
+{
+  "updatedAt": "2026-02-07T00:20:47.916Z",
+  "total": {
+    "cost": 8.02092195,
+    "tokensIn": 1631,
+    "tokensOut": 55603,
+    "cacheRead": 12956454,
+    "cacheWrite": 924775,
+    "sessions": 2
+  },
+  "today": {
+    "cost": 1.1672778000000001,
+    "tokensIn": 119,
+    "tokensOut": 3114,
+    "sessions": 1
+  },
+  "thisWeek": {
+    "cost": 8.02092195,
+    "tokensIn": 1631,
+    "tokensOut": 55603,
+    "sessions": 2
+  },
+  "dailyAverage": {
+    "cost": 4.010460975,
+    "tokens": 28617,
+    "sessions": 1.5
+  },
+  "weeklyAverage": {
+    "cost": 8.02092195,
+    "tokens": 57234,
+    "sessions": 3
+  },
+  "models": {
+    "opus": {
+      "today": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      },
+      "thisWeek": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      },
+      "total": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      }
+    },
+    "sonnet": {
+      "today": {
+        "cost": 1.1672778000000001,
+        "tokensIn": 119,
+        "tokensOut": 3114,
+        "sessions": 1
+      },
+      "thisWeek": {
+        "cost": 7.9344927,
+        "tokensIn": 1573,
+        "tokensOut": 53740,
+        "sessions": 1
+      },
+      "total": {
+        "cost": 7.9344927,
+        "tokensIn": 1573,
+        "tokensOut": 53740,
+        "sessions": 1
+      }
+    },
+    "haiku": {
+      "today": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      },
+      "thisWeek": {
+        "cost": 0.08642925000000001,
+        "tokensIn": 58,
+        "tokensOut": 1863,
+        "sessions": 1
+      },
+      "total": {
+        "cost": 0.08642925000000001,
+        "tokensIn": 58,
+        "tokensOut": 1863,
+        "sessions": 1
+      }
+    },
+    "local": {
+      "today": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      },
+      "thisWeek": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      },
+      "total": {
+        "cost": 0,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "sessions": 0
+      }
+    }
+  },
+  "budget": {
+    "totalCredits": 42.325025749999966,
+    "spent": 8.02092195,
+    "additions": [
+      {
+        "amount": 42.325025749999966,
+        "date": "2026-02-06",
+        "note": "Balance set to $13.96"
+      }
+    ]
+  },
+  "pricing": {
+    "opus": {
+      "inputPerMillion": 15,
+      "outputPerMillion": 75
+    },
+    "sonnet": {
+      "inputPerMillion": 3,
+      "outputPerMillion": 15
+    },
+    "haiku": {
+      "inputPerMillion": 0.25,
+      "outputPerMillion": 1.25
+    },
+    "local": {
+      "inputPerMillion": 0,
+      "outputPerMillion": 0
+    }
+  },
+  "session": {
+    "tokensIn": 10,
+    "tokensOut": 383
+  },
+  "context": {
+    "used": 166880,
+    "max": 1000000
+  },
+  "model": "claude-sonnet-4-5"
+}

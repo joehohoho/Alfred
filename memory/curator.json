@@ -1,0 +1,56 @@
+{
+  "curator_version": "1.0",
+  "last_updated": "2026-02-10T12:01:00",
+  "items": [
+    {
+      "id": "item_001",
+      "type": "preference",
+      "category": "models",
+      "content": "Joe prefers LOCAL tier for simple tasks (free), Haiku for medium complexity, Sonnet for code/routine analysis, Opus for complex reasoning only. Cost-conscious with $25 prepaid credits.",
+      "discovered_date": "2026-02-10",
+      "frequency": "critical",
+      "source_session": "session_1",
+      "relevant_for": ["task_routing", "cost_optimization"]
+    },
+    {
+      "id": "item_002",
+      "type": "decision",
+      "category": "tools",
+      "content": "Web search efficiency pattern: Brave Search API → web_fetch (extract content) → browser only for interaction/JS. Replaces blind browser automation.",
+      "discovered_date": "2026-02-10",
+      "frequency": "high",
+      "source_session": "session_1",
+      "relevant_for": ["web_research", "cost_optimization"]
+    },
+    {
+      "id": "item_003",
+      "type": "context",
+      "category": "project",
+      "content": "Joe interested in memory architecture, efficiency optimization, LOCAL sub-agent patterns, and building intelligent systems. Prototyping Memory Curator system for conversation continuity.",
+      "discovered_date": "2026-02-10",
+      "frequency": "high",
+      "source_session": "session_1",
+      "relevant_for": ["project_context", "system_design"]
+    },
+    {
+      "id": "item_004",
+      "type": "preference",
+      "category": "git",
+      "content": "Git commit author: Joe Ho (joesubsho@gmail.com). Alfred-Dashboard repo uses hopenclaw@gmail.com for Vercel deployments.",
+      "discovered_date": "2026-02-09",
+      "frequency": "critical",
+      "source_session": "init",
+      "relevant_for": ["git_operations", "deployment"]
+    },
+    {
+      "id": "item_005",
+      "type": "preference",
+      "category": "communication",
+      "content": "Joe proactive hours: 8:30am - 11pm AST. Quiet after 11pm unless urgent. Location: Dieppe, New Brunswick, Canada (Atlantic timezone).",
+      "discovered_date": "2026-02-09",
+      "frequency": "high",
+      "source_session": "init",
+      "relevant_for": ["scheduling", "notifications"]
+    }
+  ]
+}

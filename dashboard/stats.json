@@ -1,0 +1,192 @@
+{
+  "updatedAt": "2026-02-17T18:14:22Z",
+  "total": {
+    "cost": 35.72385309999999,
+    "tokensIn": 296827,
+    "tokensOut": 373701,
+    "cacheRead": 56889797,
+    "cacheWrite": 7254112,
+    "sessions": 68
+  },
+  "today": {
+    "cost": 8.843849049999994,
+    "tokensIn": 89333,
+    "tokensOut": 125722,
+    "sessions": 597
+  },
+  "thisWeek": {
+    "cost": 25.995294400000013,
+    "tokensIn": 295023,
+    "tokensOut": 307708,
+    "sessions": 66
+  },
+  "dailyAverage": {
+    "cost": 5.953975516666666,
+    "tokens": 111754.66666666667,
+    "sessions": 12
+  },
+  "weeklyAverage": {
+    "cost": 17.861926549999996,
+    "tokens": 335264,
+    "sessions": 36
+  },
+  "models": {
+    "opus": {
+      "today": {
+        "cost": 0.8630797499999998,
+        "tokensIn": 12,
+        "tokensOut": 1906,
+        "sessions": 1
+      },
+      "thisWeek": {
+        "cost": 1.0261412499999998,
+        "tokensIn": 16,
+        "tokensOut": 2141,
+        "sessions": 2
+      },
+      "total": {
+        "cost": 1.0261412499999998,
+        "tokensIn": 16,
+        "tokensOut": 2141,
+        "sessions": 2
+      },
+      "sessions": 0
+    },
+    "sonnet": {
+      "today": {
+        "cost": 2.7783114000000007,
+        "tokensIn": 230,
+        "tokensOut": 7654,
+        "sessions": 6
+      },
+      "thisWeek": {
+        "cost": 17.916640650000005,
+        "tokensIn": 3990,
+        "tokensOut": 124682,
+        "sessions": 16
+      },
+      "total": {
+        "cost": 27.558770100000004,
+        "tokensIn": 5736,
+        "tokensOut": 188812,
+        "sessions": 17
+      },
+      "sessions": 563
+    },
+    "haiku": {
+      "today": {
+        "cost": 5.202457900000003,
+        "tokensIn": 3075,
+        "tokensOut": 110368,
+        "sessions": 18
+      },
+      "thisWeek": {
+        "cost": 7.0525125000000015,
+        "tokensIn": 4297,
+        "tokensOut": 159924,
+        "sessions": 24
+      },
+      "total": {
+        "cost": 7.138941750000002,
+        "tokensIn": 4355,
+        "tokensOut": 161787,
+        "sessions": 25
+      },
+      "sessions": 4
+    },
+    "codex": {
+      "today": {
+        "cost": 0.21157464999999998,
+        "tokensIn": 54535,
+        "tokensOut": 3334,
+        "sessions": 1
+      },
+      "thisWeek": {
+        "cost": 0.21157464999999998,
+        "tokensIn": 54535,
+        "tokensOut": 3334,
+        "sessions": 1
+      },
+      "total": {
+        "cost": 0.21157464999999998,
+        "tokensIn": 54535,
+        "tokensOut": 3334,
+        "sessions": 1
+      }
+    },
+    "local": {
+      "today": {
+        "cost": 0,
+        "tokensIn": 86016,
+        "tokensOut": 5794,
+        "sessions": 12
+      },
+      "thisWeek": {
+        "cost": 0,
+        "tokensIn": 286720,
+        "tokensOut": 20961,
+        "sessions": 30
+      },
+      "total": {
+        "cost": 0,
+        "tokensIn": 286720,
+        "tokensOut": 20961,
+        "sessions": 30
+      },
+      "sessions": 20
+    }
+  },
+  "budget": {
+    "totalCredits": 60.55385309999999,
+    "spent": 35.72385309999999,
+    "additions": [
+      {
+        "amount": 42.325025749999966,
+        "date": "2026-02-06",
+        "note": "Balance set to $13.96"
+      },
+      {
+        "amount": 24.83,
+        "date": "2026-02-17",
+        "note": "Balance set to $24.83"
+      },
+      {
+        "amount": 24.83,
+        "date": "2026-02-17",
+        "note": "Balance set to $24.83"
+      }
+    ]
+  },
+  "pricing": {
+    "opus": {
+      "inputPerMillion": 15,
+      "outputPerMillion": 75
+    },
+    "sonnet": {
+      "inputPerMillion": 3,
+      "outputPerMillion": 15
+    },
+    "haiku": {
+      "inputPerMillion": 0.25,
+      "outputPerMillion": 1.25
+    },
+    "codex": {
+      "inputPerMillion": 0,
+      "outputPerMillion": 0
+    },
+    "local": {
+      "inputPerMillion": 0,
+      "outputPerMillion": 0
+    }
+  },
+  "session": {
+    "tokensIn": 36,
+    "tokensOut": 546
+  },
+  "context": {
+    "used": 200000,
+    "max": 200000
+  },
+  "model": "claude-haiku-4-5",
+  "lastSync": "2026-02-17T18:14:22Z"
+}

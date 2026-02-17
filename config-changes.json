@@ -1,0 +1,69 @@
+{
+  "changes": {
+    "1_default_model": {
+      "description": "Change default from Sonnet to Haiku (cheaper, still capable)",
+      "path": "agents.defaults.model.primary",
+      "current": "anthropic/claude-sonnet-4-5",
+      "proposed": "anthropic/claude-haiku-4-5",
+      "savings": "Reduces baseline cost from $3/$15 to $0.25/$1.25 per million tokens (88% cheaper input, 92% cheaper output)"
+    },
+    "2_slack_context_limit": {
+      "description": "Add context token limits to Slack channels to prevent runaway growth",
+      "path": "channels.slack",
+      "add": {
+        "contextTokens": 50000,
+        "compaction": {
+          "mode": "auto",
+          "targetTokens": 30000
+        }
+      },
+      "reasoning": "Prevents threads from accumulating 85k+ tokens. Auto-compact when hitting 50k, target 30k."
+    },
+    "3_thread_session_limits": {
+      "description": "Add per-channel session limits",
+      "path": "channels.slack.channels",
+      "add_to_each": {
+        "contextTokens": 40000,
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "reasoning": "Threads should use cheaper model + tighter context limits"
+    },
+    "4_session_cleanup": {
+      "description": "Enable automatic session cleanup for idle threads",
+      "path": "agents.defaults.sessions",
+      "add": {
+        "maxIdleHours": 24,
+        "cleanupEnabled": true
+      },
+      "reasoning": "Threads inactive for 24h get archived automatically"
+    },
+    "5_thinking_mode": {
+      "description": "Disable thinking mode by default (only enable when explicitly needed)",
+      "path": "agents.defaults.thinking",
+      "current": "not set (defaults to 'low')",
+      "proposed": "off",
+      "reasoning": "Thinking mode increases token usage significantly. Enable manually when needed."
+    },
+    "6_model_escalation_policy": {
+      "description": "Add explicit model routing to enforce MODEL-POLICY.md",
+      "path": "agents.defaults.modelRouting",
+      "add": {
+        "defaultTier": "haiku",
+        "escalationRequired": true,
+        "deescalateAfter": true
+      },
+      "reasoning": "Enforces starting cheap, escalating only when needed, de-escalating after complex work"
+    }
+  },
+  "immediate_actions": [
+    "Archive all existing sessions to reset token accumulation",
+    "Restart gateway to apply config changes",
+    "Monitor first few interactions to ensure quality remains acceptable"
+  ],
+  "estimated_savings": {
+    "baseline": "88% reduction from Sonnet→Haiku default",
+    "context_limits": "Prevents 50k+ token threads (saves ~$1.50 per thread at current rates)",
+    "thinking_off": "Reduces token multiplier on all default operations",
+    "total_projected": "From ~$150/month → ~$30-40/month (similar usage pattern)"
+  }
+}

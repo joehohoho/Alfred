@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2026-02-11T20:08:00",
+    "context_pct": 26,
+    "recent_tasks": 3,
+    "avg_tokens_per_task": 117,
+    "model_distribution": { "local": 0, "haiku": 100, "sonnet": 0, "opus": 0 },
+    "cost_per_task_usd": 0.0003,
+    "trend": "stable"
+  },
+  {
+    "timestamp": "2026-02-11T21:38:00",
+    "context_pct": 27,
+    "recent_tasks": 6,
+    "avg_tokens_per_task": 124,
+    "model_distribution": { "local": 0, "haiku": 100, "sonnet": 0, "opus": 0 },
+    "cost_per_task_usd": 0.0003,
+    "trend": "stable"
+  },
+  {
+    "timestamp": "2026-02-11T22:38:00",
+    "context_pct": 15,
+    "recent_tasks": 9,
+    "avg_tokens_per_task": 152,
+    "model_distribution": { "local": 0, "haiku": 100, "sonnet": 0, "opus": 0 },
+    "cost_per_task_usd": 0.0004,
+    "trend": "stable"
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "update": {
+    "channel": "stable",
+    "checkOnStart": true
+  },
+  "diagnostics": {
+    "enabled": true,
+    "flags": [],
+    "cacheTrace": {
+      "enabled": true,
+      "filePath": "~/.openclaw/logs/cache-trace.jsonl",
+      "includeMessages": true,
+      "includePrompt": true,
+      "includeSystem": true
+    }
+  },
+  "agents": {
+    "defaults": {
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "7d",
+        "keepLastAssistants": 3,
+        "softTrimRatio": 0.7,
+        "hardClearRatio": 0.85,
+        "minPrunableToolChars": 500,
+        "hardClear": {
+          "enabled": true,
+          "placeholder": "[old context pruned: >7d]"
+        }
+      }
+    }
+  },
+  "tools": {
+    "exec": {
+      "applyPatch": {
+        "enabled": true,
+        "workspaceOnly": true,
+        "allowModels": [
+          "openai/gpt-5.2",
+          "openai/gpt-5.3",
+          "anthropic/claude-sonnet-4-5",
+          "anthropic/claude-opus-4-6"
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "enabled": true,
+    "entries": {
+      "slack": {
+        "enabled": true
+      },
+      "memory-lancedb": {
+        "enabled": false,
+        "config": {
+          "embedding": {
+            "apiKey": "$OPENAI_API_KEY",
+            "model": "text-embedding-3-small"
+          },
+          "dbPath": "~/.openclaw/memory/lancedb",
+          "autoCapture": true,
+          "autoRecall": true,
+          "captureMaxChars": 500
+        }
+      },
+      "voice-call": {
+        "enabled": false,
+        "config": {}
+      },
+      "llm-task": {
+        "enabled": false,
+        "config": {}
+      },
+      "lobster": {
+        "enabled": false,
+        "config": {}
+      }
+    }
+  }
+}

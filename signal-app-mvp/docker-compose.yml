@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: signalapp
+      POSTGRES_PASSWORD: signalapp_dev
+      POSTGRES_DB: signalapp
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/migrations:/docker-entrypoint-initdb.d
+
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: postgresql://signalapp:signalapp_dev@postgres:5432/signalapp
+      COINGECKO_BASE_URL: https://api.coingecko.com/api/v3
+      BINANCE_BASE_URL: https://api.binance.com
+      ALPHA_VANTAGE_BASE_URL: https://www.alphavantage.co/query
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
