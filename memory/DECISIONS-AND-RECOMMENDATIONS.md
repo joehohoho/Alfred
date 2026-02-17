@@ -64,6 +64,50 @@
 
 ## Infrastructure & Setup Decisions
 
+### 2026-02-17 - Decision: 3-Tier Backup System (Git + GitHub + Weekly Archives)
+- **Category:** Infrastructure / Disaster Recovery
+- **Recommendation:** Implement automated backup system to protect against data loss
+- **Details:** Three-tier backup strategy:
+  - **Tier 1 (Local Git):** Manual commits to local git. On-demand, instant recovery. Command: `git commit -m "..."`
+  - **Tier 2 (GitHub Push):** Automated hourly push to GitHub. Cron job ID: `3461d025-2a5d-4cb6-b14f-8fd9bab1a5a2`. Schedule: `0 * * * *` (top of every hour, America/Moncton TZ). Recovery: ~2 minutes (clone + pull). GitHub: https://github.com/joehohoho/Alfred
+  - **Tier 3 (Full System Archive):** Weekly compressed backups (git bundle + .openclaw config + ollama metadata). Cron job ID: `05047a4c-ced7-4db4-b64a-b3619132526a`. Schedule: Sunday 2:00 AM. Location: `/Users/hopenclaw/.alfred-backups/`. Retention: 30 days (auto-cleanup).
+- **Script:** `/Users/hopenclaw/.openclaw/workspace/scripts/backup-system.sh` (supports tier1, tier2, tier3, status, full)
+- **What's backed up:** 165 workspace files (all documentation, memory, configs, scripts)
+- **What's excluded:** `.env` (secrets), `STARTUP.md`, `SECURITY-FIXES-APPLIED.md`, build artifacts
+- **Recovery scenarios:**
+  - Local corruption: `git reset --hard origin/main` (~1 min)
+  - Mac failure: Clone from GitHub + restore `.openclaw/` from Tier 3 backup (~15-30 min)
+  - GitHub compromise: Restore from local bundle at `/Users/hopenclaw/.alfred-backups/workspace-*.bundle`
+- **Status:** ✅ Implemented
+- **Cost:** $0 (GitHub free tier, local backups, cron jobs free)
+- **Security:** All secrets excluded via .gitignore; GitHub push protection enabled; no tokens in history
+- **Documentation:** BACKUP-SYSTEM.md (comprehensive guide)
+- **Reference:** memory/2026-02-17-backup-system-setup.md, BACKUP-SYSTEM.md
+
+---
+
+### 2026-02-17 - Decision: Repository Security Fix (Token Exposure Cleanup)
+- **Category:** Security / Disaster Recovery
+- **Recommendation:** Delete old GitHub repo (had token history) and create fresh repo with clean git history
+- **Details:** Old repo had real Slack tokens in Feb 10 commits:
+  - `STARTUP.md` lines 28-29
+  - `SECURITY-FIXES-APPLIED.md` lines 36, 54, 137
+  - Tokens: `SLACK_BOT_TOKEN` and `SLACK_APP_TOKEN` (both [REDACTED])
+  - Tokens were STILL ACTIVE (not rotated)
+- **Action taken:**
+  - Deleted old repo: joehohoho/Alfred
+  - Created new repo: joehohoho/Alfred (clean slate)
+  - Rebuilt git history: Created orphan branch `clean-history`, added all 165 safe files, made initial commit `4d5ae56`, deleted old `main` branch, renamed `clean-history` to `main`
+  - Enhanced `.gitignore`: Added patterns for *.key, *.pem, secrets/, .secrets/, STARTUP.md, SECURITY-FIXES-APPLIED.md
+  - Result: Fresh history with zero token exposure
+- **Why:** Cleaner than history scrubbing; simpler security; fresh start
+- **Status:** ✅ Implemented
+- **Cost:** $0 (git operations only)
+- **Next step (Optional):** Rotate Slack tokens (new bot/app tokens to ensure old ones in history are harmless)
+- **Reference:** memory/2026-02-17-backup-system-setup.md
+
+---
+
 ### 2026-02-10 - Decision: Dashboard Auto-Start via Cron
 - **Category:** Infrastructure / Automation
 - **Recommendation:** Auto-start dashboard when OpenClaw is running (5-min polling via cron)

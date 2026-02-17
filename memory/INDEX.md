@@ -10,6 +10,8 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Decision | Category | Date | Status |
 |----------|----------|------|--------|
+| 3-Tier Backup System (Git + GitHub + Archives) | Disaster Recovery | 2026-02-17 | ✅ Implemented |
+| Repository cleanup (token exposure fix) | Security | 2026-02-17 | ✅ Implemented |
 | Dashboard #1: Node.js 8765 | Infrastructure | 2026-02-04 | ✅ Implemented |
 | Dashboard #2: Alfred-Dashboard (Next.js + Redis) | Infrastructure | 2026-02-06 | ✅ Implemented |
 | Dashboard #3: ??? (Vertex-based) | Infrastructure | 2026-02-?? | ⏳ Pending clarification |
@@ -25,7 +27,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | HEARTBEAT Check 4 deferral (memory capture) | Infrastructure | 2026-02-17 | ✅ Deferred until 65%+ threshold |
 
 **By Status:**
-- ✅ **Implemented:** 11
+- ✅ **Implemented:** 13
 - ⏳ **Pending Clarification:** 1 (mystery dashboard)
 - ⏸️ **Deferred:** 5 (Check 4 until 65%+ threshold, LanceDB upgrade, Calendar integration, Time Machine, etc.)
 
@@ -47,6 +49,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Date | Summary | Topics |
 |------|---------|--------|
+| 2026-02-17 | **Afternoon (14:42 AST):** 3-tier backup system implemented + secure GitHub repo created. Tier 1 (local git), Tier 2 (GitHub hourly push, cron ID: 3461d025), Tier 3 (weekly archives at /Users/hopenclaw/.alfred-backups/). Fixed token exposure by rebuilding git history (clean 4d5ae56 commit). Enhanced .gitignore to exclude STARTUP.md, SECURITY-FIXES-APPLIED.md, sensitive files. Backup script at scripts/backup-system.sh. Recovery time: 15-30 min. Cost: $0. | disaster-recovery, backup-automation, github-security, token-management, git-history |
 | 2026-02-17 | **Morning (8:50 AM):** Daily config report delivered. All 6 fixes applied autonomously: NOW.md cleared, USER.md DST note added, AGENTS.md model versions standardized to 4.5, HEARTBEAT Check 4 deferred with reactivation trigger, MEMORY.md consolidated, Codex status reviewed. All edits reversible. | config-audit, maintenance, documentation, memory-architecture |
 | 2026-02-17 | Daily config & memory review (7:00 AM cron). 6 issues flagged (stale NOW.md, timezone DST prep, model version inconsistencies, HEARTBEAT Check 4 status). No critical problems. | config-audit, daily-review, documentation |
 | 2026-02-16 | **Morning:** Config upgrade (2026.2.15 Phases 1-2) + dashboard cron setup. **Afternoon:** Memory system overhaul — created DECISIONS-AND-RECOMMENDATIONS.md (11 decisions), QUERIES-AND-MISSES.md (audit log), INDEX.md update (Decisions table), MEMORY-FILE-TEMPLATE.md (frontmatter standard). All LOCAL ($0 cost). | diagnostics, context-pruning, apply_patch, plugin-registry, memory-system, decisions-log, structured-indexing |
