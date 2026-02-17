@@ -1,0 +1,42 @@
+{
+  "jobs": [
+    {
+      "name": "Daily Goal Analysis",
+      "description": "Analyze active goals and auto-generate tasks every morning",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "tz": "America/Moncton"
+      },
+      "enabled": false,
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Run daily goal analysis: node /Users/hopenclaw/.openclaw/workspace/scripts/goal-analyzer.js"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "slack",
+        "to": "#openclawbot"
+      }
+    },
+    {
+      "name": "Weekly Goal Review",
+      "description": "Review active goals and suggest re-prioritization",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * 5",
+        "tz": "America/Moncton"
+      },
+      "enabled": false,
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Weekly goal review: Summarize progress on all active goals and suggest adjustments"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "slack",
+        "to": "#openclawbot"
+      }
+    }
+  ]
+}
