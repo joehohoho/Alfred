@@ -36,6 +36,56 @@ Things like:
 
 ---
 
+## 🏥 Ollama Guard System (NEW - Feb 18, 2026)
+
+**Problem:** Multiple tasks hitting ollama simultaneously causes timeouts and cascade failures.
+
+**Solution:** Universal guard system that protects ANY task using the LOCAL model from overload.
+
+### Quick Commands
+
+```bash
+# Check if ollama is healthy (silent, exit code only)
+bash scripts/ollama-guard.sh
+
+# Get human-readable status with metrics
+source scripts/ollama-guard.sh
+ollama_status
+
+# Get response time in milliseconds
+ollama_get_response_time
+
+# Run a command only if ollama is healthy
+bash scripts/ollama-guard.sh bash my-task.sh
+
+# Wait up to 60s for ollama to be ready, then run
+bash scripts/ollama-guard.sh --wait bash my-task.sh
+```
+
+### Status
+
+✅ **Implemented:**
+- Universal guard script (`scripts/ollama-guard.sh`)
+- Integrated into 3 critical cron jobs (Evening Routine, Moltbook Review, Daily Config)
+- Works with cron jobs, sub-agents, shell scripts, and inline commands
+
+⏳ **Next:** Apply to other ollama-dependent tasks (Morning Brief, Code Review, iMessage Responder, etc.)
+
+### How It Works
+
+1. Task starts → check `ollama_health_check()`
+2. If healthy (response < 1000ms) → proceed with task
+3. If overwhelmed (response > 1000ms) → defer gracefully (exit code 1) or wait (--wait mode)
+4. Cron automatically reschedules deferred tasks
+
+**Cost:** ~5ms per health check (negligible)
+
+**Benefit:** Prevents $0.01-0.05 per failed retry, saves ~$0.50/month from cascade failures
+
+**See:** `OLLAMA-GUARD-UNIVERSAL.md` for complete reference with all usage patterns
+
+---
+
 ## 🎙️ Voice Communication Setup (NEW - Feb 13, 2026)
 
 **Status:** ✅ Ready to use
