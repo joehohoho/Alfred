@@ -47,16 +47,6 @@ User request → Ask: "Can Haiku handle this?"
    └─ No → Use Sonnet (default), Opus only if Sonnet inadequate
 ```
 
-### Cost Impact
-
-**Example: Blog post + Summary + Analysis**
-- Naive approach (all Sonnet): 8K tokens @ $0.003 = $0.024
-- Smart approach (Haiku outline + Sonnet post + Haiku summary):
-  - Outline: 2K Haiku @ $0.0003 = $0.0006
-  - Post: 4K Sonnet @ $0.003 = $0.012
-  - Summary: 2K Haiku @ $0.0003 = $0.0006
-  - **Total: $0.0132 (45% savings)**
-
 ### ⚠️ CODEX RATE LIMIT RULES (Feb 11, 2026)
 
 **Codex (openai-codex/gpt-5.3-codex) is FREE for code generation but has hard limits:**
@@ -71,7 +61,7 @@ User request → Ask: "Can Haiku handle this?"
 **Main session strategy:**
 
 **Three-layer security model (implemented 2026-02-13):**
-**Model versions: Anthropic models use 4.5 series except Opus which uses 4.6 (haiku-4-5, sonnet-4-5, opus-4-6)**
+**Model versions: Anthropic models use 4.5 series for Haiku, 4.6 for Sonnet and Opus (haiku-4-5, sonnet-4-6, opus-4-6)**
 
 1. **LAYER 1: Sonnet Gatekeeper (Main Session)**
    - Receives all user requests
@@ -185,29 +175,7 @@ IMPLEMENTATION (building, writing code, deploying, creating)
 
 **Cost Impact:** Misusing Sonnet for analysis costs 10x more than LOCAL for the same output quality.
 
-**Common Mistakes (AVOID):**
-- ❌ Spawning Sonnet to "analyze" model performance (use LOCAL)
-- ❌ Spawning Sonnet to "explore" implementation options (use LOCAL first, then Sonnet)
-- ❌ Testing multiple models without batching (should be one LOCAL session, not three)
-- ❌ Using Sonnet for file reads, data extraction, parsing (use LOCAL)
-
-**Correct Pattern:**
-```javascript
-// ❌ WRONG: Testing multiple models separately
-sessions_spawn({ model: "sonnet", task: "Test model A..." })
-sessions_spawn({ model: "sonnet", task: "Test model B..." })
-sessions_spawn({ model: "sonnet", task: "Test model C..." })
-// Cost: ~$0.30
-
-// ✅ RIGHT: Batch all tests into one LOCAL session
-sessions_spawn({
-  model: "ollama/llama3.2:3b",
-  task: "Test models A, B, C side-by-side. Compare performance, output quality, reliability. Report findings."
-})
-// Cost: $0
-```
-
-**Savings from this fix (2026-02-11):** ~$0.27/session when testing = ~$8/month (if 2x/week testing)
+**Common Mistakes:** Don't spawn Sonnet for analysis/exploration/testing/parsing — use LOCAL. Batch multiple tests into one LOCAL session instead of separate calls.
 
 ## Token Efficiency Patterns (2026-02-09)
 

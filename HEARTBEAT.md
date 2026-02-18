@@ -57,14 +57,31 @@ timestamp | context% | model | token_cost | status
 
 ---
 
-### Check 3: Session Continuity (Optional)
+### Check 3: File Size Monitoring 📏
+**Run:** Once per month (add to first heartbeat of month)
+**Action:** Check AGENTS.md character count
+**Alert threshold:** 
+- **>19,800 chars** → Time to split (extract section to satellite file)
+- **>20,000 chars** → CRITICAL (system can crash)
+**Log to:** `AGENTS-SPLITS.md` growth log
+
+**Command:**
+```bash
+wc -c /Users/hopenclaw/.openclaw/workspace/AGENTS.md
+```
+
+**Expected:** <20,000 chars. If over threshold, read AGENTS-SPLITS.md for escalation plan.
+
+---
+
+### Check 4: Session Continuity (Optional)
 **Run:** If session >4 hours
 **Action:** Verify memory/INDEX.md is current, MEMORY.md is in sync
 **Alert:** If INDEX.md outdated → update from daily log
 
 ---
 
-### Check 4: Memory Capture (Deferred) 🧠
+### Check 5: Memory Capture (Deferred) 🧠
 **Status:** ✅ **Deferred until 65% context threshold is consistently hit** (Decision: 2026-02-17)
 **Original proposal:** Spawn LOCAL sub-agent at 65% context to proactively extract conversation context.
 **Decision:** Hold this feature for now. Current sessions rarely hit compression thresholds. If context starts regularly approaching 70%+, revisit and activate. Keep the pattern in AGENTS.md for reference.

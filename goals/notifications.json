@@ -99,7 +99,9 @@
     "type": "alert",
     "title": "Discord Integration — Phase 1 Complete",
     "message": "## Phase 1 Research Complete\n\n### OpenClaw Has Native Discord Support!\n\nNo external libraries needed. Built-in Discord channel plugin (same architecture as working Slack integration).\n\n---\n\n### Key Findings\n\n- Plugin: /usr/local/lib/node_modules/openclaw/extensions/discord/\n- Integration Method: Discord Bot Gateway (WebSocket, real-time)\n- Add Command: openclaw channels add --channel discord --token BOT_TOKEN\n- Config Key: channels.discord (mirrors channels.slack structure)\n\n---\n\n### One Human Step Required (Phase 2)\n\nBot token must be created via Discord Developer Portal (requires browser login).\n\nSteps you need to take:\n1. Go to: https://discord.com/developers/applications\n2. Create New Application → Name it Alfred\n3. Bot tab → Add Bot → Enable Message Content Intent (CRITICAL)\n4. Reset Token → Copy the token\n5. Invite URL: https://discord.com/oauth2/authorize?client_id=YOUR_APP_ID&scope=bot+applications.commands&permissions=277025704960\n6. Get your Guild (Server) ID and Channel ID(s)\n7. Share with me: Bot token + Guild ID + Channel ID(s)\n\n---\n\n### Once You Provide the Token\n\nI complete Phases 3-5 immediately and autonomously:\n- Update openclaw.json with Discord config\n- Enable Discord plugin\n- Restart gateway\n- Send test message to verify\n- Configure channel allowlist + security policies\n\n---\n\n### Full Setup Guide\n\nSaved at: /Users/hopenclaw/.openclaw/workspace/DISCORD-SETUP.md\nIncludes: Config template, bot permissions, security best practices, verification steps.\n\nZero cost to complete once token provided.",
-    "answered": false,
-    "createdAt": "2026-02-18T08:27:57.638Z"
+    "answered": true,
+    "createdAt": "2026-02-18T08:27:57.638Z",
+    "userAnswer": "It's setup, the invite URL is: https://discord.com/oauth2/authorize?client_id=Y 1473608734772301824&scope=bot+applications.commands&permissions=277025704960\nThe server ID is: 1473610337529102349\ngeneral channel ID is: 1473610338543996982\nupdates channel ID is: 1473611295235510426\n\nAs for the token leave a place for me to enter it in the .env file\n\nIf you need anything else setup or info that is missing let me know.",
+    "answeredAt": "2026-02-18T09:28:06.423Z"
   }
 ]
