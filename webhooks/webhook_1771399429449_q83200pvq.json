@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1771399429449_q83200pvq",
+  "timestamp": "2026-02-18T07:23:49.449Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1771397718421_hiipz3vbo",
+  "title": "Goal: Test Goal",
+  "message": "Please review and create a plan for this goal",
+  "userAnswer": "This was just a test and doesn't need any further discussion",
+  "answeredAt": "2026-02-18T07:23:49.448Z"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1771400731821_9hv8qwbjf",
+  "timestamp": "2026-02-18T07:45:31.821Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1771400175659_p1qa4wuao",
+  "title": "Missing Goal Details - Cannot Create Plan",
+  "message": "**Goal ID:** goal_1771393630792_4k48eeuob\n**Priority:** Medium\n\n---\n\n**BLOCKER:** The goal notification is missing critical information needed to create a plan.\n\n**Missing:**\n- Goal title (name/subject of the goal)\n- Goal description (what is this goal about?)\n- Expected outcome (what does success look like?)\n\n**What I need from you:**\nProvide the goal title and description so I can:\n1. Understand what needs to be accomplished\n2. Create a detailed 5-phase breakdown (like the Discord plan)\n3. Estimate effort and cost\n4. Identify potential blockers\n5. Propose implementation timeline\n\n**Example format:**\n- **Title:** \"Setup Slack Integration\"\n- **Description:** \"Configure Slack bot to receive goal completions and notifications\"\n\n**Please reply with:** Goal title + description, and I will immediately create a comprehensive plan for your review.",
+  "userAnswer": "I don't have any detail on which Goal you're missing information on so I can't answer these questions.",
+  "answeredAt": "2026-02-18T07:45:31.820Z"
+}

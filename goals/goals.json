@@ -10,5 +10,29 @@
     "metadata": {},
     "createdAt": "2026-02-18T04:26:01.618Z",
     "updatedAt": "2026-02-18T04:26:01.618Z"
+  },
+  {
+    "id": "goal_1771393630792_4k48eeuob",
+    "title": "iMessage",
+    "description": "Find a more efficient solution to monitor iMessage instead of a cron job.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {},
+    "createdAt": "2026-02-18T05:47:10.792Z",
+    "updatedAt": "2026-02-18T05:47:10.792Z"
+  },
+  {
+    "id": "goal_1771397532875_618zzddxg",
+    "title": "Test Goal",
+    "description": "Testing",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {},
+    "createdAt": "2026-02-18T06:52:12.875Z",
+    "updatedAt": "2026-02-18T06:52:12.875Z"
   }
 ]

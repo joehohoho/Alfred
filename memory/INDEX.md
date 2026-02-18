@@ -49,6 +49,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Date | Summary | Topics |
 |------|---------|--------|
+| 2026-02-18 | **Critical memory fix:** User flagged vague notification (iMessage goal review with no detail). Root cause: siloed communication awareness. Solution: Created COMMUNICATIONS.md (unified map of all channels, APIs, notification standards, query workflows). Fixes notification context issues permanently. | memory-architecture, notifications, unified-communications, context-awareness |
 | 2026-02-17 | **Full day:** Morning config audit (6 fixes), backup system (3-tier, $0), Ollama idle optimization (97% CPU savings), YouTube research (Super Memory/ClawRouter insights), Goals management system built (goals/, goal-analyzer.js, dashboard /goals). Tomorrow: pre-commit git hook. | config-audit, disaster-recovery, ollama-optimization, goals-system, youtube-research |
 | 2026-02-17 | **Morning (8:50 AM):** Daily config report delivered. All 6 fixes applied autonomously: NOW.md cleared, USER.md DST note added, AGENTS.md model versions standardized to 4.5, HEARTBEAT Check 4 deferred with reactivation trigger, MEMORY.md consolidated, Codex status reviewed. All edits reversible. | config-audit, maintenance, documentation, memory-architecture |
 | 2026-02-17 | Daily config & memory review (7:00 AM cron). 6 issues flagged (stale NOW.md, timezone DST prep, model version inconsistencies, HEARTBEAT Check 4 status). No critical problems. | config-audit, daily-review, documentation |
@@ -71,7 +72,9 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 |---------|------|---------|
 | Dashboard (Node.js) | `/dashboard/` | Port 8765, cost tracking |
 | Alfred Dashboard (Next.js) | `/Alfred-Dashboard/` | Deployed to Vercel, OAuth, Redis |
+| Command Center Dashboard | `/Users/hopenclaw/command-center/` | Real-time monitoring + Goals + Chat + Notifications + Cron |
 | CONFIG-UPGRADE-PLAN | `CONFIG-UPGRADE-PLAN.md` | Full 2026.2.15 migration guide |
+| Communications Map | `COMMUNICATIONS.md` | Unified channels, APIs, notification standards |
 | Daily Logs | `memory/YYYY-MM-DD.md` | Session logs (append-only) |
 | Decisions Log | `DECISIONS-AND-RECOMMENDATIONS.md` | Searchable decision index |
 | Query Audit | `QUERIES-AND-MISSES.md` | Memory lookup failures + fixes |
