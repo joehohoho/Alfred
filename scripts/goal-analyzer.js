@@ -208,6 +208,31 @@ async function createTasksFromAnalysis(goalId, suggestedTasks) {
   }
 }
 
+async function createNotification(goalId, title, message) {
+  console.log(`📢 Creating notification for goal ${goalId}...`);
+  
+  try {
+    const notificationApi = GOALS_API.replace('/goals', '/notifications');
+    const response = await postJSON(notificationApi, {
+      type: 'goal-analyzed',
+      title: title,
+      message: message,
+      goalId: goalId
+    });
+    
+    if (response.status === 201) {
+      console.log('✅ Notification created');
+      return true;
+    } else {
+      console.error(`❌ Failed to create notification: ${response.status}`);
+      return false;
+    }
+  } catch (error) {
+    console.error(`❌ Error creating notification: ${error.message}`);
+    return false;
+  }
+}
+
 async function main() {
   try {
     console.log('🤖 Goal Analyzer Sub-Agent Started');
@@ -244,6 +269,21 @@ async function main() {
             tasksCreated += analysis.suggestedTasks.length;
           }
         }
+        
+        // Create notification for Alfred
+        const notificationMessage = `
+Goal: "${goal.title}"
+Priority: ${goal.priority}
+Analysis: ${analysis.analysis}
+
+Tasks Created: ${analysis.suggestedTasks.length}
+Confidence: ${Math.round(analysis.confidence * 100)}%
+
+Risks: ${analysis.risks.join(', ')}
+
+Please review the analysis and tasks, and let me know if you'd like to adjust anything.`;
+        
+        await createNotification(goal.id, `📊 ${goal.title} - Analysis Complete`, notificationMessage);
         
         analyzed++;
       } catch (error) {
