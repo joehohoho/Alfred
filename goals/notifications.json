@@ -1,0 +1,11 @@
+[
+  {
+    "id": "notif_1771390305276_mwf9np0p1",
+    "type": "question",
+    "title": "Test: Workflow Implementation",
+    "message": "I was thinking about your workflow automation needs. Before I start building, I need to know:\n\n1. Which workflow would you prioritize first? (Goals, reminders, or something else)\n2. How often should notifications update? (real-time, every 5 min, every hour?)\n3. Any existing tools/APIs I should integrate with?\n\nLet me know your preferences and I can start the implementation immediately.",
+    "answered": false,
+    "createdAt": "2026-02-18T04:51:45.276Z",
+    "answeredAt": null
+  }
+]
