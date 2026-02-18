@@ -24,15 +24,15 @@
     "updatedAt": "2026-02-18T05:47:10.792Z"
   },
   {
-    "id": "goal_1771397532875_618zzddxg",
+    "id": "goal_1771402646444_835d2oi58",
     "title": "Test Goal",
-    "description": "Testing",
+    "description": "Once you've read this go ahead and mark it complete.  Nothing further is required.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
+    "completedAt": "2026-02-18T08:17:00.000Z",
     "metadata": {},
-    "createdAt": "2026-02-18T06:52:12.875Z",
-    "updatedAt": "2026-02-18T06:52:12.875Z"
+    "createdAt": "2026-02-18T08:17:26.444Z",
+    "updatedAt": "2026-02-18T08:17:00.000Z"
   }
 ]

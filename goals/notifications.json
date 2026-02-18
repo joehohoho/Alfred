@@ -81,5 +81,17 @@
     "createdAt": "2026-02-18T07:50:25.186Z",
     "answeredAt": "2026-02-18T07:53:21.987Z",
     "userAnswer": "Go ahead with Option 1 "
+  },
+  {
+    "id": "notif_1771402649417_897xsvo65",
+    "type": "goal-created",
+    "title": "Goal: Test Goal",
+    "message": "Please review and create a plan for this goal",
+    "goalId": "goal_1771402646444_835d2oi58",
+    "answered": true,
+    "createdAt": "2026-02-18T08:17:29.417Z",
+    "answeredAt": "2026-02-18T08:19:00.000Z",
+    "userAnswer": "Test goal with directive 'mark complete once read' - executed per GOAL-INTAKE-POLICY, TYPE A (Self-Contained Directive). No notification sent.",
+    "processingNote": "GOAL-INTAKE-POLICY implemented - future test goals with clear directives will be handled silently"
   }
 ]

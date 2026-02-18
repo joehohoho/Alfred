@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T07:44:58Z",
+  "updatedAt": "2026-02-18T08:14:59Z",
   "total": {
     "cost": 35.72385309999999,
     "tokensIn": 296827,
@@ -12,7 +12,7 @@
     "cost": 8.843849049999994,
     "tokensIn": 89333,
     "tokensOut": 125722,
-    "sessions": 433
+    "sessions": 430
   },
   "thisWeek": {
     "cost": 25.995294400000013,
@@ -71,7 +71,7 @@
         "tokensOut": 188812,
         "sessions": 17
       },
-      "sessions": 396
+      "sessions": 390
     },
     "haiku": {
       "today": {
@@ -92,7 +92,7 @@
         "tokensOut": 161787,
         "sessions": 25
       },
-      "sessions": 9
+      "sessions": 10
     },
     "codex": {
       "today": {
@@ -188,5 +188,5 @@
     "max": 200000
   },
   "model": "claude-haiku-4-5",
-  "lastSync": "2026-02-18T07:44:58Z"
+  "lastSync": "2026-02-18T08:14:59Z"
 }

@@ -16,6 +16,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | Dashboard #2: Alfred-Dashboard (Next.js + Redis) | Infrastructure | 2026-02-06 | ✅ Implemented |
 | Dashboard #3: ??? (Vertex-based) | Infrastructure | 2026-02-?? | ⏳ Pending clarification |
 | Dashboard auto-start cron | Infrastructure | 2026-02-10 | ✅ Implemented |
+| Smart goal notifications (intake policy) | Process Automation | 2026-02-18 | ✅ Implemented |
 | Config upgrade 2026.2.12 → 2026.2.15 | Infrastructure | 2026-02-16 | ✅ Implemented (Phases 1-2) |
 | Memory system improvements | Infrastructure | 2026-02-16 | ✅ Implemented |
 | Token efficiency patterns | Optimization | 2026-02-09 | ✅ Implemented |
@@ -27,7 +28,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | HEARTBEAT Check 4 deferral (memory capture) | Infrastructure | 2026-02-17 | ✅ Deferred until 65%+ threshold |
 
 **By Status:**
-- ✅ **Implemented:** 13
+- ✅ **Implemented:** 14
 - ⏳ **Pending Clarification:** 1 (mystery dashboard)
 - ⏸️ **Deferred:** 5 (Check 4 until 65%+ threshold, LanceDB upgrade, Calendar integration, Time Machine, etc.)
 
@@ -49,7 +50,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Date | Summary | Topics |
 |------|---------|--------|
-| 2026-02-18 | **Critical memory fix:** User flagged vague notification (iMessage goal review with no detail). Root cause: siloed communication awareness. Solution: Created COMMUNICATIONS.md (unified map of all channels, APIs, notification standards, query workflows). Fixes notification context issues permanently. | memory-architecture, notifications, unified-communications, context-awareness |
+| 2026-02-18 | **Two major fixes implemented:** (1) COMMUNICATIONS.md created for unified notification architecture (solves context-awareness issue); (2) GOAL-INTAKE-POLICY.md created for smart goal classification (eliminates unnecessary test goal notifications, only notifies when user input needed). | memory-architecture, notifications, unified-communications, goal-automation, process-optimization |
 | 2026-02-17 | **Full day:** Morning config audit (6 fixes), backup system (3-tier, $0), Ollama idle optimization (97% CPU savings), YouTube research (Super Memory/ClawRouter insights), Goals management system built (goals/, goal-analyzer.js, dashboard /goals). Tomorrow: pre-commit git hook. | config-audit, disaster-recovery, ollama-optimization, goals-system, youtube-research |
 | 2026-02-17 | **Morning (8:50 AM):** Daily config report delivered. All 6 fixes applied autonomously: NOW.md cleared, USER.md DST note added, AGENTS.md model versions standardized to 4.5, HEARTBEAT Check 4 deferred with reactivation trigger, MEMORY.md consolidated, Codex status reviewed. All edits reversible. | config-audit, maintenance, documentation, memory-architecture |
 | 2026-02-17 | Daily config & memory review (7:00 AM cron). 6 issues flagged (stale NOW.md, timezone DST prep, model version inconsistencies, HEARTBEAT Check 4 status). No critical problems. | config-audit, daily-review, documentation |
