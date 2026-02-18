@@ -167,7 +167,111 @@ tts(text="Hello, this is Alfred speaking")
 
 ---
 
-## Why Separate?
+## 🚀 LaunchAgents (Auto-Start Services - Feb 18, 2026)
+
+**Status:** ✅ All 4 deployed and verified working
+
+Persistent background services that auto-start on boot and auto-restart on failure.
+
+### Active LaunchAgents
+
+| Service | PList | Purpose | Port | Status |
+|---------|-------|---------|------|--------|
+| **Ollama Keep-Alive** | `com.ollama.keepalive.plist` | Unload ollama models after 60s inactivity (saves CPU) | N/A | ✅ Running |
+| **iMessage Responder** | `com.openclaw.imsg-responder.plist` | Event-driven daemon for incoming iMessages | N/A | ✅ Running |
+| **Alfred Dashboard (Next.js)** | `com.alfred.dashboard-nextjs.plist` | Command center UI for system status | 3001 | ✅ Running |
+| **Cloudflare Tunnel** | `com.cloudflare.tunnel.plist` | Public tunnel to dashboard.my-alfred-ai.com | N/A | ✅ Running |
+
+### Quick Management
+
+```bash
+# Check if a service is running
+launchctl list | grep com.ollama.keepalive
+# Output: 12345 0 com.ollama.keepalive.plist (0 = success, running)
+
+# Check logs for a service
+log stream --predicate 'process == "ollama"' --level debug
+
+# Manually stop a service
+launchctl stop com.alfred.dashboard-nextjs
+
+# Manually start a service
+launchctl start com.alfred.dashboard-nextjs
+
+# Reload a service (after editing its plist)
+launchctl unload ~/Library/LaunchAgents/com.alfred.dashboard-nextjs.plist
+launchctl load ~/Library/LaunchAgents/com.alfred.dashboard-nextjs.plist
+
+# View all loaded user agents
+launchctl list | grep com.
+```
+
+### Configuration Details
+
+**Ollama Keep-Alive** (`com.ollama.keepalive.plist`)
+- Sets `OLLAMA_KEEP_ALIVE=60s` persistently
+- Prevents ollama models staying in memory indefinitely
+- Reduced CPU from 349% → ~0%
+- Safe to reload/restart; no downside
+
+**iMessage Responder** (`com.openclaw.imsg-responder.plist`)
+- Runs `~/.openclaw/workspace/scripts/imsg-responder.sh`
+- Watches for incoming iMessages in real-time
+- Falls back to 30s polling if `imsg watch` unavailable
+- Only calls LLM (ollama/1b) when messages actually arrive
+
+**Alfred Dashboard** (`com.alfred.dashboard-nextjs.plist`)
+- Runs Next.js server on localhost:3001
+- Built-in system status, commands, quick links
+- Auto-restart on crash
+- View at: http://localhost:3001 (or https://dashboard.my-alfred-ai.com via Cloudflare)
+
+**Cloudflare Tunnel** (`com.cloudflare.tunnel.plist`)
+- Runs `cloudflare tunnel run alfred-dashboard`
+- Exposes localhost:3001 as dashboard.my-alfred-ai.com
+- Requires Cloudflare account + tunnel token
+- Auto-restart on crash
+
+### Troubleshooting
+
+**Dashboard not loading (HTTP 503 / timeout)?**
+```bash
+# Check Next.js app is running
+ps aux | grep "next"
+# If not found, restart:
+launchctl stop com.alfred.dashboard-nextjs
+launchctl start com.alfred.dashboard-nextjs
+
+# Check tunnel connection
+log stream --predicate 'process == "cloudflared"' --level debug
+```
+
+**iMessage responder missing messages?**
+```bash
+# Check daemon is running
+ps aux | grep "imsg-responder"
+
+# View recent logs
+log stream --predicate 'eventMessage CONTAINS "imsg"' --level debug
+
+# Manually test imsg watch
+imsg watch  # Should show new messages as they arrive
+```
+
+**Ollama still using high CPU?**
+```bash
+# Verify KEEP_ALIVE is set
+cat ~/Library/LaunchAgents/com.ollama.keepalive.plist | grep -A1 OLLAMA_KEEP_ALIVE
+
+# Check if models are still loaded
+ollama list
+
+# Force unload
+ollama rm llama3.2:3b
+ollama rm llama3.2:1b
+```
+
+### Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 

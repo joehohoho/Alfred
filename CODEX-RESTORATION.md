@@ -1,82 +1,29 @@
-# Codex Restoration Log (Feb 18, 2026)
+# Codex Configuration (Updated Feb 18, 2026)
 
-## Problem
-Codex (openai-codex/gpt-5.3-codex) was removed from the fallback chain due to missing API key during a system failure.
+## Current State
+Codex (openai-codex/gpt-5.3-codex) is configured as **first fallback** using OAuth authentication.
 
-## Root Cause
-- Anthropic API went into cooldown (hard reset required)
-- OpenAI Codex API key was unavailable/invalid
-- Codex was removed from fallback chain as a "fix"
-
-## Solution Implemented
-✅ **Re-enabled Codex as primary fallback** for code generation:
+## Fallback Chain (Crash-Safe)
 ```
-Fallback chain (restored):
-1. openai-codex/gpt-5.3-codex (primary fallback for code tasks)
-2. anthropic/claude-sonnet-4-6 (secondary fallback)
+Primary:    anthropic/claude-haiku-4-5    (fast, reliable)
+Fallback 1: openai-codex/gpt-5.3-codex   (OAuth, free for code)
+Fallback 2: anthropic/claude-sonnet-4-6   (catches everything)
 ```
 
-## Config Changes Applied
-**File:** `/Users/hopenclaw/.openclaw/openclaw.json`
+## Crash Protection
+- **Global timeout:** 60s (reduced from 150s to prevent queue blocking)
+- **Failover behavior:** If Codex fails (auth, rate limit, timeout), system immediately moves to Sonnet
+- **Codex is a fallback, NOT primary** — system works fine without it
+- **Do NOT make Codex primary** — it has rate limits (500k TPM) that can block the queue
 
-```json
-"model": {
-  "primary": "anthropic/claude-haiku-4-5",
-  "fallbacks": [
-    "openai-codex/gpt-5.3-codex",    // ← Re-enabled
-    "anthropic/claude-sonnet-4-6"
-  ]
-}
-```
+## Rules
+- **Do NOT remove Codex from fallbacks** — it fails gracefully to Sonnet if unavailable
+- **Do NOT move Codex to primary** — rate limits make it unreliable as primary
+- **Do NOT increase timeoutSeconds above 60** — longer timeouts cause queue blocking
+- **Auth mode:** OAuth (openai-codex:default profile)
 
-## AGENTS.md Trimming Analysis
-
-### What Was Removed (Safe)
-Claude Code trimmed 1,138 characters (20,683 → 19,545 chars) by removing:
-
-1. **Cost Impact Example Section** (~150 chars)
-   - Detailed walkthrough: "Blog post + Summary + Analysis"
-   - Shows 45% savings (naive vs smart approach)
-   - **Status:** Documented in COST-OPTIMIZATION.md (reference available)
-
-2. **Common Mistakes Code Examples** (~800 chars)
-   - Detailed code blocks showing wrong vs right patterns
-   - Testing multiple models separately vs batching
-   - **Status:** Collapsed to one-liner summary line (essential content preserved)
-
-3. **Model version clarification** (~50 chars)
-   - Clarified: "Anthropic models use 4.5 series for Haiku, 4.6 for Sonnet and Opus"
-   - Already correct in current version
-
-### What Was Preserved (Critical)
-✅ **All essential content kept:**
-- Codex rate limit rules (TPM, timeout cascade, recovery)
-- Security model (3-layer gatekeeper)
-- Model selection decision flow
-- Token efficiency patterns
-- Pre-spawn decision tree
-- All tier routing logic
-
-**Impact:** Zero information loss. Only redundant examples removed.
-
-## Next Steps
-1. ✅ Codex fallback restored and tested
-2. ✅ AGENTS.md size stabilized (19,545 chars < 20k limit)
-3. ⏳ Monitor Codex API key availability (watch for future authentication issues)
-4. ⏳ If AGENTS.md growth continues, use satellite files (AGENTS-SPLITS.md plan active)
-
-## Verification
-**Check Codex availability:**
-```bash
-# Codex will now be used as primary fallback for code tasks
-# If Codex unavailable (API key missing), system falls back to Sonnet automatically
-sessions_spawn(model="codex", task="Write a function...")
-```
-
-**If Codex fails with API errors:**
-- Fallback to Sonnet automatically (transparent, no user intervention needed)
-- Codex restoration depends on OpenAI API key being valid and configured
-
----
-
-**Status:** ✅ RESOLVED - Codex restored as of 2026-02-18 14:35 AST
+## If Codex OAuth Expires
+No action needed. The failover chain handles it automatically:
+1. Codex returns auth error → instant fail (no timeout wait)
+2. Sonnet picks up the request
+3. Re-auth: `openclaw configure --section model` → select openai-codex → OAuth flow
