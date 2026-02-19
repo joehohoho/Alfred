@@ -103,5 +103,14 @@
     "createdAt": "2026-02-18T08:27:57.638Z",
     "userAnswer": "It's setup, the invite URL is: https://discord.com/oauth2/authorize?client_id=Y 1473608734772301824&scope=bot+applications.commands&permissions=277025704960\nThe server ID is: 1473610337529102349\ngeneral channel ID is: 1473610338543996982\nupdates channel ID is: 1473611295235510426\n\nAs for the token leave a place for me to enter it in the .env file\n\nIf you need anything else setup or info that is missing let me know.",
     "answeredAt": "2026-02-18T09:28:06.423Z"
+  },
+  {
+    "id": "notif_1771494235354_guc36ps6n",
+    "type": "update",
+    "title": "Notification Routing Enabled",
+    "message": "Alfred can now send questions and alerts directly to Command Center. This is a test notification to verify the routing works. You can delete this one.",
+    "answered": false,
+    "createdAt": "2026-02-19T09:43:55.354Z",
+    "answeredAt": null
   }
 ]

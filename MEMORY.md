@@ -126,8 +126,28 @@ All patterns source from Moltbook consensus across 50+ agent systems. Practical,
 
 ---
 
+## Notification Routing (CRITICAL — Read NOTIFICATION-ROUTING.md)
+
+**Any time you have a question for Joe, send it to the Command Center notifications system.**
+
+```bash
+bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full context message"
+```
+
+- This posts to `http://localhost:3001/api/notifications`
+- Joe sees it in Command Center → Notifications page
+- Joe's answer is sent back to you via the gateway WebSocket automatically
+- Include ALL context Joe needs to respond (options, recommendation, data)
+- Also applies to questions that arise from Slack updates, cron job results, or any task
+
+→ See **NOTIFICATION-ROUTING.md** for full details, examples, and guidelines.
+
+*Added: 2026-02-19*
+
+---
+
 ## Joe's Context Reference
 
 → See **USER.md** for comprehensive, authoritative context (timezone, projects, boundaries, preferences).
 
-*Last updated: 2026-02-11 (consolidated to single source of truth)*
+*Last updated: 2026-02-19 (added notification routing)*
