@@ -24,12 +24,26 @@ rotate_file() {
     echo "Rotated $basename ($size bytes -> archive)"
 }
 
-# Rotate large logs
-for logfile in "$LOG_DIR/cache-trace.jsonl" "$LOG_DIR/gateway.err.log" "$LOG_DIR/gateway.log"; do
+# Rotate large logs (> 5 MB)
+LOG_FILES=(
+    "$LOG_DIR/cache-trace.jsonl"
+    "$LOG_DIR/gateway.err.log"
+    "$LOG_DIR/gateway.log"
+    "$LOG_DIR/command-center.log"
+    "$LOG_DIR/imsg-responder.log"
+    "$LOG_DIR/imsg-responder-stdout.log"
+    "$LOG_DIR/imsg-responder-stderr.log"
+    "$LOG_DIR/cloudflare-tunnel.log"
+)
+
+# Also include job-tracker log (may be in different location)
+[ -f "$HOME/.openclaw/logs/job-tracker.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/job-tracker.log")
+
+for logfile in "${LOG_FILES[@]}"; do
     if [ -f "$logfile" ]; then
         size=$(stat -f%z "$logfile" 2>/dev/null || echo 0)
-        # Rotate if over 10 MB
-        if [ "$size" -gt 10485760 ]; then
+        # Rotate if over 5 MB
+        if [ "$size" -gt 5242880 ]; then
             rotate_file "$logfile"
         fi
     fi
