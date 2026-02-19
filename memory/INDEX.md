@@ -84,6 +84,8 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | Daily Logs | `memory/YYYY-MM-DD.md` | Session logs (append-only) |
 | Decisions Log | `DECISIONS-AND-RECOMMENDATIONS.md` | Searchable decision index |
 | Query Audit | `QUERIES-AND-MISSES.md` | Memory lookup failures + fixes |
+| Joe Profile | `JOE-PROFILE.md` | Living model of Joe's patterns, preferences, decisions |
+| Profile Instructions | `PROFILE-INSTRUCTIONS.md` | Guide for maintaining JOE-PROFILE.md |
 
 ---
 

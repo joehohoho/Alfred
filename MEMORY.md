@@ -168,3 +168,17 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 → See **USER.md** for comprehensive, authoritative context (timezone, projects, boundaries, preferences).
 
 *Last updated: 2026-02-19 (added Command Center reference)*
+
+---
+
+## Joe Profile System
+
+> See **JOE-PROFILE.md** for the evolving model of how Joe thinks, decides, and communicates. See **PROFILE-INSTRUCTIONS.md** for the reflection process.
+
+**Key points:**
+- JOE-PROFILE.md is updated twice weekly (Sun/Wed at 10 PM) via cron reflection
+- Claude Code contributes observations via `joe-profile-observations.jsonl` drop file
+- Profile stays under 6,000 tokens — observations are distilled, not accumulated
+- USER.md has facts; JOE-PROFILE.md has patterns
+
+*Added: 2026-02-19*
