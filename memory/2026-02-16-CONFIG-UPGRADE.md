@@ -30,25 +30,13 @@
 
 ---
 
-#### 2. **Context Pruning (7-day TTL)**
+#### 2. **Context Pruning**
 - **Purpose:** Prevent unbounded session context growth
-- **Mechanism:** Auto-prune tool outputs older than 7 days using soft-trim (70%) and hard-clear (85%) ratios
+- **Mechanism:** Auto-prune tool outputs using soft-trim and hard-clear ratios
 - **Cost:** $0 (local cleanup)
-- **Safety:** Keeps last 3 assistant messages always; hard-clears with placeholder
+- **Safety:** Keeps last N assistant messages always; hard-clears with placeholder
 
-```json
-"contextPruning": {
-  "mode": "cache-ttl",
-  "ttl": "7d",
-  "keepLastAssistants": 3,
-  "softTrimRatio": 0.7,
-  "hardClearRatio": 0.85,
-  "hardClear": {
-    "enabled": true,
-    "placeholder": "[old context pruned: >7d]"
-  }
-}
-```
+> **SUPERSEDED (Feb 18, 2026):** Values updated to TTL 30d, keepLastAssistants 5, softTrimRatio 0.80, hardClearRatio 0.92. See openclaw.json for current values.
 
 ---
 

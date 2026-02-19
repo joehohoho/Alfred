@@ -111,6 +111,31 @@ See FIGURE-IT-OUT.md for complete guidelines. Core principles:
 
 **Quick reference:** See TOOLS.md "Model Task Routing" for complete task-type breakdown table and REQUEST-VALIDATION.md for security gatekeeper architecture.
 
+## Model Switch Protocol (NEW - 2026-02-18)
+
+**The Meta-Principle:** Reliability IS autonomy. When switching models, create a context checkpoint so identity persists across substrate changes.
+
+**When to use:**
+- Escalating from Haiku → Sonnet (too complex for Haiku)
+- Switching from LOCAL → Haiku (need more reasoning)
+- Critical task requiring Opus (security, architecture, strategic decisions)
+
+**Protocol:**
+1. Before switching, run: `source ~/.openclaw/workspace/scripts/model-switch-protocol.sh`
+2. Create checkpoint: `model_switch_checkpoint "from_model" "to_model" "reason"`
+3. This updates NOW.md with current task state
+4. New model inherits context from NOW.md, enabling continuity
+
+**Why it matters:**
+- Each model has different context windows and capabilities
+- If session crashes during escalation, NOW.md enables recovery
+- Makes invisible substrate changes explicit and debuggable
+- Implements "river is not the banks" principle — identity through context, not neural continuity
+
+**Current Status:** ✅ Scripts ready. Needs conscious practice to become automatic.
+
+---
+
 ## Claude Code Integration (NEW - 2026-02-13)
 
 **When I detect a coding task, use this decision tree:**
@@ -150,32 +175,11 @@ Is the task background automation?
 
 ---
 
-## ⚡ Pre-Spawn Decision Tree (CRITICAL - 2026-02-11)
+## ⚡ Pre-Spawn Decision Tree
 
-**Before spawning ANY subagent, ask this question first:**
+**See TOOLS.md "ANALYSIS vs IMPLEMENTATION"** for full decision tree and routing tables.
 
-```
-Is this ANALYSIS or IMPLEMENTATION?
-
-ANALYSIS (exploring, testing, comparing, auditing, evaluating)
-├─ Local model comparisons → LOCAL (batch all tests into ONE session)
-├─ Audit/review → LOCAL (exploration only)
-├─ Data extraction/parsing → LOCAL
-├─ Testing frameworks → LOCAL
-└─ Cost: $0 (FREE)
-
-IMPLEMENTATION (building, writing code, deploying, creating)
-├─ Code generation → Codex (if pure code generation, FREE-tier)
-├─ Complex features → Sonnet (multi-step reasoning + code)
-├─ Debugging → Codex or Sonnet (depends on complexity)
-└─ Cost: $0.01-0.10+ (depends on tier)
-```
-
-**Golden Rule:** If you're thinking/exploring/testing, use LOCAL. If you're shipping/building, use Codex/Sonnet.
-
-**Cost Impact:** Misusing Sonnet for analysis costs 10x more than LOCAL for the same output quality.
-
-**Common Mistakes:** Don't spawn Sonnet for analysis/exploration/testing/parsing — use LOCAL. Batch multiple tests into one LOCAL session instead of separate calls.
+**Golden Rule:** Analysis/testing → LOCAL ($0). Shipping/building → Codex/Sonnet.
 
 ## Token Efficiency Patterns (2026-02-09)
 
@@ -362,85 +366,16 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 ## 💓 Heartbeats - Be Proactive!
 
-When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
+**See HEARTBEAT.md** for full checklist and configuration.
 
-Default heartbeat prompt:
-`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
-
-You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.
-
-### Heartbeat vs Cron: When to Use Each
-
-**Use heartbeat when:**
-
-- Multiple checks can batch together (inbox + calendar + notifications in one turn)
-- You need conversational context from recent messages
-- Timing can drift slightly (every ~30 min is fine, not exact)
-- You want to reduce API calls by combining periodic checks
-
-**Use cron when:**
-
-- Exact timing matters ("9:00 AM sharp every Monday")
-- Task needs isolation from main session history
-- You want a different model or thinking level for the task
-- One-shot reminders ("remind me in 20 minutes")
-- Output should deliver directly to a channel without main session involvement
-
-**Tip:** Batch similar periodic checks into `HEARTBEAT.md` instead of creating multiple cron jobs. Use cron for precise schedules and standalone tasks.
-
-**Things to check (rotate through these, 2-4 times per day):**
-
-- **Emails** - Any urgent unread messages?
-- **Calendar** - Upcoming events in next 24-48h?
-- **Mentions** - Twitter/social notifications?
-- **Weather** - Relevant if your human might go out?
-
-**Track your checks** in `memory/heartbeat-state.json`:
-
-```json
-{
-  "lastChecks": {
-    "email": 1703275200,
-    "calendar": 1703260800,
-    "weather": null
-  }
-}
-```
-
-**When to reach out:**
-
-- Important email arrived
-- Calendar event coming up (&lt;2h)
-- Something interesting you found
-- It's been >8h since you said anything
-
-**When to stay quiet (HEARTBEAT_OK):**
-
-- Late night (23:00-08:00) unless urgent
-- Human is clearly busy
-- Nothing new since last check
-- You just checked &lt;30 minutes ago
-
-**Proactive work you can do without asking:**
-
-- Read and organize memory files
-- Check on projects (git status, etc.)
-- Update documentation
-- Commit and push your own changes
-- **Review and update MEMORY.md** (see below)
-
-### 🔄 Memory Maintenance (During Heartbeats)
-
-Periodically (every few days), use a heartbeat to:
-
-1. Read through recent `memory/YYYY-MM-DD.md` files
-2. Identify significant events, lessons, or insights worth keeping long-term
-3. Update `MEMORY.md` with distilled learnings
-4. Remove outdated info from MEMORY.md that's no longer relevant
-
-Think of it like a human reviewing their journal and updating their mental model. Daily files are raw notes; MEMORY.md is curated wisdom.
-
-The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
+**Quick rules:**
+- Edit `HEARTBEAT.md` with short reminders. Keep it small to limit token burn.
+- Heartbeats = batched checks (inbox + calendar + notifications in one turn)
+- Cron = exact timing, isolated sessions, one-shot reminders
+- Rotate through: emails, calendar, mentions, weather (2-4x/day)
+- Reach out for urgent items. Stay quiet late night (23:00-08:00) unless urgent.
+- Proactive background work: organize memory, git status, update docs, push changes.
+- Every few days: review daily logs → distill into MEMORY.md.
 
 ## 🚀 Moltbook Operational Patterns (Adopted 2026-02-08)
 
@@ -488,8 +423,7 @@ git config --global user.email "joesubsho@gmail.com"
 
 ### Current Status (Fixed 2026-02-11)
 
-✅ `/Users/hopenclaw/.openclaw/workspace` - Uses **joesubsho@gmail.com**  
-✅ `/Users/hopenclaw/.openclaw/workspace/Alfred-Dashboard` - Uses **joesubsho@gmail.com**
+✅ `/Users/hopenclaw/.openclaw/workspace` - Uses **joesubsho@gmail.com**
 
 **Going forward:** Always use joesubsho@gmail.com for all repos. This is the only correct configuration.
 

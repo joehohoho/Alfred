@@ -27,9 +27,9 @@
 |---------|---|---|---|
 | `maxConcurrent` | 3 | 2 | Lighter per-job resource load |
 | `subagents.maxConcurrent` | (unlimited) | 1 | Only 1 local model inference at a time |
-| `timeoutSeconds` | 120 | 150 | Buffer for smoother processing under load |
+| `timeoutSeconds` | 120 | 60 | Reduced from 150→60 on Feb 18 to prevent queue blocking |
 | `memorySearch.sync.intervalMinutes` | 60 | 120 | Reduce embedding model overhead |
-| `memorySearch.sync.onSessionStart` | true | false | Skip embedding sync on startup |
+| `memorySearch.sync.onSessionStart` | false | true | Re-enabled Feb 18 for better memory recall on session start |
 
 ---
 

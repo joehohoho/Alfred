@@ -56,39 +56,14 @@
 
 **Total daily cost for monitoring: ~$0.22/day = ~$6.60/month**
 
-### ⏳ TODO: Gateway Config Timeout Settings
+### ✅ DONE: Gateway Config Timeout Settings (Updated Feb 18, 2026)
 
-Need to manually add to `/Users/hopenclaw/.openclaw/openclaw.json`:
+Applied to `/Users/hopenclaw/.openclaw/openclaw.json`:
+- **Global timeout:** 60s
+- **maxConcurrent:** 2 (safe for Intel i3-8100B CPU)
+- **subagents.maxConcurrent:** 1 (prevents ollama overload on CPU-only system)
 
-```json
-{
-  "agents": {
-    "defaults": {
-      "timeouts": {
-        "default": 60000,
-        "modelOverrides": {
-          "openai-codex/gpt-5.3-codex": 45000,
-          "anthropic/claude-sonnet-4-5": 60000,
-          "anthropic/claude-haiku-4-5": 30000,
-          "ollama/llama3.2:3b": 20000
-        }
-      },
-      "maxConcurrent": 3,
-      "subagents": {
-        "maxConcurrent": 6
-      }
-    }
-  }
-}
-```
-
-**Why these timeouts:**
-- Codex: 45s (aggressive, prevents long waits)
-- Sonnet: 60s (standard for complex work)
-- Haiku: 30s (quick analysis)
-- Local: 20s (should be instant)
-
-Then restart: `openclaw gateway restart`
+**Note:** Per-model timeouts not supported by OpenClaw — global 60s timeout with failover chain handles this.
 
 ---
 

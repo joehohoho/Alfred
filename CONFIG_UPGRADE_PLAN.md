@@ -55,14 +55,14 @@ Applied via `gateway.config.patch`:
     "defaults": {
       "contextPruning": {
         "mode": "cache-ttl",
-        "ttl": "7d",
-        "keepLastAssistants": 3,
-        "softTrimRatio": 0.7,
-        "hardClearRatio": 0.85,
+        "ttl": "30d",
+        "keepLastAssistants": 5,
+        "softTrimRatio": 0.80,
+        "hardClearRatio": 0.92,
         "minPrunableToolChars": 500,
         "hardClear": {
           "enabled": true,
-          "placeholder": "[old context pruned: >7d]"
+          "placeholder": "[old context pruned: >30d]"
         }
       }
     }
@@ -82,7 +82,7 @@ Applied via `gateway.config.patch`:
 **Expected outcome:** 
 - ✅ Diagnostics logging enabled
 - ✅ Cache trace JSON output to `~/.openclaw/logs/cache-trace.jsonl`
-- ✅ Sessions older than 7 days auto-pruned
+- ✅ Sessions older than 30 days auto-pruned (updated Feb 18)
 - ✅ apply_patch enabled for OpenAI models (workspace-only)
 - ✅ No service interruption
 

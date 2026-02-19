@@ -1,15 +1,7 @@
 #!/bin/bash
-# dashboard-sync-wrapper.sh - Runs dashboard sync without needing an LLM
-# Executes sync-data.sh and outputs the result directly.
-
-set -o pipefail
-
-SCRIPT="$HOME/.openclaw/workspace/Alfred-Dashboard/sync-data.sh"
-
-if [ ! -f "$SCRIPT" ]; then
-    echo "ERROR: sync-data.sh not found at $SCRIPT"
-    exit 1
-fi
-
-bash "$SCRIPT" 2>&1
-exit $?
+# dashboard-sync-wrapper.sh
+# DEPRECATED: Alfred-Dashboard removed Feb 18, 2026.
+# Command Center reads OpenClaw data directly — no sync needed.
+# This cron job is disabled. Keeping script for reference.
+echo "No-op: Alfred-Dashboard removed. Command Center reads data directly."
+exit 0

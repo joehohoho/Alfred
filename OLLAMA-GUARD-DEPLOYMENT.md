@@ -86,21 +86,7 @@ cron update be75527d-f9bd-4609-a7f0-c0985a3c0bcd --patch '{
 
 **Job ID:** `30369e83-f0fc-45d6-9887-d123fd2065d3`
 
-**Current payload:**
-```
-"Run this command and report result: bash /Users/hopenclaw/.openclaw/workspace/Alfred-Dashboard/sync-data.sh"
-```
-
-**Note:** This job uses `wakeMode: "next-heartbeat"` and runs a script. The guard is optional here since it's not pure LOCAL model work, but adding it ensures graceful degradation.
-
-**To add guard (optional):**
-```bash
-cron update 30369e83-f0fc-45d6-9887-d123fd2065d3 --patch '{
-  "payload": {
-    "message": "bash /Users/hopenclaw/.openclaw/workspace/scripts/ollama-guard.sh >/dev/null 2>&1 || exit 1\n\nRun this command and report result: bash /Users/hopenclaw/.openclaw/workspace/Alfred-Dashboard/sync-data.sh"
-  }
-}'
-```
+**Status:** DISABLED (Feb 18, 2026). Alfred-Dashboard removed. Command Center reads OpenClaw data directly — no sync needed.
 
 ---
 

@@ -178,9 +178,11 @@ Persistent background services that auto-start on boot and auto-restart on failu
 | Service | PList | Purpose | Port | Status |
 |---------|-------|---------|------|--------|
 | **Ollama Keep-Alive** | `com.ollama.keepalive.plist` | Unload ollama models after 60s inactivity (saves CPU) | N/A | ✅ Running |
-| **iMessage Responder** | `com.openclaw.imsg-responder.plist` | Event-driven daemon for incoming iMessages | N/A | ✅ Running |
-| **Alfred Dashboard (Next.js)** | `com.alfred.dashboard-nextjs.plist` | Command center UI for system status | 3001 | ✅ Running |
-| **Cloudflare Tunnel** | `com.cloudflare.tunnel.plist` | Public tunnel to dashboard.my-alfred-ai.com | N/A | ✅ Running |
+| **Command Center** | `com.alfred.dashboard-nextjs.plist` | Node.js backend for system monitoring dashboard | 3001 | ✅ Running |
+| **Job Tracker** | `com.alfred.job-tracker.plist` | FastAPI/uvicorn job search app | 8000 | ✅ Running |
+| **Cloudflare Tunnel** | `com.cloudflare.tunnel.plist` | Public tunnel to dashboard/jobtracker.my-alfred-ai.com | N/A | ✅ Running |
+
+**Note:** iMessage is handled by OpenClaw's native channel (event-driven, zero cost). No LaunchAgent needed.
 
 ### Quick Management
 
@@ -214,22 +216,19 @@ launchctl list | grep com.
 - Reduced CPU from 349% → ~0%
 - Safe to reload/restart; no downside
 
-**iMessage Responder** (`com.openclaw.imsg-responder.plist`)
-- Runs `~/.openclaw/workspace/scripts/imsg-responder.sh`
-- Watches for incoming iMessages in real-time
-- Falls back to 30s polling if `imsg watch` unavailable
-- Only calls LLM (ollama/1b) when messages actually arrive
+**Command Center** (`com.alfred.dashboard-nextjs.plist`)
+- Runs `node backend/dist/index.js` from `/Users/hopenclaw/command-center`
+- System monitoring dashboard on localhost:3001
+- Public: https://dashboard.my-alfred-ai.com via Cloudflare
 
-**Alfred Dashboard** (`com.alfred.dashboard-nextjs.plist`)
-- Runs Next.js server on localhost:3001
-- Built-in system status, commands, quick links
-- Auto-restart on crash
-- View at: http://localhost:3001 (or https://dashboard.my-alfred-ai.com via Cloudflare)
+**Job Tracker** (`com.alfred.job-tracker.plist`)
+- Runs uvicorn from `/Users/hopenclaw/job-tracker/backend`
+- FastAPI app on localhost:8000
+- Public: https://jobtracker.my-alfred-ai.com via Cloudflare
+- Uses ollama/llama3.1:8b for job scoring (keep_alive: 60s)
 
 **Cloudflare Tunnel** (`com.cloudflare.tunnel.plist`)
-- Runs `cloudflare tunnel run alfred-dashboard`
-- Exposes localhost:3001 as dashboard.my-alfred-ai.com
-- Requires Cloudflare account + tunnel token
+- Routes dashboard.my-alfred-ai.com → localhost:3001, jobtracker.my-alfred-ai.com → localhost:8000
 - Auto-restart on crash
 
 ### Troubleshooting
@@ -244,18 +243,6 @@ launchctl start com.alfred.dashboard-nextjs
 
 # Check tunnel connection
 log stream --predicate 'process == "cloudflared"' --level debug
-```
-
-**iMessage responder missing messages?**
-```bash
-# Check daemon is running
-ps aux | grep "imsg-responder"
-
-# View recent logs
-log stream --predicate 'eventMessage CONTAINS "imsg"' --level debug
-
-# Manually test imsg watch
-imsg watch  # Should show new messages as they arrive
 ```
 
 **Ollama still using high CPU?**
@@ -408,112 +395,23 @@ Add whatever helps you do your job. This is your cheat sheet.
 
 ---
 
-## ⚡ ANALYSIS vs IMPLEMENTATION (Critical Decision Tree - 2026-02-11)
+## ⚡ ANALYSIS vs IMPLEMENTATION (Pre-Spawn Decision Tree)
 
 Before spawning ANY subagent:
 
 **ANALYSIS** (Exploring, testing, comparing, auditing)
-- Route to: **LOCAL** (free)
-- Examples: Compare models, evaluate approaches, audit systems, test frameworks
-- Cost: $0
-- Batch rule: Combine 2+ tests into ONE LOCAL session
+- Route to: **LOCAL** (free). Batch 2+ tests into ONE session.
 
 **IMPLEMENTATION** (Building, writing, deploying)
 - Route to: **Codex** (free for code gen) or **Sonnet** (reasoning + code)
-- Examples: Build features, debug, create, implement designs
-- Cost: $0-0.10+
-- Batch rule: Combine related features into one Codex session
 
-**Golden rule:** If exploring/thinking, use LOCAL. If shipping, use Codex/Sonnet.
+**Golden rule:** Exploring/thinking → LOCAL ($0). Shipping/building → Codex/Sonnet.
 
-**Biggest mistake:** Using Sonnet for "analysis" - costs 10x more than LOCAL for identical results.
+**Testing 2+ options:** Batch into ONE LOCAL session, not separate paid calls.
 
 ---
 
-## Model Routing Strategy (Updated 2026-02-11)
-
-**Main session: SONNET** (security gatekeeper, prevents prompt injection)
-**Sub-tasks: Route via `sessions_spawn` to appropriate model**
-
-### Quick Reference
-
-| Task Type | Model | How To Use |
-|-----------|-------|------------|
-| Code generation/review | `codex` | `sessions_spawn(model="codex", task="...")` |
-| Simple file ops | `local` | `sessions_spawn(model="local", task="...")` |
-| Weather/calendar | `local` | `sessions_spawn(model="local", task="...")` |
-| Medium complexity | `haiku` | `sessions_spawn(model="haiku", task="...")` |
-| Complex analysis | `sonnet` | `sessions_spawn(model="sonnet", task="...")` |
-| Security/critical | `opus` | `sessions_spawn(model="opus", task="...")` |
-
-### Examples
-
-**✅ Efficient routing:**
-```python
-# Code tasks = Codex (free, specialized)
-sessions_spawn(
-  model="codex",
-  task="Write a Python script to parse JSON logs and extract errors"
-)
-
-# Batch code review into Codex
-sessions_spawn(
-  model="codex",
-  task="Review this function for bugs and suggest optimizations: [code]"
-)
-
-# Main session (Sonnet) validates, then spawns LOCAL for weather
-sessions_spawn(
-  model="local",
-  task="Get current weather for Dieppe, NB with details"
-)
-
-# Batch multiple simple tasks into one LOCAL sub-agent
-sessions_spawn(
-  model="local",
-  task="Read these 5 files and summarize each one: file1.txt, file2.txt..."
-)
-```
-
-**❌ Wasteful (don't do this):**
-```python
-# Using Sonnet for code generation when Codex is free
-sessions_spawn(
-  model="sonnet",
-  task="Write a Python script..."  # Should be codex instead
-)
-
-# Using main session (Sonnet) for simple weather check
-# This burns $$ tokens unnecessarily
-exec("curl wttr.in/Dieppe")  # Should be LOCAL sub-agent instead
-```
-
----
-
-## Testing Protocol Quick Ref
-
-When testing 2+ options:
-
-```javascript
-// ❌ Wrong: 3 separate Sonnet calls
-sessions_spawn({ model: "sonnet", task: "Test A..." })
-sessions_spawn({ model: "sonnet", task: "Test B..." })
-sessions_spawn({ model: "sonnet", task: "Test C..." })
-// Cost: $0.30
-
-// ✅ Right: 1 LOCAL batch
-sessions_spawn({
-  model: "ollama/llama3.2:3b",
-  task: "Compare A vs B vs C side-by-side. Report findings in table."
-})
-// Cost: $0
-```
-
-**See:** AGENTS.md ⚡ Pre-Spawn Decision Tree for testing patterns (batch 2+ tests into ONE LOCAL session)
-
----
-
-## Model Task Routing
+## Model Task Routing & Routing Strategy
 
 **⚠️ COST RULE: Always start at the lowest tier that can handle the task.**
 

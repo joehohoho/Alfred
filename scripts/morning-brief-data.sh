@@ -5,6 +5,12 @@
 
 set -o pipefail
 
+echo "=== SYSTEM HEALTH ==="
+bash "$HOME/.openclaw/workspace/scripts/cron-health-check.sh" 2>&1
+echo ""
+bash "$HOME/.openclaw/workspace/scripts/launchagent-health.sh" 2>&1
+echo ""
+
 echo "=== WEATHER: Dieppe, NB ==="
 curl -s --max-time 10 'wttr.in/Dieppe,NB?format=%C+%t+feels+like+%f+wind+%w+humidity+%h+UV+%u' 2>/dev/null || echo "Weather unavailable"
 echo ""

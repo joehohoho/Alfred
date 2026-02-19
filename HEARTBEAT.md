@@ -74,19 +74,46 @@ wc -c /Users/hopenclaw/.openclaw/workspace/AGENTS.md
 
 ---
 
-### Check 4: Session Continuity (Optional)
-**Run:** If session >4 hours
-**Action:** Verify memory/INDEX.md is current, MEMORY.md is in sync
-**Alert:** If INDEX.md outdated → update from daily log
+### Check 4: System Reliability Audit ⚙️ (NEW - 2026-02-18)
+**Run:** Once per day (morning preferred)
+**Model:** LOCAL
+**Action:** Verify infrastructure health
+**Checks:**
+- LaunchAgents running: com.ollama.keepalive, com.openclaw.imsg-responder, com.alfred.dashboard-nextjs, com.cloudflare.tunnel
+  - Command: `launchctl list | grep com. | wc -l` (should be 4+)
+  - Verify each can restart on failure (check plist for `<key>KeepAlive</key><true/>`)
+- Cron jobs executed in last 24h (check git log, log file)
+- Ollama health (response time <1000ms, models loaded/unloaded properly)
+- Memory usage (if >70% context, alert)
+
+**Alert threshold:**
+- Any LaunchAgent not running → RESTART and log incident
+- Cron job failed/missing → Flag for immediate investigation
+- Ollama slow → Check system load, restart if needed
+- Memory >70% → Emergency checkpoint
+
+**Status:** ✅ Implemented. Replaces old Check 4. Part of "reliability is autonomy" principle.
 
 ---
 
-### Check 5: Memory Capture (Deferred) 🧠
-**Status:** ✅ **Deferred until 65% context threshold is consistently hit** (Decision: 2026-02-17)
-**Original proposal:** Spawn LOCAL sub-agent at 65% context to proactively extract conversation context.
-**Decision:** Hold this feature for now. Current sessions rarely hit compression thresholds. If context starts regularly approaching 70%+, revisit and activate. Keep the pattern in AGENTS.md for reference.
-**Rationale:** Premature automation adds complexity without solving current problem. Main session at 0-25% context most of the time.
-**Reactivation trigger:** If heartbeat logs show >3 sessions/week hitting 65%+ context, implement Check 4 immediately.
+### Check 5: Model Continuity Verification 🔄 (NEW - 2026-02-18)
+**Run:** When switching between model tiers (LOCAL→Haiku→Sonnet→Opus)
+**Action:** Verify context handoff is clean
+**Checkpoint format:**
+```
+## Model Context Handoff [timestamp]
+**FROM:** [previous_model] | **TO:** [new_model]
+**Why:** [escalation reason]
+**Context Preserved:**
+- Task state: [current objective]
+- Key decisions: [relevant prior conclusions]
+- Memory references: [MEMORY.md sections loaded]
+- Unknown unknowns: [what wasn't loaded]
+```
+**Where:** Write to memory/NOW.md before generation from new model
+**Purpose:** Ensures continuity across substrate switches. Identity persists through model changes.
+
+**Status:** ✅ Implemented. Part of "river is not the banks" principle from Moltbook essay.
 
 ---
 
