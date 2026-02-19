@@ -17,9 +17,11 @@ The Command Center is Joe's primary dashboard for monitoring and interacting wit
 |------|------|---------|
 | `/` | Dashboard | Main view: sessions, cron jobs, costs, alerts, budget, PixelAlfred animation |
 | `/goals` | Goals | Goal/task management with priority, status tracking, bulk task creation |
+| `/ideas` | Ideas | Idea pipeline: passive income, efficiency, infrastructure, growth categories |
 | `/chat` | Chat | Real-time chat with Alfred via gateway WebSocket, SSE streaming, voice I/O |
 | `/terminal` | Terminal | Interactive Claude Code session via xterm.js + WebSocket PTY |
 | `/notifications` | Notifications | Question/answer queue — Alfred posts questions here, Joe answers |
+| `/health` | System Health | Real-time monitoring: all 7 LaunchAgents, cron jobs, logs, CPU/memory/disk |
 | `/apps` | Apps | App launcher with health checks (Job Tracker, etc.) |
 | `/reports` | Reports | Browse daily memory logs from `~/.openclaw/workspace/memory/` |
 | `/optimization` | Optimization | Local model performance, cron metrics, cache hit rates |
@@ -35,6 +37,7 @@ All routes are at `/api/...` on port 3001.
 
 ### Core
 - `GET /api/health` — Gateway status (PID, uptime, memory), heartbeat, system stats (CPU, RAM, load)
+- `GET /api/system-health` — Full system health: all LaunchAgents, cron jobs, log sizes, CPU/memory/disk, overall status
 - `GET /api/dashboard` — Full dashboard data: sessions, crons, costs, alerts (refreshes every 120s)
 - `GET /api/dashboard/stats` — Cost/budget stats (today, this week, all time, per-model)
 - `GET /api/dashboard/activity` — Current activity state (researching/coding/chatting/idle/sleeping)

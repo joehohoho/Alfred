@@ -157,9 +157,23 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 - Budget tracks Anthropic usage only — uses snapshot-based wallet model
 - Chat page streams responses via SSE from the gateway WebSocket
 - Terminal page runs Claude Code in the browser via PTY + xterm.js
+- **System Health page** (`/health`) — real-time monitoring of all LaunchAgents, cron jobs, log sizes, CPU/memory/disk
 - Dashboard data refreshes every 120s from `~/.openclaw/dashboard/data.json`
+- CORS restricted to specific origins (not open)
+- IDs use `crypto.randomUUID()` for security
 
-*Added: 2026-02-19*
+**LaunchAgents managed (7 total):**
+- `com.alfred.dashboard-nextjs` — Command Center
+- `ai.openclaw.gateway` — Gateway
+- `com.alfred.job-tracker` — Job Tracker
+- `com.cloudflare.tunnel` — Cloudflare Tunnel
+- `com.ollama.ollama` — Ollama
+- `com.ollama.keepalive` — one-shot, sets env var (not running = normal)
+- `com.openclaw.imsg-responder` — iMessage responder (KeepAlive, auto-restarts)
+
+**Cron job note:** `sessionTarget: "main"` only accepts `payload.kind: "systemEvent"` — use `"isolated"` for agentTurn payloads.
+
+*Updated: 2026-02-19*
 
 ---
 
