@@ -146,8 +146,25 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full
 
 ---
 
+## Command Center Dashboard
+
+Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (or dashboard.my-alfred-ai.com via Cloudflare).
+
+→ See **COMMAND-CENTER.md** for the full architecture reference: all 11 pages, API endpoints, data sources, gateway integration, budget system, notification flow, terminal, and build process.
+
+**Key things to know:**
+- The notification system is how you route questions to Joe (see NOTIFICATION-ROUTING.md)
+- Budget tracks Anthropic usage only — uses snapshot-based wallet model
+- Chat page streams responses via SSE from the gateway WebSocket
+- Terminal page runs Claude Code in the browser via PTY + xterm.js
+- Dashboard data refreshes every 120s from `~/.openclaw/dashboard/data.json`
+
+*Added: 2026-02-19*
+
+---
+
 ## Joe's Context Reference
 
 → See **USER.md** for comprehensive, authoritative context (timezone, projects, boundaries, preferences).
 
-*Last updated: 2026-02-19 (added notification routing)*
+*Last updated: 2026-02-19 (added Command Center reference)*
