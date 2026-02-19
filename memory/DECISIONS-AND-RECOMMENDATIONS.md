@@ -36,29 +36,41 @@
 - **Recommendation:** Production-ready Next.js dashboard with Google OAuth + Upstash Redis
 - **Details:** Advanced dashboard for OpenClaw monitoring. Features: Google OAuth (joe55ho@gmail.com only), live budget editing via Redis, model breakdown, daily/weekly/total views, auto-deployment via Vercel, 30-min sync via launchd.
 - **Tech Stack:** Next.js 14 + TypeScript + NextAuth.js + Upstash Redis + Vercel
-- **Status:** ✅ Implemented
-- **Implementation:** `/Users/hopenclaw/.openclaw/workspace/Alfred-Dashboard/` (deployed to vercel via CI/CD)
-- **Live URL:** https://alfred-dashboard-pi.vercel.app
-- **Source:** Internal recommendation (built for better UX)
-- **Cost:** $0 (all free tiers: Upstash free, Vercel free, Redis 10k cmds/day)
-- **Features:** OAuth-secured, live editing, production-grade, CI/CD auto-deploy
-- **Git requirement:** All commits must use joesubsho@gmail.com (Vercel deployment requirement)
-- **Documentation:** PROJECT.md (comprehensive, read first), REDIS-SETUP.md
-- **Reference:** memory/2026-02-06.md, 2026-02-12-dashboard-budget-fix.md
+- **Status:** ❌ Removed 2026-02-18 (replaced by Command Center)
+- **Removal reason:** Replaced by unified Command Center dashboard (Node.js backend). Alfred-Dashboard (294 MB) moved to trash Feb 18. Command Center at `/Users/hopenclaw/command-center/` is now the ONLY active dashboard.
+- **Source:** Internal recommendation (built for better UX, later superseded)
+- **Cost savings:** Removed ~$0/month (free tiers) + simplified infrastructure
+- **Documentation:** Archived in 2026-02-18 daily log
+- **Reference:** memory/2026-02-06.md, memory/2026-02-18.md (infrastructure cleanup)
 
 ---
+
+### 2026-02-18 - Dashboard: Command Center (Node.js + React)
+- **Category:** Dashboard / Infrastructure
+- **Recommendation:** Unified monitoring + interaction hub replacing fragmented dashboards
+- **Details:** Single dashboard combining: system status, notification center, budget tracking, job searcher, terminal access (Claude Code), chat interface to gateway. Built with Node.js backend + React frontend.
+- **Tech Stack:** Node.js Express + React + SSE (Server-Sent Events) + WebSocket
+- **Status:** ✅ Implemented (Feb 18)
+- **Implementation:** `/Users/hopenclaw/command-center/` (port 3001, auto-starts via LaunchAgent)
+- **Live URL:** https://dashboard.my-alfred-ai.com (via Cloudflare tunnel)
+- **Features:** Notifications, budget visualization, terminal, chat, real-time sync (120s refresh)
+- **Replaces:** Alfred-Dashboard (Next.js, removed), Simple Cost Tracker (Node.js 8765)
+- **Cost:** $0 (no LLM, pure data display + frontend)
+- **LaunchAgent:** `com.alfred.dashboard-nextjs.plist` (auto-restart on crash)
+- **Documentation:** COMMAND-CENTER.md (11-page architecture reference)
+- **Reference:** memory/2026-02-18.md (infrastructure consolidation), COMMAND-CENTER.md
 
 ### 2026-02-?? - Dashboard: ??? (Requires Vertex/BigQuery - PENDING IDENTIFICATION)
 - **Category:** Dashboard / Infrastructure
 - **Recommendation:** [NAME UNKNOWN - needs clarification from user]
 - **Details:** Online-recommended dashboard focused on OpenClaw usage insights. Mentioned as reliable alternative. Requires Vertex AI or BigQuery integration (exact requirement unclear). Code was git-pulled but setup deferred. STATUS: User can provide more details.
-- **Status:** ⏸️ Pending Identification
-- **Alternative to:** Alfred-Dashboard (Next.js option)
+- **Status:** ⏸️ Pending Identification (Command Center now primary, so this may be optional)
+- **Alternative to:** Command Center
 - **Cost:** Unknown (depends on Vertex/BigQuery usage)
 - **Security consideration:** Potential cloud integration may have data privacy implications (needs review)
-- **Next step:** USER INPUT NEEDED - What was this dashboard called?
+- **Next step:** USER INPUT NEEDED - What was this dashboard called? Still needed or superseded by Command Center?
 - **Reference:** Discussion 2026-02-16 11:50+ (when user asked about port 8080)
-- **Investigation flag:** ADD TO DECISIONS-AND-RECOMMENDATIONS.md once user clarifies
+- **Investigation flag:** Clarify priority with user during next session
 
 ---
 
