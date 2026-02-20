@@ -162,7 +162,7 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 - CORS restricted to specific origins (not open)
 - IDs use `crypto.randomUUID()` for security
 
-**LaunchAgents managed (7 total):**
+**LaunchAgents managed (8 total):**
 - `com.alfred.dashboard-nextjs` — Command Center
 - `ai.openclaw.gateway` — Gateway
 - `com.alfred.job-tracker` — Job Tracker
@@ -170,10 +170,11 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 - `com.ollama.ollama` — Ollama
 - `com.ollama.keepalive` — one-shot, sets env var (not running = normal)
 - `com.openclaw.imsg-responder` — iMessage responder (KeepAlive, auto-restarts)
+- `com.alfred.daily-inquiry` — Daily inquiry questions for Joe (10 AM AST, not KeepAlive)
 
 **Cron job note:** `sessionTarget: "main"` only accepts `payload.kind: "systemEvent"` — use `"isolated"` for agentTurn payloads.
 
-*Updated: 2026-02-19*
+*Updated: 2026-02-20*
 
 ---
 
@@ -182,6 +183,41 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 → See **USER.md** for comprehensive, authoritative context (timezone, projects, boundaries, preferences).
 
 *Last updated: 2026-02-19 (added Command Center reference)*
+
+---
+
+## Daily Inquiry System
+
+Sends Joe a thoughtful question each morning at 10 AM AST via Command Center notifications. Rotates through 4 themes on a calendar cycle:
+
+1. **Project Synergies** — cross-project opportunities
+2. **Vision & Roadmap** — quarterly priorities
+3. **Workflow & Efficiency** — improving Alfred's autonomy
+4. **Passive Income Strategy** — financial targets & approach
+
+Joe's answers feed into JOE-PROFILE.md during weekly reflections (high-confidence data — Joe said it directly).
+
+→ See **DAILY-INQUIRY-SYSTEM.md** for full documentation.
+
+**Files:** `scripts/daily-inquiry.sh`, `memory/inquiry-log.jsonl`
+**LaunchAgent:** `com.alfred.daily-inquiry`
+
+*Added: 2026-02-20*
+
+---
+
+## Session Corruption Fix (Anthropic → Codex Failover)
+
+**Problem:** When an Anthropic model request is aborted mid-tool-call, the gateway inserts a synthetic error result. If the session then fails over to OpenAI Codex, Codex can't process Anthropic-format `toolu_` tool call IDs → loops with "No tool call found" errors on every subsequent message.
+
+**Fix procedure:**
+1. Find the session JSONL: `~/.openclaw/agents/main/sessions/<session-id>.jsonl`
+2. Identify the last clean line (before the aborted tool call)
+3. Back up: `cp <file> <file>.bak`
+4. Truncate: `head -n <last-clean-line> <file>.bak > <file>`
+5. Restart gateway: `launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway`
+
+*Added: 2026-02-20*
 
 ---
 
