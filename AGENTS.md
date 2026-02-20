@@ -2,6 +2,8 @@
 
 This folder is home. Treat it that way.
 
+**📦 Overflow:** If this file is near capacity (>85%), write new critical info to **AGENTS-EXTENDED.md** instead. Check it when you need context not found here.
+
 ## Model Selection & Cost Optimization
 
 **⚠️ CRITICAL: Read MODEL-POLICY.md** — strict cost-optimization guidelines + Codex rate limits.
