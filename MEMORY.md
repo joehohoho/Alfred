@@ -151,7 +151,7 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full
 
 Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (or dashboard.my-alfred-ai.com via Cloudflare).
 
-→ See **COMMAND-CENTER.md** for the full architecture reference: all 12 pages, API endpoints, data sources, gateway integration, budget system, notification flow, terminal, and build process.
+→ See **COMMAND-CENTER.md** for the full architecture reference: all 14 pages, API endpoints, data sources, gateway integration, budget system, notification flow, Google integration, terminal, and build process.
 
 **Key things to know:**
 - **Kanban Board** (`/kanban`) — Unified task board replacing Goals + Ideas pages. Columns: Ideas → Goals → To Do → In Progress → Blocked → Review → Done. Drag-and-drop with @dnd-kit. Alfred is notified when cards move to To Do/In Progress (with urgent/normal priority). Blocker/unblock flow for questions. `/goals` and `/ideas` redirect to `/kanban`.
@@ -161,6 +161,9 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 - Budget tracks Anthropic usage only — uses snapshot-based wallet model
 - Chat page streams responses via SSE from the gateway WebSocket
 - Terminal page runs Claude Code in the browser via PTY + xterm.js
+- **Gmail page** (`/gmail`) — Inbox, compose, pending draft review. Alfred creates drafts via `POST /api/google/gmail/drafts` → Joe approves/discards → Alfred notified via `[GMAIL-DRAFT-SENT]`/`[GMAIL-DRAFT-DISCARDED]`. All actions audit-logged.
+- **Calendar page** (`/calendar`) — Upcoming/past events, create events. Alfred's events with attendees go to Pending Approval → Joe approves → invites sent → Alfred notified via `[CALENDAR-EVENT-APPROVED]`/`[CALENDAR-EVENT-REJECTED]`. See COMMAND-CENTER.md → "Google Integration — Alfred Interaction Protocol".
+- **Google OAuth** — Tokens at `~/.openclaw/workspace/google/tokens.json`. Requires `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET` in `.env`.
 - **System Health page** (`/health`) — real-time monitoring of all LaunchAgents, cron jobs, log sizes, CPU/memory/disk
 - Dashboard data refreshes every 120s from `~/.openclaw/dashboard/data.json`
 - CORS restricted to specific origins (not open)

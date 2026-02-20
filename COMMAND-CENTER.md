@@ -11,7 +11,7 @@ The Command Center is Joe's primary dashboard for monitoring and interacting wit
 
 ---
 
-## Pages (12)
+## Pages (14)
 
 | Path | Page | Purpose |
 |------|------|---------|
@@ -21,6 +21,8 @@ The Command Center is Joe's primary dashboard for monitoring and interacting wit
 | `/terminal` | Terminal | Interactive Claude Code session via xterm.js + WebSocket PTY |
 | `/notifications` | Notifications | Question/answer queue — Alfred posts questions here, Joe answers |
 | `/health` | System Health | Real-time monitoring: all 8 LaunchAgents, cron jobs, logs, CPU/memory/disk |
+| `/gmail` | Gmail | Email inbox, compose, pending draft review, audit log |
+| `/calendar` | Calendar | Events (upcoming/past), pending approval for attendee invites, create events |
 | `/apps` | Apps | App launcher with health checks (Job Tracker, etc.) |
 | `/reports` | Reports | Browse daily memory logs from `~/.openclaw/workspace/memory/` |
 | `/optimization` | Optimization | Local model performance, cron metrics, cache hit rates |
@@ -83,6 +85,32 @@ All routes are at `/api/...` on port 3001.
 - `POST /api/kanban/:cardId/blocker` — Add blocker message, move to blocked
 - `POST /api/kanban/:cardId/unblock` — Clear blocker, send answer to Alfred via gateway
 
+### Google Integration (OAuth + Gmail + Calendar)
+- `GET /api/google/auth/status` — Connection status (connected, email, scopes)
+- `GET /api/google/auth/url` — Get OAuth consent URL
+- `GET /api/google/auth/callback` — OAuth2 callback (redirects to /gmail)
+- `POST /api/google/auth/disconnect` — Revoke tokens
+- `GET /api/google/gmail/messages` — List messages (query: `q`, `labelIds`, `maxResults`, `pageToken`)
+- `GET /api/google/gmail/messages/:id` — Get message
+- `GET /api/google/gmail/threads/:id` — Get thread (all messages)
+- `POST /api/google/gmail/messages/:id/archive` — Archive message
+- `POST /api/google/gmail/messages/:id/trash` — Trash message
+- `POST /api/google/gmail/messages/:id/read` — Mark as read
+- `GET /api/google/gmail/labels` — List labels
+- `GET /api/google/gmail/drafts` — All drafts
+- `GET /api/google/gmail/drafts/pending` — Pending review drafts only
+- `POST /api/google/gmail/drafts` — Create draft (`{ to, subject, body, createdBy }`)
+- `POST /api/google/gmail/drafts/:id/approve` — Approve & send draft (notifies Alfred `[GMAIL-DRAFT-SENT]`)
+- `POST /api/google/gmail/drafts/:id/discard` — Discard draft (notifies Alfred `[GMAIL-DRAFT-DISCARDED]`)
+- `POST /api/google/gmail/send` — Send email directly (no draft flow)
+- `GET /api/google/calendar/events` — List events (query: `timeMin`, `timeMax`, `maxResults`)
+- `POST /api/google/calendar/events` — Create event (if Alfred + attendees → pending approval)
+- `DELETE /api/google/calendar/events/:googleEventId` — Delete event
+- `GET /api/google/calendar/events/pending` — Pending approval events
+- `POST /api/google/calendar/events/:id/approve` — Approve event & send invites (notifies Alfred `[CALENDAR-EVENT-APPROVED]`)
+- `POST /api/google/calendar/events/:id/reject` — Reject event (notifies Alfred `[CALENDAR-EVENT-REJECTED]`)
+- `GET /api/google/activity` — Activity audit log (query: `actionPrefix`, `limit`, `offset`)
+
 ### Other
 - `GET /api/cron` — List cron jobs
 - `GET /api/cron/:id/runs` — Job run history (JSONL)
@@ -116,6 +144,10 @@ All routes are at `/api/...` on port 3001.
 | `logs/cache-trace.jsonl` | Local model cache performance | Gateway |
 | `cron/jobs.json` | Cron job definitions | OpenClaw cron system |
 | `cron/runs/*.jsonl` | Per-job run history (JSONL) | OpenClaw cron system |
+| `workspace/google/tokens.json` | Google OAuth2 tokens (chmod 600) | Google auth flow |
+| `workspace/google/drafts.json` | Email drafts pending review | Gmail reader |
+| `workspace/google/pending-events.json` | Calendar events pending approval | Calendar reader |
+| `workspace/google/activity-log.jsonl` | Google action audit log (append-only JSONL) | All Google readers |
 
 ---
 
@@ -138,6 +170,8 @@ The Command Center connects to the OpenClaw gateway via **WebSocket** at `ws://1
 - Notification answers — `sendChatMessage()` forwards Joe's answers back to Alfred
 - Goal notifications — `notify-alfred` endpoint sends via gateway
 - Kanban board — `[KANBAN-ASSIGNMENT]` messages when cards move to todo/in_progress, `[KANBAN-UNBLOCK]` messages when Joe answers blockers
+- Gmail — `[GMAIL-DRAFT-SENT]` and `[GMAIL-DRAFT-DISCARDED]` when Joe reviews drafts
+- Calendar — `[CALENDAR-EVENT-APPROVED]` and `[CALENDAR-EVENT-REJECTED]` when Joe reviews pending events
 
 ---
 
@@ -216,6 +250,28 @@ When Joe drags a card to `todo` or `in_progress`:
 
 ---
 
+## Google Integration — Alfred Interaction Protocol
+
+Gmail and Calendar are accessible via API. **All actions are audit-logged** to `~/.openclaw/workspace/google/activity-log.jsonl`.
+
+### Email Draft Workflow (Alfred → Joe → Send)
+1. Alfred calls `POST /api/google/gmail/drafts` with `createdBy: "alfred"` → creates Gmail API draft + local record with `status: "pending_review"`
+2. Joe sees it in Gmail page → "Pending Drafts" tab (amber card with Approve/Discard buttons)
+3. "Approve & Send" → email sends, Alfred notified via `[GMAIL-DRAFT-SENT]`
+4. "Discard" → draft deleted, Alfred notified via `[GMAIL-DRAFT-DISCARDED]`
+
+### Calendar Attendee Approval Workflow
+1. Alfred calls `POST /api/google/calendar/events` with attendees + `createdBy: "alfred"` → stored in `pending-events.json` (NOT created in Google yet)
+2. Events without attendees or created by user → created immediately in Google Calendar
+3. Joe sees pending events in Calendar page → "Pending Approval" tab
+4. "Approve & Send Invites" → event created in Google with `sendUpdates: "all"`, Alfred notified via `[CALENDAR-EVENT-APPROVED]`
+5. "Reject" → Alfred notified via `[CALENDAR-EVENT-REJECTED]`
+
+### OAuth Setup
+Requires `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `backend/.env`. Redirect URI: `http://localhost:3001/api/google/auth/callback`. Tokens persisted to `google/tokens.json` with 600 permissions.
+
+---
+
 ## Terminal (Claude Code in Browser)
 
 - **Page:** `/terminal`
@@ -229,7 +285,7 @@ When Joe drags a card to `todo` or `in_progress`:
 ## Real-Time Updates
 
 **SSE (Server-Sent Events)** at `/api/events/stream`:
-- Watches key files for changes (data.json, stats.json, heartbeat, gateway.log, jobs.json, goals.json, ideas.json, tasks.json)
+- Watches key files for changes (data.json, stats.json, heartbeat, gateway.log, jobs.json, goals.json, ideas.json, tasks.json, google/drafts.json, google/pending-events.json, google/activity-log.jsonl, google/tokens.json)
 - Frontend hooks (useDashboard, useStats, useActivity, useKanban) poll on intervals (5–30s)
 - useSSE hook triggers refetch on file change events
 - Kanban board listens for `kanban-goals`, `kanban-ideas`, `kanban-tasks` SSE events for real-time sync
@@ -267,15 +323,15 @@ launchctl kickstart -k gui/$(id -u)/com.alfred.dashboard-nextjs
 │   ├── terminal.ts           # PTY manager + WebSocket server
 │   ├── types.ts              # All TypeScript interfaces (includes Kanban types)
 │   ├── middleware/auth.ts     # Cloudflare Access JWT (production)
-│   ├── routes/               # 13 route files (includes kanban.ts)
-│   └── readers/              # 11 data reader modules (includes kanban.ts)
+│   ├── routes/               # 14 route files (includes kanban.ts, google.ts)
+│   └── readers/              # 15 data reader modules (includes kanban.ts, google-auth.ts, google-activity.ts, gmail.ts, google-calendar.ts)
 ├── frontend/src/
-│   ├── App.tsx               # React Router (12 routes + 2 redirects)
+│   ├── App.tsx               # React Router (14 routes + 2 redirects)
 │   ├── api.ts                # HTTP client (get/post/patch/del helpers)
-│   ├── types.ts              # Frontend types (includes Kanban types)
-│   ├── pages/                # 12 page components (includes Kanban.tsx)
-│   ├── components/           # 12 UI components (includes KanbanColumn, KanbanCardComponent, CardDetailModal)
-│   └── hooks/                # 8 custom hooks (includes useKanban.ts)
+│   ├── types.ts              # Frontend types (includes Kanban + Google types)
+│   ├── pages/                # 14 page components (includes Kanban.tsx, Gmail.tsx, Calendar.tsx)
+│   ├── components/           # 14 UI components (includes GoogleConnectCard, ActivityLog)
+│   └── hooks/                # 11 custom hooks (includes useKanban.ts, useGoogleAuth.ts, useGmail.ts, useCalendar.ts)
 └── package.json              # Workspace root
 ```
 
