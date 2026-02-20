@@ -131,14 +131,15 @@ All patterns source from Moltbook consensus across 50+ agent systems. Practical,
 **Any time you have a question for Joe, send it to the Command Center notifications system.**
 
 ```bash
-bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full context message"
+bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full context message" [goalId] [taskId] [source]
 ```
 
 - This posts to `http://localhost:3001/api/notifications`
 - Joe sees it in Command Center → Notifications page
 - Joe's answer is sent back to you via the gateway WebSocket automatically
 - Include ALL context Joe needs to respond (options, recommendation, data)
-- Also applies to questions that arise from Slack updates, cron job results, or any task
+- Optional `source` param (6th arg) tags the notification origin (e.g., `"daily-inquiry"`, `"code-review"`)
+- For task-specific questions, prefer Kanban blockers over notifications (see NOTIFICATION-ROUTING.md)
 
 → See **NOTIFICATION-ROUTING.md** for full details, examples, and guidelines.
 
@@ -189,23 +190,22 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 
 ---
 
-## Daily Inquiry System
+## Daily Inquiry → Joe Profile Pipeline
 
-Sends Joe a thoughtful question each morning at 10 AM AST via Command Center notifications. Rotates through 4 themes on a calendar cycle:
+Sends Joe a thoughtful question each morning at 10 AM AST via Command Center notifications. Notifications are tagged with `source: "daily-inquiry"` so the reflection cron can prioritize them.
 
-1. **Project Synergies** — cross-project opportunities
-2. **Vision & Roadmap** — quarterly priorities
-3. **Workflow & Efficiency** — improving Alfred's autonomy
-4. **Passive Income Strategy** — financial targets & approach
+**4-theme rotation:** Project Synergies, Vision & Roadmap, Workflow & Efficiency, Passive Income Strategy.
 
-Joe's answers feed into JOE-PROFILE.md during weekly reflections (high-confidence data — Joe said it directly).
+**Pipeline:** Daily inquiry (tagged) → Joe answers → Reflection cron (Sun/Wed 10 PM) prioritizes `source="daily-inquiry"` answers → Maps themes to JOE-PROFILE.md sections → Profile updated with high-confidence data.
 
-→ See **DAILY-INQUIRY-SYSTEM.md** for full documentation.
+**Theme → Profile mapping:** Synergies → Proactive Opportunity Map | Vision → Current Focus Areas + Shadow Goals | Workflow → Communication DNA + Friction Points | Income → Values & Motivations + Aspirations.
+
+→ See **DAILY-INQUIRY-SYSTEM.md** for full docs, **PROFILE-INSTRUCTIONS.md** for reflection process.
 
 **Files:** `scripts/daily-inquiry.sh`, `memory/inquiry-log.jsonl`
 **LaunchAgent:** `com.alfred.daily-inquiry`
 
-*Added: 2026-02-20*
+*Updated: 2026-02-20*
 
 ---
 
@@ -230,8 +230,11 @@ Joe's answers feed into JOE-PROFILE.md during weekly reflections (high-confidenc
 
 **Key points:**
 - JOE-PROFILE.md is updated twice weekly (Sun/Wed at 10 PM) via cron reflection
+- **#1 data source:** Daily inquiry answers (`source: "daily-inquiry"` in notifications.json) — highest confidence, direct answers to structured questions
+- #2: Other notification Q&A pairs, #3: Session logs, #4: Daily memory logs, #5: Claude Code drop file
 - Claude Code contributes observations via `joe-profile-observations.jsonl` drop file
 - Profile stays under 6,000 tokens — observations are distilled, not accumulated
 - USER.md has facts; JOE-PROFILE.md has patterns
+- `send-notification.sh` supports `source` param (6th arg) for tagging any notification origin
 
-*Added: 2026-02-19*
+*Updated: 2026-02-20*

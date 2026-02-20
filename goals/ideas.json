@@ -1,39 +1,5 @@
 [
   {
-    "id": "idea_1771538400001_legal_billing",
-    "title": "Legal Billing Optimizer SaaS",
-    "description": "Build a SaaS tool that helps law firms optimize their billing practices. Leverages Joe's 20+ years in elite billing software and data transformation for law firms. Could detect billing errors, suggest rate optimizations, compare against industry benchmarks, and flag compliance issues. Deep domain expertise = unfair competitive advantage in a high-value niche.",
-    "category": "passive-income",
-    "status": "new",
-    "source": "claude-code",
-    "effort": "high",
-    "potential": "high",
-    "revenueModel": "B2B SaaS subscription ($200-500/mo per firm)",
-    "synergies": ["automation-consulting"],
-    "evaluation": null,
-    "promotedToGoalId": null,
-    "tags": ["saas", "legal", "domain-expertise", "b2b"],
-    "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
-  },
-  {
-    "id": "idea_1771538400002_signal_premium",
-    "title": "Signal App Premium Tier (Subscription Alerts)",
-    "description": "The market-signal-lab already generates buy/sell signals with confidence scores via SMA Crossover, RSI Mean Reversion, and Donchian Breakout strategies. Package these as a subscription service delivering real-time alerts via email/SMS/push. CoinUsUp users could be the initial audience since they already track crypto. Start with crypto signals, expand to stocks.",
-    "category": "passive-income",
-    "status": "new",
-    "source": "claude-code",
-    "effort": "medium",
-    "potential": "high",
-    "revenueModel": "Freemium: free daily summary, $9.99/mo for real-time alerts + paper trading",
-    "synergies": ["CoinUsUp", "market-signal-lab"],
-    "evaluation": null,
-    "promotedToGoalId": null,
-    "tags": ["fintech", "signals", "subscription", "existing-code"],
-    "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
-  },
-  {
     "id": "idea_1771538400003_automation_templates",
     "title": "Automation Templates Marketplace",
     "description": "Package Joe's automation consulting knowledge into reusable templates and workflows sold as digital products. Could include: LaunchAgent templates, cron job configurations, data transformation scripts, Slack bot setups, monitoring dashboards. Low effort per unit ($10-50 each), infinite scalability. Use Gumroad or Lemon Squeezy for distribution. Each consulting engagement could generate a template as a byproduct.",
@@ -43,10 +9,18 @@
     "effort": "low",
     "potential": "medium",
     "revenueModel": "Digital products ($10-50/template), bundle packs ($99-199)",
-    "synergies": ["automation-consulting", "OpenClaw"],
+    "synergies": [
+      "automation-consulting",
+      "OpenClaw"
+    ],
     "evaluation": null,
     "promotedToGoalId": null,
-    "tags": ["digital-products", "templates", "low-effort", "consulting-byproduct"],
+    "tags": [
+      "digital-products",
+      "templates",
+      "low-effort",
+      "consulting-byproduct"
+    ],
     "createdAt": "2026-02-19T16:00:00.000Z",
     "updatedAt": "2026-02-19T16:00:00.000Z"
   },
@@ -55,17 +29,24 @@
     "title": "Even Us Up: B2B Expense Splitting for Small Teams",
     "description": "Pivot Even Us Up from consumer expense sharing to also target small businesses — co-working spaces, consulting teams, shared offices, roommate houses with shared utilities. Premium features: receipt OCR scanning, tax categorization, QuickBooks/Wave integration, recurring splits, PDF export for accountants. B2B customers pay more and churn less than consumer users.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "claude-code",
     "effort": "medium",
     "potential": "medium",
     "revenueModel": "Freemium: free for personal, $4.99/mo per team for business features",
-    "synergies": ["Even Us Up"],
+    "synergies": [
+      "Even Us Up"
+    ],
     "evaluation": null,
     "promotedToGoalId": null,
-    "tags": ["b2b", "existing-app", "premium-features", "expansion"],
+    "tags": [
+      "b2b",
+      "existing-app",
+      "premium-features",
+      "expansion"
+    ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
+    "updatedAt": "2026-02-20T18:26:01.453Z"
   },
   {
     "id": "idea_1771538400005_alfred_platform",
@@ -77,10 +58,20 @@
     "effort": "high",
     "potential": "high",
     "revenueModel": "SaaS ($29-99/mo) or managed hosting ($49-199/mo per instance)",
-    "synergies": ["OpenClaw", "Command Center", "automation-consulting"],
+    "synergies": [
+      "OpenClaw",
+      "Command Center",
+      "automation-consulting"
+    ],
     "evaluation": null,
     "promotedToGoalId": null,
-    "tags": ["platform", "saas", "ai-agents", "long-term", "high-upside"],
+    "tags": [
+      "platform",
+      "saas",
+      "ai-agents",
+      "long-term",
+      "high-upside"
+    ],
     "createdAt": "2026-02-19T16:00:00.000Z",
     "updatedAt": "2026-02-19T16:00:00.000Z"
   }
