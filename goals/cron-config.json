@@ -8,7 +8,7 @@
         "expr": "0 9 * * *",
         "tz": "America/Moncton"
       },
-      "enabled": false,
+      "enabled": true,
       "payload": {
         "kind": "systemEvent",
         "text": "Run daily goal analysis: node /Users/hopenclaw/.openclaw/workspace/scripts/goal-analyzer.js"
@@ -27,7 +27,7 @@
         "expr": "0 18 * * 5",
         "tz": "America/Moncton"
       },
-      "enabled": false,
+      "enabled": true,
       "payload": {
         "kind": "systemEvent",
         "text": "Weekly goal review: Summarize progress on all active goals and suggest adjustments"
