@@ -31,6 +31,9 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | ClawHub security gating (Clawdex) | Security | 2026-02-10 | ✅ Implemented |
 | Daily config report + 6 automated fixes | Maintenance | 2026-02-17 | ✅ Implemented |
 | HEARTBEAT Check 4 deferral (memory capture) | Infrastructure | 2026-02-17 | ✅ Deferred until 65%+ threshold |
+| Gmail & Calendar integration (Command Center) | Feature | 2026-02-20 | ✅ Implemented |
+| 4-layer memory continuity system | Infrastructure | 2026-02-20 | ✅ Implemented |
+| AGENTS.md size safeguard + overflow system | Infrastructure | 2026-02-20 | ✅ Implemented |
 
 **By Status:**
 - ✅ **Implemented:** 14
@@ -55,6 +58,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Date | Summary | Topics |
 |------|---------|--------|
+| 2026-02-20 | **Claude Code session (Opus 4.6):** Gmail & Calendar integration for Command Center (full backend + frontend, 21 files), 4-layer memory continuity system (ACTIVE-TASK.md, LAST-SESSION.md, checkpoint cron, heartbeat updates), AGENTS.md size safeguard (extracted sections to satellites, AGENTS-EXTENDED.md overflow, agents-size-guard.sh daily monitor). | google-integration, memory-continuity, agents-size-guard |
 | 2026-02-18 | **Full day maintenance via Claude Code (Opus 4.6):** AM: API auth fixes (Anthropic cooldown 3x), Ollama CPU 349%→0%, Codex OAuth fallback, cron re-tiering. PM: Command Center + Job Tracker LaunchAgents fixed, iMessage switched to native channel (zero cost), all cron jobs cleared, memory optimized (temporal decay disabled, context TTL 7d→30d), log rotation (freed 810MB), AGENTS.md/TOOLS.md deduped (both under 17K), 4 deprecated LaunchAgents removed, all workspace docs aligned with config to prevent drift. | api-auth, ollama-cpu, codex-oauth, imessage-native, memory-optimization, log-rotation, bootstrap-dedup, config-drift-prevention, launchagent-cleanup |
 | 2026-02-17 | **Full day:** Morning config audit (6 fixes), backup system (3-tier, $0), Ollama idle optimization (97% CPU savings), YouTube research (Super Memory/ClawRouter insights), Goals management system built (goals/, goal-analyzer.js, dashboard /goals). Tomorrow: pre-commit git hook. | config-audit, disaster-recovery, ollama-optimization, goals-system, youtube-research |
 | 2026-02-17 | **Morning (8:50 AM):** Daily config report delivered. All 6 fixes applied autonomously: NOW.md cleared, USER.md DST note added, AGENTS.md model versions standardized to 4.5, HEARTBEAT Check 4 deferred with reactivation trigger, MEMORY.md consolidated, Codex status reviewed. All edits reversible. | config-audit, maintenance, documentation, memory-architecture |
@@ -86,6 +90,9 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | Query Audit | `QUERIES-AND-MISSES.md` | Memory lookup failures + fixes |
 | Joe Profile | `JOE-PROFILE.md` | Living model of Joe's patterns, preferences, decisions |
 | Profile Instructions | `PROFILE-INSTRUCTIONS.md` | Guide for maintaining JOE-PROFILE.md |
+| AGENTS Extended | `AGENTS-EXTENDED.md` | Overflow for AGENTS.md when near 20k char limit |
+| Git Config | `GIT-CONFIG.md` | Git commit email config (satellite from AGENTS.md) |
+| Group Chat Guidelines | `GROUP-CHAT-GUIDELINES.md` | Group chat behavior rules (satellite from AGENTS.md) |
 
 ---
 
@@ -113,15 +120,15 @@ If `memory_search()` returns 0 results:
 
 ---
 
-**Last Updated:** 2026-02-18 17:00 AST
+**Last Updated:** 2026-02-20 AST
 **Maintainer:** Alfred (main agent)
 **Update Strategy:** Add new rows to Decisions table after each decision; update Daily Logs after each session
 
 ---
 
 ### Quick Stats
-- **Daily log files:** 20+ (Feb 4 - Feb 18)
-- **Major decisions tracked:** 19
-- **Implementation status:** 17 ✅ / 1 ⏳ / 5 ⏸️
+- **Daily log files:** 20+ (Feb 4 - Feb 20)
+- **Major decisions tracked:** 22
+- **Implementation status:** 20 ✅ / 1 ⏳ / 5 ⏸️
 - **Query audit entries:** 1 (will grow over time)
 - **Memory system version:** 2.1 (now with structured indexing)

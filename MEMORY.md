@@ -137,6 +137,25 @@ All patterns source from Moltbook consensus across 50+ agent systems. Practical,
 
 ---
 
+## AGENTS.md Size Safeguard (Implemented 2026-02-20)
+
+**Problem solved:** AGENTS.md was at 18,525/20,000 chars (92.6%) — near system crash limit.
+
+**Solution: 3-tier overflow system:**
+
+1. **Section extraction** — Stable sections moved to satellite files with one-line references in AGENTS.md
+   - `GIT-CONFIG.md` — Git commit email config
+   - `GROUP-CHAT-GUIDELINES.md` — Group chat behavior rules
+   - Result: 18,525 → 15,874 chars (79%)
+
+2. **AGENTS-EXTENDED.md** — Overflow file for critical info that won't fit. Permanent reference at top of AGENTS.md. Loaded on-demand (zero boot cost).
+
+3. **`scripts/agents-size-guard.sh`** — Automated daily check (7 AM cron). Alerts via Command Center at 85% (warning) and 95% (critical). Directs new content to AGENTS-EXTENDED.md when at capacity.
+
+*Added: 2026-02-20*
+
+---
+
 ## Known Weak Spots (Self-Awareness)
 
 - May under-prioritize old memories (recency bias by design) — intentional trade-off
