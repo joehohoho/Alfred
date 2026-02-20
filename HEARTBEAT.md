@@ -15,12 +15,13 @@
 **Model:** LOCAL (or Haiku fallback)
 **Action:** Call `session_status` and log context usage %
 **Alert threshold:** 
-- **65-70%** → Proactive memory capture (spawn LOCAL sub-agent BEFORE emergency)
-- **70-75%** → Write checkpoint to NOW.md, create snapshot of current task
-- **75-80%** → Switch to lighter models, compress memory
-- **>80%** → CRITICAL - trigger emergency compression (full NOW.md checkpoint + session split)
+- **60-65%** → Update ACTIVE-TASK.md + LAST-SESSION.md (lightweight state capture)
+- **65-70%** → All of above + update NOW.md checkpoint + append to memory/YYYY-MM-DD.md
+- **70-75%** → All of above + compress non-essential context, switch to lighter models
+- **75-80%** → All of above + aggressive compression
+- **>80%** → CRITICAL - emergency compression (full checkpoint + session split)
 
-**KEY FIX (2026-02-11):** Run Check 4 (memory capture) at 65% threshold, NOT at 100%. Proactive extraction prevents context death.
+**KEY FIX (2026-02-20):** Session Checkpoint cron now runs every 20 min and triggers state capture at 60%+. Three files persist task state across context death: ACTIVE-TASK.md (write-ahead task log), LAST-SESSION.md (session bridge), NOW.md (emergency lifeboat). All loaded on next session start.
 
 **Log format:**
 ```

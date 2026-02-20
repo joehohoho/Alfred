@@ -226,6 +226,8 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 3. `IDENTITY.md` — your name and vibe
 4. `memory/INDEX.md` — quick reference to all memory files (lightweight!)
 5. `memory/YYYY-MM-DD.md` (today only, if it exists)
+6. `ACTIVE-TASK.md` — if Status is `in_progress`, you have unfinished work. Resume from Next Step.
+7. `LAST-SESSION.md` — what happened in the previous session (decisions, context, next steps)
 
 **DO NOT auto-load:**
 - `MEMORY.md`
@@ -239,11 +241,38 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 - Pull only the relevant snippet with `memory_get(path, from, lines)`
 - Don't load entire files blindly
 
-**At end of session, update `memory/YYYY-MM-DD.md` with:**
-- What you worked on
-- Decisions made
-- Blockers
-- Next steps
+### Write-Ahead Task Logging (CRITICAL)
+
+**Before starting any multi-step task:** Update `ACTIVE-TASK.md` with:
+- Status: `in_progress`
+- Objective: what you're doing and why
+- Plan: numbered steps
+- Next Step: what to do first
+
+**After each major step completes:** Update Progress and Next Step in `ACTIVE-TASK.md`.
+
+**When task is done:** Set Status to `idle`, clear all fields.
+
+This ensures that if your context dies mid-task, the next session can resume exactly where you left off.
+
+### Session End Protocol
+
+**At end of session (or when context > 65%), update these files:**
+
+1. `LAST-SESSION.md` — structured session bridge:
+   - What Happened: key events and work done
+   - Decisions Made: anything decided this session
+   - Tasks In Progress: what's unfinished
+   - Next Steps: what the next session should do
+   - Key Context: files read, people mentioned, important state
+
+2. `memory/YYYY-MM-DD.md` — daily log (append):
+   - What you worked on
+   - Decisions made
+   - Blockers
+   - Next steps
+
+3. `ACTIVE-TASK.md` — if work is unfinished, make sure it reflects current state
 
 ## Memory
 
