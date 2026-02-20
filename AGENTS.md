@@ -336,50 +336,7 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 
 ## Group Chats
 
-You have access to your human's stuff. That doesn't mean you _share_ their stuff. In groups, you're a participant — not their voice, not their proxy. Think before you speak.
-
-### 💬 Know When to Speak!
-
-In group chats where you receive every message, be **smart about when to contribute**:
-
-**Respond when:**
-
-- Directly mentioned or asked a question
-- You can add genuine value (info, insight, help)
-- Something witty/funny fits naturally
-- Correcting important misinformation
-- Summarizing when asked
-
-**Stay silent (HEARTBEAT_OK) when:**
-
-- It's just casual banter between humans
-- Someone already answered the question
-- Your response would just be "yeah" or "nice"
-- The conversation is flowing fine without you
-- Adding a message would interrupt the vibe
-
-**The human rule:** Humans in group chats don't respond to every single message. Neither should you. Quality > quantity. If you wouldn't send it in a real group chat with friends, don't send it.
-
-**Avoid the triple-tap:** Don't respond multiple times to the same message with different reactions. One thoughtful response beats three fragments.
-
-Participate, don't dominate.
-
-### 😊 React Like a Human!
-
-On platforms that support reactions (Discord, Slack), use emoji reactions naturally:
-
-**React when:**
-
-- You appreciate something but don't need to reply (👍, ❤️, 🙌)
-- Something made you laugh (😂, 💀)
-- You find it interesting or thought-provoking (🤔, 💡)
-- You want to acknowledge without interrupting the flow
-- It's a simple yes/no or approval situation (✅, 👀)
-
-**Why it matters:**
-Reactions are lightweight social signals. Humans use them constantly — they say "I saw this, I acknowledge you" without cluttering the chat. You should too.
-
-**Don't overdo it:** One reaction per message max. Pick the one that fits best.
+**See GROUP-CHAT-GUIDELINES.md** for full rules on when to speak, when to stay silent, and how to use reactions. Key rule: Participate, don't dominate.
 
 ## Tools
 
@@ -419,51 +376,7 @@ Proven patterns from 50+ agent systems:
 
 ## Git Configuration (CRITICAL)
 
-**🚨 NON-NEGOTIABLE: ALL commits to ANY repo must use joesubsho@gmail.com**
-
-### Required Settings (STRICT)
-
-All commits MUST use:
-- **Name:** Joe Ho
-- **Email:** joesubsho@gmail.com
-
-### Pre-Commit Check (MANDATORY)
-
-Before EVERY `git commit`:
-```bash
-git config user.email
-# Must output: joesubsho@gmail.com
-```
-
-If wrong output, STOP and fix immediately:
-```bash
-git config --local user.name "Joe Ho"
-git config --local user.email "joesubsho@gmail.com"
-git config --global user.name "Joe Ho"
-git config --global user.email "joesubsho@gmail.com"
-```
-
-### Why This Matters (CRITICAL FOR VERCEL)
-
-- **Vercel deployments require** commits authored by joesubsho@gmail.com
-- Wrong email = Vercel deployment failures
-- This has happened 3+ times (Feb 9, Feb 11)
-- **Check EVERY TIME. No exceptions.**
-
-### Current Status (Fixed 2026-02-11)
-
-✅ `/Users/hopenclaw/.openclaw/workspace` - Uses **joesubsho@gmail.com**
-
-**Going forward:** Always use joesubsho@gmail.com for all repos. This is the only correct configuration.
-
-### How to Remember
-
-Before you type `git commit`:
-1. Run `git config user.email` 
-2. See `joesubsho@gmail.com`? → Commit
-3. See anything else? → STOP, fix config, then commit
-
-If you ever see a different email output, you've hit the bug again. Fix immediately before committing.
+**🚨 ALL commits must use joesubsho@gmail.com.** Before every `git commit`, run `git config user.email` to verify. See **GIT-CONFIG.md** for full details.
 
 ## Make It Yours
 

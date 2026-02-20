@@ -59,19 +59,19 @@ timestamp | context% | model | token_cost | status
 ---
 
 ### Check 3: File Size Monitoring 📏
-**Run:** Once per month (add to first heartbeat of month)
-**Action:** Check AGENTS.md character count
-**Alert threshold:** 
-- **>19,800 chars** → Time to split (extract section to satellite file)
-- **>20,000 chars** → CRITICAL (system can crash)
-**Log to:** `AGENTS-SPLITS.md` growth log
+**Run:** Daily (automated via Daily Config & Memory Review cron at 7 AM)
+**Action:** Run `bash ~/.openclaw/workspace/scripts/agents-size-guard.sh`
+**Alert thresholds:**
+- **<85% (17,000 chars)** → ✅ Safe, no action
+- **85-95% (17,000-19,000)** → ⚠️ WARNING: Plan extraction of largest section to satellite file
+- **>95% (19,000 chars)** → 🚨 CRITICAL: Extract sections immediately (system crash risk)
+**Auto-notification:** Script sends Command Center notification at warning/critical levels
 
-**Command:**
-```bash
-wc -c /Users/hopenclaw/.openclaw/workspace/AGENTS.md
-```
+**Satellite files (already extracted):**
+- `GIT-CONFIG.md` — Git commit email configuration
+- `GROUP-CHAT-GUIDELINES.md` — Group chat behavior rules
 
-**Expected:** <20,000 chars. If over threshold, read AGENTS-SPLITS.md for escalation plan.
+**Current status:** 15,710/20,000 chars (78.6%) — Safe ✅
 
 ---
 
