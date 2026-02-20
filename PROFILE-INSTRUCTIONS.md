@@ -16,27 +16,34 @@
 
 ## Data Sources (Priority Order)
 
-1. **Notification Q&A pairs** (`goals/notifications.json`)
-   - Richest source. Joe's answers reveal decision patterns, values, preferences.
+1. **Daily Inquiry Answers** (`goals/notifications.json` where `source: "daily-inquiry"`)
+   - HIGHEST CONFIDENCE SOURCE. Joe directly answered a structured question designed to deepen the profile.
+   - Filter: look for notifications with `"source": "daily-inquiry"` in the JSON.
+   - These are tagged by theme cycle: Project Synergies, Vision & Roadmap, Workflow & Efficiency, Passive Income Strategy.
+   - Every answered daily inquiry should be processed and distilled — don't skip any.
+   - Map answers to profile sections: Synergies → Proactive Opportunity Map; Vision → Current Focus Areas + Shadow Goals; Workflow → Communication DNA + Friction Points; Income → Values & Motivations + Aspirations.
+
+2. **Other Notification Q&A pairs** (`goals/notifications.json` where `source` is not `"daily-inquiry"`)
+   - Second richest source. Joe's answers to Alfred's questions reveal decision patterns, values, preferences.
    - Parse: response length, response time, tone, content.
 
-2. **Session logs** (`~/.openclaw/agents/main/sessions/*.jsonl`)
+3. **Session logs** (`~/.openclaw/agents/main/sessions/*.jsonl`)
    - Direct conversations with Joe via chat.
    - Look for: requests, feedback, corrections, emotional cues.
    - CAUTION: Thousands of files. Sample recent ones only (last 7 days).
 
-3. **Daily memory logs** (`memory/YYYY-MM-DD.md`)
+4. **Daily memory logs** (`memory/YYYY-MM-DD.md`)
    - Your own observations from each day.
    - Look for: what tasks Joe initiated, what Joe responded to.
 
-4. **Claude Code drop file** (`joe-profile-observations.jsonl`)
+5. **Claude Code drop file** (`joe-profile-observations.jsonl`)
    - Written by Claude Code (Joe's CLI assistant). Different lens — sees coding sessions, debugging approaches, review patterns.
    - Treat as peer observations — validate against other sources.
 
-5. **Goals** (`goals/goals.json`)
+6. **Goals** (`goals/goals.json`)
    - What Joe creates goals for reveals priorities.
 
-6. **Cron job patterns** (what jobs exist, which get attention)
+7. **Cron job patterns** (what jobs exist, which get attention)
    - Implicit signal about what Joe values enough to automate.
 
 ---
@@ -44,9 +51,10 @@
 ## Reflection Process (5 Phases)
 
 ### Phase 1: Gather (~2 min)
-1. Read `goals/notifications.json` — scan for answered notifications since last reflection date.
-2. Check recent `memory/YYYY-MM-DD.md` files since last reflection.
-3. Read `joe-profile-observations.jsonl` for new Claude Code entries.
+1. Read `goals/notifications.json` — **first** filter for `source: "daily-inquiry"` answered notifications since last reflection (highest priority). Then scan remaining answered notifications.
+2. Check `memory/inquiry-log.jsonl` to see which daily inquiry themes were sent since last reflection (helps contextualize answers).
+3. Check recent `memory/YYYY-MM-DD.md` files since last reflection.
+4. Read `joe-profile-observations.jsonl` for new Claude Code entries.
 
 ### Phase 2: Observe (~3 min)
 Extract raw observations. For each, note:

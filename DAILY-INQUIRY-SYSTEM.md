@@ -38,20 +38,24 @@ The system cycles through **4 themes** based on the calendar date:
 ### Data Flow
 
 ```
-Daily Inquiry
+Daily Inquiry (tagged with source: "daily-inquiry")
   ↓
-Joe's Answer (typed in Command Center)
+Joe's Answer (typed in Command Center — badge shows "Daily Inquiry")
   ↓
 Webhook Listener (runs every 15 min)
   ↓
-Response captured + stored in goals/notifications.json
+Response captured + stored in goals/notifications.json (with source tag)
   ↓
 Weekly Reflection (Sun/Wed 10 PM cron)
+  ↓
+Reflection PRIORITIZES source="daily-inquiry" notifications (highest confidence)
   ↓
 PROFILE-INSTRUCTIONS.md Phase 1-5 process
   ↓
 JOE-PROFILE.md updated with high-confidence data
 ```
+
+**Source tagging:** Daily inquiry notifications are tagged with `"source": "daily-inquiry"` in the JSON. The reflection cron specifically filters for these first and processes them as the highest-confidence data source (Joe directly answered a structured question).
 
 ### How Responses Improve the Profile
 

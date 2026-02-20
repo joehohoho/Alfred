@@ -13,12 +13,12 @@ INQUIRY_LOG="$WORKSPACE/memory/inquiry-log.jsonl"
 mkdir -p "$(dirname "$INQUIRY_LOG")"
 touch "$INQUIRY_LOG"
 
-# Helper: Send a notification
+# Helper: Send a notification tagged as daily-inquiry source
 send_inquiry() {
   local title="$1"
   local message="$2"
-  
-  bash "$SCRIPT_DIR/send-notification.sh" "question" "$title" "$message"
+
+  bash "$SCRIPT_DIR/send-notification.sh" "question" "$title" "$message" "" "" "daily-inquiry"
 }
 
 # Daily inquiry cycle - rotate through themes
