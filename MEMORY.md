@@ -150,9 +150,11 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full
 
 Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (or dashboard.my-alfred-ai.com via Cloudflare).
 
-→ See **COMMAND-CENTER.md** for the full architecture reference: all 11 pages, API endpoints, data sources, gateway integration, budget system, notification flow, terminal, and build process.
+→ See **COMMAND-CENTER.md** for the full architecture reference: all 12 pages, API endpoints, data sources, gateway integration, budget system, notification flow, terminal, and build process.
 
 **Key things to know:**
+- **Kanban Board** (`/kanban`) — Unified task board replacing Goals + Ideas pages. Columns: Ideas → Goals → To Do → In Progress → Blocked → Review → Done. Drag-and-drop with @dnd-kit. Alfred is notified when cards move to To Do/In Progress (with urgent/normal priority). Blocker/unblock flow for questions. `/goals` and `/ideas` redirect to `/kanban`.
+- **Kanban API** — `GET/POST /api/kanban`, `PATCH/DELETE /api/kanban/:id`, `POST /api/kanban/:id/move`, `/blocker`, `/unblock`. Alfred can create cards, move them, add blockers via these endpoints.
 - The notification system is how you route questions to Joe (see NOTIFICATION-ROUTING.md)
 - Budget tracks Anthropic usage only — uses snapshot-based wallet model
 - Chat page streams responses via SSE from the gateway WebSocket

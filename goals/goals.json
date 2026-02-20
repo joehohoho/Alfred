@@ -7,7 +7,10 @@
     "status": "completed",
     "dueDate": "2026-02-18",
     "completedAt": "2026-02-18T21:42:00.000Z",
-    "metadata": {"completedBy": "claude-code-session", "notes": "Discord channel configured and running via native OpenClaw channel"},
+    "metadata": {
+      "completedBy": "claude-code-session",
+      "notes": "Discord channel configured and running via native OpenClaw channel"
+    },
     "createdAt": "2026-02-18T04:26:01.618Z",
     "updatedAt": "2026-02-18T21:42:00.000Z"
   },
@@ -19,7 +22,10 @@
     "status": "completed",
     "dueDate": null,
     "completedAt": "2026-02-18T21:42:00.000Z",
-    "metadata": {"completedBy": "claude-code-session", "notes": "Replaced cron job with native OpenClaw iMessage channel — event-driven, zero token cost"},
+    "metadata": {
+      "completedBy": "claude-code-session",
+      "notes": "Replaced cron job with native OpenClaw iMessage channel — event-driven, zero token cost"
+    },
     "createdAt": "2026-02-18T05:47:10.792Z",
     "updatedAt": "2026-02-18T21:42:00.000Z"
   },

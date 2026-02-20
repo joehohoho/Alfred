@@ -11,23 +11,24 @@ The Command Center is Joe's primary dashboard for monitoring and interacting wit
 
 ---
 
-## Pages (11)
+## Pages (12)
 
 | Path | Page | Purpose |
 |------|------|---------|
 | `/` | Dashboard | Main view: sessions, cron jobs, costs, alerts, budget, PixelAlfred animation |
-| `/goals` | Goals | Goal/task management with priority, status tracking, bulk task creation |
-| `/ideas` | Ideas | Idea pipeline: passive income, efficiency, infrastructure, growth categories |
+| `/kanban` | Kanban Board | Unified task board: Ideas → Goals → To Do → In Progress → Blocked → Review → Done. Drag-and-drop, Alfred automation, blocker/unblock flow |
 | `/chat` | Chat | Real-time chat with Alfred via gateway WebSocket, SSE streaming, voice I/O |
 | `/terminal` | Terminal | Interactive Claude Code session via xterm.js + WebSocket PTY |
 | `/notifications` | Notifications | Question/answer queue — Alfred posts questions here, Joe answers |
-| `/health` | System Health | Real-time monitoring: all 7 LaunchAgents, cron jobs, logs, CPU/memory/disk |
+| `/health` | System Health | Real-time monitoring: all 8 LaunchAgents, cron jobs, logs, CPU/memory/disk |
 | `/apps` | Apps | App launcher with health checks (Job Tracker, etc.) |
 | `/reports` | Reports | Browse daily memory logs from `~/.openclaw/workspace/memory/` |
 | `/optimization` | Optimization | Local model performance, cron metrics, cache hit rates |
 | `/improvements` | Improvements | Enhancements roadmap, innovation ideas |
 | `/infrastructure` | Infrastructure | Model tiers, cron schedules, agent architecture |
 | `/learnings` | Learnings | Curated memory, decisions, query analysis |
+
+**Note:** `/goals` and `/ideas` redirect to `/kanban` (replaced by Kanban board).
 
 ---
 
@@ -71,6 +72,16 @@ All routes are at `/api/...` on port 3001.
 - `GET /api/terminal/status` — PTY session info (`{ active, pid }`)
 - `POST /api/terminal/restart` — Kill + restart PTY
 - `WebSocket /ws/terminal` — Live terminal I/O for Claude Code
+
+### Kanban Board
+- `GET /api/kanban` — Full board (all columns with cards + stats)
+- `GET /api/kanban/:cardId` — Card detail (includes subtasks for goals)
+- `POST /api/kanban` — Create card (`{ type: "idea"|"goal"|"task", title, description? }`)
+- `PATCH /api/kanban/:cardId` — Update card fields
+- `POST /api/kanban/:cardId/move` — Move to column (`{ toColumn, priority? }`) — notifies Alfred for todo/in_progress
+- `DELETE /api/kanban/:cardId` — Delete card
+- `POST /api/kanban/:cardId/blocker` — Add blocker message, move to blocked
+- `POST /api/kanban/:cardId/unblock` — Clear blocker, send answer to Alfred via gateway
 
 ### Other
 - `GET /api/cron` — List cron jobs

@@ -112,5 +112,15 @@
     "answered": false,
     "createdAt": "2026-02-20T16:44:28.238Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1771610342173_00ef5e45",
+    "type": "kanban-action",
+    "title": "Card assigned: Test Kanban Card",
+    "message": "Moved to goals (NORMAL - Queue for next slot)",
+    "goalId": "goal_1771610220154_a9d87314",
+    "answered": false,
+    "createdAt": "2026-02-20T17:59:02.173Z",
+    "answeredAt": null
   }
 ]
