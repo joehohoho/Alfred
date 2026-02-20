@@ -106,10 +106,11 @@ All routes are at `/api/...` on port 3001.
 | `workspace/dashboard/stats.json` | Cost/budget statistics | `sync-usage.js` + budget updates |
 | `workspace/memory/heartbeat-state.json` | Agent heartbeat (context%, model, status) | Heartbeat cron |
 | `workspace/memory/*.md` | Daily memory logs, reports | Alfred's routines |
-| `workspace/goals/goals.json` | Goals | Command Center |
-| `workspace/goals/tasks.json` | Tasks | Command Center |
+| `workspace/goals/goals.json` | Goals (Kanban: goals/todo/in_progress/blocked/review/done) | Command Center + Kanban API |
+| `workspace/goals/ideas.json` | Ideas (Kanban: ideas/goals columns) | Command Center + Kanban API |
+| `workspace/goals/tasks.json` | Standalone tasks (Kanban: todo/in_progress/blocked/done) | Command Center + Kanban API |
 | `workspace/goals/analyses.json` | Goal analyses | Sub-agents |
-| `workspace/goals/notifications.json` | Notifications/questions | Alfred + Command Center |
+| `workspace/goals/notifications.json` | Notifications/questions + Kanban blockers | Alfred + Command Center |
 | `workspace/webhooks/*.json` | Answered notification events | Command Center |
 | `logs/gateway.log` | Gateway activity log | OpenClaw gateway |
 | `logs/cache-trace.jsonl` | Local model cache performance | Gateway |
@@ -136,6 +137,7 @@ The Command Center connects to the OpenClaw gateway via **WebSocket** at `ws://1
 - Chat page — sends messages, streams responses
 - Notification answers — `sendChatMessage()` forwards Joe's answers back to Alfred
 - Goal notifications — `notify-alfred` endpoint sends via gateway
+- Kanban board — `[KANBAN-ASSIGNMENT]` messages when cards move to todo/in_progress, `[KANBAN-UNBLOCK]` messages when Joe answers blockers
 
 ---
 
@@ -174,6 +176,46 @@ See **NOTIFICATION-ROUTING.md** for Alfred's routing instructions.
 
 ---
 
+## Kanban Board — Alfred Interaction Protocol
+
+The Kanban board is Alfred's primary task management interface. Cards are a **virtual view** over existing `goals.json`, `ideas.json`, and `tasks.json` — no separate data file.
+
+### Alfred → Board (Alfred updates cards)
+- `POST /api/kanban` — Create new cards (discoveries, new tasks)
+- `POST /api/kanban/:id/move` — Move cards (e.g., to "review" when done, to "blocked" when stuck)
+- `POST /api/kanban/:id/blocker` — Ask Joe a question (card moves to Blocked with message)
+- `PATCH /api/kanban/:id` — Update progress notes, description
+
+### Board → Alfred (Joe triggers work)
+When Joe drags a card to `todo` or `in_progress`:
+1. Frontend shows priority dialog: "Notify Alfred? [Urgent / Normal]"
+2. `POST /api/kanban/:id/move` with `{ toColumn, priority }`
+3. Backend sends `[KANBAN-ASSIGNMENT]` message to Alfred via gateway (`agent:main:main`)
+4. Urgent = start immediately, Normal = queue for next slot
+
+### Blocker/Unblock Flow
+1. Alfred calls `POST /api/kanban/:id/blocker` with question → card moves to Blocked
+2. Joe clicks blocked card → sees blocker message → types answer
+3. `POST /api/kanban/:id/unblock` with answer → card moves back to in_progress
+4. Backend sends `[KANBAN-UNBLOCK]` message to Alfred via gateway with Joe's answer
+
+### Column Mapping (how source data maps to board)
+
+| Source | Status | Kanban Column |
+|--------|--------|---------------|
+| Idea | new, researching | Ideas |
+| Idea | evaluated | Goals |
+| Goal | active (no tasks in progress) | Goals/To Do |
+| Goal | active + tasks in_progress | In Progress |
+| Goal | paused | Blocked |
+| Goal | completed | Done |
+| Task | backlog/todo | To Do |
+| Task | in_progress | In Progress |
+| Task | blocked | Blocked |
+| Task | done | Done |
+
+---
+
 ## Terminal (Claude Code in Browser)
 
 - **Page:** `/terminal`
@@ -187,9 +229,10 @@ See **NOTIFICATION-ROUTING.md** for Alfred's routing instructions.
 ## Real-Time Updates
 
 **SSE (Server-Sent Events)** at `/api/events/stream`:
-- Watches key files for changes (data.json, stats.json, heartbeat, gateway.log, jobs.json)
-- Frontend hooks (useDashboard, useStats, useActivity) poll on intervals (5–30s)
+- Watches key files for changes (data.json, stats.json, heartbeat, gateway.log, jobs.json, goals.json, ideas.json, tasks.json)
+- Frontend hooks (useDashboard, useStats, useActivity, useKanban) poll on intervals (5–30s)
 - useSSE hook triggers refetch on file change events
+- Kanban board listens for `kanban-goals`, `kanban-ideas`, `kanban-tasks` SSE events for real-time sync
 
 **Chat streaming:** POST `/api/chat/send` returns SSE stream with chunks from gateway response.
 
@@ -222,17 +265,17 @@ launchctl kickstart -k gui/$(id -u)/com.alfred.dashboard-nextjs
 │   ├── index.ts              # Express server + http.createServer + WebSocket
 │   ├── gateway.ts            # OpenClaw WebSocket client
 │   ├── terminal.ts           # PTY manager + WebSocket server
-│   ├── types.ts              # All TypeScript interfaces
+│   ├── types.ts              # All TypeScript interfaces (includes Kanban types)
 │   ├── middleware/auth.ts     # Cloudflare Access JWT (production)
-│   ├── routes/               # 12 route files
-│   └── readers/              # 10+ data reader modules
+│   ├── routes/               # 13 route files (includes kanban.ts)
+│   └── readers/              # 11 data reader modules (includes kanban.ts)
 ├── frontend/src/
-│   ├── App.tsx               # React Router (11 routes)
-│   ├── api.ts                # HTTP client (get/post helpers)
-│   ├── types.ts              # Frontend types
-│   ├── pages/                # 11 page components
-│   ├── components/           # 9 UI components
-│   └── hooks/                # 7 custom hooks
+│   ├── App.tsx               # React Router (12 routes + 2 redirects)
+│   ├── api.ts                # HTTP client (get/post/patch/del helpers)
+│   ├── types.ts              # Frontend types (includes Kanban types)
+│   ├── pages/                # 12 page components (includes Kanban.tsx)
+│   ├── components/           # 12 UI components (includes KanbanColumn, KanbanCardComponent, CardDetailModal)
+│   └── hooks/                # 8 custom hooks (includes useKanban.ts)
 └── package.json              # Workspace root
 ```
 

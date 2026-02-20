@@ -155,7 +155,8 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 **Key things to know:**
 - **Kanban Board** (`/kanban`) — Unified task board replacing Goals + Ideas pages. Columns: Ideas → Goals → To Do → In Progress → Blocked → Review → Done. Drag-and-drop with @dnd-kit. Alfred is notified when cards move to To Do/In Progress (with urgent/normal priority). Blocker/unblock flow for questions. `/goals` and `/ideas` redirect to `/kanban`.
 - **Kanban API** — `GET/POST /api/kanban`, `PATCH/DELETE /api/kanban/:id`, `POST /api/kanban/:id/move`, `/blocker`, `/unblock`. Alfred can create cards, move them, add blockers via these endpoints.
-- The notification system is how you route questions to Joe (see NOTIFICATION-ROUTING.md)
+- **Kanban interaction:** When starting work on a card, move it to `in_progress`. When done, move to `review`. When blocked/need Joe's input, use `POST /api/kanban/:id/blocker` with question — Joe answers from card detail modal, answer comes back via gateway `[KANBAN-UNBLOCK]` message. See COMMAND-CENTER.md → "Kanban Board — Alfred Interaction Protocol" for full column mapping.
+- The notification system is how you route general questions to Joe (see NOTIFICATION-ROUTING.md). For task-specific questions, prefer Kanban blockers.
 - Budget tracks Anthropic usage only — uses snapshot-based wallet model
 - Chat page streams responses via SSE from the gateway WebSocket
 - Terminal page runs Claude Code in the browser via PTY + xterm.js

@@ -71,8 +71,36 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh \
 3. The answer is automatically sent back to you via the gateway WebSocket
 4. The webhook listener cron (every 15 min) also picks up answered notifications as backup
 
+## Kanban Blocker Flow (Task-Specific Questions)
+
+For questions tied to a specific Kanban card/task, use the **Kanban blocker API** instead of (or in addition to) the notification script. This moves the card to the Blocked column and Joe can answer directly from the card detail modal.
+
+```bash
+# Add a blocker to a Kanban card (moves card to Blocked column)
+curl -X POST http://localhost:3001/api/kanban/<cardId>/blocker \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Your question for Joe with full context"}'
+```
+
+**When Joe answers:**
+- Joe opens the blocked card in Kanban → types answer → clicks "Answer & Unblock"
+- Card moves back to In Progress
+- `[KANBAN-UNBLOCK]` message sent to Alfred via gateway with Joe's answer
+
+**When to use which:**
+- **Notification script** → General questions not tied to a specific task
+- **Kanban blocker** → Questions about a task that's already on the board (keeps question + answer linked to the card)
+- **Both** → Critical questions where you want redundancy (blocker for task context + notification for visibility)
+
+---
+
 ## API Details (for reference)
 
+### Notifications API
 - **Endpoint:** `POST http://localhost:3001/api/notifications`
 - **Body:** `{ "type": "question", "title": "...", "message": "..." }`
 - **Response:** `201` with notification object including `id`
+
+### Kanban Blocker API
+- **Add blocker:** `POST http://localhost:3001/api/kanban/:cardId/blocker` with `{ "message": "..." }`
+- **Unblock (Joe):** `POST http://localhost:3001/api/kanban/:cardId/unblock` with `{ "answer": "..." }`

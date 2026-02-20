@@ -2,7 +2,12 @@
 
 **Purpose:** Track all spawned tasks (subagents, cron jobs, overnight automation) so results can be found and verified.
 
-**Last Updated:** 2026-02-12 10:18 AST
+**Last Updated:** 2026-02-20
+
+> **Note:** As of 2026-02-20, the **Kanban Board** (`/kanban` in Command Center) is the primary task management interface. Use the Kanban API to create cards, move them between columns, and manage blockers. This file is retained for spawned task tracking (subagents/cron) which operates separately from the Kanban board.
+>
+> - **Kanban API:** `GET/POST /api/kanban`, `POST /api/kanban/:id/move`, `POST /api/kanban/:id/blocker`
+> - **See:** COMMAND-CENTER.md → "Kanban Board — Alfred Interaction Protocol"
 
 ---
 
