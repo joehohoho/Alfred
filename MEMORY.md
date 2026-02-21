@@ -206,10 +206,11 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 - CORS restricted to specific origins (not open)
 - IDs use `crypto.randomUUID()` for security
 
-**LaunchAgents managed (8 total):**
+**LaunchAgents managed (9 total):**
 - `com.alfred.dashboard-nextjs` — Command Center
 - `ai.openclaw.gateway` — Gateway
 - `com.alfred.job-tracker` — Job Tracker
+- `com.alfred.market-signal-lab` — Market Signal Lab (port 8002, KeepAlive)
 - `com.cloudflare.tunnel` — Cloudflare Tunnel
 - `com.ollama.ollama` — Ollama
 - `com.ollama.keepalive` — one-shot, sets env var (not running = normal)
@@ -219,6 +220,31 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 **Cron job note:** `sessionTarget: "main"` only accepts `payload.kind: "systemEvent"` — use `"isolated"` for agentTurn payloads.
 
 *Updated: 2026-02-20*
+
+---
+
+## Market Signal Lab (Upgraded 2026-02-20)
+
+**Repo:** `/Users/hopenclaw/market-signal-lab` | **Port:** 8002 | **URL:** `https://trading.my-alfred-ai.com`
+**LaunchAgent:** `com.alfred.market-signal-lab` | **Cloudflare tunnel:** via `command-center` tunnel
+
+BTC & crypto trading signals, backtesting, and ML-powered market analysis.
+
+**10 improvements implemented (commit 272f99c):**
+1. ADX regime detection — strategies filter by market regime (trending vs ranging)
+2. Multi-timeframe confirmation — signal engine filters against higher-TF bias
+3. Vectorized strategies — boolean mask computation, no per-bar loops
+4. 30+ ML features (was 12) — StochRSI, ADX, CMF, OBV, BB width, etc.
+5. ATR-scaled ternary target — ML classification normalized by volatility
+6. 8 new indicators — ADX, VWAP, OBV, StochRSI, CMF, Bollinger Bandwidth/PctB
+7. Trailing stops — ATR-based and percentage-based
+8. Alternative data — Fear & Greed Index, Binance funding rates, BTC dominance
+9. Short selling support (`allow_short` config)
+10. Volatility-scaled position sizing
+
+**Registered in Command Center** Apps page. Health check: `/api/health`.
+
+*Added: 2026-02-20*
 
 ---
 

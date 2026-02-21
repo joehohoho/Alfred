@@ -34,6 +34,8 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | Gmail & Calendar integration (Command Center) | Feature | 2026-02-20 | ✅ Implemented |
 | 4-layer memory continuity system | Infrastructure | 2026-02-20 | ✅ Implemented |
 | AGENTS.md size safeguard + overflow system | Infrastructure | 2026-02-20 | ✅ Implemented |
+| Market Signal Lab: 10 trading improvements | Feature | 2026-02-20 | ✅ Implemented |
+| MSL Command Center app + LaunchAgent + tunnel | Infrastructure | 2026-02-20 | ✅ Implemented |
 
 **By Status:**
 - ✅ **Implemented:** 14
@@ -58,7 +60,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Date | Summary | Topics |
 |------|---------|--------|
-| 2026-02-20 | **Claude Code session (Opus 4.6):** Gmail & Calendar integration for Command Center (full backend + frontend, 21 files), 4-layer memory continuity system (ACTIVE-TASK.md, LAST-SESSION.md, checkpoint cron, heartbeat updates), AGENTS.md size safeguard (extracted sections to satellites, AGENTS-EXTENDED.md overflow, agents-size-guard.sh daily monitor). | google-integration, memory-continuity, agents-size-guard |
+| 2026-02-20 | **Claude Code sessions (Opus 4.6):** Gmail & Calendar integration for Command Center (full backend + frontend, 21 files), 4-layer memory continuity system (ACTIVE-TASK.md, LAST-SESSION.md, checkpoint cron, heartbeat updates), AGENTS.md size safeguard (extracted sections to satellites, AGENTS-EXTENDED.md overflow, agents-size-guard.sh daily monitor). Market Signal Lab: 10 major improvements (ADX regime filtering, multi-TF confirmation, vectorized strategies, 30+ ML features, trailing stops, short selling, vol-scaled sizing, alternative data, ATR-scaled target, 8 new indicators). Added MSL to Command Center apps, LaunchAgent (port 8002), Cloudflare tunnel (trading.my-alfred-ai.com). | google-integration, memory-continuity, agents-size-guard, market-signal-lab, trading-signals |
 | 2026-02-18 | **Full day maintenance via Claude Code (Opus 4.6):** AM: API auth fixes (Anthropic cooldown 3x), Ollama CPU 349%→0%, Codex OAuth fallback, cron re-tiering. PM: Command Center + Job Tracker LaunchAgents fixed, iMessage switched to native channel (zero cost), all cron jobs cleared, memory optimized (temporal decay disabled, context TTL 7d→30d), log rotation (freed 810MB), AGENTS.md/TOOLS.md deduped (both under 17K), 4 deprecated LaunchAgents removed, all workspace docs aligned with config to prevent drift. | api-auth, ollama-cpu, codex-oauth, imessage-native, memory-optimization, log-rotation, bootstrap-dedup, config-drift-prevention, launchagent-cleanup |
 | 2026-02-17 | **Full day:** Morning config audit (6 fixes), backup system (3-tier, $0), Ollama idle optimization (97% CPU savings), YouTube research (Super Memory/ClawRouter insights), Goals management system built (goals/, goal-analyzer.js, dashboard /goals). Tomorrow: pre-commit git hook. | config-audit, disaster-recovery, ollama-optimization, goals-system, youtube-research |
 | 2026-02-17 | **Morning (8:50 AM):** Daily config report delivered. All 6 fixes applied autonomously: NOW.md cleared, USER.md DST note added, AGENTS.md model versions standardized to 4.5, HEARTBEAT Check 4 deferred with reactivation trigger, MEMORY.md consolidated, Codex status reviewed. All edits reversible. | config-audit, maintenance, documentation, memory-architecture |
@@ -83,6 +85,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | Dashboard (Node.js) | `/dashboard/` | Port 8765, cost tracking |
 | ~~Alfred Dashboard (Next.js)~~ | ~~`/Alfred-Dashboard/`~~ | **REMOVED Feb 18** — replaced by Command Center |
 | Command Center Dashboard | `/Users/hopenclaw/command-center/` | Real-time monitoring + Goals + Chat + Notifications + Cron |
+| Market Signal Lab | `/Users/hopenclaw/market-signal-lab/` | Trading signals, backtesting, ML analysis (port 8002, trading.my-alfred-ai.com) |
 | CONFIG-UPGRADE-PLAN | `CONFIG-UPGRADE-PLAN.md` | Full 2026.2.15 migration guide |
 | Communications Map | `COMMUNICATIONS.md` | Unified channels, APIs, notification standards |
 | Daily Logs | `memory/YYYY-MM-DD.md` | Session logs (append-only) |
@@ -128,7 +131,7 @@ If `memory_search()` returns 0 results:
 
 ### Quick Stats
 - **Daily log files:** 20+ (Feb 4 - Feb 20)
-- **Major decisions tracked:** 22
-- **Implementation status:** 20 ✅ / 1 ⏳ / 5 ⏸️
+- **Major decisions tracked:** 24
+- **Implementation status:** 22 ✅ / 1 ⏳ / 5 ⏸️
 - **Query audit entries:** 1 (will grow over time)
 - **Memory system version:** 2.1 (now with structured indexing)
