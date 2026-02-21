@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "task_1771697312744_e31f4023",
+    "title": "Revenue Growth — CoinUsUp + Even Us Up",
+    "description": "Audit metrics (MAU, retention, churn, revenue/user). Identify high-ROI improvements (onboarding, pricing, features). 10% of dev time ongoing. Target: +15% revenue by end Q1.",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-21T18:08:32.744Z",
+    "updatedAt": "2026-02-21T18:08:32.744Z"
+  },
+  {
+    "id": "task_1771697313875_722f22e4",
+    "title": "Signal App — Fast Track Launch",
+    "description": "Feb: finalize architecture + data pipeline. Mar: build UI + integrate market data + backtesting. Apr: beta + refinement. Target: live trading signals by early April.",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-21T18:08:33.875Z",
+    "updatedAt": "2026-02-21T18:08:33.875Z"
+  },
+  {
+    "id": "task_1771697316207_cc03d367",
+    "title": "OpenClaw Maintenance — Reduce Toil",
+    "description": "Audit top 5 time-sinks this month. Automate each with scripts/cron/dashboard. Target: 5+ hrs/week freed up by end Q1.",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-21T18:08:36.207Z",
+    "updatedAt": "2026-02-21T18:08:36.207Z"
+  },
+  {
+    "id": "task_1771697317377_f97ee464",
+    "title": "Consulting Work — Keep Revenue Stable",
+    "description": "Maintain current load (no growth, no shrink). Use projects as research for productization ideas.",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-21T18:08:37.377Z",
+    "updatedAt": "2026-02-21T18:08:37.377Z"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1771689196215_131090a7",
+  "timestamp": "2026-02-21T15:53:16.215Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1771682401703_36df658b",
+  "title": "What's your vision for the next 3 months?",
+  "message": "From SOUL.md and USER.md, I know passive income through vibe coding is a core goal. Right now I see you juggling maintenance (CoinUsUp, Even Us Up) + growth (Signal App) + OpenClaw infrastructure + consulting.\n\nWhere should I focus energy to best support your goals? Is it:\n- Growing revenue on an existing app?\n- Shipping the Signal App faster?\n- Building new passive income vehicles?\n- Reducing toil on OpenClaw maintenance?\n- Something else entirely?",
+  "userAnswer": "I think all those goals are good items to tackle, plan an implementation strategy for those items. ",
+  "answeredAt": "2026-02-21T15:53:16.213Z"
+}
