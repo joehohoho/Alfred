@@ -3,9 +3,9 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-02-19 (bootstrap)
-**Reflection count:** 0
-**Profile version:** 1.0
+**Last reflection:** 2026-02-20 (10:00 PM AST)
+**Reflection count:** 1
+**Profile version:** 1.1
 
 ---
 
@@ -117,13 +117,14 @@ Activity patterns and productivity windows.
 
 Ranked by recent activity (update frequently):
 
-1. **OpenClaw/Alfred ecosystem** — Daily, highest engagement
-2. **Command Center Dashboard** — Active development
-3. **Job Tracker** — Maintenance + automated code review
-4. **Stock/Crypto Signal App** — Early stage (market-signal-lab)
-5. **CoinUsUp** — Maintenance mode
-6. **Even Us Up** — Maintenance mode
-7. **Automation Consulting** — Active client work
+1. **OpenClaw/Alfred ecosystem** — Daily, highest engagement (Discord + iMessage integration complete Feb 18)
+2. **Command Center Dashboard** — Active development (Kanban board deployed Feb 20)
+3. **Personal hardware refresh** — Gaming PC search in progress (Feb 20)
+4. **Job Tracker** — Maintenance + automated code review
+5. **Stock/Crypto Signal App** — Early stage (market-signal-lab)
+6. **CoinUsUp** — Maintenance mode (no active goals)
+7. **Even Us Up** — Maintenance mode (no active goals)
+8. **Automation Consulting** — Deprioritized (no active goals)
 
 ---
 
@@ -167,21 +168,29 @@ Ranked by recent activity (update frequently):
 - Brief updates, not verbose reports
 - Surprises are welcome — overnight execution valued
 - Joe provides direction, not hand-holding
+- **Alfred should make implementation decisions autonomously** — "if there are no major concerns, go ahead and determine when is a good time to move ahead" (notif_1771399480963)
+- **Rejects speculative suggestions** — Joe wants actionable work with clear problems/solutions, not "you could explore if..." exploration
 
 ---
 
 ## Proactive Opportunity Map
 
-### Cross-Project Synergies
-- **Signal app + CoinUsUp:** Both involve financial data — shared API infrastructure? Market data feeds could serve both.
-- **Job Tracker + automation consulting:** Could Joe's consulting practice benefit from the job-tracking intelligence?
-- **Command Center as universal hub:** Already monitoring Alfred, but could expand to monitor all apps + their revenue/metrics.
-
 ### Identified Opportunities
-- (To be populated during reflection cycles)
+
+**🎮 Gaming PC as LLM Offloading Hub (EMERGING)**
+- Joe is actively shopping for a 12GB+ VRAM gaming PC on a strict budget
+- Initial assumption: gaming. But 12GB VRAM + interest in local LLM work + OpenClaw focus suggests this may be for running larger models locally (llama3.1:8b, etc.)
+- Opportunity: Once acquired, could set up as dedicated LLM compute node for all projects
+- Confidence: Medium (needs clarification from Joe)
+
+### Cross-Project Synergies (EXPLICITLY REJECTED)
+- **⚠️ NOTE:** Joe rejected all proposed synergies between Signal App/CoinUsUp, Job Tracker/consulting, and Command Center as universal hub (notif_1771605868238_53174470)
+- Meaning: Joe prefers focused, single-purpose projects over integrated platforms
+- **Learning:** Don't propose speculative synergies; wait for Joe to articulate his own integration ideas
 
 ### Shadow Goals to Watch
-- Monitor whether Joe's OpenClaw work starts shifting from "build Alfred" to "build a platform others could use" — the consulting background + the tooling sophistication suggests a potential productization path.
+- **Infrastructure-first mode:** Current work (Discord, iMessage, Kanban, gateway improvements) suggests Joe is building a robust personal operating system FIRST, before expanding to passive income apps. This is patient, strategic work.
+- **Autonomous Alfred:** The broader pattern is Joe testing whether Alfred can make good implementation decisions independently. Every "go ahead and implement" is gathering data on Alfred's autonomy threshold.
 
 ---
 
@@ -207,6 +216,10 @@ Last 10 observations, newest first. Older observations distill into sections abo
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
+| 2026-02-20 | Joe rejects speculative cross-project synergies; prefers focused, single-purpose projects | notif_1771605868238_53174470 (Daily Inquiry) | Yes |
+| 2026-02-20 | Gaming PC search (12GB+ VRAM, strict budget, open to used/refurbished) — possible LLM offloading use case | 2026-02-20-gaming-pc.md | Partial |
+| 2026-02-20 | Joe authorizes autonomous implementation decisions ("if no major concerns, go ahead and determine timing") | notif_1771399480963, notif_1771400770968 | Yes |
+| 2026-02-20 | Current focus shifted to infrastructure (Discord, iMessage, Kanban complete); passive income apps deferred | goals/goals.json, 2026-02-20.md daily | Yes |
 | 2026-02-19 | Bootstrap: Profile created from 106 notification Q&A pairs + USER.md + SOUL.md + Claude Code impressions | Initial analysis | Yes |
 
 ---
@@ -215,7 +228,7 @@ Last 10 observations, newest first. Older observations distill into sections abo
 
 | Metric | Value |
 |--------|-------|
-| Total reflections run | 0 |
-| Last reflection | 2026-02-19 (bootstrap) |
-| Observations distilled | 12 (bootstrap) |
-| Profile version | 1.0 |
+| Total reflections run | 1 |
+| Last reflection | 2026-02-20 22:00 AST |
+| Observations distilled | 16 |
+| Profile version | 1.1 |
