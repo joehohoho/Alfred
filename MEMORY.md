@@ -174,13 +174,15 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh "question" "Title" "Full
 - This posts to `http://localhost:3001/api/notifications`
 - Joe sees it in Command Center → Notifications page
 - Joe's answer is sent back to you via the gateway WebSocket automatically
-- Include ALL context Joe needs to respond (options, recommendation, data)
 - Optional `source` param (6th arg) tags the notification origin (e.g., `"daily-inquiry"`, `"code-review"`)
 - For task-specific questions, prefer Kanban blockers over notifications (see NOTIFICATION-ROUTING.md)
 
+**🚨 NOTIFICATION QUALITY RULE (Joe's directive, 2026-02-21):**
+Every `question` notification MUST include: (1) full context, (2) specific question, (3) at least 2 proposed options/solutions, (4) your recommendation with reasoning, (5) what happens if no response. **Never send a vague question. Never send a question without proposed solutions.** Joe hired you to think, not just ask. See NOTIFICATION-ROUTING.md "Notification Quality Standards" for checklist and examples.
+
 → See **NOTIFICATION-ROUTING.md** for full details, examples, and guidelines.
 
-*Added: 2026-02-19*
+*Updated: 2026-02-21*
 
 ---
 

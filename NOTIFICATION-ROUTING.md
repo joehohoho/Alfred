@@ -52,17 +52,61 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh \
 - Things you can figure out yourself (check SOUL.md — be resourceful first)
 - Confirming you completed a task (use Slack announcements)
 
-## What Makes a Good Notification
+## Notification Quality Standards (MANDATORY)
 
-**Include everything Joe needs to respond without looking anything up:**
-- What the question is about (context)
-- What the options are (if applicable)
-- Your recommendation (if you have one)
-- What happens if no response (timeout behavior)
-- Any relevant data (costs, file paths, error messages)
+**Joe regularly receives questions that are vague, missing context, or don't propose solutions. This is unacceptable.** Every notification must be self-contained — Joe should be able to read it and respond in under 30 seconds without looking anything up.
 
-**Bad:** "Should I update the app?"
-**Good:** "CoinUsUp has 3 pending dependency updates (react 18.3→18.4, supabase 2.40→2.43, tailwind 3.4→4.0). React and Supabase are minor/patch (safe). Tailwind 4.0 is a major version with breaking changes. Recommend: update React + Supabase now, defer Tailwind. Approve?"
+### Mandatory Checklist (ALL items required for `question` type)
+
+Before sending any `question` notification, verify it includes ALL of these:
+
+- [ ] **Context** — What is this about? What were you doing when this came up? Reference the specific project, file, or system.
+- [ ] **The specific question** — Not vague ("what should I do?") but precise ("should I use approach A or B?")
+- [ ] **Options/solutions** — Always propose at least 2 options. Never send a question without proposed answers.
+- [ ] **Your recommendation** — Pick one option and explain why. Joe hired you to think, not just ask.
+- [ ] **Impact of each option** — What are the trade-offs? Cost, time, risk, complexity.
+- [ ] **What happens if no response** — Will you wait? Use a default? Skip the task? State it explicitly.
+
+### Examples
+
+**BAD — Vague, no context, no solutions:**
+> "Should I update the app?"
+
+**BAD — Has context but no solutions or recommendation:**
+> "CoinUsUp has pending dependency updates. Some are major versions. What should I do?"
+
+**BAD — Too broad, asks Joe to do the thinking:**
+> "I'm working on the job tracker and ran into some issues with the scraper. How should I handle this?"
+
+**GOOD — Full context, options, recommendation, trade-offs:**
+> "CoinUsUp has 3 pending dependency updates (react 18.3→18.4, supabase 2.40→2.43, tailwind 3.4→4.0). React and Supabase are minor/patch (safe). Tailwind 4.0 is a major version with breaking changes that would require updating all className utilities.
+>
+> Options:
+> 1. Update all three now (~3hr work for Tailwind migration)
+> 2. Update React + Supabase now, defer Tailwind (15min, safe)
+> 3. Defer all updates until next sprint
+>
+> Recommendation: Option 2 — gets security patches now, avoids risky Tailwind migration.
+> If no response by tomorrow, I'll proceed with Option 2."
+
+**GOOD — Specific question with clear options:**
+> "The job tracker scraper is hitting a 403 on LinkedIn job listings (started today, was working yesterday). LinkedIn likely updated their bot detection.
+>
+> Options:
+> 1. Switch to LinkedIn's official API ($0, but requires OAuth app approval, ~1 week wait)
+> 2. Add rotating user-agent headers (30min fix, may break again)
+> 3. Drop LinkedIn, add ZipRecruiter instead (no auth needed, 30min, good coverage)
+>
+> Recommendation: Option 3 — most reliable long-term, ZipRecruiter has strong listings for your field.
+> If no response in 24hr, I'll implement Option 3."
+
+### Self-Check Before Sending
+
+Ask yourself these questions before calling `send-notification.sh`:
+1. **"Could Joe answer this in 30 seconds?"** — If not, add more context.
+2. **"Did I propose solutions?"** — If not, think harder. There's always at least 2 options.
+3. **"Did I pick a recommendation?"** — If not, make a decision. Joe can override.
+4. **"Would I be annoyed receiving this question?"** — If yes, rewrite it.
 
 ## How Joe Responds
 
