@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1771718990822_0529ff66",
+  "timestamp": "2026-02-22T00:09:50.822Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1771718479555_8d2d2c03",
+  "title": "Blocker on card",
+  "message": "Which OpenClaw components should I prioritize for maintenance?",
+  "userAnswer": "I need more details on what the components are",
+  "answeredAt": "2026-02-22T00:09:50.821Z"
+}

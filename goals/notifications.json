@@ -131,8 +131,10 @@
     "title": "Blocker on card",
     "message": "Which OpenClaw components should I prioritize for maintenance?",
     "taskId": "task_1771697316207_cc03d367",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-02-22T00:01:19.555Z",
-    "answeredAt": null
+    "answeredAt": "2026-02-22T00:09:50.821Z",
+    "userAnswer": "I need more details on what the components are",
+    "deliveryStatus": "sent"
   }
 ]
