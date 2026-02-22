@@ -26,14 +26,14 @@
   {
     "id": "task_1771697316207_cc03d367",
     "title": "OpenClaw Maintenance — Reduce Toil",
-    "description": "Audit top 5 time-sinks this month. Automate each with scripts/cron/dashboard. Target: 5+ hrs/week freed up by end Q1.",
+    "description": "Ongoing maintenance of OpenClaw infrastructure. Currently assessing priority areas.",
     "goalId": "",
     "status": "todo",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-21T18:08:36.207Z",
-    "updatedAt": "2026-02-21T18:08:36.207Z"
+    "updatedAt": "2026-02-22T00:01:58.274Z"
   },
   {
     "id": "task_1771697317377_f97ee464",

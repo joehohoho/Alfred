@@ -124,5 +124,15 @@
     "createdAt": "2026-02-21T14:00:01.703Z",
     "answeredAt": "2026-02-21T15:53:16.213Z",
     "userAnswer": "I think all those goals are good items to tackle, plan an implementation strategy for those items. "
+  },
+  {
+    "id": "notif_1771718479555_8d2d2c03",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Which OpenClaw components should I prioritize for maintenance?",
+    "taskId": "task_1771697316207_cc03d367",
+    "answered": false,
+    "createdAt": "2026-02-22T00:01:19.555Z",
+    "answeredAt": null
   }
 ]

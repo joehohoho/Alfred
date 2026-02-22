@@ -138,6 +138,34 @@ See FIGURE-IT-OUT.md for complete guidelines. Core principles:
 
 ---
 
+## Kanban Board Protocol (NEW - 2026-02-21)
+
+**The board is your task management interface.** Joe assigns work by dragging cards; you move cards as you work.
+
+### When you receive `[KANBAN-ASSIGNMENT]`:
+1. Parse the **card ID** (format: `goal_...` or `task_...`) from the message
+2. Move to in_progress: `bash ~/.openclaw/workspace/scripts/kanban-move.sh <CARD_ID> in_progress`
+3. **Do the work**
+4. When done: `bash ~/.openclaw/workspace/scripts/kanban-move.sh <CARD_ID> review`
+5. If blocked (need Joe's input): `bash ~/.openclaw/workspace/scripts/kanban-blocker.sh <CARD_ID> "Your question"`
+
+### When you receive `[KANBAN-UNBLOCK]`:
+1. Card is already back in `in_progress` (backend moved it)
+2. Parse Joe's answer from the message
+3. Resume work, then move to `review` when done
+
+### Script Reference
+
+| Script | Usage | Purpose |
+|--------|-------|---------|
+| `kanban-move.sh` | `<card_id> <column>` | Move card (columns: todo, in_progress, blocked, review, done) |
+| `kanban-blocker.sh` | `<card_id> <question>` | Block card + send question to Joe |
+| `kanban-update.sh` | `<card_id> <field> <value>` | Update card fields (title, description, priority) |
+
+All scripts at: `~/.openclaw/workspace/scripts/`
+
+---
+
 ## Claude Code Integration (NEW - 2026-02-13)
 
 **When I detect a coding task, use this decision tree:**

@@ -36,9 +36,11 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 | AGENTS.md size safeguard + overflow system | Infrastructure | 2026-02-20 | ✅ Implemented |
 | Market Signal Lab: 10 trading improvements | Feature | 2026-02-20 | ✅ Implemented |
 | MSL Command Center app + LaunchAgent + tunnel | Infrastructure | 2026-02-20 | ✅ Implemented |
+| Dashboard refresh.js (gateway status + stats.json) | Infrastructure | 2026-02-21 | ✅ Implemented |
+| Kanban board scripts (move, blocker, update) | Feature | 2026-02-21 | ✅ Implemented |
 
 **By Status:**
-- ✅ **Implemented:** 14
+- ✅ **Implemented:** 16
 - ⏳ **Pending Clarification:** 1 (mystery dashboard)
 - ⏸️ **Deferred:** 5 (Check 4 until 65%+ threshold, LanceDB upgrade, Calendar integration, Time Machine, etc.)
 
@@ -60,6 +62,7 @@ Quick reference to all memory files. **Load this first** (lightweight ~2k tokens
 
 | Date | Summary | Topics |
 |------|---------|--------|
+| 2026-02-21 | **Claude Code session (Opus 4.6):** Fixed dashboard "No data available" — created `~/.openclaw/dashboard/refresh.js` (queries gateway `status` method for sessions + reads `stats.json` for costs + reads `jobs.json` for crons, writes `data.json`). Fixed: wrong gateway methods (`node.list` returns clients not sessions, `usage.summary` doesn't exist), wrong scopes (`operator.read` → `operator.admin`), sessions from file not just gateway recent (47 sessions vs 6). Built kanban board automation scripts: `kanban-move.sh`, `kanban-blocker.sh`, `kanban-update.sh` — Alfred can now move cards through columns as he works. Updated AGENTS.md with Kanban Board Protocol. Cron bestEffort fix, manual Slack post delivery. | dashboard-fix, kanban-automation, cron-fix |
 | 2026-02-20 | **Claude Code sessions (Opus 4.6):** Gmail & Calendar integration for Command Center (full backend + frontend, 21 files), 4-layer memory continuity system (ACTIVE-TASK.md, LAST-SESSION.md, checkpoint cron, heartbeat updates), AGENTS.md size safeguard (extracted sections to satellites, AGENTS-EXTENDED.md overflow, agents-size-guard.sh daily monitor). Market Signal Lab: 10 major improvements (ADX regime filtering, multi-TF confirmation, vectorized strategies, 30+ ML features, trailing stops, short selling, vol-scaled sizing, alternative data, ATR-scaled target, 8 new indicators). Added MSL to Command Center apps, LaunchAgent (port 8002), Cloudflare tunnel (trading.my-alfred-ai.com). | google-integration, memory-continuity, agents-size-guard, market-signal-lab, trading-signals |
 | 2026-02-18 | **Full day maintenance via Claude Code (Opus 4.6):** AM: API auth fixes (Anthropic cooldown 3x), Ollama CPU 349%→0%, Codex OAuth fallback, cron re-tiering. PM: Command Center + Job Tracker LaunchAgents fixed, iMessage switched to native channel (zero cost), all cron jobs cleared, memory optimized (temporal decay disabled, context TTL 7d→30d), log rotation (freed 810MB), AGENTS.md/TOOLS.md deduped (both under 17K), 4 deprecated LaunchAgents removed, all workspace docs aligned with config to prevent drift. | api-auth, ollama-cpu, codex-oauth, imessage-native, memory-optimization, log-rotation, bootstrap-dedup, config-drift-prevention, launchagent-cleanup |
 | 2026-02-17 | **Full day:** Morning config audit (6 fixes), backup system (3-tier, $0), Ollama idle optimization (97% CPU savings), YouTube research (Super Memory/ClawRouter insights), Goals management system built (goals/, goal-analyzer.js, dashboard /goals). Tomorrow: pre-commit git hook. | config-audit, disaster-recovery, ollama-optimization, goals-system, youtube-research |

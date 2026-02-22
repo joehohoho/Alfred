@@ -220,6 +220,11 @@ The Kanban board is Alfred's primary task management interface. Cards are a **vi
 - `POST /api/kanban/:id/blocker` — Ask Joe a question (card moves to Blocked with message)
 - `PATCH /api/kanban/:id` — Update progress notes, description
 
+**Scripts:** Alfred uses these shell wrappers (in `~/.openclaw/workspace/scripts/`):
+- `kanban-move.sh <card_id> <column>` — Move card to column
+- `kanban-blocker.sh <card_id> <question>` — Block card with question for Joe
+- `kanban-update.sh <card_id> <field> <value>` — Update card fields (title, description, priority)
+
 ### Board → Alfred (Joe triggers work)
 When Joe drags a card to `todo` or `in_progress`:
 1. Frontend shows priority dialog: "Notify Alfred? [Urgent / Normal]"
