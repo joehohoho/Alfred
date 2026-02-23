@@ -36,6 +36,48 @@ Things like:
 
 ---
 
+## 🌦️ Weather Monitoring Job (Feb 23, 2026)
+
+**Status:** ✅ Implemented and deployed
+
+**Purpose:** Monitor Dieppe, NB weather (wttr.in + Open-Meteo) and alert to Slack #weather-alerts on significant precipitation
+
+**Schedule:** Every 2 hours, 7am-10pm AST weekdays. Stops after 10pm unless Joe requests update.
+
+**Alert Thresholds:**
+- ≥10mm rain in 48-hour forecast → alert
+- ≥10cm snow in 48-hour forecast → alert
+- Brief/light precipitation (<scattered showers) → no alert
+
+**Features:**
+- Dual-source verification (wttr.in + Open-Meteo for comparison)
+- School cancellation likelihood analysis (when ≥10cm snow expected)
+- Temperature-aware assessment (cold = higher school closure odds)
+- Single weekday morning update (7am) if alerts exist
+
+**Configuration:**
+- Location: Dieppe, New Brunswick (46.1°N, 64.75°W)
+- Slack channel: #weather-alerts
+- Webhook: Set `SLACK_WEBHOOK_URL` env var before loading LaunchAgent
+- Script: `scripts/weather-alerts.sh`
+- LaunchAgent: `com.alfred.weather-alerts` (in ~/Library/LaunchAgents)
+
+**To load:**
+```bash
+launchctl load ~/Library/LaunchAgents/com.alfred.weather-alerts.plist
+```
+
+**To test:**
+```bash
+bash ~/.openclaw/workspace/scripts/weather-alerts.sh
+```
+
+**Logs:**
+- stdout: `/var/log/weather-alerts.log`
+- stderr: `/var/log/weather-alerts-error.log`
+
+---
+
 ## 🏥 Ollama Guard System (NEW - Feb 18, 2026)
 
 **Problem:** Multiple tasks hitting ollama simultaneously causes timeouts and cascade failures.
