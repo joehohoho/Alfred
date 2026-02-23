@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-23T18:31:48.880Z",
-  "lastActivityType": "review-memory",
+  "lastActivityAt": "2026-02-23T19:02:46.275Z",
+  "lastActivityType": "workspace-check",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -26,8 +26,12 @@
     {
       "type": "review-memory",
       "dispatchedAt": "2026-02-23T18:31:48.880Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-02-23T19:02:46.275Z"
     }
   ],
-  "totalIdleDispatches": 6,
+  "totalIdleDispatches": 7,
   "cooldownMinutes": 25
 }

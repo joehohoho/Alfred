@@ -205,5 +205,47 @@
     "answered": false,
     "createdAt": "2026-02-23T17:50:55.670Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1771875999293_1a7ae36c",
+    "type": "kanban-action",
+    "title": "Card assigned: Signal App — Fast Track Launch",
+    "message": "Moved to todo (NORMAL - Queue for next slot) - Delivery confirmed",
+    "taskId": "task_1771697313875_722f22e4",
+    "answered": false,
+    "createdAt": "2026-02-23T19:46:39.293Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1771876006972_fbde3c48",
+    "type": "kanban-action",
+    "title": "Card assigned: Signal App — Fast Track Launch",
+    "message": "Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed",
+    "taskId": "task_1771697313875_722f22e4",
+    "answered": false,
+    "createdAt": "2026-02-23T19:46:46.972Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1771876028354_4054619b",
+    "type": "kanban-action",
+    "title": "Card assigned: Signal App — Fast Track Launch",
+    "message": "Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed",
+    "taskId": "task_1771697313875_722f22e4",
+    "answered": false,
+    "createdAt": "2026-02-23T19:47:08.354Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1771876150552_dab8f40a",
+    "type": "decision",
+    "title": "Signal App Phase 1 — Critical Decision Gate (Feb 24 Deadline)",
+    "message": "Architecture review complete. Real-time data pipeline is the critical path for Feb completion.\n\n**Your decision needed by EOD Monday Feb 24:**\n\n1. **Data Source Priority:**\n   - Option A: Kraken only (existing, free, ~720 candle limit)\n   - Option B: Binance only (new integration, higher liquidity, better for scale)\n   - Option C: Both (redundancy + max coverage, more complexity)\n   → Recommend: Start with Kraken (2-3h), add Binance later (6h) if needed\n\n2. **Paper Trading Behavior:**\n   - Option A: Manual approval (Joe reviews signals in Command Center, approves execution)\n   - Option B: Auto-execute (signals → automatically executed in paper trading account)\n   → Recommend: Auto-execute (safer for dry-run, real data for March UI)\n\n3. **Signal Frequency:**\n   - Option A: Every 5 minutes (highest responsiveness, CPU cost)\n   - Option B: Every 15 minutes (good balance, matches market-maker intervals)\n   - Option C: Every 1 hour (conservative, batch-style)\n   → Recommend: 15 minutes (standard for intraday trading)\n\n4. **Risk Tolerance:**\n   - Option A: Conservative (2% max daily loss, 10% max position size)\n   - Option B: Balanced (3% daily loss, 15% max position)\n   - Option C: Aggressive (5% daily loss, 20% max position)\n   → Recommend: Conservative (beta testing phase)\n\n**Timeline:**\n- Mon 24: Real-time data pipeline (3-6h)\n- Tue 25: Signal generation + dispatch (4-6h)\n- Wed 26: Paper trading UI (3-4h)\n- Thu 27: Risk safety layer (2-3h)\n- Fri 28: Testing + refinement (2-3h)\n\n**Impact if delayed:**\n- No decision by EOD Mon 24 → Slides timeline to Tue 25-Mar 1\n- Each hour delayed costs ~1% of implementation time\n\nSee SIGNAL-APP-PHASE1-PLAN.md for full breakdown + contingencies.\n\nWhat are your preferences?",
+    "goalId": "task_1771697313875_722f22e4",
+    "taskId": "phase1-decision-gate",
+    "source": "signal-app-launch",
+    "answered": false,
+    "createdAt": "2026-02-23T19:49:10.552Z",
+    "answeredAt": null
   }
 ]
