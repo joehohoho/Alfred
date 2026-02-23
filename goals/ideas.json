@@ -359,5 +359,33 @@
     ],
     "createdAt": "2026-02-21T20:00:00.000Z",
     "updatedAt": "2026-02-21T20:00:00.000Z"
+  },
+  {
+    "id": "idea_1771864340432_signal_data_api",
+    "title": "Signal App Data Feed API",
+    "description": "Package the market signal detection logic from the Signal App as a JSON/WebSocket API. Sell data feeds to other traders, trading bots, and trading platforms. Low maintenance (data already generated as part of Signal App development), recurring revenue model, minimal incremental effort. Potential customers: retail traders, prop trading firms, crypto funds, algo trading communities.",
+    "category": "passive-income",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "high",
+    "revenueModel": "Tiered API pricing: $99/mo (basic tier), $299/mo (pro tier with webhooks), $999+/mo (enterprise)",
+    "synergies": [
+      "Signal App",
+      "market-signal-lab",
+      "trading-expertise"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "saas",
+      "api",
+      "data-product",
+      "signal-app-leverage",
+      "recurring-revenue",
+      "low-maintenance"
+    ],
+    "createdAt": "2026-02-23T16:32:20.432Z",
+    "updatedAt": "2026-02-23T16:32:20.433Z"
   }
 ]
