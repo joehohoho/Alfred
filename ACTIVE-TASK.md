@@ -8,24 +8,45 @@
 
 ## Current Task
 
-**Status:** idle
-**Started:** —
-**Last Updated:** —
+**Status:** in_progress
+**Started:** 2026-02-23 15:46
+**Last Updated:** 2026-02-23 15:46
 
 ### Objective
-_(none)_
+**Signal App — Fast Track Launch** (task_1771697313875_722f22e4)
+
+Accelerate market signal detection app to live trading by early April. Three-phase timeline: architecture (Feb), UI/integration (Mar), beta/refinement (Apr).
 
 ### Plan
-_(none)_
+1. **Phase 1 (Feb 23-28):** Finalize architecture + data pipeline
+   - Review current market-signal-lab design
+   - Confirm data sources (Binance, crypto exchanges, macroeconomic indicators)
+   - Validate ML feature set
+   - Ensure backtesting framework ready
+2. **Phase 2 (Mar):** Build UI + integrate market data + backtesting
+   - Frontend (React) for signal dashboard
+   - Real-time market data ingestion
+   - Backtesting engine integration
+   - Performance testing
+3. **Phase 3 (Apr):** Beta + refinement
+   - Beta user testing
+   - Safety/edge case fixes
+   - Go live with trading signals
 
 ### Progress
-_(none)_
+_(Starting)_
 
 ### Next Step
-_(none)_
+1. Read market-signal-lab current state (codebase review)
+2. List data sources and confirm availability
+3. Assess ML feature readiness
+4. Create detailed Feb phase checklist
 
 ### Context Needed
-_(none)_
+- market-signal-lab repo state (`/Users/hopenclaw/market-signal-lab/`)
+- Current backtesting engine status
+- Data pipeline progress
+- Joe's target metrics for "live trading ready"
 
 ### Pending Questions
 <!-- PENDING-Q-START -->
