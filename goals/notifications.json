@@ -160,5 +160,25 @@
     "answeredAt": "2026-02-22T15:00:59.872Z",
     "userAnswer": "I don’t mind questions if it’s information you haven’t received or there are additional questions needed to properly complete a task.  But before asking you should make sure it hasn’t been discussed previously.  If you basically know the answer but just want to confirm then it’s not necessary to ask.  Ask questions if there could be major changes, security risks, missing important information to properly complete a task. The key is that you act as autonomously as possible without having to ask questions for simple questions that could be answered by making some effort to find the answers or questions which you will most likely already know my answer. Though since this topic is hard to clearly set rules on, feel free to ask questions to help clarify this topic better and improve what questions are ask for future task",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1771820878417_e8abdb84",
+    "type": "alert",
+    "title": "Delivery failed: Revenue Growth — CoinUsUp + Even Us Up",
+    "message": "Could not deliver assignment to Alfred after 2 attempts. Error: Gateway connection closed. Card is in in_progress but Alfred may not know about it.",
+    "taskId": "task_1771697312744_e31f4023",
+    "answered": false,
+    "createdAt": "2026-02-23T04:27:58.417Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1771820878426_4135fc60",
+    "type": "kanban-action",
+    "title": "Card assigned: Consulting Work — Keep Revenue Stable",
+    "message": "Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed",
+    "taskId": "task_1771697317377_f97ee464",
+    "answered": false,
+    "createdAt": "2026-02-23T04:27:58.426Z",
+    "answeredAt": null
   }
 ]

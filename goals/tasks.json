@@ -4,47 +4,53 @@
     "title": "Revenue Growth — CoinUsUp + Even Us Up",
     "description": "Audit metrics (MAU, retention, churn, revenue/user). Identify high-ROI improvements (onboarding, pricing, features). 10% of dev time ongoing. Target: +15% revenue by end Q1.",
     "goalId": "",
-    "status": "todo",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-23T04:27:56.483Z",
     "createdAt": "2026-02-21T18:08:32.744Z",
-    "updatedAt": "2026-02-21T18:08:32.744Z"
+    "updatedAt": "2026-02-23T04:27:58.418Z",
+    "assignedAt": "2026-02-23T04:27:58.418Z",
+    "deliveryStatus": "failed",
+    "deliveryMessageId": null
   },
   {
     "id": "task_1771697313875_722f22e4",
     "title": "Signal App — Fast Track Launch",
     "description": "Feb: finalize architecture + data pipeline. Mar: build UI + integrate market data + backtesting. Apr: beta + refinement. Target: live trading signals by early April.",
     "goalId": "",
-    "status": "in_progress",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-23T04:27:56.325Z",
     "createdAt": "2026-02-21T18:08:33.875Z",
-    "updatedAt": "2026-02-22T10:49:18.796Z"
+    "updatedAt": "2026-02-23T04:27:56.325Z"
   },
   {
     "id": "task_1771697316207_cc03d367",
     "title": "OpenClaw Maintenance — Reduce Toil",
     "description": "Ongoing maintenance of OpenClaw infrastructure. Currently assessing priority areas.",
     "goalId": "",
-    "status": "todo",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-23T04:27:56.376Z",
     "createdAt": "2026-02-21T18:08:36.207Z",
-    "updatedAt": "2026-02-22T00:01:58.274Z"
+    "updatedAt": "2026-02-23T04:27:56.376Z"
   },
   {
     "id": "task_1771697317377_f97ee464",
     "title": "Consulting Work — Keep Revenue Stable",
     "description": "Maintain current load (no growth, no shrink). Use projects as research for productization ideas.",
     "goalId": "",
-    "status": "todo",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-23T04:27:56.433Z",
     "createdAt": "2026-02-21T18:08:37.377Z",
-    "updatedAt": "2026-02-21T18:08:37.377Z"
+    "updatedAt": "2026-02-23T04:27:58.427Z",
+    "assignedAt": "2026-02-23T04:27:58.427Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "e02cf141-c42c-464e-bfdb-40ee9be5eb8e"
   }
 ]
