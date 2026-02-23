@@ -16,12 +16,12 @@
     "title": "Signal App — Fast Track Launch",
     "description": "Feb: finalize architecture + data pipeline. Mar: build UI + integrate market data + backtesting. Apr: beta + refinement. Target: live trading signals by early April.",
     "goalId": "",
-    "status": "todo",
+    "status": "in_progress",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-21T18:08:33.875Z",
-    "updatedAt": "2026-02-21T18:08:33.875Z"
+    "updatedAt": "2026-02-22T10:49:18.796Z"
   },
   {
     "id": "task_1771697316207_cc03d367",

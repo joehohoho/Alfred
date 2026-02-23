@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1771772512744_6f5189f6",
+  "timestamp": "2026-02-22T15:01:52.744Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1771758003622_67a8f632",
+  "title": "⚠️ AGENTS.md Size Warning",
+  "message": "AGENTS.md is at 17093/20000 chars (85%). Approaching the 20,000 char limit. New critical info should go in AGENTS-EXTENDED.md. Consider extracting the largest section to a satellite file.",
+  "userAnswer": "Wait until it hits 93% and we can revisit this. ",
+  "answeredAt": "2026-02-22T15:01:52.743Z"
+}

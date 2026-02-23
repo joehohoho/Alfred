@@ -136,5 +136,29 @@
     "answeredAt": "2026-02-22T00:09:50.821Z",
     "userAnswer": "I need more details on what the components are",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1771758003622_67a8f632",
+    "type": "question",
+    "title": "⚠️ AGENTS.md Size Warning",
+    "message": "AGENTS.md is at 17093/20000 chars (85%). Approaching the 20,000 char limit. New critical info should go in AGENTS-EXTENDED.md. Consider extracting the largest section to a satellite file.",
+    "source": "agents-size-guard",
+    "answered": true,
+    "createdAt": "2026-02-22T11:00:03.622Z",
+    "answeredAt": "2026-02-22T15:01:52.743Z",
+    "userAnswer": "Wait until it hits 93% and we can revisit this. ",
+    "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1771768800191_7445de61",
+    "type": "question",
+    "title": "Where am I still asking you questions I shouldn't?",
+    "message": "You've told me: 'be resourceful before asking' and 'I can't' isn't vocabulary. I'm genuinely trying to exhaust options before bothering you.\n\nBut I may still be creating friction. Are there specific types of questions where:\n- I should just make the decision and tell you after?\n- I'm missing context I could easily find myself?\n- I'm asking the same thing in different ways?\n\nI want notifications to be high-signal only.",
+    "source": "daily-inquiry",
+    "answered": true,
+    "createdAt": "2026-02-22T14:00:00.191Z",
+    "answeredAt": "2026-02-22T15:00:59.872Z",
+    "userAnswer": "I don’t mind questions if it’s information you haven’t received or there are additional questions needed to properly complete a task.  But before asking you should make sure it hasn’t been discussed previously.  If you basically know the answer but just want to confirm then it’s not necessary to ask.  Ask questions if there could be major changes, security risks, missing important information to properly complete a task. The key is that you act as autonomously as possible without having to ask questions for simple questions that could be answered by making some effort to find the answers or questions which you will most likely already know my answer. Though since this topic is hard to clearly set rules on, feel free to ask questions to help clarify this topic better and improve what questions are ask for future task",
+    "deliveryStatus": "sent"
   }
 ]
