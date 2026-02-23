@@ -4,7 +4,7 @@
     "title": "Automation Templates Marketplace",
     "description": "Package Joe's automation consulting knowledge into reusable templates and workflows sold as digital products. Could include: LaunchAgent templates, cron job configurations, data transformation scripts, Slack bot setups, monitoring dashboards. Low effort per unit ($10-50 each), infinite scalability. Use Gumroad or Lemon Squeezy for distribution. Each consulting engagement could generate a template as a byproduct.",
     "category": "passive-income",
-    "status": "new",
+    "status": "evaluated",
     "source": "claude-code",
     "effort": "low",
     "potential": "medium",
@@ -13,7 +13,10 @@
       "automation-consulting",
       "OpenClaw"
     ],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.7,
+      "notes": "Strong passive income candidate with proven expertise edge. Can be byproduct of consulting engagements. Infinite scalability via digital distribution. Main challenge: differentiate via consulting experience + bundle/community angle."
+    },
     "promotedToGoalId": null,
     "tags": [
       "digital-products",
@@ -22,7 +25,7 @@
       "consulting-byproduct"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
+    "updatedAt": "2026-02-23T11:42:00.000Z"
   },
   {
     "id": "idea_1771538400004_evenusup_b2b",

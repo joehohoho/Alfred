@@ -7,7 +7,8 @@
     "answered": true,
     "createdAt": "2026-02-18T04:51:45.276Z",
     "answeredAt": "2026-02-18T05:08:44.455Z",
-    "userAnswer": "1. Goals\n2. Hourly is ok.\n3. Be proactive in finding out new solutions or tools to use."
+    "userAnswer": "1. Goals\n2. Hourly is ok.\n3. Be proactive in finding out new solutions or tools to use.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771397718421_hiipz3vbo",
@@ -18,7 +19,8 @@
     "answered": true,
     "createdAt": "2026-02-18T06:55:18.421Z",
     "answeredAt": "2026-02-18T07:23:49.448Z",
-    "userAnswer": "This was just a test and doesn't need any further discussion"
+    "userAnswer": "This was just a test and doesn't need any further discussion",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771398291802_2p2zqcdem",
@@ -29,7 +31,8 @@
     "answered": true,
     "createdAt": "2026-02-18T07:04:51.802Z",
     "answeredAt": "2026-02-18T07:24:12.677Z",
-    "userAnswer": "You need to provide me with the discord plan so that I can review it."
+    "userAnswer": "You need to provide me with the discord plan so that I can review it.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771399480963_55y5cqxco",
@@ -39,7 +42,8 @@
     "answered": true,
     "createdAt": "2026-02-18T07:24:40.963Z",
     "answeredAt": "2026-02-18T07:33:43.688Z",
-    "userAnswer": "The plan looks good, if there are no major concerns or items that need my decision then go ahead and implement a plan and determine when is a good time to move ahead."
+    "userAnswer": "The plan looks good, if there are no major concerns or items that need my decision then go ahead and implement a plan and determine when is a good time to move ahead.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771400167582_kwbjgsea2",
@@ -50,7 +54,8 @@
     "answered": true,
     "createdAt": "2026-02-18T07:36:07.582Z",
     "answeredAt": "2026-02-18T07:45:57.518Z",
-    "userAnswer": "I don't have anything to review."
+    "userAnswer": "I don't have anything to review.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771400175659_p1qa4wuao",
@@ -60,7 +65,8 @@
     "answered": true,
     "createdAt": "2026-02-18T07:36:15.659Z",
     "answeredAt": "2026-02-18T07:45:31.820Z",
-    "userAnswer": "I don't have any detail on which Goal you're missing information on so I can't answer these questions."
+    "userAnswer": "I don't have any detail on which Goal you're missing information on so I can't answer these questions.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771400770968_zrwbwror9",
@@ -70,7 +76,8 @@
     "answered": true,
     "createdAt": "2026-02-18T07:46:10.968Z",
     "answeredAt": "2026-02-18T07:49:17.581Z",
-    "userAnswer": "Go ahead with Phase 1, the goal is to keep token count low.  Reduce the load on the CPU, have as close as possible to real time.  Think outside the box and if a coding solution can be an improvement it's not an issue."
+    "userAnswer": "Go ahead with Phase 1, the goal is to keep token count low.  Reduce the load on the CPU, have as close as possible to real time.  Think outside the box and if a coding solution can be an improvement it's not an issue.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771401025186_u7z72afvw",
@@ -80,7 +87,8 @@
     "answered": true,
     "createdAt": "2026-02-18T07:50:25.186Z",
     "answeredAt": "2026-02-18T07:53:21.987Z",
-    "userAnswer": "Go ahead with Option 1 "
+    "userAnswer": "Go ahead with Option 1 ",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771402649417_897xsvo65",
@@ -92,7 +100,8 @@
     "createdAt": "2026-02-18T08:17:29.417Z",
     "answeredAt": "2026-02-18T08:19:00.000Z",
     "userAnswer": "Test goal with directive 'mark complete once read' - executed per GOAL-INTAKE-POLICY, TYPE A (Self-Contained Directive). No notification sent.",
-    "processingNote": "GOAL-INTAKE-POLICY implemented - future test goals with clear directives will be handled silently"
+    "processingNote": "GOAL-INTAKE-POLICY implemented - future test goals with clear directives will be handled silently",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771403277638_discord_phase1",
@@ -102,7 +111,8 @@
     "answered": true,
     "createdAt": "2026-02-18T08:27:57.638Z",
     "userAnswer": "It's setup, the invite URL is: https://discord.com/oauth2/authorize?client_id=Y 1473608734772301824&scope=bot+applications.commands&permissions=277025704960\nThe server ID is: 1473610337529102349\ngeneral channel ID is: 1473610338543996982\nupdates channel ID is: 1473611295235510426\n\nAs for the token leave a place for me to enter it in the .env file\n\nIf you need anything else setup or info that is missing let me know.",
-    "answeredAt": "2026-02-18T09:28:06.423Z"
+    "answeredAt": "2026-02-18T09:28:06.423Z",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771605868238_53174470",
@@ -112,7 +122,8 @@
     "answered": true,
     "createdAt": "2026-02-20T16:44:28.238Z",
     "answeredAt": "2026-02-20T18:28:06.231Z",
-    "userAnswer": "None of these are worth following up on."
+    "userAnswer": "None of these are worth following up on.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771682401703_36df658b",
@@ -123,7 +134,8 @@
     "answered": true,
     "createdAt": "2026-02-21T14:00:01.703Z",
     "answeredAt": "2026-02-21T15:53:16.213Z",
-    "userAnswer": "I think all those goals are good items to tackle, plan an implementation strategy for those items. "
+    "userAnswer": "I think all those goals are good items to tackle, plan an implementation strategy for those items. ",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771718479555_8d2d2c03",
@@ -162,23 +174,13 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1771820878417_e8abdb84",
-    "type": "alert",
-    "title": "Delivery failed: Revenue Growth — CoinUsUp + Even Us Up",
-    "message": "Could not deliver assignment to Alfred after 2 attempts. Error: Gateway connection closed. Card is in in_progress but Alfred may not know about it.",
-    "taskId": "task_1771697312744_e31f4023",
+    "id": "notif_1771855200170_57aa55c4",
+    "type": "question",
+    "title": "What's your actual passive income target?",
+    "message": "You mention building passive income as goal #2 (after family). But I don't know the specifics:\n\n- Revenue target per month? (gives me something to optimize toward)\n- Which app should be the cash cow? (CoinUsUp, Even Us Up, Signal App, or something new?)\n- How much of your week do you want to spend maintaining vs. building new?\n- What's the definition of 'passive' — zero touch, or 5 hrs/week maintenance is fine?\n\nThis would help me make better recommendations about what to build and what to prioritize.",
+    "source": "daily-inquiry",
     "answered": false,
-    "createdAt": "2026-02-23T04:27:58.417Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1771820878426_4135fc60",
-    "type": "kanban-action",
-    "title": "Card assigned: Consulting Work — Keep Revenue Stable",
-    "message": "Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed",
-    "taskId": "task_1771697317377_f97ee464",
-    "answered": false,
-    "createdAt": "2026-02-23T04:27:58.426Z",
+    "createdAt": "2026-02-23T14:00:00.170Z",
     "answeredAt": null
   }
 ]

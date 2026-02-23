@@ -1,12 +1,17 @@
 {
-  "lastActivityAt": "2026-02-23T04:27:59.946Z",
-  "lastActivityType": "profile-reflection",
+  "lastActivityAt": "2026-02-23T15:42:54.676Z",
+  "lastActivityType": "evaluate-idea",
   "recentActivities": [
     {
       "type": "profile-reflection",
       "dispatchedAt": "2026-02-23T04:27:59.946Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-02-23T15:42:54.676Z",
+      "ideaId": "idea_1771538400003_automation_templates"
     }
   ],
-  "totalIdleDispatches": 1,
-  "cooldownMinutes": 45
+  "totalIdleDispatches": 2,
+  "cooldownMinutes": 25
 }
