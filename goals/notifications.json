@@ -184,5 +184,14 @@
     "answeredAt": "2026-02-23T15:47:45.068Z",
     "userAnswer": "- As a starting goal, I'd like to aim for $5000-$10,000 a month then continue growing from there.\n- I'm hoping that CoinUsUp will be the number one revenue generator then Signal App and then maybe Even Us Up.\n- I'd like 5-10hrs a week maintaining then 10-20hrs building new features and ideas.\n- Passive would be the least amount of effort required generating income, 5hrs a week sounds reasonable.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1771867896865_1f2f5063",
+    "type": "weather-setup-answers",
+    "title": "Weather Alert Job — Joe's Answers to Your Questions",
+    "message": "Joe answered your 4 clarification questions for the weather monitoring job:\n\n**1. Data source:** Use BOTH wttr.in and Open-Meteo (both free). Compare them and determine if there are differences between the two.\n\n**2. Precipitation threshold:** Alert on anything MORE than scattered showers or flurries lasting less than an hour. Don't alert for brief/light precipitation.\n\n**3. After 10pm behavior:** Stop checks after 10pm unless Joe asks for an update in Slack #weather-alerts. On weekdays, if there's anything to notify about, send ONE update at 7am.\n\n**4. Forecast window:** 48 hours ahead. Alert thresholds: >=10mm rain OR >=10cm snow.\n\n**BONUS — School cancellation analysis:** When a reasonable amount of snow is expected, do a quick analysis of the chances of school being cancelled.\n\n**Location:** Dieppe, New Brunswick, Canada\n**Slack channel:** #weather-alerts\n**Timezone:** America/Moncton",
+    "answered": false,
+    "createdAt": "2026-02-23T17:31:36.865Z",
+    "answeredAt": null
   }
 ]

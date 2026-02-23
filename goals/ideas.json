@@ -387,5 +387,34 @@
     ],
     "createdAt": "2026-02-23T16:32:20.432Z",
     "updatedAt": "2026-02-23T16:32:20.433Z"
+  },
+  {
+    "id": "idea_1771903200001_lawfirm_billing",
+    "title": "Legal Billing Software for Small Law Firms",
+    "description": "Vertical SaaS targeting 2-50 attorney law firms. Joe's 20-year background in legal billing + data transformation is a rare edge. Core features: time tracking by matter/client, automated billing (with UTBMS codes), trust account management, client portal, invoice generation, compliance templates (state bar requirements), integration with practice management systems. Law firms have high willingness to pay ($150-300/mo per seat) and low tolerance for switching costs. Expand to: invoice templates by state, bar compliance alerts, revenue recognition per ASC 606, integrations with QuickBooks/Wave.",
+    "category": "passive-income",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "SaaS: $199/mo (starter, 1-5 attorneys) + $49/mo per additional seat, premium tier $399/mo (with integrations + compliance)",
+    "synergies": [
+      "20-year legal billing expertise",
+      "Even Us Up (expense logic reuse)",
+      "consulting experience"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "saas",
+      "vertical-saas",
+      "legal-tech",
+      "recurring-revenue",
+      "high-margin",
+      "domain-expertise",
+      "professional-services"
+    ],
+    "createdAt": "2026-02-23T17:31:00.000Z",
+    "updatedAt": "2026-02-23T17:31:00.000Z"
   }
 ]
