@@ -131,10 +131,36 @@ Ranked by recent activity (update frequently):
 ## Aspirations & Vision
 
 ### Stated Goals
-- Build passive income apps
+- Build passive income apps ($5k-$10k/month target, growing from there)
 - Be more efficient with tedious tasks
 - Have Alfred assist with coding/app ideas
 - Stay on top of everything
+
+### Passive Income Strategy (CONCRETE TARGETS)
+**Revenue Targets:**
+- Initial goal: $5k-$10k/month
+- Growth: continue scaling beyond that
+
+**App Revenue Hierarchy (in priority order):**
+1. **CoinUsUp** — primary cash cow
+2. **Signal App** (Stock/Crypto market signals) — secondary revenue
+3. **Even Us Up** — tertiary (lowest priority)
+
+**Time Allocation (Weekly):**
+- Maintenance: 5-10 hrs/week (keep systems running with minimal touch)
+- New features/building: 10-20 hrs/week (growth work)
+- Total: 15-30 hrs/week commitment to passive income projects
+
+**Definition of "Passive":**
+- Minimal effort required once built
+- 5 hrs/week maintenance is acceptable baseline
+- System should generate income with low ongoing effort
+
+**Implication for Alfred:**
+- Prioritize automation and operational excellence for existing apps (maintenance → closer to 5 hrs/week, not 10)
+- Focus recommendation/build suggestions on CoinUsUp and Signal App
+- Ideas that fit 5-10 hrs/week maintenance profile are good bets
+- Avoid high-maintenance or fragile-system recommendations
 
 ### Shadow Goals (inferred, not yet articulated)
 - **Full automation of personal infrastructure:** The OpenClaw setup IS the vision — Joe is building toward a system where Alfred handles everything autonomously. Each new feature (Discord, iMessage, notifications, goals) extends this. | Confidence: medium
