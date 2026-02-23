@@ -29,7 +29,8 @@ _(none)_
 
 ### Pending Questions
 <!-- PENDING-Q-START -->
-_(none)_
+- **Refresh OpenAI Codex OAuth Token** (_alert_, Feb 23 17:50)
+  ID: `notif_1771869055670_040cd81d` — The Codex OAuth token expires Feb 28 at 3:42 PM. Run: openclaw configure --section model → select openai-codex → re-auth OAuth flow. If not refreshed,...
 <!-- PENDING-Q-END -->
 
 ---
