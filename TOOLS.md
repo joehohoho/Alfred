@@ -50,31 +50,68 @@ Things like:
 - Brief/light precipitation (<scattered showers) → no alert
 
 **Features:**
-- Dual-source verification (wttr.in + Open-Meteo for comparison)
+- Dual-source verification (wttr.in JSON + Open-Meteo API for comparison)
 - School cancellation likelihood analysis (when ≥10cm snow expected)
-- Temperature-aware assessment (cold = higher school closure odds)
+- Temperature-aware assessment (cold + wind = higher school closure odds)
 - Single weekday morning update (7am) if alerts exist
+- After 10pm: stop checks unless Joe requests update in #weather-alerts
 
 **Configuration:**
-- Location: Dieppe, New Brunswick (46.1°N, 64.75°W)
-- Slack channel: #weather-alerts
-- Webhook: Set `SLACK_WEBHOOK_URL` env var before loading LaunchAgent
-- Script: `scripts/weather-alerts.sh`
-- LaunchAgent: `com.alfred.weather-alerts` (in ~/Library/LaunchAgents)
+- Location: Dieppe, New Brunswick (46.099°N, 64.682°W)
+- Slack channel: #weather-alerts (ID: C0AHET5GMUY, added to gateway allowlist)
+- wttr.in: `curl -s "wttr.in/Dieppe,NB?format=j1"` (JSON format for parsing)
+- Open-Meteo: `https://api.open-meteo.com/v1/forecast?latitude=46.0988&longitude=-64.6819&hourly=temperature_2m,apparent_temperature,snowfall,precipitation,windspeed_10m,windgusts_10m,winddirection_10m,weathercode&timezone=America/Moncton&forecast_days=3`
 
-**To load:**
-```bash
-launchctl load ~/Library/LaunchAgents/com.alfred.weather-alerts.plist
+**Required Alert Format (ALL alerts must follow this):**
 ```
+🌨️ *Weather Alert — [Type] (Dieppe, NB)*
+
+*Current Conditions:* [temp]°C (feels [feels]°C) | Wind: [speed] km/h [dir] | [description]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 *Snowfall/Rainfall Timeline (Open-Meteo + wttr.in)*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+*[Day 1 — date]:*
+• [time range]: [intensity] ([rate] cm/hr or mm/hr)
+• [time range]: [intensity] ([rate] cm/hr or mm/hr)
+• *Day total: [X] cm/mm* (source)
+
+*[Day 2 — date]:*
+• [same hourly breakdown]
+• *Day total: [X] cm/mm*
+
+*Combined total: [range]* (Open-Meteo: X, wttr.in: Y)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🌬️ *Wind & Temperature*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Winds: [sustained] km/h, *gusts up to [max] km/h*
+• Temperature: [range]
+• Wind chill: [range]
+• Visibility: [assessment]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏫 *School Cancellation Analysis* (snow only, when ≥10cm)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+• *Likelihood: [LOW/MODERATE/HIGH]*
+• [total accumulation] with [wind conditions]
+• [road condition assessment]
+• Anglophone East / Francophone Sud typically cancel at 15+ cm with high winds
+• Decision usually announced by 6 AM on radio/district website
+```
+
+**Key rules:**
+- Always show FULL hourly timeline of precipitation, not just peak hours
+- Always include wind speed, gusts, AND wind chill
+- Always compare both sources (Open-Meteo tends to be more accurate for timing; wttr.in often gives higher totals)
+- School cancellation analysis required for ≥10cm snow events
+- Format as Slack mrkdwn (bold with *, not **)
 
 **To test:**
 ```bash
 bash ~/.openclaw/workspace/scripts/weather-alerts.sh
 ```
-
-**Logs:**
-- stdout: `/var/log/weather-alerts.log`
-- stderr: `/var/log/weather-alerts-error.log`
 
 ---
 
