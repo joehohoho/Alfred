@@ -195,5 +195,15 @@
     "answeredAt": "2026-02-23T17:42:09.038Z",
     "userAnswer": "that is accurate, make sure it's implemented",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1771869055670_040cd81d",
+    "type": "alert",
+    "title": "Refresh OpenAI Codex OAuth Token",
+    "message": "The Codex OAuth token expires Feb 28 at 3:42 PM. Run: openclaw configure --section model → select openai-codex → re-auth OAuth flow. If not refreshed, gateway will failover to Anthropic (no downtime but loses free Codex tier).",
+    "source": "manual-reminder",
+    "answered": false,
+    "createdAt": "2026-02-23T17:50:55.670Z",
+    "answeredAt": null
   }
 ]

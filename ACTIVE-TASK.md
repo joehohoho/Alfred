@@ -29,8 +29,7 @@ _(none)_
 
 ### Pending Questions
 <!-- PENDING-Q-START -->
-- **Weather Alert Job — Joe's Answers to Your Questions** (_weather-setup-answers_, Feb 23 17:31)
-  ID: `notif_1771867896865_1f2f5063` — Joe answered your 4 clarification questions for the weather monitoring job:  **1. Data source:** Use BOTH wttr.in and Open-Meteo (both free). Compare ...
+_(none)_
 <!-- PENDING-Q-END -->
 
 ---
