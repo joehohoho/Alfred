@@ -93,6 +93,18 @@ Accelerate market signal detection app to live trading by early April. Three-pha
 <!-- PENDING-Q-START -->
 - **Refresh OpenAI Codex OAuth Token** (_alert_, Feb 23 17:50)
   ID: `notif_1771869055670_040cd81d` — The Codex OAuth token expires Feb 28 at 3:42 PM. Run: openclaw configure --section model → select openai-codex → re-auth OAuth flow. If not refreshed,...
+
+- **Card assigned: Signal App — Fast Track Launch** (_kanban-action_, Feb 23 19:46)
+  ID: `notif_1771875999293_1a7ae36c` — Moved to todo (NORMAL - Queue for next slot) - Delivery confirmed
+
+- **Card assigned: Signal App — Fast Track Launch** (_kanban-action_, Feb 23 19:46)
+  ID: `notif_1771876006972_fbde3c48` — Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed
+
+- **Card assigned: Signal App — Fast Track Launch** (_kanban-action_, Feb 23 19:47)
+  ID: `notif_1771876028354_4054619b` — Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed
+
+- **Signal App Phase 1 — Critical Decision Gate (Feb 24 Deadline)** (_decision_, Feb 23 19:49)
+  ID: `notif_1771876150552_dab8f40a` — Architecture review complete. Real-time data pipeline is the critical path for Feb completion.  **Your decision needed by EOD Monday Feb 24:**  1. **D...
 <!-- PENDING-Q-END -->
 
 ---
