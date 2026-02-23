@@ -190,8 +190,10 @@
     "type": "weather-setup-answers",
     "title": "Weather Alert Job — Joe's Answers to Your Questions",
     "message": "Joe answered your 4 clarification questions for the weather monitoring job:\n\n**1. Data source:** Use BOTH wttr.in and Open-Meteo (both free). Compare them and determine if there are differences between the two.\n\n**2. Precipitation threshold:** Alert on anything MORE than scattered showers or flurries lasting less than an hour. Don't alert for brief/light precipitation.\n\n**3. After 10pm behavior:** Stop checks after 10pm unless Joe asks for an update in Slack #weather-alerts. On weekdays, if there's anything to notify about, send ONE update at 7am.\n\n**4. Forecast window:** 48 hours ahead. Alert thresholds: >=10mm rain OR >=10cm snow.\n\n**BONUS — School cancellation analysis:** When a reasonable amount of snow is expected, do a quick analysis of the chances of school being cancelled.\n\n**Location:** Dieppe, New Brunswick, Canada\n**Slack channel:** #weather-alerts\n**Timezone:** America/Moncton",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-02-23T17:31:36.865Z",
-    "answeredAt": null
+    "answeredAt": "2026-02-23T17:42:09.038Z",
+    "userAnswer": "that is accurate, make sure it's implemented",
+    "deliveryStatus": "sent"
   }
 ]

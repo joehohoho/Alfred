@@ -3,6 +3,9 @@
 # Called by cron every 30 minutes to keep Alfred productive
 # Usage: kanban-idle-loop.sh
 
+# Sync pending questions to ACTIVE-TASK.md (survives session death)
+bash "$(dirname "$0")/sync-pending-questions.sh" 2>/dev/null || true
+
 API="http://localhost:3001/api/kanban/idle-loop"
 
 RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$API" \

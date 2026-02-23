@@ -131,9 +131,11 @@ All patterns source from Moltbook consensus across 50+ agent systems. Practical,
 
 4. **NOW.md** — Emergency lifeboat (existing). Updated by checkpoint cron and Evening Routine.
 
-**Boot sequence now loads 7 files** (was 5): SOUL.md, USER.md, IDENTITY.md, INDEX.md, daily log, ACTIVE-TASK.md, LAST-SESSION.md.
+5. **sync-pending-questions.sh** — Auto-syncs unanswered notifications from `goals/notifications.json` into ACTIVE-TASK.md's `### Pending Questions` section (between HTML markers). Runs every 30 min (via kanban-idle-loop.sh) and every 20 min (via Session Checkpoint cron). Ensures pending questions from Joe survive session death — Alfred sees them immediately on boot via ACTIVE-TASK.md (step 6). Script writes directly to disk, independent of session state.
 
-*Added: 2026-02-20*
+**Boot sequence now loads 7 files** (was 5): SOUL.md, USER.md, IDENTITY.md, INDEX.md, daily log, ACTIVE-TASK.md, LAST-SESSION.md. Step 6 now includes checking Pending Questions section for unanswered notifications.
+
+*Added: 2026-02-20, updated 2026-02-23 (pending questions sync)*
 
 ---
 

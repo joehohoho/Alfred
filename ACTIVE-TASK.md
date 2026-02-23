@@ -27,6 +27,12 @@ _(none)_
 ### Context Needed
 _(none)_
 
+### Pending Questions
+<!-- PENDING-Q-START -->
+- **Weather Alert Job — Joe's Answers to Your Questions** (_weather-setup-answers_, Feb 23 17:31)
+  ID: `notif_1771867896865_1f2f5063` — Joe answered your 4 clarification questions for the weather monitoring job:  **1. Data source:** Use BOTH wttr.in and Open-Meteo (both free). Compare ...
+<!-- PENDING-Q-END -->
+
 ---
 
 ## How to Use This File
@@ -46,4 +52,4 @@ Context Needed: [files, decisions, or state the next session needs]
 
 **When task is done:** Set Status to `idle`, clear all fields.
 
-**On session start:** If Status is `in_progress`, resume from Next Step.
+**On session start:** If Status is `in_progress`, resume from Next Step. **Also check Pending Questions** — if any exist, you sent questions to Joe that haven't been answered yet. Re-read the notification for full context before proceeding.

@@ -256,7 +256,7 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 3. `IDENTITY.md` — your name and vibe
 4. `memory/INDEX.md` — quick reference to all memory files (lightweight!)
 5. `memory/YYYY-MM-DD.md` (today only, if it exists)
-6. `ACTIVE-TASK.md` — if Status is `in_progress`, you have unfinished work. Resume from Next Step.
+6. `ACTIVE-TASK.md` — if Status is `in_progress`, you have unfinished work. Resume from Next Step. **Also check Pending Questions** — if any exist, you sent questions to Joe that haven't been answered yet. Preserve this context.
 7. `LAST-SESSION.md` — what happened in the previous session (decisions, context, next steps)
 
 **DO NOT auto-load:**
