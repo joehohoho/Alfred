@@ -95,6 +95,24 @@ When Joe approves promotion:
 
 ---
 
+## Rejected Ideas — Learning from Feedback
+
+When Joe rejects an idea from the Kanban board, it gets archived with a `rejectedReason` field explaining why it doesn't work. **You MUST check rejected ideas before generating new ones.**
+
+### Before generating ideas:
+1. Read `goals/ideas.json` and filter for ideas with `status: "archived"` AND `rejectedReason` present
+2. Study the rejection reasons — they reveal Joe's preferences, constraints, and blind spots
+3. Do NOT generate ideas that are similar to rejected ones or that would fail for the same reasons
+4. Use rejection patterns to improve idea quality (e.g., if "too much ongoing effort" is a common reason, lean harder into passive/automated ideas)
+
+### Common rejection signals to learn from:
+- "Already exists" / "Saturated market" → Research market gaps more thoroughly
+- "Not my skillset" → Stay closer to Joe's actual stack (legal billing, automation, AI, vibe coding)
+- "Too much ongoing effort" → Prioritize truly passive income models
+- "Low revenue potential" → Focus on ideas with clearer monetization paths
+
+---
+
 ## Sources of Ideas
 
 1. **Alfred weekly generation** — Saturday 2 PM cron job
