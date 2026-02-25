@@ -1,145 +1,47 @@
-# ACTIVE-TASK.md — Write-Ahead Task State
+# ACTIVE-TASK.md - Current Work In Progress
 
-**Purpose:** Persist current task state so it survives context death. Updated BEFORE starting work and AS steps complete.
-
-**Rule:** If this file has content, you have unfinished work. Read it on session start.
+**Status:** idle  
+**Card ID:** task_1772043037836_a92ef8c0  
+**Task:** Add explain mode + proactive routing improvements  
+**Priority:** URGENT  
+**Started:** 2026-02-25 14:11 AST
+**Completed:** 2026-02-25 14:13 AST
 
 ---
 
-## Current Task
+## Objective
+Implement `--explain` mode and add practical proactive improvements to the HAL/Alfred routing helpers for better autonomy and tuning.
 
-**Status:** in_progress
-**Started:** 2026-02-23 15:46
-**Last Updated:** 2026-02-24 22:00
+---
 
-### Objective
-**Signal App — Fast Track Launch** (task_1771697313875_722f22e4)
+## Results
+- ✅ Added `--explain` to `scripts/hal-alfred-route.sh`
+  - Gate-by-gate explanation (`steps`, `input_kb`, `external`, `risk`, `files`)
+  - Added `recommendation` output
+  - Added `confidence_band` (`low|medium|high`)
+- ✅ Added `--explain` to `scripts/hal-alfred-route-auto.sh`
+  - Human mode prints estimation breakdown (text bytes, file bytes, missing refs, step bump reasons)
+  - JSON mode now includes `auto_estimate` object with detailed estimation rationale
+- ✅ Updated playbook examples in `HAL-ALFRED-ROUTING-PLAYBOOK.md`
+- ✅ Smoke tests passed for both HAL and Alfred routing scenarios
 
-Accelerate market signal detection app to live trading by early April. Three-phase timeline: architecture (Feb), UI/integration (Mar), beta/refinement (Apr).
+---
 
-### Plan
-1. **Phase 1 (Feb 23-28):** Finalize architecture + data pipeline
-   - Review current market-signal-lab design
-   - Confirm data sources (Binance, crypto exchanges, macroeconomic indicators)
-   - Validate ML feature set
-   - Ensure backtesting framework ready
-2. **Phase 2 (Mar):** Build UI + integrate market data + backtesting
-   - Frontend (React) for signal dashboard
-   - Real-time market data ingestion
-   - Backtesting engine integration
-   - Performance testing
-3. **Phase 3 (Apr):** Beta + refinement
-   - Beta user testing
-   - Safety/edge case fixes
-   - Go live with trading signals
-
-### Progress
-
-**[15:47] Codex OAuth Token Identified**
-- Expiration: Feb 28, 3:42 PM (5 days)
-- Status: Flagged as pending — Joe to refresh via `openclaw configure --section model`
-- Impact: Codex (free code generation) becomes unavailable after 2026-02-28
-- Mitigation: Escalate to Sonnet for code tasks if refresh misses deadline
-
-**[15:49] Phase 1 Architecture Assessment COMPLETED**
-
-✅ **Data Pipeline Status:**
-- DuckDB store operational (2 tables: assets, candle_metadata)
-- 33 assets ingested (BTC, ETH, alts, multi-currency pairs)
-- Dual timeframe: 1d (2013-2015 historical) + 15m (live-ready)
-- Latest data: Feb 10, 2026 (5 days stale for live signals)
-- Data providers: Kraken (crypto), Yahoo Finance (equities) — both reliable
-
-✅ **Backtesting Engine:**
-- 3 strategies: SMA Crossover, RSI Mean Reversion, Donchian Breakout
-- ADX regime filtering active (trending vs ranging detection)
-- Multi-TF confirmation implemented
-- Trailing stops: ATR-based + percentage-based
-- ML module: walk-forward classifier, 30+ engineered features
-- Test suite: 100% passing
-
-✅ **Web UI (Port 8002):**
-- FastAPI + Jinja2 dashboard
-- Plotly charts for OHLCV + indicators
-- Backtest interface with "Learn & Improve" ML training
-- Slack integration ready (webhook configured but disabled)
-- Server LaunchAgent active: com.alfred.market-signal-lab
-
-⚠️ **Critical Gaps for Live Trading (Phase 1 Must-Fix):**
-1. **Data freshness** — Feb 10 data is stale. Need real-time Kraken/Binance feed for live signals
-2. **Live signal execution** — Backtesting → signals, but no execution/alert system integrated
-3. **Paper trading UI** — Module exists but not in web dashboard
-4. **Risk layer** — Position sizing configured but not tested at production scale
-
-
-**[22:00] Evening checkpoint completed**
-- Task remains in progress; no implementation changes since architecture assessment
-- Critical dependency unchanged: real-time data pipeline decision/execution gate for Feb 24
-- Prepared tomorrow focus for execution kickoff
-
-**[01:14] Nightly routine rollover completed**
-- Continuity files refreshed (daily log, LAST-SESSION, NOW)
-- Task state revalidated; still blocked only by execution start, not by new blockers
-- Tomorrow focus locked: begin real-time data pipeline implementation first
-
-**[22:00] End-of-day continuity refresh completed**
-- Updated daily log with final summary and tomorrow focus.
-- Rewrote LAST-SESSION and NOW checkpoints for next-session startup.
-- Confirmed task remains in progress with unchanged priority order (pipeline → signals/alerts → paper UI).
-
-### Next Step
-1. [PRIORITY] Confirm Feb 24 decision gate and start real-time data pipeline implementation (Kraken WebSocket + Binance API)
-2. [TODO] Build live signal execution + alert dispatcher (Slack + Command Center)
-3. [TODO] Integrate paper trading UI for Feb beta
-4. [TODO] Test full flow end-to-end (data → signal → alert → paper execution)
-
-### Context Received
-- ✅ **Passive Income Target** (Joe answered 15:47):
-  - Monthly goal: $5,000-$10,000 initially, then grow
-  - Revenue hierarchy: CoinUsUp (primary) → Signal App (secondary) → Even Us Up (tertiary)
-  - Time allocation: 5-10 hrs/week maintenance, 10-20 hrs/week building
-  - Definition of "passive": Least effort required, 5 hrs/week is reasonable
-  
-- ✅ **Market Signal Lab State:** Mature, production-ready architecture (reviewed 15:49)
-  - 33 assets, dual timeframe (1d + 15m), DuckDB + Parquet storage
-  - 3 strategies, ML classifier, web UI (port 8002)
-  - Data current as of Feb 10, 2026
-
-### Pending Questions
+## Pending Questions
 <!-- PENDING-Q-START -->
 - **Refresh OpenAI Codex OAuth Token** (_alert_, Feb 23 17:50)
   ID: `notif_1771869055670_040cd81d` — The Codex OAuth token expires Feb 28 at 3:42 PM. Run: openclaw configure --section model → select openai-codex → re-auth OAuth flow. If not refreshed,...
 
-- **Card assigned: Signal App — Fast Track Launch** (_kanban-action_, Feb 23 19:46)
-  ID: `notif_1771875999293_1a7ae36c` — Moved to todo (NORMAL - Queue for next slot) - Delivery confirmed
+- **⚠️ AGENTS.md Size Warning** (_question_, Feb 25 11:00)
+  ID: `notif_1772017205094_ccccbef5` — AGENTS.md is at 18143/20000 chars (90%). Approaching the 20,000 char limit. New critical info should go in AGENTS-EXTENDED.md. Consider extracting the...
 
-- **Card assigned: Signal App — Fast Track Launch** (_kanban-action_, Feb 23 19:46)
-  ID: `notif_1771876006972_fbde3c48` — Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed
+- **Delivery failed: Revenue Growth — CoinUsUp + Even Us Up** (_alert_, Feb 25 18:06)
+  ID: `notif_1772042792907_f803f9ff` — Could not deliver assignment to Alfred after 2 attempts. Error: missing scope: operator.write. Card is in in_progress but Alfred may not know about it...
 
-- **Card assigned: Signal App — Fast Track Launch** (_kanban-action_, Feb 23 19:47)
-  ID: `notif_1771876028354_4054619b` — Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed
-
-- **Signal App Phase 1 — Critical Decision Gate (Feb 24 Deadline)** (_decision_, Feb 23 19:49)
-  ID: `notif_1771876150552_dab8f40a` — Architecture review complete. Real-time data pipeline is the critical path for Feb completion.  **Your decision needed by EOD Monday Feb 24:**  1. **D...
+- **Delivery failed: Signal App — Fast Track Launch** (_alert_, Feb 25 18:08)
+  ID: `notif_1772042919803_e73711e7` — Could not deliver assignment to Alfred after 2 attempts. Error: missing scope: operator.write. Card is in in_progress but Alfred may not know about it...
 <!-- PENDING-Q-END -->
 
 ---
 
-## How to Use This File
-
-**Before starting any multi-step task:**
-```
-Status: in_progress
-Started: [timestamp]
-Objective: [what you're doing and why]
-Plan: [numbered steps]
-Progress: [completed steps with results]
-Next Step: [what to do next]
-Context Needed: [files, decisions, or state the next session needs]
-```
-
-**After each step completes:** Update Progress and Next Step.
-
-**When task is done:** Set Status to `idle`, clear all fields.
-
-**On session start:** If Status is `in_progress`, resume from Next Step. **Also check Pending Questions** — if any exist, you sent questions to Joe that haven't been answered yet. Re-read the notification for full context before proceeding.
+**Last Updated:** 2026-02-25 14:13 AST

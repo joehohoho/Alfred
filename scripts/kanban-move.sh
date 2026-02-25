@@ -30,7 +30,7 @@ API="http://localhost:3001/api/kanban/${CARD_ID}/move"
 
 JSON=$(python3 -c "
 import json, sys
-print(json.dumps({'toColumn': sys.argv[1]}))
+print(json.dumps({'toColumn': sys.argv[1], 'skipNotify': True}))
 " "$TO_COLUMN")
 
 RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$API" \

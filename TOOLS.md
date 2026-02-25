@@ -1,611 +1,147 @@
-# TOOLS.md - Local Notes
+# TOOLS.md - Local Tooling Quick Reference (Lean)
 
-Skills define _how_ tools work. This file is for _your_ specifics - the stuff that's unique to your setup.
-
-## What Goes Here
-
-Things like:
-
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
-
-## Examples
-
-```markdown
-### Cameras
-
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## iMessage Contact
-- Joe's Phone: 1-506-227-9553
+Purpose: fast operational notes specific to this machine/user.
+Full previous version is preserved in **TOOLS-EXTENDED.md** (no data loss).
 
 ---
 
-## 🌦️ Weather Monitoring Job (Feb 23, 2026)
+## Critical Local Facts
 
-**Status:** ✅ Implemented and deployed
+- **Workspace:** `~/.openclaw/workspace`
+- **iMessage (Joe):** `1-506-227-9553`
 
-**Purpose:** Monitor Dieppe, NB weather (wttr.in + Open-Meteo) and alert to Slack #weather-alerts on significant precipitation
+---
 
-**Schedule:** Every 2 hours, 7am-10pm AST weekdays. Stops after 10pm unless Joe requests update.
+## Weather Monitoring (Dieppe, NB)
 
-**Alert Thresholds:**
-- ≥10mm rain in 48-hour forecast → alert
-- ≥10cm snow in 48-hour forecast → alert
-- Brief/light precipitation (<scattered showers) → no alert
+**Status:** implemented (`scripts/weather-alerts.sh`)
 
-**Features:**
-- Dual-source verification (wttr.in JSON + Open-Meteo API for comparison)
-- School cancellation likelihood analysis (when ≥10cm snow expected)
-- Temperature-aware assessment (cold + wind = higher school closure odds)
-- Single weekday morning update (7am) if alerts exist
-- After 10pm: stop checks unless Joe requests update in #weather-alerts
+### Config
+- Location: Dieppe, NB (`46.0988,-64.6819`)
+- Slack channel: `#weather-alerts` (`C0AHET5GMUY`)
+- wttr.in JSON: `curl -s "wttr.in/Dieppe,NB?format=j1"`
+- Open-Meteo endpoint uses 3-day hourly forecast (temp, apparent temp, snowfall, precip, wind, gusts, direction, weathercode)
 
-**Configuration:**
-- Location: Dieppe, New Brunswick (46.099°N, 64.682°W)
-- Slack channel: #weather-alerts (ID: C0AHET5GMUY, added to gateway allowlist)
-- wttr.in: `curl -s "wttr.in/Dieppe,NB?format=j1"` (JSON format for parsing)
-- Open-Meteo: `https://api.open-meteo.com/v1/forecast?latitude=46.0988&longitude=-64.6819&hourly=temperature_2m,apparent_temperature,snowfall,precipitation,windspeed_10m,windgusts_10m,winddirection_10m,weathercode&timezone=America/Moncton&forecast_days=3`
+### Alert thresholds (48h)
+- Rain: `>=10mm`
+- Snow: `>=10cm`
 
-**Required Alert Format (ALL alerts must follow this):**
-```
-🌨️ *Weather Alert — [Type] (Dieppe, NB)*
+### Required content rules
+- Full hourly precip timeline (not just peak)
+- Wind + gusts + wind chill
+- Compare both sources (Open-Meteo + wttr.in)
+- Include school-cancellation analysis for `>=10cm` snow
+- Slack formatting uses `*bold*` (mrkdwn)
 
-*Current Conditions:* [temp]°C (feels [feels]°C) | Wind: [speed] km/h [dir] | [description]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 *Snowfall/Rainfall Timeline (Open-Meteo + wttr.in)*
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-*[Day 1 — date]:*
-• [time range]: [intensity] ([rate] cm/hr or mm/hr)
-• [time range]: [intensity] ([rate] cm/hr or mm/hr)
-• *Day total: [X] cm/mm* (source)
-
-*[Day 2 — date]:*
-• [same hourly breakdown]
-• *Day total: [X] cm/mm*
-
-*Combined total: [range]* (Open-Meteo: X, wttr.in: Y)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌬️ *Wind & Temperature*
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Winds: [sustained] km/h, *gusts up to [max] km/h*
-• Temperature: [range]
-• Wind chill: [range]
-• Visibility: [assessment]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-🏫 *School Cancellation Analysis* (snow only, when ≥10cm)
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-• *Likelihood: [LOW/MODERATE/HIGH]*
-• [total accumulation] with [wind conditions]
-• [road condition assessment]
-• Anglophone East / Francophone Sud typically cancel at 15+ cm with high winds
-• Decision usually announced by 6 AM on radio/district website
-```
-
-**Key rules:**
-- Always show FULL hourly timeline of precipitation, not just peak hours
-- Always include wind speed, gusts, AND wind chill
-- Always compare both sources (Open-Meteo tends to be more accurate for timing; wttr.in often gives higher totals)
-- School cancellation analysis required for ≥10cm snow events
-- Format as Slack mrkdwn (bold with *, not **)
-
-**To test:**
+### Test
 ```bash
 bash ~/.openclaw/workspace/scripts/weather-alerts.sh
 ```
 
 ---
 
-## 🏥 Ollama Guard System (NEW - Feb 18, 2026)
+## Ollama Guard
 
-**Problem:** Multiple tasks hitting ollama simultaneously causes timeouts and cascade failures.
+Script: `scripts/ollama-guard.sh`
 
-**Solution:** Universal guard system that protects ANY task using the LOCAL model from overload.
-
-### Quick Commands
-
+### Common usage
 ```bash
-# Check if ollama is healthy (silent, exit code only)
 bash scripts/ollama-guard.sh
-
-# Get human-readable status with metrics
-source scripts/ollama-guard.sh
-ollama_status
-
-# Get response time in milliseconds
-ollama_get_response_time
-
-# Run a command only if ollama is healthy
-bash scripts/ollama-guard.sh bash my-task.sh
-
-# Wait up to 60s for ollama to be ready, then run
+source scripts/ollama-guard.sh && ollama_status
 bash scripts/ollama-guard.sh --wait bash my-task.sh
 ```
 
-### Status
-
-✅ **Implemented:**
-- Universal guard script (`scripts/ollama-guard.sh`)
-- Integrated into 3 critical cron jobs (Evening Routine, Moltbook Review, Daily Config)
-- Works with cron jobs, sub-agents, shell scripts, and inline commands
-
-⏳ **Next:** Apply to other ollama-dependent tasks (Morning Brief, Code Review, iMessage Responder, etc.)
-
-### How It Works
-
-1. Task starts → check `ollama_health_check()`
-2. If healthy (response < 1000ms) → proceed with task
-3. If overwhelmed (response > 1000ms) → defer gracefully (exit code 1) or wait (--wait mode)
-4. Cron automatically reschedules deferred tasks
-
-**Cost:** ~5ms per health check (negligible)
-
-**Benefit:** Prevents $0.01-0.05 per failed retry, saves ~$0.50/month from cascade failures
-
-**See:** `OLLAMA-GUARD-UNIVERSAL.md` for complete reference with all usage patterns
+### Rule
+Use guard before LOCAL-model-dependent workloads to avoid timeout cascades.
+Reference: `OLLAMA-GUARD-UNIVERSAL.md`
 
 ---
 
-## 🎙️ Voice Communication Setup (NEW - Feb 13, 2026)
+## Voice I/O
 
-**Status:** ✅ Ready to use
+### STT (Whisper local)
+Script: `scripts/voice-input.sh`
 
-### Speech-to-Text (You → Me)
-
-**Tool:** Whisper (local, no cost)
-
-**Quick Start:**
 ```bash
-./scripts/voice-input.sh              # 10 sec, base model (default)
-./scripts/voice-input.sh continuous   # Record until you press Ctrl+C (CONVERSATION MODE)
-./scripts/voice-input.sh 60 small     # 60 sec, small model (better accuracy)
-./scripts/voice-input.sh until-silence small  # Record until 2sec silence detected
+./scripts/voice-input.sh
+./scripts/voice-input.sh continuous
+./scripts/voice-input.sh 60 small
+./scripts/voice-input.sh until-silence small
 ```
 
-**Duration Modes:**
-- `10` (default) — Fixed 10 seconds
-- `30`, `60`, `120` — Custom fixed duration
-- `continuous` — Record until **Ctrl+C** (perfect for natural conversations)
-- `until-silence` — Auto-stop when 2 seconds of silence detected (experimental)
+- Default model: `base`
+- Models: tiny/base/small/medium/large
 
-**Model Options:**
-- `tiny` — Fastest (~1 sec), lowest accuracy
-- `base` — Good balance (default, ~3 sec)
-- `small` — Better accuracy (~5 sec) ← **Recommended for longer speech**
-- `medium` — High accuracy (~10 sec)
-- `large` — Highest accuracy (requires more VRAM)
-
-**Workflow:**
-1. Run `./scripts/voice-input.sh continuous` to start conversation
-2. Speak naturally until done
-3. Press **Ctrl+C** to end recording
-4. Whisper transcribes
-5. Transcript → clipboard → paste into chat
-
-### Text-to-Speech (Me → You)
-
-**Tool:** OpenClaw `tts` tool (integrated)
-
-**How it works:**
-- When I generate audio responses, you'll see: `MEDIA: /path/to/audio.mp3`
-- Click/tap to play in your browser or media player
-- Cost: ~$0.0001 per message (ElevenLabs integration)
-
-**Manual generation:**
-```python
-# In a chat or via OpenClaw
-tts(text="Hello, this is Alfred speaking")
-# Returns: MEDIA: /tmp/tts_xxxxx.mp3
-```
-
-**Cost Breakdown:**
-- Whisper (input): FREE (local)
-- TTS (output): ~$0.0001-0.0003 per message
-- **Total loop cost:** Negligible (~$0.02/month at current usage)
-
-### Configuration
-
-**Whisper settings** (in `voice-input.sh`):
-- Default duration: 10 seconds
-- Default model: `base` (adjust for your needs)
-- Cache location: `~/.cache/whisper`
-
-**TTS settings** (via OpenClaw):
-- Provider: ElevenLabs (configurable)
-- Voice: Default system voice (can customize)
-- Format: MP3 (streaming-compatible)
-
-### Quick Reference
-
-| Use Case | Command | Duration | Accuracy |
-|----------|---------|----------|----------|
-| Quick note | `./scripts/voice-input.sh` | 10 sec | Good |
-| Conversation | `./scripts/voice-input.sh continuous` | Until Ctrl+C | Good |
-| Longer talk | `./scripts/voice-input.sh 60 small` | 60 sec | Better |
-| Auto-stop | `./scripts/voice-input.sh until-silence small` | Until 2s silence | Better |
-| Fast feedback | `./scripts/voice-input.sh 15 tiny` | 15 sec | Fast |
+### TTS
+Use OpenClaw `tts` tool (returns media file path).
 
 ---
 
-## 🚀 LaunchAgents (Auto-Start Services - Feb 18, 2026)
+## LaunchAgents / Services
 
-**Status:** ✅ All 4 deployed and verified working
+Primary agents in this environment:
+- `com.ollama.keepalive`
+- `com.alfred.dashboard-nextjs` (localhost:3001)
+- `com.alfred.job-tracker` (localhost:8000)
+- `com.cloudflare.tunnel`
 
-Persistent background services that auto-start on boot and auto-restart on failure.
-
-### Active LaunchAgents
-
-| Service | PList | Purpose | Port | Status |
-|---------|-------|---------|------|--------|
-| **Ollama Keep-Alive** | `com.ollama.keepalive.plist` | Unload ollama models after 60s inactivity (saves CPU) | N/A | ✅ Running |
-| **Command Center** | `com.alfred.dashboard-nextjs.plist` | Node.js backend for system monitoring dashboard | 3001 | ✅ Running |
-| **Job Tracker** | `com.alfred.job-tracker.plist` | FastAPI/uvicorn job search app | 8000 | ✅ Running |
-| **Cloudflare Tunnel** | `com.cloudflare.tunnel.plist` | Public tunnel to dashboard/jobtracker.my-alfred-ai.com | N/A | ✅ Running |
-
-**Note:** iMessage is handled by OpenClaw's native channel (event-driven, zero cost). No LaunchAgent needed.
-
-### Quick Management
-
+### Quick management
 ```bash
-# Check if a service is running
-launchctl list | grep com.ollama.keepalive
-# Output: 12345 0 com.ollama.keepalive.plist (0 = success, running)
-
-# Check logs for a service
-log stream --predicate 'process == "ollama"' --level debug
-
-# Manually stop a service
-launchctl stop com.alfred.dashboard-nextjs
-
-# Manually start a service
-launchctl start com.alfred.dashboard-nextjs
-
-# Reload a service (after editing its plist)
-launchctl unload ~/Library/LaunchAgents/com.alfred.dashboard-nextjs.plist
-launchctl load ~/Library/LaunchAgents/com.alfred.dashboard-nextjs.plist
-
-# View all loaded user agents
 launchctl list | grep com.
-```
-
-### Configuration Details
-
-**Ollama Keep-Alive** (`com.ollama.keepalive.plist`)
-- Sets `OLLAMA_KEEP_ALIVE=60s` persistently
-- Prevents ollama models staying in memory indefinitely
-- Reduced CPU from 349% → ~0%
-- Safe to reload/restart; no downside
-
-**Command Center** (`com.alfred.dashboard-nextjs.plist`)
-- Runs `node backend/dist/index.js` from `/Users/hopenclaw/command-center`
-- System monitoring dashboard on localhost:3001
-- Public: https://dashboard.my-alfred-ai.com via Cloudflare
-
-**Job Tracker** (`com.alfred.job-tracker.plist`)
-- Runs uvicorn from `/Users/hopenclaw/job-tracker/backend`
-- FastAPI app on localhost:8000
-- Public: https://jobtracker.my-alfred-ai.com via Cloudflare
-- Uses ollama/llama3.1:8b for job scoring (keep_alive: 60s)
-
-**Cloudflare Tunnel** (`com.cloudflare.tunnel.plist`)
-- Routes dashboard.my-alfred-ai.com → localhost:3001, jobtracker.my-alfred-ai.com → localhost:8000
-- Auto-restart on crash
-
-### Troubleshooting
-
-**Dashboard not loading (HTTP 503 / timeout)?**
-```bash
-# Check Next.js app is running
-ps aux | grep "next"
-# If not found, restart:
 launchctl stop com.alfred.dashboard-nextjs
 launchctl start com.alfred.dashboard-nextjs
-
-# Check tunnel connection
-log stream --predicate 'process == "cloudflared"' --level debug
 ```
 
-**Ollama still using high CPU?**
-```bash
-# Verify KEEP_ALIVE is set
-cat ~/Library/LaunchAgents/com.ollama.keepalive.plist | grep -A1 OLLAMA_KEEP_ALIVE
-
-# Check if models are still loaded
-ollama list
-
-# Force unload
-ollama rm llama3.2:3b
-ollama rm llama3.2:1b
-```
-
-### Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+Notes:
+- iMessage responder is handled by OpenClaw channel flow (no extra LaunchAgent required in this quick ref).
+- Full troubleshooting/runbook is in `TOOLS-EXTENDED.md`.
 
 ---
 
-## Quick Commands (No SKILL.md Lookup Needed)
-
-Common commands to avoid loading full skill documentation:
+## High-Value Quick Commands
 
 ### Weather
 ```bash
-# Full forecast (current pattern)
 curl -s "wttr.in/Dieppe,NB?T"
-
-# One-liner format
 curl -s "wttr.in/Dieppe,NB?format=3"
-# Output: Dieppe,NB: ⛅️ -7°C
-
-# Compact with details
 curl -s "wttr.in/Dieppe,NB?format=%l:+%c+%t+(feels+%f)+%w"
-# Output: Dieppe,NB: ⛅️ -7°C (feels -13°C) ↘17km/h
 ```
 
-### Brave Search API
-```bash
-# Quick search via web_search tool (preferred)
-# web_search(query="...", count=5, country="US", freshness="pw")
-# Returns: title, URL, snippet for each result
-
-# Manual curl (for reference)
-curl -s "https://api.search.brave.com/res/v1/web/search?q=QUERY&count=10" \
-  -H "Accept: application/json" \
-  -H "X-Subscription-Token: YOUR_API_KEY"
-```
-
-### Calendar
-*(to be added when calendar skill integrated)*
-
-### Tasks
-*(to be added as needed)*
+### Brave Search (preferred via tool)
+Use `web_search(...)` tool first; manual API curl only if needed.
 
 ---
 
-## Claude Code Terminal Integration
+## Claude Code Router
 
-**Source the router function in your shell profile:**
-
+Load helper in shell profile:
 ```bash
-# Add to ~/.zshrc or ~/.bashrc
 source ~/.openclaw/workspace/scripts/claude-code-router.sh
 ```
 
-### Quick Commands (One-Shot Analysis)
-
-Use these for fast code review/analysis - Claude Code answers once and exits.
-
+Common commands:
 ```bash
-# Code review: cc-review < myfile.js
-cc-review < src/auth.js
-# Suggests improvements, security issues, performance fixes
-
-# Explain code: cc-explain < myfile.js
-cc-explain < utils/parser.js
-# Explains what it does and how it works
-
-# Bug analysis from logs: logs | cc-bugs
-tail -f app.log | cc-bugs
-# Analyzes error patterns, suggests fixes
-
-# Generate tests: cc-tests < myfunction.js
-cc-tests < src/validator.js
-# Writes unit tests for the function
-
-# Review a diff: git diff | cc-review
-git diff main | cc-review
-# Reviews changes for quality/safety
-```
-
-### Interactive Development
-
-Use these for iterative coding - Claude Code stays in a conversation loop.
-
-```bash
-# Feature development: cc-dev "feature description"
-cc-dev "add user authentication with JWT"
-# Iteratively build a feature, ask clarifying questions
-
-# Architecture design: cc-arch "system description"
-cc-arch "design a payment processing system"
-# Discuss architecture, tradeoffs, implementation
-
-# Interactive debugging: cc-debug "problem description"
-cc-debug "users report login fails silently on mobile"
-# Debug together with back-and-forth questions
-
-# Continue last session: cc-continue
+cc-review < file.js
+cc-explain < file.js
+cc-bugs < logs.txt
+cc-tests < file.js
+cc-dev "feature"
+cc-arch "system design"
+cc-debug "issue"
 cc-continue
-# Resume where you left off (if Claude Code has recent sessions)
 ```
 
-### Router Syntax (Advanced)
+---
 
-If you want to call the router directly with custom context:
+## Model Routing (Compressed)
 
-```bash
-route_task "code-review" "$(cat myfile.js)"
-route_task "feature-dev" "build a notification system"
-route_task "debug-iterative" "the API returns null for valid requests"
-```
-
-### When to Use What (Decision Guide)
-
-**Claude Code (Terminal) - Interactive/Complex Work:**
-- ✅ Feature development (needs iteration)
-- ✅ Architecture design (needs discussion)
-- ✅ Complex debugging (back-and-forth)
-- ✅ Large refactoring (multi-file changes)
-
-**Claude Code (-p flag) - Quick Analysis:**
-- ✅ Code review (want feedback fast)
-- ✅ Bug analysis (read error logs)
-- ✅ Explain code (understand a function)
-- ✅ Generate tests (one-off test writing)
-
-**OpenClaw (Background) - Scheduled/Simple:**
-- ✅ Cron jobs (all LOCAL now)
-- ✅ File operations (read/write)
-- ✅ Memory management
-- ✅ Data parsing/extraction
+- **Analysis/testing:** LOCAL first
+- **Code generation/review:** CODEX first
+- Escalate only when needed: Haiku → Sonnet → Opus
+- For full routing tables/tiers: see `AGENTS.md` + `MODEL-POLICY.md`
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
+## Size Guardrail
 
----
-
-## ⚡ ANALYSIS vs IMPLEMENTATION (Pre-Spawn Decision Tree)
-
-Before spawning ANY subagent:
-
-**ANALYSIS** (Exploring, testing, comparing, auditing)
-- Route to: **LOCAL** (free). Batch 2+ tests into ONE session.
-
-**IMPLEMENTATION** (Building, writing, deploying)
-- Route to: **Codex** (free for code gen) or **Sonnet** (reasoning + code)
-
-**Golden rule:** Exploring/thinking → LOCAL ($0). Shipping/building → Codex/Sonnet.
-
-**Testing 2+ options:** Batch into ONE LOCAL session, not separate paid calls.
-
----
-
-## Model Task Routing & Routing Strategy
-
-**⚠️ COST RULE: Always start at the lowest tier that can handle the task.**
-
-Default behavior:
-1. **CODEX FIRST** - Use openai-codex/gpt-5.3-codex for code tasks (free, specialized)
-2. **LOCAL SECOND** - Use ollama/llama3.2:3b for simple non-code tasks (free)
-3. **HAIKU** - When local/codex insufficient or needs more context
-4. **SONNET** - For complex analysis, multi-step reasoning
-5. **OPUS** - ONLY when truly necessary (complex reasoning, security, high-stakes decisions)
-
-Zero-cost models (Codex + Local) should handle ~90% of work. Reserve paid tiers for genuinely complex tasks.
-
----
-
-Task routing guide: when to use local llama3.2:3b vs escalate to paid models.
-
-### 🎯 CODEX (openai-codex/gpt-5.3-codex) - Free, specialized for code
-
-Best for code-related tasks:
-
-| Task Type | Examples |
-|-----------|----------|
-| **Code generation** | Write functions, scripts, full programs |
-| **Code review** | Debug, refactor, suggest improvements |
-| **Code explanation** | Understand existing code, document |
-| **Test writing** | Unit tests, integration tests |
-| **Debugging** | Find bugs, optimize, performance analysis |
-| **API integration** | Write code for third-party services |
-
-### ✅ LOCAL (ollama/llama3.2:3b) - Free, ~3 seconds
-
-Good for simple, non-code, single-step tasks:
-
-| Task Type | Examples |
-|-----------|----------|
-| **File ops** | Read file, write content, simple edits |
-| **Basic math** | Arithmetic, percentages, conversions |
-| **Lookups** | "What's the weather command?", "How do I list reminders?" |
-| **Formatting** | JSON ↔ text, markdown cleanup, template filling |
-| **Simple shell** | `ls`, `cat`, file stats, git status |
-| **Status checks** | "Is X running?", disk space, process list |
-| **Extractions** | Pull a specific field from JSON/output |
-| **Confirmations** | Yes/no decisions, simple parsing |
-
-### ⚡ HAIKU ($0.25/$1.25) - When local struggles
-
-Use when task needs:
-- Multi-step reasoning (2-3 steps)
-- Longer context window
-- More reliable tool calling
-- Basic code understanding
-
-| Task Type | Examples |
-|-----------|----------|
-| **Light code** | Simple bug fixes, small refactors |
-| **Summaries** | Short article/email summaries |
-| **Filtering** | Parse logs, find patterns |
-| **Comparisons** | Diff analysis, simple reviews |
-
-### 🔷 SONNET ($3/$15) - Workhorse tier
-
-Use when task requires:
-- Complex multi-step planning
-- Code generation/review
-- Longer document processing
-- Creative writing
-
-| Task Type | Examples |
-|-----------|----------|
-| **Code gen** | New features, test writing, refactors |
-| **Analysis** | Code review, architecture decisions |
-| **Long-form** | Documentation, detailed explanations |
-| **Task breakdown** | Planning, step-by-step guides |
-
-### 💎 OPUS ($15/$75) - Complex reasoning only
-
-Reserve for:
-- Nuanced judgment calls
-- Security audits (healthcheck skill explicitly recommends Opus)
-- Complex creative work
-- Multi-domain reasoning
-- Important decisions
-
-| Task Type | Examples |
-|-----------|----------|
-| **Security** | Threat analysis, audit reviews |
-| **Strategy** | Architecture planning, trade-off analysis |
-| **Creative** | Storytelling, nuanced writing |
-| **Debugging** | Complex multi-system issues |
-
-### Skills Reference (Quick Summary)
-
-| Skill | Purpose | Suggested Tier |
-|-------|---------|----------------|
-| **coding-agent** | Spawn code tools | CODEX (free) or SONNET+ (complex) |
-| **github** | PRs, issues, CI via `gh` | CODEX (code review), HAIKU-SONNET (complex) |
-| **weather** | Get forecasts via wttr.in/Open-Meteo | LOCAL |
-| **healthcheck** | Security audits, hardening | OPUS (explicitly recommended) |
-| **himalaya** | Email management (IMAP/SMTP) | HAIKU+ (context-dependent) |
-| **summarize** | URL/video/doc summarization | Depends on length |
-| **slack/discord** | Messaging actions | LOCAL (simple), HAIKU+ (context) |
-| **things-mac** | Task management | LOCAL |
-| **apple-reminders** | Reminders via remindctl | LOCAL |
-| **apple-notes** | Notes via memo CLI | LOCAL |
-| **openhue** | Philips Hue control | LOCAL |
-| **sonoscli** | Sonos speaker control | LOCAL |
-| **camsnap** | Camera snapshots/clips | LOCAL |
-| **1password** | Secrets management | LOCAL (but sensitive!) |
-
-**⚠️ Skills Reference assumes these are installed. Verify availability with `clawhub list` before routing recommendations. Some entries are aspirational (openhue, sonoscli, camsnap) pending setup.**
-
-### Routing Heuristics
-
-1. **Start LOCAL** - If it fails or output is garbled, escalate
-2. **Check complexity** - More than 3 steps? Skip to HAIKU minimum
-3. **Code involved?** - Default to SONNET for anything non-trivial
-4. **Security/judgment?** - OPUS, don't skimp
-5. **Batch simple work** - Multiple LOCAL-tier tasks can be batched to one HAIKU call if needed
+Keep `TOOLS.md` as quick-ref only. Put long docs/examples in `TOOLS-EXTENDED.md` or dedicated runbooks.

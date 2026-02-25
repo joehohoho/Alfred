@@ -62,13 +62,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T21:45:15.673Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "0f02d8f2-2ed4-477b-8d3f-f1872370307b"
+      "assignedColumn": "todo"
     },
     "createdAt": "2026-02-24T08:44:20.353Z",
-    "updatedAt": "2026-02-24T21:45:15.674Z"
+    "updatedAt": "2026-02-25T17:48:46.268Z"
   },
   {
     "id": "goal_1771922709001_96f47ec0",
@@ -79,13 +76,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T21:45:04.914Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "7066fcbf-13b3-48ba-b81e-8410b811f91a"
+      "assignedColumn": "todo"
     },
     "createdAt": "2026-02-24T08:45:09.001Z",
-    "updatedAt": "2026-02-24T21:45:04.914Z"
+    "updatedAt": "2026-02-25T17:48:46.320Z"
   },
   {
     "id": "goal_1771922732218_7d7e1f7a",
@@ -96,13 +90,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T21:44:59.424Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "c4ec113c-210b-48f8-bc62-a3855f75b368"
+      "assignedColumn": "todo"
     },
     "createdAt": "2026-02-24T08:45:32.218Z",
-    "updatedAt": "2026-02-24T21:44:59.424Z"
+    "updatedAt": "2026-02-25T17:48:46.371Z"
   },
   {
     "id": "goal_1771922753886_d3189ebc",
@@ -113,13 +104,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T21:44:52.312Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "01ffe341-fa52-48f6-b216-4b78135f668a"
+      "assignedColumn": "todo"
     },
     "createdAt": "2026-02-24T08:45:53.886Z",
-    "updatedAt": "2026-02-24T21:44:52.312Z"
+    "updatedAt": "2026-02-25T17:48:46.471Z"
   },
   {
     "id": "goal_1771922865059_bb2d4b8e",
@@ -130,13 +118,13 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T21:44:43.955Z",
+      "assignedColumn": "todo",
+      "assignedAt": "2026-02-25T14:36:52.230Z",
       "deliveryStatus": "delivered",
-      "deliveryMessageId": "1dd4d2d4-eb0d-4dff-8825-8545e523cd1e"
+      "deliveryMessageId": "80e4c9df-2c85-469a-a425-b95433927f50"
     },
     "createdAt": "2026-02-24T08:47:45.059Z",
-    "updatedAt": "2026-02-24T21:44:43.956Z"
+    "updatedAt": "2026-02-25T14:36:52.230Z"
   },
   {
     "id": "goal_1771922896482_a6eb37df",
@@ -147,13 +135,13 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T21:44:36.101Z",
+      "assignedColumn": "todo",
+      "assignedAt": "2026-02-25T14:36:52.322Z",
       "deliveryStatus": "delivered",
-      "deliveryMessageId": "96754042-624e-4099-b309-30ab632a8103"
+      "deliveryMessageId": "18318c89-5981-499c-b60f-034b22c603d2"
     },
     "createdAt": "2026-02-24T08:48:16.482Z",
-    "updatedAt": "2026-02-24T21:44:36.101Z"
+    "updatedAt": "2026-02-25T14:36:52.322Z"
   },
   {
     "id": "goal_1771922926066_66b0d8a3",
@@ -164,12 +152,12 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-24T11:06:15.157Z",
+      "assignedColumn": "todo",
+      "assignedAt": "2026-02-25T14:36:52.379Z",
       "deliveryStatus": "delivered",
-      "deliveryMessageId": "f6e98a6e-c78a-4c21-84fd-371329f32d54"
+      "deliveryMessageId": "4a471b09-009c-41c9-9cb4-8ac675f6f6da"
     },
     "createdAt": "2026-02-24T08:48:46.066Z",
-    "updatedAt": "2026-02-24T11:06:15.157Z"
+    "updatedAt": "2026-02-25T14:36:52.379Z"
   }
 ]
