@@ -23,14 +23,14 @@ if [ "$CURRENT_HOUR" -ge 22 ]; then
   exit 0
 fi
 
-# Fetch from both sources
+# Fetch from both sources (with timeout + error handling)
 fetch_wttr() {
-  curl -s "https://wttr.in/$LOCATION?format=j1" | jq '.weather[0:2]'
+  curl -s --max-time 10 "https://wttr.in/$LOCATION?format=j1" 2>/dev/null | jq '.weather[0:2]' 2>/dev/null || echo "[]"
 }
 
 fetch_openmeteo() {
   # Open-Meteo forecast endpoint for Dieppe, NB (lat 46.1, lon -64.75)
-  curl -s "https://api.open-meteo.com/v1/forecast?latitude=46.1&longitude=-64.75&hourly=precipitation,precipitation_probability,weather_code,snow&forecast_days=2" | jq '.hourly'
+  curl -s --max-time 10 "https://api.open-meteo.com/v1/forecast?latitude=46.1&longitude=-64.75&hourly=precipitation,precipitation_probability,weather_code,snow&forecast_days=2" 2>/dev/null | jq '.hourly' 2>/dev/null || echo "{}"
 }
 
 # Parse wttr.in for alerts
