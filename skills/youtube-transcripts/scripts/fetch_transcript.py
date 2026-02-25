@@ -52,32 +52,65 @@ def extract_video_id(url_or_id):
 
 
 def fetch_transcript(video_id, languages=None):
-    """Fetch transcript for a YouTube video."""
+    """Fetch transcript for a YouTube video.
+
+    Supports youtube-transcript-api old and new interfaces.
+    """
+    if languages is None:
+        languages = ['en']
+
+    # Newer API (v1.x): instance with .fetch(...)
     try:
-        if languages is None:
-            languages = ['en']
-        
-        transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=languages)
-        return transcript
+        api = YouTubeTranscriptApi()
+        try:
+            return api.fetch(video_id, languages=languages)
+        except TypeError:
+            # Some builds may not support languages kwarg
+            return api.fetch(video_id)
+    except Exception:
+        pass
+
+    # Older API fallback: classmethod get_transcript(...)
+    try:
+        return YouTubeTranscriptApi.get_transcript(video_id, languages=languages)
     except Exception as e:
-        # Try alternative languages if English not available
         if languages == ['en']:
             try:
-                transcript = YouTubeTranscriptApi.get_transcript(video_id)
-                return transcript
+                return YouTubeTranscriptApi.get_transcript(video_id)
             except Exception:
                 pass
         raise e
 
 
+def _normalize_entries(transcript):
+    """Return transcript entries as list[dict{text,start,duration}] across API versions."""
+    entries = []
+    for entry in transcript:
+        if isinstance(entry, dict):
+            entries.append({
+                'text': entry.get('text', ''),
+                'start': entry.get('start', 0),
+                'duration': entry.get('duration', 0),
+            })
+        else:
+            # Newer API snippet objects
+            entries.append({
+                'text': getattr(entry, 'text', ''),
+                'start': getattr(entry, 'start', 0),
+                'duration': getattr(entry, 'duration', 0),
+            })
+    return entries
+
+
 def format_text(transcript):
     """Format transcript as plain text."""
-    return '\n'.join([entry['text'] for entry in transcript])
+    entries = _normalize_entries(transcript)
+    return '\n'.join([entry['text'] for entry in entries])
 
 
 def format_json(transcript):
     """Format transcript as JSON."""
-    return json.dumps(transcript, indent=2)
+    return json.dumps(_normalize_entries(transcript), indent=2)
 
 
 def main():

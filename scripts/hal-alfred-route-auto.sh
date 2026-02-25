@@ -19,6 +19,11 @@ EXPLAIN=0
 FILES_LIST=()
 FORCE_EXTERNAL=0
 FORCE_RISK=0
+RECENT_FAILURES=0
+LATENCY_MS=0
+QUEUE_DEPTH=0
+TRACK_DECISION=0
+TASK_ID=""
 
 print_help() {
   cat <<'EOF'
@@ -36,6 +41,11 @@ Options:
   --explain              Print/attach estimation + gate explanations
   --external             Force external-action flag
   --risk                 Force high-risk flag
+  --recent-failures <n>  Recent failed attempts on same objective
+  --latency-ms <n>       Recent median latency for this task class
+  --queue-depth <n>      Current queue depth
+  --track                Log JSON decision to .hal-alfred-tracking/routing.jsonl
+  --task-id <id>         Task id used when --track is enabled
   -h, --help             Show help
 EOF
 }
@@ -65,6 +75,26 @@ while [[ $# -gt 0 ]]; do
     --risk)
       FORCE_RISK=1
       shift
+      ;;
+    --recent-failures)
+      RECENT_FAILURES="${2:-0}"
+      shift 2
+      ;;
+    --latency-ms)
+      LATENCY_MS="${2:-0}"
+      shift 2
+      ;;
+    --queue-depth)
+      QUEUE_DEPTH="${2:-0}"
+      shift 2
+      ;;
+    --track)
+      TRACK_DECISION=1
+      shift
+      ;;
+    --task-id)
+      TASK_ID="${2:-}"
+      shift 2
       ;;
     -h|--help)
       print_help
@@ -164,25 +194,29 @@ if [[ $FILES_COUNT -ge 7 ]]; then
   STEPS=$((STEPS + 1))
   EXPLAIN_EST+=("files>=7:+1")
 fi
+if [[ $FILES_MISSING -gt 0 ]] && contains_any "$TASK_LC" "file" "files" "log" "logs" "path"; then
+  STEPS=$((STEPS + 2))
+  EXPLAIN_EST+=("missing_file_refs:+2 (proactive reliability bump)")
+fi
 
 if [[ $STEPS -lt 1 ]]; then STEPS=1; fi
 if [[ $STEPS -gt 12 ]]; then STEPS=12; EXPLAIN_EST+=("clamp:12"); fi
 
-PASS_ARGS=(--steps "$STEPS" --input-kb "$INPUT_KB" --files "$FILES_COUNT" --text "$TASK_TEXT")
+PASS_ARGS=(--steps "$STEPS" --input-kb "$INPUT_KB" --files "$FILES_COUNT" --text "$TASK_TEXT" --recent-failures "$RECENT_FAILURES" --latency-ms "$LATENCY_MS" --queue-depth "$QUEUE_DEPTH")
 [[ $OUTPUT_JSON -eq 1 ]] && PASS_ARGS+=(--json)
 [[ $EXPLAIN -eq 1 ]] && PASS_ARGS+=(--explain)
 [[ $FORCE_EXTERNAL -eq 1 ]] && PASS_ARGS+=(--external)
 [[ $FORCE_RISK -eq 1 ]] && PASS_ARGS+=(--risk)
 
-if [[ $OUTPUT_JSON -eq 1 && $EXPLAIN -eq 1 ]]; then
-  ROUTER_JSON="$($BASE_ROUTER "${PASS_ARGS[@]}")"
-  EXPLAIN_LIST=""
+build_json_with_auto_estimate() {
+  local router_json="$1"
+  local explain_list=""
   for i in "${!EXPLAIN_EST[@]}"; do
-    [[ $i -gt 0 ]] && EXPLAIN_LIST+=$'\n'
-    EXPLAIN_LIST+="${EXPLAIN_EST[$i]}"
+    [[ $i -gt 0 ]] && explain_list+=$'\n'
+    explain_list+="${EXPLAIN_EST[$i]}"
   done
-  ROUTER_JSON_ENV="$ROUTER_JSON" \
-  EXPLAIN_LIST_ENV="$EXPLAIN_LIST" \
+  ROUTER_JSON_ENV="$router_json" \
+  EXPLAIN_LIST_ENV="$explain_list" \
   STEPS_ENV="$STEPS" INPUT_KB_ENV="$INPUT_KB" FILES_COUNT_ENV="$FILES_COUNT" \
   TEXT_BYTES_ENV="$TEXT_BYTES" FILE_BYTES_TOTAL_ENV="$FILE_BYTES_TOTAL" \
   FILES_FOUND_ENV="$FILES_FOUND" FILES_MISSING_ENV="$FILES_MISSING" \
@@ -202,6 +236,24 @@ base["auto_estimate"] = {
 }
 print(json.dumps(base, ensure_ascii=False))
 PY
+}
+
+if [[ $OUTPUT_JSON -eq 1 ]]; then
+  ROUTER_JSON="$($BASE_ROUTER "${PASS_ARGS[@]}")"
+  if [[ $EXPLAIN -eq 1 ]]; then
+    FINAL_JSON="$(build_json_with_auto_estimate "$ROUTER_JSON")"
+  else
+    FINAL_JSON="$ROUTER_JSON"
+  fi
+  echo "$FINAL_JSON"
+
+  if [[ $TRACK_DECISION -eq 1 ]]; then
+    TRACK_SCRIPT="$SCRIPT_DIR/hal-alfred-track.sh"
+    [[ -z "$TASK_ID" ]] && TASK_ID="auto-$(date +%s)"
+    if [[ -x "$TRACK_SCRIPT" ]]; then
+      "$TRACK_SCRIPT" --decision "$FINAL_JSON" --task-id "$TASK_ID" >/dev/null 2>&1 || true
+    fi
+  fi
 else
   if [[ $EXPLAIN -eq 1 ]]; then
     echo "Auto-estimate breakdown:"
@@ -209,6 +261,7 @@ else
     echo "- file_bytes_total: $FILE_BYTES_TOTAL"
     echo "- files: total=$FILES_COUNT, found=$FILES_FOUND, missing_refs=$FILES_MISSING"
     echo "- estimated_steps: $STEPS"
+    echo "- telemetry: recent_failures=$RECENT_FAILURES, latency_ms=$LATENCY_MS, queue_depth=$QUEUE_DEPTH"
     for line in "${EXPLAIN_EST[@]}"; do
       echo "  - $line"
     done

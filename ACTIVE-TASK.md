@@ -29,17 +29,7 @@ Implement `--explain` mode and add practical proactive improvements to the HAL/A
 
 ## Pending Questions
 <!-- PENDING-Q-START -->
-- **Refresh OpenAI Codex OAuth Token** (_alert_, Feb 23 17:50)
-  ID: `notif_1771869055670_040cd81d` — The Codex OAuth token expires Feb 28 at 3:42 PM. Run: openclaw configure --section model → select openai-codex → re-auth OAuth flow. If not refreshed,...
-
-- **⚠️ AGENTS.md Size Warning** (_question_, Feb 25 11:00)
-  ID: `notif_1772017205094_ccccbef5` — AGENTS.md is at 18143/20000 chars (90%). Approaching the 20,000 char limit. New critical info should go in AGENTS-EXTENDED.md. Consider extracting the...
-
-- **Delivery failed: Revenue Growth — CoinUsUp + Even Us Up** (_alert_, Feb 25 18:06)
-  ID: `notif_1772042792907_f803f9ff` — Could not deliver assignment to Alfred after 2 attempts. Error: missing scope: operator.write. Card is in in_progress but Alfred may not know about it...
-
-- **Delivery failed: Signal App — Fast Track Launch** (_alert_, Feb 25 18:08)
-  ID: `notif_1772042919803_e73711e7` — Could not deliver assignment to Alfred after 2 attempts. Error: missing scope: operator.write. Card is in in_progress but Alfred may not know about it...
+_(none)_
 <!-- PENDING-Q-END -->
 
 ---

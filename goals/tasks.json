@@ -4,15 +4,15 @@
     "title": "Revenue Growth — CoinUsUp + Even Us Up",
     "description": "Audit metrics (MAU, retention, churn, revenue/user). Identify high-ROI improvements (onboarding, pricing, features). 10% of dev time ongoing. Target: +15% revenue by end Q1.",
     "goalId": "",
-    "status": "todo",
+    "status": "in_progress",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-21T18:08:32.744Z",
-    "updatedAt": "2026-02-25T18:51:04.803Z",
-    "assignedAt": "2026-02-25T18:51:04.802Z",
+    "updatedAt": "2026-02-25T19:05:32.010Z",
+    "assignedAt": "2026-02-25T19:05:32.010Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "2c361d62-920e-405b-ab0f-76e1c035e916"
+    "deliveryMessageId": "a37ce31a-d9d1-494a-b45e-bb1776ea00bf"
   },
   {
     "id": "task_1771697313875_722f22e4",
@@ -69,54 +69,92 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-25T14:36:48.104Z",
-    "updatedAt": "2026-02-25T18:40:15.578Z",
+    "updatedAt": "2026-02-25T19:52:58.441Z",
     "assignedAt": "2026-02-25T15:27:53.264Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "4ef4dc28-7fe3-4968-9545-9b619c904007"
+    "deliveryMessageId": "4ef4dc28-7fe3-4968-9545-9b619c904007",
+    "comments": [
+      {
+        "id": "cmt_1772048384454_e5cc24b7",
+        "author": "alfred",
+        "text": "Completed — 4 fixes applied:\n1. Fixed kanban auto-pick infinite loop (pickNextTodoCard retrying endlessly)\n2. Fixed noisy delivery failures — notifyAlfred() now breaks immediately on \"missing scope\" errors instead of 2-attempt retry\n3. Added review status to TaskStatus enum so cards map correctly when moved to review\n4. Added skipNotify option to moveCard() so Alfred's own kanban-move.sh calls don't trigger feedback notification loops\n\nCommit: 0dcd3c2 — all changes deployed to Command Center.",
+        "createdAt": "2026-02-25T19:39:44.454Z"
+      },
+      {
+        "id": "cmt_1772049178441_d2fe139b",
+        "author": "joe",
+        "text": "Is there anything I need to review or approve?",
+        "createdAt": "2026-02-25T19:52:58.441Z"
+      }
+    ]
   },
   {
     "id": "task_1772042716459_1da3bc32",
     "title": "Build HAL/Alfred routing helper script",
     "description": "Create a lightweight script to score tasks using HAL-ALFRED-ROUTING-PLAYBOOK thresholds and output route decision + triggers.",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "critical",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-25T18:05:16.459Z",
-    "updatedAt": "2026-02-25T18:49:15.578Z",
-    "assignedAt": "2026-02-25T18:49:15.578Z",
+    "updatedAt": "2026-02-25T19:43:52.009Z",
+    "assignedAt": "2026-02-25T19:01:11.042Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "e24bfb60-009e-46b3-880c-2af9911aa0c4"
+    "deliveryMessageId": "0bca5112-c955-4027-9449-9aa696a6f232",
+    "comments": [
+      {
+        "id": "cmt_1772048632009_10d19ec5",
+        "author": "alfred",
+        "text": "Completed — hal-alfred-route.sh (242 lines) created at ~/.openclaw/workspace/scripts/\n\nWhat it does:\n- Deterministic routing engine based on HAL-ALFRED-ROUTING-PLAYBOOK\n- Implements all 5 HAL gate checks: steps≤4, input_kb≤8, no external action, not high-risk, files≤6\n- Keyword-triggered step bumping for complexity tasks (refactor, architecture, codegen, etc.)\n- Confidence scoring (0.8–0.95) with band classification\n- Supports --text, --steps, --input-kb, --files, --external, --risk, --json, --explain flags\n\nBug fixed: Complexity keywords now correctly bump step estimates (was routing \"refactor auth\" to HAL incorrectly)\nAll 5 test cases pass (HAL/parse, Alfred/refactor, explicit override, security risk, large input)",
+        "createdAt": "2026-02-25T19:43:52.009Z"
+      }
+    ]
   },
   {
     "id": "task_1772042872931_21322ec7",
     "title": "Implement auto-estimating HAL/Alfred routing wrapper",
     "description": "Build a wrapper that auto-estimates steps/input-kb/files from task text and optional file paths, then calls hal-alfred-route.sh.",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "critical",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-25T18:07:52.931Z",
-    "updatedAt": "2026-02-25T18:49:10.995Z",
-    "assignedAt": "2026-02-25T18:49:10.995Z",
+    "updatedAt": "2026-02-25T19:44:15.006Z",
+    "assignedAt": "2026-02-25T19:01:46.566Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "a57c1259-dc03-4217-bbb9-3474a0f0b0b2"
+    "deliveryMessageId": "ca71e01d-c985-4c52-8150-c188dae60de1",
+    "comments": [
+      {
+        "id": "cmt_1772048655006_fed53d26",
+        "author": "alfred",
+        "text": "Completed — hal-alfred-route-auto.sh (218 lines) at ~/.openclaw/workspace/scripts/\n\nWhat it does:\n- Auto-estimates --steps from task text keywords (analyze +1, refactor +2, implement +2, security +2, etc.)\n- Auto-estimates --input-kb from actual file sizes (reads provided files via --file arguments)\n- Auto-estimates --files count from argument count\n- Clamps steps 1–12 with length-based baseline (1 per 120 chars)\n- Supports all playbook use cases: manual routing, explain mode, multi-file analysis\n- Delegates to base router (hal-alfred-route.sh) with calculated parameters\n\nAll playbook use cases verified working.",
+        "createdAt": "2026-02-25T19:44:15.006Z"
+      }
+    ]
   },
   {
     "id": "task_1772043037836_a92ef8c0",
     "title": "Add explain mode + proactive routing improvements",
     "description": "Implement --explain tracing for auto router and add practical enhancements for reliability/autonomy in HAL/Alfred routing.",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "critical",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-25T18:10:37.837Z",
-    "updatedAt": "2026-02-25T18:49:25.388Z",
-    "assignedAt": "2026-02-25T18:49:25.388Z",
+    "updatedAt": "2026-02-25T19:45:07.087Z",
+    "assignedAt": "2026-02-25T19:02:53.094Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "8c505bdd-c0ab-4ec7-9d70-d6a326aaceec"
+    "deliveryMessageId": "46cd70df-edd5-48c1-8020-d5768f3fa1bf",
+    "comments": [
+      {
+        "id": "cmt_1772048707087_93d3ce4c",
+        "author": "alfred",
+        "text": "Completed — 3 new scripts + 1 playbook document created:\n\n1. hal-alfred-track.sh (286 lines) — Decision logging to routing.jsonl. Commands: --decision (log), --outcome (update result), --summary, --stats (metrics dashboard)\n\n2. hal-alfred-route-with-tracking.sh (110 lines) — Wrapper that auto-logs every routing decision. Auto-generates task IDs, shows track ID for cross-referencing\n\n3. hal-alfred-report.sh (263 lines) — Metrics dashboard + tuning recommendations. Flags overconfidence, underconfidence, imbalanced volume. Recommends threshold adjustments per playbook section 8\n\n4. HAL-ALFRED-ROUTING-PLAYBOOK.md (167 lines) — Full strategy document with 9 sections: ownership model, auto-routing rules, escalation triggers, return-downshift, task type matrix, handoff format, implementation phases, tuning targets, quick decision checklist\n\n5 sample routing decisions already logged to routing.jsonl. Ready for Phase 1 measurement (20-task tracking cycle).",
+        "createdAt": "2026-02-25T19:45:07.087Z"
+      }
+    ]
   }
 ]
