@@ -40,5 +40,136 @@
     "metadata": {},
     "createdAt": "2026-02-18T08:17:26.444Z",
     "updatedAt": "2026-02-18T08:17:00.000Z"
+  },
+  {
+    "id": "goal_1771922569945_9d8a6956",
+    "title": "Smart Code Review Bot",
+    "description": "AI agent that reviews PRs, suggests refactors, catches security issues, and explains trade-offs. Reduces code review friction and accelerates shipping velocity.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {},
+    "createdAt": "2026-02-24T08:42:49.945Z",
+    "updatedAt": "2026-02-24T08:44:28.664Z"
+  },
+  {
+    "id": "goal_1771922660353_2ba65a39",
+    "title": "Proactive Passive Income Opportunity Detector",
+    "description": "AI agent that continuously scans market gaps, new platforms, trends in Joe's expertise areas (automation, trading, SaaS) and proactively suggests ideas with market size + effort estimates.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T21:45:15.673Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "0f02d8f2-2ed4-477b-8d3f-f1872370307b"
+    },
+    "createdAt": "2026-02-24T08:44:20.353Z",
+    "updatedAt": "2026-02-24T21:45:15.674Z"
+  },
+  {
+    "id": "goal_1771922709001_96f47ec0",
+    "title": "Your Next Idea Generator",
+    "description": "AI agent that analyzes Joe's past ideas, successes, patterns, market trends, and generates 3 personalized product ideas every month with execution outlines.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T21:45:04.914Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "7066fcbf-13b3-48ba-b81e-8410b811f91a"
+    },
+    "createdAt": "2026-02-24T08:45:09.001Z",
+    "updatedAt": "2026-02-24T21:45:04.914Z"
+  },
+  {
+    "id": "goal_1771922732218_7d7e1f7a",
+    "title": "Cost-Per-Project P&L",
+    "description": "Automatic cost tracking across projects (dev time, API spend, hosting, tools). Real-time unit economics for each app: revenue per hour, CAC, LTV, burn rate.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T21:44:59.424Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "c4ec113c-210b-48f8-bc62-a3855f75b368"
+    },
+    "createdAt": "2026-02-24T08:45:32.218Z",
+    "updatedAt": "2026-02-24T21:44:59.424Z"
+  },
+  {
+    "id": "goal_1771922753886_d3189ebc",
+    "title": "Smart Model Router 2.0",
+    "description": "Evolved version of current routing logic: dynamically choose LOCAL/Codex/Haiku/Sonnet/Opus based on task complexity, token budget, latency requirements, and cost constraints.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T21:44:52.312Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "01ffe341-fa52-48f6-b216-4b78135f668a"
+    },
+    "createdAt": "2026-02-24T08:45:53.886Z",
+    "updatedAt": "2026-02-24T21:44:52.312Z"
+  },
+  {
+    "id": "goal_1771922865059_bb2d4b8e",
+    "title": "Project Health Command Center",
+    "description": "Dashboard that aggregates project metrics across CoinUsUp, Even Us Up, Signal App, and consulting work. One-glance view of revenue, users, churn, feature velocity, blockers, and team health.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T21:44:43.955Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "1dd4d2d4-eb0d-4dff-8825-8545e523cd1e"
+    },
+    "createdAt": "2026-02-24T08:47:45.059Z",
+    "updatedAt": "2026-02-24T21:44:43.956Z"
+  },
+  {
+    "id": "goal_1771922896482_a6eb37df",
+    "title": "Weekly Wins & Impact Digest",
+    "description": "Auto-generated weekly summary of what shipped, metrics moved, revenue/growth impact, blockers resolved, and new learnings. Builds narrative of progress for stakeholders + personal motivation.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T21:44:36.101Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "96754042-624e-4099-b309-30ab632a8103"
+    },
+    "createdAt": "2026-02-24T08:48:16.482Z",
+    "updatedAt": "2026-02-24T21:44:36.101Z"
+  },
+  {
+    "id": "goal_1771922926066_66b0d8a3",
+    "title": "Communication DNA Dashboard",
+    "description": "Visual map of how Joe prefers to communicate (async vs sync, channels, response time, decision-making style). Helps Alfred + team optimize for Joe's communication patterns.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-24T11:06:15.157Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "f6e98a6e-c78a-4c21-84fd-371329f32d54"
+    },
+    "createdAt": "2026-02-24T08:48:46.066Z",
+    "updatedAt": "2026-02-24T11:06:15.157Z"
   }
 ]

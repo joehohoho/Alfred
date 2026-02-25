@@ -76,23 +76,25 @@
       "high-upside"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
+    "updatedAt": "2026-02-24T08:10:50.276Z",
+    "rejectedReason": null,
+    "rejectedAt": null
   },
   {
     "id": "idea_1771697586352_aead226b",
     "title": "Proactive Passive Income Opportunity Detector",
     "description": "AI agent that continuously scans market gaps, new platforms, trends in Joe's expertise areas (automation, trading, SaaS) and proactively suggests ideas with market size + effort estimates.",
     "category": "passive-income",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922660353_2ba65a39",
     "tags": [],
     "createdAt": "2026-02-21T18:13:06.352Z",
-    "updatedAt": "2026-02-23T04:24:59.139Z"
+    "updatedAt": "2026-02-24T08:44:20.354Z"
   },
   {
     "id": "idea_1771697586945_82c18088",
@@ -115,39 +117,39 @@
     "title": "Project Health Command Center",
     "description": "Dashboard that aggregates project metrics across CoinUsUp, Even Us Up, Signal App, and consulting work. One-glance view of revenue, users, churn, feature velocity, blockers, and team health.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922865059_bb2d4b8e",
     "tags": [],
     "createdAt": "2026-02-21T18:13:07.532Z",
-    "updatedAt": "2026-02-21T18:13:07.532Z"
+    "updatedAt": "2026-02-24T08:47:45.059Z"
   },
   {
     "id": "idea_1771697588127_6df837d5",
     "title": "Smart Code Review Bot",
     "description": "AI agent that reviews PRs, suggests refactors, catches security issues, and explains trade-offs. Reduces code review friction and accelerates shipping velocity.",
     "category": "development",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "low",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922569945_9d8a6956",
     "tags": [],
     "createdAt": "2026-02-21T18:13:08.127Z",
-    "updatedAt": "2026-02-22T02:34:11.749Z"
+    "updatedAt": "2026-02-24T08:42:49.946Z"
   },
   {
     "id": "idea_1771697588701_b527270b",
     "title": "Multi-Device Work Sync & Context Bridge",
     "description": "Seamless context switching between Mac mini (OpenClaw), Mac laptop, and Windows gaming laptop. Unified inbox, focus state, and project context across all devices.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "high",
     "potential": "medium",
@@ -156,62 +158,64 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-21T18:13:08.701Z",
-    "updatedAt": "2026-02-21T23:09:53.188Z"
+    "updatedAt": "2026-02-24T08:57:04.389Z",
+    "rejectedReason": "The command center is basically doing this.",
+    "rejectedAt": "2026-02-24T08:57:04.389Z"
   },
   {
     "id": "idea_1771697589288_4219f7f9",
     "title": "Weekly Wins & Impact Digest",
     "description": "Auto-generated weekly summary of what shipped, metrics moved, revenue/growth impact, blockers resolved, and new learnings. Builds narrative of progress for stakeholders + personal motivation.",
     "category": "communication",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "low",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922896482_a6eb37df",
     "tags": [],
     "createdAt": "2026-02-21T18:13:09.288Z",
-    "updatedAt": "2026-02-21T18:13:09.288Z"
+    "updatedAt": "2026-02-24T08:48:16.482Z"
   },
   {
     "id": "idea_1771697589882_0880244d",
     "title": "Communication DNA Dashboard",
     "description": "Visual map of how Joe prefers to communicate (async vs sync, channels, response time, decision-making style). Helps Alfred + team optimize for Joe's communication patterns.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "low",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922926066_66b0d8a3",
     "tags": [],
     "createdAt": "2026-02-21T18:13:09.882Z",
-    "updatedAt": "2026-02-21T18:13:09.882Z"
+    "updatedAt": "2026-02-24T08:48:46.066Z"
   },
   {
     "id": "idea_1771697590465_28b28684",
     "title": "Cost-Per-Project P&L",
     "description": "Automatic cost tracking across projects (dev time, API spend, hosting, tools). Real-time unit economics for each app: revenue per hour, CAC, LTV, burn rate.",
     "category": "analytics",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922732218_7d7e1f7a",
     "tags": [],
     "createdAt": "2026-02-21T18:13:10.465Z",
-    "updatedAt": "2026-02-21T23:10:35.154Z"
+    "updatedAt": "2026-02-24T08:45:32.218Z"
   },
   {
     "id": "idea_1771697591060_48c80e22",
     "title": "Surprise & Delight Engine",
     "description": "Random small wins: push notification when a user hits a milestone, celebrate revenue goals with Slack messages, send motivational insights on slow days. Keeps morale up.",
     "category": "engagement",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "low",
     "potential": "medium",
@@ -220,39 +224,41 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-21T18:13:11.060Z",
-    "updatedAt": "2026-02-21T18:13:11.060Z"
+    "updatedAt": "2026-02-24T08:54:53.584Z",
+    "rejectedReason": "I don’t need push notifications for motivational insights to keep my morale up",
+    "rejectedAt": "2026-02-24T08:54:53.584Z"
   },
   {
     "id": "idea_1771697591652_ff7bb467",
     "title": "Your Next Idea Generator",
     "description": "AI agent that analyzes Joe's past ideas, successes, patterns, market trends, and generates 3 personalized product ideas every month with execution outlines.",
     "category": "passive-income",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922709001_96f47ec0",
     "tags": [],
     "createdAt": "2026-02-21T18:13:11.652Z",
-    "updatedAt": "2026-02-21T23:09:39.561Z"
+    "updatedAt": "2026-02-24T08:45:09.001Z"
   },
   {
     "id": "idea_1771697592233_c01b7a74",
     "title": "Smart Model Router 2.0",
     "description": "Evolved version of current routing logic: dynamically choose LOCAL/Codex/Haiku/Sonnet/Opus based on task complexity, token budget, latency requirements, and cost constraints.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "high",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1771922753886_d3189ebc",
     "tags": [],
     "createdAt": "2026-02-21T18:13:12.233Z",
-    "updatedAt": "2026-02-21T23:10:09.602Z"
+    "updatedAt": "2026-02-24T08:45:53.886Z"
   },
   {
     "id": "idea_1771697592820_9de1bbd2",
@@ -297,7 +303,7 @@
       "high-margin"
     ],
     "createdAt": "2026-02-21T20:00:00.000Z",
-    "updatedAt": "2026-02-21T20:00:00.000Z"
+    "updatedAt": "2026-02-24T09:32:48.588Z"
   },
   {
     "id": "idea_1771768800002_consultant_toolkit",
@@ -365,7 +371,7 @@
     "title": "Signal App Data Feed API",
     "description": "Package the market signal detection logic from the Signal App as a JSON/WebSocket API. Sell data feeds to other traders, trading bots, and trading platforms. Low maintenance (data already generated as part of Signal App development), recurring revenue model, minimal incremental effort. Potential customers: retail traders, prop trading firms, crypto funds, algo trading communities.",
     "category": "passive-income",
-    "status": "new",
+    "status": "evaluated",
     "source": "alfred-generated",
     "effort": "low",
     "potential": "high",
@@ -386,14 +392,14 @@
       "low-maintenance"
     ],
     "createdAt": "2026-02-23T16:32:20.432Z",
-    "updatedAt": "2026-02-23T16:32:20.433Z"
+    "updatedAt": "2026-02-24T08:56:16.057Z"
   },
   {
     "id": "idea_1771903200001_lawfirm_billing",
     "title": "Legal Billing Software for Small Law Firms",
     "description": "Vertical SaaS targeting 2-50 attorney law firms. Joe's 20-year background in legal billing + data transformation is a rare edge. Core features: time tracking by matter/client, automated billing (with UTBMS codes), trust account management, client portal, invoice generation, compliance templates (state bar requirements), integration with practice management systems. Law firms have high willingness to pay ($150-300/mo per seat) and low tolerance for switching costs. Expand to: invoice templates by state, bar compliance alerts, revenue recognition per ASC 606, integrations with QuickBooks/Wave.",
     "category": "passive-income",
-    "status": "new",
+    "status": "archived",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "high",
@@ -415,6 +421,8 @@
       "professional-services"
     ],
     "createdAt": "2026-02-23T17:31:00.000Z",
-    "updatedAt": "2026-02-23T17:31:00.000Z"
+    "updatedAt": "2026-02-24T08:16:00.355Z",
+    "rejectedReason": "This is too large of a project and commitment to get into.  I’d rather focus more on CoinUsUp or other ideas.",
+    "rejectedAt": "2026-02-24T08:16:00.355Z"
   }
 ]

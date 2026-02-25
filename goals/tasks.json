@@ -4,15 +4,15 @@
     "title": "Revenue Growth — CoinUsUp + Even Us Up",
     "description": "Audit metrics (MAU, retention, churn, revenue/user). Identify high-ROI improvements (onboarding, pricing, features). 10% of dev time ongoing. Target: +15% revenue by end Q1.",
     "goalId": "",
-    "status": "todo",
+    "status": "in_progress",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-21T18:08:32.744Z",
-    "updatedAt": "2026-02-23T04:28:31.247Z",
-    "assignedAt": "2026-02-23T04:28:31.247Z",
+    "updatedAt": "2026-02-24T21:45:24.348Z",
+    "assignedAt": "2026-02-24T21:45:24.347Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "c11351fc-2cd8-44e9-ae8d-e50e9f29fbe9"
+    "deliveryMessageId": "42142c3e-6412-417c-b3bd-80f50edee7bb"
   },
   {
     "id": "task_1771697313875_722f22e4",
@@ -24,10 +24,10 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-21T18:08:33.875Z",
-    "updatedAt": "2026-02-23T19:47:08.354Z",
-    "assignedAt": "2026-02-23T19:47:08.354Z",
+    "updatedAt": "2026-02-24T21:45:32.436Z",
+    "assignedAt": "2026-02-24T21:45:32.436Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "ccf1c428-b545-445b-af77-69f6fec996e0"
+    "deliveryMessageId": "c211cf1a-66d0-4844-b2d1-ef43428c8403"
   },
   {
     "id": "task_1771697316207_cc03d367",

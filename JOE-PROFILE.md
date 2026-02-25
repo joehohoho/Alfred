@@ -3,9 +3,9 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-02-20 (10:00 PM AST)
-**Reflection count:** 1
-**Profile version:** 1.1
+**Last reflection:** 2026-02-24 (4:22 AM AST)
+**Reflection count:** 2
+**Profile version:** 1.2
 
 ---
 
@@ -18,6 +18,7 @@ How Joe communicates and what his patterns reveal.
 - **"Go ahead" as trust signal.** When approving a plan, Joe says "go ahead" without restating it. Doesn't micromanage once he's seen the plan. | Source: notif_1771399480963, notif_1771401025186 | Confidence: high
 - **Provides specific technical details when needed.** Discord setup: gave server IDs, channel IDs, invite URL, token storage preference — all unprompted. | Source: notif_1771403277638 | Confidence: high
 - **Gets frustrated by vague or context-free questions.** "I don't have any detail on which Goal you're missing information on so I can't answer these questions." | Source: notif_1771400175659 | Confidence: high
+- **Questioning boundary is explicit: ask when stakes are high, otherwise act.** Joe wants questions for major changes, security risks, or truly missing info — but expects autonomous execution when likely answer is already known or discoverable from prior context. | Source: notif_1771768800191_7445de61 (Daily Inquiry, Workflow) | Confidence: high
 
 ### Engagement Triggers
 - **Longer responses when providing technical direction.** iMessage goal answer included philosophy ("think outside the box"), constraints ("keep token count low"), and approach ("if a coding solution can be an improvement it's not an issue"). | Source: notif_1771400770968 | Confidence: medium
@@ -79,6 +80,7 @@ Activity patterns and productivity windows.
 - **Learning through building:** Projects (CoinUsUp, Even Us Up, signal app, OpenClaw) are vehicles for learning. The building IS the value, not just the output. | Confidence: medium
 - **Surprises welcome:** USER.md says it explicitly. Joe enjoys discovering what Alfred did autonomously. | Confidence: high
 - **Pragmatism over perfection:** "Think outside the box and if a coding solution can be an improvement it's not an issue." Solutions over architecture. | Confidence: medium
+- **Clear appetite for balanced, measurable execution:** Prefers explicit targets and practical defaults (e.g., balanced risk profile and 15-minute signal cadence in Signal App decision gate). | Source: notif_1771876150552_dab8f40a | Confidence: medium
 
 ### Anti-Values (what Joe avoids)
 - Unnecessary complexity
@@ -117,14 +119,14 @@ Activity patterns and productivity windows.
 
 Ranked by recent activity (update frequently):
 
-1. **OpenClaw/Alfred ecosystem** — Daily, highest engagement (Discord + iMessage integration complete Feb 18)
-2. **Command Center Dashboard** — Active development (Kanban board deployed Feb 20)
-3. **Personal hardware refresh** — Gaming PC search in progress (Feb 20)
-4. **Job Tracker** — Maintenance + automated code review
-5. **Stock/Crypto Signal App** — Early stage (market-signal-lab)
-6. **CoinUsUp** — Maintenance mode (no active goals)
-7. **Even Us Up** — Maintenance mode (no active goals)
-8. **Automation Consulting** — Deprioritized (no active goals)
+1. **Signal App (market-signal-lab)** — Active priority (Fast Track Launch card in progress; decision gate answered Feb 24)
+2. **OpenClaw/Alfred ecosystem** — Ongoing infrastructure and autonomy improvements
+3. **Command Center Dashboard** — Active development (Kanban + monitoring workflows)
+4. **CoinUsUp** — Primary passive-income target (maintenance + growth candidate)
+5. **Even Us Up** — Lower-priority passive-income stream (maintenance mode)
+6. **Personal hardware refresh** — Gaming PC/compute search remains relevant
+7. **Job Tracker** — Maintenance + automation
+8. **Automation Consulting** — Deprioritized currently
 
 ---
 
@@ -136,7 +138,7 @@ Ranked by recent activity (update frequently):
 - Have Alfred assist with coding/app ideas
 - Stay on top of everything
 
-### Passive Income Strategy (CONCRETE TARGETS)
+### Passive Income Strategy (CONCRETE TARGETS — Direct Answer, Daily Inquiry Feb 23)
 **Revenue Targets:**
 - Initial goal: $5k-$10k/month
 - Growth: continue scaling beyond that
@@ -213,6 +215,11 @@ Ranked by recent activity (update frequently):
 - **⚠️ NOTE:** Joe rejected all proposed synergies between Signal App/CoinUsUp, Job Tracker/consulting, and Command Center as universal hub (notif_1771605868238_53174470)
 - Meaning: Joe prefers focused, single-purpose projects over integrated platforms
 - **Learning:** Don't propose speculative synergies; wait for Joe to articulate his own integration ideas
+
+### Portfolio Execution Opportunity (NEW)
+- In Vision daily inquiry, Joe confirmed all major tracks are valid and asked for implementation strategy across them rather than choosing one (`notif_1771682401703_36df658b`).
+- Opportunity: run a parallel roadmap with explicit weekly capacity caps (maintenance 5-10h, build 10-20h), and bias Alfred recommendations toward actions that reduce maintenance load while accelerating Signal App and CoinUsUp outcomes.
+- Confidence: high
 
 ### Shadow Goals to Watch
 - **Infrastructure-first mode:** Current work (Discord, iMessage, Kanban, gateway improvements) suggests Joe is building a robust personal operating system FIRST, before expanding to passive income apps. This is patient, strategic work.

@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-23T19:02:46.275Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-02-24T21:40:05.214Z",
+  "lastActivityType": "evaluate-idea",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -30,8 +30,13 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-02-23T19:02:46.275Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-02-24T21:40:05.214Z",
+      "ideaId": "idea_1771538400005_alfred_platform"
     }
   ],
-  "totalIdleDispatches": 7,
+  "totalIdleDispatches": 8,
   "cooldownMinutes": 25
 }

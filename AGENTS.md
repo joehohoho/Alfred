@@ -161,8 +161,22 @@ See FIGURE-IT-OUT.md for complete guidelines. Core principles:
 | `kanban-move.sh` | `<card_id> <column>` | Move card (columns: todo, in_progress, blocked, review, done) |
 | `kanban-blocker.sh` | `<card_id> <question>` | Block card + send question to Joe |
 | `kanban-update.sh` | `<card_id> <field> <value>` | Update card fields (title, description, priority) |
+| `kanban-create.sh` | `<type> <title> [description] [priority]` | Create card (types: task, goal, idea; priority default: urgent) |
 
 All scripts at: `~/.openclaw/workspace/scripts/`
+
+### Chat-Assigned Tasks → Kanban
+
+When Joe gives you a task via chat (NOT through a `[KANBAN-ASSIGNMENT]` message), you MUST:
+1. Create a kanban card: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<description>" urgent`
+2. Note the returned card ID
+3. Move it to in_progress: `bash ~/.openclaw/workspace/scripts/kanban-move.sh <CARD_ID> in_progress`
+4. Do the work
+5. When done: `bash ~/.openclaw/workspace/scripts/kanban-move.sh <CARD_ID> review`
+
+**Why:** All work should be tracked on the kanban board. Chat tasks default to `urgent` priority because Joe asked directly.
+
+**How to detect:** If the message does NOT start with `[KANBAN-ASSIGNMENT]` and contains a work request (build, fix, update, research, create, etc.), treat it as a chat-assigned task.
 
 ---
 

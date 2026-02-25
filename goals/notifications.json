@@ -1,16 +1,5 @@
 [
   {
-    "id": "notif_1771390305276_mwf9np0p1",
-    "type": "question",
-    "title": "Test: Workflow Implementation",
-    "message": "I was thinking about your workflow automation needs. Before I start building, I need to know:\n\n1. Which workflow would you prioritize first? (Goals, reminders, or something else)\n2. How often should notifications update? (real-time, every 5 min, every hour?)\n3. Any existing tools/APIs I should integrate with?\n\nLet me know your preferences and I can start the implementation immediately.",
-    "answered": true,
-    "createdAt": "2026-02-18T04:51:45.276Z",
-    "answeredAt": "2026-02-18T05:08:44.455Z",
-    "userAnswer": "1. Goals\n2. Hourly is ok.\n3. Be proactive in finding out new solutions or tools to use.",
-    "deliveryStatus": "sent"
-  },
-  {
     "id": "notif_1771397718421_hiipz3vbo",
     "type": "goal-created",
     "title": "Goal: Test Goal",
@@ -207,36 +196,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1771875999293_1a7ae36c",
-    "type": "kanban-action",
-    "title": "Card assigned: Signal App — Fast Track Launch",
-    "message": "Moved to todo (NORMAL - Queue for next slot) - Delivery confirmed",
-    "taskId": "task_1771697313875_722f22e4",
-    "answered": false,
-    "createdAt": "2026-02-23T19:46:39.293Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1771876006972_fbde3c48",
-    "type": "kanban-action",
-    "title": "Card assigned: Signal App — Fast Track Launch",
-    "message": "Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed",
-    "taskId": "task_1771697313875_722f22e4",
-    "answered": false,
-    "createdAt": "2026-02-23T19:46:46.972Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1771876028354_4054619b",
-    "type": "kanban-action",
-    "title": "Card assigned: Signal App — Fast Track Launch",
-    "message": "Moved to in_progress (NORMAL - Queue for next slot) - Delivery confirmed",
-    "taskId": "task_1771697313875_722f22e4",
-    "answered": false,
-    "createdAt": "2026-02-23T19:47:08.354Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1771876150552_dab8f40a",
     "type": "decision",
     "title": "Signal App Phase 1 — Critical Decision Gate (Feb 24 Deadline)",
@@ -244,8 +203,30 @@
     "goalId": "task_1771697313875_722f22e4",
     "taskId": "phase1-decision-gate",
     "source": "signal-app-launch",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-02-23T19:49:10.552Z",
+    "answeredAt": "2026-02-24T04:05:50.745Z",
+    "userAnswer": "1. C, if Binance is free.\n2. B\n3. B\n4. B",
+    "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1771930804754_3a7e9a97",
+    "type": "question",
+    "title": "⚠️ AGENTS.md Size Warning",
+    "message": "AGENTS.md is at 17225/20000 chars (86%). Approaching the 20,000 char limit. New critical info should go in AGENTS-EXTENDED.md. Consider extracting the largest section to a satellite file.",
+    "source": "agents-size-guard",
+    "answered": false,
+    "createdAt": "2026-02-24T11:00:04.754Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1771941600146_4213e73d",
+    "type": "question",
+    "title": "What cross-project wins should I explore?",
+    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data → shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-02-24T14:00:00.146Z",
     "answeredAt": null
   }
 ]
