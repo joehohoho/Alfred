@@ -58,7 +58,7 @@
     "title": "Personal AI OS Platform (Alfred-as-a-Service)",
     "description": "Joe is building a sophisticated personal AI operating system (OpenClaw + Command Center + cron + notifications + multi-channel). This stack could be productized for other solopreneurs, consultants, and small business owners who want their own 'Alfred'. Sell the pickaxes during the gold rush. Could start as a self-hosted open-source project with paid managed hosting, or a SaaS with customizable AI agent templates.",
     "category": "passive-income",
-    "status": "new",
+    "status": "evaluated",
     "source": "claude-code",
     "effort": "high",
     "potential": "high",
@@ -68,7 +68,10 @@
       "Command Center",
       "automation-consulting"
     ],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7,
+      "notes": "Joe has a genuine edge here — he built and runs this stack daily, and his consulting background mirrors the target market. Productizing is high effort, but SaaS/managed hosting offers strong passive revenue potential. Main risk is support overhead and onboarding complexity for non-technical users; a self-hosted open-source entry point would reduce friction and build community before monetizing."
+    },
     "promotedToGoalId": null,
     "tags": [
       "platform",
@@ -78,7 +81,7 @@
       "high-upside"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-24T08:10:50.276Z",
+    "updatedAt": "2026-02-26T13:01:09.009273Z",
     "rejectedReason": null,
     "rejectedAt": null
   },
@@ -862,5 +865,53 @@
     "updatedAt": "2026-02-26T11:53:36.614Z",
     "rejectedReason": "Rejected via kanban board",
     "rejectedAt": "2026-02-26T11:53:36.614Z"
+  },
+  {
+    "id": "idea_1772110870556_dbcbbaf5",
+    "title": "Trust Ledger Drift Detector (Law Firms)",
+    "description": "Problem: Small/mid law firms discover trust-accounting errors late, causing partner panic and compliance risk. Target: 10-100 user law firms using Elite/3E/other billing exports. Product: nightly anomaly scan on trust ledgers (negative balances, stale client trust, matter-level mismatch), weekly partner digest, one-click audit packet. MRR potential: k-k/month (15-80 firms at -). Tech complexity: 3/5. Competition: Medium (general BI exists, few trust-specific anomaly tools). Why Joe can win: 20+ years in legal billing/data transformation and understands trust edge cases + partner workflows.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T13:01:10.556Z",
+    "updatedAt": "2026-02-26T13:01:10.556Z"
+  },
+  {
+    "id": "idea_1772110870706_a976efc7",
+    "title": "CRA Remittance Variance Sentinel",
+    "description": "Problem: Canadian SMBs/payroll bureaus miss remittance amount errors before CRA deadlines; penalties erode margin. Target: Bookkeepers + 5-200 employee SMBs in Canada. Product: ingest payroll summary + prior remittances, flag CPP/EI/tax variances and deadline risk, generate accountant-ready correction checklist. MRR potential: k-k/month (100-300 accounts at -). Tech complexity: 2/5. Competition: Medium-high in payroll suites, low in standalone variance-warning niche. Why Joe can win: existing Canada compliance focus, automation background, and ability to ship lightweight workflow tool without replacing payroll systems.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T13:01:10.706Z",
+    "updatedAt": "2026-02-26T13:01:10.706Z"
+  },
+  {
+    "id": "idea_1772110870856_3ad598a4",
+    "title": "Signal Journal Auto-Coach (Trading)",
+    "description": "Problem: Retail/systematic traders have signal tools but no disciplined post-trade review loop, so they repeat mistakes. Target: Active crypto/equity swing traders using Discord/Telegram alerts and spreadsheets. Product: auto-import fills + signals, classify mistakes (late entry, rule break, overtrade), weekly AI coaching brief and risk-adjusted scorecard. MRR potential: k-k/month (80-300 users at -). Tech complexity: 3/5. Competition: Medium (journals exist), low for signal-aware coaching overlay. Why Joe can win: direct overlap with Signal App roadmap and strength in automation + practical workflow UX.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T13:01:10.856Z",
+    "updatedAt": "2026-02-26T13:01:10.856Z"
   }
 ]
