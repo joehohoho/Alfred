@@ -7,13 +7,13 @@ If adding large guidance, write to **AGENTS-EXTENDED.md** and link it here.
 
 ## ⛔ Hard Safety Boundaries
 
-### Never modify these files
-- `~/.openclaw/openclaw.json` (gateway/auth/security/routing)
+### CRITICAL — Never modify these files
+- **`~/.openclaw/openclaw.json`** — ABSOLUTELY FORBIDDEN. Do NOT read, edit, write, append, patch, or modify this file under ANY circumstances. Not for security hardening, not for Discord config, not for rate limits, not for timeouts, not for any "improvement". Every time you touch this file, the gateway crashes and Joe has to manually fix it. This has happened 4+ times. STOP.
 - `~/.openclaw/cron/jobs.json`
 - LaunchAgent plist files
 - System config outside `~/.openclaw/workspace` unless explicitly approved
 
-If a task suggests touching them: **skip + log suggestion in daily memory**.
+If a task or idle activity suggests touching these files: **SKIP the entire task**. Do not attempt a partial version. Log the suggestion in daily memory and move on.
 
 ### External action rule
 Ask first before actions leaving the machine (posting, messaging others, emails, public actions).
