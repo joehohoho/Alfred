@@ -9,23 +9,18 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROUTER="$SCRIPT_DIR/hal-alfred-route-auto.sh"
 API="http://localhost:3001/api/kanban"
 
-# Guard: bail only if all in_progress cards are stale (no active work happening).
-# Multiple cards CAN be in_progress as long as they have a plan and are actively being worked.
+# Guard: only dispatch a kanban card when in_progress is completely empty.
+# If anything is in_progress (active or stale), bail — don't pile on.
+# Proactive tasks (no board move) are handled upstream in hal-idle-dispatch-cron.sh.
 BOARD_JSON=$(curl -s "$API")
-STALE_CHECK=$(echo "$BOARD_JSON" | python3 -c "
-import sys, json, datetime, time
+IN_PROG_COUNT=$(echo "$BOARD_JSON" | python3 -c "
+import sys, json
 b = json.load(sys.stdin)
 cards = [c for c in b.get('columns', {}).get('in_progress', []) if c.get('type') != 'idea']
-if not cards:
-    print('ok')
-else:
-    now = time.time()
-    stale_hours = 6
-    active = [c for c in cards if (now - datetime.datetime.fromisoformat(c['updatedAt'].replace('Z','+00:00')).timestamp()) / 3600 < stale_hours]
-    print('ok' if active else 'stale')
-" 2>/dev/null || echo "ok")
-if [[ "$STALE_CHECK" == "stale" ]]; then
-  # All in_progress cards are stale — don't pile on, let them be resolved
+print(len(cards))
+" 2>/dev/null || echo "0")
+if [[ "$IN_PROG_COUNT" -gt 0 ]]; then
+  # Something is in_progress — don't dispatch another kanban card
   echo "" ; exit 0
 fi
 

@@ -9,7 +9,7 @@
     "estimatedHours": 0,
     "completedAt": "2026-02-26T07:51:12.504Z",
     "createdAt": "2026-02-21T18:08:32.744Z",
-    "updatedAt": "2026-02-26T07:51:12.504Z",
+    "updatedAt": "2026-02-26T12:02:31.032Z",
     "assignedAt": "2026-02-25T21:00:44.564Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "c2eb69fb-c01d-4255-bb55-2ee30d840957",
@@ -37,6 +37,12 @@
         "author": "joe",
         "text": "Send the CoinUsUp recommendations for improvement to the discord channel and log going forward any improvement ideas for CoinsUsUp be sent the this channel: https://discord.com/api/webhooks/1476455827215749160/YTDUoxAIuLovfxnFcoqUJ-hk2RZ4ioFIdVcGNSgq07ClhWR8P7vGjStzMG8pLNWiNfIC.   Even Us Up is the expense sharing app in github",
         "createdAt": "2026-02-26T06:49:07.236Z"
+      },
+      {
+        "id": "cmt_1772107351032_174969dd",
+        "author": "alfred",
+        "text": "Done on both:\n\n1. **Discord webhook saved** — CoinUsUp improvement ideas now route to that channel automatically going forward (saved in COINUSUP-DISCORD.md).\n\n2. **Even Us Up** — noted as the expense sharing app on GitHub. I will pull the repo for a deep audit next.\n\nDo I need anything else? Not right now — I have the audit report, the Discord webhook, and the EvenUsUp repo location. I will start the EvenUsUp audit and post findings to Discord when ready. No action needed from you.",
+        "createdAt": "2026-02-26T12:02:31.032Z"
       }
     ]
   },
@@ -467,7 +473,7 @@
     "estimatedHours": 0,
     "completedAt": "2026-02-26T07:01:50.037Z",
     "createdAt": "2026-02-26T06:03:52.707Z",
-    "updatedAt": "2026-02-26T07:01:50.037Z",
+    "updatedAt": "2026-02-26T12:02:31.130Z",
     "comments": [
       {
         "id": "cmt_1772086168351_42606a11",
@@ -492,6 +498,12 @@
         "author": "joe",
         "text": "can you confirm this can be done and if so move it there",
         "createdAt": "2026-02-26T07:01:03.652Z"
+      },
+      {
+        "id": "cmt_1772107351130_6f2584a6",
+        "author": "alfred",
+        "text": "Yes, confirmed — I can run the npm build/install for you. Moving this card to cuu_test now and will kick off the npm run. Will post results here and notify you if anything needs attention.",
+        "createdAt": "2026-02-26T12:02:31.130Z"
       }
     ]
   },
@@ -505,10 +517,18 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T06:03:52.848Z",
-    "updatedAt": "2026-02-26T06:23:11.598Z",
+    "updatedAt": "2026-02-26T12:24:53.817Z",
     "assignedAt": "2026-02-26T06:19:32.648Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "50c66c2d-6d30-4198-9007-8c9126caded5"
+    "deliveryMessageId": "50c66c2d-6d30-4198-9007-8c9126caded5",
+    "comments": [
+      {
+        "id": "cmt_1772108693817_5217d807",
+        "author": "joe",
+        "text": "What do I need to review for this",
+        "createdAt": "2026-02-26T12:24:53.817Z"
+      }
+    ]
   },
   {
     "id": "task_1772085832985_39c4617c",
@@ -535,7 +555,7 @@
     "estimatedHours": 0,
     "completedAt": "2026-02-26T07:51:35.510Z",
     "createdAt": "2026-02-26T06:23:37.219Z",
-    "updatedAt": "2026-02-26T07:51:35.510Z",
+    "updatedAt": "2026-02-26T12:01:47.375Z",
     "assignedAt": "2026-02-26T06:24:46.021Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "016fe159-ac95-47f0-9721-2d80317c57c0",
@@ -557,6 +577,12 @@
         "author": "joe",
         "text": "Test 2",
         "createdAt": "2026-02-26T06:35:35.908Z"
+      },
+      {
+        "id": "cmt_1772107307375_a19d4c78",
+        "author": "alfred",
+        "text": "Got the test comments — notification pipeline confirmed working. This card is in the rejected column so no action needed here.",
+        "createdAt": "2026-02-26T12:01:47.375Z"
       }
     ]
   }

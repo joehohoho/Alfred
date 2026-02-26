@@ -89,6 +89,20 @@ Session bridge updates:
 
 Single source for task execution state.
 
+### On `[KANBAN-COMMENT]`
+When Joe comments on a kanban card, Alfred MUST:
+1. Parse the card ID from the message header: `(card_id, column: ...)`
+2. Respond in the current chat channel (normal reply)
+3. **ALSO post the reply back to the card as a comment** via API:
+   ```bash
+   curl -s -X POST http://localhost:3001/api/kanban/<card_id>/comments \
+     -H "Content-Type: application/json" \
+     -d "{\"author\":\"alfred\",\"text\":\"<response>\"}"
+   ```
+4. If action is taken (task started, card moved, etc.) — note it in the card comment too.
+
+**This step is mandatory.** Responding only in chat means Joe sees nothing on the board.
+
 ### On `[KANBAN-ASSIGNMENT]`
 1. Move card to in_progress:  
    `bash ~/.openclaw/workspace/scripts/kanban-move.sh <CARD_ID> in_progress`
@@ -102,7 +116,7 @@ Single source for task execution state.
 Resume work and move to review when complete.
 
 ### Critical constraint
-**Only one card in `in_progress` at a time.**
+**HAL only picks up a new Kanban card when `in_progress` is empty.** Alfred may have multiple in_progress cards (parallel work), but the HAL idle dispatcher will not auto-assign a new card while any card is already in_progress. Proactive pool tasks (no board move) can always run.
 
 ### HAL completion → Discord (REQUIRED)
 When HAL finishes a task (card moves to review with HAL results), post to the HAL completions Discord channel:

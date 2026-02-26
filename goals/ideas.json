@@ -443,13 +443,31 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:45.669Z",
-    "updatedAt": "2026-02-26T07:18:28.978Z",
+    "updatedAt": "2026-02-26T12:15:08.955Z",
     "comments": [
       {
         "id": "cmt_1772090308978_87ba08f0",
         "author": "joe",
         "text": "what are MSPs?",
         "createdAt": "2026-02-26T07:18:28.978Z"
+      },
+      {
+        "id": "cmt_1772107193914_6c61c06c",
+        "author": "joe",
+        "text": "[TEST] Does Alfred get notified?",
+        "createdAt": "2026-02-26T11:59:53.914Z"
+      },
+      {
+        "id": "cmt_1772107303484_25c7cadc",
+        "author": "alfred",
+        "text": "MSPs = Managed Service Providers — IT companies that manage tech infrastructure for other businesses (servers, backups, networks, security). Think outsourced IT departments. This idea targets MSPs who manually compile backup failure reports for their clients each month — time-consuming work that could be fully automated.\n\n(Deleting the [TEST] comment — that was a diagnostic I ran to verify the notification pipeline.)",
+        "createdAt": "2026-02-26T12:01:43.484Z"
+      },
+      {
+        "id": "cmt_1772108108955_ae2be2e5",
+        "author": "joe",
+        "text": "Research if this is a viable option and if there is a demand",
+        "createdAt": "2026-02-26T12:15:08.955Z"
       }
     ]
   },
@@ -508,7 +526,7 @@
     "title": "TradingView Alert → Risk-Managed Order Router Template Packs",
     "description": "Traders overcomplicate automation and risk sizing. Plug-and-play template packs. $99–$299 one-time + $19/mo updates. Build: S. Maintenance: Low.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -517,7 +535,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:47.672Z",
-    "updatedAt": "2026-02-25T21:20:47.672Z"
+    "updatedAt": "2026-02-26T12:24:14.963Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T12:24:14.963Z"
   },
   {
     "id": "idea_1772054448161_9ed5d999",
@@ -540,7 +560,7 @@
     "title": "Slack Ops Triage Digest for SMB Teams",
     "description": "Important alerts scattered across tools with no daily summary. Daily triage digest bot for 10–200 person Slack teams. $5/user/mo. Build: S. Maintenance: Med.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -549,7 +569,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:48.657Z",
-    "updatedAt": "2026-02-25T21:20:48.657Z"
+    "updatedAt": "2026-02-26T11:54:47.675Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T11:54:47.675Z"
   },
   {
     "id": "idea_1772054449147_fbfcbf49",
@@ -572,7 +594,7 @@
     "title": "Niche Compliance Calendar + Reminder API for Canadian SMBs",
     "description": "Deadlines missed across payroll/tax/filings. Canadian SMB geography-specific moat. $39–$149/mo. Build: M. Maintenance: Low-Med.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -581,7 +603,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:49.631Z",
-    "updatedAt": "2026-02-25T21:20:49.631Z"
+    "updatedAt": "2026-02-26T11:54:29.856Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T11:54:29.856Z"
   },
   {
     "id": "idea_1772054450125_e178e916",
@@ -690,7 +714,7 @@
     "title": "Prop Rule Copilot",
     "description": "Automation tool for funded/prop traders: tracks daily loss limits, trailing drawdown, and session risk in real time from broker/CSV/webhooks; sends Slack/Discord/Telegram guardrail alerts before rule breaches. Recurring model: per account/month. Effort: Low (1-3 weeks MVP). Upside: High in trading niche (k-k MRR if positioned to funded-account communities).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -699,7 +723,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T05:19:30.559Z",
-    "updatedAt": "2026-02-26T05:19:30.559Z"
+    "updatedAt": "2026-02-26T12:23:57.758Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T12:23:57.758Z"
   },
   {
     "id": "idea_1772083170767_06a4a240",
@@ -788,7 +814,7 @@
     "title": "Elite Rejection Shield (LEDES Preflight for law firms)",
     "description": "Micro-SaaS that connects to Elite/3E prebill exports and flags likely e-billing guideline violations (UTBMS/code mismatch, block billing, narrative rule breaks) before invoice submission. Effort: Low-Medium (3-5 weeks MVP using CSV/API ingest + rule engine). Upside: Medium-High (-/firm/month; strong ROI via lower write-offs and fewer rejections). Low maintenance: ruleset updates monthly.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -797,14 +823,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T09:47:16.147Z",
-    "updatedAt": "2026-02-26T09:47:16.147Z"
+    "updatedAt": "2026-02-26T11:54:08.527Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T11:54:08.527Z"
   },
   {
     "id": "idea_1772099236284_3dfb9d3d",
     "title": "Trader Wash-Sale Sentinel (cross-account alerting)",
     "description": "Automation SaaS for active stock/options traders: broker import + daily wash-sale risk alerts before order placement, with tax-lot what-if checks. Effort: Medium (4-6 weeks for 2-3 broker connectors + rules). Upside: Medium-High (-/user/month + annual plans). Low maintenance: periodic connector fixes + IRS rule library updates.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -813,14 +841,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T09:47:16.284Z",
-    "updatedAt": "2026-02-26T09:47:16.284Z"
+    "updatedAt": "2026-02-26T12:23:21.197Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T12:23:21.197Z"
   },
   {
     "id": "idea_1772099236444_d3d4e704",
     "title": "Law Firm Collections Autopilot (A/R nudges + partner digest)",
     "description": "Plug-in automation that watches billing/aging data from legal systems, auto-sends staged reminder sequences to clients, and delivers weekly partner-level risk digests (at-risk invoices, likely write-downs). Effort: Low (2-4 weeks using email workflows + dashboard). Upside: Medium (-/firm/month, high retention if tied to cash recovery). Low maintenance: template tuning + basic integration upkeep.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -829,6 +859,8 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T09:47:16.445Z",
-    "updatedAt": "2026-02-26T09:47:16.445Z"
+    "updatedAt": "2026-02-26T11:53:36.614Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T11:53:36.614Z"
   }
 ]
