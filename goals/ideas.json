@@ -1093,5 +1093,53 @@
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
     "updatedAt": "2026-02-26T20:01:11.462Z"
+  },
+  {
+    "id": "idea_1772143997042_57927d76",
+    "title": "LEDES Rejection Fixer (Law Firm Billing)",
+    "description": "Micro-SaaS that ingests rejected e-billing/LEDES files and auto-suggests corrected narratives, UTBMS codes, and format fixes before resubmission. Recurring model: per timekeeper/month + overage per 1k line items. Why fit: Joe has deep legal billing/data transformation expertise. Build effort: Low-Medium (2-4 weeks MVP using parser + rules + AI rewrite). Maintenance: Low (rules updates + occasional client guideline templates). Upside estimate: Medium-High (k-k MRR with 10-40 boutique/mid firms at -).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T22:13:17.042Z",
+    "updatedAt": "2026-02-26T22:13:17.042Z"
+  },
+  {
+    "id": "idea_1772144000804_92cef3aa",
+    "title": "Trade Journal Auto-Reviewer for Retail Traders",
+    "description": "Automation SaaS that connects broker CSV/API + TradingView alerts, auto-builds daily trade journal, tags mistakes (late entries, revenge trades, overleverage), and emails a weekly performance review. Recurring model: solo trader subscription tiers. Build effort: Low (1-3 weeks MVP with CSV import + templated analytics). Maintenance: Low (mostly connector upkeep). Upside estimate: Medium (k-k MRR with 100-500 users at -).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T22:13:20.804Z",
+    "updatedAt": "2026-02-26T22:13:20.804Z"
+  },
+  {
+    "id": "idea_1772144005131_ba81ffb6",
+    "title": "Automation Health Monitor for SMB Zapier/Make Stacks",
+    "description": "Low-touch monitoring layer for SMBs/agencies: checks failed runs, stale scenarios, quota burn, and data mismatch signals across Zapier/Make; sends plain-English daily digest + one-click fix playbooks. Recurring model: per workspace + per automation volume. Build effort: Low-Medium (2-5 weeks MVP, API polling + rule engine + alerts). Maintenance: Low-Medium (API changes occasionally). Upside estimate: Medium-High (k-k MRR with 30-100 accounts at -).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T22:13:25.131Z",
+    "updatedAt": "2026-02-26T22:13:25.131Z"
   }
 ]

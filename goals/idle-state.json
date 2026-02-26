@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-26T21:00:56.904Z",
-  "lastActivityType": "improve-self",
+  "lastActivityAt": "2026-02-26T22:00:49.498Z",
+  "lastActivityType": "surprise-delight",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -48,8 +48,12 @@
     {
       "type": "improve-self",
       "dispatchedAt": "2026-02-26T21:00:56.904Z"
+    },
+    {
+      "type": "surprise-delight",
+      "dispatchedAt": "2026-02-26T22:00:49.498Z"
     }
   ],
-  "totalIdleDispatches": 11,
+  "totalIdleDispatches": 12,
   "cooldownMinutes": 25
 }
