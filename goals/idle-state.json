@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-26T13:00:49.058Z",
-  "lastActivityType": "evaluate-idea",
+  "lastActivityAt": "2026-02-26T21:00:56.904Z",
+  "lastActivityType": "improve-self",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -40,8 +40,16 @@
       "type": "evaluate-idea",
       "dispatchedAt": "2026-02-26T13:00:49.058Z",
       "ideaId": "idea_1771538400005_alfred_platform"
+    },
+    {
+      "type": "profile-reflection",
+      "dispatchedAt": "2026-02-26T20:00:50.860Z"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-02-26T21:00:56.904Z"
     }
   ],
-  "totalIdleDispatches": 9,
+  "totalIdleDispatches": 11,
   "cooldownMinutes": 25
 }

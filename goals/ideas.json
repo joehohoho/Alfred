@@ -1045,5 +1045,53 @@
     "tags": [],
     "createdAt": "2026-02-26T17:47:05.434Z",
     "updatedAt": "2026-02-26T17:47:05.434Z"
+  },
+  {
+    "id": "idea_1772136071158_9f12701a",
+    "title": "NB Payroll Guardian (Bilingual micro-payroll for SMBs)",
+    "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nSmall NB employers (5-50 staff) struggle with bilingual payroll artifacts, statutory holiday handling, and CRA remittance date misses. Existing tools are overbuilt/expensive or weak on bilingual local workflows.\\n\\nOpportunity:\\nA lightweight payroll compliance assistant that sits on top of existing payroll exports (Ceridian/QuickBooks/Wave CSV) and auto-generates:\\n- bilingual employee-facing pay notices (EN/FR)\\n- CRA remittance reminder calendar with penalty-risk alerts\\n- province-aware holiday/overtime checks (NB-first, then Atlantic roll-out)\\n\\nMoat:\\nHyper-local compliance presets + bilingual defaults for Atlantic SMBs (a segment larger competitors ignore).\\n\\nMonetization:\\n-/mo +  setup for import mapping.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T20:01:11.158Z",
+    "updatedAt": "2026-02-26T20:01:11.158Z"
+  },
+  {
+    "id": "idea_1772136071311_0e7e5235",
+    "title": "HST Deadline Copilot (Atlantic filing + cashflow guardrails)",
+    "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nMany owner-operators miss GST/HST filing/remittance deadlines because due dates vary by filing frequency and bookkeeping is lagging. Penalties/interest erode margins.\\n\\nOpportunity:\\nA CRA/HST copilot for small Canadian businesses that:\\n- calculates upcoming filing windows and remittance amounts from bank/ledger snapshots\\n- flags likely under-remittance risk\\n- creates bilingual reminder workflows for owner + bookkeeper\\n- provides pre-filled reconciliation checklist before filing day\\n\\nMoat:\\nBuilt for Canadian tax cadence and Atlantic SMB realities (seasonal cashflow + part-time bookkeepers), not generic global accounting.\\n\\nMonetization:\\n-/mo with tiered entities; partner channel via local bookkeeping firms.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T20:01:11.311Z",
+    "updatedAt": "2026-02-26T20:01:11.311Z"
+  },
+  {
+    "id": "idea_1772136071462_e8e777a9",
+    "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
+    "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T20:01:11.462Z",
+    "updatedAt": "2026-02-26T20:01:11.462Z"
   }
 ]
