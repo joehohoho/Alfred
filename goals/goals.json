@@ -62,10 +62,24 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:44:20.353Z",
-    "updatedAt": "2026-02-25T17:48:46.268Z"
+    "updatedAt": "2026-02-25T21:17:34.958Z",
+    "comments": [
+      {
+        "id": "cmt_1772054212024_fe73a6d3",
+        "author": "alfred",
+        "text": "HAL dispatch started (run mode) for opportunity detector analysis. Could not move this card to in_progress due one-card rule: \"Signal App — Fast Track Launch\" currently in progress. Will attach HAL results here when complete.",
+        "createdAt": "2026-02-25T21:16:52.024Z"
+      },
+      {
+        "id": "cmt_1772054254958_922f03d1",
+        "author": "alfred",
+        "text": "HAL completed first-pass opportunity detection. Top 3 by effort-to-upside ratio:\n\n1. MSP Failed Backup → Client Report Bot — fastest path to paid pilots, clear ROI, low maintenance\n2. Client Onboarding Autopilot for Automation Consultants — fastest to ship, template-based recurring revenue\n3. Law Firm Trust Reconciliation Monitor — domain fit with legal/billing background, sticky compliance budgets\n\nRecommendation: Start with MSP Backup Report Bot. 30-day execution outline included in full report.\n\nFull results delivered in chat. Ready to produce MVP spec for chosen idea on approval.",
+        "createdAt": "2026-02-25T21:17:34.958Z"
+      }
+    ]
   },
   {
     "id": "goal_1771922709001_96f47ec0",
@@ -76,10 +90,18 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:45:09.001Z",
-    "updatedAt": "2026-02-25T17:48:46.320Z"
+    "updatedAt": "2026-02-25T21:47:40.908Z",
+    "comments": [
+      {
+        "id": "cmt_1772056060908_c59692d1",
+        "author": "alfred",
+        "text": "HAL completed idea generation. 3 Joe-specific ideas added to Kanban Ideas column:\n\n1. BuilderPulse — monitoring + AI ops digest for indie builders ($19-99/mo, Low maintenance) — TOP PICK\n2. SignalLite — clean buy/sell signal feed extension of Signal App ($15-79/mo)\n3. CoinUsUp Teams — shared expense autopilot extension of existing codebase ($8-12/workspace/mo)\n\n14-day kickoff plan for BuilderPulse included in chat. Ready to produce 1-page execution brief on request.",
+        "createdAt": "2026-02-25T21:47:40.908Z"
+      }
+    ]
   },
   {
     "id": "goal_1771922732218_7d7e1f7a",
@@ -90,10 +112,24 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:45:32.218Z",
-    "updatedAt": "2026-02-25T17:48:46.371Z"
+    "updatedAt": "2026-02-25T22:17:39.154Z",
+    "comments": [
+      {
+        "id": "cmt_1772057816097_e39ca5b3",
+        "author": "alfred",
+        "text": "HAL dispatch started (run initiated) for this goal during idle-check automation, but card could not be moved to in_progress due to one-card-in-progress rule (currently: Signal App — Fast Track Launch).",
+        "createdAt": "2026-02-25T22:16:56.097Z"
+      },
+      {
+        "id": "cmt_1772057859153_187afa33",
+        "author": "alfred",
+        "text": "HAL completed Cost-Per-Project P&L design.\n\nArchitecture: 5 data sources (dev time via git, API spend, hosting, tools, revenue via Stripe) → Postgres star schema → daily dbt transforms → Metabase/Grafana dashboard.\n\nKey metrics defined: Revenue/hour, CAC, LTV (subscription proxy), Gross/Net Burn Rate.\n\n30-day rollout plan delivered (5 phases, <2h/week maintenance target after setup).\n\nRecommended first project to instrument: CoinUsUp — cleanest Stripe + hosting + repo boundary with active revenue.\n\nFull spec delivered in chat. Ready to begin Phase 1 (schema + project mapping) on approval.",
+        "createdAt": "2026-02-25T22:17:39.153Z"
+      }
+    ]
   },
   {
     "id": "goal_1771922753886_d3189ebc",
@@ -104,10 +140,24 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:45:53.886Z",
-    "updatedAt": "2026-02-25T17:48:46.471Z"
+    "updatedAt": "2026-02-25T22:47:40.442Z",
+    "comments": [
+      {
+        "id": "cmt_1772059624229_a102c552",
+        "author": "alfred",
+        "text": "HAL dispatch started (runId: 684d7f0c-67d4-4667-8286-a04fd350aa49), but card could not be moved to in_progress due one-card rule: Signal App — Fast Track Launch is currently in_progress.",
+        "createdAt": "2026-02-25T22:47:04.229Z"
+      },
+      {
+        "id": "cmt_1772059660441_1129d15f",
+        "author": "alfred",
+        "text": "HAL completed Smart Model Router 2.0 design.\n\nCore: 2-stage routing — hard gates first (risk/code/complexity), then weighted score across Quality/Speed/Cost/Reliability with switchable modes (min/balanced/quality).\n\nEscalation ladder: LOCAL → Haiku (or Codex for code) → Sonnet → Opus. Max 2 escalations per request.\n\nBudget guardrails: soft cap ($2) biases down a tier; hard cap ($5) requires override.\n\n30-day rollout: shadow mode (days 1-7) → 20-30% traffic (days 8-14) → full rollout (days 15-21) → stabilize (days 22-30).\n\nExit criteria: ≥20% cost reduction, <+10% p95 latency increase, retry rate flat or improved.\n\nReady to convert to JSON policy schema + router function for implementation on approval.",
+        "createdAt": "2026-02-25T22:47:40.441Z"
+      }
+    ]
   },
   {
     "id": "goal_1771922865059_bb2d4b8e",
@@ -118,13 +168,18 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo",
-      "assignedAt": "2026-02-25T14:36:52.230Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "80e4c9df-2c85-469a-a425-b95433927f50"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:47:45.059Z",
-    "updatedAt": "2026-02-25T14:36:52.230Z"
+    "updatedAt": "2026-02-26T01:17:32.889Z",
+    "comments": [
+      {
+        "id": "cmt_1772068652889_e0850847",
+        "author": "alfred",
+        "text": "HAL completed Project Health Command Center spec.\n\nDashboard: portfolio summary row (health score, MRR, WAU/MAU, delivery throughput, blockers) + 4 project cards (CoinUsUp/EvenUsUp/SignalApp/Consulting) each showing 6 dimensions: Revenue, Users, Churn, Feature Velocity, Blockers, Team Health.\n\nHealth score formula: Revenue 25% + Users 20% + Churn 20% + Velocity 20% + Blockers 10% + Team 5%.\n\nArchitecture: automated daily pulls (Stripe, product DB, GitHub) + 5-10 min weekly manual form for blockers/consulting pipeline → Postgres or Airtable → Metabase/Looker Studio.\n\n30-day rollout: Phase 1 data model → Phase 2 ETL automation → Phase 3 dashboard + alerts → Phase 4 stabilize.\n\nFirst instrument: CoinUsUp revenue + user activity (most mature data, fastest value).\n\nUltra-lean v1 KPIs (6 only): Revenue 30d, WAU, Churn%, Features shipped 14d, Open critical blockers, Team health score.",
+        "createdAt": "2026-02-26T01:17:32.889Z"
+      }
+    ]
   },
   {
     "id": "goal_1771922896482_a6eb37df",
@@ -135,13 +190,18 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo",
-      "assignedAt": "2026-02-25T14:36:52.322Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "18318c89-5981-499c-b60f-034b22c603d2"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:48:16.482Z",
-    "updatedAt": "2026-02-25T14:36:52.322Z"
+    "updatedAt": "2026-02-26T00:47:11.110Z",
+    "comments": [
+      {
+        "id": "cmt_1772066831110_12dd2892",
+        "author": "alfred",
+        "text": "HAL completed Weekly Wins & Impact Digest format.\n\nDelivered: reusable 6-section template (Shipped / Metrics moved / Revenue impact / Blockers resolved / Key learnings / Next week focus) with fill rules and optional momentum score.\n\nKey rules: every shipped item needs outcome + evidence, revenue claims tagged as direct/pipeline/estimated, keep to ~1 page, use proxies if no hard metric moved.\n\nHAL offered to produce this as a JSON schema for auto-generation every Friday. Alfred recommendation: wire this up as a Friday evening cron so it auto-populates from Kanban board data + Stripe + git log and posts to Slack weekly. Low effort, high ongoing value.",
+        "createdAt": "2026-02-26T00:47:11.110Z"
+      }
+    ]
   },
   {
     "id": "goal_1771922926066_66b0d8a3",
@@ -152,12 +212,17 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo",
-      "assignedAt": "2026-02-25T14:36:52.379Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "4a471b09-009c-41c9-9cb4-8ac675f6f6da"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:48:46.066Z",
-    "updatedAt": "2026-02-25T14:36:52.379Z"
+    "updatedAt": "2026-02-26T00:17:43.138Z",
+    "comments": [
+      {
+        "id": "cmt_1772065063137_8551d6f6",
+        "author": "alfred",
+        "text": "HAL completed Communication DNA Dashboard spec.\n\nKey outputs:\n1. Dashboard spec: 6 panels — Profile summary, Channel effectiveness matrix, Async vs sync decision widget, Decision-making pattern widget, Response reliability widget, Playbook panel\n2. Data model: communication_event + preference_signal + weekly profile_snapshot with confidence scoring (source × recency × consistency)\n3. 30-day rollout: ingest → compute + visualize → operationalize → harden. Maintenance target: 10-15 min/week after setup\n4. Top risks: noisy data, overfitting, complexity, preference drift, privacy\n5. Automation hooks: Slack ingestion, thread resolution, SLA breach detection, weekly snapshot, manual override\n\nHAL offered to convert spec into JSON schema + React/Next dashboard layout. Ready to start on approval.",
+        "createdAt": "2026-02-26T00:17:43.137Z"
+      }
+    ]
   }
 ]

@@ -135,6 +135,14 @@ Ranked by recent activity (update frequently):
 
 ## Aspirations & Vision
 
+### Core Life Goal (explicitly stated 2026-02-25) ⭐ HIGHEST PRIORITY
+**"Stop working."** Joe wants to reach full financial independence through passive income — not client work, not freelancing, not chasing anyone. He wants to work ONLY on personal projects and AI infrastructure improvements, entirely on his own schedule, because passive income covers everything. This is the north star behind every project decision.
+
+- No more clients. No more working for anyone else or for income obligations.
+- Passive income must be stable enough to cover life completely.
+- Time freed up = personal projects + AI infrastructure on own terms, own schedule.
+- **Implication for Alfred:** Every recommendation should be filtered through "does this move Joe closer to financially stable passive income?" If it doesn't contribute directly, deprioritize it.
+
 ### Stated Goals
 - Build passive income apps ($5k-$10k/month target, growing from there)
 - Be more efficient with tedious tasks

@@ -137,8 +137,8 @@
     }
   },
   "budget": {
-    "totalCredits": 176.39,
-    "spent": 160.25,
+    "totalCredits": 47.353853099999995,
+    "spent": 35.72385309999999,
     "additions": [
       {
         "amount": 42.325025749999966,
@@ -159,10 +159,15 @@
         "amount": 16.14,
         "date": "2026-02-20",
         "note": "Balance set to $16.14"
+      },
+      {
+        "amount": 11.63,
+        "date": "2026-02-25",
+        "note": "Balance set to $11.63"
       }
     ],
-    "remaining": 16.14,
-    "costAtSnapshot": 160.25
+    "remaining": 11.63,
+    "costAtSnapshot": 0
   },
   "pricing": {
     "opus": {
