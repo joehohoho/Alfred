@@ -52,6 +52,24 @@ if [[ "$IS_IDLE" == "true" ]]; then
     SUGGESTED_ACTION="dispatch_kanban"
     NEXT_TASK=$(echo "$HAL_TASK_JSON" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('title',''))" 2>/dev/null)
   else
+    # Check if a card is already in_progress before falling back to proactive pool.
+    # (hal-get-idle-task.sh may have returned empty due to the in_progress guard.)
+    BOARD_JSON=$(curl -s "http://localhost:3001/api/kanban" 2>/dev/null || echo "{}")
+    IN_PROG_COUNT=$(echo "$BOARD_JSON" | python3 -c "
+import sys,json
+b=json.load(sys.stdin)
+print(len(b.get('columns',{}).get('in_progress',[])))
+" 2>/dev/null || echo "0")
+
+    if [[ "$IN_PROG_COUNT" -gt 0 ]]; then
+      IN_PROG_TITLE=$(echo "$BOARD_JSON" | python3 -c "
+import sys,json
+cards=json.load(sys.stdin).get('columns',{}).get('in_progress',[])
+print(cards[0].get('title','unknown') if cards else 'unknown')
+" 2>/dev/null || echo "unknown")
+      SUGGESTED_ACTION="blocked_by_in_progress"
+      NEXT_TASK="$IN_PROG_TITLE"
+    else
     # Fall back to proactive pool
     SUGGESTED_ACTION="dispatch_proactive"
     # Get + advance pool index
@@ -66,8 +84,9 @@ if [[ "$IS_IDLE" == "true" ]]; then
     # Advance index (cycle 0–7)
     NEW_INDEX=$(( (POOL_INDEX + 1) % 8 ))
     echo "$NEW_INDEX" > "$POOL_INDEX_FILE"
-  fi
-fi
+    fi  # close if [[ "$IN_PROG_COUNT" -gt 0 ]]
+  fi    # close if [[ -n "$HAL_TASK_JSON" ]]
+fi      # close if [[ "$IS_IDLE" == "true" ]]
 
 # ── 3. Output JSON ────────────────────────────────────────────────────────────
 IDLE_BOOL=$( [[ $IS_IDLE == true ]] && echo 'true' || echo 'false' )

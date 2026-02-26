@@ -104,6 +104,11 @@ Resume work and move to review when complete.
 ### Critical constraint
 **Only one card in `in_progress` at a time.**
 
+### HAL completion → Slack (REQUIRED)
+When HAL finishes a task (card moves to review with HAL results), post to the HAL completions channel:
+`bash ~/.openclaw/workspace/scripts/hal-slack-notify.sh "Task Title" "One-paragraph summary of what HAL delivered"`
+Channel: **C0AH618DE5C** — Joe's directive (2026-02-25).
+
 ### Chat-assigned tasks (non-kanban message)
 Create a card first:
 `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<description>" urgent`
@@ -114,6 +119,7 @@ Scripts:
 - `kanban-blocker.sh`
 - `kanban-update.sh`
 - `kanban-create.sh`
+- `hal-slack-notify.sh` — HAL completion → Slack C0AH618DE5C
 
 ---
 

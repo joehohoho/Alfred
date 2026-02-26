@@ -28,7 +28,7 @@ Keep HAL productive when idle (Kanban tasks first, proactive pool second), witho
 ---
 
 ## Current Next Step
-**Fix dispatch pre-check:** Add in_progress slot check to `hal-idle-check.sh` before attempting Kanban move. If slot occupied → skip dispatch, log reason, do not notify.
+**Real-time data pipeline:** Codex running (session `brisk-reef`) — building Kraken WebSocket feed, equity poller, pipeline orchestrator, and `python -m app.cli live` command in `/Users/hopenclaw/market-signal-lab`.
 
 ---
 

@@ -9,8 +9,19 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROUTER="$SCRIPT_DIR/hal-alfred-route-auto.sh"
 API="http://localhost:3001/api/kanban"
 
+# Guard: bail if any card is already in_progress (board enforces 1-at-a-time rule)
+BOARD_JSON=$(curl -s "$API")
+IN_PROG=$(echo "$BOARD_JSON" | python3 -c "
+import sys,json
+b=json.load(sys.stdin)
+print(len(b.get('columns',{}).get('in_progress',[])))
+" 2>/dev/null || echo "0")
+if [[ "$IN_PROG" -gt 0 ]]; then
+  echo "" ; exit 0
+fi
+
 # Get To Do cards using correct board structure
-TODO_JSON=$(curl -s "$API" | python3 -c "
+TODO_JSON=$(echo "$BOARD_JSON" | python3 -c "
 import sys, json
 board = json.load(sys.stdin)
 cards = board.get('columns', {}).get('todo', [])

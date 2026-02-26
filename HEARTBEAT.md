@@ -167,21 +167,22 @@ Logs stored in:
 
 ## 🔔 Slack Task Notifications
 
-**New (2026-02-11):** Significant task completions notify Slack channel **C0AEE0PLKB4**
+**General completions:** Slack channel **C0AEE0PLKB4**
+**HAL completions:** Slack channel **C0AH618DE5C** (Joe's directive, 2026-02-25)
 
-Format for each notification:
+When HAL finishes a task, post to **C0AH618DE5C** using `scripts/hal-slack-notify.sh`:
+```bash
+bash ~/.openclaw/workspace/scripts/hal-slack-notify.sh "Task Title" "What HAL did and delivered"
+```
+
+Format for general notifications (C0AEE0PLKB4):
 ```
 ✅ [TASK_NAME]
 Brief summary of what was done
 Result: [accomplishment summary]
 ```
 
-Examples:
-```
-✅ Dashboard Audit & Plan
-Audited Alfred-Dashboard project structure and dependencies
-Result: Created IMPLEMENTATION-PLAN.md with prioritized updates
-```
+Format for HAL notifications (C0AH618DE5C) — see `hal-slack-notify.sh` for template.
 
 ---
 
