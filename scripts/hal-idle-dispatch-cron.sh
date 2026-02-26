@@ -23,6 +23,17 @@ mkdir -p "$TRACK_DIR"
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
 
+# Check forced-idle state — skip all dispatches during maintenance
+FORCED_IDLE_FILE="$TRACK_DIR/hal-forced-idle.json"
+if [[ -f "$FORCED_IDLE_FILE" ]]; then
+  IS_FORCED=$(python3 -c "import json; print(json.load(open('$FORCED_IDLE_FILE')).get('forcedIdle',False))" 2>/dev/null || echo "False")
+  if [[ "$IS_FORCED" == "True" ]]; then
+    log "SKIP: HAL is in forced idle (maintenance). Wake from Command Center to resume."
+    echo "[ACTION:SKIP] reason=forced_idle_maintenance"
+    exit 0
+  fi
+fi
+
 KANBAN_COOLDOWN_MIN=20   # don't re-dispatch a Kanban task within 20 min
 PROACTIVE_COOLDOWN_MIN=60 # don't re-dispatch a proactive task within 60 min
 

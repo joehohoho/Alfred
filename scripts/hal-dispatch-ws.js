@@ -42,6 +42,18 @@ for (let i = 0; i < args.length; i++) {
 
 if (!task) { console.error('Usage: hal-dispatch-ws.js "<task>" [--session-key <key>]'); process.exit(1); }
 
+// Check forced-idle state — refuse new dispatches when HAL is in maintenance mode
+const FORCED_IDLE_PATH = path.join(process.env.HOME, '.openclaw/workspace/.hal-alfred-tracking/hal-forced-idle.json');
+try {
+  if (fs.existsSync(FORCED_IDLE_PATH)) {
+    const state = JSON.parse(fs.readFileSync(FORCED_IDLE_PATH, 'utf8'));
+    if (state.forcedIdle) {
+      console.error(`BLOCKED: HAL is in forced idle (maintenance) since ${state.since}. Wake HAL from the Command Center before dispatching.`);
+      process.exit(2);
+    }
+  }
+} catch (e) { /* ignore read errors, proceed with dispatch */ }
+
 // Generate an isolated session key for this task (fresh context, no bloat)
 const shortId = crypto.randomBytes(3).toString('hex'); // 6 hex chars
 const sessionKey = sessionKeyOverride || `agent:hal:task-${Date.now()}-${shortId}`;

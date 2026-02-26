@@ -997,5 +997,53 @@
         "createdAt": "2026-02-26T14:37:09.980Z"
       }
     ]
+  },
+  {
+    "id": "idea_1772128025132_0b049709",
+    "title": "Trust Reconciliation Exception Monitor for Law Firms",
+    "description": "Micro-SaaS that ingests daily trust-account exports (Clio/CosmoLex/LeanLaw CSV), auto-detects three-way reconciliation mismatches, and emails weekly 'exceptions only' reports. Recurring subscription for small/mid firms without full ops staff. Effort: 2-3 weeks MVP (low-medium). Upside: 40-120 firms x -/mo = ~k-k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T17:47:05.132Z",
+    "updatedAt": "2026-02-26T17:47:05.132Z"
+  },
+  {
+    "id": "idea_1772128025270_5491b5e3",
+    "title": "PDT/Wash-Sale Readiness Copilot (Retail Trader)",
+    "description": "Low-maintenance rules engine that connects broker CSV exports, flags likely PDT threshold exposure + wash-sale risk before order placement, and sends simple daily risk digest. Focus on education/compliance guardrails, not signal generation. Effort: 2 weeks MVP (low). Upside: 150-500 users x -/mo = ~.8k-.5k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T17:47:05.270Z",
+    "updatedAt": "2026-02-26T17:47:05.270Z"
+  },
+  {
+    "id": "idea_1772128025434_f4c7b1d5",
+    "title": "Law Firm Intake-to-Conflict Check Auto-Pipeline",
+    "description": "Automation layer that turns website/Typeform intake into normalized party/entity records, runs fuzzy conflict pre-check against existing matter/contact exports, and routes only probable conflicts for human review. Sell as workflow add-on + monthly monitoring. Effort: 3-4 weeks MVP (medium). Upside: 25-80 firms x -/mo = ~k-k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T17:47:05.434Z",
+    "updatedAt": "2026-02-26T17:47:05.434Z"
   }
 ]
