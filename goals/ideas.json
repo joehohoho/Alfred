@@ -4,7 +4,7 @@
     "title": "Automation Templates Marketplace",
     "description": "Package Joe's automation consulting knowledge into reusable templates and workflows sold as digital products. Could include: LaunchAgent templates, cron job configurations, data transformation scripts, Slack bot setups, monitoring dashboards. Low effort per unit ($10-50 each), infinite scalability. Use Gumroad or Lemon Squeezy for distribution. Each consulting engagement could generate a template as a byproduct.",
     "category": "passive-income",
-    "status": "evaluated",
+    "status": "archived",
     "source": "claude-code",
     "effort": "low",
     "potential": "medium",
@@ -25,7 +25,9 @@
       "consulting-byproduct"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-23T11:42:00.000Z"
+    "updatedAt": "2026-02-26T05:53:41.448Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T05:53:41.447Z"
   },
   {
     "id": "idea_1771538400004_evenusup_b2b",
@@ -339,7 +341,7 @@
     "title": "Vibe Coding Course + Advanced Toolkit",
     "description": "Joe's approach to building (pragmatic, AI-first, 'vibe coding' via Claude Code + Ollama) is a unique differentiator. Create a paid course + community teaching consultants and developers how to ship faster with Claude Code + local models. Include: workflow templates, model routing patterns, cost-budgeting, cron automation examples, LaunchAgent setups. Use CoinUsUp/Job Tracker/Command Center as reference implementations. Recurring revenue via monthly advanced template releases + group coaching calls.",
     "category": "passive-income",
-    "status": "new",
+    "status": "archived",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "high",
@@ -364,7 +366,9 @@
       "recurring-revenue"
     ],
     "createdAt": "2026-02-21T20:00:00.000Z",
-    "updatedAt": "2026-02-21T20:00:00.000Z"
+    "updatedAt": "2026-02-26T07:17:05.218Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T07:17:05.218Z"
   },
   {
     "id": "idea_1771864340432_signal_data_api",
@@ -439,7 +443,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:45.669Z",
-    "updatedAt": "2026-02-25T21:20:45.669Z"
+    "updatedAt": "2026-02-26T07:18:28.978Z",
+    "comments": [
+      {
+        "id": "cmt_1772090308978_87ba08f0",
+        "author": "joe",
+        "text": "what are MSPs?",
+        "createdAt": "2026-02-26T07:18:28.978Z"
+      }
+    ]
   },
   {
     "id": "idea_1772054446175_ce5c7770",
@@ -462,7 +474,7 @@
     "title": "Law Firm Trust Reconciliation Anomaly Monitor",
     "description": "Firms miss trust-account discrepancies until month-end. Read-only anomaly detector from exported ledgers (CSV/Excel). $149–$499/mo per firm. Build: M. Maintenance: Low. Strong domain fit with legal/billing background.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -471,7 +483,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:46.675Z",
-    "updatedAt": "2026-02-25T21:20:46.675Z"
+    "updatedAt": "2026-02-26T07:16:18.836Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T07:16:18.836Z"
   },
   {
     "id": "idea_1772054447174_d8e8a660",
@@ -599,7 +613,27 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:47:39.397Z",
-    "updatedAt": "2026-02-25T21:47:39.397Z"
+    "updatedAt": "2026-02-26T06:31:22.726Z",
+    "comments": [
+      {
+        "id": "cmt_1772087410859_17a8091c",
+        "author": "joe",
+        "text": "can you research to see if there would be a demand for this, i'm curious if might just have their own openclaw build this unless it's not specific to just openclaw",
+        "createdAt": "2026-02-26T06:30:10.859Z"
+      },
+      {
+        "id": "cmt_1772087465487_f759ada4",
+        "author": "alfred",
+        "text": "test",
+        "createdAt": "2026-02-26T06:31:05.487Z"
+      },
+      {
+        "id": "cmt_1772087482726_c7e13a00",
+        "author": "alfred",
+        "text": "## BuilderPulse Demand Research 🔍\n\n**Short answer:** Demand is real but the market is crowded — differentiation is the whole game. Joe's instinct about OpenClaw is spot-on and worth unpacking.\n\n---\n\n### What exists today\n\n- **Healthchecks.io** — Cron heartbeat only, free/$20/mo, solo founder bootstrapped, profitable for 10 years, open source\n- **Cronitor** — Cron + uptime + status page, $21/mo+, 3-person team, 10+ years old, proven niche\n- **UptimeRobot** — Uptime + cron, free tier, large user base, race-to-free pricing\n- **BetterUptime** — Uptime + on-call, $20/mo+, team-focused\n- **Sentry** — Error tracking + cron (beta), VC-backed, 200+ employees\n\nThe gap: NONE of these do AI cost/API quota tracking or an AI ops weekly digest. That's the only truly unoccupied space.\n\n---\n\n### Demand signals\n\n✅ YES demand exists:\n- Healthchecks.io profitable for ~10 years as a solo product — proof indie devs pay for simple monitoring\n- Cronitor at $21/mo with a loyal base — pricing validated\n- AI cost spike problem is brand new (2023-2025) and no existing tool covers it\n- Solo builders shipping more AI-integrated apps than ever\n\n⚠️ Headwinds:\n- Uptime + cron alone = fully commoditized (Healthchecks.io has free open-source tier)\n- Customer acquisition is the real challenge, not building it\n\n---\n\n### On the OpenClaw angle\n\nYou're right to flag this. Two paths:\n\n**Path A — OpenClaw-specific build (private use):** Alfred already does most of this (cron health, heartbeat, cost tracking, LaunchAgent monitoring). Cost = ~zero. Value = nice-to-have for us, not a product. TAM = ~50 users.\n\n**Path B — Platform-agnostic SaaS (not OpenClaw-specific):** Targets any indie dev with crons, APIs, and AI usage. Differentiator = AI API cost monitoring + weekly digest. No existing tool does this. TAM = 50,000+ indie devs.\n\nThe ONLY version worth building as a product is B. If it's OpenClaw-specific, users just build it themselves (you literally just said that 😄) — so the market barely exists.\n\n---\n\n### Verdict\n\n🟡 Medium opportunity. The market exists and is paying. But you need the AI-native angle (monitor Anthropic/OpenAI spend, quota alerts, model error rates) to avoid being Healthchecks clone #47. That's a real gap nobody has filled yet. Build effort is low (M) and if positioned right, potential is medium-high.\n\nWant me to scope a lean v1 MVP?",
+        "createdAt": "2026-02-26T06:31:22.726Z"
+      }
+    ]
   },
   {
     "id": "idea_1772056059917_f06cc56a",
@@ -632,5 +666,169 @@
     "tags": [],
     "createdAt": "2026-02-25T21:47:40.439Z",
     "updatedAt": "2026-02-25T21:47:40.439Z"
+  },
+  {
+    "id": "idea_1772083170263_f0846acd",
+    "title": "LEDES Guardian for Small Firms",
+    "description": "Micro-SaaS that auto-validates legal invoices (LEDES/UTBMS/OLEDES) before submission and flags guideline violations. Target: small/mid law firms and legal ops teams that can’t afford enterprise e-billing QA. Recurring model: per-matter or per-invoice subscription. Effort: Low-Med (2-4 weeks MVP). Upside: Med-High (k-k MRR in niche with low churn).",
+    "category": "growth",
+    "status": "archived",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T05:19:30.263Z",
+    "updatedAt": "2026-02-26T06:55:46.898Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T06:55:46.897Z"
+  },
+  {
+    "id": "idea_1772083170559_67edcce6",
+    "title": "Prop Rule Copilot",
+    "description": "Automation tool for funded/prop traders: tracks daily loss limits, trailing drawdown, and session risk in real time from broker/CSV/webhooks; sends Slack/Discord/Telegram guardrail alerts before rule breaches. Recurring model: per account/month. Effort: Low (1-3 weeks MVP). Upside: High in trading niche (k-k MRR if positioned to funded-account communities).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T05:19:30.559Z",
+    "updatedAt": "2026-02-26T05:19:30.559Z"
+  },
+  {
+    "id": "idea_1772083170767_06a4a240",
+    "title": "Law Firm RevOps Reconciler",
+    "description": "No-code automation service+SaaS that reconciles time entries, trust balances, and invoices across Clio/MyCase/QuickBooks and emails weekly exception reports. Sell as ‘done-for-you automation with dashboard’. Recurring model: monthly retainer + software seat. Effort: Med (3-5 weeks reusable templates). Upside: Med-High (k-k MRR with few clients due to high value).",
+    "category": "growth",
+    "status": "archived",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T05:19:30.767Z",
+    "updatedAt": "2026-02-26T06:28:11.056Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-26T06:28:11.056Z"
+  },
+  {
+    "id": "idea_1772086796664_11da85c3",
+    "title": "BuilderPulse — AI Ops Digest for Indie Builders",
+    "description": "**What it is:** A monitoring + AI digest tool for indie hackers and solo builders. Tracks their apps uptime, key metrics (signups, revenue, errors), and delivers a daily/weekly AI-written ops summary — like having a part-time ops analyst.\n\n**Why Joe:** Fits the automation/AI consulting angle perfectly. Low-touch SaaS, recurring revenue, no heavy support. Alfred can dogfood it.\n\n**Revenue model:** $19–99/mo tiered by number of apps monitored. Potential MRR at 100 customers: ~$3,000–5,000.\n\n**Effort:** Medium build (integrations: Stripe, GitHub, Render/Fly/Vercel health checks, OpenAI for digest). 4–6 weeks MVP.\n\n**Maintenance:** Low — mostly infra + prompt tuning. No real-time support burden.\n\n**Moat:** Personalized AI voice per builder over time (learns their tone/priorities).\n\n**14-Day Kickoff Plan:**\n- Days 1–3: Landing page + waitlist\n- Days 4–7: MVP (1 app monitored, daily digest email)\n- Days 8–12: Add Stripe billing, multi-app support\n- Days 13–14: Beta invite 20 users\n\n**Alfred rating:** ⭐ TOP PICK — highest passive income potential with lowest ongoing effort.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": "goal_1772086804982_4559ff0c",
+    "tags": [],
+    "createdAt": "2026-02-26T06:19:56.664Z",
+    "updatedAt": "2026-02-26T06:20:04.982Z"
+  },
+  {
+    "id": "idea_1772086816398_c3afff5e",
+    "title": "SignalLite — Clean Buy/Sell Signal Feed",
+    "description": "**What it is:** A lightweight, clean buy/sell signal web app focused on simplicity. Users subscribe to tickers and get clear signal notifications (buy/sell/hold) based on technical indicators — no noise, no chart overload. Natural extension of the existing Market Signal Lab.\n\n**Why Joe:** Reuses the Market Signal Lab engine already built. Minimal new code — mostly a clean consumer-facing UI + subscription layer on top of existing infrastructure.\n\n**Revenue model:** $15–79/mo tiered by number of tickers + alert channels (email, SMS, push). Potential MRR at 100 customers: ~$2,000–4,000.\n\n**Effort:** Low-Medium — core signal engine exists. Need: user auth, subscription billing (Stripe), clean dashboard, alert delivery. 2–4 weeks MVP.\n\n**Maintenance:** Low — Alfred monitors the signal engine. Mostly prompt/threshold tuning.\n\n**Moat:** Simplicity. Most signal tools are overwhelming. SignalLite is for the casual investor who wants a simple answer.\n\n**Target user:** Retail investors who want signals without learning TA. Not traders — investors.\n\n**Risks:** Regulatory grey area for financial advice. Must include disclaimers (signals are educational, not financial advice).\n\n**Alfred rating:** ⭐⭐ Strong second — lowest build effort since engine already exists.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": "goal_1772086827578_e364723d",
+    "tags": [],
+    "createdAt": "2026-02-26T06:20:16.399Z",
+    "updatedAt": "2026-02-26T06:20:27.578Z"
+  },
+  {
+    "id": "idea_1772086827665_524391b9",
+    "title": "CoinUsUp Teams — Shared Expense Autopilot",
+    "description": "**What it is:** A team/group tier for the existing CoinUsUp app. Groups (roommates, travel groups, couples, small teams) get shared expense tracking with automated split calculations, reminders, and optional auto-pay via Stripe. Think Splitwise but smarter and already built on a codebase Joe owns.\n\n**Why Joe:** Zero greenfield work — builds directly on the CoinUsUp codebase. Existing users are a built-in beta pool. Add a workspace/group layer + recurring billing.\n\n**Revenue model:** $8–12/workspace/mo (group subscription). Free tier stays for solo users. Potential MRR at 200 workspaces: ~$2,000–3,000.\n\n**Effort:** Low — add: workspace model, invite system, group dashboard, Stripe subscription per workspace. 2–3 weeks.\n\n**Maintenance:** Very Low — extends existing app, same stack, same infrastructure.\n\n**Moat:** Existing user trust + Joe already knows the codebase deeply. Faster to ship than any competitor starting fresh.\n\n**Target user:** Current CoinUsUp users + roommates, travel groups, couples who split expenses regularly.\n\n**Growth path:** After Teams: add bank sync (Plaid), auto-pay settlement, expense categories/budgets.\n\n**Alfred rating:** ⭐⭐ Lowest risk — existing codebase, existing users, proven concept.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": "goal_1772086829490_3f4a1454",
+    "tags": [],
+    "createdAt": "2026-02-26T06:20:27.665Z",
+    "updatedAt": "2026-02-26T06:20:29.491Z"
+  },
+  {
+    "id": "idea_1772087102192_7b57a238",
+    "title": "Client Onboarding Autopilot for Automation Consultants",
+    "description": "Automates the post-sale onboarding process for automation consultants. When a new client is signed, it triggers intake collection, provisions accounts (Slack, Notion, Drive), sends welcome sequences, schedules kickoff, and generates the project brief — all without the consultant touching it. Subscription ($49–$99/mo) + template marketplace for passive income. Joe is the ideal customer — built for people doing exactly what he does.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T06:25:02.192Z",
+    "updatedAt": "2026-02-26T06:25:02.192Z"
+  },
+  {
+    "id": "idea_1772099236147_d417567b",
+    "title": "Elite Rejection Shield (LEDES Preflight for law firms)",
+    "description": "Micro-SaaS that connects to Elite/3E prebill exports and flags likely e-billing guideline violations (UTBMS/code mismatch, block billing, narrative rule breaks) before invoice submission. Effort: Low-Medium (3-5 weeks MVP using CSV/API ingest + rule engine). Upside: Medium-High (-/firm/month; strong ROI via lower write-offs and fewer rejections). Low maintenance: ruleset updates monthly.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T09:47:16.147Z",
+    "updatedAt": "2026-02-26T09:47:16.147Z"
+  },
+  {
+    "id": "idea_1772099236284_3dfb9d3d",
+    "title": "Trader Wash-Sale Sentinel (cross-account alerting)",
+    "description": "Automation SaaS for active stock/options traders: broker import + daily wash-sale risk alerts before order placement, with tax-lot what-if checks. Effort: Medium (4-6 weeks for 2-3 broker connectors + rules). Upside: Medium-High (-/user/month + annual plans). Low maintenance: periodic connector fixes + IRS rule library updates.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T09:47:16.284Z",
+    "updatedAt": "2026-02-26T09:47:16.284Z"
+  },
+  {
+    "id": "idea_1772099236444_d3d4e704",
+    "title": "Law Firm Collections Autopilot (A/R nudges + partner digest)",
+    "description": "Plug-in automation that watches billing/aging data from legal systems, auto-sends staged reminder sequences to clients, and delivers weekly partner-level risk digests (at-risk invoices, likely write-downs). Effort: Low (2-4 weeks using email workflows + dashboard). Upside: Medium (-/firm/month, high retention if tied to cash recovery). Low maintenance: template tuning + basic integration upkeep.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T09:47:16.445Z",
+    "updatedAt": "2026-02-26T09:47:16.445Z"
   }
 ]

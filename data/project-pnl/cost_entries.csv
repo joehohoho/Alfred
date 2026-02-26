@@ -1,0 +1,9 @@
+date,project,category,amount,notes
+2026-02-01,CoinUsUp,hosting,120,vercel+db
+2026-02-01,EvenUsUp,hosting,95,vercel+db
+2026-02-01,SignalApp,hosting,60,prototype infra
+2026-02-01,AutomationConsulting,tools,75,misc tooling
+2026-02-02,CoinUsUp,api,40,ai api
+2026-02-03,EvenUsUp,api,18,ai api
+2026-02-03,SignalApp,api,55,ai api
+2026-02-04,shared,tools,120,global subscriptions

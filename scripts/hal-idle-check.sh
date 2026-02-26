@@ -52,22 +52,28 @@ if [[ "$IS_IDLE" == "true" ]]; then
     SUGGESTED_ACTION="dispatch_kanban"
     NEXT_TASK=$(echo "$HAL_TASK_JSON" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('title',''))" 2>/dev/null)
   else
-    # Check if a card is already in_progress before falling back to proactive pool.
-    # (hal-get-idle-task.sh may have returned empty due to the in_progress guard.)
+    # Check if all in_progress cards are stale before falling back to proactive pool.
     BOARD_JSON=$(curl -s "http://localhost:3001/api/kanban" 2>/dev/null || echo "{}")
-    IN_PROG_COUNT=$(echo "$BOARD_JSON" | python3 -c "
-import sys,json
-b=json.load(sys.stdin)
-print(len(b.get('columns',{}).get('in_progress',[])))
-" 2>/dev/null || echo "0")
+    STALE_STATUS=$(echo "$BOARD_JSON" | python3 -c "
+import sys, json, datetime, time
+b = json.load(sys.stdin)
+cards = [c for c in b.get('columns', {}).get('in_progress', []) if c.get('type') != 'idea']
+if not cards:
+    print('none')
+else:
+    now = time.time()
+    stale_hours = 6
+    active = [c for c in cards if (now - datetime.datetime.fromisoformat(c['updatedAt'].replace('Z','+00:00')).timestamp()) / 3600 < stale_hours]
+    print('active' if active else 'stale')
+" 2>/dev/null || echo "none")
 
-    if [[ "$IN_PROG_COUNT" -gt 0 ]]; then
+    if [[ "$STALE_STATUS" == "stale" ]]; then
       IN_PROG_TITLE=$(echo "$BOARD_JSON" | python3 -c "
 import sys,json
 cards=json.load(sys.stdin).get('columns',{}).get('in_progress',[])
 print(cards[0].get('title','unknown') if cards else 'unknown')
 " 2>/dev/null || echo "unknown")
-      SUGGESTED_ACTION="blocked_by_in_progress"
+      SUGGESTED_ACTION="blocked_by_stale_in_progress"
       NEXT_TASK="$IN_PROG_TITLE"
     else
     # Fall back to proactive pool

@@ -4,12 +4,12 @@
     "title": "Revenue Growth — CoinUsUp + Even Us Up",
     "description": "Audit metrics (MAU, retention, churn, revenue/user). Identify high-ROI improvements (onboarding, pricing, features). 10% of dev time ongoing. Target: +15% revenue by end Q1.",
     "goalId": "",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-26T07:51:12.504Z",
     "createdAt": "2026-02-21T18:08:32.744Z",
-    "updatedAt": "2026-02-25T21:03:13.930Z",
+    "updatedAt": "2026-02-26T07:51:12.504Z",
     "assignedAt": "2026-02-25T21:00:44.564Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "c2eb69fb-c01d-4255-bb55-2ee30d840957",
@@ -19,6 +19,24 @@
         "author": "alfred",
         "text": "Audit complete. Full report at: workspace/reports/REVENUE-GROWTH-AUDIT-2026-02-25.md\n\nKey findings:\n- CoinUsUp free plan too restrictive → kills conversion before users see value\n- No trial period for Basic → cold jump from free to $20/mo\n- Missing sitemap.xml → SEO gap hurting organic discovery\n- Annual pricing exists but likely not defaulted at checkout → LTV loss\n\nTop 4 quick wins to hit +15% Q1 target:\n1. Add 14-day free trial for Basic (no CC required)\n2. Default checkout to annual billing\n3. Add 80% limit nudge before users hit the wall\n4. Add sitemap.xml + submit to Search Console\n\nNeed from Joe:\n- Baseline revenue metrics from Stripe + Supabase (total paying orgs, ARPU, churn rate)\n- Even Us Up codebase location for deep audit\n- Approval to expand free plan limits before deploying\n\nReady to start implementing the autonomous items immediately on approval.",
         "createdAt": "2026-02-25T21:03:08.752Z"
+      },
+      {
+        "id": "cmt_1772085016204_e53d9b2c",
+        "author": "joe",
+        "text": "Send the CoinUsUp recommendations for improvement to the discord channel and log going forward any improvement ideas for CoinsUsUp be sent the this channel: https://discord.com/api/webhooks/1476455827215749160/YTDUoxAIuLovfxnFcoqUJ-hk2RZ4ioFIdVcGNSgq07ClhWR8P7vGjStzMG8pLNWiNfIC.   Even Us Up is the expense sharing app in github",
+        "createdAt": "2026-02-26T05:50:16.204Z"
+      },
+      {
+        "id": "cmt_1772086429839_aa451f90",
+        "author": "joe",
+        "text": "do you need anything else from me?",
+        "createdAt": "2026-02-26T06:13:49.839Z"
+      },
+      {
+        "id": "cmt_1772088547236_67aa7ed9",
+        "author": "joe",
+        "text": "Send the CoinUsUp recommendations for improvement to the discord channel and log going forward any improvement ideas for CoinsUsUp be sent the this channel: https://discord.com/api/webhooks/1476455827215749160/YTDUoxAIuLovfxnFcoqUJ-hk2RZ4ioFIdVcGNSgq07ClhWR8P7vGjStzMG8pLNWiNfIC.   Even Us Up is the expense sharing app in github",
+        "createdAt": "2026-02-26T06:49:07.236Z"
       }
     ]
   },
@@ -27,28 +45,60 @@
     "title": "Signal App — Fast Track Launch",
     "description": "Feb: finalize architecture + data pipeline. Mar: build UI + integrate market data + backtesting. Apr: beta + refinement. Target: live trading signals by early April.",
     "goalId": "",
-    "status": "in_progress",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-26T07:02:25.536Z",
     "createdAt": "2026-02-21T18:08:33.875Z",
-    "updatedAt": "2026-02-26T03:54:32.784Z",
+    "updatedAt": "2026-02-26T07:02:25.536Z",
     "assignedAt": "2026-02-25T21:03:13.977Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "59ee30f6-9ea7-41e4-8481-16052940a55f",
-    "lastRescanAt": "2026-02-25T20:03:08.547Z"
+    "lastRescanAt": "2026-02-25T20:03:08.547Z",
+    "comments": [
+      {
+        "id": "cmt_1772084706174_aa7e4d67",
+        "author": "joe",
+        "text": "what should i review and test on this task",
+        "createdAt": "2026-02-26T05:45:06.174Z"
+      },
+      {
+        "id": "cmt_1772086876409_0d95f24d",
+        "author": "joe",
+        "text": "provide detail on what i need to review",
+        "createdAt": "2026-02-26T06:21:16.409Z"
+      },
+      {
+        "id": "cmt_1772088681319_cadd516c",
+        "author": "joe",
+        "text": "provide detail on what i need to review",
+        "createdAt": "2026-02-26T06:51:21.319Z"
+      },
+      {
+        "id": "cmt_1772088929126_4cb22f8d",
+        "author": "alfred",
+        "text": "Review summary posted in chat.",
+        "createdAt": "2026-02-26T06:55:29.126Z"
+      },
+      {
+        "id": "cmt_1772089042884_3961f5ce",
+        "author": "alfred",
+        "text": "📊 Research finding: Stooq free historical data (daily/hourly/5-min) via pandas-datareader — good secondary/backup feed for backtesting + model training. Integrate as DataAdapterStooq, normalize to canonical schema, add nightly ingest job. ⚠️ Verify ToS for commercial use before production. Implementation plan: 5-step rollout documented.",
+        "createdAt": "2026-02-26T06:57:22.884Z"
+      }
+    ]
   },
   {
     "id": "task_1771697316207_cc03d367",
     "title": "OpenClaw Maintenance — Reduce Toil",
     "description": "Ongoing maintenance of OpenClaw infrastructure. Currently assessing priority areas.",
     "goalId": "",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-26T05:41:41.888Z",
     "createdAt": "2026-02-21T18:08:36.207Z",
-    "updatedAt": "2026-02-25T23:48:02.183Z",
+    "updatedAt": "2026-02-26T05:41:41.889Z",
     "assignedAt": "2026-02-25T15:24:32.226Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "84e9fc58-9555-4eea-ab32-e63a8d70f1cc",
@@ -58,6 +108,18 @@
         "author": "alfred",
         "text": "HAL completed maintenance toil-reduction pass.\n\nImplemented now (safe + reversible): scripts/openclaw-maintenance-weekly.sh — single unified runner for LaunchAgent checks, gateway error pattern summary, log sizes, git snapshot, and recommended actions. Report at reports/maintenance-weekly-2026-02-25.md.\n\nTop 3 hotspots:\n1. Gateway error noise (timeouts/auth expiry/tool-call loops) — add threshold digest, escalate only on spikes\n2. Fragmented maintenance checks — fixed with new unified weekly script\n3. Log growth governance — partial rotation, needs scheduled run + policy for high-churn logs\n\nWeekly checklist delivered. Optional: add cron for Monday 08:05 AST to auto-run weekly snapshot.",
         "createdAt": "2026-02-25T23:48:02.183Z"
+      },
+      {
+        "id": "cmt_1772080948775_eb36841c",
+        "author": "joe",
+        "text": "setup the cron and is this something I should need to review each week?",
+        "createdAt": "2026-02-26T04:42:28.775Z"
+      },
+      {
+        "id": "cmt_1772081123907_9acabd5d",
+        "author": "alfred",
+        "text": "Done on both counts.\n\n**Cron set up:** Monday 08:05 AST, every week — zero LLM cost (shell script only, no agent turn).\n\n**Do you need to review it each week? No.** I upgraded the script to be self-healing:\n\n• LaunchAgents not running → auto-restart attempt\n• Logs over 50MB → auto-rotate\n• Error spike thresholds → flags issue if genuinely unusual\n• Everything else → quietly posts a one-line ✅ All systems healthy to Slack each Monday morning\n\nYou'll only hear from it if something actually needs your attention. No action required from you unless a ⚠️ shows up.",
+        "createdAt": "2026-02-26T04:45:23.907Z"
       }
     ]
   },
@@ -66,15 +128,15 @@
     "title": "Consulting Work — Keep Revenue Stable",
     "description": "Maintain current load (no growth, no shrink). Use projects as research for productization ideas.",
     "goalId": "",
-    "status": "review",
+    "status": "rejected",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-02-26T07:52:34.706Z",
     "createdAt": "2026-02-21T18:08:37.377Z",
-    "updatedAt": "2026-02-25T23:17:31.008Z",
-    "assignedAt": "2026-02-25T15:27:33.727Z",
+    "updatedAt": "2026-02-26T07:52:34.706Z",
+    "assignedAt": "2026-02-26T06:54:41.993Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "2541446c-65f9-4dba-b744-be3c45c428d0",
+    "deliveryMessageId": "53929790-c0b0-427a-b9b6-d48a294d2c56",
     "comments": [
       {
         "id": "cmt_1772061421457_e459760b",
@@ -227,6 +289,274 @@
         "author": "alfred",
         "text": "Nothing for you to review or update — all autonomous implementation:\n- --explain tracing added to auto-router (step-by-step scoring)\n- 3 new proactive escalation inputs: --recent-failures, --latency-ms, --queue-depth\n- Auto-estimator bumps complexity when missing file refs are detected\n- --track flag logs routing decisions to .hal-alfred-tracking/routing.jsonl\n- Syntax-checked and smoke-tested\n\nSafe to mark Done if satisfied.",
         "createdAt": "2026-02-25T20:32:09.921Z"
+      }
+    ]
+  },
+  {
+    "id": "task_1772081254165_b5c5df15",
+    "title": "CRA Deadline Copilot for Micro-SMB",
+    "description": "Province + business-type onboarding. Personalized compliance calendar (CRA + provincial deadlines). Reminder engine (email/Slack/SMS) with 'what to file, where, by when'. Simple done/not-done tracking + penalty-risk alerts. Monetization: $19–$79/mo per business; accountant plan $199+/mo. Effort: Medium | Upside: High. Joe's edge: automation + compliance workflow experience. Geographic moat: Canada-only deadline logic (federal + provincial nuances).",
+    "goalId": "",
+    "status": "rejected",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T06:14:23.190Z",
+    "createdAt": "2026-02-26T04:47:34.165Z",
+    "updatedAt": "2026-02-26T06:14:23.190Z",
+    "assignedAt": "2026-02-26T05:12:20.711Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "7034eaa5-45ca-4024-8eeb-839dd84f01ae"
+  },
+  {
+    "id": "task_1772081254299_2dfb4f17",
+    "title": "Bilingual HR/Payroll Notice Builder (EN/FR)",
+    "description": "Template library: pay-change notice, overtime policy, holiday pay, termination checklist. Side-by-side EN/FR output with legal-safe placeholders. Approval workflow + version history + PDF/Doc export. Monetization: $29–$149/mo by team size, plus template packs. Effort: Low–Medium | Upside: Medium–High. Fastest to MVP. NB bilingual + Canada-specific payroll wording defaults. RECOMMENDED: build first.",
+    "goalId": "",
+    "status": "rejected",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T06:45:20.315Z",
+    "createdAt": "2026-02-26T04:47:34.299Z",
+    "updatedAt": "2026-02-26T06:45:20.315Z",
+    "assignedAt": "2026-02-26T06:20:05.023Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "9cff14c6-03cd-4bcc-a92e-54c0151067ba"
+  },
+  {
+    "id": "task_1772081254435_40bd0b9e",
+    "title": "Interprovincial Sales Tax Rules Engine for Service SMBs",
+    "description": "Tax decision helper: seller province + buyer province + service type → recommended tax treatment + invoice line suggestions. Audit log ('why this rule applied'). QuickBooks/Xero export-ready. API tier later. Monetization: $39–$199/mo. Effort: Medium–High | Upside: High. Joe's edge: law-firm/data transformation background. Big defensible moat if rules kept accurate.",
+    "goalId": "",
+    "status": "rejected",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T06:14:19.938Z",
+    "createdAt": "2026-02-26T04:47:34.435Z",
+    "updatedAt": "2026-02-26T06:14:19.938Z",
+    "assignedAt": "2026-02-26T05:12:24.488Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "7633a29b-7d16-48e3-b42f-13eaae900d3a"
+  },
+  {
+    "id": "task_1772081883344_dfd210c6",
+    "title": "[MSL] Force-close open positions at backtest end",
+    "description": "engine.py:356-399 — Final equity includes unrealized PnL but trade stats exclude any still-open position at last bar. Force-close at last bar price so trades/win_rate/profit_factor/total_trades are all consistent. P0 — distorts all backtest comparisons.",
+    "goalId": "",
+    "status": "msl_test",
+    "priority": "critical",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:33.421Z",
+    "createdAt": "2026-02-26T04:58:03.344Z",
+    "updatedAt": "2026-02-26T05:37:33.421Z",
+    "assignedAt": "2026-02-26T05:09:46.901Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "3fda784d-2e48-4a47-8ee2-83c0ae060d7b"
+  },
+  {
+    "id": "task_1772081898858_fb4ef139",
+    "title": "[MSL] Fix double cooldown decrement on pending-signal bars",
+    "description": "engine.py:221-225 and 333-335 — When pending_signal exists and cooldown_remaining > 0, cooldown decrements in the pending block then again in the generic tick block. Add a guard flag so it only decrements once per bar. P0 — inflates trade frequency and distorts performance.",
+    "goalId": "",
+    "status": "msl_test",
+    "priority": "critical",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:33.403Z",
+    "createdAt": "2026-02-26T04:58:18.858Z",
+    "updatedAt": "2026-02-26T05:37:33.403Z",
+    "assignedAt": "2026-02-26T05:09:52.897Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "d5150aa8-301a-4b58-bba4-9f3df8eb551d"
+  },
+  {
+    "id": "task_1772081898989_7387cec2",
+    "title": "[MSL] Remove atr_filter_mult from optimizer / wire it up in strategy",
+    "description": "optimizer.py:33-38 + sma_crossover.py:24,64-77 — Parameter is in the grid but never applied in strategy logic. Either wire it up as an actual ATR volatility filter gate or remove it from the optimizer grid entirely. P0 — wastes search budget and produces misleading best params.",
+    "goalId": "",
+    "status": "msl_test",
+    "priority": "critical",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:33.441Z",
+    "createdAt": "2026-02-26T04:58:18.989Z",
+    "updatedAt": "2026-02-26T05:37:33.441Z",
+    "assignedAt": "2026-02-26T05:11:47.473Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "c781fd62-487b-43cf-b3fc-07069eb876fc"
+  },
+  {
+    "id": "task_1772081899123_68b76374",
+    "title": "[MSL] Fix inverted RSI mean-reversion strength formula",
+    "description": "rsi_mean_reversion.py:90-95 — Strength should be highest near the oversold/overbought threshold (strongest reversal context), not far from it. Invert the formula: strength = 1 - abs(rsi_oversold - rsi)/rsi_oversold (normalized). Fix both BUY and SELL sides. P1.",
+    "goalId": "",
+    "status": "msl_test",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:33.381Z",
+    "createdAt": "2026-02-26T04:58:19.123Z",
+    "updatedAt": "2026-02-26T05:37:33.381Z",
+    "assignedAt": "2026-02-26T05:12:24.632Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "e417e294-9f27-47d7-8247-f4e281e06862"
+  },
+  {
+    "id": "task_1772081899256_7aa98d95",
+    "title": "[MSL] Fix higher-TF bias to use active strategy set only",
+    "description": "signals/engine.py:100-112 — _get_higher_tf_bias loops STRATEGY_REGISTRY instead of strategies_config keys. Restrict to active strategies so bias doesn't silently include out-of-run strategies. P1 — breaks reproducibility.",
+    "goalId": "",
+    "status": "msl_done",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:47.340Z",
+    "createdAt": "2026-02-26T04:58:19.256Z",
+    "updatedAt": "2026-02-26T05:37:47.340Z",
+    "assignedAt": "2026-02-26T05:12:24.883Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "8f1dc624-1dbd-42f5-8f27-3afc53d0503b"
+  },
+  {
+    "id": "task_1772081899390_4654b455",
+    "title": "[MSL] Add proper error handling to ML filter inference loop",
+    "description": "engine.py:573-584 — Bare except: pass swallows per-bar inference errors silently. Replace with logged exception + fallback behavior (pass-through or conservative filter). Add audit trail for ML-gated bars. P1 — trust/debuggability.",
+    "goalId": "",
+    "status": "msl_done",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:47.379Z",
+    "createdAt": "2026-02-26T04:58:19.390Z",
+    "updatedAt": "2026-02-26T05:37:47.379Z",
+    "assignedAt": "2026-02-26T05:12:25.069Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "35fd38f2-d960-4316-a1e6-5b2cb0578fc8"
+  },
+  {
+    "id": "task_1772081899523_fe08e206",
+    "title": "[MSL] Fix CAGR calculation for sub-24h backtests",
+    "description": "metrics.py:49-55 — Uses timedelta.days which returns 0 for intraday spans under 24h, forcing CAGR to 0. Switch to total_seconds()/86400 for fractional day support. P1 — breaks short-horizon evaluation.",
+    "goalId": "",
+    "status": "msl_test",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:33.361Z",
+    "createdAt": "2026-02-26T04:58:19.523Z",
+    "updatedAt": "2026-02-26T05:37:33.361Z",
+    "assignedAt": "2026-02-26T05:12:25.276Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "8d7d2153-7baa-41fb-a7aa-3646cfa90387"
+  },
+  {
+    "id": "task_1772081899657_6127c2a1",
+    "title": "[MSL] Add engine integration tests (8 missing coverage areas)",
+    "description": "tests/test_backtest.py + test_strategies.py — Add tests for: (1) end-of-data position force-close, (2) cooldown semantics, (3) fee/slippage execution path, (4) short-side lifecycle, (5) ML filter integration failure modes, (6) optimizer no-op param detection, (7) concrete strategy classes (not just simulations), (8) reproducibility of higher-TF bias with active strategy set only. P1.",
+    "goalId": "",
+    "status": "msl_done",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T05:37:47.359Z",
+    "createdAt": "2026-02-26T04:58:19.657Z",
+    "updatedAt": "2026-02-26T05:37:47.359Z",
+    "assignedAt": "2026-02-26T05:12:25.546Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "95b9b8ef-add5-4ccd-872f-60d1f76e6c72"
+  },
+  {
+    "id": "task_1772085832707_c7192ff6",
+    "title": "[CUU] Security patch — Capacitor 6→8 + react-router-dom fix",
+    "description": "Upgrade Capacitor stack (@capacitor/cli, @capacitor/core, @capacitor/android, @capacitor/ios) from v6 to v8.1.0. Upgrade react-router-dom to v7.x. Clears 8 of 10 high CVEs. Re-run npm audit to verify. Scope: /Users/hopenclaw/CoinUsUp",
+    "goalId": "",
+    "status": "cuu_test",
+    "priority": "critical",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T07:01:50.037Z",
+    "createdAt": "2026-02-26T06:03:52.707Z",
+    "updatedAt": "2026-02-26T07:01:50.037Z",
+    "comments": [
+      {
+        "id": "cmt_1772086168351_42606a11",
+        "author": "joe",
+        "text": "can you run the npm for me? and if there are any issues with the results to notify me here.",
+        "createdAt": "2026-02-26T06:09:28.351Z"
+      },
+      {
+        "id": "cmt_1772088630837_20e35114",
+        "author": "joe",
+        "text": "can you run the npm for me? and if there are any issues with the results to notify me here.",
+        "createdAt": "2026-02-26T06:50:30.837Z"
+      },
+      {
+        "id": "cmt_1772088728161_25cbc46f",
+        "author": "joe",
+        "text": "can you run the npm for me? and if there are any issues with the results to notify me here.",
+        "createdAt": "2026-02-26T06:52:08.161Z"
+      },
+      {
+        "id": "cmt_1772089263652_9be6bd77",
+        "author": "joe",
+        "text": "can you confirm this can be done and if so move it there",
+        "createdAt": "2026-02-26T07:01:03.652Z"
+      }
+    ]
+  },
+  {
+    "id": "task_1772085832848_97a9e13a",
+    "title": "[CUU] Dependency stabilization pass — minor/patch updates",
+    "description": "Update all non-breaking minor and patch dependencies. Run full build + lint + app smoke tests after. Includes: Radix UI, Supabase, TanStack, Vite, TypeScript, ESLint, and other non-major deps. Scope: /Users/hopenclaw/CoinUsUp",
+    "goalId": "",
+    "status": "review",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-26T06:03:52.848Z",
+    "updatedAt": "2026-02-26T06:23:11.598Z",
+    "assignedAt": "2026-02-26T06:19:32.648Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "50c66c2d-6d30-4198-9007-8c9126caded5"
+  },
+  {
+    "id": "task_1772085832985_39c4617c",
+    "title": "[CUU] Major dependency migration — React 19, Router 7, Zod 4, Recharts 3",
+    "description": "Planned sprint. Bundle major upgrades in a branch with targeted regression checks: React 18→19, react-router-dom 6→7 (routing refactor required), Zod 3→4, Recharts 2→3, date-fns 3→4, tailwind-merge 2→3, sonner 1→2, react-resizable-panels 2→4. Full test before merge. Scope: /Users/hopenclaw/CoinUsUp",
+    "goalId": "",
+    "status": "in_progress",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-26T06:03:52.985Z",
+    "updatedAt": "2026-02-26T06:28:33.797Z",
+    "assignedAt": "2026-02-26T06:20:27.620Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "fa450e3b-be7b-466d-8334-346faf3fc642"
+  },
+  {
+    "id": "task_1772087017219_28bd9ff9",
+    "title": "P&L Dashboard Widget",
+    "description": "Add project-pnl.json as a live table/widget in the Command Center dashboard. Wire up dashboard/project-pnl.json (output from scripts/project-pnl.js) to a new P&L page or section showing per-project: revenue, costs, profit, burn rate, CAC, LTV, LTV:CAC. Should auto-refresh when the JSON updates. Recommend a dedicated /pnl route or a collapsible section on the main dashboard.",
+    "goalId": "",
+    "status": "rejected",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": "2026-02-26T07:51:35.510Z",
+    "createdAt": "2026-02-26T06:23:37.219Z",
+    "updatedAt": "2026-02-26T07:51:35.510Z",
+    "assignedAt": "2026-02-26T06:24:46.021Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "016fe159-ac95-47f0-9721-2d80317c57c0",
+    "comments": [
+      {
+        "id": "cmt_1772087602856_0f467d82",
+        "author": "joe",
+        "text": "TEST COMMENT - checking notification flow",
+        "createdAt": "2026-02-26T06:33:22.856Z"
+      },
+      {
+        "id": "cmt_1772087713603_6320ff78",
+        "author": "joe",
+        "text": "Test comment — checking Alfred receives this",
+        "createdAt": "2026-02-26T06:35:13.604Z"
+      },
+      {
+        "id": "cmt_1772087735908_df8eb574",
+        "author": "joe",
+        "text": "Test 2",
+        "createdAt": "2026-02-26T06:35:35.908Z"
       }
     ]
   }

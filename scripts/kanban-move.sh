@@ -4,7 +4,7 @@
 # Usage:
 #   kanban-move.sh <card_id> <to_column>
 #
-# Columns: ideas, goals, todo, in_progress, blocked, review, done
+# Columns: ideas, goals, todo, in_progress, blocked, review, done, msl_test, msl_done, cuu_test, cuu_done, rejected
 #
 # Examples:
 #   kanban-move.sh goal_1771610220154_a9d87314 in_progress
@@ -16,11 +16,11 @@ TO_COLUMN="${2:-}"
 
 if [ -z "$CARD_ID" ] || [ -z "$TO_COLUMN" ]; then
   echo "Usage: kanban-move.sh <card_id> <to_column>" >&2
-  echo "Columns: ideas, goals, todo, in_progress, blocked, review, done" >&2
+  echo "Columns: ideas, goals, todo, in_progress, blocked, review, done, msl_test, msl_done, cuu_test, cuu_done, rejected" >&2
   exit 1
 fi
 
-VALID_COLUMNS="ideas goals todo in_progress blocked review done"
+VALID_COLUMNS="ideas goals todo in_progress blocked review done cuu_test cuu_done msl_test msl_done rejected"
 if ! echo "$VALID_COLUMNS" | grep -qw "$TO_COLUMN"; then
   echo "ERROR: Invalid column '$TO_COLUMN'. Must be one of: $VALID_COLUMNS" >&2
   exit 1

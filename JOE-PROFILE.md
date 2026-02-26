@@ -92,6 +92,9 @@ Activity patterns and productivity windows.
 - Being asked to review things without sufficient context
 - Verbose reports when brief updates suffice
 
+### Vertical Exclusions (do not suggest ideas in these spaces)
+- **Legal software / law firm tools** — not interested, will advise if this changes (2026-02-26)
+
 ---
 
 ## Technical Identity

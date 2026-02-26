@@ -252,3 +252,14 @@ GET /api/cron                     # Cron jobs
 **What I do:** Query relevant endpoint, pull full context, present complete information (not references)
 
 **When I send a notification:** ALWAYS include full context from the source, not just a reference.
+
+---
+
+## Discord Webhooks
+
+| Project | Channel | Webhook URL | Purpose |
+|---------|---------|-------------|---------|
+| CoinUsUp | Code Reviews | https://discord.com/api/webhooks/1476448999316656154/NXrL8RCn8rNuly9As5sMbgbm9J6A8eX9sLwvsXTWZYvhDbnf7sxsZpmAb_Nwk9aJZn9c | All code review results for CoinUsUp |
+| HAL Completions | HAL Tasks | https://discord.com/api/webhooks/1476448356925702185/UDPUJvuUicQQFSdVLo3s18tlPjrFyp4w-fft4FL0ihygVzXP2VLpYTWsBLVS4eaujhkc | HAL completed task notifications (replaces Slack #hal-task / C0AH618DE5C) |
+
+**Rule:** Any code review output for CoinUsUp must be posted to the above webhook automatically.

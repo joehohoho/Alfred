@@ -224,33 +224,15 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1772056012804_052c9cc8",
+    "id": "notif_1772087044680_0445bdb5",
     "type": "kanban-blocked",
     "title": "Blocker on card",
-    "message": "Dispatched to HAL subagent for execution, but move to in_progress was blocked by board rule because 'Signal App — Fast Track Launch' is already in progress. HAL runId: a22c33ae-8374-4535-b460-f0819e2d8818",
-    "goalId": "goal_1771922709001_96f47ec0",
-    "answered": false,
-    "createdAt": "2026-02-25T21:46:52.804Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772066816287_d058bd11",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "HAL dispatch started via idle-check, but board move to in_progress blocked because 'Signal App — Fast Track Launch' is already in_progress. Recommend either (A) allow HAL-subagent parallel execution policy for idea/goal cards, or (B) keep one-card rule and queue HAL dispatch until slot opens.",
-    "goalId": "goal_1771922896482_a6eb37df",
-    "answered": false,
-    "createdAt": "2026-02-26T00:46:56.287Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772068620186_5a0453a1",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "HAL dispatch started, but board move to in_progress failed due one-card rule: Signal App — Fast Track Launch is currently in_progress. HAL runId=5d09c17e-3ae7-46b8-984a-8daed28270fc.",
-    "goalId": "goal_1771922865059_bb2d4b8e",
-    "answered": false,
-    "createdAt": "2026-02-26T01:17:00.186Z",
-    "answeredAt": null
+    "message": "CoinUsUp repo not found. The task specifies scope: /Users/hopenclaw/CoinUsUp but that directory doesn't exist on this machine. Options: (1) Point me to the correct path (e.g. a different directory or GitHub repo to clone), (2) Clone it from GitHub now (share the repo URL). Recommendation: clone from GitHub so I can work in a fresh branch. Without the path I cannot start the migration.",
+    "taskId": "task_1772085832985_39c4617c",
+    "answered": true,
+    "createdAt": "2026-02-26T06:24:04.680Z",
+    "answeredAt": "2026-02-26T06:27:52.188Z",
+    "userAnswer": "Scan the pc to see if it could be located somewhere else, if it isn't then it hasn't been cloned yet which you can go ahead and do on both pc's if it helps.",
+    "deliveryStatus": "sent"
   }
 ]

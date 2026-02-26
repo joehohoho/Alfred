@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "name": "Smart Model Router",
+    "updated": "2026-02-26",
+    "description": "Subscription-aware model routing policy. Anthropic subscription = quota-managed (not per-token). Anthropic API = backup only.",
+    "billing_model": {
+      "LOCAL": "free",
+      "codex": "free_rate_limited",
+      "haiku": "subscription_quota",
+      "sonnet": "subscription_quota",
+      "opus": "subscription_quota",
+      "anthropic_api": "pay_per_token_backup"
+    }
+  },
+
+  "optimization_priority": [
+    "maximize_quality_within_subscription_quota",
+    "preserve_quota_headroom_for_high_value_tasks",
+    "minimize_api_fallback_spend"
+  ],
+
+  "models": {
+    "LOCAL": {
+      "id": "ollama/llama3.2:3b",
+      "tier": 0,
+      "cost_mode": "free",
+      "quota_weight": 0,
+      "max_complexity": 3,
+      "max_input_tokens": 3000,
+      "latency_class": "fast",
+      "use_for": ["trivial_tasks", "file_reads", "simple_transforms", "batch_low_stakes", "monitoring", "quota_preservation"],
+      "avoid_for": ["accuracy_critical", "code_generation", "security", "long_context"]
+    },
+    "codex": {
+      "id": "openai-codex/gpt-5.3-codex",
+      "tier": 1,
+      "cost_mode": "free_rate_limited",
+      "quota_weight": 0,
+      "max_complexity": 7,
+      "max_input_tokens": 12000,
+      "latency_class": "normal",
+      "use_for": ["code_gen", "code_edit", "code_debug", "test_writing", "code_review"],
+      "avoid_for": ["file_ops", "memory_search", "data_analysis", "non_code_decisions"],
+      "timeout_escalate_to": "sonnet",
+      "rate_limit_tpm": 500000
+    },
+    "haiku": {
+      "id": "anthropic/claude-haiku-4-5",
+      "tier": 2,
+      "cost_mode": "subscription_quota",
+      "quota_weight": 1,
+      "max_complexity": 6,
+      "latency_class": "fast",
+      "use_for": ["medium_reasoning", "log_analysis", "text_classification", "reliable_api_calls", "local_fallback"],
+      "avoid_for": ["complex_architecture", "security_audits", "multi_step_workflows"]
+    },
+    "sonnet": {
+      "id": "anthropic/claude-sonnet-4-6",
+      "tier": 3,
+      "cost_mode": "subscription_quota",
+      "quota_weight": 3,
+      "max_complexity": 9,
+      "latency_class": "normal",
+      "use_for": [
+        "default_gatekeeper",
+        "complex_reasoning",
+        "architecture_decisions",
+        "multi_step_workflows",
+        "user_facing_responses",
+        "code_tasks_when_codex_unavailable",
+        "complex_debugging"
+      ],
+      "avoid_for": ["trivial_tasks", "simple_file_reads"]
+    },
+    "opus": {
+      "id": "anthropic/claude-opus-4-6",
+      "tier": 4,
+      "cost_mode": "subscription_quota",
+      "quota_weight": 8,
+      "max_complexity": 10,
+      "latency_class": "deep",
+      "use_for": ["security_audits", "critical_decisions", "extreme_complexity", "sonnet_failure_escalation"],
+      "avoid_for": ["routine_tasks", "anything_without_clear_high_stakes_justification"]
+    },
+    "anthropic_api": {
+      "id": "anthropic/claude-sonnet-4-6",
+      "tier": 5,
+      "cost_mode": "pay_per_token",
+      "quota_weight": 0,
+      "note": "BACKUP ONLY — used when subscription quota is exhausted",
+      "cost_caps": {
+        "soft_cap_usd": 2.0,
+        "soft_cap_action": "bias_down_one_tier",
+        "hard_cap_usd": 5.0,
+        "hard_cap_action": "require_explicit_override"
+      }
+    }
+  },
+
+  "hard_gates": [
+    {
+      "name": "security_high_risk",
+      "condition": "risk_flag == 'high'",
+      "route": "sonnet",
+      "escalate_to": "opus",
+      "escalate_when": "complexity >= 9",
+      "priority": 1
+    },
+    {
+      "name": "code_task",
+      "condition": "task_type in ['code_gen','code_edit','code_debug','test_writing','code_review'] AND complexity <= 7",
+      "route": "codex",
+      "fallback": "sonnet",
+      "priority": 2
+    },
+    {
+      "name": "trivial_task",
+      "condition": "complexity <= 3 AND estimated_output_tokens <= 500 AND risk_flag != 'high'",
+      "route": "LOCAL",
+      "priority": 3
+    },
+    {
+      "name": "fast_latency_target",
+      "condition": "latency_target == 'fast' AND complexity <= 5",
+      "allowed_models": ["LOCAL", "codex", "haiku"],
+      "priority": 4
+    },
+    {
+      "name": "quota_conservation_mode",
+      "condition": "subscription_quota_used_pct > 70",
+      "action": "aggressive_local_codex_routing",
+      "description": "Bias to LOCAL/Codex for non-critical tasks; preserve quota for high-value work",
+      "priority": 5
+    },
+    {
+      "name": "quota_exhausted_api_fallback",
+      "condition": "subscription_quota_used_pct >= 100",
+      "route": "anthropic_api",
+      "apply_cost_caps": true,
+      "priority": 6
+    }
+  ],
+
+  "scoring": {
+    "description": "Stage 2: weighted score for tasks not caught by hard gates",
+    "formula": "score = quality_fit*Wq + speed_fit*Ws + quota_fit*Wc + reliability_fit*Wr",
+    "modes": {
+      "min": { "Wq": 0.20, "Ws": 0.25, "Wc": 0.45, "Wr": 0.10 },
+      "balanced": { "Wq": 0.30, "Ws": 0.25, "Wc": 0.30, "Wr": 0.15 },
+      "quality": { "Wq": 0.45, "Ws": 0.20, "Wc": 0.15, "Wr": 0.20 }
+    },
+    "default_mode": "balanced"
+  },
+
+  "complexity_thresholds": {
+    "0-3": "LOCAL",
+    "4-6": "haiku",
+    "7-9": "sonnet",
+    "9-10_high_risk": "opus"
+  },
+
+  "complexity_signals": {
+    "multi_file_or_multi_step": 2,
+    "strict_correctness_required": 2,
+    "ambiguous_prompt_needs_planning": 2,
+    "context_over_8k_tokens": 2,
+    "external_tool_orchestration": 2
+  },
+
+  "escalation_ladder": {
+    "max_escalations_per_request": 2,
+    "paths": [
+      { "from": "LOCAL", "to": "haiku", "trigger": ["timeout", "low_confidence", "accuracy_fail"] },
+      { "from": "LOCAL", "to": "codex", "trigger": ["code_task_detected"] },
+      { "from": "codex", "to": "sonnet", "trigger": ["timeout", "rate_limit", "malformed_output"] },
+      { "from": "haiku", "to": "sonnet", "trigger": ["timeout", "low_confidence", "complexity_exceeded"] },
+      { "from": "sonnet", "to": "opus", "trigger": ["timeout", "high_risk_unresolved", "explicit_request"] },
+      { "from": "opus", "to": "anthropic_api", "trigger": ["quota_exhausted"], "apply_cost_caps": true }
+    ],
+    "escalation_triggers": [
+      "timeout",
+      "malformed_output",
+      "low_confidence_output",
+      "policy_refusal_mismatch",
+      "user_retry_signal"
+    ],
+    "user_retry_patterns": ["wrong", "bad answer", "try again", "that's incorrect", "redo this"]
+  },
+
+  "quota_guardrails": {
+    "thresholds": [
+      { "quota_pct": [0, 69], "action": "normal_routing" },
+      { "quota_pct": [70, 85], "action": "bias_local_codex_non_critical", "description": "Prefer LOCAL/Codex for non-critical; subscription models for complex/high-value only" },
+      { "quota_pct": [85, 95], "action": "restrict_subscription_to_high_stakes", "description": "Subscription models for high-stakes/user-facing only; route rest to LOCAL/Codex" },
+      { "quota_pct": [95, 100], "action": "emergency_local_codex_only", "description": "LOCAL/Codex only unless truly blocked; API fallback subject to cost caps" }
+    ],
+    "tracking": {
+      "log_file": "memory/quota-log.jsonl",
+      "fields": ["timestamp", "model", "task_type", "complexity", "tokens_used", "quota_pct_after", "billing_mode"]
+    }
+  },
+
+  "task_type_matrix": {
+    "chat": { "default": "sonnet", "low_complexity": "haiku" },
+    "code_gen": { "default": "codex", "fallback": "sonnet" },
+    "code_edit": { "default": "codex", "fallback": "sonnet" },
+    "code_debug": { "default": "codex", "complex": "sonnet" },
+    "analysis": { "default": "sonnet", "trivial": "LOCAL" },
+    "security": { "default": "sonnet", "critical": "opus" },
+    "summarize": { "default": "LOCAL", "long_or_quality": "haiku" },
+    "architecture": { "default": "sonnet", "critical": "opus" },
+    "file_read": { "default": "LOCAL" },
+    "monitoring": { "default": "LOCAL" },
+    "batch_simple": { "default": "LOCAL" }
+  },
+
+  "rollout": {
+    "status": "revision_applied",
+    "phases": [
+      { "phase": 1, "name": "shadow_mode", "days": "1-7", "description": "Log routing recommendations, don't enforce. Baseline comparison.", "status": "completed" },
+      { "phase": 2, "name": "controlled_enablement", "days": "8-14", "description": "Enable for 20-30% of requests. Compare cost, latency, retry rate vs baseline." },
+      { "phase": 3, "name": "full_rollout", "days": "15-21", "description": "80-100% traffic. Enable automatic fallback on timeout/low-confidence." },
+      { "phase": 4, "name": "stabilize", "days": "22-30", "description": "One threshold-tuning pass per week. Freeze policy for stability." }
+    ],
+    "exit_criteria": {
+      "cost_reduction_pct": 20,
+      "p95_latency_increase_max_pct": 10,
+      "retry_rate_change": "flat_or_improved"
+    },
+    "tuning_cadence": "weekly_max_3_threshold_changes"
+  },
+
+  "telemetry": {
+    "required_fields_per_request": [
+      "request_id",
+      "task_type",
+      "complexity_score",
+      "chosen_model",
+      "routing_stage",
+      "reason_codes",
+      "fallback_count",
+      "quota_pct_at_decision",
+      "billing_mode",
+      "latency_ms",
+      "estimated_tokens",
+      "user_retry_triggered"
+    ]
+  },
+
+  "risks": [
+    {
+      "risk": "misclassification_of_complexity",
+      "mitigation": "conservative defaults + fast escalation + weekly threshold tuning"
+    },
+    {
+      "risk": "over_escalation_burns_quota",
+      "mitigation": "max 2 escalations, quota burn rate gate, reason-coded escalation audits"
+    },
+    {
+      "risk": "underpowered_model_harms_quality",
+      "mitigation": "user retry signal detection + explicit upgrade-model path"
+    },
+    {
+      "risk": "latency_spikes_from_subscription_models",
+      "mitigation": "latency SLO gates, fast-mode model allowlist, timeout-based fallback"
+    },
+    {
+      "risk": "quota_exhaustion_mid_period",
+      "mitigation": "70/85/95% quota gates route traffic to LOCAL/Codex progressively"
+    },
+    {
+      "risk": "policy_drift_maintenance_burden",
+      "mitigation": "keep rule set small, batch weekly updates, avoid per-use-case custom rules"
+    }
+  ]
+}

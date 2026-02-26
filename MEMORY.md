@@ -312,3 +312,24 @@ Sends Joe a thoughtful question each morning at 10 AM AST via Command Center not
 - `send-notification.sh` supports `source` param (6th arg) for tagging any notification origin
 
 *Updated: 2026-02-20*
+
+---
+
+## Key Decisions & Artifacts — 2026-02-26
+
+### Smart Model Router 2.0
+Full design plan produced by HAL on 2026-02-25/26. Includes: 2-stage routing (hard gates + weighted score), escalation ladder (LOCAL→Codex→Haiku→Sonnet→Opus), budget guardrails ($2 soft/$5 hard cap), 30-day rollout plan.
+**Status:** Designed, not yet implemented. HAL offered JSON policy schema + pseudocode router function as next step.
+See: `memory/2026-02-26-model-router.md`
+
+### Signal App Discord Webhook
+`https://discord.com/api/webhooks/1476473084335751300/-cPmdsXwIDTVlzhYb43BiHpatCWLlzujLn93m-8UaOYj-ZCtLHLKkBksAox_RCwKkJDr`
+Use for: Signal App research findings, updates, HAL reviews.
+
+### LegalBillAI — Overnight Build (2026-02-26)
+Location: `/Users/hopenclaw/legal-bill-ai`
+AI-powered legal invoice auditor. Joe's 20yr Elite billing expertise as moat.
+**Awaiting Joe:** API key + Stripe setup + Vercel deploy (~25 min). README has LinkedIn post copy.
+Revenue potential: $490/mo (10 users) → $4,900/mo (100 users).
+
+*Added: 2026-02-26*

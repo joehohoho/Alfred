@@ -2,8 +2,17 @@
 /**
  * hal-dispatch-ws.js
  * Sends a task message to the HAL agent via OpenClaw gateway WebSocket.
- * Implements the connect.challenge → connect handshake correctly.
- * Usage: node hal-dispatch-ws.js "<task message>"
+ * Each dispatch uses an ISOLATED session (unique sessionKey) so HAL's
+ * context never accumulates cross-task bloat.
+ * agent:hal:main is reserved for interactive/manual use only.
+ *
+ * Usage: node hal-dispatch-ws.js "<task message>" [--session-key <key>]
+ *
+ * Session key logic:
+ *   Default: agent:hal:task-<timestamp>-<random6>  (isolated, fresh context)
+ *   Override: pass --session-key <key> for multi-turn tasks that need continuity
+ *
+ * Outputs the session key used to stdout on success so callers can track it.
  */
 
 const WebSocket = require('/usr/local/lib/node_modules/openclaw/node_modules/ws');
@@ -19,8 +28,23 @@ const port  = config?.gateway?.port || 18789;
 
 if (!token) { console.error('ERROR: No gateway auth token in openclaw.json'); process.exit(1); }
 
-const task = process.argv[2];
-if (!task) { console.error('Usage: hal-dispatch-ws.js "<task>"'); process.exit(1); }
+// Parse args
+let task = null;
+let sessionKeyOverride = null;
+const args = process.argv.slice(2);
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === '--session-key' && args[i + 1]) {
+    sessionKeyOverride = args[++i];
+  } else if (!task) {
+    task = args[i];
+  }
+}
+
+if (!task) { console.error('Usage: hal-dispatch-ws.js "<task>" [--session-key <key>]'); process.exit(1); }
+
+// Generate an isolated session key for this task (fresh context, no bloat)
+const shortId = crypto.randomBytes(3).toString('hex'); // 6 hex chars
+const sessionKey = sessionKeyOverride || `agent:hal:task-${Date.now()}-${shortId}`;
 
 const ws = new WebSocket(`ws://127.0.0.1:${port}`, {
   headers: { Authorization: `Bearer ${token}` }
@@ -47,7 +71,6 @@ ws.on('message', (data) => {
 
   // Handle connect.challenge → respond with connect handshake
   if (msg.event === 'connect.challenge' && msg.payload?.nonce) {
-    const nonce = msg.payload.nonce.trim();
     send('connect', {
       minProtocol: 3,
       maxProtocol: 3,
@@ -66,14 +89,13 @@ ws.on('message', (data) => {
     return;
   }
 
-  // Handle connect response (helloOk)
+  // Handle connect response
   if (!connected && msg.result && msg.result.protocol !== undefined) {
     connected = true;
-    // Now send the actual chat message to HAL
     pendingId = send('chat.send', {
       message: task,
       agentId: 'hal',
-      sessionKey: 'agent:hal:main'
+      sessionKey: sessionKey
     });
     return;
   }
@@ -84,7 +106,7 @@ ws.on('message', (data) => {
     pendingId = send('chat.send', {
       message: task,
       agentId: 'hal',
-      sessionKey: 'agent:hal:main'
+      sessionKey: sessionKey
     });
     return;
   }
@@ -96,7 +118,8 @@ ws.on('message', (data) => {
       ws.close();
       process.exit(1);
     } else {
-      console.log('OK: Task dispatched to HAL');
+      // Output session key so callers can log/track it
+      console.log(`OK session=${sessionKey}`);
       done = true;
       ws.close();
       process.exit(0);

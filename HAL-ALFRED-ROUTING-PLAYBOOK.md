@@ -1,5 +1,9 @@
 # HAL ↔ Alfred Routing Playbook
 
+> **⚠️ HAL: Load `HAL-DIRECTIVES.md` at the start of every session. It contains standing rules on commit/push policy, Discord formatting, and escalation gates that apply to ALL tasks.**
+
+
+
 **Date:** 2026-02-25  
 **Status:** Active  
 **Goal:** Send each task to the cheapest/fastest system that can do it reliably.

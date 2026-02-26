@@ -10,13 +10,15 @@ WORKSPACE="/Users/hopenclaw/.openclaw/workspace"
 BACKUP_DIR="/Users/hopenclaw/.alfred-backups"
 GITHUB_REPO="https://github.com/joehohoho/Alfred.git"
 TIMESTAMP=$(date +"%Y-%m-%d-%H%M%S")
-LOG_FILE="/var/log/alfred-backup.log"
+LOG_FILE="$WORKSPACE/logs/alfred-backup.log"
 
 # Colors
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
+
+mkdir -p "$(dirname "$LOG_FILE")"
 
 log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"

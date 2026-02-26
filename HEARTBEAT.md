@@ -168,7 +168,7 @@ Logs stored in:
 ## 🔔 Slack Task Notifications
 
 **General completions:** Slack channel **C0AEE0PLKB4**
-**HAL completions:** Slack channel **C0AH618DE5C** (Joe's directive, 2026-02-25)
+**HAL completions:** Discord webhook (updated 2026-02-26 — was Slack C0AH618DE5C) — use `scripts/hal-slack-notify.sh`
 
 When HAL finishes a task, post to **C0AH618DE5C** using `scripts/hal-slack-notify.sh`:
 ```bash

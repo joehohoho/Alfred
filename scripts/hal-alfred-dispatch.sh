@@ -96,9 +96,13 @@ TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 DISPATCH_RESULT="pending"
 
 # ── Step 3: Dispatch ──────────────────────────────────────────────────────────
+HAL_SESSION_KEY=""
 if [[ "$ROUTE" == "HAL" ]]; then
-  if node "$DISPATCHER" "$TASK" 2>/tmp/hal-dispatch-err; then
+  DISPATCH_OUT=$(node "$DISPATCHER" "$TASK" 2>/tmp/hal-dispatch-err) && DISPATCH_OK=1 || DISPATCH_OK=0
+  if [[ $DISPATCH_OK -eq 1 ]]; then
     DISPATCH_RESULT="dispatched_to_hal"
+    # Extract session key from output (format: "OK session=agent:hal:task-...")
+    HAL_SESSION_KEY=$(echo "$DISPATCH_OUT" | sed -n 's/^OK session=//p')
   else
     ERR=$(cat /tmp/hal-dispatch-err)
     DISPATCH_RESULT="hal_dispatch_failed"
@@ -111,17 +115,20 @@ else
 fi
 
 # ── Step 4: Log dispatch ──────────────────────────────────────────────────────
-python3 - "$TIMESTAMP" "$TASK_ID" "$ROUTE" "$CONFIDENCE" "$DISPATCH_RESULT" "$TASK" <<'PY' >> "$DISPATCH_LOG"
+python3 - "$TIMESTAMP" "$TASK_ID" "$ROUTE" "$CONFIDENCE" "$DISPATCH_RESULT" "$TASK" "$HAL_SESSION_KEY" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
-ts, task_id, route, conf, result, task = sys.argv[1:7]
-print(json.dumps({
+ts, task_id, route, conf, result, task, session_key = sys.argv[1:8]
+entry = {
   "timestamp": ts,
   "task_id": task_id,
   "route": route,
   "confidence": float(conf),
   "dispatch_result": result,
   "task": task[:200]
-}, separators=(',', ':')))
+}
+if session_key:
+    entry["hal_session_key"] = session_key
+print(json.dumps(entry, separators=(',', ':')))
 PY
 
 # ── Step 5: Output ──────────────────────────────────────────────────────────
@@ -138,6 +145,7 @@ PY
 else
   if [[ "$DISPATCH_RESULT" == "dispatched_to_hal" ]]; then
     echo "→ Routed to HAL (confidence=$CONFIDENCE): $REASON"
+    [[ -n "$HAL_SESSION_KEY" ]] && echo "  session: $HAL_SESSION_KEY"
   elif [[ "$DISPATCH_RESULT" == "handled_by_alfred" ]]; then
     echo "→ Handled by Alfred (confidence=$CONFIDENCE): $REASON"
   else

@@ -1,6 +1,6 @@
 #!/bin/bash
 # hal-slack-notify.sh
-# Post a HAL task completion to Joe's HAL completions Slack channel (C0AH618DE5C).
+# Post a HAL task completion to the HAL completions Discord channel.
 #
 # Usage:
 #   bash hal-slack-notify.sh "Task Title" "Summary of what HAL did"
@@ -10,8 +10,7 @@
 
 set -euo pipefail
 
-HAL_SLACK_CHANNEL="C0AH618DE5C"
-GATEWAY_URL="http://localhost:8765"
+DISCORD_WEBHOOK="https://discord.com/api/webhooks/1476448356925702185/UDPUJvuUicQQFSdVLo3s18tlPjrFyp4w-fft4FL0ihygVzXP2VLpYTWsBLVS4eaujhkc"
 
 TITLE="${1:-}"
 SUMMARY="${2:-}"
@@ -25,23 +24,14 @@ elif [[ -z "$TITLE" ]]; then
   echo "   or: echo \"message\" | $0 --raw" >&2
   exit 1
 else
-  MESSAGE="✅ *${TITLE}*
+  MESSAGE="✅ **${TITLE}**
 ${SUMMARY}
 
 _Posted by Alfred • HAL completions_"
 fi
 
-# Send via openclaw message tool (channel=slack)
-openclaw message send \
-  --channel slack \
-  --to "channel:${HAL_SLACK_CHANNEL}" \
-  --message "${MESSAGE}" 2>/dev/null \
-|| \
-# Fallback: post via gateway HTTP if CLI not available
-curl -s -X POST "${GATEWAY_URL}/message" \
+curl -s -X POST "$DISCORD_WEBHOOK" \
   -H "Content-Type: application/json" \
-  -d "$(python3 -c "import json,sys; print(json.dumps({'channel':'slack','to':'channel:${HAL_SLACK_CHANNEL}','message':sys.argv[1]}))" "${MESSAGE}")" \
->/dev/null \
-|| echo "[hal-slack-notify] Warning: could not post to Slack — message was: ${MESSAGE}" >&2
+  -d "$(python3 -c "import json,sys; print(json.dumps({'content':sys.argv[1]}))" "${MESSAGE}")"
 
-echo "Posted to HAL completions channel (${HAL_SLACK_CHANNEL}): ${TITLE}"
+echo "Posted to HAL completions Discord: ${TITLE}"
