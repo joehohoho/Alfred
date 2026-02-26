@@ -545,7 +545,21 @@
       "inReview": true
     },
     "createdAt": "2026-02-26T07:50:09.316Z",
-    "updatedAt": "2026-02-26T07:53:38.436Z"
+    "updatedAt": "2026-02-26T18:03:49.761Z",
+    "comments": [
+      {
+        "id": "cmt_1772129008580_4732a58b",
+        "author": "joe",
+        "text": "What do i need to review on this?",
+        "createdAt": "2026-02-26T18:03:28.580Z"
+      },
+      {
+        "id": "cmt_1772129029761_10b8d49a",
+        "author": "alfred",
+        "text": "Great question — this one actually does not need much from you! Here is what was built and what you are approving:\n\n**What is live:**\n- `failsafe-ping.sh` runs every 5 minutes, checking both Alfred (gateway process + HTTP) and HAL (Ollama process + API).\n- On failure, `failsafe-verify.sh` runs a second confirmation pass to distinguish a real outage from a planned restart/upgrade — so we do not jump into recovery mode for a routine reboot.\n- If confirmed down: `failsafe-recover-alfred.sh` or `failsafe-recover-hal.sh` auto-runs the appropriate restart procedure and sends you a Command Center notification.\n- Maintenance mode flag (`failsafe-maintenance.flag`) lets either of us suppress checks during planned downtime.\n- State is persisted to `data/failsafe-state.json` — currently shows both Alfred and HAL as **healthy** (last checked 14:58 AST).\n\n**What you are reviewing:**\nJust confirming this matches what you had in mind. The only real decision is: are you happy with the 5-minute ping interval, and do you want Joe-visible notifications on every recovery attempt, or only if recovery fails?\n\n**My recommendation:** approve as-is. If you want tweaks to thresholds or notification verbosity, just say the word and I will adjust.",
+        "createdAt": "2026-02-26T18:03:49.761Z"
+      }
+    ]
   },
   {
     "id": "goal_1772113891898_e9f89791",

@@ -23,6 +23,7 @@ Source of truth: `/Users/hopenclaw/Documents/Discord URLs.txt`
 | #msl-code-fixes | https://discord.com/api/webhooks/1476599175146635294/G85A_LpNbt-XLRfQWR7oZ2l3w6fPtQiB7-NxNGvrS8QdH7tmE1i6UR4zAFsv6Gf3CPh- | Market Signal Lab code fixes |
 | #msl-general | https://discord.com/api/webhooks/1476599329736102132/ZPxQ-4QNPZSZB2h5Zi67nJ1AI795irRA6ZlI78LCgzL7ASfCnFJjdLtVvg0EGMgk4kQ9 | Market Signal Lab general |
 | #infrastructure-health-check | https://discord.com/api/webhooks/1476601769495892170/e9-XC8E0iys21STr9lVmQrX8UjaNapdFY8L854aK7QDx_tCsL5-9wN3yfwflOlqTVkD8 | Infrastructure health checks |
+| #system-improvements | https://discord.com/api/webhooks/1476641676821794958/Ss4zP9wOfq9QFRSERSdGVDfs2y35BlBGLE5AtWRDtOoKTcOio45PzkhoIeW5LOnzICOy | System improvements, rule updates, routing changes |
 
 ---
 
