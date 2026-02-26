@@ -4,8 +4,9 @@
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
 **Last reflection:** 2026-02-25 (11:27 AM AST)
+**Last direct Q&A update:** 2026-02-26 (10:36 AM AST)
 **Reflection count:** 3
-**Profile version:** 1.3
+**Profile version:** 1.4
 
 ---
 
@@ -92,6 +93,15 @@ Activity patterns and productivity windows.
 - Being asked to review things without sufficient context
 - Verbose reports when brief updates suffice
 
+### Idea Evaluation Filter (DIRECT ANSWER — 2026-02-26) ⭐ HIGH CONFIDENCE
+Joe's first-pass filter for any new idea, in order:
+1. **Obvious demand?** — Is there a real, visible market for this? Don't pitch ideas that require creating demand from scratch.
+2. **Buildable without excessive effort?** — Can it be shipped without a massive build? MVP should be achievable in weeks, not months.
+3. **Familiarity with the vertical?** — Joe needs domain familiarity. Ideas in completely new verticals with lots of competition = harder AND unfamiliar. Prefer verticals where Joe has experience or natural edge.
+4. **Fun + profitable?** — Has to have both. Pure revenue grind without interest isn't motivating. Pure fun without income doesn't serve the north star.
+
+**Implication for Alfred:** Before surfacing any idea, run it through this filter. If it fails #1 or #3, don't surface it. Lead with demand signals and effort estimate — that's what Joe evaluates first.
+
 ### Vertical Exclusions (do not suggest ideas in these spaces)
 - **Legal software / law firm tools** — not interested, will advise if this changes (2026-02-26)
 
@@ -151,6 +161,25 @@ Ranked by recent activity (update frequently):
 - Be more efficient with tedious tasks
 - Have Alfred assist with coding/app ideas
 - Stay on top of everything
+
+### Project Kill/Keep Threshold (DIRECT ANSWER — 2026-02-26) ⭐ HIGH CONFIDENCE
+- **Even Us Up:** Keep indefinitely. It's a personal tool Joe actively uses for his household — it was built to solve a real personal need. Secondary opportunity: package and sell it. Not a revenue pressure, but has market potential.
+- **CoinUsUp:** Keep + grow. Significant untapped growth potential. **Critical near-term action: finish and publish to mobile app stores.** Joe needs to complete this before growth can happen. Monitor revenue/engagement to re-evaluate longer term.
+- **General kill signal (inferred):** A project would get cut if it required high ongoing maintenance WITHOUT generating income AND wasn't personally useful. Revenue or personal utility is required to stay alive.
+
+### Incident Response Protocol (DIRECT ANSWER — 2026-02-26) ⭐ HIGH CONFIDENCE
+**Bugs / Outages:**
+- Fix autonomously, fully, and quickly. Don't wait for Joe.
+- Report after the fact once resolved.
+- "Up and running efficiently, quickly and properly" — quality matters, not just speed.
+
+**Cost Spikes:**
+1. **Stop the money burn immediately** — kill the runaway process, disable the expensive call, cap the usage. Do NOT let it keep running while waiting for review.
+2. Find a workaround to restore service without the cost.
+3. Identify root cause.
+4. Notify Joe with full findings.
+- **Key reason:** Joe may not be available to react in time. Alfred is the last line of defense on cost. Act first, explain second.
+- **Threshold:** Any cost spike that could materially escalate = treat as emergency. Don't wait for a "is this serious enough?" answer.
 
 ### Passive Income Strategy (CONCRETE TARGETS — Direct Answer, Daily Inquiry Feb 23)
 **Revenue Targets:**

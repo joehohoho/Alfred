@@ -35,7 +35,8 @@ Project Health Command Center was already fully built. Verified all components l
 
 ## Pending Questions
 <!-- PENDING-Q-START -->
-_(none)_
+- **Where am I still asking you questions I shouldn't?** (_question_, Feb 26 14:00)
+  ID: `notif_1772114400186_8815537c` — You've told me: 'be resourceful before asking' and 'I can't' isn't vocabulary. I'm genuinely trying to exhaust options before bothering you.  But I ma...
 <!-- PENDING-Q-END -->
 
 ---

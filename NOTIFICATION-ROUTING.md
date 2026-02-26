@@ -1,4 +1,18 @@
-# NOTIFICATION-ROUTING.md — How to Route Questions to Joe
+# NOTIFICATION-ROUTING.md
+
+## 🔑 Joe's Directive (2026-02-26) — When NOT to Notify
+
+**Before sending any notification, ask:**
+1. **Am I confident what Joe would decide?** → Just do it. Post to Alfred Decisions Discord channel after.
+2. **Am I missing context?** → Search memory logs, web, docs first. Only notify if still blocked after genuine effort.
+3. **Have I asked this before unanswered?** → Follow up + rephrase. Don't let it die.
+
+**Alfred Decisions Discord webhook:**
+`https://discord.com/api/webhooks/1476590430803202279/Np1MtEaUHs69JtS6_le54RCGzd0Jv0zkQMd-9zTBaoger20HuzHsh1T6ii-N8tdJxMVo`
+Post: what I decided + brief reason + outcome. Joe wants visibility, not approval gates.
+
+---
+ — How to Route Questions to Joe
 
 ## Rule
 

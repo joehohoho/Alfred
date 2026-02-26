@@ -261,5 +261,6 @@ GET /api/cron                     # Cron jobs
 |---------|---------|-------------|---------|
 | CoinUsUp | Code Reviews | https://discord.com/api/webhooks/1476448999316656154/NXrL8RCn8rNuly9As5sMbgbm9J6A8eX9sLwvsXTWZYvhDbnf7sxsZpmAb_Nwk9aJZn9c | All code review results for CoinUsUp |
 | HAL Completions | HAL Tasks | https://discord.com/api/webhooks/1476448356925702185/UDPUJvuUicQQFSdVLo3s18tlPjrFyp4w-fft4FL0ihygVzXP2VLpYTWsBLVS4eaujhkc | HAL completed task notifications (replaces Slack #hal-task / C0AH618DE5C) |
+| General | #general-research | https://discord.com/api/webhooks/1476592890636406894/1Owrc-r1gfpyslkzcia0WuB2RwprHA8rF230XDwg215-k7arhr2K0eidRemJ4fcLeYX1 | General research, deals, audits, recommendations, findings |
 
 **Rule:** Any code review output for CoinUsUp must be posted to the above webhook automatically.

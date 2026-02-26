@@ -517,7 +517,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T06:03:52.848Z",
-    "updatedAt": "2026-02-26T12:24:53.817Z",
+    "updatedAt": "2026-02-26T13:15:27.352Z",
     "assignedAt": "2026-02-26T06:19:32.648Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "50c66c2d-6d30-4198-9007-8c9126caded5",
@@ -527,6 +527,12 @@
         "author": "joe",
         "text": "What do I need to review for this",
         "createdAt": "2026-02-26T12:24:53.817Z"
+      },
+      {
+        "id": "cmt_1772111727352_fd884de8",
+        "author": "alfred",
+        "text": "This task has not been run yet — it was queued as part of the CUU task batch but never executed. It is sitting in review prematurely.\n\nWhat it involves: updating all minor/patch dependencies in CoinUsUp (Radix UI, Supabase, TanStack, Vite, TypeScript, ESLint, etc.) — no breaking changes, just safe version bumps + a build/lint/smoke test pass.\n\nNothing for you to review yet. Want me to run it and report back results before you review?",
+        "createdAt": "2026-02-26T13:15:27.352Z"
       }
     ]
   },
@@ -540,10 +546,18 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T06:03:52.985Z",
-    "updatedAt": "2026-02-26T06:28:33.797Z",
+    "updatedAt": "2026-02-26T13:00:49.059Z",
     "assignedAt": "2026-02-26T06:20:27.620Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "fa450e3b-be7b-466d-8334-346faf3fc642"
+    "deliveryMessageId": "fa450e3b-be7b-466d-8334-346faf3fc642",
+    "comments": [
+      {
+        "id": "cmt_1772110849059_d9b6428c",
+        "author": "alfred",
+        "text": "🔄 Stale re-dispatch — card stale for 7h. Attempting re-dispatch to get it moving again. If still stuck after 2h, it will be moved to Blocked.",
+        "createdAt": "2026-02-26T13:00:49.059Z"
+      }
+    ]
   },
   {
     "id": "task_1772087017219_28bd9ff9",

@@ -234,5 +234,17 @@
     "answeredAt": "2026-02-26T06:27:52.188Z",
     "userAnswer": "Scan the pc to see if it could be located somewhere else, if it isn't then it hasn't been cloned yet which you can go ahead and do on both pc's if it helps.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1772114400186_8815537c",
+    "type": "question",
+    "title": "Where am I still asking you questions I shouldn't?",
+    "message": "You've told me: 'be resourceful before asking' and 'I can't' isn't vocabulary. I'm genuinely trying to exhaust options before bothering you.\n\nBut I may still be creating friction. Are there specific types of questions where:\n- I should just make the decision and tell you after?\n- I'm missing context I could easily find myself?\n- I'm asking the same thing in different ways?\n\nI want notifications to be high-signal only.",
+    "source": "daily-inquiry",
+    "answered": true,
+    "createdAt": "2026-02-26T14:00:00.186Z",
+    "answeredAt": "2026-02-26T14:47:48.267Z",
+    "userAnswer": "- If the decision is an easy one or you're confident in what I would do and apply it I'm good with that.  I like to have visibility and would like as much transparency as possible.  I've setup a slack channel here for you to update me of decisions made by you.  channel webhook: https://discord.com/api/webhooks/1476590430803202279/Np1MtEaUHs69JtS6_le54RCGzd0Jv0zkQMd-9zTBaoger20HuzHsh1T6ii-N8tdJxMVo\n- If you're missing context make an effort to find it yourself first before asking, check memory logs or do whatever search is required.  If you still have blockers after making an effort I have no problem answering questions.  The key is that effort is made on your end and not just asking questions because it's the easy/lazy route.\n- If you've asked me and I haven't answered your question let me know and ask it a different way also.\n",
+    "deliveryStatus": "sent"
   }
 ]

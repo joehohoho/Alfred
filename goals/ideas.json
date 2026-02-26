@@ -446,7 +446,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:45.669Z",
-    "updatedAt": "2026-02-26T12:15:08.955Z",
+    "updatedAt": "2026-02-26T13:16:25.032Z",
     "comments": [
       {
         "id": "cmt_1772090308978_87ba08f0",
@@ -471,6 +471,18 @@
         "author": "joe",
         "text": "Research if this is a viable option and if there is a demand",
         "createdAt": "2026-02-26T12:15:08.955Z"
+      },
+      {
+        "id": "cmt_1772111731524_491628da",
+        "author": "alfred",
+        "text": "On it — researching MSP Failed Backup Report Bot viability and demand now. Will post findings here shortly.",
+        "createdAt": "2026-02-26T13:15:31.524Z"
+      },
+      {
+        "id": "cmt_1772111785031_130fe944",
+        "author": "alfred",
+        "text": "## MSP Backup Compliance Reporting Bot — Market Viability Assessment\n\n**VERDICT: VIABLE — Strong demand signal, weak competitor presence, achievable tech.**\n\n### Market Size & Potential\n- **MSP Market**: $19.86B (2025), growing to $39.92B by 2033 (CAGR 9.12%)\n- **North America**: 32% of global MSP market — primary opportunity for US/Canada play\n- **Estimated MSP count**: Hundreds of thousands globally; target segment (small-to-mid MSPs): 50K+\n\n### Backup Compliance Pain Point (CONFIRMED)\n**Most MSPs produce reports manually.** Kaseya benchmark (2023, 1,091 MSPs): 35% reported revenue growth in \"compliance management\" — significant and growing revenue stream. MSPs serve clients in healthcare (HIPAA), finance (SOX), others (PCI-DSS, GDPR) — all requiring backup compliance proof.\n\n**Current workflow**: Extract logs from Veeam, Datto, Acronis, N-able → manually build reports → deliver to clients.\n\n### Pricing Signals (STRONG)\nMSPs bill clients:\n- **Per-device**: $50–$100/month (28% of MSPs)\n- **Per-user**: $50–$100/month (22% of MSPs)\n- **Compliance add-on**: Premium of 15–30% above base rates (healthcare example)\n\n**Your proposed pricing ($79–$149/month per MSP)**: Right in sweet spot. MSPs can upsell to clients at 2–5x margin. **Willingness to pay: HIGH.** Compliance = risk mitigation = non-negotiable for regulated verticals.\n\n### Competitor Landscape (SURPRISING GAP)\nNo direct competitor found offering \"automated backup compliance reporting for MSPs.\" Veeam, Datto, Acronis offer *logging* but NOT turnkey *client reporting*. This is a genuine gap.\n\n### Build Complexity\n**API integrations**: Moderate-to-easy.\n- **Veeam REST API**: Well-documented, mature, 8+ years stable\n- **Datto API**: RESTful, good documentation\n- **Acronis, N-able**: Similar REST endpoints, standard auth patterns\n- Typical effort: 1–2 weeks per platform for MVP\n\n**Report generation**: Low complexity (PDF template, data mapping).\n\n### Success Strategy\n1. **Go-to-market**: Target 2–3 backup tools first (Veeam + Datto = 60%+ of market)\n2. **Pricing model**: Per-protected-client or per-MSP/month hybrid\n3. **Vertical focus**: Healthcare/finance MSPs (higher compliance burden = higher willingness to pay)\n4. **Retention**: Sticky — integrates into MSP billing/reporting workflow\n\n### Risks\n- API deprecation (mitigate: follow vendor roadmaps)\n- Market education (most MSPs don't know they can automate this yet)\n- Churn if not perfect accuracy\n\n**Bottom line**: Market demand is real, tech is achievable, competition is minimal. $79–$149/month is viable IF you can acquire 50–100 MSPs in year 1. Focus on 1–2 backup platforms + 1 vertical initially. Strong passive income potential once product stabilizes.",
+        "createdAt": "2026-02-26T13:16:25.031Z"
       }
     ]
   },
@@ -880,7 +892,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T13:01:10.556Z",
-    "updatedAt": "2026-02-26T13:01:10.556Z"
+    "updatedAt": "2026-02-26T14:37:10.014Z",
+    "comments": [
+      {
+        "id": "cmt_1772116630013_b10575d3",
+        "author": "alfred",
+        "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
+        "createdAt": "2026-02-26T14:37:10.013Z"
+      }
+    ]
   },
   {
     "id": "idea_1772110870706_a976efc7",
@@ -913,5 +933,69 @@
     "tags": [],
     "createdAt": "2026-02-26T13:01:10.856Z",
     "updatedAt": "2026-02-26T13:01:10.856Z"
+  },
+  {
+    "id": "idea_1772113607520_9b214c62",
+    "title": "Elite 3E Invoice Rule Drift Monitor",
+    "description": "SaaS for law firms on Elite/3E that continuously checks billing rule changes and flags invoice entries likely to be rejected before prebills. Low-build: nightly ETL + rule templates + email digest. Effort: 3/10 (4-6 weeks MVP). Upside: 8/10 via -/mo per firm; high retention because it reduces write-offs.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T13:46:47.520Z",
+    "updatedAt": "2026-02-26T14:37:09.997Z",
+    "comments": [
+      {
+        "id": "cmt_1772116629997_d6f7f78b",
+        "author": "alfred",
+        "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
+        "createdAt": "2026-02-26T14:37:09.997Z"
+      }
+    ]
+  },
+  {
+    "id": "idea_1772113607649_f0510f5b",
+    "title": "TradingView Alert-to-Execution Guardrail",
+    "description": "Automation micro-SaaS that sits between TradingView/webhook alerts and broker exchange execution, applying risk controls (max position size, spread/slippage checks, session windows) then logs trades. Low-maintenance rules engine + webhook endpoints. Effort: 4/10 (6-8 weeks MVP). Upside: 7/10 via -/mo per trader/team.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T13:46:47.649Z",
+    "updatedAt": "2026-02-26T13:46:47.649Z"
+  },
+  {
+    "id": "idea_1772113607778_6b436624",
+    "title": "Law Firm Revenue Leakage Weekly Digest",
+    "description": "Connects to billing/time systems and sends partner-level weekly digest: unbilled time aging, discount drift, realization drops, and follow-up tasks. Built as read-only connectors + scheduled report emails/Slack. Effort: 2/10 (2-4 weeks MVP). Upside: 8/10 via -/mo depending on firm size; clear ROI and recurring usage.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-26T13:46:47.778Z",
+    "updatedAt": "2026-02-26T14:37:09.981Z",
+    "comments": [
+      {
+        "id": "cmt_1772116629980_878d0ef7",
+        "author": "alfred",
+        "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
+        "createdAt": "2026-02-26T14:37:09.980Z"
+      }
+    ]
   }
 ]

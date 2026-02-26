@@ -140,3 +140,10 @@ If `memory_search()` returns 0 results:
 - **Implementation status:** 22 ✅ / 1 ⏳ / 5 ⏸️
 - **Query audit entries:** 1 (will grow over time)
 - **Memory system version:** 2.1 (now with structured indexing)
+## Note Added 2026-02-26
+- Joe does NOT want to work in the law firm vertical — avoid suggesting law firm products, tools, or consulting ideas.
+
+## Communication Rule (2026-02-26)
+iMessage = urgent/questions/blockers/Joe-initiated topics ONLY.
+Discord = all findings, research, audits, build reports, recommendations, deals, etc.
+If no Discord channel exists for a topic, ask Joe to create one before posting.
