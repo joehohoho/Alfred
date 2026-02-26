@@ -34,7 +34,14 @@ Keep HAL productive when idle (Kanban tasks first, proactive pool second), witho
 
 ## Pending Questions
 <!-- PENDING-Q-START -->
-- **For Joe:** Should proactive-pool HAL tasks skip the Kanban board-move entirely (run silently), or should idle-check wait until Signal App card clears?
+- **Blocker on card** (_kanban-blocked_, Feb 25 21:46)
+  ID: `notif_1772056012804_052c9cc8` — Dispatched to HAL subagent for execution, but move to in_progress was blocked by board rule because 'Signal App — Fast Track Launch' is already in pro...
+
+- **Blocker on card** (_kanban-blocked_, Feb 26 00:46)
+  ID: `notif_1772066816287_d058bd11` — HAL dispatch started via idle-check, but board move to in_progress blocked because 'Signal App — Fast Track Launch' is already in_progress. Recommend ...
+
+- **Blocker on card** (_kanban-blocked_, Feb 26 01:17)
+  ID: `notif_1772068620186_5a0453a1` — HAL dispatch started, but board move to in_progress failed due one-card rule: Signal App — Fast Track Launch is currently in_progress. HAL runId=5d09c...
 <!-- PENDING-Q-END -->
 
 ---
