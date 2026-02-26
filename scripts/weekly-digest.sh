@@ -11,7 +11,11 @@
 DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
-DISCORD_WEBHOOK="https://discord.com/api/webhooks/1476444786465570978/Tf2rnq-ALVx39V3EiLJTqmI5E4uuyN-1mwZw_2iG0pvISpKiZvEU_drgbxonvmZ0bMnR"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${SCRIPT_DIR}/../.env"
+[[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+
+DISCORD_WEBHOOK="${DISCORD_WEBHOOK_WEEKLY_WINS:?DISCORD_WEBHOOK_WEEKLY_WINS not set in .env}"
 KANBAN_API="http://localhost:3001/api/kanban"
 SINCE_DAYS=7
 TMPDIR_LOCAL=$(mktemp -d)

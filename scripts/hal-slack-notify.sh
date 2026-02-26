@@ -10,7 +10,11 @@
 
 set -euo pipefail
 
-DISCORD_WEBHOOK="https://discord.com/api/webhooks/1476448356925702185/UDPUJvuUicQQFSdVLo3s18tlPjrFyp4w-fft4FL0ihygVzXP2VLpYTWsBLVS4eaujhkc"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${SCRIPT_DIR}/../.env"
+[[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+
+DISCORD_WEBHOOK="${DISCORD_WEBHOOK_HAL_COMPLETIONS:?DISCORD_WEBHOOK_HAL_COMPLETIONS not set in .env}"
 
 TITLE="${1:-}"
 SUMMARY="${2:-}"

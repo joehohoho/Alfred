@@ -3,7 +3,11 @@
 # Usage: bash moltbook-discord-notify.sh "Title" "Body text"
 # Body supports markdown (Discord flavour)
 
-DISCORD_WEBHOOK="https://discord.com/api/webhooks/1476452614685196450/G-DztcCMH6U28-hOIPHx8UBn_qDPD711-tbb6zZVMaOAUDsaDhJYgct8A_oAfxJM7P-s"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${SCRIPT_DIR}/../.env"
+[[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+
+DISCORD_WEBHOOK="${DISCORD_WEBHOOK_MOLTBOOK:?DISCORD_WEBHOOK_MOLTBOOK not set in .env}"
 
 TITLE="${1:-Moltbook Weekly Review}"
 BODY="${2:-No content provided}"

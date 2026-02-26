@@ -2,7 +2,11 @@
 # coinusup-discord-notify.sh - Post CoinUsUp audit/updates to Discord webhook
 # Usage: bash coinusup-discord-notify.sh "Title" "Body text"
 
-DISCORD_WEBHOOK="https://discord.com/api/webhooks/1476457667542122577/Wk-o7UOsakQ9juR9_f6CjlKaoOUtTsifeixj1B8i4q_EETBLCSpkvheElI3cMZmeT5SE"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${SCRIPT_DIR}/../.env"
+[[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+
+DISCORD_WEBHOOK="${DISCORD_WEBHOOK_CUU_APP_AUDIT:?DISCORD_WEBHOOK_CUU_APP_AUDIT not set in .env}"
 
 TITLE="${1:-CoinUsUp Update}"
 BODY="${2:-No content provided}"

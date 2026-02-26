@@ -330,13 +330,13 @@ Full design plan produced by HAL on 2026-02-25/26. Includes: 2-stage routing (ha
 See: `memory/2026-02-26-model-router.md`
 
 ### Alfred Decisions Discord Webhook (NEW — 2026-02-26)
-`https://discord.com/api/webhooks/1476590430803202279/Np1MtEaUHs69JtS6_le54RCGzd0Jv0zkQMd-9zTBaoger20HuzHsh1T6ii-N8tdJxMVo`
+URL stored in `.env` as `DISCORD_WEBHOOK_DECISION_NOTIFICATIONS` (regenerated 2026-02-26 — old URL compromised)
 Use for: **Any decision Alfred makes autonomously** — transparency log. Post a brief note whenever I act without asking Joe first. Joe wants visibility, not approval. This replaces asking for permission on easy/confident decisions.
 
 **Decision posting rule:** If I'm confident what Joe would do → do it → post here. Format: what I decided + why + outcome.
 
 ### Signal App Discord Webhook
-`https://discord.com/api/webhooks/1476473084335751300/-cPmdsXwIDTVlzhYb43BiHpatCWLlzujLn93m-8UaOYj-ZCtLHLKkBksAox_RCwKkJDr`
+URL stored in `.env` as `DISCORD_WEBHOOK_MSL_GENERAL` (regenerated 2026-02-26 — old URL compromised)
 Use for: Signal App research findings, updates, HAL reviews.
 
 ### LegalBillAI — Overnight Build (2026-02-26)

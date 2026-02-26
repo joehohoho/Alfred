@@ -4,8 +4,11 @@
 # Alfred uses this to kick off a structured discussion with HAL and post
 # a summary to Discord (webhook below).
 #
-# Discord channel webhook:
-DISCORD_WEBHOOK="https://discord.com/api/webhooks/1476450612634976400/t9JQhSuFs-76n602WkzkgK4uMoq-H6q7w60l_vl3wN2dTOqhix82dMDY5rVMpR2QDdNw"
+# Discord channel webhook (loaded from .env):
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${SCRIPT_DIR}/../.env"
+[[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+DISCORD_WEBHOOK="${DISCORD_WEBHOOK_ALFRED_HAL:?DISCORD_WEBHOOK_ALFRED_HAL not set in .env}"
 #
 # Usage: bash alfred-hal-discussion.sh
 # Output:
@@ -63,7 +66,7 @@ echo "1. Alfred: Write your own 2-3 key points on this topic (your honest analys
 echo "2. Spawn HAL: sessions_spawn(agentId=hal, mode=run, task='Discuss the following topic and provide your technical perspective, key risks, and top 3 actionable recommendations. Be specific and concrete. Topic: ${TOPIC}')"
 echo "3. Wait for HAL response."
 echo "4. Synthesize both perspectives into a Slack post."
-echo "5. Post to Discord using this webhook: https://discord.com/api/webhooks/1476450612634976400/t9JQhSuFs-76n602WkzkgK4uMoq-H6q7w60l_vl3wN2dTOqhix82dMDY5rVMpR2QDdNw"
+echo "5. Post to Discord using this webhook: \$DISCORD_WEBHOOK_ALFRED_HAL (from .env)"
 echo "   POST JSON: {\"content\": \"<message>\"}"
 echo "   Use curl -s -X POST <webhook> -H 'Content-Type: application/json' -d '{\"content\": \"...\"}'"
 echo "   Format the message as:"
