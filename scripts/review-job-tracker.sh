@@ -2,7 +2,7 @@
 # Phase 2.A: Chunked Code Review for job-tracker
 # Reduces review time: 240s (full) → 60s (diffs) → 15s (cached)
 
-set -e
+set -euo pipefail
 
 REPO_DIR="${1:-$HOME/job-tracker}"
 CACHE_FILE="/Users/hopenclaw/.openclaw/workspace/memory/code-review-cache.json"
@@ -11,6 +11,12 @@ REVIEW_SCRIPT_TEMP="/tmp/review-job-tracker-prompt.txt"
 # Ensure repo exists
 if [ ! -d "$REPO_DIR" ]; then
   echo "Error: Repository not found at $REPO_DIR"
+  exit 1
+fi
+
+# Dependencies
+if ! command -v jq >/dev/null 2>&1; then
+  echo "Error: jq is required but not installed"
   exit 1
 fi
 
@@ -90,14 +96,15 @@ EOF
 
 # Get code content for changed files only
 cd "$REPO_DIR"
-for FILE in $FILE_LIST; do
+while IFS= read -r FILE; do
+  [ -z "$FILE" ] && continue
   if [ -f "$FILE" ]; then
     # Get last 100 lines of each file to keep token count low
     echo ""
     echo "--- $FILE (last 100 lines) ---"
     tail -100 "$FILE" 2>/dev/null || echo "(file not readable)"
   fi
-done >> "$REVIEW_SCRIPT_TEMP"
+done <<< "$FILE_LIST" >> "$REVIEW_SCRIPT_TEMP"
 
 # Count prompt size to estimate review time
 PROMPT_LINES=$(wc -l < "$REVIEW_SCRIPT_TEMP")
