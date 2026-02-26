@@ -32,7 +32,7 @@
   {
     "id": "idea_1771538400004_evenusup_b2b",
     "title": "Even Us Up: B2B Expense Splitting for Small Teams",
-    "description": "Pivot Even Us Up from consumer expense sharing to also target small businesses — co-working spaces, consulting teams, shared offices, roommate houses with shared utilities. Premium features: receipt OCR scanning, tax categorization, QuickBooks/Wave integration, recurring splits, PDF export for accountants. B2B customers pay more and churn less than consumer users.",
+    "description": "Pivot Even Us Up from consumer expense sharing to also target small businesses \u2014 co-working spaces, consulting teams, shared offices, roommate houses with shared utilities. Premium features: receipt OCR scanning, tax categorization, QuickBooks/Wave integration, recurring splits, PDF export for accountants. B2B customers pay more and churn less than consumer users.",
     "category": "growth",
     "status": "evaluated",
     "source": "claude-code",
@@ -70,7 +70,7 @@
     ],
     "evaluation": {
       "score": 7,
-      "notes": "Joe has a genuine edge here — he built and runs this stack daily, and his consulting background mirrors the target market. Productizing is high effort, but SaaS/managed hosting offers strong passive revenue potential. Main risk is support overhead and onboarding complexity for non-technical users; a self-hosted open-source entry point would reduce friction and build community before monetizing."
+      "notes": "Joe has a genuine edge here \u2014 he built and runs this stack daily, and his consulting background mirrors the target market. Productizing is high effort, but SaaS/managed hosting offers strong passive revenue potential. Main risk is support overhead and onboarding complexity for non-technical users; a self-hosted open-source entry point would reduce friction and build community before monetizing."
     },
     "promotedToGoalId": null,
     "tags": [
@@ -104,18 +104,21 @@
   {
     "id": "idea_1771697586945_82c18088",
     "title": "Client Automation Ideas Pipeline",
-    "description": "Extract automation pain points from consulting engagements and turn them into product ideas or consulting upsells. Build a structured pipeline: observation → research → prototype → pitch.",
+    "description": "Extract automation pain points from consulting engagements and turn them into product ideas or consulting upsells. Build a structured pipeline: observation \u2192 research \u2192 prototype \u2192 pitch.",
     "category": "consulting",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Strong fit with Joe's consulting workflow and a clear unfair advantage because pain points come directly from real client work. The observation\u2192research\u2192prototype\u2192pitch flow creates repeatable upsell and product discovery leverage with moderate build effort. Passive upside is moderate (not pure passive), but this can systematically feed higher-margin offers and future product bets."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-21T18:13:06.945Z",
-    "updatedAt": "2026-02-21T18:13:06.945Z"
+    "updatedAt": "2026-02-26T23:01:05.192112Z"
   },
   {
     "id": "idea_1771697587532_4a35f177",
@@ -230,7 +233,7 @@
     "tags": [],
     "createdAt": "2026-02-21T18:13:11.060Z",
     "updatedAt": "2026-02-24T08:54:53.584Z",
-    "rejectedReason": "I don’t need push notifications for motivational insights to keep my morale up",
+    "rejectedReason": "I don\u2019t need push notifications for motivational insights to keep my morale up",
     "rejectedAt": "2026-02-24T08:54:53.584Z"
   },
   {
@@ -429,13 +432,13 @@
     ],
     "createdAt": "2026-02-23T17:31:00.000Z",
     "updatedAt": "2026-02-24T08:16:00.355Z",
-    "rejectedReason": "This is too large of a project and commitment to get into.  I’d rather focus more on CoinUsUp or other ideas.",
+    "rejectedReason": "This is too large of a project and commitment to get into.  I\u2019d rather focus more on CoinUsUp or other ideas.",
     "rejectedAt": "2026-02-24T08:16:00.355Z"
   },
   {
     "id": "idea_1772054445669_fe34f915",
-    "title": "MSP Failed Backup → Client Report Bot",
-    "description": "MSPs manually compile backup failures into client reports — huge time sink. Build: auto-ingest Veeam/Datto failures, generate branded weekly client-safe report + technician digest. Pricing: $399/MSP/mo. Build: M. Maintenance: Low. Top pick: fastest path to 3 paying pilots in 30 days.",
+    "title": "MSP Failed Backup \u2192 Client Report Bot",
+    "description": "MSPs manually compile backup failures into client reports \u2014 huge time sink. Build: auto-ingest Veeam/Datto failures, generate branded weekly client-safe report + technician digest. Pricing: $399/MSP/mo. Build: M. Maintenance: Low. Top pick: fastest path to 3 paying pilots in 30 days.",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -463,7 +466,7 @@
       {
         "id": "cmt_1772107303484_25c7cadc",
         "author": "alfred",
-        "text": "MSPs = Managed Service Providers — IT companies that manage tech infrastructure for other businesses (servers, backups, networks, security). Think outsourced IT departments. This idea targets MSPs who manually compile backup failure reports for their clients each month — time-consuming work that could be fully automated.\n\n(Deleting the [TEST] comment — that was a diagnostic I ran to verify the notification pipeline.)",
+        "text": "MSPs = Managed Service Providers \u2014 IT companies that manage tech infrastructure for other businesses (servers, backups, networks, security). Think outsourced IT departments. This idea targets MSPs who manually compile backup failure reports for their clients each month \u2014 time-consuming work that could be fully automated.\n\n(Deleting the [TEST] comment \u2014 that was a diagnostic I ran to verify the notification pipeline.)",
         "createdAt": "2026-02-26T12:01:43.484Z"
       },
       {
@@ -475,13 +478,13 @@
       {
         "id": "cmt_1772111731524_491628da",
         "author": "alfred",
-        "text": "On it — researching MSP Failed Backup Report Bot viability and demand now. Will post findings here shortly.",
+        "text": "On it \u2014 researching MSP Failed Backup Report Bot viability and demand now. Will post findings here shortly.",
         "createdAt": "2026-02-26T13:15:31.524Z"
       },
       {
         "id": "cmt_1772111785031_130fe944",
         "author": "alfred",
-        "text": "## MSP Backup Compliance Reporting Bot — Market Viability Assessment\n\n**VERDICT: VIABLE — Strong demand signal, weak competitor presence, achievable tech.**\n\n### Market Size & Potential\n- **MSP Market**: $19.86B (2025), growing to $39.92B by 2033 (CAGR 9.12%)\n- **North America**: 32% of global MSP market — primary opportunity for US/Canada play\n- **Estimated MSP count**: Hundreds of thousands globally; target segment (small-to-mid MSPs): 50K+\n\n### Backup Compliance Pain Point (CONFIRMED)\n**Most MSPs produce reports manually.** Kaseya benchmark (2023, 1,091 MSPs): 35% reported revenue growth in \"compliance management\" — significant and growing revenue stream. MSPs serve clients in healthcare (HIPAA), finance (SOX), others (PCI-DSS, GDPR) — all requiring backup compliance proof.\n\n**Current workflow**: Extract logs from Veeam, Datto, Acronis, N-able → manually build reports → deliver to clients.\n\n### Pricing Signals (STRONG)\nMSPs bill clients:\n- **Per-device**: $50–$100/month (28% of MSPs)\n- **Per-user**: $50–$100/month (22% of MSPs)\n- **Compliance add-on**: Premium of 15–30% above base rates (healthcare example)\n\n**Your proposed pricing ($79–$149/month per MSP)**: Right in sweet spot. MSPs can upsell to clients at 2–5x margin. **Willingness to pay: HIGH.** Compliance = risk mitigation = non-negotiable for regulated verticals.\n\n### Competitor Landscape (SURPRISING GAP)\nNo direct competitor found offering \"automated backup compliance reporting for MSPs.\" Veeam, Datto, Acronis offer *logging* but NOT turnkey *client reporting*. This is a genuine gap.\n\n### Build Complexity\n**API integrations**: Moderate-to-easy.\n- **Veeam REST API**: Well-documented, mature, 8+ years stable\n- **Datto API**: RESTful, good documentation\n- **Acronis, N-able**: Similar REST endpoints, standard auth patterns\n- Typical effort: 1–2 weeks per platform for MVP\n\n**Report generation**: Low complexity (PDF template, data mapping).\n\n### Success Strategy\n1. **Go-to-market**: Target 2–3 backup tools first (Veeam + Datto = 60%+ of market)\n2. **Pricing model**: Per-protected-client or per-MSP/month hybrid\n3. **Vertical focus**: Healthcare/finance MSPs (higher compliance burden = higher willingness to pay)\n4. **Retention**: Sticky — integrates into MSP billing/reporting workflow\n\n### Risks\n- API deprecation (mitigate: follow vendor roadmaps)\n- Market education (most MSPs don't know they can automate this yet)\n- Churn if not perfect accuracy\n\n**Bottom line**: Market demand is real, tech is achievable, competition is minimal. $79–$149/month is viable IF you can acquire 50–100 MSPs in year 1. Focus on 1–2 backup platforms + 1 vertical initially. Strong passive income potential once product stabilizes.",
+        "text": "## MSP Backup Compliance Reporting Bot \u2014 Market Viability Assessment\n\n**VERDICT: VIABLE \u2014 Strong demand signal, weak competitor presence, achievable tech.**\n\n### Market Size & Potential\n- **MSP Market**: $19.86B (2025), growing to $39.92B by 2033 (CAGR 9.12%)\n- **North America**: 32% of global MSP market \u2014 primary opportunity for US/Canada play\n- **Estimated MSP count**: Hundreds of thousands globally; target segment (small-to-mid MSPs): 50K+\n\n### Backup Compliance Pain Point (CONFIRMED)\n**Most MSPs produce reports manually.** Kaseya benchmark (2023, 1,091 MSPs): 35% reported revenue growth in \"compliance management\" \u2014 significant and growing revenue stream. MSPs serve clients in healthcare (HIPAA), finance (SOX), others (PCI-DSS, GDPR) \u2014 all requiring backup compliance proof.\n\n**Current workflow**: Extract logs from Veeam, Datto, Acronis, N-able \u2192 manually build reports \u2192 deliver to clients.\n\n### Pricing Signals (STRONG)\nMSPs bill clients:\n- **Per-device**: $50\u2013$100/month (28% of MSPs)\n- **Per-user**: $50\u2013$100/month (22% of MSPs)\n- **Compliance add-on**: Premium of 15\u201330% above base rates (healthcare example)\n\n**Your proposed pricing ($79\u2013$149/month per MSP)**: Right in sweet spot. MSPs can upsell to clients at 2\u20135x margin. **Willingness to pay: HIGH.** Compliance = risk mitigation = non-negotiable for regulated verticals.\n\n### Competitor Landscape (SURPRISING GAP)\nNo direct competitor found offering \"automated backup compliance reporting for MSPs.\" Veeam, Datto, Acronis offer *logging* but NOT turnkey *client reporting*. This is a genuine gap.\n\n### Build Complexity\n**API integrations**: Moderate-to-easy.\n- **Veeam REST API**: Well-documented, mature, 8+ years stable\n- **Datto API**: RESTful, good documentation\n- **Acronis, N-able**: Similar REST endpoints, standard auth patterns\n- Typical effort: 1\u20132 weeks per platform for MVP\n\n**Report generation**: Low complexity (PDF template, data mapping).\n\n### Success Strategy\n1. **Go-to-market**: Target 2\u20133 backup tools first (Veeam + Datto = 60%+ of market)\n2. **Pricing model**: Per-protected-client or per-MSP/month hybrid\n3. **Vertical focus**: Healthcare/finance MSPs (higher compliance burden = higher willingness to pay)\n4. **Retention**: Sticky \u2014 integrates into MSP billing/reporting workflow\n\n### Risks\n- API deprecation (mitigate: follow vendor roadmaps)\n- Market education (most MSPs don't know they can automate this yet)\n- Churn if not perfect accuracy\n\n**Bottom line**: Market demand is real, tech is achievable, competition is minimal. $79\u2013$149/month is viable IF you can acquire 50\u2013100 MSPs in year 1. Focus on 1\u20132 backup platforms + 1 vertical initially. Strong passive income potential once product stabilizes.",
         "createdAt": "2026-02-26T13:16:25.031Z"
       }
     ]
@@ -505,7 +508,7 @@
   {
     "id": "idea_1772054446675_d937f1fa",
     "title": "Law Firm Trust Reconciliation Anomaly Monitor",
-    "description": "Firms miss trust-account discrepancies until month-end. Read-only anomaly detector from exported ledgers (CSV/Excel). $149–$499/mo per firm. Build: M. Maintenance: Low. Strong domain fit with legal/billing background.",
+    "description": "Firms miss trust-account discrepancies until month-end. Read-only anomaly detector from exported ledgers (CSV/Excel). $149\u2013$499/mo per firm. Build: M. Maintenance: Low. Strong domain fit with legal/billing background.",
     "category": "growth",
     "status": "archived",
     "source": "joe-submitted",
@@ -523,7 +526,7 @@
   {
     "id": "idea_1772054447174_d8e8a660",
     "title": "Shopify Dead-Stock Auto-Markdown Rules Engine",
-    "description": "Merchants sit on stale inventory without disciplined markdown logic. Rules engine auto-marks down based on age/velocity. $79–$299/mo. Build: M. Maintenance: Med.",
+    "description": "Merchants sit on stale inventory without disciplined markdown logic. Rules engine auto-marks down based on age/velocity. $79\u2013$299/mo. Build: M. Maintenance: Med.",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -538,8 +541,8 @@
   },
   {
     "id": "idea_1772054447672_66832aa0",
-    "title": "TradingView Alert → Risk-Managed Order Router Template Packs",
-    "description": "Traders overcomplicate automation and risk sizing. Plug-and-play template packs. $99–$299 one-time + $19/mo updates. Build: S. Maintenance: Low.",
+    "title": "TradingView Alert \u2192 Risk-Managed Order Router Template Packs",
+    "description": "Traders overcomplicate automation and risk sizing. Plug-and-play template packs. $99\u2013$299 one-time + $19/mo updates. Build: S. Maintenance: Low.",
     "category": "growth",
     "status": "archived",
     "source": "joe-submitted",
@@ -557,7 +560,7 @@
   {
     "id": "idea_1772054448161_9ed5d999",
     "title": "Invoice-to-Cash Delay Predictor for Service SMBs",
-    "description": "Owners can't predict late payers early. ML predictor flags high-risk invoices before due date. $59–$199/mo. Build: M. Maintenance: Low.",
+    "description": "Owners can't predict late payers early. ML predictor flags high-risk invoices before due date. $59\u2013$199/mo. Build: M. Maintenance: Low.",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -573,7 +576,7 @@
   {
     "id": "idea_1772054448656_b5f61d8a",
     "title": "Slack Ops Triage Digest for SMB Teams",
-    "description": "Important alerts scattered across tools with no daily summary. Daily triage digest bot for 10–200 person Slack teams. $5/user/mo. Build: S. Maintenance: Med.",
+    "description": "Important alerts scattered across tools with no daily summary. Daily triage digest bot for 10\u2013200 person Slack teams. $5/user/mo. Build: S. Maintenance: Med.",
     "category": "growth",
     "status": "archived",
     "source": "joe-submitted",
@@ -591,7 +594,7 @@
   {
     "id": "idea_1772054449147_fbfcbf49",
     "title": "Crypto DCA Safety Layer",
-    "description": "DCA bots ignore volatility regime and drawdown controls. Exchange-agnostic safety wrapper. $15–$49/mo. Build: M. Maintenance: Med-High.",
+    "description": "DCA bots ignore volatility regime and drawdown controls. Exchange-agnostic safety wrapper. $15\u2013$49/mo. Build: M. Maintenance: Med-High.",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -607,7 +610,7 @@
   {
     "id": "idea_1772054449631_e1f90dc0",
     "title": "Niche Compliance Calendar + Reminder API for Canadian SMBs",
-    "description": "Deadlines missed across payroll/tax/filings. Canadian SMB geography-specific moat. $39–$149/mo. Build: M. Maintenance: Low-Med.",
+    "description": "Deadlines missed across payroll/tax/filings. Canadian SMB geography-specific moat. $39\u2013$149/mo. Build: M. Maintenance: Low-Med.",
     "category": "growth",
     "status": "archived",
     "source": "joe-submitted",
@@ -640,7 +643,7 @@
   },
   {
     "id": "idea_1772056059397_454e7f7a",
-    "title": "BuilderPulse — Set-and-forget monitoring for indie builders",
+    "title": "BuilderPulse \u2014 Set-and-forget monitoring for indie builders",
     "description": "Solo builders miss silent failures (cron, API quota, model cost spikes, broken webhooks). Existing tools are noisy and overkill. BuilderPulse: uptime ping + cron heartbeat + API error-rate + weekly AI ops digest. Pricing: $19/$49/$99/mo. Build: M. Maintenance: Low. HAL top pick: best effort-to-upside ratio.",
     "category": "growth",
     "status": "new",
@@ -669,14 +672,14 @@
       {
         "id": "cmt_1772087482726_c7e13a00",
         "author": "alfred",
-        "text": "## BuilderPulse Demand Research 🔍\n\n**Short answer:** Demand is real but the market is crowded — differentiation is the whole game. Joe's instinct about OpenClaw is spot-on and worth unpacking.\n\n---\n\n### What exists today\n\n- **Healthchecks.io** — Cron heartbeat only, free/$20/mo, solo founder bootstrapped, profitable for 10 years, open source\n- **Cronitor** — Cron + uptime + status page, $21/mo+, 3-person team, 10+ years old, proven niche\n- **UptimeRobot** — Uptime + cron, free tier, large user base, race-to-free pricing\n- **BetterUptime** — Uptime + on-call, $20/mo+, team-focused\n- **Sentry** — Error tracking + cron (beta), VC-backed, 200+ employees\n\nThe gap: NONE of these do AI cost/API quota tracking or an AI ops weekly digest. That's the only truly unoccupied space.\n\n---\n\n### Demand signals\n\n✅ YES demand exists:\n- Healthchecks.io profitable for ~10 years as a solo product — proof indie devs pay for simple monitoring\n- Cronitor at $21/mo with a loyal base — pricing validated\n- AI cost spike problem is brand new (2023-2025) and no existing tool covers it\n- Solo builders shipping more AI-integrated apps than ever\n\n⚠️ Headwinds:\n- Uptime + cron alone = fully commoditized (Healthchecks.io has free open-source tier)\n- Customer acquisition is the real challenge, not building it\n\n---\n\n### On the OpenClaw angle\n\nYou're right to flag this. Two paths:\n\n**Path A — OpenClaw-specific build (private use):** Alfred already does most of this (cron health, heartbeat, cost tracking, LaunchAgent monitoring). Cost = ~zero. Value = nice-to-have for us, not a product. TAM = ~50 users.\n\n**Path B — Platform-agnostic SaaS (not OpenClaw-specific):** Targets any indie dev with crons, APIs, and AI usage. Differentiator = AI API cost monitoring + weekly digest. No existing tool does this. TAM = 50,000+ indie devs.\n\nThe ONLY version worth building as a product is B. If it's OpenClaw-specific, users just build it themselves (you literally just said that 😄) — so the market barely exists.\n\n---\n\n### Verdict\n\n🟡 Medium opportunity. The market exists and is paying. But you need the AI-native angle (monitor Anthropic/OpenAI spend, quota alerts, model error rates) to avoid being Healthchecks clone #47. That's a real gap nobody has filled yet. Build effort is low (M) and if positioned right, potential is medium-high.\n\nWant me to scope a lean v1 MVP?",
+        "text": "## BuilderPulse Demand Research \ud83d\udd0d\n\n**Short answer:** Demand is real but the market is crowded \u2014 differentiation is the whole game. Joe's instinct about OpenClaw is spot-on and worth unpacking.\n\n---\n\n### What exists today\n\n- **Healthchecks.io** \u2014 Cron heartbeat only, free/$20/mo, solo founder bootstrapped, profitable for 10 years, open source\n- **Cronitor** \u2014 Cron + uptime + status page, $21/mo+, 3-person team, 10+ years old, proven niche\n- **UptimeRobot** \u2014 Uptime + cron, free tier, large user base, race-to-free pricing\n- **BetterUptime** \u2014 Uptime + on-call, $20/mo+, team-focused\n- **Sentry** \u2014 Error tracking + cron (beta), VC-backed, 200+ employees\n\nThe gap: NONE of these do AI cost/API quota tracking or an AI ops weekly digest. That's the only truly unoccupied space.\n\n---\n\n### Demand signals\n\n\u2705 YES demand exists:\n- Healthchecks.io profitable for ~10 years as a solo product \u2014 proof indie devs pay for simple monitoring\n- Cronitor at $21/mo with a loyal base \u2014 pricing validated\n- AI cost spike problem is brand new (2023-2025) and no existing tool covers it\n- Solo builders shipping more AI-integrated apps than ever\n\n\u26a0\ufe0f Headwinds:\n- Uptime + cron alone = fully commoditized (Healthchecks.io has free open-source tier)\n- Customer acquisition is the real challenge, not building it\n\n---\n\n### On the OpenClaw angle\n\nYou're right to flag this. Two paths:\n\n**Path A \u2014 OpenClaw-specific build (private use):** Alfred already does most of this (cron health, heartbeat, cost tracking, LaunchAgent monitoring). Cost = ~zero. Value = nice-to-have for us, not a product. TAM = ~50 users.\n\n**Path B \u2014 Platform-agnostic SaaS (not OpenClaw-specific):** Targets any indie dev with crons, APIs, and AI usage. Differentiator = AI API cost monitoring + weekly digest. No existing tool does this. TAM = 50,000+ indie devs.\n\nThe ONLY version worth building as a product is B. If it's OpenClaw-specific, users just build it themselves (you literally just said that \ud83d\ude04) \u2014 so the market barely exists.\n\n---\n\n### Verdict\n\n\ud83d\udfe1 Medium opportunity. The market exists and is paying. But you need the AI-native angle (monitor Anthropic/OpenAI spend, quota alerts, model error rates) to avoid being Healthchecks clone #47. That's a real gap nobody has filled yet. Build effort is low (M) and if positioned right, potential is medium-high.\n\nWant me to scope a lean v1 MVP?",
         "createdAt": "2026-02-26T06:31:22.726Z"
       }
     ]
   },
   {
     "id": "idea_1772056059917_f06cc56a",
-    "title": "SignalLite — Simple buy/sell signal feed for non-traders",
+    "title": "SignalLite \u2014 Simple buy/sell signal feed for non-traders",
     "description": "Signal tools are too complex. Users want one clean view: Buy/Hold/Reduce Risk with confidence + position-sizing hints. Direct extension of Signal App engine turned into low-touch subscription feed. Pricing: $15/$39/$79/mo. Build: M-L. Maintenance: Med.",
     "category": "growth",
     "status": "new",
@@ -692,8 +695,8 @@
   },
   {
     "id": "idea_1772056060439_63f54904",
-    "title": "CoinUsUp Teams — Shared expense autopilot for micro-teams",
-    "description": "Split tools track but don't auto-settle recurring shared bills (subscriptions, rent, trip funds). Extension of existing CoinUsUp codebase. Freemium + $8–12/workspace/mo. Build: S-M. Maintenance: Low-Med.",
+    "title": "CoinUsUp Teams \u2014 Shared expense autopilot for micro-teams",
+    "description": "Split tools track but don't auto-settle recurring shared bills (subscriptions, rent, trip funds). Extension of existing CoinUsUp codebase. Freemium + $8\u201312/workspace/mo. Build: S-M. Maintenance: Low-Med.",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -709,7 +712,7 @@
   {
     "id": "idea_1772083170263_f0846acd",
     "title": "LEDES Guardian for Small Firms",
-    "description": "Micro-SaaS that auto-validates legal invoices (LEDES/UTBMS/OLEDES) before submission and flags guideline violations. Target: small/mid law firms and legal ops teams that can’t afford enterprise e-billing QA. Recurring model: per-matter or per-invoice subscription. Effort: Low-Med (2-4 weeks MVP). Upside: Med-High (k-k MRR in niche with low churn).",
+    "description": "Micro-SaaS that auto-validates legal invoices (LEDES/UTBMS/OLEDES) before submission and flags guideline violations. Target: small/mid law firms and legal ops teams that can\u2019t afford enterprise e-billing QA. Recurring model: per-matter or per-invoice subscription. Effort: Low-Med (2-4 weeks MVP). Upside: Med-High (k-k MRR in niche with low churn).",
     "category": "growth",
     "status": "archived",
     "source": "joe-submitted",
@@ -745,7 +748,7 @@
   {
     "id": "idea_1772083170767_06a4a240",
     "title": "Law Firm RevOps Reconciler",
-    "description": "No-code automation service+SaaS that reconciles time entries, trust balances, and invoices across Clio/MyCase/QuickBooks and emails weekly exception reports. Sell as ‘done-for-you automation with dashboard’. Recurring model: monthly retainer + software seat. Effort: Med (3-5 weeks reusable templates). Upside: Med-High (k-k MRR with few clients due to high value).",
+    "description": "No-code automation service+SaaS that reconciles time entries, trust balances, and invoices across Clio/MyCase/QuickBooks and emails weekly exception reports. Sell as \u2018done-for-you automation with dashboard\u2019. Recurring model: monthly retainer + software seat. Effort: Med (3-5 weeks reusable templates). Upside: Med-High (k-k MRR with few clients due to high value).",
     "category": "growth",
     "status": "archived",
     "source": "joe-submitted",
@@ -762,8 +765,8 @@
   },
   {
     "id": "idea_1772086796664_11da85c3",
-    "title": "BuilderPulse — AI Ops Digest for Indie Builders",
-    "description": "**What it is:** A monitoring + AI digest tool for indie hackers and solo builders. Tracks their apps uptime, key metrics (signups, revenue, errors), and delivers a daily/weekly AI-written ops summary — like having a part-time ops analyst.\n\n**Why Joe:** Fits the automation/AI consulting angle perfectly. Low-touch SaaS, recurring revenue, no heavy support. Alfred can dogfood it.\n\n**Revenue model:** $19–99/mo tiered by number of apps monitored. Potential MRR at 100 customers: ~$3,000–5,000.\n\n**Effort:** Medium build (integrations: Stripe, GitHub, Render/Fly/Vercel health checks, OpenAI for digest). 4–6 weeks MVP.\n\n**Maintenance:** Low — mostly infra + prompt tuning. No real-time support burden.\n\n**Moat:** Personalized AI voice per builder over time (learns their tone/priorities).\n\n**14-Day Kickoff Plan:**\n- Days 1–3: Landing page + waitlist\n- Days 4–7: MVP (1 app monitored, daily digest email)\n- Days 8–12: Add Stripe billing, multi-app support\n- Days 13–14: Beta invite 20 users\n\n**Alfred rating:** ⭐ TOP PICK — highest passive income potential with lowest ongoing effort.",
+    "title": "BuilderPulse \u2014 AI Ops Digest for Indie Builders",
+    "description": "**What it is:** A monitoring + AI digest tool for indie hackers and solo builders. Tracks their apps uptime, key metrics (signups, revenue, errors), and delivers a daily/weekly AI-written ops summary \u2014 like having a part-time ops analyst.\n\n**Why Joe:** Fits the automation/AI consulting angle perfectly. Low-touch SaaS, recurring revenue, no heavy support. Alfred can dogfood it.\n\n**Revenue model:** $19\u201399/mo tiered by number of apps monitored. Potential MRR at 100 customers: ~$3,000\u20135,000.\n\n**Effort:** Medium build (integrations: Stripe, GitHub, Render/Fly/Vercel health checks, OpenAI for digest). 4\u20136 weeks MVP.\n\n**Maintenance:** Low \u2014 mostly infra + prompt tuning. No real-time support burden.\n\n**Moat:** Personalized AI voice per builder over time (learns their tone/priorities).\n\n**14-Day Kickoff Plan:**\n- Days 1\u20133: Landing page + waitlist\n- Days 4\u20137: MVP (1 app monitored, daily digest email)\n- Days 8\u201312: Add Stripe billing, multi-app support\n- Days 13\u201314: Beta invite 20 users\n\n**Alfred rating:** \u2b50 TOP PICK \u2014 highest passive income potential with lowest ongoing effort.",
     "category": "growth",
     "status": "promoted",
     "source": "joe-submitted",
@@ -778,8 +781,8 @@
   },
   {
     "id": "idea_1772086816398_c3afff5e",
-    "title": "SignalLite — Clean Buy/Sell Signal Feed",
-    "description": "**What it is:** A lightweight, clean buy/sell signal web app focused on simplicity. Users subscribe to tickers and get clear signal notifications (buy/sell/hold) based on technical indicators — no noise, no chart overload. Natural extension of the existing Market Signal Lab.\n\n**Why Joe:** Reuses the Market Signal Lab engine already built. Minimal new code — mostly a clean consumer-facing UI + subscription layer on top of existing infrastructure.\n\n**Revenue model:** $15–79/mo tiered by number of tickers + alert channels (email, SMS, push). Potential MRR at 100 customers: ~$2,000–4,000.\n\n**Effort:** Low-Medium — core signal engine exists. Need: user auth, subscription billing (Stripe), clean dashboard, alert delivery. 2–4 weeks MVP.\n\n**Maintenance:** Low — Alfred monitors the signal engine. Mostly prompt/threshold tuning.\n\n**Moat:** Simplicity. Most signal tools are overwhelming. SignalLite is for the casual investor who wants a simple answer.\n\n**Target user:** Retail investors who want signals without learning TA. Not traders — investors.\n\n**Risks:** Regulatory grey area for financial advice. Must include disclaimers (signals are educational, not financial advice).\n\n**Alfred rating:** ⭐⭐ Strong second — lowest build effort since engine already exists.",
+    "title": "SignalLite \u2014 Clean Buy/Sell Signal Feed",
+    "description": "**What it is:** A lightweight, clean buy/sell signal web app focused on simplicity. Users subscribe to tickers and get clear signal notifications (buy/sell/hold) based on technical indicators \u2014 no noise, no chart overload. Natural extension of the existing Market Signal Lab.\n\n**Why Joe:** Reuses the Market Signal Lab engine already built. Minimal new code \u2014 mostly a clean consumer-facing UI + subscription layer on top of existing infrastructure.\n\n**Revenue model:** $15\u201379/mo tiered by number of tickers + alert channels (email, SMS, push). Potential MRR at 100 customers: ~$2,000\u20134,000.\n\n**Effort:** Low-Medium \u2014 core signal engine exists. Need: user auth, subscription billing (Stripe), clean dashboard, alert delivery. 2\u20134 weeks MVP.\n\n**Maintenance:** Low \u2014 Alfred monitors the signal engine. Mostly prompt/threshold tuning.\n\n**Moat:** Simplicity. Most signal tools are overwhelming. SignalLite is for the casual investor who wants a simple answer.\n\n**Target user:** Retail investors who want signals without learning TA. Not traders \u2014 investors.\n\n**Risks:** Regulatory grey area for financial advice. Must include disclaimers (signals are educational, not financial advice).\n\n**Alfred rating:** \u2b50\u2b50 Strong second \u2014 lowest build effort since engine already exists.",
     "category": "growth",
     "status": "promoted",
     "source": "joe-submitted",
@@ -794,8 +797,8 @@
   },
   {
     "id": "idea_1772086827665_524391b9",
-    "title": "CoinUsUp Teams — Shared Expense Autopilot",
-    "description": "**What it is:** A team/group tier for the existing CoinUsUp app. Groups (roommates, travel groups, couples, small teams) get shared expense tracking with automated split calculations, reminders, and optional auto-pay via Stripe. Think Splitwise but smarter and already built on a codebase Joe owns.\n\n**Why Joe:** Zero greenfield work — builds directly on the CoinUsUp codebase. Existing users are a built-in beta pool. Add a workspace/group layer + recurring billing.\n\n**Revenue model:** $8–12/workspace/mo (group subscription). Free tier stays for solo users. Potential MRR at 200 workspaces: ~$2,000–3,000.\n\n**Effort:** Low — add: workspace model, invite system, group dashboard, Stripe subscription per workspace. 2–3 weeks.\n\n**Maintenance:** Very Low — extends existing app, same stack, same infrastructure.\n\n**Moat:** Existing user trust + Joe already knows the codebase deeply. Faster to ship than any competitor starting fresh.\n\n**Target user:** Current CoinUsUp users + roommates, travel groups, couples who split expenses regularly.\n\n**Growth path:** After Teams: add bank sync (Plaid), auto-pay settlement, expense categories/budgets.\n\n**Alfred rating:** ⭐⭐ Lowest risk — existing codebase, existing users, proven concept.",
+    "title": "CoinUsUp Teams \u2014 Shared Expense Autopilot",
+    "description": "**What it is:** A team/group tier for the existing CoinUsUp app. Groups (roommates, travel groups, couples, small teams) get shared expense tracking with automated split calculations, reminders, and optional auto-pay via Stripe. Think Splitwise but smarter and already built on a codebase Joe owns.\n\n**Why Joe:** Zero greenfield work \u2014 builds directly on the CoinUsUp codebase. Existing users are a built-in beta pool. Add a workspace/group layer + recurring billing.\n\n**Revenue model:** $8\u201312/workspace/mo (group subscription). Free tier stays for solo users. Potential MRR at 200 workspaces: ~$2,000\u20133,000.\n\n**Effort:** Low \u2014 add: workspace model, invite system, group dashboard, Stripe subscription per workspace. 2\u20133 weeks.\n\n**Maintenance:** Very Low \u2014 extends existing app, same stack, same infrastructure.\n\n**Moat:** Existing user trust + Joe already knows the codebase deeply. Faster to ship than any competitor starting fresh.\n\n**Target user:** Current CoinUsUp users + roommates, travel groups, couples who split expenses regularly.\n\n**Growth path:** After Teams: add bank sync (Plaid), auto-pay settlement, expense categories/budgets.\n\n**Alfred rating:** \u2b50\u2b50 Lowest risk \u2014 existing codebase, existing users, proven concept.",
     "category": "growth",
     "status": "promoted",
     "source": "joe-submitted",
@@ -811,7 +814,7 @@
   {
     "id": "idea_1772087102192_7b57a238",
     "title": "Client Onboarding Autopilot for Automation Consultants",
-    "description": "Automates the post-sale onboarding process for automation consultants. When a new client is signed, it triggers intake collection, provisions accounts (Slack, Notion, Drive), sends welcome sequences, schedules kickoff, and generates the project brief — all without the consultant touching it. Subscription ($49–$99/mo) + template marketplace for passive income. Joe is the ideal customer — built for people doing exactly what he does.",
+    "description": "Automates the post-sale onboarding process for automation consultants. When a new client is signed, it triggers intake collection, provisions accounts (Slack, Notion, Drive), sends welcome sequences, schedules kickoff, and generates the project brief \u2014 all without the consultant touching it. Subscription ($49\u2013$99/mo) + template marketplace for passive income. Joe is the ideal customer \u2014 built for people doing exactly what he does.",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -897,7 +900,7 @@
       {
         "id": "cmt_1772116630013_b10575d3",
         "author": "alfred",
-        "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
+        "text": "\u26a0\ufe0f Flagging this: legal/law firm vertical \u2014 Joe has indicated this space is off the table. Recommend archiving this card.",
         "createdAt": "2026-02-26T14:37:10.013Z"
       }
     ]
@@ -953,7 +956,7 @@
       {
         "id": "cmt_1772116629997_d6f7f78b",
         "author": "alfred",
-        "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
+        "text": "\u26a0\ufe0f Flagging this: legal/law firm vertical \u2014 Joe has indicated this space is off the table. Recommend archiving this card.",
         "createdAt": "2026-02-26T14:37:09.997Z"
       }
     ]
@@ -993,7 +996,7 @@
       {
         "id": "cmt_1772116629980_878d0ef7",
         "author": "alfred",
-        "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
+        "text": "\u26a0\ufe0f Flagging this: legal/law firm vertical \u2014 Joe has indicated this space is off the table. Recommend archiving this card.",
         "createdAt": "2026-02-26T14:37:09.980Z"
       }
     ]
