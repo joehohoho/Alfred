@@ -541,12 +541,12 @@
     "title": "[CUU] Major dependency migration — React 19, Router 7, Zod 4, Recharts 3",
     "description": "Planned sprint. Bundle major upgrades in a branch with targeted regression checks: React 18→19, react-router-dom 6→7 (routing refactor required), Zod 3→4, Recharts 2→3, date-fns 3→4, tailwind-merge 2→3, sonner 1→2, react-resizable-panels 2→4. Full test before merge. Scope: /Users/hopenclaw/CoinUsUp",
     "goalId": "",
-    "status": "in_progress",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T06:03:52.985Z",
-    "updatedAt": "2026-02-26T13:00:49.059Z",
+    "updatedAt": "2026-02-26T18:38:33.753Z",
     "assignedAt": "2026-02-26T06:20:27.620Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "fa450e3b-be7b-466d-8334-346faf3fc642",
@@ -599,5 +599,53 @@
         "createdAt": "2026-02-26T12:01:47.375Z"
       }
     ]
+  },
+  {
+    "id": "task_1772131952591_358edfcf",
+    "title": "CoinUsUp: Security patches (react-router-dom + rollup)",
+    "description": "Patch highest-priority CVEs in CoinUsUp.\\n\\n1. Bump react-router-dom to ^6.30.3 or later (fixes GHSA-2w69-qvjg-hvjx XSS + GHSA-9jcx-v3wj-wh4m redirect CVEs)\\n2. Update Vite so rollup resolves to >=4.59.0 (fixes GHSA-mw96-cpmx-2vgc path traversal)\\n3. Run npm audit after to confirm resolution\\n\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-26T18:52:32.591Z",
+    "updatedAt": "2026-02-26T18:52:32.591Z"
+  },
+  {
+    "id": "task_1772131956891_3b8a470a",
+    "title": "CoinUsUp: Lockfile cleanup + re-audit",
+    "description": "Normalize dependency state before major upgrades.\\n\\n1. Delete node_modules + package-lock.json\\n2. Run npm install clean\\n3. Run npm outdated --json and npm audit --json\\n4. Document residual real CVEs vs stale graph artifacts\\n\\nDo this AFTER security patch card is done.\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-26T18:52:36.891Z",
+    "updatedAt": "2026-02-26T18:52:36.891Z"
+  },
+  {
+    "id": "task_1772131961644_54ccd9e3",
+    "title": "CoinUsUp: Capacitor v6 → v8 migration",
+    "description": "Coordinated mobile stack upgrade to clear tar-chain CVEs and modernize mobile layer.\\n\\nPackages to upgrade together:\\n- @capacitor/core v6 → v8\\n- @capacitor/cli v6 → v8\\n- @capacitor/android v6 → v8\\n- @capacitor/ios v6 → v8\\n- @capacitor/push-notifications → v8\\n- @capacitor/splash-screen → v8\\n\\nDo after lockfile cleanup card. Test on both Android + iOS after migration.\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-26T18:52:41.644Z",
+    "updatedAt": "2026-02-26T18:52:41.644Z"
+  },
+  {
+    "id": "task_1772131968263_eba9039f",
+    "title": "CoinUsUp: Framework major upgrades (React 19, Tailwind 4, Zod 4, Recharts 3, date-fns 4)",
+    "description": "Batch upgrade framework and utility libraries. Do in a controlled track after security + lockfile work.\\n\\nTrack A — React ecosystem:\\n- react + react-dom: 18 → 19\\n- @types/react + @types/react-dom: 18 → 19\\n- react-router-dom: 6 → 7 (breaking changes, review API migration guide)\\n- @vitejs/plugin-react-swc: 3 → 4\\n\\nTrack B — Styling + validation:\\n- tailwindcss: 3 → 4 (config format changed)\\n- zod: 3 → 4 (breaking API changes)\\n- recharts: 2 → 3\\n- date-fns: 3 → 4\\n\\nTrack C — Tooling:\\n- eslint: 9 → 10\\n- globals: 15 → 17\\n\\nDo tracks one at a time, test between each.\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-26T18:52:48.263Z",
+    "updatedAt": "2026-02-26T18:52:48.263Z"
   }
 ]

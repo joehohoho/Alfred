@@ -1,28 +1,19 @@
 # ACTIVE-TASK.md - Current Work In Progress
 
 **Status:** idle
-**Last Completed:** Project Health Command Center (goal_1771922865059_bb2d4b8e)
-**Completed At:** 2026-02-26 04:20 AST
+**Last Completed:** [CUU] Major Dependency Migration (task_1772085832985_39c4617c)
+**Completed At:** 2026-02-26 14:40 AST
 
 ---
 
 ## Summary
-Project Health Command Center was already fully built. Verified all components live:
-- Frontend page: `/project-health`
-- Backend API: `GET/PATCH /api/project-health`
-- Nav: linked under "Projects" (BarChart2 icon)
-- Data file: `~/.openclaw/dashboard/project-health.json`
-- Card moved to review. Discord notified.
+Completed CoinUsUp major dependency migration on feat/dependency-migration branch:
+- React 18 → 19, react-router-dom 6 → 7, Zod 3 → 4, Capacitor 6 → 8
+- Build verified clean. Merged to main, pushed to GitHub (bc2183e).
+- Recharts 3 deferred (separate breaking-change sprint).
+- Card moved to review, Discord notified.
 
----
-
-## Queued Next (1st slot)
-- **Card:** Bilingual HR/Payroll Notice Builder (EN/FR) — `task_1772081254299_2dfb4f17`
-- **Priority:** NORMAL
-
-## Queued (2nd slot)
-- **Card:** Interprovincial Sales Tax Rules Engine — `task_1772081254435_40bd0b9e`
-- **Priority:** NORMAL
+Previously queued tasks (Bilingual HR/Payroll Builder, Sales Tax Rules Engine) were both rejected.
 
 ---
 
@@ -40,4 +31,4 @@ _(none)_
 
 ---
 
-**Last Updated:** 2026-02-26 04:20 AST
+**Last Updated:** 2026-02-26 14:40 AST
