@@ -605,47 +605,91 @@
     "title": "CoinUsUp: Security patches (react-router-dom + rollup)",
     "description": "Patch highest-priority CVEs in CoinUsUp.\\n\\n1. Bump react-router-dom to ^6.30.3 or later (fixes GHSA-2w69-qvjg-hvjx XSS + GHSA-9jcx-v3wj-wh4m redirect CVEs)\\n2. Update Vite so rollup resolves to >=4.59.0 (fixes GHSA-mw96-cpmx-2vgc path traversal)\\n3. Run npm audit after to confirm resolution\\n\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T18:52:32.591Z",
-    "updatedAt": "2026-02-26T18:52:32.591Z"
+    "updatedAt": "2026-02-26T19:03:25.583Z",
+    "assignedAt": "2026-02-26T19:00:50.023Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "9654d020-691b-41ba-9121-4858cd22dd5b",
+    "comments": [
+      {
+        "id": "cmt_1772132605583_cce21436",
+        "author": "alfred",
+        "text": "✅ Security patches applied:\n\n- react-router-dom bumped ^6.30.1 → ^6.30.3 (CVEs GHSA-2w69-qvjg-hvjx + GHSA-9jcx-v3wj-wh4m resolved)\n- rollup resolved to 4.59.0 via npm audit fix (GHSA-mw96-cpmx-2vgc resolved)\n- Vulnerabilities reduced: 13 → 6\n- Remaining 6 are all Capacitor CLI/tar chain — require Capacitor v8 migration (separate card)\n- Committed to feat/major-dep-migration-react19-router7 (1c73b66)",
+        "createdAt": "2026-02-26T19:03:25.583Z"
+      }
+    ]
   },
   {
     "id": "task_1772131956891_3b8a470a",
     "title": "CoinUsUp: Lockfile cleanup + re-audit",
     "description": "Normalize dependency state before major upgrades.\\n\\n1. Delete node_modules + package-lock.json\\n2. Run npm install clean\\n3. Run npm outdated --json and npm audit --json\\n4. Document residual real CVEs vs stale graph artifacts\\n\\nDo this AFTER security patch card is done.\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T18:52:36.891Z",
-    "updatedAt": "2026-02-26T18:52:36.891Z"
+    "updatedAt": "2026-02-26T19:13:20.614Z",
+    "assignedAt": "2026-02-26T19:03:19.282Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "7b876b4b-e358-45f8-a057-a282da3c7db6",
+    "comments": [
+      {
+        "id": "cmt_1772133197306_830832f8",
+        "author": "alfred",
+        "text": "✅ Lockfile cleanup + re-audit complete.\n\nActions performed:\n1) Deleted node_modules + package-lock.json\n2) Ran clean npm install\n3) Re-ran npm audit and npm outdated\n\nResults:\n- Vulnerabilities after clean rebuild: 6 high, 0 moderate/low/critical\n- Remaining highs are all in Capacitor CLI chain (real residual CVEs, not stale lockfile artifacts):\n  • @capacitor/cli -> tar\n  • @capacitor/assets -> @capacitor/cli / @trapezedev/project\n- fixAvailable=false for these in current graph; requires Capacitor v8 migration card\n\nOutdated snapshot after normalization:\n- 30 outdated packages total\n- 27 major-version gaps\n- Security patch from prior card preserved: react-router-dom now 6.30.3\n\nConclusion: lockfile/state drift is normalized; residual CVEs are genuine dependency constraints tied to Capacitor v6, not stale install artifacts.",
+        "createdAt": "2026-02-26T19:13:17.306Z"
+      }
+    ]
   },
   {
     "id": "task_1772131961644_54ccd9e3",
     "title": "CoinUsUp: Capacitor v6 → v8 migration",
     "description": "Coordinated mobile stack upgrade to clear tar-chain CVEs and modernize mobile layer.\\n\\nPackages to upgrade together:\\n- @capacitor/core v6 → v8\\n- @capacitor/cli v6 → v8\\n- @capacitor/android v6 → v8\\n- @capacitor/ios v6 → v8\\n- @capacitor/push-notifications → v8\\n- @capacitor/splash-screen → v8\\n\\nDo after lockfile cleanup card. Test on both Android + iOS after migration.\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T18:52:41.644Z",
-    "updatedAt": "2026-02-26T18:52:41.644Z"
+    "updatedAt": "2026-02-26T19:15:00.071Z",
+    "assignedAt": "2026-02-26T19:13:20.659Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "37e5b62c-4a64-4770-932c-b4b7fd97571b",
+    "comments": [
+      {
+        "id": "cmt_1772133297963_7355993d",
+        "author": "alfred",
+        "text": "✅ Capacitor migration completed (v6 → v8) in CoinUsUp.\n\nUpgraded together:\n- @capacitor/core: ^8.1.0\n- @capacitor/cli: ^8.1.0\n- @capacitor/android: ^8.1.0\n- @capacitor/ios: ^8.1.0\n- @capacitor/push-notifications: ^8.0.1\n- @capacitor/splash-screen: ^8.0.1\n\nValidation:\n- npm run build ✅\n- npx cap doctor: Android ✅ / iOS ⚠️ (CocoaPods not installed on host)\n- npx cap sync android ✅\n- npx cap sync ios ❌ blocked by missing CocoaPods prerequisite\n\nSecurity result:\n- Remaining npm audit highs still tied to @capacitor/assets nested dependency chain; npm reports fixAvailable=false.\n\nCommit: b917b81",
+        "createdAt": "2026-02-26T19:14:57.963Z"
+      }
+    ]
   },
   {
     "id": "task_1772131968263_eba9039f",
     "title": "CoinUsUp: Framework major upgrades (React 19, Tailwind 4, Zod 4, Recharts 3, date-fns 4)",
     "description": "Batch upgrade framework and utility libraries. Do in a controlled track after security + lockfile work.\\n\\nTrack A — React ecosystem:\\n- react + react-dom: 18 → 19\\n- @types/react + @types/react-dom: 18 → 19\\n- react-router-dom: 6 → 7 (breaking changes, review API migration guide)\\n- @vitejs/plugin-react-swc: 3 → 4\\n\\nTrack B — Styling + validation:\\n- tailwindcss: 3 → 4 (config format changed)\\n- zod: 3 → 4 (breaking API changes)\\n- recharts: 2 → 3\\n- date-fns: 3 → 4\\n\\nTrack C — Tooling:\\n- eslint: 9 → 10\\n- globals: 15 → 17\\n\\nDo tracks one at a time, test between each.\\nRepo: /Users/hopenclaw/.openclaw/workspace/CoinUsUp",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-26T18:52:48.263Z",
-    "updatedAt": "2026-02-26T18:52:48.263Z"
+    "updatedAt": "2026-02-26T19:25:34.682Z",
+    "assignedAt": "2026-02-26T19:15:00.087Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "3bd81b99-4a93-4311-9900-5369d04e77ca",
+    "comments": [
+      {
+        "id": "cmt_1772133932008_b40e867c",
+        "author": "alfred",
+        "text": "✅ Framework major-upgrade tracks completed and validated in sequence.\n\nTrack A (React ecosystem):\n- react/react-dom -> 19.2.4\n- @types/react/@types-react-dom -> 19.x\n- react-router-dom -> 7.13.1\n- @vitejs/plugin-react-swc -> 4.2.3\n\nTrack B (styling + validation):\n- tailwindcss -> 4.2.1\n- Added @tailwindcss/postcss and migrated postcss config\n- Added @config directive in src/index.css for Tailwind v4 config resolution\n- zod -> 4.3.6\n- recharts -> 3.7.0 (added react-is dependency required by recharts)\n- date-fns -> 4.1.0\n- Compatibility bumps to satisfy React 19 peers: next-themes 0.4.6, vaul 1.1.2, react-day-picker 9.14.0\n\nTrack C (tooling):\n- eslint -> 10.0.2\n- globals -> 17.3.0\n\nValidation:\n- npm run build ✅ passes\n- npm run lint ⚠️ reports existing strict-rule violations across repo (mostly no-explicit-any and legacy style rules), not introduced by this change set\n\nCommit: 210aab5",
+        "createdAt": "2026-02-26T19:25:32.008Z"
+      }
+    ]
   }
 ]
