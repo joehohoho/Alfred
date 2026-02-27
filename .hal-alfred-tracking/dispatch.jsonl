@@ -48,3 +48,9 @@
 {"timestamp":"2026-02-27T01:42:54Z","task_id":"proactive_1772156574","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: Market Signal Lab"}
 {"timestamp":"2026-02-27T02:12:54Z","task_id":"proactive_1772158374","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: CoinUsUp"}
 {"timestamp":"2026-02-27T05:42:42Z","task_id":"proactive_1772170962","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Passive income idea scan"}
+{"timestamp":"2026-02-27T06:12:39Z","task_id":"proactive_1772172759","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Dependency audit: CoinUsUp"}
+{"timestamp":"2026-02-27T06:42:39Z","task_id":"proactive_1772174559","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Signal App research"}
+{"timestamp":"2026-02-27T07:12:39Z","task_id":"proactive_1772176359","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Infrastructure health check"}
+{"timestamp":"2026-02-27T07:42:39Z","task_id":"proactive_1772178159","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"CoinUsUp SEO quick wins"}
+{"timestamp":"2026-02-27T08:12:44Z","task_id":"proactive_1772179964","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Passive income idea scan (Canada-specific)"}
+{"timestamp":"2026-02-27T08:42:47Z","task_id":"proactive_1772181767","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: Market Signal Lab"}
