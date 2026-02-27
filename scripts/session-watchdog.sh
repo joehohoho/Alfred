@@ -18,10 +18,12 @@ BACKUP_DIR="$SESSIONS_DIR/backups"
 THRESHOLD=3
 WINDOW_MINUTES=15
 
-echo "=== Session Watchdog ($(date +%H:%M:%S)) ==="
+# Silent-on-clean: only log when something requires attention
+VERBOSE=${SESSION_WATCHDOG_VERBOSE:-0}
+[ "$VERBOSE" = "1" ] && echo "=== Session Watchdog ($(date +%H:%M:%S)) ==="
 
 if [ ! -f "$ERR_LOG" ]; then
-  echo "  No error log found"
+  [ "$VERBOSE" = "1" ] && echo "  No error log found"
   exit 0
 fi
 
@@ -61,7 +63,7 @@ PYEOF
 )
 
 if [ -z "$STUCK_CALL_ID" ]; then
-  echo "  No stuck sessions detected"
+  # No issues — stay silent
   exit 0
 fi
 
