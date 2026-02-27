@@ -1208,5 +1208,53 @@
     "tags": [],
     "createdAt": "2026-02-27T05:43:17.961Z",
     "updatedAt": "2026-02-27T05:43:17.961Z"
+  },
+  {
+    "id": "idea_1772185400740_0fa21eb5",
+    "title": "Trust Reconcile Watchdog (Law Firms)",
+    "description": "Monthly trust-account reconciliation checker for small law firms: ingest bank CSV + ledger exports, auto-flag 3-way mismatches, and email a compliance-ready summary. Low-maintenance rule engine + templates. Effort: 2-3 weeks MVP. Upside: 9-99/mo per firm, high retention due to compliance pain.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T09:43:20.740Z",
+    "updatedAt": "2026-02-27T09:43:20.740Z"
+  },
+  {
+    "id": "idea_1772185400887_da5c3f76",
+    "title": "Signal-to-Execution Journal Sync",
+    "description": "For discretionary traders using Discord/Telegram signals + broker fills: auto-capture alerts, map to executed trades, and produce weekly accuracy + slippage report. Passive subscription analytics layer, no exchange custody. Effort: 2 weeks MVP. Upside: 9-49/mo per trader/team; scalable with minimal support.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T09:43:20.887Z",
+    "updatedAt": "2026-02-27T09:43:20.887Z"
+  },
+  {
+    "id": "idea_1772185401058_81c4fdd0",
+    "title": "Law Firm Intake SLA Bot",
+    "description": "Mailbox/form-to-task automation for law firms: parse inbound leads, route by practice area, enforce callback SLA timers, and send partner digest. Replaces manual intake follow-up leakage. Effort: 1-2 weeks MVP using no-code connectors + light custom logic. Upside: 9-99/mo per firm + setup fee.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T09:43:21.058Z",
+    "updatedAt": "2026-02-27T09:43:21.058Z"
   }
 ]
