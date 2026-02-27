@@ -54,6 +54,10 @@ function safeDiv(a, b) {
   return a / b;
 }
 
+function daysInMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+}
+
 function load() {
   const projects = readCsv(path.join(DATA_DIR, 'projects.csv'));
   const time = readCsv(path.join(DATA_DIR, 'time_entries.csv'));
@@ -64,7 +68,8 @@ function load() {
 }
 
 function compute() {
-  const mKey = monthKey();
+  const now = new Date();
+  const mKey = monthKey(now);
   const { projects, time, costs, revenue, acquisition } = load();
 
   const monthTime = time.filter(r => (r.date || '').startsWith(mKey));
@@ -76,6 +81,9 @@ function compute() {
   const costByProject = groupBy(monthCosts, 'project');
   const revenueByProject = groupBy(monthRevenue, 'project');
   const acqByProject = groupBy(monthAcq, 'project');
+
+  const elapsedDay = Math.max(now.getDate(), 1);
+  const monthDays = daysInMonth(now);
 
   const totalHours = sum(monthTime, r => toNumber(r.hours));
   const sharedCosts = monthCosts.filter(c => (c.project || '').toLowerCase() === 'shared');
@@ -96,6 +104,11 @@ function compute() {
     const devCost = hours * hourlyRate;
 
     const directCosts = sum(pCostRows, r => toNumber(r.amount));
+    const directCostByCategory = groupBy(pCostRows, 'category');
+    const directCostsByCategory = Object.fromEntries(
+      Object.entries(directCostByCategory).map(([category, rows]) => [category, round2(sum(rows, r => toNumber(r.amount)))])
+    );
+
     const sharedAllocation = totalHours > 0 ? sharedCostTotal * (hours / totalHours) : 0;
     const totalCost = devCost + directCosts + sharedAllocation;
 
@@ -109,7 +122,9 @@ function compute() {
     const margin = grossMarginPct / 100;
     const ltv = churnMonthly > 0 ? (arpu * margin) / (churnMonthly / 100) : 0;
 
-    const burnRate = Math.max(totalCost - revenueAmount, 0);
+    const burnRateMonthly = Math.max(totalCost - revenueAmount, 0);
+    const burnRateDaily = safeDiv(burnRateMonthly, elapsedDay);
+    const burnRateProjectedMonthEnd = burnRateDaily * monthDays;
     const netProfit = revenueAmount - totalCost;
 
     return {
@@ -125,13 +140,18 @@ function compute() {
       costs: {
         devTime: round2(devCost),
         direct: round2(directCosts),
+        directByCategory: directCostsByCategory,
         sharedAllocated: round2(sharedAllocation),
         total: round2(totalCost)
       },
       revenue: round2(revenueAmount),
       economics: {
         netProfit: round2(netProfit),
-        burnRate: round2(burnRate),
+        burnRate: {
+          mtd: round2(burnRateMonthly),
+          daily: round2(burnRateDaily),
+          projectedMonthEnd: round2(burnRateProjectedMonthEnd)
+        },
         revenuePerHour: round2(revenuePerHour),
         cac: round2(cac),
         ltv: round2(ltv),
@@ -145,7 +165,11 @@ function compute() {
     totalRevenue: round2(sum(projectMetrics, p => p.revenue)),
     totalCost: round2(sum(projectMetrics, p => p.costs.total)),
     totalProfit: round2(sum(projectMetrics, p => p.economics.netProfit)),
-    totalBurnRate: round2(sum(projectMetrics, p => p.economics.burnRate)),
+    totalBurnRate: {
+      mtd: round2(sum(projectMetrics, p => p.economics.burnRate.mtd)),
+      daily: round2(sum(projectMetrics, p => p.economics.burnRate.daily)),
+      projectedMonthEnd: round2(sum(projectMetrics, p => p.economics.burnRate.projectedMonthEnd))
+    },
     generatedAt: new Date().toISOString()
   };
 

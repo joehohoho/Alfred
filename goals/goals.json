@@ -163,10 +163,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo"
+      "assignedColumn": "in_progress"
     },
     "createdAt": "2026-02-24T08:45:32.218Z",
-    "updatedAt": "2026-02-27T01:02:48.723Z",
+    "updatedAt": "2026-02-27T01:13:00.249Z",
     "comments": [
       {
         "id": "cmt_1772057816097_e39ca5b3",

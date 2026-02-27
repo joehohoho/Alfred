@@ -4,8 +4,12 @@
     "totalRevenue": 5710,
     "totalCost": 5833,
     "totalProfit": -123,
-    "totalBurnRate": 2565.27,
-    "generatedAt": "2026-02-26T06:18:28.025Z"
+    "totalBurnRate": {
+      "mtd": 2565.27,
+      "daily": 98.67,
+      "projectedMonthEnd": 2762.6
+    },
+    "generatedAt": "2026-02-27T01:14:43.174Z"
   },
   "projects": [
     {
@@ -21,13 +25,21 @@
       "costs": {
         "devTime": 990,
         "direct": 160,
+        "directByCategory": {
+          "hosting": 120,
+          "api": 40
+        },
         "sharedAllocated": 24,
         "total": 1174
       },
       "revenue": 950,
       "economics": {
         "netProfit": -224,
-        "burnRate": 224,
+        "burnRate": {
+          "mtd": 224,
+          "daily": 8.62,
+          "projectedMonthEnd": 241.23
+        },
         "revenuePerHour": 86.36,
         "cac": 20,
         "ltv": 961.31,
@@ -47,13 +59,21 @@
       "costs": {
         "devTime": 630,
         "direct": 113,
+        "directByCategory": {
+          "hosting": 95,
+          "api": 18
+        },
         "sharedAllocated": 15.27,
         "total": 758.27
       },
       "revenue": 420,
       "economics": {
         "netProfit": -338.27,
-        "burnRate": 338.27,
+        "burnRate": {
+          "mtd": 338.27,
+          "daily": 13.01,
+          "projectedMonthEnd": 364.29
+        },
         "revenuePerHour": 60,
         "cac": 15,
         "ltv": 615,
@@ -73,13 +93,21 @@
       "costs": {
         "devTime": 1980,
         "direct": 115,
+        "directByCategory": {
+          "hosting": 60,
+          "api": 55
+        },
         "sharedAllocated": 48,
         "total": 2143
       },
       "revenue": 140,
       "economics": {
         "netProfit": -2003,
-        "burnRate": 2003,
+        "burnRate": {
+          "mtd": 2003,
+          "daily": 77.04,
+          "projectedMonthEnd": 2157.08
+        },
         "revenuePerHour": 6.36,
         "cac": 15,
         "ltv": 224,
@@ -99,13 +127,20 @@
       "costs": {
         "devTime": 1650,
         "direct": 75,
+        "directByCategory": {
+          "tools": 75
+        },
         "sharedAllocated": 32.73,
         "total": 1757.73
       },
       "revenue": 4200,
       "economics": {
         "netProfit": 2442.27,
-        "burnRate": 0,
+        "burnRate": {
+          "mtd": 0,
+          "daily": 0,
+          "projectedMonthEnd": 0
+        },
         "revenuePerHour": 280,
         "cac": 0,
         "ltv": 63000,

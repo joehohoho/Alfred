@@ -9,8 +9,9 @@ For each project:
 - Shared cost allocation (proportional to dev hours)
 - Revenue
 - Net profit
-- Burn rate (`max(cost - revenue, 0)`)
+- Burn rate (month-to-date, daily, and projected month-end)
 - Revenue/hour
+- Direct cost breakdown by category (API, hosting, tools, etc.)
 - CAC (`acquisition spend / new customers`)
 - LTV (`(ARPU * gross margin) / monthly churn`)
 - LTV:CAC ratio
