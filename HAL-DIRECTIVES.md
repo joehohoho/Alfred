@@ -90,10 +90,10 @@ Before sending: "Would this look clean in a Discord channel?"
 
 Any CoinUsUp improvement idea found during audits, reviews, or research → post to the CoinUsUp Discord channel:
 
-**Webhook:** `https://discord.com/api/webhooks/1476455827215749160/YTDUoxAIuLovfxnFcoqUJ-hk2RZ4ioFIdVcGNSgq07ClhWR8P7vGjStzMG8pLNWiNfIC`
+**Webhook source:** `DISCORD_WEBHOOK_COINUSUP` in `.env` (never hardcode webhook URLs in docs)
 
 ```bash
-curl -s -X POST "<webhook_url>" \
+curl -s -X POST "$DISCORD_WEBHOOK_COINUSUP" \
   -H "Content-Type: application/json" \
   -d '{"username":"HAL","embeds":[{"title":"🪙 CoinUsUp Idea: <title>","description":"<description>","color":5814783}]}'
 ```

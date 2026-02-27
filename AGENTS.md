@@ -75,6 +75,10 @@ Before any multi-step task:
 After each major step:
 - Update progress + next step
 
+Memory log hardening:
+- Before daily-log writes, run: `bash ~/.openclaw/workspace/scripts/ensure-daily-memory.sh`
+- For daily memory updates, prefer append/create flows (`write`/shell append) over brittle exact-match edits.
+
 When done:
 - Set status to `idle`
 
@@ -133,7 +137,7 @@ Scripts:
 - `kanban-blocker.sh`
 - `kanban-update.sh`
 - `kanban-create.sh`
-- `hal-slack-notify.sh` — HAL completion → Slack C0AH618DE5C
+- `hal-slack-notify.sh` — HAL completion → Discord webhook (`DISCORD_WEBHOOK_HAL_COMPLETIONS`)
 
 ---
 

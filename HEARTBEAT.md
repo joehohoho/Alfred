@@ -62,16 +62,16 @@ timestamp | context% | model | token_cost | status
 **Run:** Daily (automated via Daily Config & Memory Review cron at 7 AM)
 **Action:** Run `bash ~/.openclaw/workspace/scripts/agents-size-guard.sh`
 **Alert thresholds:**
-- **<85% (17,000 chars)** → ✅ Safe, no action
-- **85-95% (17,000-19,000)** → ⚠️ WARNING: Plan extraction of largest section to satellite file
-- **>95% (19,000 chars)** → 🚨 CRITICAL: Extract sections immediately (system crash risk)
+- **<85% (~13,600 chars)** → ✅ Safe, no action
+- **85-95% (~13,600-15,200)** → ⚠️ WARNING: Plan extraction of largest section to satellite file
+- **>95% (~15,200 chars)** → 🚨 CRITICAL: Extract sections immediately (system crash risk)
 **Auto-notification:** Script sends Command Center notification at warning/critical levels
 
 **Satellite files (already extracted):**
 - `GIT-CONFIG.md` — Git commit email configuration
 - `GROUP-CHAT-GUIDELINES.md` — Group chat behavior rules
 
-**Current status:** 15,710/20,000 chars (78.6%) — Safe ✅
+**Current status:** dynamic — run `bash ~/.openclaw/workspace/scripts/agents-size-guard.sh` for live values
 
 ---
 
@@ -111,7 +111,7 @@ timestamp | context% | model | token_cost | status
 - Memory references: [MEMORY.md sections loaded]
 - Unknown unknowns: [what wasn't loaded]
 ```
-**Where:** Write to memory/NOW.md before generation from new model
+**Where:** Write to NOW.md before generation from new model
 **Purpose:** Ensures continuity across substrate switches. Identity persists through model changes.
 
 **Status:** ✅ Implemented. Part of "river is not the banks" principle from Moltbook essay.
@@ -120,9 +120,9 @@ timestamp | context% | model | token_cost | status
 
 ## ⏰ Quiet Hours Compliance
 
-**Respect USER.md proactive hours: 8:30am - 11pm AST (America/Moncton, UTC-4)**
+**Respect USER.md proactive hours: 9:00am - 11pm AST (America/Moncton, UTC-4/UTC-3 DST)**
 
-During quiet hours (11pm - 8:30am):
+During quiet hours (11pm - 9:00am):
 - Run checks silently (log only, no alerts)
 - Emergency alerts only (>80% context = CRITICAL)
 - Defer non-urgent notifications until 8:30am
@@ -140,7 +140,7 @@ During quiet hours (11pm - 8:30am):
    - Tradeoff: Slightly lower reasoning quality vs Haiku, but excellent for status checks
    - Fallback: If LOCAL unavailable, use Haiku (still cheap at $0.0001/1K tokens)
 2. **No external API calls** in heartbeat unless explicitly triggered
-3. **Batch checks:** Run all 3 together, don't spread across multiple heartbeats
+3. **Batch checks:** Run all heartbeat checks together when practical, don't spread them across many separate calls
 4. **Preserve silence:** Don't spam user; only alert on threshold breaches
 5. **Reversible:** If alerts are too noisy, edit thresholds without code changes
 
@@ -168,9 +168,9 @@ Logs stored in:
 ## 🔔 Slack Task Notifications
 
 **General completions:** Slack channel **C0AEE0PLKB4**
-**HAL completions:** Discord webhook (updated 2026-02-26 — was Slack C0AH618DE5C) — use `scripts/hal-slack-notify.sh`
+**HAL completions:** Discord webhook (`DISCORD_WEBHOOK_HAL_COMPLETIONS`) — use `scripts/hal-slack-notify.sh`
 
-When HAL finishes a task, post to **C0AH618DE5C** using `scripts/hal-slack-notify.sh`:
+When HAL finishes a task, post via the Discord webhook using `scripts/hal-slack-notify.sh`:
 ```bash
 bash ~/.openclaw/workspace/scripts/hal-slack-notify.sh "Task Title" "What HAL did and delivered"
 ```
@@ -182,7 +182,7 @@ Brief summary of what was done
 Result: [accomplishment summary]
 ```
 
-Format for HAL notifications (C0AH618DE5C) — see `hal-slack-notify.sh` for template.
+Format for HAL notifications — see `hal-slack-notify.sh` for template.
 
 ---
 
