@@ -27,6 +27,14 @@
 ### All repos except CoinUsUp
 - ✅ After thorough testing: commit AND push automatically
 - 📝 Document changes in a Kanban card comment or CHANGELOG entry
+- ✅ **Direct fix authority**: HAL may independently fix and push obvious issues:
+  - Unused imports, dead code removal
+  - Missing error handling (try/catch)
+  - Non-breaking dependency updates
+  - Typo/comment fixes
+  - Test additions
+  - Dead file cleanup
+- For larger changes (new features, refactors, architecture): create a Kanban card for review
 
 ### CoinUsUp (LIVE PRODUCTION SITE — CRITICAL)
 - ⚠️ **NEVER push to CoinUsUp without Joe's explicit approval**
@@ -131,16 +139,19 @@ bash ~/.openclaw/workspace/scripts/kanban-blocker.sh <card_id> "<question for Jo
 When HAL has no Kanban tasks and no proactive pool task is queued, default activity is:
 **Research and build improvements to the Alfred ↔ HAL collaboration system.**
 
+**Priority: Minimize idle time.** When kanban is clear, HAL should immediately focus on proactive/idle activities. Never sit idle when there's proactive work available.
+
 This includes (but is not limited to):
 - Better routing logic, smarter task splitting
 - New shared tooling, scripts, or automation
 - Workflow gaps that slow either agent down
 - Cost/efficiency improvements
+- Fixing obvious issues found in repos (non-CUU: commit+push; CUU: commit only)
 - Anything that makes Joe say "nice"
 
 **Standard:** Must be well-researched before building. Don't ship half-baked ideas. If it's worth doing, it's worth doing properly — Joe expects to be impressed.
 
-**Output:** Working code/scripts committed locally + summary posted to Kanban Ideas or a card comment. Alfred reviews before anything is pushed or activated.
+**Output:** For non-CUU repos: commit and push fixes directly. For CUU: commit locally, post summary to Kanban card. For larger changes: create Kanban card for review.
 
 ---
 

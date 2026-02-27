@@ -34,8 +34,8 @@ Use Alfred when the task needs **depth, reliability, or larger context**:
 ## 2) Auto-Routing Rules (Deterministic)
 
 Route to **HAL** if ALL are true:
-1. Estimated steps <= 4
-2. Input size <= ~8 KB text equivalent
+1. Estimated steps <= 8
+2. Input size <= ~32 KB text equivalent
 3. No high-impact external action (no outbound posting/sending)
 4. No security/legal/financial critical decision
 
@@ -52,7 +52,7 @@ Escalate immediately if ANY trigger fires:
    - Requires multi-document synthesis or long-horizon planning
 
 2. **Context trigger**
-   - Working set exceeds ~8 KB or > 6 files/sections
+   - Working set exceeds ~32 KB or > 12 files/sections
 
 3. **Reliability trigger**
    - HAL returns low confidence, ambiguous output, or malformed structure
@@ -152,8 +152,8 @@ Validation: <pass/fail checks>
 - **Target median cycle-time reduction:** >= 25% vs Alfred-only baseline
 
 If targets miss:
-- Raise/lower input-size threshold (8 KB → 6 KB or 10 KB)
-- Tighten/relax step-count rule (<=4)
+- Raise/lower input-size threshold (32 KB → 16 KB or 64 KB)
+- Tighten/relax step-count rule (<=8)
 - Add task-specific exceptions by category
 
 ---

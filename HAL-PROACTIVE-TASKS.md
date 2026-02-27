@@ -30,8 +30,33 @@ and safe to run autonomously.
 8. **Code review: Market Signal Lab**
    Review /Users/hopenclaw/market-signal-lab/src for signal quality improvements, edge case handling, or missing backtesting coverage. Output: findings list.
 
+9. **System monitoring report**
+   Check CPU usage, memory pressure, disk usage, running processes, and service health across all LaunchAgents. Verify gateway, dashboard, job-tracker are responsive. Output: health summary with any issues flagged.
+
+10. **Documentation freshness audit**
+    Review workspace docs (MEMORY.md, AGENTS.md, TOOLS.md, HEARTBEAT.md, HAL-DIRECTIVES.md) for stale info — wrong file paths, outdated instructions, references to removed features. Output: list of stale sections with suggested fixes. Commit fixes directly for non-CUU repos.
+
+11. **Test coverage review: CoinUsUp**
+    Analyze /Users/hopenclaw/CoinUsUp/src and /Users/hopenclaw/CoinUsUp/tests to identify untested code paths, missing edge case tests, or components without test files. Output: prioritized list of missing tests with suggested test cases.
+
+12. **Performance profiling: Command Center**
+    Profile Command Center backend API endpoints — check response times, identify slow routes, look for N+1 queries or excessive file reads. Review frontend bundle size. Output: performance report with specific optimization recommendations.
+
+13. **Dead code & cleanup sweep**
+    Scan all repos (command-center, job-tracker, market-signal-lab, agent-sdk) for unused imports, dead functions, orphaned files, unreferenced CSS classes. Output: cleanup list. Commit+push fixes for non-CUU repos.
+
+14. **Git hygiene**
+    Check all repos for: merged branches that should be deleted, large files that shouldn't be tracked, missing .gitignore entries, stale branches. Clean up merged branches. Output: summary of actions taken.
+
+15. **Log analysis & anomaly detection**
+    Parse recent gateway logs, dashboard logs, and cron run logs. Look for error patterns, unusual frequencies, failed deliveries, timeout clusters. Output: anomaly report with severity ratings.
+
+16. **Security posture check**
+    Review all repos for: outdated dependencies with known CVEs (npm audit), exposed secrets in code, overly permissive file permissions, missing input validation. Output: security findings with severity and remediation steps. Commit+push non-breaking dependency updates for non-CUU repos.
+
 ## Rules
 - Each task output goes to Kanban Ideas column (for ideas) or as a comment on relevant card (for reviews)
-- HAL should never modify production files autonomously — output findings only
+- **Non-CUU repos** (command-center, job-tracker, market-signal-lab, agent-sdk): HAL may commit AND push obvious fixes (unused imports, dead code, dependency updates, typo fixes, missing error handling, test additions)
+- **CoinUsUp**: Output findings only — commit locally but never push without Joe approval
+- Create Kanban cards for larger changes that need human review
 - Rotate pool index tracked in: .hal-alfred-tracking/proactive-pool-index.txt
-- If HAL produces findings, Alfred reviews before any action is taken

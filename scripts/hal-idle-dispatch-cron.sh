@@ -1,12 +1,12 @@
 #!/bin/bash
 # hal-idle-dispatch-cron.sh
-# Called by HAL Idle Check & Dispatch cron every 30 min.
+# Called by HAL Idle Check & Dispatch cron every 10 min.
 # Outputs structured [ACTION:...] lines for Alfred to act on.
 #
 # Flow:
-#   1. Check if HAL ran a Kanban task recently (20-min cooldown)
+#   1. Check if HAL ran a Kanban task recently (10-min cooldown)
 #   2. Try Kanban To Do (blocked if a card is already in_progress)
-#   3. If blocked/empty → try proactive pool (60-min cooldown, no board move needed)
+#   3. If blocked/empty → try proactive pool (15-min cooldown, no board move needed)
 #   4. Output [ACTION:DISPATCH_KANBAN], [ACTION:DISPATCH_PROACTIVE], or [ACTION:SKIP]
 
 set -euo pipefail
@@ -34,8 +34,8 @@ if [[ -f "$FORCED_IDLE_FILE" ]]; then
   fi
 fi
 
-KANBAN_COOLDOWN_MIN=20   # don't re-dispatch a Kanban task within 20 min
-PROACTIVE_COOLDOWN_MIN=60 # don't re-dispatch a proactive task within 60 min
+KANBAN_COOLDOWN_MIN=10   # don't re-dispatch a Kanban task within 10 min
+PROACTIVE_COOLDOWN_MIN=15 # don't re-dispatch a proactive task within 15 min
 
 # ── Helper: minutes since last dispatch of a given type ─────────────────────
 minutes_since_last_dispatch() {
@@ -136,8 +136,8 @@ fi
 POOL_INDEX=0
 [[ -f "$POOL_INDEX_FILE" ]] && POOL_INDEX=$(cat "$POOL_INDEX_FILE" 2>/dev/null || echo "0")
 
-# Pool has 8 tasks (1-indexed in file, 0-indexed here)
-POOL_SIZE=8
+# Pool has 16 tasks (1-indexed in file, 0-indexed here)
+POOL_SIZE=16
 TARGET_LINE=$((POOL_INDEX + 1))
 
 # Extract task title
@@ -153,7 +153,7 @@ TASK_BLOCK=$(awk "
 
 [[ -z "$NEXT_TASK" ]] && NEXT_TASK="Passive income idea scan"
 
-# Advance pool index (cycles 0 → 7 → 0)
+# Advance pool index (cycles 0 → 15 → 0)
 NEW_INDEX=$(( (POOL_INDEX + 1) % POOL_SIZE ))
 echo "$NEW_INDEX" > "$POOL_INDEX_FILE"
 
