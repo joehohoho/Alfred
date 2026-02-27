@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-26T22:00:49.498Z",
-  "lastActivityType": "surprise-delight",
+  "lastActivityAt": "2026-02-26T23:00:49.779Z",
+  "lastActivityType": "evaluate-idea",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -52,8 +52,13 @@
     {
       "type": "surprise-delight",
       "dispatchedAt": "2026-02-26T22:00:49.498Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-02-26T23:00:49.779Z",
+      "ideaId": "idea_1771697586945_82c18088"
     }
   ],
-  "totalIdleDispatches": 12,
+  "totalIdleDispatches": 13,
   "cooldownMinutes": 25
 }
