@@ -1160,5 +1160,53 @@
     "tags": [],
     "createdAt": "2026-02-27T00:01:33.557Z",
     "updatedAt": "2026-02-27T00:01:33.557Z"
+  },
+  {
+    "id": "idea_1772170989111_0d184bea",
+    "title": "Law Firm Intake Ghosting Recovery Bot",
+    "description": "Niche SaaS: watches missed consult leads (web forms/Clio/MyCase + email/SMS), auto-sends compliant follow-up sequence, and books consult slots automatically. Low-build stack: Zapier/Make + Twilio + Calendly + simple dashboard. Effort estimate: 2-3 weeks MVP, low maintenance monthly. Upside estimate: -/firm/month + optional  setup; target 20 firms = ~k-k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T05:43:09.111Z",
+    "updatedAt": "2026-02-27T05:43:09.111Z"
+  },
+  {
+    "id": "idea_1772170992797_76e46495",
+    "title": "Trading Journal Autopilot for Busy Retail Traders",
+    "description": "Niche SaaS: auto-imports broker/crypto exchange fills, tags setups, and sends weekly edge report (win rate by setup/time-of-day/risk multiple). Low-build using CSV/API connectors + lightweight analytics templates. Effort estimate: 3-4 weeks MVP, moderate maintenance for connector fixes. Upside estimate: -/user/month; 200 users = ~k-k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T05:43:12.797Z",
+    "updatedAt": "2026-02-27T05:43:12.797Z"
+  },
+  {
+    "id": "idea_1772170997961_a3274c4a",
+    "title": "Law Firm Billing Data QA Sentinel",
+    "description": "Niche SaaS for firms migrating/updating billing systems: nightly rules check for LEDES/UTBMS code issues, missing matter fields, duplicate time entries, and export blockers before invoices go out. Strong fit with Joe's elite/legal data transformation background. Effort estimate: 2-4 weeks MVP with reusable rule packs; low maintenance once rules stable. Upside estimate: -/firm/month depending on volume; 15 firms = ~.5k-k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T05:43:17.961Z",
+    "updatedAt": "2026-02-27T05:43:17.961Z"
   }
 ]

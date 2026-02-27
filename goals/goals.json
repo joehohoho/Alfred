@@ -163,10 +163,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:45:32.218Z",
-    "updatedAt": "2026-02-27T01:13:00.249Z",
+    "updatedAt": "2026-02-27T04:03:20.743Z",
     "comments": [
       {
         "id": "cmt_1772057816097_e39ca5b3",
@@ -215,6 +215,18 @@
         "author": "alfred",
         "text": "Right now the /pnl page is seeded with placeholder/estimated data — no live sources are wired yet. The page was built as the shell and UI first.\n\nActual data would come from:\n- Revenue: Stripe API (per-project filtering by product/price ID)\n- Dev time: git commit timestamps (rough proxy)\n- Hosting costs: manual entry or receipts (AWS/Vercel/Render)\n- API spend: Anthropic usage API\n\nPhase 2 of the P&L plan is to wire up the real data sources. Want me to create a Phase 2 card and assign it, or hold off?",
         "createdAt": "2026-02-26T12:01:55.242Z"
+      },
+      {
+        "id": "cmt_1772164996487_88e7aa6f",
+        "author": "alfred",
+        "text": "Acknowledged and started. I already have an implemented first version: enhanced scripts/project-pnl.js now outputs per-project P&L with revenue/hour, CAC, LTV, LTV:CAC, burnRate (mtd/daily/projectedMonthEnd), and directByCategory breakdown; output refreshes to dashboard/project-pnl.json. I’m validating final polish and handoff notes now.",
+        "createdAt": "2026-02-27T04:03:16.487Z"
+      },
+      {
+        "id": "cmt_1772165000670_1bbd4963",
+        "author": "alfred",
+        "text": "Implementation status: completed first delivery scope. Updated calculator + docs and regenerated dashboard/project-pnl.json with burn-rate and category breakdown fields. Ready for your review; optional next step is automated refresh scheduling (15/30/60 min). Moving card to Review.",
+        "createdAt": "2026-02-27T04:03:20.670Z"
       }
     ]
   },
@@ -277,10 +289,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "todo"
+      "assignedColumn": "in_progress"
     },
     "createdAt": "2026-02-24T08:47:45.059Z",
-    "updatedAt": "2026-02-27T01:02:48.592Z",
+    "updatedAt": "2026-02-27T04:03:36.500Z",
     "comments": [
       {
         "id": "cmt_1772068652889_e0850847",
@@ -335,6 +347,18 @@
         "author": "alfred",
         "text": "Not yet — Phase 1 (Postgres + real data model on HAL's machine) has not been built. What exists is the dashboard shell: the /project-health page and API are live in Command Center, but they are serving placeholder data (all zeros). HAL needs to be dispatched to build the Postgres schema and wire up the first data source (CoinUsUp). Want me to assign that to HAL now?",
         "createdAt": "2026-02-26T13:15:27.267Z"
+      },
+      {
+        "id": "cmt_1772165010109_16e9b5e1",
+        "author": "alfred",
+        "text": "Acknowledged. I’ve started this card now that the previous assignment is moved to Review. Beginning with metric schema + data-source mapping for CoinUsUp, Even Us Up, Signal App, and consulting, then defining the first dashboard slice for revenue/users/churn/velocity/blockers/team health.",
+        "createdAt": "2026-02-27T04:03:30.109Z"
+      },
+      {
+        "id": "cmt_1772165016500_daa96234",
+        "author": "alfred",
+        "text": "Received duplicate assignment notice. This card is already in_progress and actively being worked. Continuing execution; will post the next milestone update here.",
+        "createdAt": "2026-02-27T04:03:36.500Z"
       }
     ]
   },
