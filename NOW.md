@@ -1,23 +1,12 @@
-# NOW.md - Current Session Lifeboat
+# NOW.md — Emergency Checkpoint
 
-**Checkpoint Time:** 2026-02-26 22:00 AST (Evening Routine)
-**Status:** End-of-day checkpoint written
+- Time: 2026-02-27 11:25 AST
+- Context: 63%
+- Current focus: Active Kanban operations, cron routing cleanup, and task closeout handling.
+- Pending questions: none
+- Next immediate step: continue execution; maintain continuity checkpoints.
 
----
-
-## Immediate State
-- Evening continuity routine completed (daily log, session bridge, checkpoint files refreshed).
-- No active incident response needed; environment appears stable from spot checks.
-- Execution momentum needs to shift from maintenance/analysis to shipping tomorrow.
-
-## Most Important Objective
-Ship forward on passive-income execution path: HAL dispatch reliability fix + Signal App pipeline progress.
-
-## Next 3 Actions
-1. Add/verify in-progress pre-check in HAL idle dispatch flow to stop collision loops.
-2. Execute the next concrete Signal App real-time data pipeline milestone.
-3. Move one tangible deliverable to review with artifact and concise summary.
-
-## Risk/Attention
-- Too much proactive maintenance without shipping can stall core business outcomes.
-- LegalBillAI remains pending on Joe-owned setup/deploy steps; no further automation there until keys/deploy approvals are complete.
+## Checkpoint 2026-02-27 12:25 AST
+- Context: 65%
+- Focus: active Kanban tasks, cron migrations to Discord, local model switch to qwen3:4b
+- Immediate next: continue task queue; re-checkpoint if >70%.

@@ -25,6 +25,52 @@ fi
 
 API="http://localhost:3001/api/kanban"
 
+# Duplicate guardrail:
+# Prevent re-creating items that already exist anywhere on the board
+# (ideas/goals/todo/in_progress/blocked/review/done/rejected/test columns).
+# Override intentionally with: KANBAN_ALLOW_DUPLICATE=1 ./kanban-create.sh ...
+if [ "${KANBAN_ALLOW_DUPLICATE:-0}" != "1" ]; then
+  BOARD_JSON=$(curl -s "$API")
+  DUPLICATE_HIT=$(printf "%s" "$BOARD_JSON" | python3 -c '
+import json, re, sys
+
+def norm(s: str) -> str:
+    s = (s or "").strip().lower()
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+try:
+    data = json.load(sys.stdin)
+except Exception:
+    print("")
+    raise SystemExit(0)
+
+target = norm(sys.argv[1])
+columns = data.get("columns", {}) if isinstance(data, dict) else {}
+all_cols = [
+    "ideas", "goals", "todo", "in_progress", "blocked",
+    "review", "done", "rejected", "msl_test", "msl_done", "cuu_test", "cuu_done"
+]
+
+for col in all_cols:
+    for card in columns.get(col, []) or []:
+        existing = norm(card.get("title", ""))
+        if existing and existing == target:
+            print("{}:{}".format(col, card.get("id", "unknown")))
+            raise SystemExit(0)
+
+print("")
+' "$TITLE")
+
+  if [ -n "$DUPLICATE_HIT" ]; then
+    COL="${DUPLICATE_HIT%%:*}"
+    CARD_ID="${DUPLICATE_HIT#*:}"
+    echo "SKIP: Duplicate title already exists in '$COL' ($CARD_ID): $TITLE" >&2
+    exit 2
+  fi
+fi
+
 JSON=$(python3 -c "
 import json, sys
 print(json.dumps({

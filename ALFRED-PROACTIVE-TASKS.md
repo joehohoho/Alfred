@@ -10,6 +10,9 @@ HAL handles code-heavy tasks (see HAL-PROACTIVE-TASKS.md).
 - Pool index tracked in: .hal-alfred-tracking/alfred-proactive-pool-index.txt
 - Rotate through all 8 tasks before repeating
 - Each task should be completable in a single focused turn (15–30 min)
+- **Before creating any new idea card:** review current board + `rejected` column comments to avoid repeats and learn Joe's rejection patterns
+- **New idea quality bar (mandatory):** include demand evidence, competitor snapshot, monetization path, rough profitability estimate, time-to-first-dollar, key risks, and Go/Test/Reject recommendation in card description
+- **Value-first filter:** skip tasks that don't produce a concrete artifact with measurable value (revenue impact, risk reduction, time savings, or leverage)
 
 ---
 

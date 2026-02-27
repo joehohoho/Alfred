@@ -35,4 +35,28 @@
 - ACTIVE-TASK is continuity-managed and should return to `idle` after this routine completes.
 - Market Signal Lab service status is good (`/api/health` passed during checks).
 - Joe preference reinforced: autonomous action is welcome, but post-action transparency must be explicit.
-- Strategic priority remains passive-income leverage, with family-time upside as the primary objective.
+- Strategic priority remains passive-income leverage, with family-time upside as the primary objective.## Checkpoint Update (2026-02-27 11:08 AST)
+- Heartbeat check detected context at **62%** (threshold 60–65%).
+- Synced pending questions (none pending).
+- Updated ACTIVE-TASK.md and LAST-SESSION.md for continuity.
+- Continued live Kanban execution and cron routing cleanup work.
+
+## Checkpoint Update (2026-02-27 11:25 AST)
+- Context usage at **63%**; continuity checkpoint executed.
+- Ran sync-pending-questions (none pending).
+- ACTIVE-TASK.md updated for current objective/next step.
+- NOW.md and memory daily log refreshed.
+
+## Heartbeat Checkpoint (2026-02-27 11:40 AST)
+- Context usage at 64% (60-65 threshold).
+- Pending questions sync completed.
+- ACTIVE-TASK and LAST-SESSION checkpointed.
+
+## Heartbeat Checkpoint (2026-02-27 11:46 AST)
+- Context usage at 64% (60-65 threshold).
+
+## Session Checkpoint (2026-02-27 12:25 AST)
+- Context usage reached **65%**.
+- Pending questions sync executed (script reported warning updating ACTIVE-TASK, then state was updated manually).
+- Active work remains Kanban execution + cron routing cleanup + local model switch prep.
+- Next step: continue execution and checkpoint again at 70%+.

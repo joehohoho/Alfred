@@ -60,3 +60,6 @@ and safe to run autonomously.
 - **CoinUsUp**: Output findings only — commit locally but never push without Joe approval
 - Create Kanban cards for larger changes that need human review
 - Rotate pool index tracked in: .hal-alfred-tracking/proactive-pool-index.txt
+- **Before creating any new idea card:** check existing board + rejected cards/comments to avoid duplicate/recycled ideas
+- **New idea quality bar (mandatory):** include demand signal, competitor scan, monetization path, rough margin/profitability, speed-to-first-dollar, risks, and Go/Test/Reject recommendation
+- **Value-first filter:** prefer tasks with concrete deliverables that improve revenue, reliability, or operator leverage

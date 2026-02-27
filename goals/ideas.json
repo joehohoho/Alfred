@@ -1102,7 +1102,7 @@
     "title": "LEDES Rejection Fixer (Law Firm Billing)",
     "description": "Micro-SaaS that ingests rejected e-billing/LEDES files and auto-suggests corrected narratives, UTBMS codes, and format fixes before resubmission. Recurring model: per timekeeper/month + overage per 1k line items. Why fit: Joe has deep legal billing/data transformation expertise. Build effort: Low-Medium (2-4 weeks MVP using parser + rules + AI rewrite). Maintenance: Low (rules updates + occasional client guideline templates). Upside estimate: Medium-High (k-k MRR with 10-40 boutique/mid firms at -).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1111,7 +1111,23 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T22:13:17.042Z",
-    "updatedAt": "2026-02-26T22:13:17.042Z"
+    "updatedAt": "2026-02-27T19:35:59.664Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T19:12:51.202Z",
+    "comments": [
+      {
+        "id": "cmt_1772220953136_40101a83",
+        "author": "joe",
+        "text": "Rejected: unless it’s a great new idea and easy to implement I’d rather avoid legal software. There is also a number of companies doing this",
+        "createdAt": "2026-02-27T19:35:53.136Z"
+      },
+      {
+        "id": "cmt_1772220959664_a953acc2",
+        "author": "alfred",
+        "text": "Acknowledged. I will avoid legal-software ideas by default and only surface one if it is genuinely novel, clearly differentiated from existing vendors, and very low build complexity. I’ll shift ideation focus to non-legal niches (automation, trading, SMB ops, Canada-specific compliance outside legal vertical).",
+        "createdAt": "2026-02-27T19:35:59.664Z"
+      }
+    ]
   },
   {
     "id": "idea_1772144000804_92cef3aa",
@@ -1134,7 +1150,7 @@
     "title": "Automation Health Monitor for SMB Zapier/Make Stacks",
     "description": "Low-touch monitoring layer for SMBs/agencies: checks failed runs, stale scenarios, quota burn, and data mismatch signals across Zapier/Make; sends plain-English daily digest + one-click fix playbooks. Recurring model: per workspace + per automation volume. Build effort: Low-Medium (2-5 weeks MVP, API polling + rule engine + alerts). Maintenance: Low-Medium (API changes occasionally). Upside estimate: Medium-High (k-k MRR with 30-100 accounts at -).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1143,30 +1159,46 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T22:13:25.131Z",
-    "updatedAt": "2026-02-26T22:13:25.131Z"
+    "updatedAt": "2026-02-27T19:12:45.148Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T19:12:45.148Z"
   },
   {
     "id": "idea_1772150493557_004e1541",
     "title": "Even Us Up growth audit — UX friction, missing features, growth levers",
     "description": "Even Us Up growth audit (competitive baseline: Splitwise + modern expense-sharing apps).\\n\\nTop 3 UX friction points (prioritized):\\n1) Onboarding-to-first-value too long (group creation + member invites + first expense often >5 taps/screens).\\n   - Impact: user drop-off before first settled balance.\\n   - Effort: Medium (3-5 days) to add guided quick-start + sample group + single-screen first expense flow.\\n2) Debt clarity at a glance is weak (users care about ‘who owes whom now’ + fastest settlement path).\\n   - Impact: confusion reduces repeat opens and payment completion.\\n   - Effort: Medium (4-7 days) for a persistent balance summary card + 1-tap settle recommendation.\\n3) Settlement flow has too much cognitive load (manual partial splits, custom shares, reimbursements not obvious).\\n   - Impact: support burden + churn in friend groups.\\n   - Effort: Medium-High (1-2 weeks) for smarter split presets and live preview of post-transaction balances.\\n\\nTop 3 missing features (differentiators + retention):\\n1) Household recurring expenses + auto-split templates (rent, utilities, subscriptions).\\n   - Differentiator: stronger for couples/roommates than trip-only competitors.\\n   - Effort: Medium (1-2 weeks MVP).\\n2) Bill/receipt capture with OCR + smart line-item split suggestions.\\n   - Differentiator: faster real-world logging than manual entry.\\n   - Effort: Medium-High (2-3 weeks using OCR API).\\n3) Settlement rails + reminders (Interac-focused in Canada, plus nudges + proof of payment).\\n   - Differentiator: closes loop from tracking to paid.\\n   - Effort: Medium (1-2 weeks for reminder + confirmation flow; payment integration varies).\\n\\nTop 3 growth levers (highest ROI first):\\n1) Referral loop tied to real value moment (after first successful settle): ‘invite roommates/family and unlock premium template pack’.\\n   - Effort: Low-Medium (3-5 days).\\n2) SEO program around intent keywords (‘split rent Canada’, ‘roommate expense tracker’, ‘trip cost calculator’) with calculator landing pages.\\n   - Effort: Medium (1 week initial pages + analytics).\\n3) B2B2C channel: property managers/college housing welcome kits with co-branded onboarding links.\\n   - Effort: Medium-High (2-4 weeks pilot ops).\\n\\nRecommended 30-day sequence:\\n- Week 1: quick-start onboarding + debt clarity card\\n- Week 2: recurring expense templates\\n- Week 3: referral trigger after settle\\n- Week 4: 3 SEO calculator pages + experiment tracking\\n\\nSuccess metrics:\\n- Activation: % users creating first group + first expense within 10 min\\n- Retention: D7/D30 active group ratio\\n- Monetization proxy: % groups with recurring templates enabled\\n- Growth: invite conversion rate + organic landing conversion\\n\\nNote: This is a product-growth audit from market patterns; code-level UX validation can be refined once the Even Us Up repository/design files are linked.",
     "category": "growth",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
     "evaluation": null,
-    "promotedToGoalId": null,
+    "promotedToGoalId": "goal_1772219519356_e32b8bd3",
     "tags": [],
     "createdAt": "2026-02-27T00:01:33.557Z",
-    "updatedAt": "2026-02-27T00:01:33.557Z"
+    "updatedAt": "2026-02-27T19:12:21.127Z",
+    "comments": [
+      {
+        "id": "cmt_1772219514904_d3ab214f",
+        "author": "joe",
+        "text": "There is a lot to unpack in the large description block, can you this in a more legible format in discords channel #general-research",
+        "createdAt": "2026-02-27T19:11:54.904Z"
+      },
+      {
+        "id": "cmt_1772219541127_00056c23",
+        "author": "alfred",
+        "text": "Posted a reformatted, readable growth audit summary to Discord #general-research (message sent successfully). I split it into: UX friction priorities, missing features, growth levers, 30-day sequence, and success metrics.",
+        "createdAt": "2026-02-27T19:12:21.127Z"
+      }
+    ]
   },
   {
     "id": "idea_1772170989111_0d184bea",
     "title": "Law Firm Intake Ghosting Recovery Bot",
     "description": "Niche SaaS: watches missed consult leads (web forms/Clio/MyCase + email/SMS), auto-sends compliant follow-up sequence, and books consult slots automatically. Low-build stack: Zapier/Make + Twilio + Calendly + simple dashboard. Effort estimate: 2-3 weeks MVP, low maintenance monthly. Upside estimate: -/firm/month + optional  setup; target 20 firms = ~k-k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1175,7 +1207,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T05:43:09.111Z",
-    "updatedAt": "2026-02-27T05:43:09.111Z"
+    "updatedAt": "2026-02-27T19:09:38.615Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T19:09:38.615Z"
   },
   {
     "id": "idea_1772170992797_76e46495",
@@ -1214,7 +1248,7 @@
     "title": "Trust Reconcile Watchdog (Law Firms)",
     "description": "Monthly trust-account reconciliation checker for small law firms: ingest bank CSV + ledger exports, auto-flag 3-way mismatches, and email a compliance-ready summary. Low-maintenance rule engine + templates. Effort: 2-3 weeks MVP. Upside: 9-99/mo per firm, high retention due to compliance pain.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1223,7 +1257,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T09:43:20.740Z",
-    "updatedAt": "2026-02-27T09:43:20.740Z"
+    "updatedAt": "2026-02-27T19:09:11.376Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T19:09:11.376Z"
   },
   {
     "id": "idea_1772185400887_da5c3f76",
@@ -1256,5 +1292,163 @@
     "tags": [],
     "createdAt": "2026-02-27T09:43:21.058Z",
     "updatedAt": "2026-02-27T09:43:21.058Z"
+  },
+  {
+    "id": "idea_1772201755762_872554ce",
+    "title": "Law Firm Trust Ledger Anomaly Monitor",
+    "description": "Connect to legal billing/accounting exports (CSV/API) and run nightly checks for trust ledger mismatches, stale retainers, negative balances, and missing three-way reconciliation items. Auto-email weekly compliance digest + alerts. Subscription by firm size.\n\nWhy low-build: rule-based checks + scheduled reports; no heavy UI needed.\nEffort: Low-Medium (2-4 weeks MVP).\nUpside: Medium-High (-/mo; sticky due to compliance risk).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T14:15:55.762Z",
+    "updatedAt": "2026-02-27T14:15:55.762Z"
+  },
+  {
+    "id": "idea_1772201755893_e8f6f551",
+    "title": "Broker Statement Auto-Journal for SMB Bookkeeping",
+    "description": "SMBs/traders upload monthly broker statements (IBKR/Questrade/crypto exchanges), system normalizes trades/fees/dividends and posts clean journal entries to QuickBooks/Xero. Recurring monthly close workflow + exception queue.\n\nWhy low-build: file-ingest + mapping engine; mostly deterministic transforms.\nEffort: Medium (3-6 weeks MVP for 1-2 brokers).\nUpside: High (-/mo/accountant seat model + setup fee).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T14:15:55.893Z",
+    "updatedAt": "2026-02-27T14:15:55.893Z"
+  },
+  {
+    "id": "idea_1772201756023_d1b85ff5",
+    "title": "Client Intake-to-Task Automation for Solo/Small Law Firms",
+    "description": "A lightweight automation service: intake form/email parser -> matter template generation -> checklist/reminders/doc request workflow in existing tools (Clio/MyCase/Google Workspace). Offer as managed automation with monthly maintenance.\n\nWhy low-build: orchestration over existing SaaS APIs/Zapier-like flows.\nEffort: Low (1-3 weeks per vertical template, reusable playbooks).\nUpside: Medium-High (-/mo managed automation retainer).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T14:15:56.023Z",
+    "updatedAt": "2026-02-27T14:15:56.023Z"
+  },
+  {
+    "id": "idea_1772214074252_c1830a08",
+    "title": "Legal LEDES Rejection Fix Bot",
+    "description": "Niche SaaS for small/mid law firms: ingest client e-bill rejection reports (LEDES/UTBMS), auto-map fixes, and generate corrected bills + rule suggestions. Integrates with Elite export files and email inbox. Recurring value: every invoice cycle. Effort: Low-Med (2-4 weeks MVP). Upside: Med-High (-/mo per firm, low churn once embedded).",
+    "category": "growth",
+    "status": "archived",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T17:41:14.252Z",
+    "updatedAt": "2026-02-27T19:08:41.900Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T19:08:41.900Z"
+  },
+  {
+    "id": "idea_1772214074385_7c042460",
+    "title": "Broker Statement Reconciler for Retail Traders",
+    "description": "Automation SaaS: connect broker CSV/PDF exports + exchange fills, normalize trades, detect P&L/tax lot mismatches, and push clean entries to Google Sheets/Notion/QuickBooks monthly. Focus on swing/day traders who hate reconciliation. Effort: Low (1-3 weeks MVP with CSV-first). Upside: Medium (-/mo + annual tax-season retention).",
+    "category": "growth",
+    "status": "archived",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T17:41:14.385Z",
+    "updatedAt": "2026-02-27T19:08:52.878Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T19:08:52.878Z"
+  },
+  {
+    "id": "idea_1772214074515_61f91296",
+    "title": "SMB Automation Health Monitor",
+    "description": "Lightweight monitoring SaaS for Zapier/Make/n8n workflows: heartbeat checks, failed-run digest, retry playbooks, and weekly ROI report emailed to owner. Position as \"insurance for automations\" for consultants/SMBs. Effort: Low (2-3 weeks MVP). Upside: High (-/mo, sticky recurring due to operational risk reduction).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T17:41:14.515Z",
+    "updatedAt": "2026-02-27T17:41:14.515Z"
+  },
+  {
+    "id": "idea_1772224937065_65b311c0",
+    "title": "LEDES Rejection Shield for Small Law Firms",
+    "description": "SaaS that pre-validates invoices/time entries against client billing guidelines and LEDES format before submission, then auto-fixes common rejection causes and tracks compliance drift. Integrates with Clio/MyCase via CSV/API import. Recurring model: per-matter or per-seat monthly. Effort: Low-Medium (2-4 weeks MVP). Upside: Medium-High (k-k MRR niche B2B with low churn).",
+    "category": "growth",
+    "status": "archived",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T20:42:17.065Z",
+    "updatedAt": "2026-02-27T20:42:41.391Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-27T20:42:41.314Z",
+    "comments": [
+      {
+        "id": "cmt_1772224961390_bd323cf6",
+        "author": "alfred",
+        "text": "Auto-rejected to align with Joe preference: avoid legal software ideas unless clearly novel, easy, and differentiated.",
+        "createdAt": "2026-02-27T20:42:41.390Z"
+      }
+    ]
+  },
+  {
+    "id": "idea_1772224940569_ca9f2ab5",
+    "title": "Broker Statement → Trade Journal Auto-Reconciler",
+    "description": "Upload broker exports (IBKR, Questrade, Binance, etc.) and auto-normalize trades, fees, and P/L into one clean journal with weekly performance emails and tax-lot snapshots. Focus on automation + reporting, not signal generation. Recurring model: tiers by connected accounts/import volume. Effort: Low (1-3 weeks MVP with CSV-first). Upside: Medium (-k MRR solo founder attainable).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T20:42:20.569Z",
+    "updatedAt": "2026-02-27T20:42:20.569Z"
+  },
+  {
+    "id": "idea_1772224945902_f2afef7d",
+    "title": "Automation Drift Monitor for SMB Workflows",
+    "description": "Micro-SaaS that watches Zapier/Make/n8n/Google Sheet automations for silent failures, schema changes, rising run-time, and missing outputs; sends plain-English alerts + one-click remediation playbooks. Recurring model: by number of workflows monitored. Effort: Medium (3-5 weeks MVP). Upside: High (broad SMB demand; k-k MRR potential with low support).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T20:42:25.902Z",
+    "updatedAt": "2026-02-27T20:42:25.902Z"
   }
 ]

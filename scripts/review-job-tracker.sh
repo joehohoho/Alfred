@@ -1,6 +1,8 @@
 #!/bin/bash
 # Phase 2.A: Chunked Code Review for job-tracker
 # Reduces review time: 240s (full) → 60s (diffs) → 15s (cached)
+# IMPORTANT: This script is used by cron jobs with built-in delivery.
+# Assistant should return summary text only; do NOT call message tool directly.
 
 set -euo pipefail
 
@@ -46,6 +48,7 @@ if [ "$CACHED_HASH" = "$CURRENT_HASH" ] && [ -n "$CACHED_HASH" ]; then
   CACHE_TIMESTAMP=$(date +%s000)
   jq ".lastGitHash=\"$CURRENT_HASH\" | .cacheHits=$CACHE_HITS | .totalRuns=$TOTAL_RUNS | .lastReviewTime=$CACHE_TIMESTAMP" "$CACHE_FILE" > "$CACHE_FILE.tmp" && mv "$CACHE_FILE.tmp" "$CACHE_FILE"
   
+  echo "DELIVERY_HINT: Cron delivery is configured for this job. Return summary text only; do NOT call message/send tool."
   echo "✓ CODE REVIEW: CACHE HIT (no changes since last review)"
   echo "Git hash: $CURRENT_HASH (unchanged)"
   echo "Cache stats: $CACHE_HITS hits / $TOTAL_RUNS total runs"
@@ -111,6 +114,7 @@ PROMPT_LINES=$(wc -l < "$REVIEW_SCRIPT_TEMP")
 PROMPT_CHARS=$(wc -c < "$REVIEW_SCRIPT_TEMP")
 
 # Output for inference engine
+echo "DELIVERY_HINT: Cron delivery is configured for this job. Return review summary text only; do NOT call message/send tool."
 echo "CODE_REVIEW_PROMPT_SIZE: $PROMPT_CHARS bytes, $PROMPT_LINES lines"
 echo "REVIEW_TYPE: $REVIEW_SCOPE"
 cat "$REVIEW_SCRIPT_TEMP"

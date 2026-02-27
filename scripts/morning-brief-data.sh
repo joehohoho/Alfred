@@ -5,6 +5,8 @@
 
 set -o pipefail
 
+echo "DELIVERY_HINT: Cron delivery is configured for Morning Brief. Return formatted brief text only; do NOT call message/send tool directly."
+echo ""
 echo "=== SYSTEM HEALTH ==="
 bash "$HOME/.openclaw/workspace/scripts/cron-health-check.sh" 2>&1
 echo ""

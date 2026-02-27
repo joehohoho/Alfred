@@ -162,11 +162,9 @@
     "status": "active",
     "dueDate": null,
     "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "metadata": {},
     "createdAt": "2026-02-24T08:45:32.218Z",
-    "updatedAt": "2026-02-27T04:03:20.743Z",
+    "updatedAt": "2026-02-27T16:39:03.019Z",
     "comments": [
       {
         "id": "cmt_1772057816097_e39ca5b3",
@@ -227,6 +225,18 @@
         "author": "alfred",
         "text": "Implementation status: completed first delivery scope. Updated calculator + docs and regenerated dashboard/project-pnl.json with burn-rate and category breakdown fields. Ready for your review; optional next step is automated refresh scheduling (15/30/60 min). Moving card to Review.",
         "createdAt": "2026-02-27T04:03:20.670Z"
+      },
+      {
+        "id": "cmt_1772204932373_73853cc9",
+        "author": "joe",
+        "text": "What are the specific things to review and what are the next steps.",
+        "createdAt": "2026-02-27T15:08:52.373Z"
+      },
+      {
+        "id": "cmt_1772204957962_697c2be6",
+        "author": "alfred",
+        "text": "Great question — here’s exactly what to review and the concrete next steps.\n\nWhat to review now:\n1) Cost model assumptions: hourly rates, fixed software/tool costs, overhead allocation method, tax treatment assumptions.\n2) Data mapping: are all projects correctly mapped to invoices, time logs, and expense buckets.\n3) P&L formula logic: revenue recognition timing, direct vs indirect costs, handling of one-time expenses, margin calculations.\n4) Output quality: per-project gross margin %, net margin %, and any outliers that look unrealistic.\n5) Decision usefulness: does the report clearly show which projects to grow, fix, or de-prioritize.\n\nNext steps (recommended sequence):\n1) Lock assumptions (single source-of-truth table) so future runs are consistent.\n2) Validate 2-3 historical projects manually against source records.\n3) Fix any allocation/mapping errors found in validation.\n4) Add exception flags (negative margin, missing costs, low-confidence estimates).\n5) Move to done once validation passes and exception handling is in place; then schedule recurring refresh cadence (weekly/monthly).\n\nIf you want, I can turn this into a short acceptance checklist on the card and mark each item as it’s verified.",
+        "createdAt": "2026-02-27T15:09:17.962Z"
       }
     ]
   },
@@ -289,10 +299,14 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress"
+      "assignedColumn": "in_progress",
+      "assignedAt": "2026-02-27T16:03:10.262Z",
+      "deliveryStatus": "delivered",
+      "deliveryMessageId": "962e0ac4-73e0-440a-93c0-ee535cb0f4a8",
+      "lastRescanAt": "2026-02-27T16:03:10.262Z"
     },
     "createdAt": "2026-02-24T08:47:45.059Z",
-    "updatedAt": "2026-02-27T08:03:16.522Z",
+    "updatedAt": "2026-02-27T16:03:10.262Z",
     "comments": [
       {
         "id": "cmt_1772068652889_e0850847",
@@ -618,5 +632,19 @@
         "createdAt": "2026-02-26T14:08:20.634Z"
       }
     ]
+  },
+  {
+    "id": "goal_1772219519356_e32b8bd3",
+    "title": "Even Us Up growth audit — UX friction, missing features, growth levers",
+    "description": "Even Us Up growth audit (competitive baseline: Splitwise + modern expense-sharing apps).\\n\\nTop 3 UX friction points (prioritized):\\n1) Onboarding-to-first-value too long (group creation + member invites + first expense often >5 taps/screens).\\n   - Impact: user drop-off before first settled balance.\\n   - Effort: Medium (3-5 days) to add guided quick-start + sample group + single-screen first expense flow.\\n2) Debt clarity at a glance is weak (users care about ‘who owes whom now’ + fastest settlement path).\\n   - Impact: confusion reduces repeat opens and payment completion.\\n   - Effort: Medium (4-7 days) for a persistent balance summary card + 1-tap settle recommendation.\\n3) Settlement flow has too much cognitive load (manual partial splits, custom shares, reimbursements not obvious).\\n   - Impact: support burden + churn in friend groups.\\n   - Effort: Medium-High (1-2 weeks) for smarter split presets and live preview of post-transaction balances.\\n\\nTop 3 missing features (differentiators + retention):\\n1) Household recurring expenses + auto-split templates (rent, utilities, subscriptions).\\n   - Differentiator: stronger for couples/roommates than trip-only competitors.\\n   - Effort: Medium (1-2 weeks MVP).\\n2) Bill/receipt capture with OCR + smart line-item split suggestions.\\n   - Differentiator: faster real-world logging than manual entry.\\n   - Effort: Medium-High (2-3 weeks using OCR API).\\n3) Settlement rails + reminders (Interac-focused in Canada, plus nudges + proof of payment).\\n   - Differentiator: closes loop from tracking to paid.\\n   - Effort: Medium (1-2 weeks for reminder + confirmation flow; payment integration varies).\\n\\nTop 3 growth levers (highest ROI first):\\n1) Referral loop tied to real value moment (after first successful settle): ‘invite roommates/family and unlock premium template pack’.\\n   - Effort: Low-Medium (3-5 days).\\n2) SEO program around intent keywords (‘split rent Canada’, ‘roommate expense tracker’, ‘trip cost calculator’) with calculator landing pages.\\n   - Effort: Medium (1 week initial pages + analytics).\\n3) B2B2C channel: property managers/college housing welcome kits with co-branded onboarding links.\\n   - Effort: Medium-High (2-4 weeks pilot ops).\\n\\nRecommended 30-day sequence:\\n- Week 1: quick-start onboarding + debt clarity card\\n- Week 2: recurring expense templates\\n- Week 3: referral trigger after settle\\n- Week 4: 3 SEO calculator pages + experiment tracking\\n\\nSuccess metrics:\\n- Activation: % users creating first group + first expense within 10 min\\n- Retention: D7/D30 active group ratio\\n- Monetization proxy: % groups with recurring templates enabled\\n- Growth: invite conversion rate + organic landing conversion\\n\\nNote: This is a product-growth audit from market patterns; code-level UX validation can be refined once the Even Us Up repository/design files are linked.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "inReview": true
+    },
+    "createdAt": "2026-02-27T19:11:59.356Z",
+    "updatedAt": "2026-02-27T19:11:59.359Z"
   }
 ]
