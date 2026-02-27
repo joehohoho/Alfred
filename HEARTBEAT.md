@@ -165,21 +165,14 @@ Logs stored in:
 
 ---
 
-## 🔔 Slack Task Notifications
+## 🔔 Task Completion Notifications
 
-**General completions:** Slack channel **C0AEE0PLKB4**
 **HAL completions:** Discord webhook (`DISCORD_WEBHOOK_HAL_COMPLETIONS`) — use `scripts/hal-slack-notify.sh`
+*(Updated 2026-02-26: HAL completions moved from Slack C0AEE0PLKB4 → Discord webhook per Joe's directive)*
 
 When HAL finishes a task, post via the Discord webhook using `scripts/hal-slack-notify.sh`:
 ```bash
 bash ~/.openclaw/workspace/scripts/hal-slack-notify.sh "Task Title" "What HAL did and delivered"
-```
-
-Format for general notifications (C0AEE0PLKB4):
-```
-✅ [TASK_NAME]
-Brief summary of what was done
-Result: [accomplishment summary]
 ```
 
 Format for HAL notifications — see `hal-slack-notify.sh` for template.

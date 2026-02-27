@@ -119,7 +119,7 @@ bash ~/.openclaw/workspace/scripts/kanban-blocker.sh <card_id> "<question for Jo
 
 ---
 
-## 9. Kanban Idea Quality Standard
+## 7. Kanban Idea Quality Standard
 
 **Never add an idea to the Kanban board just to fill it.** Every idea must be well-researched and genuinely strong before it gets a card.
 
@@ -155,7 +155,7 @@ This includes (but is not limited to):
 
 ---
 
-## 7. General Quality Bar
+## 9. General Quality Bar
 
 - Test before committing. Don't commit broken code
 - If a task touches a live service, be conservative — report findings rather than acting
