@@ -163,10 +163,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "inReview": true
+      "assignedColumn": "todo"
     },
     "createdAt": "2026-02-24T08:45:32.218Z",
-    "updatedAt": "2026-02-26T12:01:55.242Z",
+    "updatedAt": "2026-02-27T01:02:48.723Z",
     "comments": [
       {
         "id": "cmt_1772057816097_e39ca5b3",
@@ -277,10 +277,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "inReview": true
+      "assignedColumn": "todo"
     },
     "createdAt": "2026-02-24T08:47:45.059Z",
-    "updatedAt": "2026-02-26T13:15:27.267Z",
+    "updatedAt": "2026-02-27T01:02:48.592Z",
     "comments": [
       {
         "id": "cmt_1772068652889_e0850847",
@@ -444,14 +444,12 @@
     "title": "BuilderPulse — AI Ops Digest for Indie Builders",
     "description": "**What it is:** A monitoring + AI digest tool for indie hackers and solo builders. Tracks their apps uptime, key metrics (signups, revenue, errors), and delivers a daily/weekly AI-written ops summary — like having a part-time ops analyst.\n\n**Why Joe:** Fits the automation/AI consulting angle perfectly. Low-touch SaaS, recurring revenue, no heavy support. Alfred can dogfood it.\n\n**Revenue model:** $19–99/mo tiered by number of apps monitored. Potential MRR at 100 customers: ~$3,000–5,000.\n\n**Effort:** Medium build (integrations: Stripe, GitHub, Render/Fly/Vercel health checks, OpenAI for digest). 4–6 weeks MVP.\n\n**Maintenance:** Low — mostly infra + prompt tuning. No real-time support burden.\n\n**Moat:** Personalized AI voice per builder over time (learns their tone/priorities).\n\n**14-Day Kickoff Plan:**\n- Days 1–3: Landing page + waitlist\n- Days 4–7: MVP (1 app monitored, daily digest email)\n- Days 8–12: Add Stripe billing, multi-app support\n- Days 13–14: Beta invite 20 users\n\n**Alfred rating:** ⭐ TOP PICK — highest passive income potential with lowest ongoing effort.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-02-27T01:02:48.329Z",
+    "metadata": {},
     "createdAt": "2026-02-26T06:20:04.982Z",
-    "updatedAt": "2026-02-26T12:03:48.575Z",
+    "updatedAt": "2026-02-27T01:02:48.330Z",
     "comments": [
       {
         "id": "cmt_1772089503730_3e71ffb7",
@@ -538,14 +536,12 @@
     "title": "System Fail Safe",
     "description": "Setup a simple ping process for Alfred and HAL to verify they’re running, if one is down for unexpected reasons troubleshoot the issue so the problem can be resolved and they can be back up and running. Use the tools you need to recover each other.  When checking if each are running, if one is down, create a verification process to confirm there’s an issue so one doesn’t jump into troubleshooting mode just for a system reset, upgrade, etc.",
     "priority": "critical",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-02-27T00:48:33.530Z",
+    "metadata": {},
     "createdAt": "2026-02-26T07:50:09.316Z",
-    "updatedAt": "2026-02-26T18:03:49.761Z",
+    "updatedAt": "2026-02-27T00:48:33.530Z",
     "comments": [
       {
         "id": "cmt_1772129008580_4732a58b",
@@ -566,14 +562,12 @@
     "title": "New Product — Overnight Build #2",
     "description": "While I sleep, Alfred and HAL brainstorm to come up with the best idea (NO law firm verticals). Research to make sure it's viable and makes sense. Build a completed, working, tested product overnight. Fully autonomous — no Joe intervention during build. Joe's action items only (API keys, deploy, etc.) left for morning. Post thought process to Discord #alfred-and-hal. Post summary + detailed report to Discord webhook: https://discord.com/api/webhooks/1476469554396921927/EFHZsXy-hiMKUFEvIYBoScyox9tZ-EwoLJCEZDBYBAqU59hNa-eczc_pow3KjQSfin9U. Well documented. Avoid: law firm vertical.",
     "priority": "critical",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-02-27T01:02:48.197Z",
+    "metadata": {},
     "createdAt": "2026-02-26T13:51:31.898Z",
-    "updatedAt": "2026-02-26T14:08:20.634Z",
+    "updatedAt": "2026-02-27T01:02:48.197Z",
     "comments": [
       {
         "id": "cmt_1772113898511_b748d33f",
