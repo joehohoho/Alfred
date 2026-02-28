@@ -1497,35 +1497,57 @@
     "title": "CoinUsUp: Fix npm audit vulns via package.json overrides",
     "description": "Add overrides block to CoinUsUp/package.json to force safer versions of tar and minimatch (dev-only CVEs from @capacitor/assets). Steps: 1) Add overrides for minimatch and tar to package.json, 2) Run npm install, 3) Run npm audit to verify reduction, 4) Run npm audit --omit=dev to confirm 0 prod vulns, 5) Test cap sync still works.",
     "goalId": "",
-    "status": "in_progress",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-28T15:31:07.400Z",
-    "updatedAt": "2026-02-28T15:36:40.684Z"
+    "updatedAt": "2026-02-28T16:01:11.749Z"
   },
   {
     "id": "task_1772292674542_b270d4bb",
     "title": "CoinUsUp: Remove @capacitor/assets if icons already generated",
     "description": "If the npm overrides approach fails or introduces build issues, remove @capacitor/assets devDependency entirely (icons are a one-time generation step). Steps: 1) Verify icons/splash screens are committed and complete in ios/android dirs, 2) Run npm uninstall @capacitor/assets, 3) Run npm audit to confirm 0 vulns, 4) Test build pipeline still works. Can reinstall temporarily if icons ever need regenerating.",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-28T15:31:14.542Z",
-    "updatedAt": "2026-02-28T15:31:18.538Z"
+    "updatedAt": "2026-02-28T16:02:31.522Z",
+    "assignedAt": "2026-02-28T16:01:11.773Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "466b1d2a-f036-42c4-ad9c-bf3170b8646c",
+    "comments": [
+      {
+        "id": "cmt_1772294551522_aae517cc",
+        "author": "alfred",
+        "text": "✅ Done. Icons/splash screens verified committed in both ios/ and android/ dirs. Uninstalled @capacitor/assets, audit vulns reduced from 10 → 4 HIGH (remaining 4 are vite-plugin-pwa chain, unfixable without major upgrade). npm audit --omit=dev: 0 prod vulns. cap sync android ✅, npm run build ✅. Committed locally: b6f8b08 (not pushed — CUU approval needed).",
+        "createdAt": "2026-02-28T16:02:31.522Z"
+      }
+    ]
   },
   {
     "id": "task_1772292678748_39b49d70",
     "title": "CoinUsUp: Update CI to use npm audit --omit=dev",
     "description": "Ensure any CI/CD pipeline (GitHub Actions, etc.) runs npm audit --omit=dev instead of bare npm audit, since all vulnerabilities are dev-only and do not affect the production app. Steps: 1) Check existing CI config for npm audit calls, 2) Update audit flags, 3) Document rationale in a comment.",
     "goalId": "",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-28T15:31:18.748Z",
-    "updatedAt": "2026-02-28T15:31:21.630Z"
+    "updatedAt": "2026-02-28T16:03:17.045Z",
+    "assignedAt": "2026-02-28T16:02:26.008Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "6a073b93-fefb-4cfc-afa6-ce281775eaec",
+    "comments": [
+      {
+        "id": "cmt_1772294597045_ccef111f",
+        "author": "alfred",
+        "text": "✅ Done. No existing CI config found — created .github/workflows/ci.yml from scratch with npm audit --omit=dev plus rationale comment explaining why (all vulns are dev-only build tooling, not in production bundle). Also includes Node 20 setup, npm ci --legacy-peer-deps, and npm run build steps. Committed locally: b1f78c5 (not pushed — CUU approval needed).",
+        "createdAt": "2026-02-28T16:03:17.045Z"
+      }
+    ]
   }
 ]
