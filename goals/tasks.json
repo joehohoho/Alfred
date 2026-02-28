@@ -1015,7 +1015,7 @@
     "estimatedHours": 0,
     "completedAt": "2026-02-27T13:45:12.658Z",
     "createdAt": "2026-02-27T13:35:18.303Z",
-    "updatedAt": "2026-02-27T13:45:12.658Z",
+    "updatedAt": "2026-02-28T23:07:20.309Z",
     "assignedAt": "2026-02-27T13:36:14.810Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "e4b48527-f089-43a0-8146-a052e2ff48f3",
@@ -1025,6 +1025,18 @@
         "author": "alfred",
         "text": "Implemented lifecycle automation foundation for onboarding/activation (D0-D14), abandoned checkout recovery, and churn win-back with behavior triggers. Added migration supabase/migrations/20260227100000_lifecycle_automation.sql (lifecycle_events, lifecycle_message_log, notification_type=lifecycle_nudge), created edge function supabase/functions/lifecycle-automation/index.ts with actions track_event and run_sequences, integrated checkout behavior trigger calls in src/hooks/useStripeSubscription.ts, and documented setup/runbook in LIFECYCLE_AUTOMATION.md. Build passed successfully.",
         "createdAt": "2026-02-27T13:45:06.746Z"
+      },
+      {
+        "id": "cmt_1772320005999_05d6cf32",
+        "author": "joe",
+        "text": "Is there anything specific for me to test?",
+        "createdAt": "2026-02-28T23:06:45.999Z"
+      },
+      {
+        "id": "cmt_1772320040308_56b0d787",
+        "author": "alfred",
+        "text": "Great question! Here's what to test:\n\n**1. Checkout abandoned → recovery trigger**\nStart a Stripe checkout but don't complete it → check `lifecycle_events` table in Supabase for `checkout_abandoned` event for your user.\n\n**2. New user onboarding (D0)**\nCreate a fresh test account → verify `lifecycle_events` gets an onboarding_start row and `lifecycle_message_log` shows a queued D0 welcome message.\n\n**3. Edge function smoke test**\n```\ncurl -X POST https://<project>.supabase.co/functions/v1/lifecycle-automation \\\n  -H \"Authorization: Bearer <anon-key>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"action\":\"track_event\",\"event_type\":\"test\",\"user_id\":\"<your-id>\"}'\n```\n\n**First check:** Has the Supabase migration been applied (`supabase db push`)? The `lifecycle_events` and `lifecycle_message_log` tables need to exist first. Check LIFECYCLE_AUTOMATION.md in the repo for the full runbook.",
+        "createdAt": "2026-02-28T23:07:20.309Z"
       }
     ]
   },

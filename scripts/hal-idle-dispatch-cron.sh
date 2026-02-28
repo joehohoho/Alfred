@@ -1,12 +1,12 @@
 #!/bin/bash
 # hal-idle-dispatch-cron.sh
-# Called by HAL Idle Check & Dispatch cron every 10 min.
+# Called by HAL Idle Check & Dispatch cron every 20 min.
 # Outputs structured [ACTION:...] lines for Alfred to act on.
 #
 # Flow:
-#   1. Check if HAL ran a Kanban task recently (10-min cooldown)
+#   1. Check if HAL ran a Kanban task recently (15-min cooldown)
 #   2. Try Kanban To Do (blocked if a card is already in_progress)
-#   3. If blocked/empty → try proactive pool (15-min cooldown, no board move needed)
+#   3. If blocked/empty → try proactive pool (25-min cooldown, no board move needed)
 #   4. Output [ACTION:DISPATCH_KANBAN], [ACTION:DISPATCH_PROACTIVE], or [ACTION:SKIP]
 
 set -euo pipefail
@@ -34,8 +34,8 @@ if [[ -f "$FORCED_IDLE_FILE" ]]; then
   fi
 fi
 
-KANBAN_COOLDOWN_MIN=10   # don't re-dispatch a Kanban task within 10 min
-PROACTIVE_COOLDOWN_MIN=15 # don't re-dispatch a proactive task within 15 min
+KANBAN_COOLDOWN_MIN=15   # don't re-dispatch a Kanban task within 15 min
+PROACTIVE_COOLDOWN_MIN=25 # don't re-dispatch a proactive task within 25 min
 
 # ── Helper: minutes since last dispatch of a given type ─────────────────────
 minutes_since_last_dispatch() {
