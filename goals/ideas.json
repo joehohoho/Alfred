@@ -273,16 +273,19 @@
     "title": "Consulting Rate Optimizer",
     "description": "Tool that analyzes Joe's consulting project profitability, skill gaps, client quality, and recommends rate increases or project passes. Maximizes income per hour.",
     "category": "consulting",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "low",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5.3,
+      "notes": "Strong personal-use case — Joe is the ideal user with 20yr consulting background — but primarily an internal productivity tool with near-zero passive income potential in current framing. Best built as an internal Alfred tool first; productize only if insights prove broadly valuable to other consultants."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-21T18:13:12.820Z",
-    "updatedAt": "2026-02-21T18:13:12.820Z"
+    "updatedAt": "2026-02-28T02:02:43.621Z"
   },
   {
     "id": "idea_1771768800001_ai_cost_audit",
