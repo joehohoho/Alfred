@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-28T22:01:04.626Z",
-  "lastActivityType": "evaluate-idea",
+  "lastActivityAt": "2026-02-28T23:01:07.079Z",
+  "lastActivityType": "goal-progress-check",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -121,8 +121,12 @@
       "type": "evaluate-idea",
       "dispatchedAt": "2026-02-28T22:01:04.626Z",
       "ideaId": "idea_1772054445669_fe34f915"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-02-28T23:01:07.079Z"
     }
   ],
-  "totalIdleDispatches": 28,
+  "totalIdleDispatches": 29,
   "cooldownMinutes": 25
 }
