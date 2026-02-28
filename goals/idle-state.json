@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-27T01:01:52.980Z",
-  "lastActivityType": "goal-progress-check",
+  "lastActivityAt": "2026-02-27T23:01:06.078Z",
+  "lastActivityType": "improve-self",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -65,8 +65,12 @@
     {
       "type": "goal-progress-check",
       "dispatchedAt": "2026-02-27T01:01:52.980Z"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-02-27T23:01:06.078Z"
     }
   ],
-  "totalIdleDispatches": 15,
+  "totalIdleDispatches": 16,
   "cooldownMinutes": 25
 }

@@ -299,14 +299,10 @@
     "dueDate": null,
     "completedAt": null,
     "metadata": {
-      "assignedColumn": "in_progress",
-      "assignedAt": "2026-02-27T16:03:10.262Z",
-      "deliveryStatus": "delivered",
-      "deliveryMessageId": "962e0ac4-73e0-440a-93c0-ee535cb0f4a8",
-      "lastRescanAt": "2026-02-27T16:03:10.262Z"
+      "inReview": true
     },
     "createdAt": "2026-02-24T08:47:45.059Z",
-    "updatedAt": "2026-02-27T16:03:10.262Z",
+    "updatedAt": "2026-02-27T23:06:07.918Z",
     "comments": [
       {
         "id": "cmt_1772068652889_e0850847",
@@ -373,6 +369,24 @@
         "author": "alfred",
         "text": "Received duplicate assignment notice. This card is already in_progress and actively being worked. Continuing execution; will post the next milestone update here.",
         "createdAt": "2026-02-27T04:03:36.500Z"
+      },
+      {
+        "id": "cmt_1772233266079_366e974c",
+        "author": "alfred",
+        "text": "🔄 Stale re-dispatch — card stale for 7h. Attempting re-dispatch to get it moving again. If still stuck after 2h, it will be moved to Blocked.",
+        "createdAt": "2026-02-27T23:01:06.079Z"
+      },
+      {
+        "id": "cmt_1772233339775_00897137",
+        "author": "alfred",
+        "text": "🔄 Re-dispatched HAL to build Phase 1 (Postgres data model + real API + frontend wired up). Card was stale for 7h with no completion — HAL is now actively executing. Will move to Review when done.",
+        "createdAt": "2026-02-27T23:02:19.775Z"
+      },
+      {
+        "id": "cmt_1772233560601_8aec563f",
+        "author": "alfred",
+        "text": "Phase 1 complete. PostgreSQL database (command_center DB) provisioned with project_health table. Seeded with 4 projects: CoinUsUp, Even Us Up, Signal App, Consulting. Backend /api/project-health now queries Postgres live (pg driver, calculates weighted health scores: Revenue 25% + Users 20% + Churn 20% + Velocity 20% + Blockers 10% + Team 5%). Frontend unchanged — was already wired to the real API. Health scores: CoinUsUp 34, Even Us Up 34, Signal App 39, Consulting 44. Edit mode in UI persists to Postgres via PATCH. Phase 2 (ETL automation) queued separately.",
+        "createdAt": "2026-02-27T23:06:00.601Z"
       }
     ]
   },

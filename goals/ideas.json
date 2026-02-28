@@ -1450,5 +1450,53 @@
     "tags": [],
     "createdAt": "2026-02-27T20:42:25.902Z",
     "updatedAt": "2026-02-27T20:42:25.902Z"
+  },
+  {
+    "id": "idea_1772234554217_9de72f03",
+    "title": "Law Firm Matter Status Notification Bot",
+    "description": "Micro-SaaS: automated client-facing SMS/email status updates for law firm matters. Integrates with Elite/practice management software (Joe's wheelhouse). Clients subscribe to automated milestone alerts (filing received, court date set, docs ready). Firm pays flat monthly fee per seat. LOW BUILD: webhook listener + SMS API (Twilio) + simple dashboard. NO manual support needed once connected. EFFORT: ~2-3 weeks vibe-coding. UPSIDE: $49-$99/firm/month, target 20-50 small/mid firms = $1k-$5k MRR. Maintenance: near-zero after integration.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T23:22:34.217Z",
+    "updatedAt": "2026-02-27T23:22:34.217Z"
+  },
+  {
+    "id": "idea_1772234554422_f320b4b0",
+    "title": "Trading Signal Digest — Weekly Email/SMS Subscription",
+    "description": "Micro-SaaS: niche paid newsletter+alert service for retail swing traders. Joe builds the signal logic (leveraging his buy/sell signal app work), wraps it in a subscription layer. Users pay for weekly digest + real-time SMS alerts on key signals (RSI crossovers, volume spikes, sector momentum). STACK: existing signal engine + Stripe subscriptions + SendGrid/Twilio delivery. EFFORT: 1-2 weeks to productize existing work. UPSIDE: $9-$29/month per subscriber, 100-500 subscribers = $900-$14.5k MRR. Maintenance: cron jobs + occasional signal tuning.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T23:22:34.423Z",
+    "updatedAt": "2026-02-27T23:22:34.423Z"
+  },
+  {
+    "id": "idea_1772234554628_7786bf9b",
+    "title": "Automation Audit SaaS for Small Law Firms",
+    "description": "Micro-SaaS: self-serve tool that law firms use to audit their current workflows and get a prioritized automation roadmap. Firm fills out intake questionnaire, tool generates a PDF/dashboard report showing top 5 automation wins, estimated time savings, and suggested tools. Upsell: Joe's implementation services. EFFORT: 2-3 weeks (form + report generator + Stripe for $199 one-time or $49/month retainer for quarterly re-audits). UPSIDE: $199 per audit or $49/month retainer. 20 audits/month = $4k. Maintenance: minimal — mostly static logic + PDF template. Positions Joe as expert, feeds consulting pipeline.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-27T23:22:34.628Z",
+    "updatedAt": "2026-02-27T23:22:34.628Z"
   }
 ]

@@ -1341,5 +1341,17 @@
         "createdAt": "2026-02-27T19:12:54.366Z"
       }
     ]
+  },
+  {
+    "id": "task_1772233794099_b82e77a7",
+    "title": "Security Posture Audit — Findings & Remediation",
+    "description": "HAL completed full security posture check. Key findings: (1) FIXED: .env files were world-readable 644 — changed to 600 on all repos. (2) FIXED locally: CoinUsUp .env was committed to git history (commit ac92875). Removed from tracking, added to .gitignore (commit fa7c222). Needs Joe action: git-filter-repo to scrub history + force push. (3) HIGH CVEs: CoinUsUp has 6 high CVEs in Capacitor/tar chain (dev-time, fixAvailable=false). (4) HIGH CVEs: command-center/frontend has 8 high + 3 moderate from EOL create-react-app stack — recommend CRA to Vite migration. (5) No hardcoded secrets found in source code. Joe actions needed: approve CoinUsUp history scrub + force push; approve command-center Vite migration card.",
+    "goalId": "",
+    "status": "review",
+    "priority": "critical",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-27T23:09:54.099Z",
+    "updatedAt": "2026-02-27T23:09:56.189Z"
   }
 ]
