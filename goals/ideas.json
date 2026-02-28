@@ -456,12 +456,24 @@
     "title": "MSP Failed Backup \u2192 Client Report Bot",
     "description": "MSPs manually compile backup failures into client reports \u2014 huge time sink. Build: auto-ingest Veeam/Datto failures, generate branded weekly client-safe report + technician digest. Pricing: $399/MSP/mo. Build: M. Maintenance: Low. Top pick: fastest path to 3 paying pilots in 30 days.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7,
+      "notes": "Clear, documented pain point for MSPs with established tools (Veeam/Datto) that have APIs \u2014 strong market fit. Medium build complexity with $399/mo recurring and low maintenance makes the effort/reward ratio solid. Joe lacks deep MSP-specific domain edge and there's no synergy with current projects, which limits differentiation and cross-sell opportunities.",
+      "breakdown": {
+        "market_fit_3x": 8,
+        "effort_reward_2x": 7,
+        "joes_edge_2x": 5,
+        "synergy_1x": 3,
+        "passive_potential_2x": 8
+      },
+      "weighted_score": 67,
+      "evaluatedAt": "2026-02-28T18:01:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:45.669Z",
