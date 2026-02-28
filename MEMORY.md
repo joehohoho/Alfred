@@ -322,6 +322,19 @@ Sends Joe a thoughtful question each morning at 10 AM AST via Command Center not
 
 ---
 
+## Joe Directives (Non-Negotiable)
+
+- **"Think outside the box on passive income ideas"** (2026-02-27): Stop generating law firm / existing app adjacent ideas. Joe wants genuinely novel concepts outside his current stack. This directive applies to all idea generation, HAL tasks, and overnight research.
+
+---
+
+## Known Infrastructure Issues (Unresolved)
+
+- **`sync-pending-questions.sh` write failure** — Recurring bug where script fails to write to ACTIVE-TASK.md. Pending questions don't survive session death reliably. Needs investigation and fix. Flagged: 2026-02-28.
+- **Session file archival backlog** — 2,939 session files / 79MB in `~/.openclaw/agents/main/sessions/`. Archival cron card created on Kanban board but fix not yet implemented. Monitor disk usage (was at 78% 2026-02-27).
+
+---
+
 ## Key Decisions & Artifacts — 2026-02-26
 
 ### Smart Model Router 2.0
