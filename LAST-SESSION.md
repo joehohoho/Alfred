@@ -1,62 +1,35 @@
-# LAST-SESSION.md — Session Bridge
+# LAST-SESSION.md - Session Bridge
 
-**Purpose:** Structured continuity bridge for next session.
-**Last Generated:** 2026-02-26 22:00 AST (Evening Routine)
-
----
+**Session Date:** 2026-02-27 (Friday)
+**Context at checkpoint:** 55% (110k/200k)
 
 ## What Happened
-- Completed mostly proactive/internal operations work today:
-  - Scored passive-income ideas (Alfred-as-a-Service, Client Automation Ideas Pipeline)
-  - Reflected/updated Joe preference model (autonomy is good; visibility/logging is required)
-  - Hardened `scripts/review-job-tracker.sh` (pipefail, jq dependency check, safer filename handling)
-  - Ran app-health spot check: Market Signal Lab healthy; no active local issues surfaced for CoinUsUp/Even Us Up
-  - Cleaned kanban review backlog (7 moved to done, 3 moved back to todo)
-- Current task board execution status remains light; no new production incidents were identified.
+Busy Friday evening session. HAL ran ~15+ proactive tasks covering code reviews, security, performance, SEO, passive income research, and infrastructure. Project Health Command Center Phase 1 was built and is now live with real Postgres data. Major dead code cleanup across repos committed. Security posture improved (.env permissions hardened).
 
-## Decisions Made
-- Prioritized low-cost, internal reliability/progress work over launching new external initiatives tonight.
-- Preserved communication constraint: no law-firm-vertical product recommendations.
-- Tomorrow should bias toward shippable execution (not more analysis-only loops).
+## Key Decisions Made
+- Project Health Command Center Phase 1: Postgres + real API, live at /project-health
+- Dead code: redundant React imports removed from 23 command-center files
+- Security: .env permissions 644→600 across all repos; CoinUsUp .env removed from git tracking (local commit, not pushed)
 
 ## Tasks In Progress
-- No active coding card was advanced to a new implementation milestone during this evening routine window.
-- Carry-forward operational items:
-  - Signal App fast-track: real-time data pipeline (next meaningful build step)
-  - HAL idle dispatch reliability: pre-check in-progress slot before dispatch attempts
+- HAL proactive dispatch cycle (continuing)
+- sync-pending-questions.sh ACTIVE-TASK.md write failure (recurring, needs fix)
+
+## Pending Questions (Joe hasn't answered)
+1. CoinUsUp git history scrub — approve?
+2. CoinUsUp stale remote branches — delete GetStarted + group-email?
+3. CoinUsUp tracked build artifacts — approve git rm --cached?
+4. Command Center Vite migration card — create?
+5. CoinUsUp hook-in-render critical fixes — queue up?
+6. Capacitor v6→v8 plugin update — start?
 
 ## Next Steps
-1. Implement/verify HAL dispatch pre-check behavior in idle flow.
-2. Resume Signal App real-time data pipeline execution with concrete deliverable.
-3. Push one prioritized work item to review with artifact + summary.
-4. Follow up pending Joe actions for LegalBillAI (API key, Stripe keys, Vercel deploy, LinkedIn post).
+- Continue HAL dispatch cycle through evening
+- Fix sync-pending-questions.sh write failure
+- Implement P1 perf fixes for Command Center (hal.ts cache, uptime.ts file filter) when Joe approves
 
 ## Key Context
-- ACTIVE-TASK is continuity-managed and should return to `idle` after this routine completes.
-- Market Signal Lab service status is good (`/api/health` passed during checks).
-- Joe preference reinforced: autonomous action is welcome, but post-action transparency must be explicit.
-- Strategic priority remains passive-income leverage, with family-time upside as the primary objective.## Checkpoint Update (2026-02-27 11:08 AST)
-- Heartbeat check detected context at **62%** (threshold 60–65%).
-- Synced pending questions (none pending).
-- Updated ACTIVE-TASK.md and LAST-SESSION.md for continuity.
-- Continued live Kanban execution and cron routing cleanup work.
-
-## Checkpoint Update (2026-02-27 11:25 AST)
-- Context usage at **63%**; continuity checkpoint executed.
-- Ran sync-pending-questions (none pending).
-- ACTIVE-TASK.md updated for current objective/next step.
-- NOW.md and memory daily log refreshed.
-
-## Heartbeat Checkpoint (2026-02-27 11:40 AST)
-- Context usage at 64% (60-65 threshold).
-- Pending questions sync completed.
-- ACTIVE-TASK and LAST-SESSION checkpointed.
-
-## Heartbeat Checkpoint (2026-02-27 11:46 AST)
-- Context usage at 64% (60-65 threshold).
-
-## Session Checkpoint (2026-02-27 12:25 AST)
-- Context usage reached **65%**.
-- Pending questions sync executed (script reported warning updating ACTIVE-TASK, then state was updated manually).
-- Active work remains Kanban execution + cron routing cleanup + local model switch prep.
-- Next step: continue execution and checkpoint again at 70%+.
+- Ollama was down as of 7:52 PM health check
+- Disk at 78% on /Users volume — watch
+- Rate limiting cascade today from concurrent HAL subagents — spawn staggering card added to Kanban
+- CoinUsUp has ZERO test coverage — test framework not even installed

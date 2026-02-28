@@ -1498,5 +1498,53 @@
     "tags": [],
     "createdAt": "2026-02-27T23:22:34.628Z",
     "updatedAt": "2026-02-27T23:22:34.628Z"
+  },
+  {
+    "id": "idea_1772237607004_5b9e4cb9",
+    "title": "Quebec Bill 96 Compliance Checker",
+    "description": "Canada-specific SaaS.\n\nProblem: Bill 96 requires QC businesses to use French in contracts, HR docs, customer materials. SMBs face compliance risk with penalty exposure.\n\nOpportunity: Lightweight compliance checker that scans documents against Bill 96 requirements, flags non-compliant EN-only forms, provides bilingual replacement suggestions, generates compliance scorecard.\n\nMoat: Quebec-only law, high penalty fear, no mainstream tool covers this niche.\n\nMonetization: $49-$149/mo per business; accountant partner plan. One-time audit $299+.\n\nEffort: Low-Medium (2-4 weeks MVP). Upside: High.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "high",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T00:13:27.004Z",
+    "updatedAt": "2026-02-28T00:13:27.004Z"
+  },
+  {
+    "id": "idea_1772237624781_38af5465",
+    "title": "CRA Deadline Dashboard (Canadian SMB Compliance Calendar)",
+    "description": "Canada-specific SaaS opportunity.\n\nProblem: Canadian SMBs miss CRA filing/remittance deadlines (T4s, T2 returns, HST/GST, payroll remittances, T5018s) — each with different due dates based on business size, province, filing frequency. Missed deadlines = CRA penalties + interest.\n\nOpportunity: Personalized CRA compliance dashboard that onboards with business type + province + payroll frequency, generates a live compliance calendar, sends multi-channel reminders (email/SMS/Slack) 30/14/7/1 days before each deadline, tracks done/not-done status, includes what-to-prepare checklist per filing type.\n\nMoat: Canada-only CRA deadline logic (federal + provincial nuances including QC Revenu, ON, BC, AB). Generic US-centric tools do not cover this. Atlantic SMB focus: seasonal businesses + bilingual NB/QC reminders.\n\nMonetization: $19-$79/mo per business; accountant plan $149-$299/mo (multi-client + white-label).\n\nEffort: Medium (3-5 weeks MVP). Upside: High — every Canadian incorporated business is a potential customer.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "high",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T00:13:44.781Z",
+    "updatedAt": "2026-02-28T00:13:44.781Z"
+  },
+  {
+    "id": "idea_1772237624832_5042f054",
+    "title": "ROE Filing Assistant (Record of Employment for Canadian Payroll)",
+    "description": "Canada-specific SaaS opportunity.\n\nProblem: Every Canadian employer must issue a Record of Employment (ROE) within 5 business days of employee separation. Errors in ROE codes, insurable hours, or pay period data trigger Service Canada investigations and EI claim delays. Small employers file via the confusing ROE Web government portal and frequently make costly mistakes.\n\nOpportunity: ROE filing assistant that guides employers through data entry with plain-English prompts, validates insurable hours + earnings against ESDC rules before submission, suggests correct separation codes, exports Service Canada-compliant XML or ROE Web-ready files, tracks filing history for audit defense. Bilingual EN/FR (required for QC employers).\n\nMoat: Canada-only obligation — ROE is unique to the Canadian EI system with no US/global equivalent. Government portal has notoriously poor UX. No modern SaaS fills this gap.\n\nMonetization: $19-$49/mo per employer + per-ROE fee for occasional filers ($9-$19/ROE). Bookkeeper/HR consultant multi-client plan.\n\nEffort: Low-Medium (2-4 weeks MVP). Upside: Medium-High — 1M+ Canadian employers; seasonal industries file frequently.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "low",
+    "potential": "high",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T00:13:44.832Z",
+    "updatedAt": "2026-02-28T00:13:44.832Z"
   }
 ]
