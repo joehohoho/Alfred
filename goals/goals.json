@@ -533,7 +533,15 @@
     "completedAt": null,
     "metadata": {},
     "createdAt": "2026-02-26T06:20:27.578Z",
-    "updatedAt": "2026-02-26T06:51:10.334Z"
+    "updatedAt": "2026-02-28T01:01:50.570Z",
+    "comments": [
+      {
+        "id": "cmt_1772240510570_a367dfec",
+        "author": "alfred",
+        "text": "## Signal App Monetization Strategy\n\n### Competitor Benchmarks\n- TradingView: Freemium ladder — Free to Essential ($15/mo) to Plus ($28/mo) to Premium ($60/mo). Alert count + indicator limits as upgrade triggers.\n- MyCryptoParadise / Telegram signal channels: Freemium — free delayed signals + paid real-time. $29-$99/mo.\n- CoinPush / signal apps: $9.99-$49/mo tiers based on assets covered + alert frequency.\n\n### Recommendation: Freemium + Tiered Subscription\n\nSignal apps live or die on trust. Free tier builds credibility before users pay. Conversion happens when value is proven.\n\nSuggested tiers:\n- Free: 3 assets, daily digest only (no real-time), 14-day history\n- Pro ($19/mo): Unlimited assets, real-time SMS + email alerts, 90-day history, backtested accuracy stats\n- Annual discount: 20% off\n\nWhy $19: Impulse-buy territory for retail traders. Cheap vs. a single bad trade. Charging more early-stage kills conversion.\n\nWhat to gate: Real-time SMS alerts + accuracy stats are the highest-value features. Free users get delayed signals — creates FOMO without undermining paid tier.\n\nRollout Plan:\n1. Launch with Free + Pro only — simpler, faster to ship\n2. Add Basic ($9/mo) tier once signal quality is proven\n3. B2B API licensing ($99-299/mo) as Phase 2 — sell the signal feed to other apps\n\nRevenue Potential:\n- 100 Pro subscribers = $1,900/mo MRR\n- 500 Pro subscribers = $9,500/mo MRR\n- B2B API (3-5 clients) = additional $300-1,500/mo",
+        "createdAt": "2026-02-28T01:01:50.570Z"
+      }
+    ]
   },
   {
     "id": "goal_1772086829490_3f4a1454",

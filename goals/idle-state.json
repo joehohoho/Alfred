@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-28T00:01:02.027Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-02-28T01:01:02.517Z",
+  "lastActivityType": "goal-progress-check",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -73,8 +73,12 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-02-28T00:01:02.027Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-02-28T01:01:02.517Z"
     }
   ],
-  "totalIdleDispatches": 17,
+  "totalIdleDispatches": 18,
   "cooldownMinutes": 25
 }
