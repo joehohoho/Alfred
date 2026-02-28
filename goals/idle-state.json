@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-28T19:01:03.137Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-02-28T20:01:05.560Z",
+  "lastActivityType": "profile-reflection",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -108,8 +108,12 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-02-28T19:01:03.137Z"
+    },
+    {
+      "type": "profile-reflection",
+      "dispatchedAt": "2026-02-28T20:01:05.560Z"
     }
   ],
-  "totalIdleDispatches": 25,
+  "totalIdleDispatches": 26,
   "cooldownMinutes": 25
 }
