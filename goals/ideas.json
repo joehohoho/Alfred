@@ -608,7 +608,21 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:49.147Z",
-    "updatedAt": "2026-02-25T21:20:49.147Z"
+    "updatedAt": "2026-02-28T03:08:20.210Z",
+    "comments": [
+      {
+        "id": "cmt_1772248079864_37319952",
+        "author": "joe",
+        "text": "I don't know what DCA bots are",
+        "createdAt": "2026-02-28T03:07:59.864Z"
+      },
+      {
+        "id": "cmt_1772248100210_6f4fc4c1",
+        "author": "alfred",
+        "text": "DCA = Dollar Cost Averaging. Buying a fixed dollar amount of crypto on a schedule (e.g. $50 of BTC every Monday) instead of trying to time the market. DCA bots automate this via exchange APIs. This idea is a safety layer that sits on top — adds guardrails like pausing buys during crashes, alerting on API key issues, stopping if exchange is down. Explained in chat. Awaiting Joe decision: keep in Ideas or reject.",
+        "createdAt": "2026-02-28T03:08:20.210Z"
+      }
+    ]
   },
   {
     "id": "idea_1772054449631_e1f90dc0",
@@ -889,7 +903,7 @@
     "title": "Trust Ledger Drift Detector (Law Firms)",
     "description": "Problem: Small/mid law firms discover trust-accounting errors late, causing partner panic and compliance risk. Target: 10-100 user law firms using Elite/3E/other billing exports. Product: nightly anomaly scan on trust ledgers (negative balances, stale client trust, matter-level mismatch), weekly partner digest, one-click audit packet. MRR potential: k-k/month (15-80 firms at -). Tech complexity: 3/5. Competition: Medium (general BI exists, few trust-specific anomaly tools). Why Joe can win: 20+ years in legal billing/data transformation and understands trust edge cases + partner workflows.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -898,7 +912,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T13:01:10.556Z",
-    "updatedAt": "2026-02-26T14:37:10.014Z",
+    "updatedAt": "2026-02-28T03:12:15.809Z",
     "comments": [
       {
         "id": "cmt_1772116630013_b10575d3",
@@ -906,7 +920,9 @@
         "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
         "createdAt": "2026-02-26T14:37:10.013Z"
       }
-    ]
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:15.809Z"
   },
   {
     "id": "idea_1772110870706_a976efc7",
@@ -945,7 +961,7 @@
     "title": "Elite 3E Invoice Rule Drift Monitor",
     "description": "SaaS for law firms on Elite/3E that continuously checks billing rule changes and flags invoice entries likely to be rejected before prebills. Low-build: nightly ETL + rule templates + email digest. Effort: 3/10 (4-6 weeks MVP). Upside: 8/10 via -/mo per firm; high retention because it reduces write-offs.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -954,15 +970,29 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T13:46:47.520Z",
-    "updatedAt": "2026-02-26T14:37:09.997Z",
+    "updatedAt": "2026-02-28T03:06:17.907Z",
     "comments": [
       {
         "id": "cmt_1772116629997_d6f7f78b",
         "author": "alfred",
         "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
         "createdAt": "2026-02-26T14:37:09.997Z"
+      },
+      {
+        "id": "cmt_1772247961407_4ae2f782",
+        "author": "joe",
+        "text": "Rejected: I don't see this as a viable project unless there's ample research done to prove that there's an actual need for this.",
+        "createdAt": "2026-02-28T03:06:01.407Z"
+      },
+      {
+        "id": "cmt_1772247977907_6a6c6fcb",
+        "author": "alfred",
+        "text": "Moved to Rejected. Noted — law firm tooling ideas need validated demand evidence before surfacing, not just assumed pain points. Will apply same bar to similar niche ideas going forward.",
+        "createdAt": "2026-02-28T03:06:17.907Z"
       }
-    ]
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:06:13.692Z"
   },
   {
     "id": "idea_1772113607649_f0510f5b",
@@ -985,7 +1015,7 @@
     "title": "Law Firm Revenue Leakage Weekly Digest",
     "description": "Connects to billing/time systems and sends partner-level weekly digest: unbilled time aging, discount drift, realization drops, and follow-up tasks. Built as read-only connectors + scheduled report emails/Slack. Effort: 2/10 (2-4 weeks MVP). Upside: 8/10 via -/mo depending on firm size; clear ROI and recurring usage.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -994,22 +1024,36 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T13:46:47.778Z",
-    "updatedAt": "2026-02-26T14:37:09.981Z",
+    "updatedAt": "2026-02-28T03:07:50.936Z",
     "comments": [
       {
         "id": "cmt_1772116629980_878d0ef7",
         "author": "alfred",
         "text": "⚠️ Flagging this: legal/law firm vertical — Joe has indicated this space is off the table. Recommend archiving this card.",
         "createdAt": "2026-02-26T14:37:09.980Z"
+      },
+      {
+        "id": "cmt_1772248051650_e6e40d41",
+        "author": "joe",
+        "text": "Rejected: In order to add software to work with large law firm applications there are a lot of hoops to jump through which I don't want to tackle unless there's a clear profitable niche that I can tap into.",
+        "createdAt": "2026-02-28T03:07:31.650Z"
+      },
+      {
+        "id": "cmt_1772248070936_e8f21ff9",
+        "author": "alfred",
+        "text": "Moved to Rejected. Clear rule captured: law firm software integrations require enterprise hoops (security reviews, IT approvals, legal contracts) that kill indie SaaS economics. Not worth it without a proven niche and clear path to customers.",
+        "createdAt": "2026-02-28T03:07:50.936Z"
       }
-    ]
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:07:43.800Z"
   },
   {
     "id": "idea_1772128025132_0b049709",
     "title": "Trust Reconciliation Exception Monitor for Law Firms",
     "description": "Micro-SaaS that ingests daily trust-account exports (Clio/CosmoLex/LeanLaw CSV), auto-detects three-way reconciliation mismatches, and emails weekly 'exceptions only' reports. Recurring subscription for small/mid firms without full ops staff. Effort: 2-3 weeks MVP (low-medium). Upside: 40-120 firms x -/mo = ~k-k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1018,7 +1062,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T17:47:05.132Z",
-    "updatedAt": "2026-02-26T17:47:05.132Z"
+    "updatedAt": "2026-02-28T03:12:15.674Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:15.674Z"
   },
   {
     "id": "idea_1772128025270_5491b5e3",
@@ -1041,7 +1087,7 @@
     "title": "Law Firm Intake-to-Conflict Check Auto-Pipeline",
     "description": "Automation layer that turns website/Typeform intake into normalized party/entity records, runs fuzzy conflict pre-check against existing matter/contact exports, and routes only probable conflicts for human review. Sell as workflow add-on + monthly monitoring. Effort: 3-4 weeks MVP (medium). Upside: 25-80 firms x -/mo = ~k-k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1050,7 +1096,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T17:47:05.434Z",
-    "updatedAt": "2026-02-26T17:47:05.434Z"
+    "updatedAt": "2026-02-28T03:12:15.538Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:15.538Z"
   },
   {
     "id": "idea_1772136071158_9f12701a",
@@ -1235,7 +1283,7 @@
     "title": "Law Firm Billing Data QA Sentinel",
     "description": "Niche SaaS for firms migrating/updating billing systems: nightly rules check for LEDES/UTBMS code issues, missing matter fields, duplicate time entries, and export blockers before invoices go out. Strong fit with Joe's elite/legal data transformation background. Effort estimate: 2-4 weeks MVP with reusable rule packs; low maintenance once rules stable. Upside estimate: -/firm/month depending on volume; 15 firms = ~.5k-k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1244,7 +1292,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T05:43:17.961Z",
-    "updatedAt": "2026-02-27T05:43:17.961Z"
+    "updatedAt": "2026-02-28T03:12:15.402Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:15.402Z"
   },
   {
     "id": "idea_1772185400740_0fa21eb5",
@@ -1285,7 +1335,7 @@
     "title": "Law Firm Intake SLA Bot",
     "description": "Mailbox/form-to-task automation for law firms: parse inbound leads, route by practice area, enforce callback SLA timers, and send partner digest. Replaces manual intake follow-up leakage. Effort: 1-2 weeks MVP using no-code connectors + light custom logic. Upside: 9-99/mo per firm + setup fee.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1294,14 +1344,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T09:43:21.058Z",
-    "updatedAt": "2026-02-27T09:43:21.058Z"
+    "updatedAt": "2026-02-28T03:12:15.266Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:15.266Z"
   },
   {
     "id": "idea_1772201755762_872554ce",
     "title": "Law Firm Trust Ledger Anomaly Monitor",
     "description": "Connect to legal billing/accounting exports (CSV/API) and run nightly checks for trust ledger mismatches, stale retainers, negative balances, and missing three-way reconciliation items. Auto-email weekly compliance digest + alerts. Subscription by firm size.\n\nWhy low-build: rule-based checks + scheduled reports; no heavy UI needed.\nEffort: Low-Medium (2-4 weeks MVP).\nUpside: Medium-High (-/mo; sticky due to compliance risk).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1310,7 +1362,23 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T14:15:55.762Z",
-    "updatedAt": "2026-02-27T14:15:55.762Z"
+    "updatedAt": "2026-02-28T03:11:45.189Z",
+    "comments": [
+      {
+        "id": "cmt_1772248288382_3c7823c9",
+        "author": "joe",
+        "text": "Rejected: This is a tricky industry to tap into with such an niche idea and would have to be able to access data from client systems.  Also I want to move away from this vertical unless there's a very clear and relatively easy path.",
+        "createdAt": "2026-02-28T03:11:28.382Z"
+      },
+      {
+        "id": "cmt_1772248305189_098468fe",
+        "author": "alfred",
+        "text": "Moved to Rejected. Clear directive captured: moving away from law firm vertical entirely. Future ideas in this space require a very clear, easy customer path and no system integration requirements.",
+        "createdAt": "2026-02-28T03:11:45.189Z"
+      }
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:11:40.991Z"
   },
   {
     "id": "idea_1772201755893_e8f6f551",
@@ -1333,7 +1401,7 @@
     "title": "Client Intake-to-Task Automation for Solo/Small Law Firms",
     "description": "A lightweight automation service: intake form/email parser -> matter template generation -> checklist/reminders/doc request workflow in existing tools (Clio/MyCase/Google Workspace). Offer as managed automation with monthly maintenance.\n\nWhy low-build: orchestration over existing SaaS APIs/Zapier-like flows.\nEffort: Low (1-3 weeks per vertical template, reusable playbooks).\nUpside: Medium-High (-/mo managed automation retainer).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1342,7 +1410,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T14:15:56.023Z",
-    "updatedAt": "2026-02-27T14:15:56.023Z"
+    "updatedAt": "2026-02-28T03:12:15.130Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:15.130Z"
   },
   {
     "id": "idea_1772214074252_c1830a08",
@@ -1459,7 +1529,7 @@
     "title": "Law Firm Matter Status Notification Bot",
     "description": "Micro-SaaS: automated client-facing SMS/email status updates for law firm matters. Integrates with Elite/practice management software (Joe's wheelhouse). Clients subscribe to automated milestone alerts (filing received, court date set, docs ready). Firm pays flat monthly fee per seat. LOW BUILD: webhook listener + SMS API (Twilio) + simple dashboard. NO manual support needed once connected. EFFORT: ~2-3 weeks vibe-coding. UPSIDE: $49-$99/firm/month, target 20-50 small/mid firms = $1k-$5k MRR. Maintenance: near-zero after integration.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1468,7 +1538,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T23:22:34.217Z",
-    "updatedAt": "2026-02-27T23:22:34.217Z"
+    "updatedAt": "2026-02-28T03:12:14.993Z",
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:12:14.993Z"
   },
   {
     "id": "idea_1772234554422_f320b4b0",
@@ -1507,7 +1579,7 @@
     "title": "Quebec Bill 96 Compliance Checker",
     "description": "Canada-specific SaaS.\n\nProblem: Bill 96 requires QC businesses to use French in contracts, HR docs, customer materials. SMBs face compliance risk with penalty exposure.\n\nOpportunity: Lightweight compliance checker that scans documents against Bill 96 requirements, flags non-compliant EN-only forms, provides bilingual replacement suggestions, generates compliance scorecard.\n\nMoat: Quebec-only law, high penalty fear, no mainstream tool covers this niche.\n\nMonetization: $49-$149/mo per business; accountant partner plan. One-time audit $299+.\n\nEffort: Low-Medium (2-4 weeks MVP). Upside: High.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "high",
@@ -1516,7 +1588,23 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-28T00:13:27.004Z",
-    "updatedAt": "2026-02-28T00:13:27.004Z"
+    "updatedAt": "2026-02-28T03:02:39.304Z",
+    "comments": [
+      {
+        "id": "cmt_1772247731062_6c6171f8",
+        "author": "joe",
+        "text": "Rejected: I have no experience or knowledge in this area, unless there's a very clear an easy method that it could be profitable, I don't want to study and learn a new verticle.",
+        "createdAt": "2026-02-28T03:02:11.063Z"
+      },
+      {
+        "id": "cmt_1772247759304_3e12d9fa",
+        "author": "alfred",
+        "text": "Understood — moved to Rejected. Makes sense, Quebec law is a new vertical with real learning curve. Will filter out similar compliance ideas that require domain expertise you do not already have.",
+        "createdAt": "2026-02-28T03:02:39.304Z"
+      }
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-02-28T03:02:13.157Z"
   },
   {
     "id": "idea_1772237624781_38af5465",
@@ -1548,6 +1636,20 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-28T00:13:44.832Z",
-    "updatedAt": "2026-02-28T00:13:44.832Z"
+    "updatedAt": "2026-02-28T03:09:31.679Z",
+    "comments": [
+      {
+        "id": "cmt_1772248127316_be60d263",
+        "author": "joe",
+        "text": "Has any research been done to verify that there is a need for this?",
+        "createdAt": "2026-02-28T03:08:47.316Z"
+      },
+      {
+        "id": "cmt_1772248171679_ab3aeca2",
+        "author": "alfred",
+        "text": "Research done (see chat). Pain is real — penalties for ROE errors are significant and the portal is clunky. However, the gap is already filled by payroll platforms (Payworks, ADP). Standalone ROE tool has a very thin addressable market — only employers too small for payroll software but large enough to hire seasonally. No dedicated ROE SaaS products found, likely because the market does not support it standalone. Recommendation: Reject. Awaiting Joe confirmation.",
+        "createdAt": "2026-02-28T03:09:31.679Z"
+      }
+    ]
   }
 ]

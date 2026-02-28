@@ -1,53 +1,64 @@
 # LAST-SESSION.md - Session Bridge
 
-**Session Date:** 2026-02-27 (Friday)
-**Context at final checkpoint:** 70% (140k/200k)
-**Session ended:** ~10:25 PM AST
+**Session Date:** 2026-02-27 (Friday)  
+**Final context:** 84% — session near limit
 
-## What Happened
-Very productive Friday. HAL ran the full 16-task proactive pool (all cycled by 9:51 PM). Major accomplishments:
+## What Happened (Full Day Summary)
 
-### Built & Shipped
-- **Project Health Command Center Phase 1** — Postgres schema, real API, 4 project cards live at /project-health
+### Built
+- Project Health Command Center Phase 1: Postgres + real API + 4 project cards LIVE
 
 ### Code Quality
-- MSL code review: 15 findings (4 critical: RSI inversion, stop-loss gap, signal alignment, MTF params)
-- CoinUsUp code review: 20 findings (2 critical hook-in-render violations)
-- Dead code sweep: committed to job-tracker, market-signal-lab, command-center (23 React import cleanups)
+- MSL: 15 findings (4 critical)
+- CoinUsUp: 20 findings (2 critical hook-in-render violations)
+- Dead code committed to 3 repos
 
-### Security
-- .env permissions: 644→600 on all repos
-- CoinUsUp .env removed from git tracking (local commit, NOT pushed — Joe approval needed)
-
-### Performance
-- Command Center P1 perf issues identified: hal.ts no-cache (130ms), uptime.ts reads 2939 files (330ms)
+### Security & Dependencies
+- .env permissions 644→600 across all repos
+- CoinUsUp .env removed from git (local only)
+- Capacitor v6→v8 update committed locally (2b71b05) — NOT pushed, awaiting Joe
 
 ### Infrastructure
-- 3 Kanban cards added: HAL spawn staggering (urgent), sync-pending-questions fix, session archival cron
-- Documentation audit: HAL-DIRECTIVES numbering fixed, HEARTBEAT Discord updated
+- 3 infra Kanban cards created: HAL staggering (urgent), sync-pending-questions fix, session archival
+- Docs audit: 2 fixes committed
+- Command Center P1 perf issues identified (not yet fixed)
 
 ### Ideas & Research
-- 9+ ideas added to Kanban (Canada SaaS: Bill 96, CRA Dashboard, ROE; general: Law Firm notifications, Trading Signal Digest, Automation Audit)
-- Alfred↔HAL 2026 market trends discussion → posted to Discord
-- Signal App monetization strategy → posted to Kanban card
-- Alpha Vantage + MACD/RSI confluence technique recommended for Signal App
+- 9+ ideas added to Kanban
+- 10+ ideas rejected (law firm vertical bulk-cleared)
+- Alfred↔HAL discussion posted to Discord
+- Signal App monetization strategy posted to card
 
-## Pending Joe Decisions (unanswered)
-1. CoinUsUp git history scrub (.env in history) — `git filter-repo` + force push?
-2. CoinUsUp stale remotes — delete `origin/GetStarted` + `origin/group-email`?
-3. CoinUsUp tracked build artifacts — `git rm --cached android/.gradle/ android/app/build/`?
-4. Command Center Vite migration — create Kanban card?
-5. CoinUsUp hook-in-render critical fixes — queue up?
-6. Capacitor v6→v8 plugin update — start?
+### Late Evening
+- Joe: "think outside the box, stop revolving around legal/existing apps"
+- New filter rules: no law firm integrations, demand evidence required for niche ideas
+- Channel expansion card blocked (Joe unfamiliar with CAC/LTV)
+
+## Pending Joe Decisions
+1. Push CoinUsUp Capacitor update (commit 2b71b05)?
+2. Channel expansion — park in Ideas?
+3. ROE Filing Assistant — confirm reject?
+4. Crypto DCA Safety Layer — keep or reject?
+5. CoinUsUp git history scrub (.env)?
+6. Delete stale remotes (GetStarted, group-email)?
+7. Untrack build artifacts (git rm --cached)?
+8. Command Center Vite migration card?
+9. CoinUsUp hook-in-render fixes?
 
 ## Infrastructure Notes
-- sync-pending-questions.sh ACTIVE-TASK.md write failure (every run today — needs investigation)
-- Ollama was down at 7:52 PM health check (no PID)
-- Disk /Users at 78% — approaching 80% threshold
-- 132 rate-limit errors from concurrent HAL batch earlier today
+- sync-pending-questions.sh ACTIVE-TASK.md write failure (ALL day — needs fix)
+- Ollama was down as of 7:52 PM
+- Disk /Users 78%
+- HAL spawn staggering: 132 rate-limit errors today, Kanban card created
 
-## Next Session
-- Load this file + ACTIVE-TASK.md + NOW.md
-- Check if Joe answered any pending decisions
-- Morning: weather alert cron runs at 8 AM
-- Continue HAL proactive cycle (pool resets each day)
+## Ideas Filter Rules (NEW — from Joe tonight)
+- No law firm integration ideas
+- No ideas requiring enterprise procurement/access
+- Demand evidence required before surfacing niche ideas
+- Diversify away from legal + existing app adjacencies
+- Think outside the box — surprise Joe
+
+## Tomorrow
+- Morning: weather alert cron 8 AM
+- HAL proactive pool resets — fresh 16 tasks
+- Follow up on Joe's pending decisions

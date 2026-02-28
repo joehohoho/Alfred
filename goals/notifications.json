@@ -278,5 +278,15 @@
     "answered": false,
     "createdAt": "2026-02-27T20:03:16.530Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772247698673_344350bf",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Cannot start without Joe approving: (1) which app to focus on, (2) which channels to test, (3) budget ceiling. Joe indicated in chat he is not familiar with CAC/LTV and may want to park this card in Ideas. Awaiting his decision before taking any action.",
+    "taskId": "task_1772199318344_19e8fa66",
+    "answered": false,
+    "createdAt": "2026-02-28T03:01:38.673Z",
+    "answeredAt": null
   }
 ]
