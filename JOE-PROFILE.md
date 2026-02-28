@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-02-25 (11:27 AM AST)
+**Last reflection:** 2026-02-28 (16:01 AST) — mini touch-up
 **Last direct Q&A update:** 2026-02-26 (10:36 AM AST)
-**Reflection count:** 3
-**Profile version:** 1.4
+**Reflection count:** 4
+**Profile version:** 1.5
 
 ---
 
@@ -19,6 +19,7 @@ How Joe communicates and what his patterns reveal.
 - **"Go ahead" as trust signal.** When approving a plan, Joe says "go ahead" without restating it. Doesn't micromanage once he's seen the plan. | Source: notif_1771399480963, notif_1771401025186 | Confidence: high
 - **Provides specific technical details when needed.** Discord setup: gave server IDs, channel IDs, invite URL, token storage preference — all unprompted. | Source: notif_1771403277638 | Confidence: high
 - **Gets frustrated by vague or context-free questions.** "I don't have any detail on which Goal you're missing information on so I can't answer these questions." | Source: notif_1771400175659 | Confidence: high
+- **Explicitly flags repeat questions.** Called out duplicate daily inquiry questions twice in one week (Feb 27 + Feb 28): "These are repeat questions" / "This looks like a duplicate question list from before." The daily inquiry system needs deduplication — Joe notices and will lose trust in notifications if they repeat. | Source: notif_1772200800167, notif_1772287200145 | Confidence: high
 - **Questioning boundary is explicit: ask when stakes are high, otherwise act.** Joe wants questions for major changes, security risks, or truly missing info — but expects autonomous execution when likely answer is already known or discoverable from prior context. | Source: notif_1771768800191_7445de61 (Daily Inquiry, Workflow) | Confidence: high
 - **Brief directive mode in technical sessions.** In Claude Code, Joe often uses short command-style prompts ("yes set it up", "commit and push everything", "re-run the failed cron job") and expects execution without hand-holding. | Source: joe-profile-observations.jsonl (2026-02-24) | Confidence: high
 
