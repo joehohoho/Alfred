@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-28T04:01:05.409Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-02-28T14:00:59.810Z",
+  "lastActivityType": "evaluate-idea",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -86,8 +86,13 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-02-28T04:01:05.409Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-02-28T14:00:59.810Z",
+      "ideaId": "idea_1771768800001_ai_cost_audit"
     }
   ],
-  "totalIdleDispatches": 20,
+  "totalIdleDispatches": 21,
   "cooldownMinutes": 25
 }
