@@ -8,6 +8,8 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE="$(dirname "$SCRIPT_DIR")"
 INQUIRY_LOG="$WORKSPACE/memory/inquiry-log.jsonl"
+JOE_PROFILE="$WORKSPACE/JOE-PROFILE.md"
+DAILY_MEM_DIR="$WORKSPACE/memory"
 
 # Ensure inquiry log exists
 mkdir -p "$(dirname "$INQUIRY_LOG")"
@@ -17,78 +19,88 @@ touch "$INQUIRY_LOG"
 send_inquiry() {
   local title="$1"
   local message="$2"
-
   bash "$SCRIPT_DIR/send-notification.sh" "question" "$title" "$message" "" "" "daily-inquiry"
 }
 
-# Daily inquiry cycle - rotate through themes
-# Load last inquiry date from log to determine which theme to use
-LAST_INQUIRY_DATE=$(tail -1 "$INQUIRY_LOG" 2>/dev/null | jq -r '.date' 2>/dev/null || echo "2026-01-01")
-DAYS_SINCE_LAST=$(( ($(date +%s) - $(date -j -f "%Y-%m-%d" "$LAST_INQUIRY_DATE" +%s 2>/dev/null || echo 0)) / 86400 ))
-
-# If we don't have a log entry yet (first run), set DAYS_SINCE_LAST to 999 to trigger a question
-if [ "$DAYS_SINCE_LAST" -lt 1 ] && [ "$LAST_INQUIRY_DATE" != "2026-01-01" ]; then
-  # It's the same day, don't send another
+# Check if already sent today
+TODAY=$(date +%Y-%m-%d)
+LAST_DATE=$(tail -1 "$INQUIRY_LOG" 2>/dev/null | jq -r '.date' 2>/dev/null || echo "")
+if [ "$LAST_DATE" = "$TODAY" ]; then
   exit 0
 fi
 
-# Generate question based on a rotating cycle
-# Cycle: 1=Project Synergies, 2=Vision/Roadmap, 3=Workflow/Efficiency, 4=Passive Income Strategy
-CYCLE_NUM=$(( ($(date +%d) % 4) + 1 ))
+# Get recent answered question titles to avoid duplicates
+RECENT_TITLES=$(tail -10 "$INQUIRY_LOG" 2>/dev/null | jq -r '.title' 2>/dev/null | tr '\n' '|' || echo "")
 
+# Pull recent context: last 3 days of memory + today's kanban state
+RECENT_MEM=""
+for i in 1 2 3; do
+  D=$(date -v-${i}d +%Y-%m-%d 2>/dev/null || date --date="-${i} days" +%Y-%m-%d 2>/dev/null)
+  F="$DAILY_MEM_DIR/${D}.md"
+  if [ -f "$F" ]; then
+    RECENT_MEM="$RECENT_MEM\n$(tail -40 "$F")"
+  fi
+done
+
+KANBAN_STATE=$(curl -s http://localhost:3001/api/kanban 2>/dev/null | jq -r '[.[] | select(.column == "in_progress" or .column == "review" or .column == "blocked") | "\(.column): \(.title)"] | join(", ")' 2>/dev/null || echo "")
+
+# Theme rotation (4 themes)
+CYCLE_NUM=$(( ($(wc -l < "$INQUIRY_LOG") % 4) + 1 ))
+
+# Build a dynamic question using claude/haiku for real freshness
+CONTEXT_BLOCK="Recent memory:\n$RECENT_MEM\n\nActive kanban: $KANBAN_STATE\n\nRecent question titles (avoid repeating): $RECENT_TITLES"
+
+THEME_HINT=""
 case $CYCLE_NUM in
-  1)
-    # Project Synergies Theme
-    TITLE="What cross-project wins should I explore?"
-    MESSAGE="I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). 
-
-I see potential synergies:
-- Both CoinUsUp and Signal App work with financial data → shared API infrastructure?
-- Job Tracker's intelligence could inform consulting client pitches
-- Command Center monitoring all apps' health and revenue metrics
-
-Are any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?"
-    ;;
-  2)
-    # Vision & Roadmap Theme
-    TITLE="What's your vision for the next 3 months?"
-    MESSAGE="From SOUL.md and USER.md, I know passive income through vibe coding is a core goal. Right now I see you juggling maintenance (CoinUsUp, Even Us Up) + growth (Signal App) + OpenClaw infrastructure + consulting.
-
-Where should I focus energy to best support your goals? Is it:
-- Growing revenue on an existing app?
-- Shipping the Signal App faster?
-- Building new passive income vehicles?
-- Reducing toil on OpenClaw maintenance?
-- Something else entirely?"
-    ;;
-  3)
-    # Workflow & Efficiency Theme
-    TITLE="Where am I still asking you questions I shouldn't?"
-    MESSAGE="You've told me: 'be resourceful before asking' and 'I can't' isn't vocabulary. I'm genuinely trying to exhaust options before bothering you.
-
-But I may still be creating friction. Are there specific types of questions where:
-- I should just make the decision and tell you after?
-- I'm missing context I could easily find myself?
-- I'm asking the same thing in different ways?
-
-I want notifications to be high-signal only."
-    ;;
-  4)
-    # Passive Income & Growth Theme
-    TITLE="What's your actual passive income target?"
-    MESSAGE="You mention building passive income as goal #2 (after family). But I don't know the specifics:
-
-- Revenue target per month? (gives me something to optimize toward)
-- Which app should be the cash cow? (CoinUsUp, Even Us Up, Signal App, or something new?)
-- How much of your week do you want to spend maintaining vs. building new?
-- What's the definition of 'passive' — zero touch, or 5 hrs/week maintenance is fine?
-
-This would help me make better recommendations about what to build and what to prioritize."
-    ;;
+  1) THEME_HINT="project synergies or cross-project opportunities" ;;
+  2) THEME_HINT="vision, roadmap, priorities, or 90-day focus" ;;
+  3) THEME_HINT="workflow, friction, delegation, or how Alfred can help better" ;;
+  4) THEME_HINT="passive income strategy, app monetization, or new revenue ideas" ;;
 esac
 
-# Send the inquiry
-send_inquiry "$TITLE" "$MESSAGE"
+# Use claude to generate a fresh question (haiku for cost)
+PROMPT="You are Alfred, Joe's AI assistant. Based on context below, generate ONE thoughtful daily inquiry for Joe on the theme: $THEME_HINT.
 
-# Log it
-echo "{\"date\":\"$(date +%Y-%m-%d)\",\"title\":\"$TITLE\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
+Rules:
+- Must be genuinely fresh — do NOT reuse any title from the recent list
+- Ground it in something real from recent memory/kanban if possible
+- Title: short (5-10 words), specific, intriguing
+- Body: 2-3 short paragraphs, include specific observations, end with a clear question
+- Tone: curious, direct, not corporate
+- Output JSON only: {\"title\": \"...\", \"body\": \"...\"}
+
+Context:
+$CONTEXT_BLOCK"
+
+RESULT=$(echo "$PROMPT" | claude --model claude-haiku-4-5 --no-markdown -p "" 2>/dev/null || echo "")
+
+# Parse result
+TITLE=$(echo "$RESULT" | jq -r '.title' 2>/dev/null || echo "")
+BODY=$(echo "$RESULT" | jq -r '.body' 2>/dev/null || echo "")
+
+# Fallback: if claude failed or parsing broke, use a hardcoded fresh question pool
+if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
+  # Fallback pool — these are backups, not the primary mechanism
+  FALLBACKS=(
+    "Consulting client: automation idea worth productizing?|You've been doing automation consulting work. Has any client problem come up repeatedly — something generic enough to turn into a product? Even a $49/mo niche SaaS. Worth investigating?"
+    "What's the #1 thing slowing down Signal App right now?|Not looking for a full status update — just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific technical problem, or something else? Knowing this helps me prioritize overnight work."
+    "Should Even Us Up get a monetization push or maintenance mode?|Even Us Up has been running. Is it growing on its own, or is it on life support? Should I look into monetization experiments (paid tier, integrations) or just keep the lights on?"
+    "What's a tedious recurring task you still do manually?|You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can probably automate or at least reduce the friction."
+  )
+  # Pick one not in recent titles
+  for entry in "${FALLBACKS[@]}"; do
+    FB_TITLE="${entry%%|*}"
+    FB_BODY="${entry##*|}"
+    if [[ "$RECENT_TITLES" != *"$FB_TITLE"* ]]; then
+      TITLE="$FB_TITLE"
+      BODY="$FB_BODY"
+      break
+    fi
+  done
+fi
+
+# Send if we have content
+if [ -n "$TITLE" ] && [ -n "$BODY" ]; then
+  send_inquiry "$TITLE" "$BODY"
+  echo "{\"date\":\"$TODAY\",\"title\":\"$TITLE\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
+fi

@@ -1491,5 +1491,41 @@
     "assignedAt": "2026-02-28T13:42:18.384Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "571f4649-360c-436e-a66a-41ed667eb970"
+  },
+  {
+    "id": "task_1772292667400_9743093d",
+    "title": "CoinUsUp: Fix npm audit vulns via package.json overrides",
+    "description": "Add overrides block to CoinUsUp/package.json to force safer versions of tar and minimatch (dev-only CVEs from @capacitor/assets). Steps: 1) Add overrides for minimatch and tar to package.json, 2) Run npm install, 3) Run npm audit to verify reduction, 4) Run npm audit --omit=dev to confirm 0 prod vulns, 5) Test cap sync still works.",
+    "goalId": "",
+    "status": "in_progress",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-28T15:31:07.400Z",
+    "updatedAt": "2026-02-28T15:36:40.684Z"
+  },
+  {
+    "id": "task_1772292674542_b270d4bb",
+    "title": "CoinUsUp: Remove @capacitor/assets if icons already generated",
+    "description": "If the npm overrides approach fails or introduces build issues, remove @capacitor/assets devDependency entirely (icons are a one-time generation step). Steps: 1) Verify icons/splash screens are committed and complete in ios/android dirs, 2) Run npm uninstall @capacitor/assets, 3) Run npm audit to confirm 0 vulns, 4) Test build pipeline still works. Can reinstall temporarily if icons ever need regenerating.",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-28T15:31:14.542Z",
+    "updatedAt": "2026-02-28T15:31:18.538Z"
+  },
+  {
+    "id": "task_1772292678748_39b49d70",
+    "title": "CoinUsUp: Update CI to use npm audit --omit=dev",
+    "description": "Ensure any CI/CD pipeline (GitHub Actions, etc.) runs npm audit --omit=dev instead of bare npm audit, since all vulnerabilities are dev-only and do not affect the production app. Steps: 1) Check existing CI config for npm audit calls, 2) Update audit flags, 3) Document rationale in a comment.",
+    "goalId": "",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-02-28T15:31:18.748Z",
+    "updatedAt": "2026-02-28T15:31:21.630Z"
   }
 ]

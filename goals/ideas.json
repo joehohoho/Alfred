@@ -1677,5 +1677,77 @@
     "tags": [],
     "createdAt": "2026-02-28T14:01:42.104Z",
     "updatedAt": "2026-02-28T14:01:42.104Z"
+  },
+  {
+    "id": "idea_1772292119848_93e40381",
+    "title": "🔐 Security Posture Review — Feb 28 2026",
+    "description": "Security audit complete. See HAL completion notification for details.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T15:21:59.848Z",
+    "updatedAt": "2026-02-28T15:22:08.255Z",
+    "comments": [
+      {
+        "id": "cmt_1772292128254_7cb8e646",
+        "author": "alfred",
+        "text": "## 🔐 Security Audit Findings — Feb 28 2026\n\n### Summary\nAudit completed across: command-center, job-tracker, market-signal-lab, agent-sdk, CoinUsUp.\n\n---\n\n## 🔴 HIGH — npm Vulnerabilities\n\n**command-center/frontend: 28 vulns (2 moderate, 26 high)**\nAll stem from react-scripts → webpack / webpack-dev-server chain.\n- webpack-dev-server: Source code theft via malicious site\n- serialize-javascript: RCE via RegExp.flags exploit\n- jsonpath: Arbitrary Code Injection\n\nAll fixes require BREAKING changes (react-scripts migration). Impact is dev-time only.\n\n**CoinUsUp: 10 high vulns**\n- tar: Path traversal (used by @capacitor/cli) — build-time only\n- minimatch: ReDoS — build-time only\n\nFixes blocked by react peer dependency conflicts.\n\n---\n\n## ✅ FIXED — agent-sdk .gitignore missing .env\n.env entries were missing from agent-sdk .gitignore. FIXED and pushed to origin.\n\n---\n\n## 🟢 CLEAN\n- No hardcoded secrets found in source code\n- All .env files are gitignored and have 600 permissions\n- No world-writable source files\n- job-tracker, command-center/backend, agent-sdk: 0 npm vulns\n\n## Action Items\n1. **[HIGH] Migrate command-center/frontend from CRA to Vite** — eliminates all 28 vulns\n2. **[MEDIUM] Update CoinUsUp Capacitor deps** when peer conflicts resolve\n3. **[LOW] pip install pip-audit in market-signal-lab** for Python CVE tracking",
+        "createdAt": "2026-02-28T15:22:08.254Z"
+      }
+    ]
+  },
+  {
+    "id": "idea_1772293653094_4bb9ab67",
+    "title": "SaaS: Auto Repair Shop Customer Follow-up Automation",
+    "description": "IDEA: Automated SMS/email follow-up SaaS for independent auto repair shops. Sends service reminders, follows up on declined estimates, collects reviews, and prompts for repeat visits. 250,000+ shops in North America; most use zero automation. Pricing: $79-149/month per shop. BUILD EFFORT: Low — vibe-code in ~1-2 weeks (Twilio SMS + email + simple dashboard). MAINTENANCE: Low — no AI inference, just workflow automation + scheduling. UPSIDE: 100 shops = $8K-15K MRR. Very sticky (recurring pain, high habit). NOVEL ANGLE: Not invoicing/billing — pure customer lifecycle automation for grease-under-nails shop owners who have zero tech stack.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T15:47:33.094Z",
+    "updatedAt": "2026-02-28T15:47:33.094Z"
+  },
+  {
+    "id": "idea_1772293660185_d4f33f1a",
+    "title": "SaaS: Compliance Deadline Tracker for Regulated Micro-Businesses",
+    "description": "IDEA: Simple subscription SaaS that tracks permit renewals, health inspections, license expirations, and regulatory deadlines for hyper-regulated small businesses — tattoo/piercing studios, food trucks, cannabis dispensaries, daycares, estheticians. These businesses face fines or closure for missed renewals yet manage everything manually or forget entirely. Pricing: $29-49/month. BUILD EFFORT: Very low — essentially a smart calendar + alert engine with a simple onboarding wizard per business type. MAINTENANCE: Minimal — regulations change slowly; update deadlines annually. UPSIDE: Massive total addressable market (millions of regulated businesses); very low churn (fear of fines drives retention). 200 customers = $6K-10K MRR. NOVEL ANGLE: Not invoicing, not accounting — pure compliance peace-of-mind for overlooked trades that existing tools totally ignore.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T15:47:40.185Z",
+    "updatedAt": "2026-02-28T15:47:40.185Z"
+  },
+  {
+    "id": "idea_1772293668252_fcf7fa5a",
+    "title": "SaaS: Daily Wellness Check-in Service for Elderly Living Alone",
+    "description": "IDEA: Automated daily check-in service for seniors living alone. A friendly automated call or SMS each morning confirms they're okay; if no response within a window, it escalates to a designated family contact. Families subscribe, not the senior — $19-29/month. BUILD EFFORT: Low — Twilio calls/SMS + scheduling + contact tree logic. MVP in 1-2 weeks. No AI needed for core flow. MAINTENANCE: Very low — stable domain, minimal feature creep. UPSIDE: 14M+ Americans aged 65+ live alone (Stats Canada equivalent in Canada). Families will pay gladly for peace of mind — extremely emotional purchase, very sticky, near-zero churn. 300 families = $6K-9K MRR. NOVEL ANGLE: Deeply human problem, no dominant player in the micro-SaaS space. Not health monitoring hardware — purely software/telecom. Unexplored territory for a solo founder.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-02-28T15:47:48.252Z",
+    "updatedAt": "2026-02-28T15:47:48.252Z"
   }
 ]
