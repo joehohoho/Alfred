@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-27T23:01:06.078Z",
-  "lastActivityType": "improve-self",
+  "lastActivityAt": "2026-02-28T00:01:02.027Z",
+  "lastActivityType": "workspace-check",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -69,8 +69,12 @@
     {
       "type": "improve-self",
       "dispatchedAt": "2026-02-27T23:01:06.078Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-02-28T00:01:02.027Z"
     }
   ],
-  "totalIdleDispatches": 16,
+  "totalIdleDispatches": 17,
   "cooldownMinutes": 25
 }
