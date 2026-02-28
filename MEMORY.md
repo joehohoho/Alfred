@@ -221,11 +221,16 @@ Joe's primary monitoring and interaction interface. Runs at **localhost:3001** (
 - CORS restricted to specific origins (not open)
 - IDs use `crypto.randomUUID()` for security
 
-**LaunchAgents managed (9 total):**
+**LaunchAgents managed (14 total):**
 - `com.alfred.dashboard-nextjs` — Command Center
 - `ai.openclaw.gateway` — Gateway
 - `com.alfred.job-tracker` — Job Tracker
 - `com.alfred.market-signal-lab` — Market Signal Lab (port 8002, KeepAlive)
+- `com.alfred.legal-bill-ai` — LegalBillAI service
+- `com.alfred.session-size-guard` — Session size monitoring
+- `com.alfred.session-watchdog` — Session watchdog
+- `com.alfred.failsafe-ping` — Failsafe connectivity ping
+- `com.alfred.weather-alerts` — Weather alerts
 - `com.cloudflare.tunnel` — Cloudflare Tunnel
 - `com.ollama.ollama` — Ollama
 - `com.ollama.keepalive` — one-shot, sets env var (not running = normal)

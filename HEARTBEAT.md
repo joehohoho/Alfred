@@ -80,8 +80,8 @@ timestamp | context% | model | token_cost | status
 **Model:** LOCAL
 **Action:** Verify infrastructure health
 **Checks:**
-- LaunchAgents running: com.ollama.keepalive, com.openclaw.imsg-responder, com.alfred.dashboard-nextjs, com.cloudflare.tunnel
-  - Command: `launchctl list | grep com. | wc -l` (should be 4+)
+- LaunchAgents running: com.ollama.keepalive, com.openclaw.imsg-responder, com.alfred.dashboard-nextjs, com.cloudflare.tunnel, com.alfred.session-watchdog, com.alfred.session-size-guard, com.alfred.failsafe-ping, com.alfred.weather-alerts, com.alfred.market-signal-lab
+  - Command: `launchctl list | grep -E "com\.alfred\.|ai\.openclaw\." | wc -l` (should be 10+)
   - Verify each can restart on failure (check plist for `<key>KeepAlive</key><true/>`)
 - Cron jobs executed in last 24h (check git log, log file)
 - Ollama health (response time <1000ms, models loaded/unloaded properly)

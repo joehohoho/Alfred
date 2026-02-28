@@ -81,9 +81,19 @@ Use OpenClaw `tts` tool (returns media file path).
 
 Primary agents in this environment:
 - `com.ollama.keepalive`
+- `com.ollama.ollama`
 - `com.alfred.dashboard-nextjs` (localhost:3001)
 - `com.alfred.job-tracker` (localhost:8000)
+- `com.alfred.market-signal-lab` (localhost:8002)
+- `com.alfred.legal-bill-ai`
+- `com.alfred.session-size-guard`
+- `com.alfred.session-watchdog`
+- `com.alfred.failsafe-ping`
+- `com.alfred.weather-alerts`
+- `com.alfred.daily-inquiry`
+- `com.openclaw.imsg-responder`
 - `com.cloudflare.tunnel`
+- `ai.openclaw.gateway`
 
 ### Quick management
 ```bash
