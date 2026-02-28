@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-28T20:01:05.560Z",
-  "lastActivityType": "profile-reflection",
+  "lastActivityAt": "2026-02-28T21:01:03.739Z",
+  "lastActivityType": "review-memory",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -112,8 +112,12 @@
     {
       "type": "profile-reflection",
       "dispatchedAt": "2026-02-28T20:01:05.560Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-02-28T21:01:03.739Z"
     }
   ],
-  "totalIdleDispatches": 26,
+  "totalIdleDispatches": 27,
   "cooldownMinutes": 25
 }

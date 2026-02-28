@@ -1,6 +1,6 @@
 # NOW.md - Emergency Lifeboat Checkpoint
 
-**Written:** 2026-02-28 16:41 AST | Context: 71%
+**Written:** 2026-02-28 17:01 AST | Context: 71% (memory hygiene pass)
 
 ## If you're reading this after a crash:
 Saturday Feb 28 late afternoon. All morning work done. Afternoon = duplicate pool cycles, all correctly skipped. Two Alfred↔HAL Discord discussions posted today.
