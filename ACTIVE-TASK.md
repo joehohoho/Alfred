@@ -1,10 +1,25 @@
 # ACTIVE-TASK.md - Current Work In Progress
 
 **Status:** idle
-**Last Updated:** 2026-02-27 22:00 AST
+**Last Updated:** 2026-02-28 14:41 AST
 
 ## State
-Friday evening routine complete. HAL proactive pool fully cycled (16 tasks). No active in-progress work.
+Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (tasks 1–16) starting ~9:56 AM. Pool has wrapped to index 3. Afternoon HAL idle checks cycling through duplicates — all skipping correctly. Two Alfred ↔ HAL discussions posted to Discord (collaboration quality + passive income).
+
+## What Happened Today (Feb 28)
+- HAL proactive pool: all 16 tasks completed (code reviews, audits, ideas, security, perf, docs)
+- CoinUsUp: npm audit overrides applied (10→4 vulns), @capacitor/assets removed (10→4 HIGH), CI workflow created
+- Market Signal Lab: 20-finding code review (4 critical including look-ahead bias)
+- Command Center: perf profile (all <12ms), dead code cleaned
+- Docs freshness: MEMORY.md, TOOLS.md, HEARTBEAT.md agent counts updated
+- 6 new passive income ideas on Kanban (3 general, 3 Canada-specific)
+- Portfolio snapshot card created
+- System health: all services green, /Users disk at 78%
+
+## CoinUsUp Pending (Joe approval needed before push)
+- `b6f8b08` — remove @capacitor/assets devDep
+- `b1f78c5` — add GitHub Actions CI workflow
+- `b6f8b08` depends on overrides already in package.json (from earlier today)
 
 ### Pending Questions
 <!-- PENDING-Q-START -->
@@ -15,22 +30,5 @@ Friday evening routine complete. HAL proactive pool fully cycled (16 tasks). No 
   ID: `notif_1772222596530_195c0f1e` — Pilot is blocked on launch inputs/approval for external actions. Need: (1) choose 1-2 channels (affiliates, partners, content), (2) weekly test budget...
 
 - **Blocker on card** (_kanban-blocked_, Feb 28 03:01)
-  ID: `notif_1772247698673_344350bf` — Cannot start without Joe approving: (1) which app to focus on, (2) which channels to test, (3) budget ceiling. Joe indicated in chat he is not familia...
+  ID: `notif_1772247698673_344350bf` — Cannot start without Joe approving: (1) which app to focus on, (2) which channels to test, (3) budget ceiling.
 <!-- PENDING-Q-END -->
-
-## Pending Joe Decisions
-1. CoinUsUp git history scrub (.env in history) — approve `git filter-repo` + force push?
-2. CoinUsUp stale remote branches — delete `origin/GetStarted` + `origin/group-email`?
-3. CoinUsUp tracked build artifacts — approve `git rm --cached android/.gradle/ android/app/build/`?
-4. Command Center → Vite migration (CRA CVEs) — create Kanban card?
-5. CoinUsUp: Queue critical React fixes (hook-in-render violations)?
-6. CoinUsUp: Start Capacitor v6→v8 plugin update?
-
-## Infrastructure Issues (Kanban cards exist)
-- HAL subagent spawn staggering (urgent)
-- Fix sync-pending-questions.sh ACTIVE-TASK.md write failure
-- Session file archival cron (2939 files, 79MB)
-
-## Next Scheduled Work
-- Morning HAL dispatch cycle
-- Act on any Joe approvals from above list

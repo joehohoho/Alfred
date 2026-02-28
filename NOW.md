@@ -1,29 +1,15 @@
-# NOW.md - Emergency Checkpoint
+# NOW.md - Emergency Lifeboat Checkpoint
 
-**Time:** 2026-02-27 23:25 AST
-**Context:** 84% (169k/200k) — CRITICAL
+**Written:** 2026-02-28 14:41 AST | Context: 60%
 
-## If I Restart — Load These First
-1. SOUL.md, USER.md, IDENTITY.md
-2. memory/INDEX.md + memory/2026-02-27.md
-3. ACTIVE-TASK.md
-4. LAST-SESSION.md
+## If you're reading this after a crash:
+Saturday Feb 28 afternoon. HAL's full 16-task proactive pool ran this morning. All tasks complete. Afternoon = duplicate cycle, all skipping. Two Alfred↔HAL Discord discussions posted.
 
-## Late-Session Events (after 10:25 PM checkpoint)
-- CoinUsUp Capacitor v6→v8 update: DONE, committed locally (2b71b05), NOT pushed — Joe needs to approve push
-- Channel expansion pilot card: Blocked (Joe doesn't understand CAC/LTV, awaiting decision to park vs keep)
-- ROE Filing Assistant: Research done — market too thin (payroll platforms cover it), recommended reject
-- Bulk-rejected 7 law firm ideas from Ideas column per Joe's directive to move away from legal vertical
-- Joe's directive: "think outside the box, stop revolving around legal industry or existing apps"
-- New filter rules added: no law firm integration ideas, demand evidence required for niche ideas
+## CoinUsUp has 2 local-only commits awaiting Joe's push approval:
+- b6f8b08 — remove @capacitor/assets (reduces vulns 10→4)
+- b1f78c5 — add GitHub Actions CI with npm audit --omit=dev
 
-## Joe's Unanswered Decisions
-1. Push CoinUsUp Capacitor update? (commit 2b71b05 ready)
-2. Channel expansion card — park in Ideas or keep blocked?
-3. ROE Filing Assistant — confirm reject?
-4. Crypto DCA Safety Layer — keep in Ideas or reject? (explained what it is)
-5. CoinUsUp git history scrub (.env)
-6. CoinUsUp stale remotes (GetStarted, group-email)
-7. CoinUsUp tracked build artifacts
+## 3 Joe questions still blocked (see ACTIVE-TASK.md Pending Questions)
 
-## Session is near context limit — next message may trigger compaction
+## Disk at 78% on /Users — watch for growth
+## HAL spawn staggering Kanban card exists — implement before next big proactive burst
