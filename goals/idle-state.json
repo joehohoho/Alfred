@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-02-28T18:01:03.805Z",
-  "lastActivityType": "evaluate-idea",
+  "lastActivityAt": "2026-02-28T19:01:03.137Z",
+  "lastActivityType": "workspace-check",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -104,8 +104,12 @@
       "type": "evaluate-idea",
       "dispatchedAt": "2026-02-28T18:01:03.805Z",
       "ideaId": "idea_1771768800002_consultant_toolkit"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-02-28T19:01:03.137Z"
     }
   ],
-  "totalIdleDispatches": 24,
+  "totalIdleDispatches": 25,
   "cooldownMinutes": 25
 }
