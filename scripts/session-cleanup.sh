@@ -3,13 +3,15 @@
 # Runs via LaunchAgent every 30 min. Prevents session bloat & monitors health.
 #
 # Actions:
-#   1. Remove one-shot sessions older than 2h (idle, chat, card, system, hal:maintenance)
-#   2. Remove corrupted sessions (URL-based keys, etc.)
-#   3. Reset main session if context exceeds 85% of model capacity
-#   4. Cap total session count — prune oldest if > 80 sessions
-#   5. Clean orphaned JSONL files (on disk but not in sessions.json)
-#   6. Check HAL remote gateway health — alert if unreachable
-#   7. Check Codex OAuth token expiry — alert if < 2 days remaining
+#   1. Remove corrupted sessions (URL-based keys)
+#   2. Remove one-shot sessions older than 2h (idle, chat, card, system, hal, cron:run, subagent)
+#   3. Remove stale channel sessions older than 48h (slack, discord, imessage)
+#   4. Remove stale cron base sessions older than 24h
+#   5. Reset main session if JSONL file exceeds 500KB
+#   6. Cap total session count at 40 — prune oldest
+#   7. Clean orphaned JSONL files (on disk but not in sessions.json)
+#   8. Check HAL remote gateway health — alert if unreachable
+#   9. Check Codex OAuth token expiry — alert if < 2 days remaining
 #
 # Safe: only touches sessions.json + JSONL files. Backs up main session before reset.
 
@@ -17,7 +19,7 @@ set -euo pipefail
 
 SESSIONS_DIR="$HOME/.openclaw/agents/main/sessions"
 SESSIONS_JSON="$SESSIONS_DIR/sessions.json"
-LOG="$HOME/.openclaw/workspace/.hal-alfred-tracking/session-cleanup.log"
+LOG="$HOME/.openclaw/logs/session-cleanup.log"
 NOTIFY_URL="http://localhost:3001/api/notifications"
 
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
@@ -44,23 +46,32 @@ from datetime import datetime
 
 SESSIONS_DIR = Path(os.path.expanduser("~/.openclaw/agents/main/sessions"))
 SESSIONS_JSON = SESSIONS_DIR / "sessions.json"
-LOG_PATH = Path(os.path.expanduser("~/.openclaw/workspace/.hal-alfred-tracking/session-cleanup.log"))
+LOG_PATH = Path(os.path.expanduser("~/.openclaw/logs/session-cleanup.log"))
 
 # Thresholds
-CONTEXT_RESET_PCT = 0.85        # Reset main session above 85% context
-ONE_SHOT_MAX_AGE_H = 2          # Remove one-shot sessions older than 2h
-MAX_TOTAL_SESSIONS = 80         # Hard cap on session count
-MODEL_CONTEXTS = {              # Known model context windows
-    200000: 200000,
-    272000: 272000,
-    1048576: 1048576,
-}
+ONE_SHOT_MAX_AGE_H = 2           # Remove one-shot sessions after 2h
+CHANNEL_MAX_AGE_H = 48           # Remove channel sessions after 48h idle
+CRON_BASE_MAX_AGE_H = 24         # Remove cron base sessions after 24h
+MAX_TOTAL_SESSIONS = 40          # Hard cap on session count
+MAIN_SESSION_MAX_KB = 500        # Reset main session if JSONL > 500KB
 
 def log(msg):
-    line = f"[{datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')}] {msg}"
+    line = f"[{datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}] {msg}"
     print(line)
     with open(LOG_PATH, "a") as f:
         f.write(line + "\n")
+
+def get_age_h(entry, sessions_dir):
+    """Get session age in hours from updatedAt or file mtime."""
+    now = time.time()
+    updated_at = entry.get("updatedAt", 0)
+    if updated_at > 0:
+        return (now * 1000 - updated_at) / (1000 * 3600)
+    sid = entry.get("sessionId", "")
+    fpath = sessions_dir / f"{sid}.jsonl"
+    if fpath.exists():
+        return (now - fpath.stat().st_mtime) / 3600
+    return 999
 
 # Load sessions
 with open(SESSIONS_JSON) as f:
@@ -77,56 +88,89 @@ for key in list(data.keys()):
         actions.append(f"corrupted:{key[:60]}")
 
 # --- 2. Remove old one-shot sessions ---
-ONE_SHOT_PREFIXES = [":idle:", ":chat-", ":card:", ":system:", ":hal:maintenance:"]
-now = time.time()
+# These are sessions created for a single operation that should not persist
+ONE_SHOT_PATTERNS = [
+    ":idle:",          # idle dispatches
+    ":chat-",          # chat sessions
+    ":card:",          # card-specific sessions
+    ":system:",        # system event sessions
+    ":hal:maintenance:", # HAL maintenance
+    ":subagent:",      # subagent sessions
+]
 
 for key in list(data.keys()):
-    if key in [r for r in to_remove]:
+    if key in to_remove:
         continue
-    is_one_shot = any(p in key for p in ONE_SHOT_PREFIXES)
-    if not is_one_shot:
+    # Cron run sessions: agent:main:cron:{id}:run:{runId}
+    is_cron_run = ":cron:" in key and ":run:" in key
+    is_one_shot = any(p in key for p in ONE_SHOT_PATTERNS)
+    if not (is_one_shot or is_cron_run):
         continue
-
-    # Check age via updatedAt in session entry
-    updated_at = data[key].get("updatedAt", 0)
-    if updated_at > 0:
-        age_h = (now * 1000 - updated_at) / (1000 * 3600)
-    else:
-        # Fallback: check JSONL file mtime
-        sid = data[key].get("sessionId", "")
-        fpath = SESSIONS_DIR / f"{sid}.jsonl"
-        if fpath.exists():
-            age_h = (now - fpath.stat().st_mtime) / 3600
-        else:
-            age_h = 999  # missing file = stale
-
+    age_h = get_age_h(data[key], SESSIONS_DIR)
     if age_h > ONE_SHOT_MAX_AGE_H:
         to_remove.append(key)
-        actions.append(f"stale({age_h:.0f}h):{key[:50]}")
+        actions.append(f"oneshot({age_h:.0f}h):{key[:60]}")
 
-# --- 3. Check main session context usage ---
+# --- 3. Remove bloated sessions (file size > 200KB) ---
+# Any session with a JSONL file over 200KB is consuming too much context
+# This catches Discord/Slack channels that accumulate unbounded chat history
+BLOAT_MAX_KB = 200
+
+for key in list(data.keys()):
+    if key in to_remove:
+        continue
+    if key == "agent:main:main":
+        continue  # Main session handled separately
+    sid = data[key].get("sessionId", "")
+    if sid:
+        fpath = SESSIONS_DIR / f"{sid}.jsonl"
+        if fpath.exists():
+            size_kb = fpath.stat().st_size / 1024
+            if size_kb > BLOAT_MAX_KB:
+                to_remove.append(key)
+                actions.append(f"bloated({size_kb:.0f}KB):{key[:60]}")
+
+# --- 4. Remove stale channel sessions ---
+# Slack, Discord, iMessage sessions that haven't been used in 48h
+CHANNEL_PATTERNS = [":slack:", ":discord:", ":imessage:"]
+
+for key in list(data.keys()):
+    if key in to_remove:
+        continue
+    if key == "agent:main:main":
+        continue
+    is_channel = any(p in key for p in CHANNEL_PATTERNS)
+    if not is_channel:
+        continue
+    age_h = get_age_h(data[key], SESSIONS_DIR)
+    if age_h > CHANNEL_MAX_AGE_H:
+        to_remove.append(key)
+        actions.append(f"stale_ch({age_h:.0f}h):{key[:60]}")
+
+# --- 5. Remove stale cron base sessions ---
+# Cron base sessions (not :run:) older than 24h
+for key in list(data.keys()):
+    if key in to_remove:
+        continue
+    if ":cron:" in key and ":run:" not in key:
+        age_h = get_age_h(data[key], SESSIONS_DIR)
+        if age_h > CRON_BASE_MAX_AGE_H:
+            to_remove.append(key)
+            actions.append(f"stale_cron({age_h:.0f}h):{key[:60]}")
+
+# --- 5. Check main session size ---
 main_entry = data.get("agent:main:main")
 main_reset = False
 if main_entry:
-    ctx = main_entry.get("contextTokens", 0)
-    # Determine model capacity (use the context value as the window size)
-    # Default to 200K if unknown
-    capacity = ctx if ctx in MODEL_CONTEXTS else 200000
-    if ctx > 0:
-        usage_pct = ctx / capacity if capacity > ctx else 0.96
-        # For Codex (200K), contextTokens IS the window size when full
-        # Check the JSONL file size as a proxy
-        sid = main_entry.get("sessionId", "")
-        fpath = SESSIONS_DIR / f"{sid}.jsonl"
-        if fpath.exists():
-            file_size_kb = fpath.stat().st_size / 1024
-            # A session JSONL over 500KB with 200K context is likely very full
-            if file_size_kb > 500 and ctx >= 200000:
-                main_reset = True
-                actions.append(f"main_reset:ctx={ctx},file={file_size_kb:.0f}KB")
+    sid = main_entry.get("sessionId", "")
+    fpath = SESSIONS_DIR / f"{sid}.jsonl"
+    if fpath.exists():
+        file_size_kb = fpath.stat().st_size / 1024
+        if file_size_kb > MAIN_SESSION_MAX_KB:
+            main_reset = True
+            actions.append(f"main_reset:file={file_size_kb:.0f}KB")
 
-if main_reset and "agent:main:main" not in [r for r in to_remove]:
-    # Backup before removing
+if main_reset and "agent:main:main" not in to_remove:
     sid = data["agent:main:main"].get("sessionId", "")
     fpath = SESSIONS_DIR / f"{sid}.jsonl"
     if fpath.exists():
@@ -134,7 +178,7 @@ if main_reset and "agent:main:main" not in [r for r in to_remove]:
         shutil.copy2(str(fpath), str(bak))
     to_remove.append("agent:main:main")
 
-# --- 4. Delete JSONL files and update sessions.json ---
+# --- 6. Delete JSONL files and update sessions.json ---
 deleted_files = 0
 for key in to_remove:
     if key not in data:
@@ -147,20 +191,16 @@ for key in to_remove:
             deleted_files += 1
     del data[key]
 
-# --- 5. Cap total session count (remove oldest first) ---
+# --- 7. Cap total session count (remove oldest first) ---
 if len(data) > MAX_TOTAL_SESSIONS:
-    # Sort by updatedAt, remove oldest
     sorted_keys = sorted(data.keys(), key=lambda k: data[k].get("updatedAt", 0))
-    # Don't remove persistent sessions (slack, discord, cron, imessage, subagent)
-    PERSISTENT_PREFIXES = [":slack:", ":discord:", ":cron:", ":imessage:", ":subagent:"]
     excess = len(data) - MAX_TOTAL_SESSIONS
     removed_excess = 0
     for key in sorted_keys:
         if removed_excess >= excess:
             break
-        is_persistent = any(p in key for p in PERSISTENT_PREFIXES)
-        if is_persistent:
-            continue
+        if key == "agent:main:main":
+            continue  # Never cap-remove main
         sid = data[key].get("sessionId", "")
         if sid:
             fpath = SESSIONS_DIR / f"{sid}.jsonl"
@@ -169,9 +209,10 @@ if len(data) > MAX_TOTAL_SESSIONS:
                 deleted_files += 1
         del data[key]
         removed_excess += 1
-        actions.append(f"cap_excess:{key[:50]}")
+        actions.append(f"cap:{key[:50]}")
 
-# --- 6. Clean orphaned JSONL files (on disk but not in sessions.json) ---
+# --- 8. Clean orphaned JSONL files ---
+now = time.time()
 referenced_sids = set()
 for entry in data.values():
     sid = entry.get("sessionId", "")
@@ -180,16 +221,17 @@ for entry in data.values():
 
 orphan_count = 0
 orphan_bytes = 0
-for f in glob.glob(str(SESSIONS_DIR / "*.jsonl")):
-    basename = os.path.basename(f).replace(".jsonl", "")
-    if ".auto-bak" in f or ".bak" in f:
-        # Clean old backups too
-        if (now - os.path.getmtime(f)) > 86400:  # > 1 day old
+for f in glob.glob(str(SESSIONS_DIR / "*.jsonl*")):
+    basename = os.path.basename(f)
+    # Clean old backups (>1 day)
+    if ".auto-bak" in basename or ".bak" in basename:
+        if (now - os.path.getmtime(f)) > 86400:
             orphan_bytes += os.path.getsize(f)
             os.remove(f)
             orphan_count += 1
         continue
-    if basename not in referenced_sids:
+    sid = basename.replace(".jsonl", "")
+    if sid not in referenced_sids:
         orphan_bytes += os.path.getsize(f)
         os.remove(f)
         orphan_count += 1
@@ -204,9 +246,10 @@ with open(SESSIONS_JSON, "w") as f:
 # Summary
 removed = original_count - len(data)
 if removed > 0 or main_reset or orphan_count > 0:
-    log(f"CLEANED: {removed} sessions removed ({original_count} -> {len(data)}), {deleted_files} files deleted, {orphan_count} orphans purged" +
-        (", main session RESET" if main_reset else ""))
-    for a in actions[:10]:  # Log first 10 actions
+    log(f"CLEANED: {removed} sessions removed ({original_count} -> {len(data)}), "
+        f"{deleted_files} files deleted, {orphan_count} orphans purged"
+        + (", main session RESET" if main_reset else ""))
+    for a in actions[:15]:
         log(f"  - {a}")
 else:
     log(f"OK: {len(data)} sessions, no cleanup needed")
@@ -229,7 +272,7 @@ if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
   notify "Session Auto-Reset" "Main session was at 85%+ context. Auto-reset and gateway restarted."
 fi
 
-# --- 7. HAL remote gateway health check ---
+# --- HAL remote gateway health check ---
 HAL_URL="http://192.168.2.79:18789"
 HAL_STATUS_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-gateway-health.txt"
 HAL_LAST_ALERT_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-alert-cooldown.txt"
@@ -237,7 +280,6 @@ HAL_LAST_ALERT_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-alert-co
 HAL_REACHABLE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 "$HAL_URL" 2>/dev/null || echo "000")
 
 if [[ "$HAL_REACHABLE" == "000" ]]; then
-  # Check cooldown — don't spam alerts (alert at most every 2 hours)
   LAST_ALERT=0
   [[ -f "$HAL_LAST_ALERT_FILE" ]] && LAST_ALERT=$(cat "$HAL_LAST_ALERT_FILE" 2>/dev/null || echo "0")
   NOW_EPOCH=$(date +%s)
@@ -253,7 +295,7 @@ else
   echo "up" > "$HAL_STATUS_FILE"
 fi
 
-# --- 8. Codex OAuth token expiry check ---
+# --- Codex OAuth token expiry check ---
 AUTH_FILE="$HOME/.openclaw/agents/main/agent/auth-profiles.json"
 if [[ -f "$AUTH_FILE" ]]; then
   CODEX_ALERT=$(python3 - "$AUTH_FILE" "$HAL_LAST_ALERT_FILE" << 'PYCHECK'
@@ -268,7 +310,6 @@ for name, profile in profiles.items():
         exp = profile["expires"] / 1000
         remaining_h = (exp - time.time()) / 3600
         if remaining_h < 48:
-            # Check cooldown (alert every 12h)
             cooldown_key = f"{cooldown_file}.codex"
             last = 0
             if os.path.exists(cooldown_key):
