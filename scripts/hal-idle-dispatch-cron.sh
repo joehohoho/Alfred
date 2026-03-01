@@ -1,14 +1,14 @@
 #!/bin/bash
 # hal-idle-dispatch-cron.sh
-# Called by HAL Idle Check & Dispatch cron every 15 min.
-# Dispatches run on HAL's REMOTE gateway (192.168.2.79) with local Qwen model
-# — no API rate limits consumed. Safe for aggressive dispatch frequency.
+# Self-dispatching: runs as a LaunchAgent every 15 min, NO Alfred LLM needed.
+# Dispatches directly to HAL's REMOTE gateway (192.168.2.79) via hal-dispatch-ws.js.
+# HAL runs Qwen 2.5 Coder 14B locally — zero API rate limits consumed.
 #
 # Flow:
 #   1. Check if HAL ran a Kanban task recently (10-min cooldown)
 #   2. Try Kanban To Do (blocked if a card is already in_progress)
 #   3. If blocked/empty → try proactive pool (15-min cooldown, no board move needed)
-#   4. Output [ACTION:DISPATCH_KANBAN], [ACTION:DISPATCH_PROACTIVE], or [ACTION:SKIP]
+#   4. Dispatch directly to HAL via WebSocket (no LLM intermediary)
 
 set -euo pipefail
 
@@ -88,15 +88,27 @@ if [[ -n "$TASK_JSON" ]]; then
 
   if [[ -n "$TASK_ID" && -n "$TITLE" ]]; then
     log "DISPATCH_KANBAN: [$TASK_ID] $TITLE (priority=$PRIORITY)"
-    # Log the dispatch intent
-    python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$TASK_ID" "HAL" "$TITLE" "kanban" <<'PY' >> "$DISPATCH_LOG"
+
+    # Build task message for HAL
+    TASK_MSG="[KANBAN-TASK] ID: ${TASK_ID} | Priority: ${PRIORITY}
+Title: ${TITLE}
+${DESC:+Description: ${DESC}}
+Instructions: Complete this task. When done, report your results."
+
+    # Dispatch directly to HAL via WebSocket (no Alfred LLM needed)
+    DISPATCH_OUT=$(node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
+      log "DISPATCH_OK: $DISPATCH_OUT"
+      # Log the successful dispatch
+      python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$TASK_ID" "HAL" "$TITLE" "kanban" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
 ts, tid, route, task, dtype = sys.argv[1:6]
 print(json.dumps({"timestamp":ts,"task_id":tid,"route":route,"dispatch_result":"dispatched_to_hal","dispatch_type":dtype,"task":task[:200]},separators=(',',':')))
 PY
-    echo "[ACTION:DISPATCH_KANBAN] task_id=${TASK_ID} priority=${PRIORITY}"
-    echo "task_title=${TITLE}"
-    echo "task_desc=${DESC}"
+      echo "[ACTION:DISPATCH_KANBAN] task_id=${TASK_ID} priority=${PRIORITY}"
+    } || {
+      log "DISPATCH_FAILED: exit=$? output=$DISPATCH_OUT"
+      echo "[ACTION:SKIP] reason=dispatch_failed task_id=${TASK_ID}"
+    }
     exit 0
   fi
 fi
@@ -158,17 +170,23 @@ TASK_BLOCK=$(awk "
 NEW_INDEX=$(( (POOL_INDEX + 1) % POOL_SIZE ))
 echo "$NEW_INDEX" > "$POOL_INDEX_FILE"
 
-# Log the dispatch intent
-python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "proactive_$(date +%s)" "HAL" "$NEXT_TASK" "proactive" <<'PY' >> "$DISPATCH_LOG"
+# Build task message for HAL
+PROACTIVE_MSG="[PROACTIVE-TASK] Pool #${TARGET_LINE}: ${NEXT_TASK}
+${TASK_BLOCK}
+Instructions: Execute this proactive task. Report findings and any actions taken."
+
+# Dispatch directly to HAL via WebSocket
+PROACTIVE_ID="proactive_$(date +%s)"
+DISPATCH_OUT=$(node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
+  log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK} — $DISPATCH_OUT"
+  # Log the successful dispatch
+  python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$PROACTIVE_ID" "HAL" "$NEXT_TASK" "proactive" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
 ts, tid, route, task, dtype = sys.argv[1:6]
 print(json.dumps({"timestamp":ts,"task_id":tid,"route":route,"dispatch_result":"dispatched_proactive","dispatch_type":dtype,"task":task[:200]},separators=(',',':')))
 PY
-
-log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK}"
-echo "[ACTION:DISPATCH_PROACTIVE] pool_index=${POOL_INDEX} pool_target=${TARGET_LINE}"
-echo "task_title=${NEXT_TASK}"
-# Output the full block for Alfred to use as task description
-echo "---TASK_BLOCK_START---"
-echo "$TASK_BLOCK"
-echo "---TASK_BLOCK_END---"
+  echo "[ACTION:DISPATCH_PROACTIVE] pool_index=${POOL_INDEX} pool_target=${TARGET_LINE}"
+} || {
+  log "DISPATCH_FAILED: pool_index=${POOL_INDEX} task=${NEXT_TASK} — exit=$? output=$DISPATCH_OUT"
+  echo "[ACTION:SKIP] reason=proactive_dispatch_failed"
+}
