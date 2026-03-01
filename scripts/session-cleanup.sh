@@ -1,12 +1,15 @@
 #!/bin/bash
 # session-cleanup.sh
-# Runs via cron every 30 min. Prevents session bloat that causes API rate limit errors.
+# Runs via LaunchAgent every 30 min. Prevents session bloat & monitors health.
 #
 # Actions:
 #   1. Remove one-shot sessions older than 2h (idle, chat, card, system, hal:maintenance)
 #   2. Remove corrupted sessions (URL-based keys, etc.)
 #   3. Reset main session if context exceeds 85% of model capacity
 #   4. Cap total session count — prune oldest if > 80 sessions
+#   5. Clean orphaned JSONL files (on disk but not in sessions.json)
+#   6. Check HAL remote gateway health — alert if unreachable
+#   7. Check Codex OAuth token expiry — alert if < 2 days remaining
 #
 # Safe: only touches sessions.json + JSONL files. Backs up main session before reset.
 
@@ -15,9 +18,18 @@ set -euo pipefail
 SESSIONS_DIR="$HOME/.openclaw/agents/main/sessions"
 SESSIONS_JSON="$SESSIONS_DIR/sessions.json"
 LOG="$HOME/.openclaw/workspace/.hal-alfred-tracking/session-cleanup.log"
+NOTIFY_URL="http://localhost:3001/api/notifications"
 
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
+
+notify() {
+  local title="$1" message="$2"
+  curl -s -X POST "$NOTIFY_URL" \
+    -H "Content-Type: application/json" \
+    -d "{\"type\":\"system\",\"title\":\"$title\",\"message\":\"$message\"}" \
+    > /dev/null 2>&1 || true
+}
 
 if [[ ! -f "$SESSIONS_JSON" ]]; then
   log "SKIP: sessions.json not found"
@@ -26,7 +38,7 @@ fi
 
 # Run cleanup in Python for safe JSON manipulation
 python3 << 'PY'
-import json, os, time, sys, shutil
+import json, os, time, sys, shutil, glob
 from pathlib import Path
 from datetime import datetime
 
@@ -159,27 +171,119 @@ if len(data) > MAX_TOTAL_SESSIONS:
         removed_excess += 1
         actions.append(f"cap_excess:{key[:50]}")
 
+# --- 6. Clean orphaned JSONL files (on disk but not in sessions.json) ---
+referenced_sids = set()
+for entry in data.values():
+    sid = entry.get("sessionId", "")
+    if sid:
+        referenced_sids.add(sid)
+
+orphan_count = 0
+orphan_bytes = 0
+for f in glob.glob(str(SESSIONS_DIR / "*.jsonl")):
+    basename = os.path.basename(f).replace(".jsonl", "")
+    if ".auto-bak" in f or ".bak" in f:
+        # Clean old backups too
+        if (now - os.path.getmtime(f)) > 86400:  # > 1 day old
+            orphan_bytes += os.path.getsize(f)
+            os.remove(f)
+            orphan_count += 1
+        continue
+    if basename not in referenced_sids:
+        orphan_bytes += os.path.getsize(f)
+        os.remove(f)
+        orphan_count += 1
+
+if orphan_count > 0:
+    actions.append(f"orphans:{orphan_count} files, {orphan_bytes/1024:.0f}KB")
+
 # Write updated sessions.json
 with open(SESSIONS_JSON, "w") as f:
     json.dump(data, f, indent=2)
 
 # Summary
 removed = original_count - len(data)
-if removed > 0 or main_reset:
-    log(f"CLEANED: {removed} sessions removed ({original_count} -> {len(data)}), {deleted_files} files deleted" +
+if removed > 0 or main_reset or orphan_count > 0:
+    log(f"CLEANED: {removed} sessions removed ({original_count} -> {len(data)}), {deleted_files} files deleted, {orphan_count} orphans purged" +
         (", main session RESET" if main_reset else ""))
     for a in actions[:10]:  # Log first 10 actions
         log(f"  - {a}")
 else:
     log(f"OK: {len(data)} sessions, no cleanup needed")
+
+# Output flags for bash to consume
+if main_reset:
+    print("FLAG:MAIN_RESET")
 PY
 
+CLEANUP_OUTPUT=$(tail -5 "$LOG")
+
 # Restart gateway if main session was reset
-if grep -q "main_reset" <<< "$(tail -1 "$LOG")"; then
+if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
   log "Restarting gateway after main session reset..."
   pkill -f openclaw-gateway 2>/dev/null || true
   sleep 2
   nohup openclaw-gateway > /dev/null 2>&1 &
   sleep 2
   log "Gateway restarted (PID $(pgrep -f openclaw-gateway | head -1))"
+  notify "Session Auto-Reset" "Main session was at 85%+ context. Auto-reset and gateway restarted."
+fi
+
+# --- 7. HAL remote gateway health check ---
+HAL_URL="http://192.168.2.79:18789"
+HAL_STATUS_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-gateway-health.txt"
+HAL_LAST_ALERT_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-alert-cooldown.txt"
+
+HAL_REACHABLE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 "$HAL_URL" 2>/dev/null || echo "000")
+
+if [[ "$HAL_REACHABLE" == "000" ]]; then
+  # Check cooldown — don't spam alerts (alert at most every 2 hours)
+  LAST_ALERT=0
+  [[ -f "$HAL_LAST_ALERT_FILE" ]] && LAST_ALERT=$(cat "$HAL_LAST_ALERT_FILE" 2>/dev/null || echo "0")
+  NOW_EPOCH=$(date +%s)
+  SINCE_ALERT=$(( NOW_EPOCH - LAST_ALERT ))
+
+  if [[ "$SINCE_ALERT" -gt 7200 ]]; then
+    log "ALERT: HAL gateway unreachable at $HAL_URL"
+    notify "HAL Gateway Down" "HAL remote gateway at 192.168.2.79:18789 is unreachable. Check if HAL PC is on and gateway is running."
+    echo "$NOW_EPOCH" > "$HAL_LAST_ALERT_FILE"
+  fi
+  echo "down" > "$HAL_STATUS_FILE"
+else
+  echo "up" > "$HAL_STATUS_FILE"
+fi
+
+# --- 8. Codex OAuth token expiry check ---
+AUTH_FILE="$HOME/.openclaw/agents/main/agent/auth-profiles.json"
+if [[ -f "$AUTH_FILE" ]]; then
+  CODEX_ALERT=$(python3 - "$AUTH_FILE" "$HAL_LAST_ALERT_FILE" << 'PYCHECK'
+import json, sys, time, os
+auth_file = sys.argv[1]
+cooldown_file = sys.argv[2]
+with open(auth_file) as f:
+    data = json.load(f)
+profiles = data.get("profiles", {})
+for name, profile in profiles.items():
+    if "codex" in name.lower() and "expires" in profile:
+        exp = profile["expires"] / 1000
+        remaining_h = (exp - time.time()) / 3600
+        if remaining_h < 48:
+            # Check cooldown (alert every 12h)
+            cooldown_key = f"{cooldown_file}.codex"
+            last = 0
+            if os.path.exists(cooldown_key):
+                try: last = float(open(cooldown_key).read())
+                except: pass
+            if time.time() - last > 43200:
+                print(f"ALERT:Codex OAuth token expires in {remaining_h:.0f}h")
+                with open(cooldown_key, "w") as cf:
+                    cf.write(str(time.time()))
+            break
+PYCHECK
+  )
+  if [[ "$CODEX_ALERT" == ALERT:* ]]; then
+    MSG="${CODEX_ALERT#ALERT:}"
+    log "$MSG"
+    notify "Codex Token Expiring" "$MSG. Refresh via: openclaw models auth login --provider openai-codex"
+  fi
 fi

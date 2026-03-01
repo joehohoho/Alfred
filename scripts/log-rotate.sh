@@ -39,6 +39,16 @@ LOG_FILES=(
 # Also include job-tracker log (may be in different location)
 [ -f "$HOME/.openclaw/logs/job-tracker.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/job-tracker.log")
 
+# HAL tracking logs
+TRACK_DIR="$HOME/.openclaw/workspace/.hal-alfred-tracking"
+[ -f "$TRACK_DIR/dispatch.jsonl" ] && LOG_FILES+=("$TRACK_DIR/dispatch.jsonl")
+[ -f "$TRACK_DIR/hal-dispatch.log" ] && LOG_FILES+=("$TRACK_DIR/hal-dispatch.log")
+[ -f "$TRACK_DIR/session-cleanup.log" ] && LOG_FILES+=("$TRACK_DIR/session-cleanup.log")
+
+# Session cleanup and watchdog logs
+[ -f "$HOME/.openclaw/logs/session-cleanup.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/session-cleanup.log")
+[ -f "$HOME/.openclaw/logs/hal-idle-dispatch.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/hal-idle-dispatch.log")
+
 for logfile in "${LOG_FILES[@]}"; do
     if [ -f "$logfile" ]; then
         size=$(stat -f%z "$logfile" 2>/dev/null || echo 0)
