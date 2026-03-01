@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /**
  * hal-dispatch-ws.js
- * Sends a task message to the HAL agent via OpenClaw gateway WebSocket.
+ * Sends a task message to HAL via its REMOTE OpenClaw gateway (192.168.2.79).
+ * HAL runs Qwen 2.5 Coder 14B locally — no API rate limits consumed.
+ *
  * Each dispatch uses an ISOLATED session (unique sessionKey) so HAL's
  * context never accumulates cross-task bloat.
- * agent:hal:main is reserved for interactive/manual use only.
  *
  * Usage: node hal-dispatch-ws.js "<task message>" [--session-key <key>]
+ *        HAL_GATEWAY_URL=ws://host:port HAL_GATEWAY_TOKEN=xxx node hal-dispatch-ws.js "<task>"
  *
  * Session key logic:
- *   Default: agent:hal:task-<timestamp>-<random6>  (isolated, fresh context)
+ *   Default: agent:main:task-<timestamp>-<random6>  (isolated, fresh context)
  *   Override: pass --session-key <key> for multi-turn tasks that need continuity
  *
  * Outputs the session key used to stdout on success so callers can track it.
@@ -20,13 +22,16 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const CONFIG_PATH = path.join(process.env.HOME, '.openclaw/openclaw.json');
-const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+// Remote HAL gateway config (HAL's own OpenClaw instance on Windows PC)
+const HAL_GATEWAY_URL = process.env.HAL_GATEWAY_URL || 'ws://192.168.2.79:18789';
+const HAL_GATEWAY_TOKEN = process.env.HAL_GATEWAY_TOKEN || 'ceebc03825b2a3d143b4097f4ebfb1649a874d91db1a2115';
+// On HAL's gateway, the agent is "main" (not "hal" — that's only on Alfred's local gateway)
+const HAL_AGENT_ID = process.env.HAL_AGENT_ID || 'main';
 
-const token = config?.gateway?.auth?.token;
-const port  = config?.gateway?.port || 18789;
+const token = HAL_GATEWAY_TOKEN;
+const gatewayUrl = HAL_GATEWAY_URL;
 
-if (!token) { console.error('ERROR: No gateway auth token in openclaw.json'); process.exit(1); }
+if (!token) { console.error('ERROR: No HAL gateway auth token'); process.exit(1); }
 
 // Parse args
 let task = null;
@@ -56,10 +61,10 @@ try {
 
 // Generate an isolated session key for this task (fresh context, no bloat)
 const shortId = crypto.randomBytes(3).toString('hex'); // 6 hex chars
-const sessionKey = sessionKeyOverride || `agent:hal:task-${Date.now()}-${shortId}`;
+const sessionKey = sessionKeyOverride || `agent:${HAL_AGENT_ID}:task-${Date.now()}-${shortId}`;
 
-const ws = new WebSocket(`ws://127.0.0.1:${port}`, {
-  headers: { Authorization: `Bearer ${token}` }
+const ws = new WebSocket(gatewayUrl, {
+  headers: { origin: gatewayUrl.replace('ws://', 'http://') }
 });
 
 let connected = false;
@@ -82,7 +87,7 @@ ws.on('message', (data) => {
   try { msg = JSON.parse(data); } catch(e) { return; }
 
   // Handle connect.challenge → respond with connect handshake
-  if (msg.event === 'connect.challenge' && msg.payload?.nonce) {
+  if (msg.event === 'connect.challenge' && msg.payload && msg.payload.nonce) {
     send('connect', {
       minProtocol: 3,
       maxProtocol: 3,
@@ -101,31 +106,22 @@ ws.on('message', (data) => {
     return;
   }
 
-  // Handle connect response
-  if (!connected && msg.result && msg.result.protocol !== undefined) {
+  // Handle connect response (remote gateway uses payload, local uses result)
+  const connectPayload = msg.payload || msg.result;
+  if (!connected && msg.ok === true && connectPayload) {
     connected = true;
+    const idempotencyKey = crypto.randomUUID();
     pendingId = send('chat.send', {
       message: task,
-      agentId: 'hal',
-      sessionKey: sessionKey
-    });
-    return;
-  }
-
-  // Also accept result for any connect id
-  if (!connected && msg.result) {
-    connected = true;
-    pendingId = send('chat.send', {
-      message: task,
-      agentId: 'hal',
-      sessionKey: sessionKey
+      sessionKey: sessionKey,
+      idempotencyKey: idempotencyKey
     });
     return;
   }
 
   // Handle chat.send response
   if (msg.id === pendingId) {
-    if (msg.error) {
+    if (msg.error || msg.ok === false) {
       console.error('ERROR dispatching to HAL:', JSON.stringify(msg.error));
       ws.close();
       process.exit(1);
@@ -156,4 +152,4 @@ setTimeout(() => {
     console.error('Timeout waiting for HAL dispatch');
     process.exit(1);
   }
-}, 20000);
+}, 30000);
