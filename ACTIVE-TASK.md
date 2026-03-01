@@ -34,4 +34,7 @@ Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (
 
 - **Workspace Check** (_info_, Mar 01 01:01)
   ID: `notif_1772326875610_8fc21a32` — Git status check: 5 uncommitted files found and committed (hal-tracking, failsafe-state, idle-state). Workspace clean.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 04:04)
+  ID: `notif_1772337841156_2f87a033` — Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
 <!-- PENDING-Q-END -->

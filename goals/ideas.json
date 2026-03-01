@@ -1796,5 +1796,53 @@
     "tags": [],
     "createdAt": "2026-03-01T01:01:54.693Z",
     "updatedAt": "2026-03-01T01:01:54.693Z"
+  },
+  {
+    "id": "idea_1772337691660_482a7565",
+    "title": "Infra: Session Checkpoint interval is 2h not 20min — fix or re-evaluate",
+    "description": "## Infrastructure Gap: Session Checkpoint Frequency\n\n### Finding\nHEARTBEAT.md documents the Session Checkpoint cron as running every 20 minutes. However, the actual cron job (`Session Checkpoint (Memory Continuity)`) is configured with `everyMs: 7200000` — that is **2 hours**, not 20 minutes.\n\n### Risk\nContext death can happen in under 2 hours during heavy sessions. If Alfred hits 80%+ context between checkpoints, the 3 continuity files (ACTIVE-TASK.md, LAST-SESSION.md, NOW.md) will be stale by up to 2 hours. Work done in that window is lost on context reset.\n\nHEARTBEAT.md says:\n> \"Session Checkpoint Cron — Runs every 20 minutes. Checks context usage. At 60%+, auto-saves state...\"\n\n### Options\n1. **Change everyMs to 1200000 (20 min)** — matches documented intent, higher cost (each checkpoint fires an agent turn)\n2. **Change to 30 min (1800000)** — reasonable compromise, low cost\n3. **Keep 2h but update HEARTBEAT.md** — if the 20min spec was aspirational and never intended\n\n### Recommendation\nOption 2 (30 min). The checkpoint is cheap (reads session_status, writes 3 files) and 2h is too long a gap for active work sessions.\n\n*Alfred infrastructure audit — Mar 1 2026*",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T04:01:31.660Z",
+    "updatedAt": "2026-03-01T04:01:31.660Z"
+  },
+  {
+    "id": "idea_1772337701306_6dbc1bdc",
+    "title": "Infra: Log Rotation is DISABLED — gateway.log will grow unbounded",
+    "description": "## Infrastructure Gap: Log Rotation Disabled\n\n### Finding\nThe `Log Rotation` cron job (`0 4 * * *` daily at 4am) has `enabled: false`. The gateway.log is already at **3.3MB** and growing. Other logs (failsafe.log at 344KB, command-center.log at 83KB, job-tracker.log at 2.3MB) are also unmanaged.\n\n### Risk\n- Disk was at 78% in late February (MEMORY.md). Logs could be a meaningful contributor.\n- Gateway.log at 3.3MB is slow to tail/grep for debugging.\n- No log archival means historical log data is mixed with current data, making incident investigation harder.\n\n### Why It Was Disabled\nUnknown — likely disabled during a troubleshooting phase and never re-enabled.\n\n### Options\n1. **Re-enable the log rotation cron** — simplest fix, runs daily at 4am\n2. **Re-enable + verify log-rotate.sh truncates safely** — check the script first\n3. **Add logrotate config** for system-level rotation (more robust)\n\n### Recommendation\nOption 2. Re-enable after confirming log-rotate.sh does safe rotation (rename + truncate, not delete). Quick fix, high value for disk health.\n\n*Alfred infrastructure audit — Mar 1 2026*",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T04:01:41.306Z",
+    "updatedAt": "2026-03-01T04:01:41.306Z"
+  },
+  {
+    "id": "idea_1772337715885_ca701f98",
+    "title": "Infra: 5 useful crons disabled with no documented reason — audit + re-enable",
+    "description": "## Infrastructure Gap: Silent Disabled Crons\n\n### Finding\nAudit of `~/.openclaw/cron/jobs.json` reveals **5 cron jobs disabled** with no documented reason:\n\n| Job | Schedule | Purpose |\n|---|---|---|\n| Alfred Backup - Tier 2 (GitHub Push Hourly) | `0 * * * *` | Hourly git push of workspace |\n| HAL Idle Check & Dispatch | `every 15min` | HAL task dispatching |\n| OpenClaw Maintenance — Weekly Self-Heal | `Mon 8:05am` | Self-healing maintenance |\n| Weekly Wins & Impact Digest → Discord | `Fri 6pm` | Summary to Discord |\n| HAL Backup - State Snapshot | `every 6h` | HAL state persistence |\n\nAlso: `Kanban Stale Assignment Check` is disabled (was meant to catch stale in_progress cards).\n\n### Risk\n- **Tier 2 backup disabled**: Workspace changes are only persisted to GitHub weekly (Tier 3, Sunday 2am). Any disk failure mid-week = up to 7 days of lost work.\n- **HAL Idle Check disabled**: HAL dispatching currently relies on the Kanban Idle Loop every hour. The 15-min HAL check would make HAL more responsive (was this intentionally replaced?).\n- **Kanban stale check disabled**: In-progress cards can stall silently for days.\n\n### Options\n1. **Re-enable Tier 2 backup** — most critical. Hourly git push is cheap insurance.\n2. **Re-enable Kanban stale check** — catches zombie in_progress cards automatically.\n3. **Document why each was disabled** — add a `disabledReason` field to jobs.json entries, so future Alfred knows not to blindly re-enable.\n\n### Recommendation\nAll three above. Re-enable Tier 2 + Kanban Stale, and add disable-reason documentation going forward. Leave HAL Idle Check disabled if Kanban Idle Loop is intentional replacement (verify with Joe).\n\n*Alfred infrastructure audit — Mar 1 2026*",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T04:01:55.885Z",
+    "updatedAt": "2026-03-01T04:01:55.885Z"
   }
 ]

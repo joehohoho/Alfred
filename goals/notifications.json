@@ -310,5 +310,14 @@
     "answered": false,
     "createdAt": "2026-03-01T01:01:15.610Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772337841156_2f87a033",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "answered": false,
+    "createdAt": "2026-03-01T04:04:01.156Z",
+    "answeredAt": null
   }
 ]
