@@ -1,25 +1,24 @@
 # ACTIVE-TASK.md - Current Work In Progress
 
 **Status:** idle
-**Last Updated:** 2026-02-28 14:41 AST
+**Last Updated:** 2026-03-01 09:00 AST
+**Card ID:** (none)
+**Approach:** (none — set when in_progress)
 
 ## State
-Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (tasks 1–16) starting ~9:56 AM. Pool has wrapped to index 3. Afternoon HAL idle checks cycling through duplicates — all skipping correctly. Two Alfred ↔ HAL discussions posted to Discord (collaboration quality + passive income).
+System maintenance complete. Rate limit infrastructure hardened with progressive backoff circuit breaker. Session cleanup catches all bloat vectors. Discord thread mode enabled.
 
-## What Happened Today (Feb 28)
-- HAL proactive pool: all 16 tasks completed (code reviews, audits, ideas, security, perf, docs)
-- CoinUsUp: npm audit overrides applied (10→4 vulns), @capacitor/assets removed (10→4 HIGH), CI workflow created
-- Market Signal Lab: 20-finding code review (4 critical including look-ahead bias)
-- Command Center: perf profile (all <12ms), dead code cleaned
-- Docs freshness: MEMORY.md, TOOLS.md, HEARTBEAT.md agent counts updated
-- 6 new passive income ideas on Kanban (3 general, 3 Canada-specific)
-- Portfolio snapshot card created
-- System health: all services green, /Users disk at 78%
+## Recent Context (Mar 1)
+- Rate limit death spiral resolved — root cause was 1MB+ Discord channel sessions
+- Session cleanup hardened: 200KB file cap, 48h channel TTL, 40 session cap
+- Gateway watchdog with progressive backoff: 10 → 20 → 40 → 60 min cooldowns
+- Discord `replyToMode: "first"` enabled for thread isolation
+- 9 broken Discord webhook deliveries removed from crons
+- Pre-work kanban comment protocol added to AGENTS.md
 
 ## CoinUsUp Pending (Joe approval needed before push)
 - `b6f8b08` — remove @capacitor/assets devDep
 - `b1f78c5` — add GitHub Actions CI workflow
-- `b6f8b08` depends on overrides already in package.json (from earlier today)
 
 ### Pending Questions
 <!-- PENDING-Q-START -->
@@ -67,4 +66,7 @@ Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (
 
 - **Rate Limit Circuit Breaker** (_system_, Mar 01 11:04)
   ID: `notif_1772363058775_aec096d5` — Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 12:04)
+  ID: `notif_1772366661386_8dfa5aa1` — Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
 <!-- PENDING-Q-END -->

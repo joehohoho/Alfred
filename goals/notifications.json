@@ -410,5 +410,23 @@
     "answered": false,
     "createdAt": "2026-03-01T11:04:18.775Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772366661386_8dfa5aa1",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "answered": false,
+    "createdAt": "2026-03-01T12:04:21.386Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772369063039_981f4242",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "answered": false,
+    "createdAt": "2026-03-01T12:44:23.039Z",
+    "answeredAt": null
   }
 ]

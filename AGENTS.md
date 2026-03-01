@@ -61,6 +61,8 @@ References:
 5. `memory/YYYY-MM-DD.md` (today, if exists)
 6. `ACTIVE-TASK.md` (including pending questions)
 7. `LAST-SESSION.md`
+8. If `ACTIVE-TASK.md` status is `in_progress`, read the kanban card's comments
+   (`GET http://localhost:3001/api/kanban/<card_id>`) to recover your approach and progress.
 
 Do **not** auto-load full history or old tool output.
 
@@ -70,10 +72,20 @@ Do **not** auto-load full history or old tool output.
 
 Before any multi-step task:
 - Set `ACTIVE-TASK.md` status to `in_progress`
-- Record objective, plan, next step
+- Record objective, **chosen approach**, plan, next step
+- **Post a kanban comment** on the card: "Starting: [objective]. Approach: [brief outline]"
+  ```bash
+  curl -s -X POST http://localhost:3001/api/kanban/<card_id>/comments \
+    -H "Content-Type: application/json" \
+    -d '{"author":"alfred","text":"Starting: <objective>. Approach: <outline>"}'
+  ```
+  This survives session resets — next boot reads card comments to recover approach.
 
 After each major step:
-- Update progress + next step
+- Update progress + next step in `ACTIVE-TASK.md`
+- **Write intermediate findings to disk** — do NOT keep research results, code analysis,
+  or API responses only in context. Append to `memory/YYYY-MM-DD.md` or a scratch file.
+  If the session resets, anything only in LLM context is permanently lost.
 
 Memory log hardening:
 - Before daily-log writes, run: `bash ~/.openclaw/workspace/scripts/ensure-daily-memory.sh`
@@ -81,6 +93,7 @@ Memory log hardening:
 
 When done:
 - Set status to `idle`
+- Post completion comment on kanban card with summary of what was done
 
 Session bridge updates:
 - `LAST-SESSION.md`
