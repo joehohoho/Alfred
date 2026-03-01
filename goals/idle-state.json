@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-03-01T00:04:15.028Z",
-  "lastActivityType": "surprise-delight",
+  "lastActivityAt": "2026-03-01T01:00:56.687Z",
+  "lastActivityType": "workspace-check",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -129,8 +129,12 @@
     {
       "type": "surprise-delight",
       "dispatchedAt": "2026-03-01T00:04:15.028Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-01T01:00:56.687Z"
     }
   ],
-  "totalIdleDispatches": 30,
+  "totalIdleDispatches": 31,
   "cooldownMinutes": 25
 }
