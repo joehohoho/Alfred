@@ -287,26 +287,57 @@
     "title": "Consulting client: automation idea worth productizing?",
     "message": "You've been doing automation consulting work. Has any client problem come up repeatedly — something generic enough to turn into a product? Even a 9/mo niche SaaS. Worth investigating?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-01T14:00:00.214Z",
+    "answeredAt": "2026-03-01T20:22:07.526Z",
+    "userAnswer": "No it’s not worth investigating. ",
+    "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1772397243182_f9f2ebd2",
+    "type": "system",
+    "title": "🔴 Alfred Down",
+    "message": "Alfred gateway is confirmed down. HAL is attempting recovery.",
+    "answered": false,
+    "createdAt": "2026-03-01T20:34:03.183Z",
     "answeredAt": null
   },
   {
-    "id": "notif_1772386178688_e48c23a5",
+    "id": "notif_1772397413410_f3e65c59",
     "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Trip #1: Gateway stopped for 10m (progressive backoff). 3 rate limit errors. Sessions cleaned.",
+    "title": "Gateway Recovered",
+    "message": "Gateway restarted after 10-minute rate limit cooldown (trip #1).",
     "answered": false,
-    "createdAt": "2026-03-01T17:29:38.688Z",
+    "createdAt": "2026-03-01T20:36:53.410Z",
     "answeredAt": null
   },
   {
-    "id": "notif_1772393985559_8cd13283",
+    "id": "notif_1772397545153_f174317d",
     "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Trip #1: Gateway stopped for 10m (progressive backoff). 3 rate limit errors. Sessions cleaned.",
+    "title": "🚨 Alfred Recovery Failed",
+    "message": "Alfred gateway is down and could not be automatically recovered after 3 attempts. Manual intervention required. Check: launchctl list | grep openclaw, and openclaw gateway status.",
     "answered": false,
-    "createdAt": "2026-03-01T19:39:45.559Z",
+    "createdAt": "2026-03-01T20:39:05.153Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772398863539_578d6f66",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
+    "taskId": "task_1772199318344_19e8fa66",
+    "answered": false,
+    "createdAt": "2026-03-01T21:01:03.539Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772398863541_2f663b83",
+    "type": "question",
+    "title": "⚠️ Stale card escalated: \"Channel expansion pilot (affiliates/partners/content)\"",
+    "message": "Card \"Channel expansion pilot (affiliates/partners/content)\" (task_1772199318344_19e8fa66) has been in_progress for 6h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "source": "stale-card-handler",
+    "answered": false,
+    "createdAt": "2026-03-01T21:01:03.541Z",
     "answeredAt": null
   }
 ]

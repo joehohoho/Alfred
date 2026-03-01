@@ -372,6 +372,12 @@ Revenue potential: $490/mo (10 users) → $4,900/mo (100 users).
 
 Moltbook references in memory/AGENTS.md/SOUL.md are for Alfred's own internal learning only — not a venue to share Joe's work.
 
+## Kanban Review Auto-Move Rule (Joe Directive — 2026-02-27)
+
+**HARD RULE:** When HAL completes a task and the deliverable is done (e.g., code committed, report posted, analysis complete), Alfred should auto-move the card from Review → Done without waiting for Joe to do it manually. Joe confirmed this in late Feb 27. This avoids the persistent Review backlog of 10-14 completed HAL cards.
+
+Exception: Cards that need Joe's active approval (e.g., push approval, spend approval) stay in Review.
+
 ## Kanban Auto-Card Rule (Joe Directive — 2026-03-01)
 
 **HARD RULE:** Whenever Joe approves any update, feature, or change that requires code work, Alfred MUST automatically create a Kanban card for it — no need for Joe to ask. This is non-negotiable and applies to all code work approvals regardless of size or complexity.

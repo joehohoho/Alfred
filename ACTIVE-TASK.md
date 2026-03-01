@@ -25,6 +25,12 @@ System maintenance complete. Rate limit infrastructure hardened with progressive
 - **Discord Webhooks Returning 403 — Need Regeneration** (_question_, Mar 01 07:41)
   ID: `notif_1772350918952_561ef7a7` — Both DISCORD_WEBHOOK_ALFRED_HAL and DISCORD_WEBHOOK_HAL_COMPLETIONS are returning HTTP 403 Forbidden as of March 1, 2026 3:40 AM. Alfred-HAL discussio...
 
-- **Consulting client: automation idea worth productizing?** (_question_, Mar 01 14:00)
-  ID: `notif_1772373600214_c683eda7` — You've been doing automation consulting work. Has any client problem come up repeatedly — something generic enough to turn into a product? Even a 9/mo...
+- **🔴 Alfred Down** (_system_, Mar 01 20:34)
+  ID: `notif_1772397243182_f9f2ebd2` — Alfred gateway is confirmed down. HAL is attempting recovery.
+
+- **Gateway Recovered** (_system_, Mar 01 20:36)
+  ID: `notif_1772397413410_f3e65c59` — Gateway restarted after 10-minute rate limit cooldown (trip #1).
+
+- **🚨 Alfred Recovery Failed** (_system_, Mar 01 20:39)
+  ID: `notif_1772397545153_f174317d` — Alfred gateway is down and could not be automatically recovered after 3 attempts. Manual intervention required. Check: launchctl list | grep openclaw,...
 <!-- PENDING-Q-END -->

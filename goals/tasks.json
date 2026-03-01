@@ -1073,12 +1073,12 @@
     "title": "Channel expansion pilot (affiliates/partners/content)",
     "description": "Run 30-day pilot across 1-2 acquisition channels with CAC/LTV tracking, creative tests, and weekly budget reallocation.",
     "goalId": "",
-    "status": "in_progress",
+    "status": "blocked",
     "priority": "critical",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.344Z",
-    "updatedAt": "2026-03-01T14:59:28.066Z",
+    "updatedAt": "2026-03-01T21:01:03.540Z",
     "assignedAt": "2026-03-01T14:59:28.065Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "c24523bb-ca6f-4d11-a386-de0009e0c0f7",
@@ -1124,6 +1124,12 @@
         "author": "alfred",
         "text": "Got it — moved to Goals. When you're ready to kick this off, assign it back to me and I'll break it into concrete steps: identifying affiliate/partner candidates, drafting outreach templates, and setting up tracking. Good timing to run this alongside LegalBillAI launch.",
         "createdAt": "2026-03-01T14:54:56.511Z"
+      },
+      {
+        "id": "cmt_1772398863538_d5cfdb38",
+        "author": "alfred",
+        "text": "⛔ Escalated to blocked — card stale for 6h. Re-dispatch was attempted 49h ago with no progress. Moving to Blocked for Joe's review.",
+        "createdAt": "2026-03-01T21:01:03.538Z"
       }
     ]
   },
