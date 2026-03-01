@@ -335,7 +335,7 @@ Sends Joe a thoughtful question each morning at 10 AM AST via Command Center not
 
 ## Known Infrastructure Issues (Unresolved)
 
-- **`sync-pending-questions.sh` write failure** — Recurring bug where script fails to write to ACTIVE-TASK.md. Pending questions don't survive session death reliably. Needs investigation and fix. Flagged: 2026-02-28.
+- **`sync-pending-questions.sh` write failure** — ~~Recurring bug~~ Verified working as of 2026-03-01: successfully synced 13 pending questions. Script uses temp file pattern to avoid shell interpolation bugs. Issue resolved.
 - **Session file archival backlog** — 2,939 session files / 79MB in `~/.openclaw/agents/main/sessions/`. Archival cron card created on Kanban board but fix not yet implemented. Monitor disk usage (was at 78% 2026-02-27).
 
 ---

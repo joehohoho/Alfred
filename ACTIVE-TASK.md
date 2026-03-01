@@ -55,4 +55,10 @@ Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (
 
 - **Rate Limit Circuit Breaker** (_system_, Mar 01 08:44)
   ID: `notif_1772354652746_a99b2278` — Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Session Auto-Reset** (_system_, Mar 01 09:09)
+  ID: `notif_1772356144478_2603ca2e` — Main session was at 85%+ context. Auto-reset and gateway restarted.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 09:44)
+  ID: `notif_1772358255470_2cb2b903` — Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
 <!-- PENDING-Q-END -->

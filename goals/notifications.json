@@ -374,5 +374,23 @@
     "answered": false,
     "createdAt": "2026-03-01T08:44:12.746Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772356144478_2603ca2e",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-01T09:09:04.478Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772358255470_2cb2b903",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "answered": false,
+    "createdAt": "2026-03-01T09:44:15.470Z",
+    "answeredAt": null
   }
 ]
