@@ -49,4 +49,10 @@ Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (
 
 - **Discord Webhooks Returning 403 — Need Regeneration** (_question_, Mar 01 07:41)
   ID: `notif_1772350918952_561ef7a7` — Both DISCORD_WEBHOOK_ALFRED_HAL and DISCORD_WEBHOOK_HAL_COMPLETIONS are returning HTTP 403 Forbidden as of March 1, 2026 3:40 AM. Alfred-HAL discussio...
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 08:04)
+  ID: `notif_1772352251146_3245ec05` — Gateway stopped for 5m — 9 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 08:44)
+  ID: `notif_1772354652746_a99b2278` — Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
 <!-- PENDING-Q-END -->
