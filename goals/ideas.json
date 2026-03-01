@@ -1847,5 +1847,21 @@
     "tags": [],
     "createdAt": "2026-03-01T04:01:55.885Z",
     "updatedAt": "2026-03-01T04:01:55.885Z"
+  },
+  {
+    "id": "idea_1772344924468_ab621eda",
+    "title": "Signal App: Monetization Strategy Recommendation",
+    "description": "## Stock/Crypto Signal App — Monetization Strategy\n\n### Competitor Benchmarks\n\nTradingView: Freemium 4 tiers, $12.95-$199.95/mo. Free tier drives massive user base; upgrades unlock indicators and alerts.\nMyCryptoParadise: Freemium, ~$40-$100/mo. Free Telegram signals lead to paid premium signals.\nCoinPush / signal apps: Subscription, $10-$50/mo. Low price = low friction; push notifications for signals.\n\n---\n\n### Models Evaluated\n\n1. Pure Subscription (no free tier) — Too early. Zero social proof = nobody pays. Kills growth.\n\n2. Freemium (free tier + paid upgrades) — BEST FIT. Users accumulate fast. Free users validate accuracy publicly. Natural upgrade path.\n\n3. One-Time Purchase — Wrong model. Ongoing service needs ongoing revenue.\n\n4. B2B API Licensing — Phase 2 after 6+ months of proven accuracy. Enterprise revenue $500-$5k/mo per client.\n\n---\n\n### Recommended Strategy: Freemium + Subscription Ladder\n\nPhase 1 (Launch to 500 users): Build social proof\n- Free tier: 1-2 signals/week (BTC + 1 major stock), delayed 30 min\n- No payment friction, just email signup\n- Goal: accuracy history, testimonials, word-of-mouth\n\nPhase 2 (500+ users): Introduce paid tiers\n- Free: 2 signals/week, delayed 30 min, no push notifications\n- Starter $9/mo: 10 signals/week, real-time, push notifications, BTC/ETH/top stocks\n- Pro $29/mo: Unlimited signals, all assets, backtesting access, early features\n- Annual discount: 20% off to improve LTV and reduce churn\n\nPhase 3 (1000+ users): B2B API\n- License signal feed to fintech apps, Discord bots, newsletter writers\n- $99-$499/mo per API consumer\n\n---\n\n### Pricing Rationale\n- $9/mo is impulse-buy territory (under $10 threshold)\n- $29/mo Pro needs backtesting proof to justify\n- Free tier with delay trains users while creating upgrade urgency\n- Offer CAD pricing option (~$12/$39 CAD) to reduce friction for Canadian audience\n\n---\n\n### Revenue Projections (Conservative at 3% freemium conversion)\n\nMonth 3: 200 users, 6 paid @ avg $15 = $90 MRR\nMonth 6: 800 users, 24 paid @ avg $15 = $360 MRR\nMonth 12: 2000 users, 60 paid @ avg $20 = $1,200 MRR\nMonth 18 + B2B: 4000 users, 120 paid + 5 B2B @ $200 = $3,400 MRR\n\n---\n\n### Quick Wins\n1. Public signal accuracy leaderboard — win rate % builds trust faster than any marketing copy\n2. Telegram/Discord free channel — free signals drive organic growth; paid = exclusive access\n3. Annual plan at launch — even 5 annual subscribers = $500-$1,500 lump sum cash upfront\n\n*Alfred proactive research — Mar 1 2026*",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T06:02:04.468Z",
+    "updatedAt": "2026-03-01T06:02:04.468Z"
   }
 ]

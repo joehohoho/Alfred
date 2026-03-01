@@ -328,5 +328,33 @@
     "answered": false,
     "createdAt": "2026-03-01T05:04:03.721Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772345046125_1b87b181",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "answered": false,
+    "createdAt": "2026-03-01T06:04:06.125Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772348648606_3d1cb288",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "answered": false,
+    "createdAt": "2026-03-01T07:04:08.606Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772350918952_561ef7a7",
+    "type": "question",
+    "title": "Discord Webhooks Returning 403 — Need Regeneration",
+    "message": "Both DISCORD_WEBHOOK_ALFRED_HAL and DISCORD_WEBHOOK_HAL_COMPLETIONS are returning HTTP 403 Forbidden as of March 1, 2026 3:40 AM. Alfred-HAL discussions and HAL completion notices are failing silently. Options: (1) Regenerate both webhooks in Discord Server Settings > Integrations > Webhooks and update .env, (2) Keep using message tool as fallback if webhooks stay broken. Recommendation: Regenerate both — takes 2 minutes. Current impact: Alfred-HAL discussion posts are failing; HAL completion Discord notifications may also be broken.",
+    "source": "alfred-hal-discussion",
+    "answered": false,
+    "createdAt": "2026-03-01T07:41:58.952Z",
+    "answeredAt": null
   }
 ]

@@ -37,4 +37,16 @@ Saturday morning/afternoon proactive cycle complete. HAL ran full 16-task pool (
 
 - **Rate Limit Circuit Breaker** (_system_, Mar 01 04:04)
   ID: `notif_1772337841156_2f87a033` — Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 05:04)
+  ID: `notif_1772341443721_310e2648` — Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 06:04)
+  ID: `notif_1772345046125_1b87b181` — Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Rate Limit Circuit Breaker** (_system_, Mar 01 07:04)
+  ID: `notif_1772348648606_3d1cb288` — Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.
+
+- **Discord Webhooks Returning 403 — Need Regeneration** (_question_, Mar 01 07:41)
+  ID: `notif_1772350918952_561ef7a7` — Both DISCORD_WEBHOOK_ALFRED_HAL and DISCORD_WEBHOOK_HAL_COMPLETIONS are returning HTTP 403 Forbidden as of March 1, 2026 3:40 AM. Alfred-HAL discussio...
 <!-- PENDING-Q-END -->
