@@ -24,10 +24,11 @@ HAL ↔ Alfred routing helper
 
 Decides route using deterministic thresholds:
 - HAL if ALL true:
-  1) steps <= 4
-  2) input_kb <= 8
+  1) steps <= 12
+  2) no input size limit (Qwen has 128K context)
   3) no external action
   4) not high-risk (security/legal/financial/irreversible)
+  5) files <= 3 (for code changes)
 
 Options:
   --text <text>          Task description text
@@ -173,12 +174,12 @@ RULE_EXTERNAL_OK=0
 RULE_RISK_OK=0
 RULE_FILES_OK=1
 
-[[ "$EST_STEPS" -le 4 ]] && RULE_STEPS_OK=1
-[[ "$INPUT_KB" -le 8 ]] && RULE_INPUT_OK=1
+[[ "$EST_STEPS" -le 12 ]] && RULE_STEPS_OK=1
+RULE_INPUT_OK=1  # No input size limit — Qwen has 128K context
 [[ "$EXTERNAL_ACTION" -eq 0 ]] && RULE_EXTERNAL_OK=1
 [[ "$HIGH_RISK" -eq 0 ]] && RULE_RISK_OK=1
 
-if [[ "$FILES" -gt 6 ]]; then
+if [[ "$FILES" -gt 3 ]]; then
   TRIGGERS+=("context")
   RULE_FILES_OK=0
 fi
@@ -187,7 +188,7 @@ fi
 if [[ "$RECENT_FAILURES" -ge 2 ]]; then
   TRIGGERS+=("reliability")
 fi
-if [[ "$LATENCY_MS" -gt 12000 || "$QUEUE_DEPTH" -gt 2 ]]; then
+if [[ "$LATENCY_MS" -gt 30000 || "$QUEUE_DEPTH" -gt 2 ]]; then
   TRIGGERS+=("performance")
 fi
 
@@ -216,13 +217,13 @@ RECOMMENDATION="Proceed with HAL"
 if [[ $STEPS_EXPLICIT -eq 0 && $KEYWORD_STEP_BUMP -gt 0 ]]; then
   EXPLAIN_LINES+=("steps.keyword_bump: +$KEYWORD_STEP_BUMP from triggers (${TRIGGERS[*]:-}) → est_steps=$EST_STEPS")
 fi
-EXPLAIN_LINES+=("gate.steps: $EST_STEPS <= 4 => $RULE_STEPS_OK")
-EXPLAIN_LINES+=("gate.input_kb: $INPUT_KB <= 8 => $RULE_INPUT_OK")
+EXPLAIN_LINES+=("gate.steps: $EST_STEPS <= 12 => $RULE_STEPS_OK")
+EXPLAIN_LINES+=("gate.input_kb: no limit (Qwen 128K context) => $RULE_INPUT_OK")
 EXPLAIN_LINES+=("gate.external: external=$EXTERNAL_ACTION => $RULE_EXTERNAL_OK")
 EXPLAIN_LINES+=("gate.risk: risk=$HIGH_RISK => $RULE_RISK_OK")
-EXPLAIN_LINES+=("gate.files: $FILES <= 6 => $RULE_FILES_OK")
+EXPLAIN_LINES+=("gate.files: $FILES <= 3 => $RULE_FILES_OK")
 EXPLAIN_LINES+=("trigger.reliability: recent_failures=$RECENT_FAILURES (>=2 => escalate)")
-EXPLAIN_LINES+=("trigger.performance: latency_ms=$LATENCY_MS (>12000) or queue_depth=$QUEUE_DEPTH (>2) => escalate")
+EXPLAIN_LINES+=("trigger.performance: latency_ms=$LATENCY_MS (>30000) or queue_depth=$QUEUE_DEPTH (>2) => escalate")
 
 if [[ "$OUTPUT_JSON" -eq 1 ]]; then
   TRIGGER_JSON="[]"

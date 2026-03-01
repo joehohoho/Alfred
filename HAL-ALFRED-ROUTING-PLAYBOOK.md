@@ -4,42 +4,53 @@
 
 
 
-**Date:** 2026-02-25  
-**Status:** Active  
-**Goal:** Send each task to the cheapest/fastest system that can do it reliably.
+**Date:** 2026-02-28
+**Status:** Active
+**Goal:** Maximize HAL utilization — HAL runs Qwen 2.5 Coder 14B locally (zero API cost). Send everything HAL can handle to HAL; only escalate to Alfred what truly requires it.
 
 ---
 
 ## 1) Ownership Model
 
-### HAL owns (default first pass)
-Use HAL when the task is **short, deterministic, local-data-centric**:
+### HAL owns (default first pass — bias toward HAL)
+HAL runs locally at zero API cost. **Send to HAL unless there's a clear reason not to.**
 - Shell checks, file ops, parsing, transforms
-- Small summaries (<= 400 words source)
+- Summaries and analysis (any size that fits context)
 - Classification/tagging/extraction
 - Structured conversions (JSON/CSV/Markdown cleanup)
 - Embeddings/retrieval with `nomic-embed-text`
 - Privacy-sensitive local-only processing
+- **Single-file bug fixes and code patches**
+- **Test writing and test coverage expansion**
+- **Code review and linting (per-file)**
+- **Refactors within 1-2 files**
+- **Dependency updates (non-breaking)**
+- **Dead code removal, unused import cleanup**
+- **Documentation updates and comment fixes**
+- **Simple feature additions (single component/module)**
 
 ### Alfred owns
-Use Alfred when the task needs **depth, reliability, or larger context**:
-- Heavy code generation / refactors / architecture
-- Multi-step reasoning and planning
-- Large-context synthesis across many files/messages
-- Cross-tool orchestration and external integrations
-- Final decisioning when HAL confidence is low
+Use Alfred only when the task **clearly requires** depth beyond HAL's capability:
+- Multi-file architecture changes (3+ files with interdependencies)
+- Cross-system orchestration and external integrations
+- Tasks requiring reasoning across 10+ interconnected files
+- Security/compliance decisions with business impact
+- Final decisioning when HAL has failed or expressed low confidence
 
 ---
 
 ## 2) Auto-Routing Rules (Deterministic)
 
 Route to **HAL** if ALL are true:
-1. Estimated steps <= 8
-2. Input size <= ~32 KB text equivalent
+1. Estimated steps <= 12
+2. No input size limit (Qwen has 128K context — send large files freely)
 3. No high-impact external action (no outbound posting/sending)
 4. No security/legal/financial critical decision
+5. Touches <= 3 files (for code changes)
 
 Otherwise route to **Alfred**.
+
+**Philosophy:** HAL attempt first, self-escalate on failure. The cost of a failed HAL attempt is just time (no API spend). Better to try HAL and escalate than to skip HAL and consume Alfred's API quota.
 
 ---
 
@@ -48,25 +59,22 @@ Otherwise route to **Alfred**.
 Escalate immediately if ANY trigger fires:
 
 1. **Complexity trigger**
-   - Task branches into 2+ plausible strategies with tradeoffs
-   - Requires multi-document synthesis or long-horizon planning
+   - Task branches into 3+ plausible strategies with significant tradeoffs
+   - Requires multi-document synthesis across 10+ files
 
-2. **Context trigger**
-   - Working set exceeds ~32 KB or > 12 files/sections
-
-3. **Reliability trigger**
+2. **Reliability trigger**
    - HAL returns low confidence, ambiguous output, or malformed structure
    - Two failed attempts on the same objective
 
-4. **Performance trigger**
-   - HAL latency repeatedly > 12s for the same class of task
+3. **Performance trigger**
+   - HAL latency repeatedly > 30s for the same class of task
    - Queue/concurrency pressure detected
 
-5. **Risk trigger**
+4. **Risk trigger**
    - Security-sensitive, compliance-sensitive, or irreversible operations
 
-6. **Code trigger**
-   - Refactor spans multiple modules OR introduces new architecture
+5. **Code trigger**
+   - Refactor spans 4+ modules OR introduces new cross-cutting architecture
 
 ---
 
@@ -85,13 +93,20 @@ This keeps cost low and throughput high.
 | Task Type | Primary | Fallback | Notes |
 |---|---|---|---|
 | File checks / shell diagnostics | HAL | Alfred | HAL default |
-| Log parsing + pattern extraction | HAL | Alfred | Escalate if multi-source synthesis |
-| Short summarization | HAL | Alfred | <=400 words source |
-| Large summarization / comparative analysis | Alfred | — | Multi-source context |
-| Simple script edits | HAL | Alfred | Escalate if architecture impact |
-| Feature build / refactor | Alfred | — | Keep Alfred primary |
+| Log parsing + pattern extraction | HAL | Alfred | Escalate if 10+ sources |
+| Summarization (any size) | HAL | Alfred | Qwen handles large context |
+| Code review (per-file) | HAL | Alfred | HAL reads + comments |
+| Bug fix (1-2 files) | HAL | Alfred | HAL attempts first |
+| Test writing / coverage | HAL | Alfred | HAL writes, Alfred reviews if complex |
+| Refactor (1-3 files) | HAL | Alfred | Escalate if cross-cutting |
+| Dependency updates | HAL | Alfred | Non-breaking only |
+| Dead code / import cleanup | HAL | Alfred | HAL commits directly (non-CUU) |
+| Documentation updates | HAL | Alfred | HAL default |
+| Simple feature (single module) | HAL | Alfred | Escalate if multi-module |
+| Multi-file architecture change | Alfred | — | 4+ interdependent files |
 | Embeddings + retrieval | HAL | Alfred | `nomic-embed-text` |
 | Security-impact decisions | Alfred | — | No HAL final decisions |
+| Cross-system orchestration | Alfred | — | External APIs / integrations |
 | Final recommendations to Joe | Alfred | — | HAL can prepare evidence |
 
 ---
@@ -146,25 +161,27 @@ Validation: <pass/fail checks>
 
 ## 8) Tuning Targets (After 20 Tasks)
 
-- **Target HAL first-pass success:** >= 70%
-- **Target unnecessary escalations:** <= 15%
+- **Target HAL first-pass success:** >= 75%
+- **Target unnecessary escalations:** <= 10%
 - **Target rework on Alfred outputs:** <= 10%
-- **Target median cycle-time reduction:** >= 25% vs Alfred-only baseline
+- **Target HAL utilization:** >= 60% of dispatch windows active
 
 If targets miss:
-- Raise/lower input-size threshold (32 KB → 16 KB or 64 KB)
-- Tighten/relax step-count rule (<=8)
+- Tighten/relax step-count rule (<=12)
+- Tighten/relax file-count rule (<=3)
 - Add task-specific exceptions by category
+- Adjust Qwen temperature/context settings
 
 ---
 
 ## 9) Quick Decision Checklist
 
-- Is it short + deterministic + local? → **HAL**
-- Is it deep + ambiguous + high-impact? → **Alfred**
-- Unsure? → HAL triage first, Alfred final synthesis.
+- Can HAL reasonably attempt it? → **HAL** (zero cost to try)
+- Is it deep + multi-file + high-impact? → **Alfred**
+- Unsure? → **HAL first.** Escalate if it fails. The cost of a failed HAL attempt is only time.
 
 ---
 
-**Owner:** Alfred  
-**Approved by:** Joe (2026-02-25)
+**Owner:** Alfred
+**Approved by:** Joe (2026-02-28)
+**Note:** HAL now runs on remote gateway (192.168.2.79) with Qwen 2.5 Coder 14B — zero API cost. Routing aggressively biased toward HAL.
