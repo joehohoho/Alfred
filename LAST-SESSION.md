@@ -1,56 +1,52 @@
 # LAST-SESSION.md - Session Bridge
 
-**Generated:** 2026-02-28 14:41 AST (60% context checkpoint)
+**Generated:** 2026-02-28 22:00 AST (Evening Routine)
 **Session:** agent:main:main
 
 ## What Happened
-Saturday Feb 28 proactive cycle — HAL ran all 16 pool tasks from ~9:56 AM to ~11:37 AM:
-1. Code review: Market Signal Lab (20 findings, 4 critical — look-ahead bias, equity accounting bug)
-2. Passive income idea scan (3 ideas added to Kanban)
-3. Dependency audit: CoinUsUp
-4. Signal App research (yfinance + RSI/MACD recommendation)
-5. Infrastructure health check (all green, weather monitor false alarm)
-6. CoinUsUp SEO quick wins (3 remaining fixes identified)
-7. Passive income scan Canada-specific (3 ideas: BilinguApp, T4 Nagger, GrantRadar)
-8. Code review: Market Signal Lab (ran at 9:56 AM — first task)
-9. System monitoring report (all services healthy)
-10. Documentation freshness audit (MEMORY.md/TOOLS.md/HEARTBEAT.md agent counts fixed, committed)
-11. Test coverage: CoinUsUp (zero tests found, full prioritized roadmap delivered)
-12. Command Center perf profiling (all <12ms, 5 recommendations)
-13. Dead code sweep (command-center + job-tracker fixes committed+pushed)
-14. Git hygiene (autoscope-ai + smart-code-review-bot .gitignore fixes)
-15. Log anomaly detection (1,111 rate limit errors, stuck sessions, HAL spawn staggering needed)
-16. Security posture check (agent-sdk .gitignore fixed, 28 CRA vulns noted)
+Full Saturday Feb 28. HAL ran all 16 proactive pool tasks (9:56 AM – ~11:37 AM). Afternoon/evening was duplicate pool cycling (all correctly skipped). Session ran ~10+ hours, context reached 91% by ~19:43.
 
-**CoinUsUp tasks completed:**
-- npm audit overrides applied (10→4 HIGH vulns)
-- @capacitor/assets removed (b6f8b08, local only)
-- GitHub Actions CI workflow created (b1f78c5, local only)
-- React code review (10 findings delivered)
+**Key deliverables today:**
+- Market Signal Lab: 20-finding code review, 4 critical (look-ahead bias, equity accounting bug)
+- CoinUsUp: vulns reduced 10→4 HIGH, CI workflow created (both uncommitted to remote — awaiting Joe)
+- CoinUsUp: full test coverage roadmap delivered (zero existing tests found)
+- Command Center: perf profiled (<12ms all), dead code cleaned + pushed
+- 6 passive income ideas on Kanban (incl. BilinguApp, T4 Nagger, GrantRadar)
+- Portfolio snapshot Kanban card created
+- Alfred↔HAL discussions: collaboration quality + passive income → both posted to Discord
+- Consensus: LegalBillAI fastest path, CoinUsUp paid tier second
+- Joe asked about lifecycle automation testing → guidance posted to Kanban card
+- RAM spiked to 85% (27.1GB/32GB) at one point — monitoring
 
-**Alfred ↔ HAL discussions posted to Discord:**
-- Collaboration quality (1:00 PM) — top finding: infrastructure good but not used as designed
-- Passive income opportunities (2:03 PM) — consensus: LegalBillAI fastest path, CoinUsUp paid tier second
+## Decisions Made
+- LegalBillAI is highest-priority passive income launch (fastest path, Joe's core expertise)
+- CoinUsUp paid tier is second priority
+- HAL spawn staggering is highest infra priority (to reduce rate-limit errors)
 
 ## Tasks In Progress
-- None (all kanban in_progress cards moved to review)
-- HAL idle checks cycling through duplicate pool tasks — all correctly skipped
+- None active (all Kanban in_progress moved to review)
 
-## Pending Joe Decisions (carry forward)
-1. CoinUsUp git push approval (b6f8b08 + b1f78c5)
-2. LegalBillAI launch (~25 min setup: API key + Stripe + Vercel)
-3. Lint errors blocker (206 pre-existing errors, card blocked)
-4. Channel pilot approval (which app, which channels, budget ceiling)
-5. CoinUsUp paid tier — proceed?
+## Pending Joe Decisions (carry forward — no response yet)
+1. **CoinUsUp push approval** — 2 local commits in `/Users/hopenclaw/CoinUsUp`:
+   - `b6f8b08` — remove @capacitor/assets devDep
+   - `b1f78c5` — add GitHub Actions CI workflow
+2. **LegalBillAI launch** — ready to set up in ~25 min, waiting on Joe go-ahead
+3. **3 blocked Kanban cards:**
+   - CoinUsUp lint errors (206 pre-existing, needs decision on whether to fix or bypass)
+   - Channel expansion pilot (needs: app choice, channels, budget ceiling)
+   - CoinUsUp paid tier (same pilot inputs needed)
 
-## Next Steps
-- Continue skipping duplicate HAL pool dispatches until tomorrow
-- Watch /Users disk (78%)
-- Fix HAL spawn staggering (Kanban card exists, highest infra priority)
-- Fix sync-pending-questions.sh ACTIVE-TASK.md write failure (intermittent)
+## Next Steps (Tomorrow - Sunday Mar 1)
+1. Check if Joe responded to any pending questions overnight
+2. HAL spawn staggering fix (if idle capacity — highest infra priority)
+3. If Joe approves CoinUsUp commits → push them
+4. Continue monitoring RAM (85% spike noted)
+5. /Users disk at 78% — keep watch
 
 ## Key Context
-- Pool wrapped to index 3 after full cycle
-- All 16 tasks ran this morning; afternoon = all duplicates
-- context1m beta header: 2,746 warnings/day (noisy but harmless)
-- Gateway healthy on internal ports (not 4000 as HAL assumed)
+- CoinUsUp repo: `/Users/hopenclaw/CoinUsUp`
+- Market Signal Lab: `/Users/hopenclaw/market-signal-lab`
+- HAL proactive pool: currently at index 3 (wrapped after all 16 ran)
+- Discord #evening-routine for this summary
+- Daily logs in `memory/2026-02-28.md` (full detail)
+- MEMORY.md, TOOLS.md, HEARTBEAT.md agent counts: all updated and committed

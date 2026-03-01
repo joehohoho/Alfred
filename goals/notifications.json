@@ -300,5 +300,15 @@
     "answeredAt": "2026-02-28T15:33:46.168Z",
     "userAnswer": "This looks like a duplicate question list from before. ",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1772326875610_8fc21a32",
+    "type": "info",
+    "title": "Workspace Check",
+    "message": "Git status check: 5 uncommitted files found and committed (hal-tracking, failsafe-state, idle-state). Workspace clean.",
+    "source": "idle-workspace-check",
+    "answered": false,
+    "createdAt": "2026-03-01T01:01:15.610Z",
+    "answeredAt": null
   }
 ]
