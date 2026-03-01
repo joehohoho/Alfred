@@ -527,11 +527,14 @@
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6,
+      "notes": "Joe has genuine edge here as a practicing automation consultant who lives this pain daily. However, the $199 kit + $29/mo price point requires ~35 recurring customers for $1k MRR, and the template/wizard market for Zapier/Make is crowded with free alternatives. Strong passive potential once built, but market differentiation will be the key challenge."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:46.175Z",
-    "updatedAt": "2026-02-25T21:20:46.175Z"
+    "updatedAt": "2026-03-01T06:01:35.684Z"
   },
   {
     "id": "idea_1772054446675_d937f1fa",
