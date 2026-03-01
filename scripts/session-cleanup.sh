@@ -261,15 +261,29 @@ PY
 
 CLEANUP_OUTPUT=$(tail -5 "$LOG")
 
-# Restart gateway if main session was reset
+# Restart gateway if main session was reset (respects circuit breaker)
 if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
-  log "Restarting gateway after main session reset..."
-  pkill -f openclaw-gateway 2>/dev/null || true
-  sleep 2
-  nohup openclaw-gateway > /dev/null 2>&1 &
-  sleep 2
-  log "Gateway restarted (PID $(pgrep -f openclaw-gateway | head -1))"
-  notify "Session Auto-Reset" "Main session was at 85%+ context. Auto-reset and gateway restarted."
+  CB_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/rate-limit-circuit-breaker.json"
+  CB_ACTIVE=false
+  if [[ -f "$CB_FILE" ]]; then
+    CB_TRIPPED=$(python3 -c "import json; print(json.load(open('$CB_FILE')).get('tripped_at',0))" 2>/dev/null || echo "0")
+    CB_COOL=$(python3 -c "import json; print(json.load(open('$CB_FILE')).get('cooldown_min',10))" 2>/dev/null || echo "10")
+    NOW_CB=$(date +%s)
+    if [[ "$CB_TRIPPED" -gt 0 ]] && [[ $(( NOW_CB - CB_TRIPPED )) -lt $(( CB_COOL * 60 )) ]]; then
+      CB_ACTIVE=true
+    fi
+  fi
+
+  if [[ "$CB_ACTIVE" == "true" ]]; then
+    log "Main session reset but circuit breaker active — skipping restart (cooldown ${CB_COOL}m)"
+    notify "Session Auto-Reset" "Main session was at 85%+ context. Reset done, but gateway restart deferred — rate limit cooldown active."
+  else
+    log "Restarting gateway after main session reset..."
+    launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
+    sleep 3
+    log "Gateway restarted (PID $(pgrep -f openclaw-gateway | head -1 || echo 'unknown'))"
+    notify "Session Auto-Reset" "Main session was at 85%+ context. Auto-reset and gateway restarted."
+  fi
 fi
 
 # --- HAL remote gateway health check ---

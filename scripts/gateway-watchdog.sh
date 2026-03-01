@@ -42,7 +42,7 @@ notify() {
     > /dev/null 2>&1 || true
 }
 
-# Read circuit breaker state (JSON: {tripped_at, cooldown_min, trip_count, last_trip_at})
+# Read circuit breaker state (JSON: {tripped_at, cooldown_min, trip_count, last_trip_at, daily_errors, daily_reset_at})
 read_cb_state() {
   if [[ -f "$CIRCUIT_BREAKER_FILE" ]]; then
     python3 -c "
@@ -50,23 +50,27 @@ import json, sys
 try:
     with open('$CIRCUIT_BREAKER_FILE') as f:
         d = json.load(f)
-    print(f'{d.get(\"tripped_at\",0)}|{d.get(\"cooldown_min\",10)}|{d.get(\"trip_count\",0)}|{d.get(\"last_trip_at\",0)}')
+    print(f'{d.get(\"tripped_at\",0)}|{d.get(\"cooldown_min\",10)}|{d.get(\"trip_count\",0)}|{d.get(\"last_trip_at\",0)}|{d.get(\"daily_errors\",0)}|{d.get(\"daily_reset_at\",0)}')
 except:
-    print('0|10|0|0')
-" 2>/dev/null || echo "0|10|0|0"
+    print('0|10|0|0|0|0')
+" 2>/dev/null || echo "0|10|0|0|0|0"
   else
-    echo "0|10|0|0"
+    echo "0|10|0|0|0|0"
   fi
 }
 
 write_cb_state() {
-  local tripped_at="$1" cooldown_min="$2" trip_count="$3" last_trip_at="$4"
+  local tripped_at="$1" cooldown_min="$2" trip_count="$3" last_trip_at="$4" daily_errors="$5" daily_reset_at="$6"
   python3 -c "
 import json
 with open('$CIRCUIT_BREAKER_FILE', 'w') as f:
-    json.dump({'tripped_at': $tripped_at, 'cooldown_min': $cooldown_min, 'trip_count': $trip_count, 'last_trip_at': $last_trip_at}, f)
+    json.dump({'tripped_at': $tripped_at, 'cooldown_min': $cooldown_min, 'trip_count': $trip_count, 'last_trip_at': $last_trip_at, 'daily_errors': $daily_errors, 'daily_reset_at': $daily_reset_at}, f)
 " 2>/dev/null
 }
+
+# Daily error threshold constants
+DAILY_ERROR_WARN=15           # 15+ errors → 4h minimum cooldown
+DAILY_ERROR_CRITICAL=30       # 30+ errors → 8h cooldown (wait for next day)
 
 mkdir -p "$STATE_DIR"
 
@@ -77,7 +81,7 @@ GATEWAY_PID=$(pgrep -f "openclaw-gateway" 2>/dev/null | head -1 || true)
 
 if [[ -z "$GATEWAY_PID" ]]; then
   # Read circuit breaker state
-  IFS='|' read -r CB_TRIPPED CB_COOLDOWN CB_COUNT CB_LAST_TRIP <<< "$(read_cb_state)"
+  IFS='|' read -r CB_TRIPPED CB_COOLDOWN CB_COUNT CB_LAST_TRIP CB_DAILY CB_DAILY_RESET <<< "$(read_cb_state)"
   NOW=$(date +%s)
 
   if [[ "$CB_TRIPPED" -gt 0 ]]; then
@@ -86,14 +90,14 @@ if [[ -z "$GATEWAY_PID" ]]; then
 
     if [[ "$ELAPSED" -lt "$COOLDOWN_SEC" ]]; then
       REMAINING=$(( COOLDOWN_SEC - ELAPSED ))
-      log "CIRCUIT_BREAKER: Cooling down, ${REMAINING}s remaining (${CB_COOLDOWN}m cooldown, trip #${CB_COUNT})"
+      log "CIRCUIT_BREAKER: Cooling down, ${REMAINING}s remaining (${CB_COOLDOWN}m cooldown, trip #${CB_COUNT}, daily=${CB_DAILY})"
       exit 0
     fi
 
     # Cooldown expired — restart gateway
     log "CIRCUIT_BREAKER: Cooldown complete (${CB_COOLDOWN}m), restarting gateway"
     # Keep the state but clear tripped_at — backoff level persists
-    write_cb_state 0 "$CB_COOLDOWN" "$CB_COUNT" "$CB_LAST_TRIP"
+    write_cb_state 0 "$CB_COOLDOWN" "$CB_COUNT" "$CB_LAST_TRIP" "$CB_DAILY" "$CB_DAILY_RESET"
 
     launchctl kickstart gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
     sleep 5
@@ -140,8 +144,18 @@ if [[ -f "$ERR_LOG" ]]; then
 
     if [[ "$RECENT_RATE_LIMITS" -ge "$RATE_LIMIT_THRESHOLD" ]]; then
       # Read current backoff state
-      IFS='|' read -r CB_TRIPPED CB_COOLDOWN CB_COUNT CB_LAST_TRIP <<< "$(read_cb_state)"
+      IFS='|' read -r CB_TRIPPED CB_COOLDOWN CB_COUNT CB_LAST_TRIP CB_DAILY CB_DAILY_RESET <<< "$(read_cb_state)"
       NOW=$(date +%s)
+
+      # Reset daily counter at midnight
+      TODAY_MIDNIGHT=$(date -v0H -v0M -v0S +%s 2>/dev/null || date -d "today 00:00" +%s 2>/dev/null || echo "0")
+      if [[ "$CB_DAILY_RESET" -lt "$TODAY_MIDNIGHT" ]]; then
+        CB_DAILY=0
+        CB_DAILY_RESET="$TODAY_MIDNIGHT"
+      fi
+
+      # Increment daily error counter
+      CB_DAILY=$(( CB_DAILY + RECENT_RATE_LIMITS ))
 
       # Calculate new cooldown with progressive backoff
       if [[ "$CB_LAST_TRIP" -gt 0 ]]; then
@@ -161,13 +175,22 @@ if [[ -f "$ERR_LOG" ]]; then
         NEW_COUNT=1
       fi
 
-      log "CIRCUIT_BREAKER: $RECENT_RATE_LIMITS rate limit errors — trip #${NEW_COUNT}, cooldown ${NEW_COOLDOWN}m (backoff)"
+      # Daily error escalation — override cooldown if daily cap exceeded
+      if [[ "$CB_DAILY" -ge "$DAILY_ERROR_CRITICAL" ]]; then
+        NEW_COOLDOWN=480  # 8 hours — provider daily cap likely exhausted
+        log "DAILY_CAP: $CB_DAILY errors today (critical ≥$DAILY_ERROR_CRITICAL) — 8h cooldown"
+      elif [[ "$CB_DAILY" -ge "$DAILY_ERROR_WARN" ]]; then
+        [[ "$NEW_COOLDOWN" -lt 240 ]] && NEW_COOLDOWN=240  # 4h minimum
+        log "DAILY_CAP: $CB_DAILY errors today (warn ≥$DAILY_ERROR_WARN) — ${NEW_COOLDOWN}m cooldown"
+      fi
+
+      log "CIRCUIT_BREAKER: $RECENT_RATE_LIMITS rate limit errors — trip #${NEW_COUNT}, cooldown ${NEW_COOLDOWN}m, daily=${CB_DAILY}"
 
       # Stop gateway
       pkill -f openclaw-gateway 2>/dev/null || true
 
-      # Save state with progressive backoff
-      write_cb_state "$NOW" "$NEW_COOLDOWN" "$NEW_COUNT" "$NOW"
+      # Save state with progressive backoff + daily tracking
+      write_cb_state "$NOW" "$NEW_COOLDOWN" "$NEW_COUNT" "$NOW" "$CB_DAILY" "$CB_DAILY_RESET"
 
       # Truncate error log
       > "$ERR_LOG"
@@ -175,7 +198,7 @@ if [[ -f "$ERR_LOG" ]]; then
       # Clean sessions while gateway is down
       bash "$HOME/.openclaw/workspace/scripts/session-cleanup.sh" 2>/dev/null || true
 
-      notify "Rate Limit Circuit Breaker" "Trip #${NEW_COUNT}: Gateway stopped for ${NEW_COOLDOWN}m (progressive backoff). $RECENT_RATE_LIMITS rate limit errors. Sessions cleaned."
+      notify "Rate Limit Circuit Breaker" "Trip #${NEW_COUNT}: Gateway stopped for ${NEW_COOLDOWN}m. $RECENT_RATE_LIMITS errors (${CB_DAILY} today). Sessions cleaned."
       exit 0
     fi
   fi
@@ -185,13 +208,14 @@ fi
 # 3. Reset backoff if stable
 # ============================================================
 # If gateway has been running cleanly for 2+ hours, reset backoff state
-IFS='|' read -r CB_TRIPPED CB_COOLDOWN CB_COUNT CB_LAST_TRIP <<< "$(read_cb_state)"
+IFS='|' read -r CB_TRIPPED CB_COOLDOWN CB_COUNT CB_LAST_TRIP CB_DAILY CB_DAILY_RESET <<< "$(read_cb_state)"
 NOW=$(date +%s)
 if [[ "$CB_LAST_TRIP" -gt 0 && "$CB_COUNT" -gt 0 ]]; then
   SINCE_LAST=$(( NOW - CB_LAST_TRIP ))
   if [[ "$SINCE_LAST" -gt $(( BACKOFF_RESET_MIN * 60 )) ]]; then
-    log "BACKOFF_RESET: No trips in ${BACKOFF_RESET_MIN}m, resetting backoff (was trip #${CB_COUNT}, ${CB_COOLDOWN}m)"
-    write_cb_state 0 "$MIN_COOLDOWN_MIN" 0 0
+    log "BACKOFF_RESET: No trips in ${BACKOFF_RESET_MIN}m, resetting backoff (was trip #${CB_COUNT}, ${CB_COOLDOWN}m, daily=${CB_DAILY})"
+    # Reset trip backoff but keep daily counter (resets at midnight)
+    write_cb_state 0 "$MIN_COOLDOWN_MIN" 0 0 "$CB_DAILY" "$CB_DAILY_RESET"
   fi
 fi
 

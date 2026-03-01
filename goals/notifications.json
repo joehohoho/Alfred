@@ -260,36 +260,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1772222573811_15aaf634",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Dependency updates applied (lockfile updated via npm update --legacy-peer-deps) and build passes, but lint fails with 206 pre-existing errors across app unrelated to dependency bump. Choose path: (A) accept build+smoke-only stabilization and move to review, or (B) create separate lint-remediation card and keep this blocked until lint clean.",
-    "taskId": "task_1772085832848_97a9e13a",
-    "answered": false,
-    "createdAt": "2026-02-27T20:02:53.811Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772222596530_195c0f1e",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Pilot is blocked on launch inputs/approval for external actions. Need: (1) choose 1-2 channels (affiliates, partners, content), (2) weekly test budget cap, (3) offer/landing-page asset to promote. Options: A) low-risk content+partner pilot (/bin/zsh-/wk), B) affiliate+content pilot (-/wk), C) content-only validation sprint first. Recommend C for fastest signal with minimal spend; can scale to A/B after week 1 metrics.",
-    "taskId": "task_1772199318344_19e8fa66",
-    "answered": false,
-    "createdAt": "2026-02-27T20:03:16.530Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772247698673_344350bf",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Cannot start without Joe approving: (1) which app to focus on, (2) which channels to test, (3) budget ceiling. Joe indicated in chat he is not familiar with CAC/LTV and may want to park this card in Ideas. Awaiting his decision before taking any action.",
-    "taskId": "task_1772199318344_19e8fa66",
-    "answered": false,
-    "createdAt": "2026-02-28T03:01:38.673Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1772287200145_abab422f",
     "type": "question",
     "title": "What cross-project wins should I explore?",
@@ -302,52 +272,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1772326875610_8fc21a32",
-    "type": "info",
-    "title": "Workspace Check",
-    "message": "Git status check: 5 uncommitted files found and committed (hal-tracking, failsafe-state, idle-state). Workspace clean.",
-    "source": "idle-workspace-check",
-    "answered": false,
-    "createdAt": "2026-03-01T01:01:15.610Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772337841156_2f87a033",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T04:04:01.156Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772341443721_310e2648",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T05:04:03.721Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772345046125_1b87b181",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T06:04:06.125Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772348648606_3d1cb288",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T07:04:08.606Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1772350918952_561ef7a7",
     "type": "question",
     "title": "Discord Webhooks Returning 403 — Need Regeneration",
@@ -358,84 +282,31 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1772352251146_3245ec05",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 9 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "id": "notif_1772373600214_c683eda7",
+    "type": "question",
+    "title": "Consulting client: automation idea worth productizing?",
+    "message": "You've been doing automation consulting work. Has any client problem come up repeatedly — something generic enough to turn into a product? Even a 9/mo niche SaaS. Worth investigating?",
+    "source": "daily-inquiry",
     "answered": false,
-    "createdAt": "2026-03-01T08:04:11.146Z",
+    "createdAt": "2026-03-01T14:00:00.214Z",
     "answeredAt": null
   },
   {
-    "id": "notif_1772354652746_a99b2278",
+    "id": "notif_1772386178688_e48c23a5",
     "type": "system",
     "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "message": "Trip #1: Gateway stopped for 10m (progressive backoff). 3 rate limit errors. Sessions cleaned.",
     "answered": false,
-    "createdAt": "2026-03-01T08:44:12.746Z",
+    "createdAt": "2026-03-01T17:29:38.688Z",
     "answeredAt": null
   },
   {
-    "id": "notif_1772356144478_2603ca2e",
-    "type": "system",
-    "title": "Session Auto-Reset",
-    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
-    "answered": false,
-    "createdAt": "2026-03-01T09:09:04.478Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772358255470_2cb2b903",
+    "id": "notif_1772393985559_8cd13283",
     "type": "system",
     "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
+    "message": "Trip #1: Gateway stopped for 10m (progressive backoff). 3 rate limit errors. Sessions cleaned.",
     "answered": false,
-    "createdAt": "2026-03-01T09:44:15.470Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772361857922_11a2f9d0",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T10:44:17.922Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772363058775_aec096d5",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 3 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T11:04:18.775Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772366661386_8dfa5aa1",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 5 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T12:04:21.386Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772369063039_981f4242",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Gateway stopped for 5m — 4 rate limit errors detected. Sessions cleaned. Auto-restart in 5 minutes.",
-    "answered": false,
-    "createdAt": "2026-03-01T12:44:23.039Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772370264219_09f384be",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Trip #1: Gateway stopped for 10m (progressive backoff). 6 rate limit errors. Sessions cleaned.",
-    "answered": false,
-    "createdAt": "2026-03-01T13:04:24.219Z",
+    "createdAt": "2026-03-01T19:39:45.559Z",
     "answeredAt": null
   }
 ]

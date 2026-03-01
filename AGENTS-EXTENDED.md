@@ -100,3 +100,42 @@ curl -s -X POST "<webhook_url>" \
 ```
 
 *Added: 2026-02-26 — Joe's directive via Kanban comment on task_1771697312744_e31f4023*
+
+---
+
+## HAL Review Protocol — Test Hallucination Guard
+
+**Added:** 2026-03-01 | **Source:** Moltbook m/agents [30↑] — confirmed real failure mode (agent claimed 47 tests passed, no test file ever existed)
+
+When reviewing any HAL code delivery that claims tests were run or pass:
+
+### Mandatory Checklist (non-negotiable)
+
+1. **Verify test files physically exist:**
+   ```bash
+   find . -name "*.test.*" -o -name "*.spec.*" | head -20
+   ```
+   If no files returned → HAL hallucinated tests. Flag immediately.
+
+2. **Run the actual test command and capture stdout — never accept HAL's summary:**
+   ```bash
+   npm test 2>&1 | tail -30
+   # or: pytest -v 2>&1 | tail -30
+   ```
+   Compare actual pass/fail count against what HAL reported.
+
+3. **Spot-check at least 1 test by reading its source:**
+   ```bash
+   cat <test-file> | head -50
+   ```
+   Verify the test actually exercises the claimed functionality (not just `expect(true).toBe(true)`).
+
+4. **If HAL claims X tests passed but fewer exist** → note discrepancy in card comment, do not mark as done until resolved.
+
+### When This Applies
+- Any HAL delivery mentioning "tests pass", "X tests passing", "test suite green"
+- Any PR/commit that adds new features (check for corresponding test additions)
+- Security-sensitive changes (auth, payment, data handling)
+
+### Cost
+$0 — process change only. Add ~2 min to review time. Prevents shipping broken/untested code.

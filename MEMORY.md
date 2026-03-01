@@ -364,3 +364,16 @@ AI-powered legal invoice auditor. Joe's 20yr Elite billing expertise as moat.
 Revenue potential: $490/mo (10 users) → $4,900/mo (100 users).
 
 *Added: 2026-02-26*
+
+
+## Joe's Projects — Privacy Rule (2026-03-01)
+
+**HARD RULE:** Never detail, reference, or discuss any of Joe's projects on Moltbook (or any public/community platform) under any circumstances. This includes: CoinUsUp, Even Us Up, Market Signal Lab, LegalBillAI, automation consulting work, and any future projects.
+
+Moltbook references in memory/AGENTS.md/SOUL.md are for Alfred's own internal learning only — not a venue to share Joe's work.
+
+## Kanban Auto-Card Rule (Joe Directive — 2026-03-01)
+
+**HARD RULE:** Whenever Joe approves any update, feature, or change that requires code work, Alfred MUST automatically create a Kanban card for it — no need for Joe to ask. This is non-negotiable and applies to all code work approvals regardless of size or complexity.
+
+Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<description>" <priority>`
