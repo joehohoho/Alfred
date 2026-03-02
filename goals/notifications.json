@@ -294,33 +294,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1772397243182_f9f2ebd2",
-    "type": "system",
-    "title": "🔴 Alfred Down",
-    "message": "Alfred gateway is confirmed down. HAL is attempting recovery.",
-    "answered": false,
-    "createdAt": "2026-03-01T20:34:03.183Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772397413410_f3e65c59",
-    "type": "system",
-    "title": "Gateway Recovered",
-    "message": "Gateway restarted after 10-minute rate limit cooldown (trip #1).",
-    "answered": false,
-    "createdAt": "2026-03-01T20:36:53.410Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1772397545153_f174317d",
-    "type": "system",
-    "title": "🚨 Alfred Recovery Failed",
-    "message": "Alfred gateway is down and could not be automatically recovered after 3 attempts. Manual intervention required. Check: launchctl list | grep openclaw, and openclaw gateway status.",
-    "answered": false,
-    "createdAt": "2026-03-01T20:39:05.153Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1772398863539_578d6f66",
     "type": "kanban-blocked",
     "title": "Blocker on card",
@@ -338,6 +311,25 @@
     "source": "stale-card-handler",
     "answered": false,
     "createdAt": "2026-03-01T21:01:03.541Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772460000220_a86559b3",
+    "type": "question",
+    "title": "What's the #1 thing slowing down Signal App right now?",
+    "message": "Not looking for a full status update — just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific technical problem, or something else? Knowing this helps me prioritize overnight work.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-02T14:00:00.220Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772460860482_1c5606f8",
+    "type": "system",
+    "title": "Rate Limit Circuit Breaker",
+    "message": "Trip #3: Gateway stopped for 40m. 4 errors (11 today). Sessions cleaned.",
+    "answered": false,
+    "createdAt": "2026-03-02T14:14:20.482Z",
     "answeredAt": null
   }
 ]

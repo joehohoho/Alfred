@@ -128,8 +128,10 @@ if [[ "$TEST_RESULT" == "CODEX_OK" ]]; then
 else
   log "PARTIAL: Codex unavailable ($TEST_RESULT) — switching to Haiku subscription"
 
-  # Remove Codex from fallback chain, set Haiku as default
+  # Remove Codex AND Sonnet from fallback chain — go straight to Haiku
+  # Sonnet in the chain burns an Anthropic rate limit call before reaching Haiku
   openclaw models fallbacks remove openai-codex/gpt-5.3-codex 2>/dev/null || true
+  openclaw models fallbacks remove anthropic/claude-sonnet-4-6 2>/dev/null || true
   openclaw models aliases add default anthropic/claude-haiku-4-5 2>/dev/null || true
   log "Model set to Haiku (subscription rate limits)"
 

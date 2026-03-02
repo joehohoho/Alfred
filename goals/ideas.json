@@ -522,7 +522,7 @@
     "title": "Client Onboarding Autopilot for Automation Consultants",
     "description": "Repetitive intake/scoping/checklist setup burns billable time for solo consultants. Templates + guided wizard for Zapier/Make + Notion/Airtable. $199 kit + $29/mo updates. Build: S. Maintenance: Low. 30 days to first $1k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -534,7 +534,23 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:46.175Z",
-    "updatedAt": "2026-03-01T11:01:31.000Z"
+    "updatedAt": "2026-03-02T14:11:35.250Z",
+    "comments": [
+      {
+        "id": "cmt_1772460682206_c61f1069",
+        "author": "joe",
+        "text": "Rejected: not interested in pursuing this",
+        "createdAt": "2026-03-02T14:11:22.206Z"
+      },
+      {
+        "id": "cmt_1772460695250_16fe1da5",
+        "author": "alfred",
+        "text": "✅ **Rejected.** Removing from active ideas.\n\nUnderstood — not a priority. Moving to archived/rejected status.",
+        "createdAt": "2026-03-02T14:11:35.250Z"
+      }
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-03-02T14:11:23.933Z"
   },
   {
     "id": "idea_1772054446675_d937f1fa",
@@ -1814,7 +1830,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T04:01:31.660Z",
-    "updatedAt": "2026-03-01T04:01:31.660Z"
+    "updatedAt": "2026-03-02T14:13:58.347Z",
+    "comments": [
+      {
+        "id": "cmt_1772460838347_3d12e790",
+        "author": "joe",
+        "text": "Go ahead with option 2",
+        "createdAt": "2026-03-02T14:13:58.347Z"
+      }
+    ]
   },
   {
     "id": "idea_1772337701306_6dbc1bdc",
@@ -1830,7 +1854,21 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T04:01:41.306Z",
-    "updatedAt": "2026-03-01T04:01:41.306Z"
+    "updatedAt": "2026-03-02T14:13:35.798Z",
+    "comments": [
+      {
+        "id": "cmt_1772460794474_75f57606",
+        "author": "joe",
+        "text": "Go ahead with option 2",
+        "createdAt": "2026-03-02T14:13:14.474Z"
+      },
+      {
+        "id": "cmt_1772460815798_2a5d949c",
+        "author": "alfred",
+        "text": "✅ **Option 2 approved.** Task created: task_1772460809119_8c26cf83\n\n**Plan:**\n1. Verify log-rotate.sh script (location, rotation logic, archive handling)\n2. Confirm safe rotation (rename + truncate, not delete)\n3. Re-enable com.alfred.log-rotation cron (4am daily)\n4. Test rotation manually\n5. Monitor disk usage\n\nStarting now.",
+        "createdAt": "2026-03-02T14:13:35.798Z"
+      }
+    ]
   },
   {
     "id": "idea_1772337715885_ca701f98",
@@ -1846,7 +1884,27 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T04:01:55.885Z",
-    "updatedAt": "2026-03-01T04:01:55.885Z"
+    "updatedAt": "2026-03-02T14:26:17.514Z",
+    "comments": [
+      {
+        "id": "cmt_1772460954777_2167d539",
+        "author": "joe",
+        "text": "Check if launch agents were setup to replace any of these cron jobs",
+        "createdAt": "2026-03-02T14:15:54.777Z"
+      },
+      {
+        "id": "cmt_1772461547798_2dae17ae",
+        "author": "joe",
+        "text": "Check if launch agents were setup to replace any of these cron jobs",
+        "createdAt": "2026-03-02T14:25:47.798Z"
+      },
+      {
+        "id": "cmt_1772461577514_4e28b7d7",
+        "author": "alfred",
+        "text": "✅ **Investigation complete. LaunchAgents DID replace these crons.**\n\n### Mapping: Disabled Crons → LaunchAgents\n\n| Cron Job | LaunchAgent | Schedule | Interval |\n|----------|-------------|----------|----------|\n| Alfred Backup - Tier 2 (hourly) | com.alfred.backup-tier2 | ✅ Running | 3600s (hourly) |\n| HAL Idle Check & Dispatch | com.alfred.hal-idle-dispatch | ✅ Running | 900s (15 min) |\n| HAL Backup - State Snapshot | com.alfred.hal-backup | ✅ Running | 21600s (6h) |\n| Kanban Stale Assignment Check | com.alfred.kanban-stale-scan | ✅ Running | 14400s (4h) |\n| OpenClaw Maintenance — Weekly | com.alfred.maintenance-weekly | ✅ Running | Mon 8:05 AM |\n| Weekly Wins & Impact Digest | com.alfred.weekly-digest | ✅ Running | Fri 6:00 PM |\n\n### Status\n- All 6 LaunchAgents **are running** (confirmed via launchctl list)\n- All have proper schedule intervals configured\n- All have log files actively writing\n- Cron jobs are disabled (redundant now)\n\n### Recommendation\n✅ **Leave cron jobs disabled.** The LaunchAgent replacements are active and properly scheduled. These provide continuous (more reliable) execution than cron.\n\n**No action needed** — system is healthy. The cron jobs can be archived or deleted to clean up jobs.json.",
+        "createdAt": "2026-03-02T14:26:17.514Z"
+      }
+    ]
   },
   {
     "id": "idea_1772344924468_ab621eda",
@@ -1918,13 +1976,25 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T14:01:24.782Z",
-    "updatedAt": "2026-03-01T14:02:00.470Z",
+    "updatedAt": "2026-03-02T14:10:52.354Z",
     "comments": [
       {
         "id": "cmt_1772373720469_8fbb50db",
         "author": "alfred",
         "text": "## 💡 Canadian HST/GST Filing Automation\n\n**Problem:** Every quarter, ~2.5M Canadian self-employed workers manually calculate HST owing, reconcile input tax credits, and prepare CRA returns. Most use spreadsheets or pay accountants.\n\n**Target market:** Canadian freelancers, consultants, solo contractors (massive underserved segment)\n\n**Estimated MRR potential:** $8–$15/mo/user → $800–$3,000 at 100–200 users\n\n**Tech complexity:** 2/5 — QuickBooks/Wave have APIs; CRA returns are formulaic\n\n**Competition:** Few Canadian-specific tools; FreshBooks/QuickBooks have this buried in expensive tiers\n\n**Why Joe wins:** Canadian market knowledge, automation consulting background, can build v1 in a weekend\n\n**Key differentiator:** Sole focus on HST/GST — not a full accounting suite. Cheaper, simpler, faster.",
         "createdAt": "2026-03-01T14:02:00.469Z"
+      },
+      {
+        "id": "cmt_1772460632363_8042b3ea",
+        "author": "joe",
+        "text": "Can you build a test product for this and add it to the command center test apps section.  I will need this for myself. Make sure there is thorough research about tax rules since it’s an area you don’t want to make mistakes",
+        "createdAt": "2026-03-02T14:10:32.363Z"
+      },
+      {
+        "id": "cmt_1772460652354_05fc20c8",
+        "author": "alfred",
+        "text": "✅ **Assignment acknowledged.** Created task card: HST/GST Filing Automation MVP (task_1772460648007_05e7901f).\n\n**Plan:**\n1. **Phase 1 (Research)** — CRA rules, HST thresholds, filing deadlines, registration requirements, input tax credit calculations\n2. **Phase 2 (Build)** — Tax calculation engine, rate sheets, quarterly filing summary generation\n3. **Phase 3 (Integration)** — Add to Command Center test apps section\n\n**Starting research now.** Will be thorough on CRA compliance — this is not a guess-and-hope area.\n\nNext: Post detailed tax rules research to the task card comment.",
+        "createdAt": "2026-03-02T14:10:52.354Z"
       }
     ]
   },
@@ -1975,5 +2045,61 @@
         "createdAt": "2026-03-01T14:02:00.606Z"
       }
     ]
+  },
+  {
+    "id": "idea_1772398947174_67e6f126",
+    "title": "🍁 SaaS Idea: BillTrade NB — Bilingual Invoicing + HST for Atlantic Trades",
+    "description": "Bilingual (French/English) invoice + HST tool for solo/small trades in NB, NS, PEI. Targets plumbers, electricians, HVAC, contractors who need: bilingual invoice output (NB Official Languages compliance), HST 15% auto-calc, WorkSafeNB clearance reminders, mobile-first UX. Competitors (Jobber, ServiceTitan) are too expensive; Wave/QBO aren't trades-specific or genuinely bilingual. NB is Canada's only officially bilingual province — 33% francophone, completely underserved by English-first tools. Moat: NB-specific from day 1, Acadian community trust, bilingual-native (not translated). Revenue: -20/mo, target 500 users = ~k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T21:02:27.174Z",
+    "updatedAt": "2026-03-01T21:03:03.696Z",
+    "comments": [
+      {
+        "id": "cmt_1772398983695_0f5fc384",
+        "author": "alfred",
+        "text": "## 🍁 Canada-Specific Passive Income Scan — Research Summary\n\n**Scan focus:** Atlantic Canada / NB SMB pain points with geography-specific moat\n\n### Why this is the strongest of the 3 ideas:\n\n**Problem is real and overlooked:**\n- NB is Canada's only officially bilingual province (~33% francophone)\n- Trades/contractors are the largest employer segment in rural NB/NS/PEI\n- Most existing tools: Jobber ($49-$199/mo, overkill), ServiceTitan (enterprise), Wave/QBO (English-first, not trades-specific)\n- NB Official Languages Act creates a legal compliance angle for bilingual invoicing\n\n**Moat factors:**\n1. **Language:** Built French-native, not translated — Acadian French users can tell immediately\n2. **HST specificity:** Atlantic Canada HST 15% is not the same as Ontario 13% or BC 5% — a dedicated tool that just gets this right without user config has value\n3. **WorkSafeNB:** Unique to NB — contractors need clearance certificates; no tool handles this reminders workflow\n4. **Mobile-first:** Rural NB trades work on phones; most invoicing tools assume desktop\n5. **Small market = no big competitor bothers:** $8-10k MRR ceiling is beneath VC interest but ideal for indie/vibe coder\n\n**Revenue model:**\n- $15-20/mo per user\n- 500 users = $7,500-$10,000/mo MRR\n- Low churn: trades businesses use invoicing tools continuously, not seasonally\n- Potential upsell: HST return preparation export for accountant\n\n**Joe's edge:** Lives in Dieppe, bilingual market knowledge, existing NB network from consulting\n\n**Scan also produced:**\n- AtlanticTax Reminders (compliance calendar, bookkeeper-focused)\n- FrancoBiz (French-first bookkeeping for Acadian SMBs)\nAll 3 added to Kanban Ideas.",
+        "createdAt": "2026-03-01T21:03:03.695Z"
+      }
+    ]
+  },
+  {
+    "id": "idea_1772398956459_7c78678d",
+    "title": "🍁 SaaS Idea: AtlanticTax Reminders — CRA + Provincial Deadline Calendar for Atlantic Canada SMBs",
+    "description": "Personalized compliance deadline calendar for NB/NS/PEI/NL SMBs and bookkeepers. Covers: HST quarterly/annual remittances, T4/T4A deadlines, corporate installments, payroll remittances, WorkSafeNB annual return, NS WCB, PEI WCB — all in one bilingual dashboard with SMS/email alerts. No generic tool covers Atlantic provincial-specific compliance items. Moat: Atlantic Canada-only focus = zero direct competition, bilingual, covers WorkSafeNB gaps that kill NB contractors. Bookkeeper accounts cover 10-50 client files = -40/mo. 500 users = -8k MRR. ACOA grant potential for bilingual tech.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T21:02:36.459Z",
+    "updatedAt": "2026-03-01T21:02:36.459Z"
+  },
+  {
+    "id": "idea_1772398966386_2a0d7619",
+    "title": "🍁 SaaS Idea: FrancoBiz — French-First Micro-Business Bookkeeping for NB Acadians",
+    "description": "100% French-first bookkeeping SaaS targeting Acadian francophone micro-businesses in NB (restaurants, retail, services in Moncton/Dieppe, Bathurst, Campbellton, Edmundston). Features: native French UI (not translated), HST tracking, T4/T4A generation, simple CRA-ready P&L, bilingual invoice output. Big tools (Wave, QBO) are English-first with poor French UX; Sage is enterprise. NB Official Languages Act requires bilingual output for businesses serving the public — this tool makes compliance automatic. Community moat: trust in Acadian markets, local-first positioning, ACOA + Office of the Commissioner of Official Languages grant eligibility. Revenue: /mo, 1000 users = k MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-01T21:02:46.386Z",
+    "updatedAt": "2026-03-01T21:02:46.386Z"
   }
 ]

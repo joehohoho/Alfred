@@ -1,7 +1,7 @@
 # MODEL-POLICY.md — Model Selection Guidelines
 
-**Goal:** Quality-first within subscription quota. Use Sonnet as gatekeeper; route sub-tasks to LOCAL/Codex to preserve quota headroom. Anthropic API is backup-only — cost caps apply there only.  
-**Default:** SONNET (security/prompt injection defense) → route sub-tasks to cheapest appropriate model.
+**Goal:** Quality-first within subscription quota. Use Haiku as default for quota efficiency; route high-stakes/security work to Sonnet. Anthropic API is backup-only — cost caps apply there only.  
+**Default:** HAIKU (quota-preserving default) → escalate to Sonnet for complex/security-critical work.
 
 ---
 
@@ -66,9 +66,9 @@ Joe uses an **Anthropic subscription** (flat monthly fee with usage quotas). The
 |------|-------|-----------|----------|
 | 0 | LOCAL (llama3.2:3b) | FREE | Trivial tasks, saves quota |
 | 1 | Codex | FREE (rate-limited) | Code tasks only |
-| 2 | Claude Haiku | Subscription quota | Medium reasoning, quota-aware |
-| 3 | Claude Sonnet | Subscription quota | **DEFAULT (gatekeeper + complex work)** |
-| 4 | Claude Opus | Subscription quota | High-stakes only |
+| 2 | Claude Haiku | Subscription quota | **DEFAULT (general work, quota-efficient)** |
+| 3 | Claude Sonnet | Subscription quota | Complex/security-critical work |
+| 4 | Claude Opus | Subscription quota | High-stakes decisions only |
 | 5 | Anthropic API | Pay-per-token 💰 | **BACKUP: quota exhausted only** |
 
 ---
@@ -83,6 +83,7 @@ Joe uses an **Anthropic subscription** (flat monthly fee with usage quotas). The
 | Code task (gen/edit/debug/test) + complexity ≤7 | Codex first |
 | Complexity ≤3, small output, low risk | LOCAL |
 | Latency target = fast AND complexity ≤5 | LOCAL or Codex only |
+| All other general work (default) | **HAIKU** |
 | Subscription quota >70% consumed before mid-period | Aggressively upshift to LOCAL/Codex |
 | Subscription quota exhausted | Anthropic API fallback → cost caps apply |
 
@@ -99,10 +100,10 @@ Joe uses an **Anthropic subscription** (flat monthly fee with usage quotas). The
 ### Escalation Ladder (max 2 escalations per request)
 
 ```
-LOCAL → Haiku (or Codex for code)
-Codex → Sonnet
-Haiku → Sonnet
-Sonnet → Opus
+LOCAL → Haiku (default) or Codex (for code)
+Codex → Haiku or Sonnet
+Haiku → Sonnet (if reasoning/complexity demanded)
+Sonnet → Opus (if high-stakes)
 Opus → [Anthropic API if quota exhausted + cost cap permits]
 ```
 
