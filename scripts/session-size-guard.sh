@@ -13,8 +13,10 @@ SESSIONS_DIR="$HOME/.openclaw/agents/main/sessions"
 SESSIONS_JSON="$SESSIONS_DIR/sessions.json"
 BACKUP_DIR="$SESSIONS_DIR/backups"
 
-# 3MB threshold (~150k tokens). Sonnet's 195k limit minus room for system prompt.
-MAX_SIZE_BYTES=$((3 * 1024 * 1024))
+# 500KB threshold (~50k tokens). Lower threshold prevents rate limit exhaustion —
+# an 841KB session was burning through Haiku's TPM limits on 2026-03-02.
+# Old 3MB threshold only caught context overflow, not rate limit strain.
+MAX_SIZE_BYTES=$((500 * 1024))
 
 NOTIFICATION_URL="http://localhost:3001/api/notifications"
 VERBOSE=${SESSION_SIZE_GUARD_VERBOSE:-0}
