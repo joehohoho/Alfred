@@ -1,8 +1,8 @@
 #!/bin/bash
 # gateway-launcher.sh
 # Wrapper for LaunchAgent — checks circuit breaker before starting gateway.
-# If in cooldown, exits cleanly (LaunchAgent retries after ThrottleInterval).
-# This prevents the LaunchAgent from bypassing the watchdog's rate limit protection.
+# If in cooldown (Tier 2 kill), exits cleanly (LaunchAgent retries after ThrottleInterval).
+# Tier 1 (throttle) does NOT block the launcher — gateway stays running.
 
 set -euo pipefail
 

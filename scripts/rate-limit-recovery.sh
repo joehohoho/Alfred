@@ -4,14 +4,13 @@
 # Run by LaunchAgent at 8 AM AST, then self-removes the LaunchAgent.
 #
 # SAFE STARTUP ORDER (prevents cron stampede):
-#   1. Reset circuit breaker
+#   1. Reset circuit breaker (including throttle state)
 #   2. Clear error log
-#   3. Restore Codex model
-#   4. Start gateway (NO crons yet)
-#   5. Test Codex API using FREE /v1/models endpoint (zero tokens consumed)
-#   6. If Codex works → keep Codex as primary, enable all crons
-#   7. If Codex fails → switch to Haiku (subscription), enable all crons
-#   8. Self-cleanup only on full Codex recovery; retry daily otherwise
+#   3. Start gateway (NO crons yet — they were throttled/disabled)
+#   4. Test Codex API using FREE /v1/models endpoint (zero tokens consumed)
+#   5. If Codex works → set Codex as primary + Haiku fallback, enable crons
+#   6. If Codex fails → set Haiku as primary (no fallbacks), enable crons
+#   7. Self-cleanup only on full Codex recovery; retry daily otherwise
 
 set -euo pipefail
 
@@ -20,17 +19,18 @@ CB_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/rate-limit-circuit-break
 JOBS_FILE="$HOME/.openclaw/cron/jobs.json"
 PLIST="$HOME/Library/LaunchAgents/com.alfred.rate-limit-recovery.plist"
 ERR_LOG="$HOME/.openclaw/logs/gateway.err.log"
+CONFIG="$HOME/.openclaw/openclaw.json"
 
 ts() { date '+%Y-%m-%dT%H:%M:%S'; }
 log() { echo "[$(ts)] RECOVERY: $*" >> "$LOG"; }
 
 log "Starting rate limit recovery..."
 
-# 1. Reset circuit breaker
+# 1. Reset circuit breaker (all fields including throttle)
 python3 -c "
 import json
 with open('$CB_FILE', 'w') as f:
-    json.dump({'tripped_at': 0, 'cooldown_min': 10, 'trip_count': 0, 'last_trip_at': 0, 'daily_errors': 0, 'daily_reset_at': 0}, f)
+    json.dump({'tripped_at': 0, 'cooldown_min': 10, 'trip_count': 0, 'last_trip_at': 0, 'daily_errors': 0, 'daily_reset_at': 0, 'throttled_at': 0}, f)
 " 2>/dev/null
 log "Circuit breaker reset"
 
@@ -38,12 +38,7 @@ log "Circuit breaker reset"
 > "$ERR_LOG" 2>/dev/null || true
 log "Error log cleared"
 
-# 3. Restore Codex to fallback chain (will test below)
-openclaw models fallbacks add openai-codex/gpt-5.3-codex --position 0 2>/dev/null || true
-openclaw models aliases remove default 2>/dev/null || true
-log "Codex restored to fallback chain"
-
-# 4. Start gateway (crons still disabled — no stampede)
+# 3. Start gateway (crons still disabled — no stampede)
 launchctl enable gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
 launchctl kickstart gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
 sleep 10
@@ -59,7 +54,7 @@ if [[ -z "$GATEWAY_PID" ]]; then
 fi
 log "Gateway started (PID $GATEWAY_PID), crons still disabled"
 
-# 5. Test Codex API — FREE /v1/models endpoint (no tokens consumed, no rate limit impact)
+# 4. Test Codex API — FREE /v1/models endpoint (no tokens consumed, no rate limit impact)
 sleep 5
 TEST_RESULT=$(python3 -c "
 import json, urllib.request, os
@@ -90,7 +85,7 @@ except Exception as e:
 
 log "Codex test result: $TEST_RESULT"
 
-# 6. Re-enable ALL rate-limit-disabled crons (skip PERMANENT ones)
+# 5. Re-enable ALL rate-limit-disabled AND throttled crons (skip PERMANENT ones)
 REENABLED=$(python3 -c "
 import json
 with open('$JOBS_FILE') as f:
@@ -100,7 +95,7 @@ for j in d['jobs']:
     reason = j.get('_autoDisabledReason', '')
     if reason.startswith('PERMANENT:'):
         continue
-    if 'rate limit' in reason.lower() or 'Provider rate limits' in reason:
+    if 'rate limit' in reason.lower() or 'Provider rate limits' in reason or reason == 'rate limit throttle':
         j['enabled'] = True
         j.pop('_autoDisabledAt', None)
         j.pop('_autoDisabledReason', None)
@@ -111,14 +106,31 @@ print(count)
 " 2>/dev/null || echo "0")
 log "$REENABLED crons re-enabled (skipped PERMANENT)"
 
-# 7. Branch on Codex test result
+# 6. Set model configuration based on Codex test result
 if [[ "$TEST_RESULT" == "CODEX_OK" ]]; then
-  log "FULL RECOVERY: Codex healthy, $REENABLED crons enabled"
+  # FULL RECOVERY: Codex as primary, Haiku as fallback
+  python3 -c "
+import json
+with open('$CONFIG') as f:
+    c = json.load(f)
+c['agents']['defaults']['model']['primary'] = 'openai-codex/gpt-5.3-codex'
+c['agents']['defaults']['model']['fallbacks'] = ['anthropic/claude-haiku-4-5']
+# Remove default alias (Codex is primary, no alias needed)
+if 'anthropic/claude-haiku-4-5' in c['agents']['defaults'].get('models', {}):
+    c['agents']['defaults']['models']['anthropic/claude-haiku-4-5'].pop('alias', None)
+with open('$CONFIG', 'w') as f:
+    json.dump(c, f, indent=2)
+" 2>/dev/null
+  log "FULL RECOVERY: Codex as primary, Haiku fallback, $REENABLED crons enabled"
 
   curl -s --max-time 10 -X POST "http://localhost:3001/api/notifications" \
     -H "Content-Type: application/json" \
-    -d "{\"type\":\"system\",\"title\":\"Full Recovery\",\"message\":\"Codex healthy, gateway running, $REENABLED crons re-enabled.\"}" \
+    -d "{\"type\":\"system\",\"title\":\"Full Recovery\",\"message\":\"Codex primary, Haiku fallback, $REENABLED crons re-enabled.\"}" \
     > /dev/null 2>&1 || true
+
+  # Restart gateway to pick up model change
+  launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
+  sleep 5
 
   # Self-cleanup — only when fully recovered
   launchctl unload "$PLIST" 2>/dev/null || true
@@ -126,18 +138,28 @@ if [[ "$TEST_RESULT" == "CODEX_OK" ]]; then
   log "Recovery LaunchAgent removed (one-shot complete)"
 
 else
-  log "PARTIAL: Codex unavailable ($TEST_RESULT) — switching to Haiku subscription"
+  # PARTIAL RECOVERY: Haiku as primary, no fallbacks (Codex is useless while quota-blocked)
+  python3 -c "
+import json
+with open('$CONFIG') as f:
+    c = json.load(f)
+c['agents']['defaults']['model']['primary'] = 'anthropic/claude-haiku-4-5'
+c['agents']['defaults']['model']['fallbacks'] = []
+# Set default alias for good measure
+if 'anthropic/claude-haiku-4-5' in c['agents']['defaults'].get('models', {}):
+    c['agents']['defaults']['models']['anthropic/claude-haiku-4-5']['alias'] = 'default'
+with open('$CONFIG', 'w') as f:
+    json.dump(c, f, indent=2)
+" 2>/dev/null
+  log "PARTIAL: Codex unavailable ($TEST_RESULT) — Haiku as primary, no fallbacks"
 
-  # Remove Codex AND Sonnet from fallback chain — go straight to Haiku
-  # Sonnet in the chain burns an Anthropic rate limit call before reaching Haiku
-  openclaw models fallbacks remove openai-codex/gpt-5.3-codex 2>/dev/null || true
-  openclaw models fallbacks remove anthropic/claude-sonnet-4-6 2>/dev/null || true
-  openclaw models aliases add default anthropic/claude-haiku-4-5 2>/dev/null || true
-  log "Model set to Haiku (subscription rate limits)"
+  # Restart gateway to pick up model change
+  launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
+  sleep 5
 
   curl -s --max-time 10 -X POST "http://localhost:3001/api/notifications" \
     -H "Content-Type: application/json" \
-    -d "{\"type\":\"system\",\"title\":\"Partial Recovery\",\"message\":\"Codex still down ($TEST_RESULT). Running on Haiku subscription. $REENABLED crons enabled. Will retry Codex tomorrow at 8 AM.\"}" \
+    -d "{\"type\":\"system\",\"title\":\"Partial Recovery\",\"message\":\"Codex still down ($TEST_RESULT). Haiku primary. $REENABLED crons enabled. Retry tomorrow 8 AM.\"}" \
     > /dev/null 2>&1 || true
 
   # Keep LaunchAgent — retry tomorrow
