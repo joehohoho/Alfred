@@ -38,6 +38,22 @@ fi
 KANBAN_COOLDOWN_MIN=10   # don't re-dispatch a Kanban task within 10 min
 PROACTIVE_COOLDOWN_MIN=15 # don't re-dispatch a proactive task within 15 min
 
+# ── HAL gateway health backoff ─────────────────────────────────────────────────
+# If HAL gateway is unreachable, back off exponentially to avoid wasting process slots
+FAIL_COUNT_FILE="$TRACK_DIR/hal-dispatch-fail-count.txt"
+FAIL_COUNT=0
+[[ -f "$FAIL_COUNT_FILE" ]] && FAIL_COUNT=$(cat "$FAIL_COUNT_FILE" 2>/dev/null || echo "0")
+# After 3+ consecutive failures, only try every 4th run (~hourly instead of 15 min)
+if [[ "$FAIL_COUNT" -ge 3 ]]; then
+  if [[ $(( FAIL_COUNT % 4 )) -ne 0 ]]; then
+    log "SKIP: HAL gateway unreachable ($FAIL_COUNT consecutive failures, backing off)"
+    echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
+    echo "[ACTION:SKIP] reason=hal_offline_backoff fail_count=${FAIL_COUNT}"
+    exit 0
+  fi
+  log "RETRY: HAL gateway check (attempt after $FAIL_COUNT failures)"
+fi
+
 # ── Helper: minutes since last dispatch of a given type ─────────────────────
 minutes_since_last_dispatch() {
   local type_filter="${1:-any}"  # "kanban", "proactive", or "any"
@@ -96,8 +112,9 @@ ${DESC:+Description: ${DESC}}
 Instructions: Complete this task. When done, report your results."
 
     # Dispatch directly to HAL via WebSocket (no Alfred LLM needed)
-    DISPATCH_OUT=$(node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
+    DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
       log "DISPATCH_OK: $DISPATCH_OUT"
+      echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
       # Log the successful dispatch
       python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$TASK_ID" "HAL" "$TITLE" "kanban" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
@@ -107,6 +124,7 @@ PY
       echo "[ACTION:DISPATCH_KANBAN] task_id=${TASK_ID} priority=${PRIORITY}"
     } || {
       log "DISPATCH_FAILED: exit=$? output=$DISPATCH_OUT"
+      echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"  # Increment fail counter
       echo "[ACTION:SKIP] reason=dispatch_failed task_id=${TASK_ID}"
     }
     exit 0
@@ -115,7 +133,7 @@ fi
 
 # ── 3. No Kanban task — check why and fall through to proactive ──────────────
 # Check whether board is blocked (in_progress) or just empty todo
-BOARD_JSON=$(curl -s "http://localhost:3001/api/kanban" 2>/dev/null || echo "{}")
+BOARD_JSON=$(curl -s --max-time 10 "http://localhost:3001/api/kanban" 2>/dev/null || echo "{}")
 IN_PROG_COUNT=$(echo "$BOARD_JSON" | python3 -c "
 import sys,json
 b=json.load(sys.stdin)
@@ -177,8 +195,9 @@ Instructions: Execute this proactive task. Report findings and any actions taken
 
 # Dispatch directly to HAL via WebSocket
 PROACTIVE_ID="proactive_$(date +%s)"
-DISPATCH_OUT=$(node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
+DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
   log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK} — $DISPATCH_OUT"
+  echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
   # Log the successful dispatch
   python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$PROACTIVE_ID" "HAL" "$NEXT_TASK" "proactive" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
@@ -188,5 +207,6 @@ PY
   echo "[ACTION:DISPATCH_PROACTIVE] pool_index=${POOL_INDEX} pool_target=${TARGET_LINE}"
 } || {
   log "DISPATCH_FAILED: pool_index=${POOL_INDEX} task=${NEXT_TASK} — exit=$? output=$DISPATCH_OUT"
+  echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"  # Increment fail counter
   echo "[ACTION:SKIP] reason=proactive_dispatch_failed"
 }

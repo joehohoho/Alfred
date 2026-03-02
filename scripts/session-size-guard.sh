@@ -26,7 +26,7 @@ log() {
 notify() {
   local title="$1"
   local message="$2"
-  curl -sf -X POST "$NOTIFICATION_URL" \
+  curl -sf --max-time 10 -X POST "$NOTIFICATION_URL" \
     -H "Content-Type: application/json" \
     -d "{\"type\":\"warning\",\"title\":\"$title\",\"message\":\"$message\"}" \
     >/dev/null 2>&1 || true

@@ -11,7 +11,7 @@ STALE_WORK_HOURS=12  # Cards in_progress with no update for this long get moved 
 # ── Part 1: Auto-move stale in_progress cards back to todo ──
 echo "=== Stale Work Check (>${STALE_WORK_HOURS}h in_progress) ==="
 
-BOARD=$(curl -s http://localhost:3001/api/kanban 2>/dev/null)
+BOARD=$(curl -s --max-time 10 http://localhost:3001/api/kanban 2>/dev/null)
 if [ -n "$BOARD" ]; then
   MOVED=$(echo "$BOARD" | python3 -c "
 import json, sys, subprocess
@@ -62,7 +62,7 @@ echo "=== Delivery Rescan ==="
 
 API="http://localhost:3001/api/kanban/rescan"
 
-RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$API" \
+RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" -X POST "$API" \
   -H "Content-Type: application/json")
 
 HTTP_CODE=$(echo "$RESPONSE" | tail -1)

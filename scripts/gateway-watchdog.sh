@@ -36,7 +36,7 @@ log() { echo "[$(ts)] $*" >> "$LOG"; }
 
 notify() {
   local title="$1" message="$2"
-  curl -s -X POST "$NOTIFY_URL" \
+  curl -s --max-time 10 -X POST "$NOTIFY_URL" \
     -H "Content-Type: application/json" \
     -d "{\"type\":\"system\",\"title\":\"$title\",\"message\":\"$message\"}" \
     > /dev/null 2>&1 || true
@@ -90,7 +90,11 @@ if [[ -z "$GATEWAY_PID" ]]; then
 
     if [[ "$ELAPSED" -lt "$COOLDOWN_SEC" ]]; then
       REMAINING=$(( COOLDOWN_SEC - ELAPSED ))
-      log "CIRCUIT_BREAKER: Cooling down, ${REMAINING}s remaining (${CB_COOLDOWN}m cooldown, trip #${CB_COUNT}, daily=${CB_DAILY})"
+      # Only log cooldown every ~1 hour (12 cycles × 5 min) to reduce log pollution
+      CYCLES_IN=$(( ELAPSED / 300 ))
+      if [[ "$CYCLES_IN" -eq 0 ]] || [[ $(( CYCLES_IN % 12 )) -eq 0 ]]; then
+        log "CIRCUIT_BREAKER: Cooling down, ${REMAINING}s remaining (${CB_COOLDOWN}m cooldown, trip #${CB_COUNT}, daily=${CB_DAILY})"
+      fi
       exit 0
     fi
 

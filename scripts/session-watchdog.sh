@@ -28,11 +28,10 @@ if [ ! -f "$ERR_LOG" ]; then
 fi
 
 # Detect stuck call_id via Python (avoids all shell quoting issues)
-STUCK_CALL_ID=$(python3 << 'PYEOF'
-import re, os
+STUCK_CALL_ID=$(tail -500 "$ERR_LOG" 2>/dev/null | python3 << 'PYEOF'
+import re, sys
 from datetime import datetime, timezone, timedelta
 
-err_log = os.path.expanduser("~/.openclaw/logs/gateway.err.log")
 window = timedelta(minutes=15)
 now = datetime.now(timezone.utc)
 cutoff = now - window
@@ -41,8 +40,7 @@ threshold = 3
 pattern = re.compile(r'^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z).*No tool call found.*call_id (\S+)')
 
 call_counts = {}
-with open(err_log) as f:
-    for line in f:
+for line in sys.stdin:
         m = pattern.match(line)
         if not m:
             continue
