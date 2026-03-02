@@ -92,7 +92,6 @@ for key in list(data.keys()):
 ONE_SHOT_PATTERNS = [
     ":idle:",          # idle dispatches
     ":chat-",          # chat sessions
-    ":card:",          # card-specific sessions
     ":system:",        # system event sessions
     ":hal:maintenance:", # HAL maintenance
     ":subagent:",      # subagent sessions
@@ -110,6 +109,21 @@ for key in list(data.keys()):
     if age_h > ONE_SHOT_MAX_AGE_H:
         to_remove.append(key)
         actions.append(f"oneshot({age_h:.0f}h):{key[:60]}")
+
+# --- 2b. Remove stale card sessions (8h TTL) ---
+# Card sessions need longer than the 2h one-shot TTL because card work can last
+# up to 6h before stale detection triggers. Proactive cleanup also happens in
+# Command Center when cards move to done/review/rejected.
+CARD_MAX_AGE_H = 8
+
+for key in list(data.keys()):
+    if key in to_remove:
+        continue
+    if ":card:" in key:
+        age_h = get_age_h(data[key], SESSIONS_DIR)
+        if age_h > CARD_MAX_AGE_H:
+            to_remove.append(key)
+            actions.append(f"card({age_h:.0f}h):{key[:60]}")
 
 # --- 3. Remove bloated sessions (file size > 200KB) ---
 # Any session with a JSONL file over 200KB is consuming too much context
