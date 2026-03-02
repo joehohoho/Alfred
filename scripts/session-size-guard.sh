@@ -95,11 +95,25 @@ PYEOF
 rm "$session_file"
 log "Deleted bloated session file"
 
-# Restart gateway so it drops the in-memory session and creates a fresh one
-log "Restarting gateway..."
-launchctl kickstart -k "gui/$(id -u)/ai.openclaw.gateway" 2>/dev/null
-sleep 3
-log "Gateway restarted"
+# Restart gateway (respects circuit breaker)
+CB_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/rate-limit-circuit-breaker.json"
+CB_SKIP=false
+if [[ -f "$CB_FILE" ]]; then
+  CB_T=$(python3 -c "import json; print(json.load(open('$CB_FILE')).get('tripped_at',0))" 2>/dev/null || echo "0")
+  CB_C=$(python3 -c "import json; print(json.load(open('$CB_FILE')).get('cooldown_min',10))" 2>/dev/null || echo "10")
+  NOW_S=$(date +%s)
+  if [[ "$CB_T" -gt 0 ]] && [[ $(( NOW_S - CB_T )) -lt $(( CB_C * 60 )) ]]; then
+    CB_SKIP=true
+  fi
+fi
+if [[ "$CB_SKIP" == "true" ]]; then
+  log "Circuit breaker active — skipping gateway restart (cooldown ${CB_C}m)"
+else
+  log "Restarting gateway..."
+  launchctl kickstart -k "gui/$(id -u)/ai.openclaw.gateway" 2>/dev/null
+  sleep 3
+  log "Gateway restarted"
+fi
 
 # Notify Command Center
 notify "Session Size Guard" "Main session was ${file_size_mb}MB (over 3MB limit). Auto-reset and gateway restarted. Backup: $backup_name"
