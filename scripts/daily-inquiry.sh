@@ -29,8 +29,10 @@ if [ "$LAST_DATE" = "$TODAY" ]; then
   exit 0
 fi
 
-# Get recent answered question titles to avoid duplicates
+# Get recent answered question titles + unanswered pending notifications to avoid duplicates
 RECENT_TITLES=$(tail -10 "$INQUIRY_LOG" 2>/dev/null | jq -r '.title' 2>/dev/null | tr '\n' '|' || echo "")
+PENDING_NOTIFS=$(jq -r '[.[] | select(.answered == false) | .title] | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
+ALL_TITLES="$RECENT_TITLES|$PENDING_NOTIFS"
 
 # Pull recent context: last 3 days of memory + today's kanban state
 RECENT_MEM=""
@@ -48,7 +50,7 @@ KANBAN_STATE=$(curl -s http://localhost:3001/api/kanban 2>/dev/null | jq -r '[.[
 CYCLE_NUM=$(( ($(wc -l < "$INQUIRY_LOG") % 4) + 1 ))
 
 # Build a dynamic question using claude/haiku for real freshness
-CONTEXT_BLOCK="Recent memory:\n$RECENT_MEM\n\nActive kanban: $KANBAN_STATE\n\nRecent question titles (avoid repeating): $RECENT_TITLES"
+CONTEXT_BLOCK="Recent memory:\n$RECENT_MEM\n\nActive kanban: $KANBAN_STATE\n\nRecent question titles + pending notifications (avoid repeating): $ALL_TITLES"
 
 THEME_HINT=""
 case $CYCLE_NUM in
@@ -62,7 +64,7 @@ esac
 PROMPT="You are Alfred, Joe's AI assistant. Based on context below, generate ONE thoughtful daily inquiry for Joe on the theme: $THEME_HINT.
 
 Rules:
-- Must be genuinely fresh — do NOT reuse any title from the recent list
+- Must be genuinely fresh — do NOT reuse any title from the recent list OR any pending unanswered notifications
 - Ground it in something real from recent memory/kanban if possible
 - Title: short (5-10 words), specific, intriguing
 - Body: 2-3 short paragraphs, include specific observations, end with a clear question
@@ -87,11 +89,11 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
     "Should Even Us Up get a monetization push or maintenance mode?|Even Us Up has been running. Is it growing on its own, or is it on life support? Should I look into monetization experiments (paid tier, integrations) or just keep the lights on?"
     "What's a tedious recurring task you still do manually?|You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can probably automate or at least reduce the friction."
   )
-  # Pick one not in recent titles
+  # Pick one not in recent titles or pending notifications
   for entry in "${FALLBACKS[@]}"; do
     FB_TITLE="${entry%%|*}"
     FB_BODY="${entry##*|}"
-    if [[ "$RECENT_TITLES" != *"$FB_TITLE"* ]]; then
+    if [[ "$ALL_TITLES" != *"$FB_TITLE"* ]]; then
       TITLE="$FB_TITLE"
       BODY="$FB_BODY"
       break
