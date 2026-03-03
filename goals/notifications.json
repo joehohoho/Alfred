@@ -272,16 +272,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1772350918952_561ef7a7",
-    "type": "question",
-    "title": "Discord Webhooks Returning 403 — Need Regeneration",
-    "message": "Both DISCORD_WEBHOOK_ALFRED_HAL and DISCORD_WEBHOOK_HAL_COMPLETIONS are returning HTTP 403 Forbidden as of March 1, 2026 3:40 AM. Alfred-HAL discussions and HAL completion notices are failing silently. Options: (1) Regenerate both webhooks in Discord Server Settings > Integrations > Webhooks and update .env, (2) Keep using message tool as fallback if webhooks stay broken. Recommendation: Regenerate both — takes 2 minutes. Current impact: Alfred-HAL discussion posts are failing; HAL completion Discord notifications may also be broken.",
-    "source": "alfred-hal-discussion",
-    "answered": false,
-    "createdAt": "2026-03-01T07:41:58.952Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1772373600214_c683eda7",
     "type": "question",
     "title": "Consulting client: automation idea worth productizing?",
@@ -292,16 +282,6 @@
     "answeredAt": "2026-03-01T20:22:07.526Z",
     "userAnswer": "No it’s not worth investigating. ",
     "deliveryStatus": "sent"
-  },
-  {
-    "id": "notif_1772398863539_578d6f66",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
-    "taskId": "task_1772199318344_19e8fa66",
-    "answered": false,
-    "createdAt": "2026-03-01T21:01:03.539Z",
-    "answeredAt": null
   },
   {
     "id": "notif_1772398863541_2f663b83",
@@ -324,12 +304,13 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1772460860482_1c5606f8",
-    "type": "system",
-    "title": "Rate Limit Circuit Breaker",
-    "message": "Trip #3: Gateway stopped for 40m. 4 errors (11 today). Sessions cleaned.",
+    "id": "notif_1772499564127_181afa42",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "CoinUsUp Growth Audit has been in_progress for 11h with no updates. Description is vague ('Test'). What specific audit/analysis needs to happen? Is there a blocker preventing progress, or should this be re-scoped?",
+    "taskId": "task_1772456586928_1632e222",
     "answered": false,
-    "createdAt": "2026-03-02T14:14:20.482Z",
+    "createdAt": "2026-03-03T00:59:24.127Z",
     "answeredAt": null
   }
 ]

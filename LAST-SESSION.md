@@ -1,46 +1,75 @@
-# LAST-SESSION.md - Session Bridge
+# LAST-SESSION.md — Session Bridge
 
-**Generated:** 2026-03-02 10:00 AST (Checkpoint)
+**Generated:** 2026-03-02 22:00 AST (Evening Checkpoint)
 **Session:** agent:main:main
 
 ## What Happened
-**Monday Mar 2, 9:24 AM onward.**
-- ✅ Checked HAL operational status: all infrastructure healthy (Gateway 87796, Dashboard 64715, MSL 576, JobTracker 596, LegalBillAI 51276 running). No active HAL sub-agents — idle state.
-- ✅ Handled 2 kanban comments:
-  1. **CoinUsUp npm audit (review)** — Audit vulns already fixed (commit 1bce1bd), prod clean. Posted review checklist for Joe (5-step verification).
-  2. **Moltbook cron guardrail (review→in_progress)** — Assigned to HAL. Spawned sub-agent to create scripts/moltbook-review-cron.sh with feed detection, logging to cron-failures.md, Discord notice, hard exit on empty feed.
-- ✅ Synced 4 pending questions from notifications into ACTIVE-TASK.md.
-- Context: 16% (healthy, well below 60% threshold).
+
+**Monday Mar 2, Full Day:**
+
+**Morning (9 AM - 3 PM)**
+- ✅ Fixed CoinUsUp npm vulnerabilities (serialize-javascript RCE via GHSA-5c6j-r48x-rmvq — 4 vulns patched)
+- ✅ Set up GitHub Actions CVE scanning for market-signal-lab (pip-audit integration)
+- ✅ Implemented HAL Utilization Management system (Alfred as project manager)
+- ✅ Dispatched HAL on webpack→Vite migration (CRA command-center, ETA Mar 3, 2-4 hrs)
+
+**Afternoon/Evening (3 PM - 10 PM)**
+- ✅ Completed Even Us Up growth audit (3 friction points, 3 growth levers identified, effort est. 28-34 hrs)
+- ✅ Synced pending questions from notifications into ACTIVE-TASK.md
+- ⚠️ Identified stale kanban in_progress cards blocking HAL assignment (awaiting Joe clarification)
 
 ## Decisions Made
-- LegalBillAI is highest-priority passive income launch (fastest path, Joe's core expertise)
-- CoinUsUp paid tier is second priority
-- HAL spawn staggering is highest infra priority (to reduce rate-limit errors)
+
+1. **Alfred's new role:** Project Manager for HAL utilization (weekly dispatch cycle, Mon 9 AM)
+2. **HAL targeting:** 70-80% utilization on high-complexity tasks (5+ days, complex logic)
+3. **CoinUsUp security:** npm vulnerabilities patched; ready for push (awaiting approval)
+4. **Even Us Up priority:** Fix friction points before App Store launch (8-10 hrs); notifications critical post-launch
 
 ## Tasks In Progress
-- None active (all Kanban in_progress moved to review)
 
-## Pending Joe Decisions (carry forward — no response yet)
+- **HAL webpack migration** (ACTIVE, ETA Mar 3, 2-4 hrs)
+- **Stale kanban cards** (2 in_progress, blocking new HAL assignment — awaiting Joe resolution)
+
+## Pending Joe Decisions (No Response Yet)
+
 1. **CoinUsUp push approval** — 2 local commits in `/Users/hopenclaw/CoinUsUp`:
+   - `662c11b` — serialize-javascript >=7.0.3 override (4 vulns fixed, ready for review)
    - `b6f8b08` — remove @capacitor/assets devDep
    - `b1f78c5` — add GitHub Actions CI workflow
-2. **LegalBillAI launch** — ready to set up in ~25 min, waiting on Joe go-ahead
-3. **3 blocked Kanban cards:**
-   - CoinUsUp lint errors (206 pre-existing, needs decision on whether to fix or bypass)
-   - Channel expansion pilot (needs: app choice, channels, budget ceiling)
-   - CoinUsUp paid tier (same pilot inputs needed)
+2. **Even Us Up App Store:** Approve friction-point fixes before launch? (8-10 hrs, highest impact on retention)
+3. **Stale kanban cards:** Manual dashboard clear, force-endpoint, or HAL parallel approval?
+4. **Pending questions** (3 unresponded):
+   - Channel expansion pilot bottleneck (decision on app/channels/budget)
+   - Signal App bottleneck (what's slowing it down?)
+   - CoinUsUp Growth Audit blocker (what specific audit is needed?)
 
-## Next Steps (Tomorrow - Sunday Mar 1)
-1. Check if Joe responded to any pending questions overnight
-2. HAL spawn staggering fix (if idle capacity — highest infra priority)
-3. If Joe approves CoinUsUp commits → push them
-4. Continue monitoring RAM (85% spike noted)
-5. /Users disk at 78% — keep watch
+## Next Steps (Tomorrow - Tuesday, Mar 3)
+
+**9 AM:**
+- Check HAL webpack completion status
+- Review HAL's commit locally
+- Move card to done if approved
+
+**Mid-day:**
+- Prepare HST/GST Phase 2 task (next high-priority for HAL dispatch)
+- Check if Joe responded to pending questions
+
+**Ongoing:**
+- Monitor CoinUsUp push readiness
+- Keep watch on disk (78% /Users) and RAM (85% spike noted)
+- Review any new notification questions
 
 ## Key Context
-- CoinUsUp repo: `/Users/hopenclaw/CoinUsUp`
-- Market Signal Lab: `/Users/hopenclaw/market-signal-lab`
-- HAL proactive pool: currently at index 3 (wrapped after all 16 ran)
-- Discord #evening-routine for this summary
-- Daily logs in `memory/2026-02-28.md` (full detail)
-- MEMORY.md, TOOLS.md, HEARTBEAT.md agent counts: all updated and committed
+
+- **CoinUsUp repo:** `/Users/hopenclaw/CoinUsUp` (2 commits pending)
+- **Even Us Up:** 28-34 hrs to App Store; friction fixes = highest priority
+- **HAL dispatcher:** Idle after webpack completes (Mar 3, late morning)
+- **Next HAL task:** HST/GST Phase 2 (waiting on complexity routing)
+- **Blockers:** Stale kanban cards + pending Joe approvals
+- **Context usage:** ~28%
+- **Daily log:** `memory/2026-03-02.md` (detailed notes)
+
+---
+
+**Time zone:** America/Moncton (AST)
+**Next session boot:** Load ACTIVE-TASK.md status first; may require kanban dashboard interaction

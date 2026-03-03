@@ -139,3 +139,222 @@ When reviewing any HAL code delivery that claims tests were run or pass:
 
 ### Cost
 $0 — process change only. Add ~2 min to review time. Prevents shipping broken/untested code.
+
+---
+
+## Multi-Agent Coordination — Backpressure Patterns (Reference)
+
+**Source:** Moltbook m/general [190↑] — Agent cascade failure amplification analysis  
+**Added:** 2026-03-02 | **Cost:** $0 (documentation only)  
+**Applies to:** Any multi-agent pipeline (A→B→C chains, delegation flows, sub-agent orchestration)
+
+### Problem: Cascading Retry Amplification
+
+Without coordination, a single agent timeout cascades:
+- Agent A calls B, waits 60s timeout
+- While A waits, A's caller times out
+- Caller retries A, creating 2x load
+- If C (downstream of B) is also slow, timeouts compound
+- Result: **27x failure amplification** across a 3-agent chain
+
+**Solution:** Three complementary patterns to prevent this.
+
+---
+
+### Pattern 1: Reserve Capacity Quotas
+
+**Concept:** Each agent declares a maximum number of concurrent jobs it can handle. When full, it refuses new work immediately with a backpressure signal instead of queuing indefinitely.
+
+**Implementation:**
+
+```javascript
+// Agent B configuration
+const agentConfig = {
+  maxConcurrentJobs: 5,
+  queueTimeout: 2000, // ms to wait before backpressure
+};
+
+// Upstream (A) calling downstream (B):
+try {
+  const result = await B.execute(job);
+} catch (err) {
+  if (err.code === "BACKPRESSURE") {
+    // B is at capacity. A's options:
+    // 1. Defer job to a queue (e.g., Bull/BullMQ)
+    // 2. Reject gracefully to caller
+    // 3. Switch to cheaper/faster model
+    return deferJobToQueue(job);
+  }
+  throw err;
+}
+
+// B's job execution:
+if (this.activeConcurrentJobs >= this.maxConcurrentJobs) {
+  throw new Error("BACKPRESSURE: At capacity");
+}
+```
+
+**Benefit:** Caller knows immediately if downstream is full, avoiding wasted waiting.
+
+---
+
+### Pattern 2: Degradation Chains
+
+**Concept:** If a downstream agent is slow or at capacity, upstream agents degrade gracefully by:
+- Switching to a cheaper/faster model tier
+- Skipping non-critical steps
+- Reducing fidelity (e.g., fewer retries, lower precision)
+
+**Implementation:**
+
+```javascript
+// A calling B with fallback degradation
+async function callDownstream(job, tier = "normal") {
+  const startTime = Date.now();
+  
+  try {
+    // Attempt normal tier first
+    const result = await B.execute(job, { model: "sonnet", timeout: 10000 });
+    return result;
+  } catch (err) {
+    const elapsed = Date.now() - startTime;
+    
+    if (tier === "normal" && (err.code === "BACKPRESSURE" || elapsed > 5000)) {
+      // Degrade to fast tier
+      console.log("Degrading to fast tier (Haiku)");
+      return await B.execute(job, { 
+        model: "haiku", 
+        timeout: 3000,
+        skipNonCritical: true // Skip optional enrichment steps
+      });
+    }
+    
+    if (tier === "fast" && elapsed > 2000) {
+      // Degrade to local tier
+      console.log("Degrading to local tier (Ollama)");
+      return await B.execute(job, {
+        model: "local",
+        timeout: 1000,
+        minimal: true // Absolute minimum processing
+      });
+    }
+    
+    throw err;
+  }
+}
+```
+
+**Benefit:** System degrades gracefully under load rather than failing completely. Trade quality for availability.
+
+---
+
+### Pattern 3: Deadline Propagation
+
+**Concept:** Pass the original deadline through all agent hops (A→B→C). Each agent checks: "Is there enough time left to complete my work?" If not, abort rather than starting and timing out mid-operation.
+
+**Implementation:**
+
+```javascript
+// Job object includes deadline
+const job = {
+  data: {...},
+  deadline: Date.now() + 30000, // 30 sec total budget
+  remainingBudget: () => job.deadline - Date.now()
+};
+
+// Agent A calls B, passing deadline
+async function processWithDeadline(job) {
+  // A's work: 5 sec
+  const aWork = await doSomeWork(job.data);
+  
+  // Check if B has time to work
+  const timeForB = job.remainingBudget();
+  
+  if (timeForB < 5000) {
+    // Not enough time for B's minimum work
+    console.log(`Aborting B call: only ${timeForB}ms left, B needs 5s`);
+    return handleTimeoutCase(aWork);
+  }
+  
+  // Call B with remaining budget
+  const bResult = await B.executeWithDeadline(aWork, {
+    deadline: job.deadline
+  });
+  
+  return bResult;
+}
+
+// B does the same check before calling C
+async function B.executeWithDeadline(data, opts) {
+  const timeRemaining = opts.deadline - Date.now();
+  
+  if (timeRemaining < 3000) {
+    // Not enough time to call C
+    return handleQuickResponse(data);
+  }
+  
+  const cResult = await C.executeWithDeadline(data, opts);
+  return cResult;
+}
+```
+
+**Benefit:** Prevents starting work that can't finish in time. Saves compute, reduces cascading timeouts.
+
+---
+
+### When to Use Each Pattern
+
+| Pattern | Best For | Cost | Setup |
+|---------|----------|------|-------|
+| **Capacity Quotas** | Preventing queue buildup, backpressure signals | Low | Config + exception handling |
+| **Degradation Chains** | High availability, graceful degradation under load | Low-Med | Model tier config, fallback logic |
+| **Deadline Propagation** | Time-sensitive pipelines, preventing wasted compute | Low | Job object decoration |
+
+**Recommended:** Use all three together. Capacity quotas prevent queue storms. Deadline propagation stops wasted work. Degradation chains let you stay operational under load.
+
+---
+
+### Example: Full 3-Pattern Implementation
+
+```javascript
+// A calling B with all three patterns
+async function executeWithBackpressure(job) {
+  const deadline = Date.now() + 30000;
+  
+  // Pattern 3: Check deadline
+  if (deadline - Date.now() < 5000) {
+    return handleQuickReturn(job);
+  }
+  
+  try {
+    // Pattern 1: Capacity quota
+    // (B enforces this; A catches BACKPRESSURE)
+    const result = await B.executeWithDeadline(job, {
+      deadline,
+      model: "sonnet" // Pattern 2: Start with best quality
+    });
+    return result;
+  } catch (err) {
+    // Pattern 2: Degrade on backpressure
+    if (err.code === "BACKPRESSURE") {
+      console.log("B at capacity, degrading...");
+      return await B.executeWithDeadline(job, {
+        deadline,
+        model: "haiku",
+        skipNonCritical: true
+      });
+    }
+    throw err;
+  }
+}
+```
+
+---
+
+### Future Use Cases for Joe
+
+When you build multi-agent pipelines (e.g., HAL + Alfred + specialized sub-agents), implement these patterns to:
+- Avoid failure cascades
+- Stay efficient under load
+- Provide graceful degradation
+- Prevent wasted compute on tasks that won't finish in time

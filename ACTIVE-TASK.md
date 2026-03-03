@@ -1,12 +1,21 @@
 # ACTIVE-TASK.md - Current Work In Progress
 
-**Status:** idle
-**Last Updated:** 2026-03-02 10:00 AST (checkpoint)
-**Card ID:** (none)
-**Approach:** (none — set when in_progress)
+**Status:** project-manager
+**Last Updated:** 2026-03-02 22:00 AST
+**Primary Role:** HAL Utilization Manager & Project Coordinator
+**Current Assignment:** webpack→Vite migration (run ID c7d22601-7287-4271-8a35-3ed10b0ff29f, dispatched Mar 2 15:48)
+**Approach:** Coordinate HAL on high-complexity work, handle tactical tasks, review deliverables
 
 ## State
-Kanban cards in progress: 1 (Moltbook cron guardrail, assigned to HAL). Pending questions synced: 4. Context at 16%. No blocking issues.
+**Alfred's Current Work:**
+- Role: Project Manager for HAL utilization
+- HAL Status: ACTIVE (webpack→Vite migration, run ID c7d22601-7287-4271-8a35-3ed10b0ff29f)
+- HAL ETA: Mar 3, 2026 (2-4 hours from dispatch Mar 2 15:48)
+- Previous: Even Us Up growth audit (completed Mar 2)
+- Next in Queue: HST/GST Phase 2 or Channel expansion pilot (awaiting HAL completion)
+- Pending Questions: 3 unresponded (from notifications)
+- Context: ~28%
+- Blockers: 2 stale in_progress kanban cards (awaiting Joe clarification)
 
 ## Recent Context (Mar 2, Morning)
 - Rate limit death spiral resolved — root cause was 1MB+ Discord channel sessions
@@ -16,21 +25,45 @@ Kanban cards in progress: 1 (Moltbook cron guardrail, assigned to HAL). Pending 
 - 9 broken Discord webhook deliveries removed from crons
 - Pre-work kanban comment protocol added to AGENTS.md
 
-## CoinUsUp Pending (Joe approval needed before push)
+## Alfred's Project Manager Duties (Weekly Cycle)
+
+### Monday 9:00 AM (Starting Mar 3)
+- [ ] Check if HAL idle (review subagent status)
+- [ ] Scan kanban `todo` for high-complexity work
+- [ ] Score top 3 candidates via routing script
+- [ ] Dispatch HAL to next high-priority task
+- [ ] Post kanban assignment comment
+
+### Daily 3:00 PM
+- [ ] Check for HAL completion announcement
+- [ ] Review HAL's commit if complete
+- [ ] Approve + move card to done
+- [ ] Post status update to kanban/Discord
+
+### Blocking Issues
+- [ ] If HAL blocked → escalate to Joe immediately
+- [ ] If kanban stale → re-dispatch or move to blocked
+
+---
+
+## Pending Approvals
+
+### CoinUsUp
+- `662c11b` — security: resolve npm vulnerabilities via serialize-javascript override (**READY FOR REVIEW**)
+  - Fixed 4 npm vulnerabilities (serialize-javascript RCE via GHSA-5c6j-r48x-rmvq)
+  - Added serialize-javascript >=7.0.3 to package.json overrides
+  - Build tested successfully, 0 vulnerabilities remaining
 - `b6f8b08` — remove @capacitor/assets devDep
 - `b1f78c5` — add GitHub Actions CI workflow
 
 ### Pending Questions
 <!-- PENDING-Q-START -->
-- **Discord Webhooks Returning 403 — Need Regeneration** (_question_, Mar 01 07:41)
-  ID: `notif_1772350918952_561ef7a7` — Both DISCORD_WEBHOOK_ALFRED_HAL and DISCORD_WEBHOOK_HAL_COMPLETIONS are returning HTTP 403 Forbidden as of March 1, 2026 3:40 AM. Alfred-HAL discussio...
-
-- **Blocker on card** (_kanban-blocked_, Mar 01 21:01)
-  ID: `notif_1772398863539_578d6f66` — Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.
-
 - **⚠️ Stale card escalated: "Channel expansion pilot (affiliates/partners/content)"** (_question_, Mar 01 21:01)
   ID: `notif_1772398863541_2f663b83` — Card "Channel expansion pilot (affiliates/partners/content)" (task_1772199318344_19e8fa66) has been in_progress for 6h with no updates. A re-dispatch ...
 
 - **What's the #1 thing slowing down Signal App right now?** (_question_, Mar 02 14:00)
   ID: `notif_1772460000220_a86559b3` — Not looking for a full status update — just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific tec...
+
+- **Blocker on card** (_kanban-blocked_, Mar 03 00:59)
+  ID: `notif_1772499564127_181afa42` — CoinUsUp Growth Audit has been in_progress for 11h with no updates. Description is vague ('Test'). What specific audit/analysis needs to happen? Is th...
 <!-- PENDING-Q-END -->
