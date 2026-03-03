@@ -575,16 +575,26 @@
     "title": "Shopify Dead-Stock Auto-Markdown Rules Engine",
     "description": "Merchants sit on stale inventory without disciplined markdown logic. Rules engine auto-marks down based on age/velocity. $79–$299/mo. Build: M. Maintenance: Med.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5.2,
+      "notes": "Real merchant pain point with decent MRR potential (50–100 users = $4k–$30k/mo), but Joe lacks Shopify domain expertise. Shopify app ecosystem is crowded with existing markdown automation tools (Bold Pricing, Impactful, Recharge). No project synergy. Below promotion threshold due to weak edge and market competition.",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 6,
+        "joes_edge_2x": 3,
+        "synergy_1x": 2,
+        "passive_potential_2x": 7
+      }
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:47.174Z",
-    "updatedAt": "2026-02-25T21:20:47.174Z"
+    "updatedAt": "2026-03-03T18:00:00.000Z"
   },
   {
     "id": "idea_1772054447672_66832aa0",
