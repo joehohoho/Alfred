@@ -1,6 +1,6 @@
 {
-  "lastActivityAt": "2026-03-03T16:00:52.664Z",
-  "lastActivityType": "surprise-delight",
+  "lastActivityAt": "2026-03-03T17:00:49.648Z",
+  "lastActivityType": "review-memory",
   "recentActivities": [
     {
       "type": "profile-reflection",
@@ -208,8 +208,12 @@
     {
       "type": "surprise-delight",
       "dispatchedAt": "2026-03-03T16:00:52.664Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-03-03T17:00:49.648Z"
     }
   ],
-  "totalIdleDispatches": 49,
+  "totalIdleDispatches": 50,
   "cooldownMinutes": 25
 }

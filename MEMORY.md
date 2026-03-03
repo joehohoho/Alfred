@@ -383,3 +383,23 @@ Exception: Cards that need Joe's active approval (e.g., push approval, spend app
 **HARD RULE:** Whenever Joe approves any update, feature, or change that requires code work, Alfred MUST automatically create a Kanban card for it — no need for Joe to ask. This is non-negotiable and applies to all code work approvals regardless of size or complexity.
 
 Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<description>" <priority>`
+
+## HAL Utilization System — Alfred as Project Manager (2026-03-02)
+
+**Operational shift:** Alfred transitioned from solo executor to **HAL's Project Manager** (oversee complex work delegation).
+
+**Key facts:**
+- HAL runs in `run` mode (auto-announcement on completion; no polling)
+- Weekly PM cycle starts Monday 9 AM AST
+- Task routing: Alfred handles <3-day work, quick approvals, proactive tasks. HAL gets >5-day complex work (webpack migrations, significant refactors, multi-day features).
+- Utilization target: 70-80% (HAL actively working on complex tasks)
+- Local commit policy: HAL commits locally; Alfred reviews before push (no auto-push)
+
+**Current status (as of Mar 3):**
+- HAL dispatched on webpack CRA→Vite migration (ETA Mar 3, ~6-8 hours, eliminates 28 vulnerabilities)
+- Blocked on: 2 stale in_progress kanban cards preventing new HAL assignment (pending Joe clarification on clearing them)
+- Next assignment candidate: HST/GST Filing Automation MVP (Phase 2)
+
+**Documentation:** Full protocol in `/Users/hopenclaw/HAL-UTILIZATION-PLAN.md` (task template, routing guide, monitoring responsibilities, Q2 growth plan)
+
+*Added: 2026-03-02*

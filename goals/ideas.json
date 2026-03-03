@@ -2315,5 +2315,21 @@
     "tags": [],
     "createdAt": "2026-03-03T15:01:58.354Z",
     "updatedAt": "2026-03-03T15:01:58.354Z"
+  },
+  {
+    "id": "idea_1772557285014_8eea607e",
+    "title": "Workflow efficiency scan: top 3 automation wins (Mar 3)",
+    "description": "Top repetitive patterns + concrete fixes:\\n\\n1) HAL dispatch failure churn (high-frequency noise + wasted cycles)\\nPattern: hal-idle-dispatch runs every 15m even when HAL gateway is unreachable, generating repeated failures/backoff churn and operator checks.\\nProposal: add preflight health gate + adaptive sleep tiers (15m -> 60m -> 3h) after N failures; auto-resume to 15m on first successful websocket handshake; write single summarized incident per hour instead of per-run failure logs.\\nImplementation: patch hal-idle-dispatch-cron.sh to checkpoint last-failure-window + suppress duplicate logs, add explicit websocket probe before full dispatch.\\nExpected ROI: less alert noise, fewer manual restarts/checks, cleaner overnight automation signal.\\n\\n2) Manual triage/context switching between kanban idle + proactive + discussion paths\\nPattern: multiple scripts (kanban-idle-loop.sh, alfred-proactive-check.sh, alfred-hal-discussion.sh) require operator reasoning to route tasks correctly.\\nProposal: introduce a unified dispatcher wrapper (single entrypoint) that outputs structured JSON route decision: {action, task_type, target, next_script}.\\nImplementation: new script orchestrator that runs the three checks sequentially and enforces branch policy automatically; add daily summary artifact.\\nExpected ROI: lower cognitive overhead, fewer branching mistakes, faster unattended execution.\\n\\n3) Repetitive weekly maintenance checks are scattered and partially manual\\nPattern: launchctl status, heartbeat thresholds, session cleanup, log rotation, and reliability checks are split across docs/scripts and require ad-hoc verification.\\nProposal: create a consolidated \"ops snapshot\" generator every 2-4h writing one markdown report with: gateway health, idle-loop health, failed dispatch count delta, launchagent anomalies, and top pending blockers.\\nImplementation: script + cron writing to memory/YYYY-MM-DD.md and optional Kanban comment when thresholds breached.\\nExpected ROI: fewer manual status probes, faster root-cause detection, improved continuity after context resets.\\n\\nPriority recommendation: implement #1 first (same-day), #2 second (this week), #3 third (this week).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-03T17:01:25.014Z",
+    "updatedAt": "2026-03-03T17:01:25.014Z"
   }
 ]
