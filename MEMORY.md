@@ -403,3 +403,35 @@ Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<descr
 **Documentation:** Full protocol in `/Users/hopenclaw/HAL-UTILIZATION-PLAN.md` (task template, routing guide, monitoring responsibilities, Q2 growth plan)
 
 *Added: 2026-03-02*
+
+## Critical System Issues Identified (2026-03-03 Memory Review)
+
+**Issue 1: Daily Inquiry Duplicate Questions Bug — PRIORITY 1**
+- Joe flagged Feb 27: "These are repeat questions" (passive income targets asked twice)
+- Joe flagged Feb 28: "This looks like a duplicate question list from before" (synergies asked twice)
+- **Impact:** Erodes user trust in notification system
+- **Root cause:** daily-inquiry cron queries goals table without deduplication; creates same notification set on reruns
+- **Solution:** Add seen-list to goals.json OR deduplicate notifications before posting
+- **Status:** BLOCKING — fixes notification system credibility. Must implement before next daily inquiry cycle.
+
+**Issue 2: Auto-Move Deliverables Directive Not Enforced — MEDIUM**
+- Joe's Feb 27 directive: Auto-move completed HAL deliverable cards (Review→Done) without waiting for approval
+- Documented in MEMORY.md + AGENTS.md but **NOT YET IMPLEMENTED** in actual kanban moves
+- Current state: 14 review cards stuck, creating false "review backlog"
+- **Action:** Implement enforcement in Alfred's kanban move logic going forward (check deliverable completion, move if done)
+
+**Issue 3: Stale In-Progress Cards Blocking HAL Assignment — MEDIUM**
+- 2 cards stuck in_progress (webpack migration, HST/GST Phase 2) preventing new HAL assignment
+- Kanban protocol requires `in_progress` empty before HAL can be dispatched
+- **Options:** (1) Joe clears manually, (2) endpoints to force-clear, (3) HAL works in parallel
+- **Status:** Waiting on Joe clarification since Mar 2
+
+**Issue 4: System Resource Pressure — LOW**
+- Disk at 75-78% (session files reduced 2939→6.5MB but trending up)
+- Cron collisions causing rate-limit cascades at 4-7 AM (4 gateway circuit breaks in one night)
+- **Action:** Stagger crons overnight, use LOCAL model exclusively after 11pm, monitor trends
+
+**Issue 5: Webhook Transient Failures — LOW**
+- 403 errors reported Mar 1, verified OK at 4 AM (both webhooks returning 204)
+- Possibly gateway downtime window or momentary credential refresh race
+- **Monitoring:** Continue observing; no action needed if transient
