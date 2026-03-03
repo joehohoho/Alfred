@@ -322,5 +322,15 @@
     "answered": false,
     "createdAt": "2026-03-03T04:52:25.606Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772546400213_0c010d10",
+    "type": "question",
+    "title": "Should Even Us Up get a monetization push or maintenance mode?",
+    "message": "Even Us Up has been running. Is it growing on its own, or is it on life support? Should I look into monetization experiments (paid tier, integrations) or just keep the lights on?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-03T14:00:00.213Z",
+    "answeredAt": null
   }
 ]

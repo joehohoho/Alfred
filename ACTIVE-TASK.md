@@ -77,4 +77,7 @@
 
 - **Blocker on card** (_kanban-blocked_, Mar 03 04:52)
   ID: `notif_1772513545606_8dde2d03` — Clarifications needed: (1) Which app? (2) Monthly budget for CAC/LTV experiments? (3) Confirm channel focus = affiliates/partners/content?
+
+- **Should Even Us Up get a monetization push or maintenance mode?** (_question_, Mar 03 14:00)
+  ID: `notif_1772546400213_0c010d10` — Even Us Up has been running. Is it growing on its own, or is it on life support? Should I look into monetization experiments (paid tier, integrations)...
 <!-- PENDING-Q-END -->
