@@ -2341,5 +2341,21 @@
     "tags": [],
     "createdAt": "2026-03-03T17:01:25.014Z",
     "updatedAt": "2026-03-03T17:01:25.014Z"
+  },
+  {
+    "id": "idea_1772571671916_3a26f08e",
+    "title": "Portfolio health snapshot — passive income (Q2 focus)",
+    "description": "One-page portfolio review (2026-03-03):\\n\\n1) CoinUsUp\\n- Current status: Live/maintenance mode; no major growth push active\\n- Est. current MRR: Low (likely near /bin/zsh- without active acquisition)\\n- Est. potential MRR (12 mo with focused GTM): k-k\\n- Biggest bottleneck: No dedicated growth engine (distribution + conversion funnel)\\n\\n2) Even Us Up\\n- Current status: Live/maintenance mode; similar to CoinUsUp, limited active expansion\\n- Est. current MRR: Low (likely near /bin/zsh- without active acquisition)\\n- Est. potential MRR (12 mo with focused GTM): k-k\\n- Biggest bottleneck: Activation/retention loop not being actively optimized\\n\\n3) Signal App\\n- Current status: Early-stage build/validation; strongest scalable upside if monetized early\\n- Est. current MRR: /bin/zsh (pre-revenue or negligible)\\n- Est. potential MRR (12 mo): k-k (if paid pilot -> subscription conversion succeeds)\\n- Biggest bottleneck: Monetization validation risk (must prove willingness to pay before feature expansion)\\n\\n4) Automation Consulting\\n- Current status: Active service business with immediate revenue capability\\n- Est. current MRR: Highest among portfolio (project-based/consulting cashflow)\\n- Est. potential MRR-equivalent: k-k via productized offers + repeatable delivery\\n- Biggest bottleneck: Time-for-money ceiling unless productized into fixed-scope packages\\n\\nPortfolio takeaways\\n- Best near-term cash engine: Automation Consulting\\n- Best passive-income upside: Signal App (if run as paid validation sprint)\\n- Current drag: splitting focus equally across all projects\\n\\nRecommended focus allocation (next quarter)\\n- 50% Automation Consulting (cash + reusable IP)\\n- 35% Signal App (paid validation, narrow MVP)\\n- 15% CoinUsUp + Even Us Up (maintenance-only unless KPI trigger)\\n\\nNotes\\n- MRR ranges are directional planning estimates, not booked revenue.\\n- Trigger for legacy app reinvestment: clear traction signal (retention/conversion lift).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-03T21:01:11.916Z",
+    "updatedAt": "2026-03-03T21:01:11.916Z"
   }
 ]
