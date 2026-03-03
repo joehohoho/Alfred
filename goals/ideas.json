@@ -2299,5 +2299,21 @@
         "createdAt": "2026-03-03T06:01:17.865Z"
       }
     ]
+  },
+  {
+    "id": "idea_1772550118354_2dda9794",
+    "title": "Signal App monetization strategy (pricing + competitor benchmark)",
+    "description": "Monetization recommendation for Signal App after competitor scan.\n\nCompetitor benchmark (public pricing/pages):\n1) Cryptohopper (crypto bot/signal platform)\n   - Free tier + paid tiers: Explorer ~$24/mo, Adventurer ~$57.5/mo, Hero ~$107.5/mo\n   - Upsell ladder tied to automation depth, scan power, and portfolio bot limits.\n2) TrendSpider (trading analysis/alerts)\n   - Free trial + subscription model (pricing gated by plan + add-ons like market data)\n   - Strong value framing around AI/backtesting/alerts, then monetizes advanced depth + add-ons.\n3) Telegram/crypto signal providers (market range from industry listings)\n   - Typical paid signal range ~$30-$290/mo\n   - Most run freemium funnel (free channel -> VIP paid) with high churn risk and low trust.\n\nRecommended pricing strategy (early stage Joe audience):\n- Launch with 3-tier hybrid: Free / Pro / Founder.\n  - Free: delayed signals, limited assets, no webhook/API.\n  - Pro: real-time alerts + risk context + watchlists at CA$19-29/mo.\n  - Founder: early adopter lifetime or annual prepay (e.g., CA$199-299 one-time or CA$199/yr) capped seats.\n- Add B2B/API later (not now): after proving retail retention, license signal feed/API to small advisory/newsletter operators.\n\nWhy this wins now:\n- Beats premium-heavy competitors on entry price while keeping clear upgrade path.\n- Captures cash early with Founder prepay to fund iteration.\n- Keeps complexity low (subscription first, API licensing later).\n\nExecution plan (next 30 days):\nWeek 1: Landing page + Stripe + pricing test (A/B Pro at CA$19 vs CA$29)\nWeek 2: Free tier + Pro paywall + referral hook\nWeek 3: Founder offer launch (limited seats, countdown)\nWeek 4: Measure conversion, churn intent, and feature usage; adjust tiers.\n\nSuccess gates:\n- Free->Pro conversion >= 5% in first 30 days\n- Founder seats: >= 25 sold\n- Weekly active Pro users >= 40%\nIf misses: tighten niche/use-case before adding features.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-03T15:01:58.354Z",
+    "updatedAt": "2026-03-03T15:01:58.354Z"
   }
 ]
