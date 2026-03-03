@@ -1,21 +1,28 @@
 # ACTIVE-TASK.md - Current Work In Progress
 
-**Status:** project-manager
-**Last Updated:** 2026-03-02 22:00 AST
-**Primary Role:** HAL Utilization Manager & Project Coordinator
-**Current Assignment:** webpack→Vite migration (run ID c7d22601-7287-4271-8a35-3ed10b0ff29f, dispatched Mar 2 15:48)
-**Approach:** Coordinate HAL on high-complexity work, handle tactical tasks, review deliverables
+**Status:** in_progress
+**Last Updated:** 2026-03-03 00:51 AST
+**Primary Role:** Channel Expansion Pilot Executor
+**Current Assignment:** Channel expansion pilot (affiliates/partners/content) — Card task_1772199318344_19e8fa66 — URGENT
+**Approach:** 30-day acquisition pilot with CAC/LTV tracking, creative tests, weekly budget reallocation
 
 ## State
 **Alfred's Current Work:**
-- Role: Project Manager for HAL utilization
-- HAL Status: ACTIVE (webpack→Vite migration, run ID c7d22601-7287-4271-8a35-3ed10b0ff29f)
-- HAL ETA: Mar 3, 2026 (2-4 hours from dispatch Mar 2 15:48)
-- Previous: Even Us Up growth audit (completed Mar 2)
-- Next in Queue: HST/GST Phase 2 or Channel expansion pilot (awaiting HAL completion)
-- Pending Questions: 3 unresponded (from notifications)
-- Context: ~28%
-- Blockers: 2 stale in_progress kanban cards (awaiting Joe clarification)
+- Role: Growth Execution (Channel Expansion Pilot)
+- Task: Run 30-day pilot across 1-2 acquisition channels (affiliates/partners/content focus)
+- Card: task_1772199318344_19e8fa66 (URGENT)
+- Assignment: 2026-03-03 00:51 AST — "Start immediately"
+- Status: FRAMEWORK COMPLETE, BLOCKED ON CLARIFICATIONS (posted to kanban)
+- HAL Status: Idle (webpack→Vite completed, waiting for next dispatch)
+- Pending Questions: 3 unresponded (from notifications) + 3 new blocking Qs on pilot (posted to kanban)
+- Context: ~40%
+- **Next Milestone:** Joe responds to clarification Qs → Day 1-2 execution (channel mapping, LTV baseline, creative variants)
+
+### Framework Deliverable (Completed)
+- 30-day pilot structure: `~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md`
+- Templates: CAC/LTV tracking, creative matrix, weekly reallocation, reporting
+- Blocking Qs: Which app? Budget? Channel confirmation?
+- Ready to execute within 2 hours of Joe's response
 
 ## Recent Context (Mar 2, Morning)
 - Rate limit death spiral resolved — root cause was 1MB+ Discord channel sessions
@@ -66,4 +73,7 @@
 
 - **Blocker on card** (_kanban-blocked_, Mar 03 00:59)
   ID: `notif_1772499564127_181afa42` — CoinUsUp Growth Audit has been in_progress for 11h with no updates. Description is vague ('Test'). What specific audit/analysis needs to happen? Is th...
+
+- **Blocker on card** (_kanban-blocked_, Mar 03 04:52)
+  ID: `notif_1772513545606_8dde2d03` — Clarifications needed: (1) Which app? (2) Monthly budget for CAC/LTV experiments? (3) Confirm channel focus = affiliates/partners/content?
 <!-- PENDING-Q-END -->

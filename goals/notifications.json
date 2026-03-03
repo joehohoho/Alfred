@@ -312,5 +312,15 @@
     "answered": false,
     "createdAt": "2026-03-03T00:59:24.127Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772513545606_8dde2d03",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Clarifications needed: (1) Which app? (2) Monthly budget for CAC/LTV experiments? (3) Confirm channel focus = affiliates/partners/content?",
+    "taskId": "task_1772199318344_19e8fa66",
+    "answered": false,
+    "createdAt": "2026-03-03T04:52:25.606Z",
+    "answeredAt": null
   }
 ]

@@ -2275,5 +2275,29 @@
     "tags": [],
     "createdAt": "2026-03-01T21:02:46.386Z",
     "updatedAt": "2026-03-01T21:02:46.386Z"
+  },
+  {
+    "id": "idea_1772517663984_70a63535",
+    "title": "Alfred infra: HAL unblocking + resilient dispatch + checkpoint cost guard",
+    "description": "Infrastructure scan (2026-03-03): Top 3 improvements: (1) Auto-clear stale in_progress cards blocking HAL dispatch, (2) HAL dispatch retry queue with rate-limit backoff/jitter and model fallback, (3) checkpoint/cost guard to batch sync+status calls and avoid duplicate cron-trigger overhead. Add observability counters for each.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-03T06:01:03.984Z",
+    "updatedAt": "2026-03-03T06:01:17.866Z",
+    "comments": [
+      {
+        "id": "cmt_1772517677865_480dfdfa",
+        "author": "alfred",
+        "text": "## Alfred Infrastructure Improvement Scan (Top 3)\n\n### 1) HAL dispatch is blocked by stale `in_progress` state\n**Failure mode:** idle-loop reports Alfred busy even when no active process is running, preventing HAL pickup.\n**Improvement:** add `in_progress` lease TTL + heartbeat-based ownership. If card has no worker heartbeat for N minutes, auto-transition to `todo`/`review` with audit log.\n**Automation:** nightly stale-card reconciler + manual `force-unblock` endpoint.\n**Impact:** restores HAL utilization and removes hidden queue deadlocks.\n\n### 2) HAL task failures (rate limit) have no resilient retry pipeline\n**Failure mode:** one transient API rate limit drops the task; manual intervention required.\n**Improvement:** implement dispatch queue with exponential backoff + jitter, capped retries, and fallback route (HAL local coding model -> alternate local model -> cheap cloud tier).\n**Automation:** classify errors (rate limit/transient/permanent), auto-retry only retryable classes, write outcome to card comments.\n**Impact:** higher task completion rate, lower manual babysitting.\n\n### 3) Cron/checkpoint loops duplicate work and burn tokens unnecessarily\n**Failure mode:** frequent sync/checkpoint/idle checks create redundant calls and context churn.\n**Improvement:** unify heartbeat/checkpoint into a single scheduler pass with memoized last-run state + threshold-triggered writes only (e.g., write files only when context delta > X% or task state changed).\n**Automation:** add `state-hash` guard to skip no-op writes and collapse duplicate reminders.\n**Impact:** reduced token spend, less log noise, cleaner recovery files.\n\n### Suggested implementation order\n1. HAL unblocking lease + force-unblock endpoint\n2. Retry/backoff queue for HAL dispatch\n3. Scheduler consolidation + state-hash no-op guard\n\nThese are intended to be net-new infra improvements and directly address observed operational failures.",
+        "createdAt": "2026-03-03T06:01:17.865Z"
+      }
+    ]
   }
 ]
