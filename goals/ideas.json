@@ -2452,5 +2452,53 @@
     "tags": [],
     "createdAt": "2026-03-04T08:01:23.847Z",
     "updatedAt": "2026-03-04T08:01:23.847Z"
+  },
+  {
+    "id": "idea_1772618467946_a15b47d9",
+    "title": "Atlantic Payroll Guard (NB/NS bilingual payroll + CRA deadlines)",
+    "description": "SMB payroll co-pilot for Atlantic Canada: bilingual employee/paystub templates (EN/FR), province-aware source deduction reminders, CRA remittance calendar, and Ceridian/QuickBooks export bridge. Moat: region-specific compliance pack and French-first workflows that national tools under-serve.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-04T10:01:07.946Z",
+    "updatedAt": "2026-03-04T10:01:07.946Z"
+  },
+  {
+    "id": "idea_1772618468159_c1b86da8",
+    "title": "HST/GST Pulse for microbusinesses (construction + contractors)",
+    "description": "Simple filing assistant focused on NB/NL/NS/PEI small operators: tracks mixed-tax invoices, flags ITC misses, predicts next remittance amount, and sends deadline nudges keyed to filing frequency. Moat: Atlantic filing heuristics + contractor-specific defaults competitors ignore.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-04T10:01:08.159Z",
+    "updatedAt": "2026-03-04T10:01:08.159Z"
+  },
+  {
+    "id": "idea_1772618468371_0ebe149a",
+    "title": "Rural Ops Sync (offline-first field invoicing + job docs)",
+    "description": "Offline-first app for trades/contractors in low-connectivity areas: capture time/materials/photos/signatures offline, auto-sync when signal returns, generate bilingual invoices and payment reminders. Moat: rural connectivity resilience + Atlantic trades templates.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-04T10:01:08.371Z",
+    "updatedAt": "2026-03-04T10:01:08.371Z"
   }
 ]
