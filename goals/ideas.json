@@ -619,16 +619,28 @@
     "title": "Invoice-to-Cash Delay Predictor for Service SMBs",
     "description": "Owners can't predict late payers early. ML predictor flags high-risk invoices before due date. $59–$199/mo. Build: M. Maintenance: Low.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5.4,
+      "notes": "Real SMB pain point, but Joe lacks domain expertise in financial/payment prediction (outside automation/consulting wheelhouse). No project synergy with existing work. Passive potential is strong once built, but weak edge + limited addressable market keep score below promotion threshold.",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 6,
+        "joes_edge_2x": 4,
+        "synergy_1x": 2,
+        "passive_potential_2x": 7
+      },
+      "weighted_score": 54,
+      "evaluatedAt": "2026-03-04T00:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:48.161Z",
-    "updatedAt": "2026-02-25T21:20:48.161Z"
+    "updatedAt": "2026-03-04T00:00:00.000Z"
   },
   {
     "id": "idea_1772054448656_b5f61d8a",
