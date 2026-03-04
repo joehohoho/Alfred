@@ -29,9 +29,13 @@ if [ "$LAST_DATE" = "$TODAY" ]; then
   exit 0
 fi
 
+# Clean up old answered notifications (keep only last 30 days to reduce dedup pollution)
+CUTOFF_DATE=$(date -v-30d +%Y-%m-%dT%H:%M:%S 2>/dev/null || date --date="-30 days" +%Y-%m-%dT%H:%M:%S 2>/dev/null)
+jq "[.[] | select(.answered == false or (.createdAt > \"$CUTOFF_DATE\"))]" "$WORKSPACE/goals/notifications.json" > "${WORKSPACE}/goals/notifications.json.tmp" 2>/dev/null && mv "${WORKSPACE}/goals/notifications.json.tmp" "$WORKSPACE/goals/notifications.json" 2>/dev/null || true
+
 # Get recent answered question titles + unanswered pending notifications to avoid duplicates
-RECENT_TITLES=$(tail -10 "$INQUIRY_LOG" 2>/dev/null | jq -r '.title' 2>/dev/null | tr '\n' '|' || echo "")
-PENDING_NOTIFS=$(jq -r '[.[] | select(.answered == false) | .title] | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
+RECENT_TITLES=$(tail -10 "$INQUIRY_LOG" 2>/dev/null | jq -r '.title' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
+PENDING_NOTIFS=$(jq -r '[.[] | select(.answered == false) | .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
 ALL_TITLES="$RECENT_TITLES|$PENDING_NOTIFS"
 
 # Pull recent context: last 3 days of memory + today's kanban state
