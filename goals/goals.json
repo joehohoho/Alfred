@@ -65,12 +65,12 @@
     "title": "Proactive Passive Income Opportunity Detector",
     "description": "AI agent that continuously scans market gaps, new platforms, trends in Joe's expertise areas (automation, trading, SaaS) and proactively suggests ideas with market size + effort estimates.",
     "priority": "medium",
-    "status": "completed",
+    "status": "paused",
     "dueDate": null,
-    "completedAt": "2026-02-26T06:25:06.263Z",
+    "completedAt": null,
     "metadata": {},
     "createdAt": "2026-02-24T08:44:20.353Z",
-    "updatedAt": "2026-02-26T12:02:54.301Z",
+    "updatedAt": "2026-03-03T22:42:12.094Z",
     "comments": [
       {
         "id": "cmt_1772054212024_fe73a6d3",
