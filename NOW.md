@@ -1,7 +1,7 @@
 # NOW.md — Last Checkpoint
 
-**Time:** 2026-03-03 22:00 AST (Evening routine)
-**Context:** ~35% (healthy)
+**Time:** 2026-03-04 02:01 AST (Idle memory review)
+**Context:** ~45% (comfortable)
 
 ## Status
 
