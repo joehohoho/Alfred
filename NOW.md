@@ -1,47 +1,19 @@
-# NOW.md — Last Checkpoint
+# NOW.md — Emergency Checkpoint (2026-03-04, 08:05 AM)
 
-**Time:** 2026-03-04 02:01 AST (Idle memory review)
-**Context:** ~45% (comfortable)
+## Current State
+- **No kanban escalations** — All items accounted for
+- **Memory review complete** — 3-day hygiene pass done
+- **System status:** Healthy (disk 78%, no rate-limit spikes, context <60%)
+- **Operational focus:** Waiting for Joe clarifications on channel pilot + stale card resolution
 
-## Status
+## Themes from Mar 2-4 Memory
+1. HAL utilization system working (webpack dispatched Mar 2, framework solid)
+2. 7+ completed deliverables queued in Review awaiting approval
+3. 3 external blockers: channel pilot questions, stale in-progress cards, CoinUsUp/Even Us Up approvals
+4. Duplicate notification bug fixed (no repeats in Mar 3-4 cycles)
+5. System is productively "waiting" — queue healthy, no internal debt found
 
-**What's Active:**
-- Channel expansion pilot: framework complete (templates, CAC/LTV tracking, reallocation logic)
-- HAL webpack→Vite migration: ETA completion met (awaiting notice of commit)
-- Alfred in project-manager mode: overseeing HAL dispatch, framework execution readiness
+## Next Action
+Resume normal operations. Route any new work through PM cycle. Check HAL webpack completion status (should announce if done).
 
-**What's Blocked:**
-- **3 critical blocker questions** on channel pilot (app, budget, channel confirmation) — preventing Day 1 execution
-- HAL next task dispatch (pending webpack completion confirmation + new work to assign)
-- CoinUsUp push (waiting Joe approval on 2 commits)
-- Even Us Up friction-point fixes (awaiting App Store launch decision)
-
-## Tomorrow's Immediate Actions (Wed, Mar 4, 9 AM)
-
-1. Check HAL webpack completion status + review commit
-2. **If Joe responded to blocker Qs:** Begin channel pilot Day 1 execution
-3. **Else:** Prep HST/GST Phase 2 for HAL dispatch
-4. Coordinate CoinUsUp push with Joe
-5. Finalize Even Us Up App Store readiness
-
-## Pending from Joe (Carry Forward)
-
-**URGENT (blocking pilot):**
-- Which app? (CoinUsUp, Even Us Up, Signal App)
-- Monthly budget for CAC/LTV experiments?
-- Confirm channel focus = affiliates/partners/content?
-
-**Standard queue:**
-- CoinUsUp npm security push (2 commits)
-- Even Us Up App Store launch approval
-- CoinUsUp Growth Audit definition
-- Signal App bottleneck answer
-- Even Us Up monetization strategy decision
-
-## Systems
-
-- All services operational
-- Disk: 78% /Users — monitor
-- RAM: stable (no recent spikes)
-- Gateway watchdog: healthy
-- Duplicate notification fix: working (no repeats today)
+**Ready to execute on:** Channel pilot answers, CoinUsUp push approval, Even Us Up decisions, stale card clarification.
