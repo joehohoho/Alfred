@@ -665,16 +665,27 @@
     "title": "Crypto DCA Safety Layer",
     "description": "DCA bots ignore volatility regime and drawdown controls. Exchange-agnostic safety wrapper. $15–$49/mo. Build: M. Maintenance: Med-High.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 4.6,
+      "notes": "Unvalidated market problem. No Joe edge in crypto/DCA space. Medium-high maintenance overhead (exchange API churn) reduces passive potential. Standalone with minimal project synergy. Below promotion threshold.",
+      "breakdown": {
+        "market_fit_3x": 5,
+        "effort_reward_2x": 5,
+        "joes_edge_2x": 4,
+        "synergy_1x": 3,
+        "passive_potential_2x": 5
+      },
+      "evaluatedAt": "2026-03-04T05:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:20:49.147Z",
-    "updatedAt": "2026-02-28T03:08:20.210Z",
+    "updatedAt": "2026-03-04T05:00:00.000Z",
     "comments": [
       {
         "id": "cmt_1772248079864_37319952",
@@ -687,8 +698,16 @@
         "author": "alfred",
         "text": "DCA = Dollar Cost Averaging. Buying a fixed dollar amount of crypto on a schedule (e.g. $50 of BTC every Monday) instead of trying to time the market. DCA bots automate this via exchange APIs. This idea is a safety layer that sits on top — adds guardrails like pausing buys during crashes, alerting on API key issues, stopping if exchange is down. Explained in chat. Awaiting Joe decision: keep in Ideas or reject.",
         "createdAt": "2026-02-28T03:08:20.210Z"
+      },
+      {
+        "id": "cmt_1772537294000_00a0f66b",
+        "author": "alfred",
+        "text": "## Evaluation Complete — Mar 4 5:00 AM\n\n**Score: 4.6/10** (Below promotion threshold of 7)\n\n**Key findings:**\n- **Market fit weak:** Volatility-aware DCA guardrails are unvalidated pain point\n- **Joe's edge:** None — any engineer familiar with crypto APIs could build this\n- **Maintenance burden:** Medium-high (exchange API changes create ongoing support cost)\n- **Synergy:** Minimal to existing projects\n- **Passive potential:** Limited by support overhead despite SaaS model\n\n**Recommendation:** Archive for now. Revisit if market validation surfaces or if Joe wants to build for personal use first.",
+        "createdAt": "2026-03-04T05:00:00.000Z"
       }
-    ]
+    ],
+    "rejectedReason": null,
+    "rejectedAt": null
   },
   {
     "id": "idea_1772054449631_e1f90dc0",
@@ -2385,5 +2404,53 @@
     "tags": [],
     "createdAt": "2026-03-04T06:03:53.853Z",
     "updatedAt": "2026-03-04T06:03:53.853Z"
+  },
+  {
+    "id": "idea_1772611271266_d3849e59",
+    "title": "Legal E-Billing Rejection Prevention Copilot",
+    "description": "Problem: Mid-size firms lose cashflow from rejected LEDES/eBilling invoices and partner write-downs due to guideline mismatches.\\nTarget market: Canadian/US firms (10-150 lawyers) using Elite/3E + insurer/corporate eBilling portals.\\nMRR potential: k-k/mo (20 firms at - + premium audit packs).\\nTech complexity: 3/5.\\nCompetition: Medium-High (generic billing tools exist; few pre-submit rejection prevention layers tailored to LEDES rulesets).\\nWhy Joe can win: 20+ years Elite billing implementation + data transformation expertise gives immediate trust and rule design moat.\\nMVP: upload/export pre-check + rejection reason predictor + correction suggestions + weekly leakage report.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-04T08:01:11.266Z",
+    "updatedAt": "2026-03-04T08:01:11.266Z"
+  },
+  {
+    "id": "idea_1772611277604_43ac80d0",
+    "title": "CRA Compliance Autopilot for Canadian Service SMBs",
+    "description": "Problem: Service SMBs miss GST/HST remittance windows, payroll remittances, and filing deadlines; penalties are painful and predictable.\\nTarget market: Canadian agencies/consultancies/trades with 2-50 staff and simple bookkeeping stacks (QBO/Xero).\\nMRR potential: k-k/mo (100-400 accounts at -, plus concierge setup).\\nTech complexity: 2/5.\\nCompetition: Medium (bookkeeping tools track data, but proactive deadline-risk copilot + plain-language action plans is still weak in market).\\nWhy Joe can win: Strong automation consulting background + implementation discipline; can ship practical reminder/workflow system fast with low support burden.\\nMVP: ingest accounting calendar + automated deadline timeline + risk flags + one-click task checklists + accountant handoff notes.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-04T08:01:17.604Z",
+    "updatedAt": "2026-03-04T08:01:17.604Z"
+  },
+  {
+    "id": "idea_1772611283847_899f0695",
+    "title": "Signal-to-Action Bot for Retail Crypto Traders",
+    "description": "Problem: Traders drown in indicators/signals but fail on execution discipline; missed entries/exits and no consistent playbook.\\nTarget market: Retail crypto traders using TradingView/Binance/Bybit who want actionable, rules-based prompts instead of dashboards.\\nMRR potential: k-k/mo (200-600 users at - with premium strategy packs).\\nTech complexity: 3/5.\\nCompetition: High for signals, Medium for execution-focused accountability workflow product.\\nWhy Joe can win: Existing market-signal domain work + automation strength enables differentiated 'decision hygiene' layer (alerts + journaling + post-trade coaching) rather than commodity signals.\\nMVP: webhook ingestion + setup-specific trigger alerts + pre-trade checklist + auto-journal + weekly behavior scorecard.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-04T08:01:23.847Z",
+    "updatedAt": "2026-03-04T08:01:23.847Z"
   }
 ]
