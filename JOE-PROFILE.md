@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-02-28 (16:01 AST) — mini touch-up
-**Last direct Q&A update:** 2026-02-26 (10:36 AM AST)
-**Reflection count:** 4
-**Profile version:** 1.5
+**Last reflection:** 2026-03-04 (22:15 AST) — full reflection, Phase 1-4 complete
+**Last direct Q&A update:** 2026-03-02 (14:57 AST, Signal App bottleneck)
+**Reflection count:** 5
+**Profile version:** 1.6
 
 ---
 
@@ -27,8 +27,16 @@ How Joe communicates and what his patterns reveal.
 - **Longer responses when providing technical direction.** iMessage goal answer included philosophy ("think outside the box"), constraints ("keep token count low"), and approach ("if a coding solution can be an improvement it's not an issue"). | Source: notif_1771400770968 | Confidence: medium
 - **Short responses for approvals and dismissals.** "Go ahead with Option 1", "This was just a test" — quick, no extras. | Source: multiple notifications | Confidence: high
 
+### Autonomous Decision Pattern (CRITICAL UPDATE 2026-03-04) ⭐
+- **Joe's explicit directive (Feb 26):** "If the decision is an easy one or you're confident in what I would do and apply it, I'm good with that. I like to have visibility and would like as much transparency as possible."
+- **Structured feedback:** Joe set up a Discord webhook for Alfred to POST autonomous decisions (action taken + rationale).
+- **Meaning:** This is NOT "ask for approval on easy calls." This is "ACT on easy calls, THEN TELL ME what you did and why."
+- **Key distinction:** Transparency ≠ pre-approval. Joe wants visibility, not veto authority on easy calls.
+- Source: notif_1772114400186_8815537c (Daily Inquiry, Feb 26) | Confidence: high
+
 ### Predictive Pattern
-- "When Alfred presents a structured plan with phases, Joe approves quickly and delegates fully." (4+ occurrences) | Confidence: high
+- "When Alfred presents a structured plan with phases, Joe approves quickly and delegates fully." (5+ occurrences) | Confidence: high
+- "When Alfred makes an autonomous easy decision and posts it with rationale to Discord, Joe reviews and provides feedback without objection." (Emerging, 2+ signals) | Confidence: medium
 
 ---
 
@@ -105,6 +113,7 @@ Joe's first-pass filter for any new idea, in order:
 
 ### Vertical Exclusions (do not suggest ideas in these spaces)
 - **Legal software / law firm tools** — not interested, will advise if this changes (2026-02-26)
+- **Consulting-adjacent SaaS** — "Client Onboarding Autopilot for Automation Consultants" explicitly rejected (Mar 1). Joe doesn't want to productize consulting problems. Passive income must be independent products, not service derivatives.
 
 ---
 
@@ -136,14 +145,14 @@ Joe's first-pass filter for any new idea, in order:
 
 Ranked by recent activity (update frequently):
 
-1. **Signal App (market-signal-lab)** — Active priority (Fast Track Launch card in progress; decision gate answered Feb 24)
-2. **OpenClaw/Alfred ecosystem** — Ongoing infrastructure and autonomy improvements
-3. **Command Center Dashboard** — Active development (Kanban + monitoring workflows)
-4. **CoinUsUp** — Primary passive-income target (maintenance + growth candidate)
-5. **Even Us Up** — Lower-priority passive-income stream (maintenance mode)
-6. **Personal hardware refresh** — Gaming PC/compute search remains relevant
+1. **Signal App (market-signal-lab)** — 🔴 BLOCKED on data quality & testing (Joe answer Mar 2). Decision gate answered Feb 24. Top overnight work priority.
+2. **OpenClaw/Alfred ecosystem** — Ongoing infrastructure + autonomy improvements. HAL project manager model now active.
+3. **CoinUsUp** — Primary passive-income target. npm vulnerabilities fixed (Mar 2), awaiting Joe push approval. Growth audit pending.
+4. **Command Center Dashboard** — Active development (Kanban + monitoring). Webpack migration by HAL in progress (Mar 2-4).
+5. **Even Us Up** — Growth audit complete (Mar 2); friction points identified; awaiting monetization strategy decision.
+6. **Channel Expansion Pilot** — Framework ready, awaiting Joe's answers on app choice / budget / channel focus.
 7. **Job Tracker** — Maintenance + automation
-8. **Automation Consulting** — Deprioritized currently
+8. **Automation Consulting** — Explicitly excluded from passive income consideration (Joe answer Mar 1)
 
 ---
 
@@ -299,14 +308,16 @@ Last 10 observations, newest first. Older observations distill into sections abo
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
+| 2026-03-04 | Daily inquiry cycle has deduplication bug — same 4 questions looped twice in 9 days (Feb 20-28 repeated Feb 24-28) | notif_1772200800167, notif_1772287200145 | Yes |
+| 2026-03-02 | Signal App TOP BOTTLENECK: Data quality & testing (direct answer to "what's slowing it down") | notif_1772460000220_a86559b3 | Yes |
+| 2026-03-04 | HAL project manager model: Alfred managing weekly HAL dispatch cycle with 70-80% utilization target | memory/2026-03-02.md, memory/2026-03-04.md | Partial |
+| 2026-03-01 | Consulting-to-product angle rejected: "No it's not worth investigating" on productizing client automation problems | notif_1772373600214_c683eda7 | Yes |
+| 2026-02-26 | Joe wants autonomous easy decisions WITH VISIBILITY, not pre-approval. Set up Discord webhook for transparency. | notif_1772114400186_8815537c (Daily Inquiry) | Yes |
 | 2026-02-25 | Claude Code: Joe approves ambitious multi-file refactors quickly when plan is credible | joe-profile-observations.jsonl (2026-02-24) | Yes |
 | 2026-02-25 | Claude Code: "commit and push everything" preference indicates batch shipping over prolonged staging | joe-profile-observations.jsonl (2026-02-24) | Yes |
 | 2026-02-25 | Claude Code: Joe wants explicit rejection/feedback loops so Alfred can learn from outcomes | joe-profile-observations.jsonl (2026-02-24) | Yes |
-| 2026-02-25 | No new answered Daily Inquiry notifications since last reflection; Feb 24/25 prompts currently unanswered | goals/notifications.json, memory/inquiry-log.jsonl | Yes |
-| 2026-02-24 | Signal App remained top execution focus; no scope change, decision gate/execution path held steady | memory/2026-02-24.md | Yes |
 | 2026-02-20 | Joe rejects speculative cross-project synergies; prefers focused, single-purpose projects | notif_1771605868238_53174470 (Daily Inquiry) | Yes |
 | 2026-02-20 | Gaming PC search (12GB+ VRAM, strict budget, open to used/refurbished) — possible LLM offloading use case | 2026-02-20-gaming-pc.md | Partial |
-| 2026-02-20 | Joe authorizes autonomous implementation decisions ("if no major concerns, go ahead and determine timing") | notif_1771399480963, notif_1771400770968 | Yes |
 
 ---
 
@@ -314,8 +325,8 @@ Last 10 observations, newest first. Older observations distill into sections abo
 
 | Metric | Value |
 |--------|-------|
-| Total reflections run | 3 |
-| Last reflection | 2026-02-25 11:27 AST |
+| Total reflections run | 5 |
+| Last reflection | 2026-03-04 22:15 AST |
 | New observations added this reflection | 5 |
-| Observations distilled (cumulative) | 21 |
-| Profile version | 1.3 |
+| Observations distilled (cumulative) | 26 |
+| Profile version | 1.6 |
