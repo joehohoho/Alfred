@@ -97,4 +97,10 @@
 
 - **What's a tedious recurring task you still do manually?** (_question_, Mar 04 14:00)
   ID: `notif_1772632800242_979542ae` — You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can pro...
+
+- **Cron Auto-Disabled** (_system_, Mar 05 02:06)
+  ID: `notif_1772676393763_df809190` — Evening Routine: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 05 03:01)
+  ID: `notif_1772679697200_970613fc` — Nightly Git Commit: 3 consecutive failures — auto-disabled
 <!-- PENDING-Q-END -->

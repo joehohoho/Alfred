@@ -343,5 +343,14 @@
     "answered": false,
     "createdAt": "2026-03-05T02:06:33.763Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772679697200_970613fc",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-05T03:01:37.200Z",
+    "answeredAt": null
   }
 ]

@@ -840,16 +840,28 @@
     "title": "CoinUsUp Teams — Shared expense autopilot for micro-teams",
     "description": "Split tools track but don't auto-settle recurring shared bills (subscriptions, rent, trip funds). Extension of existing CoinUsUp codebase. Freemium + $8–12/workspace/mo. Build: S-M. Maintenance: Low-Med.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Strong fit: extends existing CoinUsUp codebase Joe knows deeply, solving real pain point (recurring shared bills). $8–12/mo pricing is accessible, low maintenance overhead once launched. Synergy is extremely high (same platform, design, infrastructure reuse).",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 7,
+        "joes_edge_2x": 8,
+        "synergy_1x": 9,
+        "passive_potential_2x": 7
+      },
+      "weighted_score": 74,
+      "evaluatedAt": "2026-03-05T03:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-25T21:47:40.439Z",
-    "updatedAt": "2026-02-25T21:47:40.439Z"
+    "updatedAt": "2026-03-05T03:00:00.000Z"
   },
   {
     "id": "idea_1772083170263_f0846acd",
