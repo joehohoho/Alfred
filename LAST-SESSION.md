@@ -1,80 +1,82 @@
 # LAST-SESSION.md — Session Bridge
 
-**Generated:** 2026-03-03 22:00 AST (Evening Checkpoint)
+**Generated:** 2026-03-04 22:00 AST (Evening Checkpoint)
 **Session:** agent:main:main
 
 ## What Happened
 
-**Tuesday, Mar 3, Full Day:**
+**Wednesday, March 4, Full Day:**
 
 **Morning (9 AM - 12 PM)**
-- Reviewed HAL webpack migration status (in-progress, ETA late morning)
-- Triaged pending notifications (5 blocking questions, prioritized by impact)
-- Finalized channel expansion pilot framework: CAC/LTV tracking templates, creative matrix, weekly budget reallocation, reporting structure
+- HAL Signal App data validation dispatched (testing/coverage improvements, ETA 4-8h)
+- Deployed 3 new infrastructure systems: retry queue, overnight scheduler, lease monitoring
+- Verified CoinUsUp npm fixes (0 vulns, build clean, ready to push)
 
 **Afternoon (12 PM - 6 PM)**
-- Completed 30-day pilot structure with execution templates
-- Audited system issues from Mar 2 (duplicate notifications, webhook failures, rate limits)
-- Scanned kanban for progress; HAL status update still pending
+- Completed infrastructure testing: overnight-scheduler dry-run passed, all LaunchAgents loaded
+- Channel expansion pilot framework finalized: 30-day rolling model with CAC/LTV templates
+- Sent 3 blocker questions to Joe (app choice, budget, channel confirmation)
+- Documentation: HAL-INFRA-IMPROVEMENTS.md, DEPLOYMENT-CHECKLIST-COINUSUP.md created
 
 **Evening (6 PM - 10 PM)**
-- Verified ACTIVE-TASK state and blocking questions
-- Confirmed framework completeness: ready to execute within 2 hours of Joe's response
+- Infrastructure verified + committed (no cascades on test runs)
+- Memory hygiene pass: 3-day review clean, 7+ completed deliverables queued in Review
+- 5 pending questions active, 0 internal blockers
 
 ## Decisions Made
 
-1. **Framework approach:** Use 30-day rolling-window model with weekly budget reallocation based on CAC/LTV results
-2. **Execution hold:** Wait for 3 clarifications before Day 1 kickoff (budget, app, channel confirmation)
-3. **Next HAL dispatch:** HST/GST Phase 2 (high-complexity, queued after webpack completion)
+1. **Infrastructure approach:** Decoupled retry queue + consolidated overnight cron to prevent rate-limit death spirals
+2. **Lease monitoring:** Auto-move stale cards to "blocked" (preserve audit) instead of resolving
+3. **Channel pilot execution:** Wait for Joe's 3 clarifications, then execute within 2 hours
 
 ## Tasks In Progress
 
-- **Channel expansion pilot framework** (COMPLETE, awaiting Joe clarification on 3 blocker questions)
-- **HAL webpack→Vite migration** (ETA completion: Mar 3, morning/early afternoon)
-- **CoinUsUp security patch** (ready for push, awaiting Joe approval on 2 commits)
-- **Even Us Up App Store launch** (friction-point fixes queued, awaiting launch decision)
+- **HAL Signal App testing** (in-progress, ETA 4-8h, auto-announces on completion)
+- **Infrastructure deployment** (COMPLETE, monitoring 4:30 AM execution)
+- **Channel expansion pilot framework** (COMPLETE, awaiting Joe clarifications)
+- **CoinUsUp npm security push** (ready, awaiting approval)
 
 ## Pending Joe Decisions (Carry Forward)
 
-**URGENT (blocking channel pilot execution):**
+**URGENT (blocking channel pilot):**
 1. Which app? (CoinUsUp, Even Us Up, Signal App)
 2. Monthly CAC/LTV budget?
 3. Confirm channel focus = affiliates/partners/content?
 
-**Standard approval queue:**
-- CoinUsUp npm security commits (2 waiting)
-- Even Us Up friction-point fixes approval (8-10 hrs to App Store)
-- CoinUsUp Growth Audit definition (what specific audit?)
-- Signal App bottleneck answer (1-sentence blocker)
-- Even Us Up monetization strategy (passive income exploration)
+**Standard approvals:**
+- CoinUsUp npm security commits (ready to push)
+- Even Us Up monetization strategy
+- Signal App pricing/referral decisions
+- Webpack migration approval
 
-## Next Steps (Wednesday, Mar 4)
+## Next Steps (Thursday, Mar 5)
 
 **9 AM:**
-- Check HAL webpack completion + review commit
-- Move webpack card to done if complete
-- **IF Joe responds to blocker questions:** Launch channel pilot Day 1 execution (channel mapping, LTV baseline, creative variants)
-- **IF no response:** Prep HST/GST Phase 2 for HAL dispatch
+- Check HAL Signal App completion (should auto-announce)
+- Review if Joe responded to 3 blocker questions
+- **IF yes:** Launch Channel Pilot Day 1 (channel mapping, LTV baseline, creative variants)
+- **IF no:** Monitor overnight scheduler + prep HST/GST Phase 2 for next HAL dispatch
 
 **Mid-day:**
-- CoinUsUp push coordination
-- Even Us Up App Store friction-point review
+- Verify 4:30 AM overnight scheduler execution (check logs, no cascades)
+- Coordinate CoinUsUp push if Joe approves
 
 **Ongoing:**
 - Monitor HAL dispatch status
-- Watch disk/RAM (78% /Users, stable RAM)
-- Check for new Joe approvals
+- Watch for new Joe approvals
+- System health monitoring
 
 ## Key Context
 
-- **Framework location:** `~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md`
-- **CoinUsUp repo:** `/Users/hopenclaw/CoinUsUp` (2 security commits pending)
-- **Even Us Up status:** Audit complete (28-34 hrs friction fixes to App Store launch)
-- **HAL next:** HST/GST Phase 2 (queued, high-complexity)
-- **Blockers:** 3 clarification questions on pilot + 5 pending approvals
-- **Context usage:** ~35% (healthy)
+- **Infrastructure location:** ~/.openclaw/workspace/scripts/ (hal-retry-queue.sh, overnight-scheduler.sh, hal-lease-monitor-enhanced.sh)
+- **Documentation:** HAL-INFRA-IMPROVEMENTS.md, DEPLOYMENT-STATUS-BRIEF.md
+- **CoinUsUp repo:** /Users/hopenclaw/CoinUsUp (npm fixes verified, ready to push)
+- **Channel pilot framework:** ~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md
+- **Current blockers:** 3 external Joe decisions on pilot, 5 pending questions
+- **Context usage:** ~50% (healthy)
+- **HAL status:** Active on Signal App, returns within 4-8 hours
 
 ---
 
 **Time zone:** America/Moncton (AST)
-**Next session boot:** Load ACTIVE-TASK.md first; check if Joe responded to blocker questions; proceed with Day 1 execution or HAL dispatch as appropriate.
+**Next session boot:** Load ACTIVE-TASK.md first; check HAL completion announcement; check Joe responses to 3 blocker questions; execute or dispatch as appropriate.
