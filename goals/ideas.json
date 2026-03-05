@@ -1330,16 +1330,21 @@
     "title": "HST Deadline Copilot (Atlantic filing + cashflow guardrails)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nMany owner-operators miss GST/HST filing/remittance deadlines because due dates vary by filing frequency and bookkeeping is lagging. Penalties/interest erode margins.\\n\\nOpportunity:\\nA CRA/HST copilot for small Canadian businesses that:\\n- calculates upcoming filing windows and remittance amounts from bank/ledger snapshots\\n- flags likely under-remittance risk\\n- creates bilingual reminder workflows for owner + bookkeeper\\n- provides pre-filled reconciliation checklist before filing day\\n\\nMoat:\\nBuilt for Canadian tax cadence and Atlantic SMB realities (seasonal cashflow + part-time bookkeepers), not generic global accounting.\\n\\nMonetization:\\n-/mo with tiered entities; partner channel via local bookkeeping firms.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 1,
+      "notes": "Violates Joe's NO FINANCIAL SERVICES boundary (2026-03-04): explicitly covers CRA tax compliance, HST/GST filing, remittance tracking, and tax filing automation. Archive per directive."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.311Z",
-    "updatedAt": "2026-02-26T20:01:11.311Z"
+    "updatedAt": "2026-03-05T19:00:00.000Z",
+    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary",
+    "rejectedAt": "2026-03-05T19:00:00.000Z"
   },
   {
     "id": "idea_1772136071462_e8e777a9",
@@ -2812,5 +2817,21 @@
     "tags": [],
     "createdAt": "2026-03-05T13:01:12.954Z",
     "updatedAt": "2026-03-05T13:01:12.954Z"
+  },
+  {
+    "id": "idea_1772726523472_e9c17991",
+    "title": "📊 Portfolio Health Snapshot — Mar 5 2026",
+    "description": "## Portfolio Health Snapshot — 2026-03-05\n\nObjective: quick one-page review of current/passive-income portfolio with bottlenecks and MRR reality check.\n\n### 1) CoinUsUp\n- **Current status:** Live, maintenance-heavy; growth work mostly audit/planning, limited active acquisition.\n- **Estimated current MRR:** **$0–$100/mo** (effectively pre-monetization).\n- **Estimated potential MRR (12 months):** **$500–$2,000/mo** with a paid tier + focused funnel.\n- **Biggest bottleneck:** No active monetization + no repeatable acquisition channel.\n\n### 2) Even Us Up\n- **Current status:** Live, low activity; positioned as utility app but no sustained growth push.\n- **Estimated current MRR:** **$0/mo**.\n- **Estimated potential MRR (12 months):** **$200–$800/mo** with clear niche positioning + simple subscription.\n- **Biggest bottleneck:** Weak differentiation and no ongoing activation/retention optimization.\n\n### 3) Signal App\n- **Current status:** Early-stage validation/build; architecture and monetization strategy under active review.\n- **Estimated current MRR:** **$0/mo** (pre-revenue).\n- **Estimated potential MRR (12 months):** **$1,000–$5,000/mo** if narrow niche offer converts to subscription.\n- **Biggest bottleneck:** Trust and go-to-market proof (must validate real conversion before feature expansion).\n\n### 4) Automation Consulting\n- **Current status:** Active revenue engine; strongest current cashflow in portfolio.\n- **Estimated current MRR:** **~$3,000/mo** (range **$3k–$5k** depending on project load).\n- **Estimated potential MRR (12 months):** **$5,000–$12,000/mo equivalent** via productized offers + standardized delivery.\n- **Biggest bottleneck:** Time-for-money ceiling; scaling requires productization/delegation.\n\n---\n\n## Portfolio Summary\n- **Current total MRR (practical):** **~$3k/mo**, concentrated in consulting.\n- **Passive/app revenue today:** near-zero.\n- **Highest upside app:** Signal App (if trust-first, narrow niche, quick paid validation).\n- **Most reliable near-term cash:** Automation Consulting.\n\n## Recommended focus split (next 60 days)\n- **50%** Automation Consulting (cash + productizable assets)\n- **35%** Signal App (rapid validation to first paying user)\n- **15%** CoinUsUp + Even Us Up (maintenance + lightweight monetization tests)\n\n_Assumptions: estimates are directional planning numbers, not booked revenue._",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-05T16:02:03.472Z",
+    "updatedAt": "2026-03-05T16:02:03.472Z"
   }
 ]

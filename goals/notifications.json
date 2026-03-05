@@ -354,15 +354,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1772712026890_1751fb62",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-05T12:00:26.890Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1772719200252_2f94af8e",
     "type": "question",
     "title": "Consulting: recurring client problem → product idea?",
@@ -370,6 +361,15 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-05T14:00:00.252Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772739620789_43dbf732",
+    "type": "system",
+    "title": "Codex Token Expiring",
+    "message": "Codex OAuth token expires in 48h. Refresh via: openclaw models auth login --provider openai-codex",
+    "answered": false,
+    "createdAt": "2026-03-05T19:40:20.789Z",
     "answeredAt": null
   }
 ]

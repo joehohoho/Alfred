@@ -104,9 +104,9 @@
 - **Cron Auto-Disabled** (_system_, Mar 05 03:01)
   ID: `notif_1772679697200_970613fc` — Nightly Git Commit: 3 consecutive failures — auto-disabled
 
-- **Partial Recovery** (_system_, Mar 05 12:00)
-  ID: `notif_1772712026890_1751fb62` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
-
 - **Consulting: recurring client problem → product idea?** (_question_, Mar 05 14:00)
   ID: `notif_1772719200252_2f94af8e` — You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend...
+
+- **Codex Token Expiring** (_system_, Mar 05 19:40)
+  ID: `notif_1772739620789_43dbf732` — Codex OAuth token expires in 48h. Refresh via: openclaw models auth login --provider openai-codex
 <!-- PENDING-Q-END -->

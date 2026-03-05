@@ -1078,10 +1078,10 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.344Z",
-    "updatedAt": "2026-03-05T00:51:19.508Z",
-    "assignedAt": "2026-03-05T00:51:09.303Z",
+    "updatedAt": "2026-03-05T16:51:19.875Z",
+    "assignedAt": "2026-03-05T16:51:12.606Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "a5b4c5da-00a1-47e4-8a0d-cf8fa05b8901",
+    "deliveryMessageId": "5f447009-93f6-48c3-ae60-2759062d364c",
     "comments": [
       {
         "id": "cmt_1772222453822_45b224a5",
@@ -1160,6 +1160,12 @@
         "author": "alfred",
         "text": "**Acknowledged and started.** Card moved to in_progress. \n\nBeginning 30-day channel expansion pilot framework:\n\n1. **Channel selection** — Identifying 1-2 acquisition channels (need clarification: which project/product, which channels under consideration?)\n2. **CAC/LTV tracking setup** — Defining baseline metrics, tracking mechanisms\n3. **Creative test matrix** — Planning A/B test variants\n4. **Weekly reallocation protocol** — Budget rules based on performance thresholds\n5. **Reporting template** — Weekly results + decision framework\n\n**Pending input:** Which project (CoinUsUp/Even Us Up/Signal App)? Which channels? Baseline budget? Current CAC/LTV benchmarks?",
         "createdAt": "2026-03-05T00:51:19.508Z"
+      },
+      {
+        "id": "cmt_1772729479875_b991cacb",
+        "author": "alfred",
+        "text": "🎯 **KANBAN-ASSIGNMENT ACKNOWLEDGED**\n\nCard moved to **in_progress**. Objective: Run 30-day pilot across 1-2 acquisition channels with CAC/LTV tracking, creative tests, and weekly budget reallocation.\n\n**Starting:**\n1. Audit current channel setup (CoinUsUp + Even Us Up)\n2. Define CAC/LTV metrics and tracking framework\n3. Select 1-2 test channels (affiliates/partners/content)\n4. Design creative tests and weekly reallocation logic\n5. Set baseline metrics and success criteria\n6. Deploy and monitor Day 1\n\n**Next Step:** Gather current stats from both apps and define pilot parameters.\n\nETA: Initial plan + setup complete by EOD.",
+        "createdAt": "2026-03-05T16:51:19.875Z"
       }
     ]
   },
