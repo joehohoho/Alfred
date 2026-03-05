@@ -86,20 +86,35 @@ BODY=$(echo "$RESULT" | jq -r '.body' 2>/dev/null || echo "")
 
 # Fallback: if claude failed or parsing broke, use a hardcoded fresh question pool
 if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
-  # Fallback pool — these are backups, not the primary mechanism
+  # Fallback pool — expanded + diverse to minimize repeat feeling
+  # Format: title|body|theme (used for rotation + dedup diversity)
   FALLBACKS=(
-    "Consulting client: automation idea worth productizing?|You've been doing automation consulting work. Has any client problem come up repeatedly — something generic enough to turn into a product? Even a $49/mo niche SaaS. Worth investigating?"
-    "What's the #1 thing slowing down Signal App right now?|Not looking for a full status update — just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific technical problem, or something else? Knowing this helps me prioritize overnight work."
-    "Should Even Us Up get a monetization push or maintenance mode?|Even Us Up has been running. Is it growing on its own, or is it on life support? Should I look into monetization experiments (paid tier, integrations) or just keep the lights on?"
-    "What's a tedious recurring task you still do manually?|You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can probably automate or at least reduce the friction."
+    "Consulting: recurring client problem → product idea?|You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a $49+/mo SaaS? Worth a weekend prototype?|consulting"
+    "Signal App: what's the #1 blocker right now?|Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.|signal"
+    "Even Us Up: monetization sprint or maintenance mode?|Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minimum?|even-us-up"
+    "Tedious recurring task you still do manually?|You hired me for tedium. What's one thing you do regularly that shouldn't need your attention? Even small chores—I can probably automate or cut friction.|automation"
+    "Which project needs attention first: CoinUsUp, Signal App, or Consulting growth?|With three active projects going, which one deserves focus next week? What's the bottleneck/opportunity you're thinking about most?|projects"
+    "Passive income idea you've been sitting on?|Any half-baked passive income idea you've been meaning to explore but haven't had time for? I can do the research and feasibility work overnight.|passive-income"
+    "What's the weakest part of your current automation consulting process?|Where does your consulting work slow down or feel manual? Are you losing deals, struggling with delivery, or something in pitch/discovery?|consulting"
+    "Could any Signal App feature be spun into a standalone product?|Signal App has a lot of value. Is there a specific feature (better signals, backtesting, alerts) that could be a standalone cheaper tool for a different user?|signal"
   )
-  # Pick one not in recent titles or pending notifications
+  
+  # Build a set of recent topics to avoid (more robust than title substring matching)
+  RECENT_TOPICS=$(tail -20 "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
+  PENDING_TOPICS=$(jq -r '[.[] | select(.answered == false) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
+  ALL_TOPICS="$RECENT_TOPICS|$PENDING_TOPICS"
+  
+  # Pick first fallback not in recent topics (allows same title if different angle)
   for entry in "${FALLBACKS[@]}"; do
     FB_TITLE="${entry%%|*}"
-    FB_BODY="${entry##*|}"
-    if [[ "$ALL_TITLES" != *"$FB_TITLE"* ]]; then
+    FB_BODY="${entry#*|}"; FB_BODY="${FB_BODY%%|*}"
+    FB_TOPIC="${entry##*|}"
+    
+    # Skip if topic was asked in last 20 inquiries
+    if [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
       TITLE="$FB_TITLE"
       BODY="$FB_BODY"
+      TOPIC="$FB_TOPIC"
       break
     fi
   done
@@ -108,5 +123,7 @@ fi
 # Send if we have content
 if [ -n "$TITLE" ] && [ -n "$BODY" ]; then
   send_inquiry "$TITLE" "$BODY"
-  echo "{\"date\":\"$TODAY\",\"title\":\"$TITLE\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
+  # Log with topic for stronger dedup on future runs
+  TOPIC="${TOPIC:-unknown}"
+  echo "{\"date\":\"$TODAY\",\"title\":\"$TITLE\",\"topic\":\"$TOPIC\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
 fi

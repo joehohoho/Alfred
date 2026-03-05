@@ -2732,5 +2732,53 @@
     "tags": [],
     "createdAt": "2026-03-04T23:01:08.950Z",
     "updatedAt": "2026-03-04T23:01:08.950Z"
+  },
+  {
+    "id": "idea_1772701302485_c057ee51",
+    "title": "Control-Plane Drift Sentinel (cron + kanban integrity watchdog)",
+    "description": "Problem: idle loop surfaced stale/null in_progress cards auto-moved to review, indicating card metadata drift and silent state corruption risk. Build a zero-LLM watchdog that runs every 15 min to validate kanban invariants (required fields, non-null ids/timestamps, valid column transitions, stale-card SLA breaches) and auto-heal safe cases with full audit trail. Include anomaly digest into Command Center /health with trend counters. Why now: prevents bad board state from blocking HAL dispatch and eliminates manual cleanup loops. Token impact: reduces wasted agent turns on board triage/recovery.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-05T09:01:42.485Z",
+    "updatedAt": "2026-03-05T09:01:42.485Z"
+  },
+  {
+    "id": "idea_1772701307572_26accd59",
+    "title": "Notification/Inquiry Dedup Ledger (anti-repeat question firewall)",
+    "description": "Problem: daily inquiry duplicate-question bug already hit trust. Add a shared dedup ledger keyed by semantic hash (topic+intent+time window) across daily-inquiry, proactive-check, and reminder prompts. Before sending/creating a question, check ledger + recent kanban comments + notifications; if near-duplicate, suppress or rewrite with delta-only prompt. Expose suppression stats in Command Center Notifications page. Include override flag for intentional repeats. Token/cost gain: prevents repeated reasoning on identical prompts and lowers noisy notification churn.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-05T09:01:47.572Z",
+    "updatedAt": "2026-03-05T09:01:47.572Z"
+  },
+  {
+    "id": "idea_1772701313520_c9ea8e6c",
+    "title": "Token-Aware Cron Orchestrator (collision prevention + budget lanes)",
+    "description": "Problem: overnight cron collisions still trigger rate-limit cascades and avoidable retries. Create a local orchestration layer that assigns jobs to lanes (shell-only, LOCAL-model, remote-model), enforces concurrency caps, jitter windows, and backoff based on gateway health + recent 429s. Add policy: non-urgent LLM jobs auto-downgrade to LOCAL or defer when quota/cost pressure rises. Integrate with session_status snapshots and write run decisions to heartbeat-efficiency.json for tuning. Outcome: fewer burst failures, lower token spend, and more predictable overnight automation.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-05T09:01:53.520Z",
+    "updatedAt": "2026-03-05T09:01:53.520Z"
   }
 ]
