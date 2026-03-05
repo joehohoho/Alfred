@@ -361,5 +361,15 @@
     "answered": false,
     "createdAt": "2026-03-05T12:00:26.890Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772719200252_2f94af8e",
+    "type": "question",
+    "title": "Consulting: recurring client problem → product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-05T14:00:00.252Z",
+    "answeredAt": null
   }
 ]

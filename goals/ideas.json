@@ -2791,5 +2791,21 @@
     "tags": [],
     "createdAt": "2026-03-05T09:01:53.520Z",
     "updatedAt": "2026-03-05T09:01:53.520Z"
+  },
+  {
+    "id": "idea_1772715672954_f3409fc0",
+    "title": "Workflow Efficiency Scan — Top 3 Automation Wins (2026-03-05)",
+    "description": "Top repetitive workflow pain points and concrete fixes:\\n\\n1) Duplicate daily inquiry notifications + notification noise\\n- Pattern: recurring duplicate question sets reduce trust and create unnecessary review work.\\n- Proposal: add notification fingerprinting (goalId+questionHash+timeWindow), 14-day dedupe cache, and a pre-send dedupe pass in daily-inquiry pipeline.\\n- Expected impact: 60-80% reduction in duplicate inquiry events; better signal quality.\\n\\n2) Stale kanban card lifecycle + blocked HAL assignment\\n- Pattern: in_progress cards linger stale; HAL dispatcher remains constrained when in_progress is non-empty; manual cleanup needed.\\n- Proposal: enforce stale-card SLA automation (auto-move stale in_progress to review/blocked with reason), and add a daily auto-triage report listing stale cards + recommended action.\\n- Expected impact: faster board flow, fewer assignment deadlocks, clearer ownership.\\n\\n3) Context-switch overhead from fragmented status surfaces\\n- Pattern: state spread across ACTIVE-TASK.md, card comments, notifications, and cron outputs; manual reconstruction needed.\\n- Proposal: create a single \"Daily Ops Digest\" artifact at fixed times (09:00/13:00/17:00) that compiles: open blockers, pending questions, stale cards, and next best actions. Publish to relevant Kanban card comment and memory log.\\n- Expected impact: lower cognitive load, faster restart after session resets, fewer missed follow-ups.\\n\\nRecommended implementation order: (1) notification dedupe, (2) stale-card auto-triage, (3) daily ops digest.\\nRisk level: low-medium. ROI: high (time savings + reliability).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-05T13:01:12.954Z",
+    "updatedAt": "2026-03-05T13:01:12.954Z"
   }
 ]
