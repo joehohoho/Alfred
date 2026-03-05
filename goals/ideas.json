@@ -1309,16 +1309,21 @@
     "title": "NB Payroll Guardian (Bilingual micro-payroll for SMBs)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nSmall NB employers (5-50 staff) struggle with bilingual payroll artifacts, statutory holiday handling, and CRA remittance date misses. Existing tools are overbuilt/expensive or weak on bilingual local workflows.\\n\\nOpportunity:\\nA lightweight payroll compliance assistant that sits on top of existing payroll exports (Ceridian/QuickBooks/Wave CSV) and auto-generates:\\n- bilingual employee-facing pay notices (EN/FR)\\n- CRA remittance reminder calendar with penalty-risk alerts\\n- province-aware holiday/overtime checks (NB-first, then Atlantic roll-out)\\n\\nMoat:\\nHyper-local compliance presets + bilingual defaults for Atlantic SMBs (a segment larger competitors ignore).\\n\\nMonetization:\\n-/mo +  setup for import mapping.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 2,
+      "notes": "Violates Joe's NO FINANCIAL SERVICES boundary (2026-03-04): explicitly covers payroll integration, CRA remittance tracking, and tax compliance. Archive."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.158Z",
-    "updatedAt": "2026-02-26T20:01:11.158Z"
+    "updatedAt": "2026-03-05T12:00:00.000Z",
+    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary",
+    "rejectedAt": "2026-03-05T12:00:00.000Z"
   },
   {
     "id": "idea_1772136071311_0e7e5235",
