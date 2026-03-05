@@ -3,8 +3,12 @@
 # Called by cron every 30 minutes to keep Alfred productive
 # Usage: kanban-idle-loop.sh
 
-# Sync pending questions to ACTIVE-TASK.md (survives session death)
+# Phase 1: Sync pending questions to ACTIVE-TASK.md (survives session death)
 bash "$(dirname "$0")/sync-pending-questions.sh" 2>/dev/null || true
+
+# Phase 2: Check for stale in_progress cards blocking HAL (lease monitor)
+# Run before idle-loop to unblock HAL dispatch if cards are stuck
+bash "$(dirname "$0")/hal-lease-monitor.sh" 2>/dev/null || true
 
 API="http://localhost:3001/api/kanban/idle-loop"
 

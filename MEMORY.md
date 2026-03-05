@@ -435,3 +435,22 @@ Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<descr
 - 403 errors reported Mar 1, verified OK at 4 AM (both webhooks returning 204)
 - Possibly gateway downtime window or momentary credential refresh race
 - **Monitoring:** Continue observing; no action needed if transient
+
+## Ideas Column Quality Gate — Joe Directive (2026-03-04)
+
+**RULE: Before adding ANY new card to the Ideas column:**
+1. **Research demand** — Is there actual market/user demand? (search, surveys, competitor analysis, trend data)
+2. **Validate profitability** — Can it actually generate revenue/income? (pricing model, cost analysis, margin estimates)
+3. **Quality before quantity** — Only add ideas that pass both gates; no low-confidence guesses
+
+**VERTICALS & BOUNDARIES:**
+- **❌ NO FINANCIAL SERVICES** — CRA, tax compliance, HST/GST, accounting automation, payroll integration, remittance tracking, business tax filing
+- **❌ NO LEGAL SERVICES** — law firm tools, legal tech, disbursement auditing, legal billing
+- **❌ NO TRADING APPS/CRYPTO PRODUCTS** — Retail crypto trading signals/bots/execution tools, trading SaaS. (Market Signal Lab is internal personal use only; NOT building trading products for external customers)
+- **✅ FOCUS AREAS:** SaaS, automation, content, productivity, developer tools
+
+**OTHER RULES:**
+- **Don't regenerate ideas** — Don't re-suggest the same ideas repeatedly. Track what's already been proposed to avoid duplicates.
+- **Track rejections** — When Joe rejects an idea category or specific idea, mark it rejected on the board and document the boundary
+
+*Source: Joe, 2026-03-04 via Command Center comments. Refined 2026-03-04 after "Signal-to-Action Bot" rejection (trading apps). Prevents low-quality idea cards from cluttering the board.*

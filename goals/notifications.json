@@ -299,9 +299,11 @@
     "title": "What's the #1 thing slowing down Signal App right now?",
     "message": "Not looking for a full status update — just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific technical problem, or something else? Knowing this helps me prioritize overnight work.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-02T14:00:00.220Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-04T12:57:38.388Z",
+    "userAnswer": "Data quality and testing",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1772499564127_181afa42",
@@ -314,16 +316,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1772513545606_8dde2d03",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Clarifications needed: (1) Which app? (2) Monthly budget for CAC/LTV experiments? (3) Confirm channel focus = affiliates/partners/content?",
-    "taskId": "task_1772199318344_19e8fa66",
-    "answered": false,
-    "createdAt": "2026-03-03T04:52:25.606Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1772546400213_0c010d10",
     "type": "question",
     "title": "Should Even Us Up get a monetization push or maintenance mode?",
@@ -331,6 +323,16 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-03T14:00:00.213Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772632800242_979542ae",
+    "type": "question",
+    "title": "What's a tedious recurring task you still do manually?",
+    "message": "You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can probably automate or at least reduce the friction.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-04T14:00:00.242Z",
     "answeredAt": null
   }
 ]
