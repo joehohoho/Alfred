@@ -970,16 +970,19 @@
     "title": "Client Onboarding Autopilot for Automation Consultants",
     "description": "Automates the post-sale onboarding process for automation consultants. When a new client is signed, it triggers intake collection, provisions accounts (Slack, Notion, Drive), sends welcome sequences, schedules kickoff, and generates the project brief — all without the consultant touching it. Subscription ($49–$99/mo) + template marketplace for passive income. Joe is the ideal customer — built for people doing exactly what he does.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5,
+      "notes": "Real problem — Joe experiences it daily. However, the market is well-served by Zapier/Make/existing automation platforms, and users can build this themselves. Domain knowledge edge (consultant experience) is not exclusive. Subscription model needs ongoing support (not passive). Minimal project synergy. Below promotion threshold; revisit if a unique angle emerges (vertical-specific templates, deeper platform integration)."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T06:25:02.192Z",
-    "updatedAt": "2026-02-26T06:25:02.192Z"
+    "updatedAt": "2026-03-05T08:00:00.000Z"
   },
   {
     "id": "idea_1772099236147_d417567b",
@@ -2523,7 +2526,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-03T15:01:58.354Z",
-    "updatedAt": "2026-03-03T15:01:58.354Z"
+    "updatedAt": "2026-03-05T11:02:12.126Z",
+    "comments": [
+      {
+        "id": "cmt_1772708532126_a2dead31",
+        "author": "alfred",
+        "text": "Proactive research complete — Signal App monetization strategy (early-stage recommendation).\n\nCompetitor benchmark (public pricing snapshots):\n1) TradingView (retail charting/signal ecosystem): Essential ~C$19.59/mo, Plus ~C$39.59/mo, Premium ~C$78.99/mo (annual billing). Strong laddered upsell and free entry point.\n2) CryptoQuant (on-chain + pro analytics): Basic Free, Advanced $29/mo, Professional $99/mo, Premium $799/mo (annual billing). Clear segmentation from retail to pro/institutional.\n3) CoinGlass API (data/API-first product): Hobbyist $29/mo, Startup $79/mo, Standard $299/mo, Professional $699/mo, Enterprise custom. Strong value metric = API limits + commercial rights.\n\nRecommendation for Joe’s audience (early-stage, trust-building first):\n- Adopt Freemium + 2 paid tiers + B2B API add-on (not one-time purchase).\n\nSuggested packaging/pricing:\n- Free: delayed/basic signals, limited assets, limited history, no webhook/API.\n- Pro (core retail): US$19/mo or US$190/yr\n  - Real-time signals, watchlist alerts, basic strategy notes, email/Telegram/Discord delivery.\n- Pro+ (serious users): US$49/mo or US$490/yr\n  - Multi-timeframe confirmations, priority alerts, richer context (risk score / regime labels), export + integrations.\n- API/Commercial (B2B): starts US$299/mo (usage + seat/add-on model)\n  - Webhook/API access, higher rate limits, commercial usage rights, SLA-lite support.\n\nWhy this is best now:\n- Price anchors below TradingView/CryptoQuant pro levels, reducing signup friction for Joe’s current network.\n- Freemium creates top-of-funnel without forcing immediate trust transfer.\n- $49 tier captures power users without jumping too early into enterprise complexity.\n- API tier opens higher-ARPU path once signal quality + retention are proven.\n\nExecution order (fastest path):\nPhase 1 (now): Free + Pro launch, annual discount only.\nPhase 2 (after retention evidence): add Pro+ features + limited API beta.\nPhase 3: formal B2B/API licensing and partner onboarding.\n\nKPIs to validate pricing within 30-45 days:\n- Free→Pro conversion target: 3-7%\n- Pro monthly churn target: <8%\n- % choosing annual plan target: >20%\n- Upgrade Pro→Pro+ target: >10% of paid base once launched\n\nIf needed, I can next draft exact feature gating + paywall copy + launch offer experiment matrix (A/B price points: $19 vs $24, $49 vs $59).",
+        "createdAt": "2026-03-05T11:02:12.126Z"
+      }
+    ]
   },
   {
     "id": "idea_1772557285014_8eea607e",

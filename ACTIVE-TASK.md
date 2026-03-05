@@ -103,4 +103,7 @@
 
 - **Cron Auto-Disabled** (_system_, Mar 05 03:01)
   ID: `notif_1772679697200_970613fc` — Nightly Git Commit: 3 consecutive failures — auto-disabled
+
+- **Partial Recovery** (_system_, Mar 05 12:00)
+  ID: `notif_1772712026890_1751fb62` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
 <!-- PENDING-Q-END -->
