@@ -132,6 +132,17 @@ When Joe comments on a kanban card, Alfred MUST:
 ### On `[KANBAN-UNBLOCK]`
 Resume work and move to review when complete.
 
+### Alfred-HAL Handoff Contract (Emerging Pattern)
+When dispatching to HAL, include:
+1. **Objective** — One-line goal + constraints (e.g., "Fix login bug without breaking email flow")
+2. **Deliverables Checklist** — Exact files/artifacts needed (code, test evidence, rollback steps, migration guides)
+3. **Validation Commands** — How to verify success (test command + expected output)
+4. **Ownership** — Alfred owns final kanban move + Joe notification (HAL doesn't move to done)
+
+**Why:** Eliminates back-and-forth on acceptance criteria; reduces cards stuck in review waiting for clarification.
+
+**Pattern source:** Mar 4 Alfred/HAL discussion. Rough handoffs resolved by formalizing artifacts upfront.
+
 ### Critical constraint
 **HAL only picks up a new Kanban card when `in_progress` is empty.** Alfred may have multiple in_progress cards (parallel work), but the HAL idle dispatcher will not auto-assign a new card while any card is already in_progress. Proactive pool tasks (no board move) can always run.
 
