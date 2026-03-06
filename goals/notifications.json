@@ -371,5 +371,14 @@
     "answered": false,
     "createdAt": "2026-03-05T19:40:20.789Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772769691874_27ad49a8",
+    "type": "update",
+    "title": "Goal Progress Check Complete",
+    "message": "[idle:goal-progress-check] 7 of 9 stalled items are review-ready with no blockers; 1 CoinUsUp audit blocked (awaiting metrics/repo); dashboard restarted OK",
+    "answered": false,
+    "createdAt": "2026-03-06T04:01:31.874Z",
+    "answeredAt": null
   }
 ]

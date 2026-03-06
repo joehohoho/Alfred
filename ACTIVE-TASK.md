@@ -109,4 +109,7 @@
 
 - **Codex Token Expiring** (_system_, Mar 05 19:40)
   ID: `notif_1772739620789_43dbf732` — Codex OAuth token expires in 48h. Refresh via: openclaw models auth login --provider openai-codex
+
+- **Goal Progress Check Complete** (_update_, Mar 06 04:01)
+  ID: `notif_1772769691874_27ad49a8` — [idle:goal-progress-check] 7 of 9 stalled items are review-ready with no blockers; 1 CoinUsUp audit blocked (awaiting metrics/repo); dashboard restart...
 <!-- PENDING-Q-END -->
