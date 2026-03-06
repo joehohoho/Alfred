@@ -1,4 +1,4 @@
-# NOW.md — Current Checkpoint (2026-03-04, 22:00 AST)
+# NOW.md — Current Checkpoint (2026-03-06, 16:00 AST)
 
 ## System Status
 - **Overall:** Healthy & productive (idle, awaiting external input)
@@ -7,12 +7,12 @@
 - **Disk:** 78% /Users (stable, no pressure)
 - **Rate limits:** No spikes detected (infrastructure improvements reducing cascades)
 
-## What Just Happened (Evening of Mar 4)
-- ✅ Infrastructure deployment complete (3 new systems live + tested)
-- ✅ HAL Signal App testing dispatched (4-8h, auto-announces on completion)
-- ✅ CoinUsUp npm fixes verified ready (0 vulns, build clean)
-- ✅ Channel expansion pilot framework finalized (3 blocker Qs sent to Joe)
-- ✅ Memory updated (daily log, session bridge, task state)
+## What Just Happened (Mar 4-6)
+- ✅ Infrastructure deployment proven stable (3 new systems, 3+ days clean, no cascades)
+- ✅ Daily-inquiry dedup bug FIXED (expanded pool 4→8, topic-aware tracking)
+- ✅ HAL handoff contract pattern documented (AGENTS.md: objective/deliverables/validation/ownership)
+- ✅ Boundary enforcement working (financial services ideas auto-rejected per Mar 4 directive)
+- ✅ HAL Signal App testing progressing (auto-announce on completion)
 
 ## Active Work
 - **HAL:** Signal App testing/data validation (progress: running, no completion yet)

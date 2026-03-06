@@ -123,4 +123,10 @@
 
 - **Signal App: what's the #1 blocker right now?** (_question_, Mar 06 14:00)
   ID: `notif_1772805600255_09ade466` — Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioriti...
+
+- **Signal App HAL Status** (_update_, Mar 06 19:01)
+  ID: `notif_1772823662382_6ea4da4d` — HAL was dispatched at 09:02 AST with 4-8h ETA. Should be complete or near-complete by 15:00 AST. Check for auto-announcement.
+
+- **Codex Token Expiring** (_system_, Mar 06 19:40)
+  ID: `notif_1772826036884_450b9c79` — Codex OAuth token expires in 24h. Refresh via: openclaw models auth login --provider openai-codex
 <!-- PENDING-Q-END -->

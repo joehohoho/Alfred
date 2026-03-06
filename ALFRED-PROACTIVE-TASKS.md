@@ -64,3 +64,33 @@ HAL handles code-heavy tasks (see HAL-PROACTIVE-TASKS.md).
 ## Passive Income Focus Note
 Joe's #1 goal: financial independence via passive income so he can spend more time with family.
 When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
+
+---
+
+## Workflow Efficiency Scan — 2026-03-06
+
+### Top repetitive patterns and concrete improvements
+
+1. **Repeated clarification loops in notifications (high context-switch cost)**
+   - **Pattern:** Questions to Joe can still require follow-up because they arrive as one-off asks instead of decision packets with clear defaults.
+   - **Impact:** Interruptions + delayed execution when Joe is in deep work.
+   - **Improvement proposal:** Add a `scripts/decision-packet.sh` wrapper that enforces a structured template before any question is sent (context, decision needed, 2 options, recommendation, no-response default). Reject send if any field is missing.
+   - **Success metric:** Reduce follow-up clarification notifications by 50% in 2 weeks.
+
+2. **Kanban state drift (manual cleanup recurring every day)**
+   - **Pattern:** Cards linger in `in_progress`/`review` without owner heartbeat, forcing repeated stale-card sweeps and manual interpretation.
+   - **Impact:** Blocks HAL pickup logic, creates false workload picture, and burns cycles on board hygiene.
+   - **Improvement proposal:** Add auto-enforcement policy: if a card has no update in 24h and has deliverables attached, move `review → done`; if `in_progress` stale >24h with no active lease, auto-move to `review` with audit comment.
+   - **Success metric:** Keep stale `in_progress` count at 0 and reduce manual cleanup runs by 80%.
+
+3. **Duplicate recurring prompts (notification noise)**
+   - **Pattern:** Daily inquiry and proactive prompts can repeat near-identical questions/tasks within a short window.
+   - **Impact:** Trust erosion + wasted cycles answering/processing duplicates.
+   - **Improvement proposal:** Implement a shared dedupe ledger (`memory/automation-dedupe.jsonl`) with `content_hash + last_asked_at + cooldown_days`; skip/swap any item asked in last 7 days.
+   - **Success metric:** Zero duplicate daily inquiry questions in a rolling 14-day window.
+
+### Recommended implementation order (highest ROI first)
+1. Dedupe ledger (fastest trust win)
+2. Decision packet wrapper (cuts interruption overhead)
+3. Kanban auto-enforcement policy (stabilizes pipeline)
+
