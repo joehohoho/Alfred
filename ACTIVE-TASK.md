@@ -1,7 +1,7 @@
 # ACTIVE-TASK.md - Current Work In Progress
 
-**Status:** idle (awaiting HAL completion or Joe clarification on 3 blocker questions)
-**Last Updated:** 2026-03-04 22:00 AST
+**Status:** idle → HAL online (was unreachable 10 PM - 3 AM, back 04:00 AST)
+**Last Updated:** 2026-03-06 04:00 AST
 **Completed Today:** 
   1. ✅ HAL: Signal App data validation layer (commit 18ef58e, PUSHED)
   2. ✅ Alfred: HAL infrastructure improvements (3 new systems deployed)
@@ -29,10 +29,12 @@
 - ✅ **Verified:** Test run clean (context 50%, tokens 100k+, all tasks executed)
 - **Next:** Monitor 4:30 AM execution overnight; verify zero cascades in 3 days = locked in
   
-- **Blocked (awaiting Joe response):** Channel Expansion Pilot
+- **IN PROGRESS:** Channel Expansion Pilot
   - Card: task_1772199318344_19e8fa66 (URGENT)
-  - Framework complete, pending 3 blocker Qs (app choice, budget, channel confirmation)
-  - Ready to execute within 2h of Joe's response
+  - **Status:** Moved to in_progress at 04:51 AST
+  - **Framework:** Complete + ready to execute (CAC/LTV tracking, creative matrix, weekly reallocation, reporting)
+  - **Blockers:** Awaiting 3 clarifications (app, budget, channel confirmation)
+  - **ETA:** Full setup + Day 1 launch within 48h of Joe's response
   
 - HAL Status: Webpack→Vite migration ETA was Mar 3 2-4h; no completion notice yet (may still be running or auto-moved to done)
 - Pending Questions: 5 unresponded (3 blocker Qs on pilot + 2 standard approvals pending since Mar 2)
@@ -112,4 +114,13 @@
 
 - **Goal Progress Check Complete** (_update_, Mar 06 04:01)
   ID: `notif_1772769691874_27ad49a8` — [idle:goal-progress-check] 7 of 9 stalled items are review-ready with no blockers; 1 CoinUsUp audit blocked (awaiting metrics/repo); dashboard restart...
+
+- **Codex Token Expiring** (_system_, Mar 06 07:40)
+  ID: `notif_1772782828419_0a482a1f` — Codex OAuth token expires in 36h. Refresh via: openclaw models auth login --provider openai-codex
+
+- **Partial Recovery** (_system_, Mar 06 12:00)
+  ID: `notif_1772798425714_07e4d4b8` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
+
+- **Signal App: what's the #1 blocker right now?** (_question_, Mar 06 14:00)
+  ID: `notif_1772805600255_09ade466` — Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioriti...
 <!-- PENDING-Q-END -->

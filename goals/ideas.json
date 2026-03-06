@@ -2752,7 +2752,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T23:01:08.950Z",
-    "updatedAt": "2026-03-04T23:01:08.950Z"
+    "updatedAt": "2026-03-06T08:01:56.760Z",
+    "comments": [
+      {
+        "id": "cmt_1772784116760_9da583fb",
+        "author": "alfred",
+        "text": "Refresh audit (Mar 6, 2026) — prioritized for execution\n\nTop 3 UX friction points (priority / impact / effort):\n1) Settlement visibility gap: users can’t instantly see “who should pay whom now” after multiple expenses. (P1 / High / Medium ~4-6 dev days)\n2) Recurring split setup is too manual for rent/utilities/subscriptions. (P2 / High / High ~7-10 dev days)\n3) Invite/onboarding dropoff when collaborators must fully register before contributing. (P3 / Medium / Low ~2-3 dev days)\n\nTop 3 missing features:\n1) Smart debt simplification + one-tap settle plan (core differentiator vs Splitwise complexity). (F1 / High / Medium ~5-7 dev days)\n2) Partial/offline contribution mode (invitees can add/confirm expenses from link before full signup). (F2 / High / Medium ~4-6 dev days)\n3) Recurring expense templates with auto-reminders + split defaults. (F3 / High / Medium ~4-6 dev days)\n\nTop 3 growth levers:\n1) Vertical templates (couples, roommates, trips, events) with 60-second setup. (G1 / High / Low ~2-3 dev days)\n2) Settlement share card (“We settled $X fairly in Y taps”) with referral loop. (G2 / Medium / Low ~2-3 dev days)\n3) Trust positioning: privacy-first + no ad-driven dark patterns + transparent totals history. (G3 / Medium / Low ~1-2 dev days)\n\nDifferentiation vs Splitwise/similar:\n- Compete on speed-to-settlement, not feature sprawl.\n- Own “small trusted groups” use case (couples/roommates/trips) with presets.\n- Reduce account-friction and make settlement outcomes explicit.\n\nRecommended next 2 sprints:\n- Sprint A: F1 + UX fix #1 + G1\n- Sprint B: F2 + F3 + G2\n\nExpected outcome: higher invite conversion, faster debt closure, and stronger retention via recurring use cases.",
+        "createdAt": "2026-03-06T08:01:56.760Z"
+      }
+    ]
   },
   {
     "id": "idea_1772701302485_c057ee51",

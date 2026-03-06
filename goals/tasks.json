@@ -1078,10 +1078,10 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.344Z",
-    "updatedAt": "2026-03-05T16:51:19.875Z",
-    "assignedAt": "2026-03-05T16:51:12.606Z",
+    "updatedAt": "2026-03-06T08:51:33.997Z",
+    "assignedAt": "2026-03-06T08:51:15.722Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "5f447009-93f6-48c3-ae60-2759062d364c",
+    "deliveryMessageId": "d446c036-94ae-4c1f-9ca5-0d08d1d10fe1",
     "comments": [
       {
         "id": "cmt_1772222453822_45b224a5",
@@ -1166,6 +1166,12 @@
         "author": "alfred",
         "text": "🎯 **KANBAN-ASSIGNMENT ACKNOWLEDGED**\n\nCard moved to **in_progress**. Objective: Run 30-day pilot across 1-2 acquisition channels with CAC/LTV tracking, creative tests, and weekly budget reallocation.\n\n**Starting:**\n1. Audit current channel setup (CoinUsUp + Even Us Up)\n2. Define CAC/LTV metrics and tracking framework\n3. Select 1-2 test channels (affiliates/partners/content)\n4. Design creative tests and weekly reallocation logic\n5. Set baseline metrics and success criteria\n6. Deploy and monitor Day 1\n\n**Next Step:** Gather current stats from both apps and define pilot parameters.\n\nETA: Initial plan + setup complete by EOD.",
         "createdAt": "2026-03-05T16:51:19.875Z"
+      },
+      {
+        "id": "cmt_1772787093997_acb440f3",
+        "author": "alfred",
+        "text": "🚀 **Status: ACTIVE** — Card moved to in_progress.\n\nI have the 30-day pilot framework ready (CAC/LTV tracking, creative matrix, weekly reallocation, reporting template). Ready to execute immediately.\n\n⏸️ **3 blockers to confirm before Day 1 launch:**\n\n1. **App Selection** — Which app is this pilot for?\n   - CoinUsUp | Even Us Up | Signal App | LegalBillAI | Other?\n\n2. **Monthly Budget Ceiling** — CAC/LTV test budget?\n   - $50-100 | $250-500 | $1000+ | Other?\n\n3. **Channel Confirmation** — Focusing on affiliates/partners/content, yes? Any specific networks/platforms you want prioritized?\n\nOnce confirmed, I'll begin Day 1 (map channels, baseline LTV, tracking setup) immediately. ETA: Full framework operational within 48h of confirmation.",
+        "createdAt": "2026-03-06T08:51:33.997Z"
       }
     ]
   },

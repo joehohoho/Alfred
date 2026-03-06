@@ -380,5 +380,33 @@
     "answered": false,
     "createdAt": "2026-03-06T04:01:31.874Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772782828419_0a482a1f",
+    "type": "system",
+    "title": "Codex Token Expiring",
+    "message": "Codex OAuth token expires in 36h. Refresh via: openclaw models auth login --provider openai-codex",
+    "answered": false,
+    "createdAt": "2026-03-06T07:40:28.419Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772798425714_07e4d4b8",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-06T12:00:25.714Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772805600255_09ade466",
+    "type": "question",
+    "title": "Signal App: what's the #1 blocker right now?",
+    "message": "Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-06T14:00:00.255Z",
+    "answeredAt": null
   }
 ]
