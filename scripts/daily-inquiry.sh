@@ -34,7 +34,9 @@ CUTOFF_DATE=$(date -v-30d +%Y-%m-%dT%H:%M:%S 2>/dev/null || date --date="-30 day
 jq "[.[] | select(.answered == false or (.createdAt > \"$CUTOFF_DATE\"))]" "$WORKSPACE/goals/notifications.json" > "${WORKSPACE}/goals/notifications.json.tmp" 2>/dev/null && mv "${WORKSPACE}/goals/notifications.json.tmp" "$WORKSPACE/goals/notifications.json" 2>/dev/null || true
 
 # Get recent answered question titles + unanswered pending notifications to avoid duplicates
-RECENT_TITLES=$(tail -10 "$INQUIRY_LOG" 2>/dev/null | jq -r '.title' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
+# Filter by date: only include questions from last 7 days (not just last 10 entries)
+SEVEN_DAYS_AGO=$(date -v-7d +%Y-%m-%d 2>/dev/null || date --date="-7 days" +%Y-%m-%d 2>/dev/null)
+RECENT_TITLES=$(awk -F'"' -v cutoff="$SEVEN_DAYS_AGO" '$2 >= cutoff {print}' "$INQUIRY_LOG" 2>/dev/null | jq -r '.title' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
 PENDING_NOTIFS=$(jq -r '[.[] | select(.answered == false) | .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
 ALL_TITLES="$RECENT_TITLES|$PENDING_NOTIFS"
 
@@ -100,7 +102,8 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
   )
   
   # Build a set of recent topics to avoid (more robust than title substring matching)
-  RECENT_TOPICS=$(tail -20 "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
+  # Filter by date: only topics from last 7 days (prevents 4-day cycle from repeating same topics)
+  RECENT_TOPICS=$(awk -F'"' -v cutoff="$SEVEN_DAYS_AGO" '$2 >= cutoff {print}' "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
   PENDING_TOPICS=$(jq -r '[.[] | select(.answered == false) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
   ALL_TOPICS="$RECENT_TOPICS|$PENDING_TOPICS"
   
