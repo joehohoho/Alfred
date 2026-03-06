@@ -408,5 +408,15 @@
     "answered": false,
     "createdAt": "2026-03-06T14:00:00.255Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772823662382_6ea4da4d",
+    "type": "update",
+    "title": "Signal App HAL Status",
+    "message": "HAL was dispatched at 09:02 AST with 4-8h ETA. Should be complete or near-complete by 15:00 AST. Check for auto-announcement.",
+    "source": "workspace-check",
+    "answered": false,
+    "createdAt": "2026-03-06T19:01:02.382Z",
+    "answeredAt": null
   }
 ]
