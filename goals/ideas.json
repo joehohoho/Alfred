@@ -2953,5 +2953,53 @@
     "tags": [],
     "createdAt": "2026-03-06T06:02:34.122Z",
     "updatedAt": "2026-03-06T06:02:34.122Z"
+  },
+  {
+    "id": "idea_1772809294576_4736d168",
+    "title": "Kanban stale-card null-ID guard + self-heal",
+    "description": "Infrastructure gap observed during idle-loop: stale-card scan emitted entries with id=null and auto-moved them to review, indicating data integrity or parser fallback issue. Build guardrails: (1) hard validation that card.id and updatedAt exist before stale logic, (2) quarantine invalid cards to blocked with reason=integrity_error instead of silent move, (3) nightly integrity audit endpoint + report in Command Center Health, (4) auto-repair script that rehydrates missing IDs from API source of truth. Outcome: prevents phantom moves, protects HAL dispatch logic, and improves board trust.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-06T15:01:34.576Z",
+    "updatedAt": "2026-03-06T15:01:34.576Z"
+  },
+  {
+    "id": "idea_1772809299824_d12f5aa4",
+    "title": "Pending-question lifecycle manager (dedup + auto-close)",
+    "description": "Current sync reports 12 pending questions repeatedly, which risks stale backlog and repeated context load. Add lifecycle automation: (1) dedup by semantic key + goal/card linkage, (2) auto-close pending items when matching Joe response event arrives, (3) SLA escalator (24h/72h) with single reminder cap, (4) ACTIVE-TASK pending section generated from authoritative unresolved set only. Outcome: less notification noise, fewer repeated asks, and lower token burn from stale context.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-06T15:01:39.824Z",
+    "updatedAt": "2026-03-06T15:01:39.824Z"
+  },
+  {
+    "id": "idea_1772809305819_be7f0974",
+    "title": "Event-driven board delta feed for Alfred loops",
+    "description": "Proactive/idle scans repeatedly fetch full Kanban payload and rerun broad checks, creating duplicate effort and token overhead. Implement board-delta feed: (1) /api/kanban/changes?since=<cursor> endpoint with compact events (moved, commented, blocked, stale), (2) store local cursor state in heartbeat-state.json, (3) only trigger analysis/LLM work when high-value events occur, (4) fallback to full snapshot every N hours for reconciliation. Outcome: lower runtime/tool overhead, faster reaction, and reduced proactive token cost without losing reliability.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-06T15:01:45.819Z",
+    "updatedAt": "2026-03-06T15:01:45.819Z"
   }
 ]
