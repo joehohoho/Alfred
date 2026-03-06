@@ -406,13 +406,14 @@ Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<descr
 
 ## Critical System Issues Identified (2026-03-03 Memory Review)
 
-**Issue 1: Daily Inquiry Duplicate Questions Bug — PRIORITY 1**
+**Issue 1: Daily Inquiry Duplicate Questions Bug — PRIORITY 1 (ROOT CAUSE IDENTIFIED 2026-03-06)**
 - Joe flagged Feb 27: "These are repeat questions" (passive income targets asked twice)
 - Joe flagged Feb 28: "This looks like a duplicate question list from before" (synergies asked twice)
 - **Impact:** Erodes user trust in notification system
-- **Root cause:** daily-inquiry cron queries goals table without deduplication; creates same notification set on reruns
-- **Solution:** Add seen-list to goals.json OR deduplicate notifications before posting
+- **Root cause (CONFIRMED):** inquiry-log.jsonl shows 4-question rotation repeating without date-based deduplication. Same questions cycle every 4 days (Feb 20→24→28, Feb 23→27).
+- **Solution:** Expand question pool OR add "last_asked" timestamp tracking to skip questions asked <7 days prior
 - **Status:** BLOCKING — fixes notification system credibility. Must implement before next daily inquiry cycle.
+- **Audit:** Daily inquiry cron at 10 AM AST — check for duplicate questions in rotation before posting
 
 **Issue 2: Auto-Move Deliverables Directive Not Enforced — MEDIUM**
 - Joe's Feb 27 directive: Auto-move completed HAL deliverable cards (Review→Done) without waiting for approval

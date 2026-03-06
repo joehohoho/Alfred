@@ -1351,28 +1351,16 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "archived",
+    "status": "new",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": {
-      "score": 5.9,
-      "notes": "Violates Joe's NO FINANCIAL SERVICES boundary (HST/GST compliance forbidden). Score would be 5.9/10 anyway (small TAM, no contractor domain edge). Archive per directive.",
-      "breakdown": {
-        "market_fit_3x": 6,
-        "effort_reward_2x": 6,
-        "joes_edge_2x": 6,
-        "synergy_1x": 5,
-        "passive_potential_2x": 6
-      }
-    },
+    "evaluation": null,
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-06T01:00:00.000Z",
-    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary (HST/GST compliance)",
-    "rejectedAt": "2026-03-06T01:00:00.000Z"
+    "updatedAt": "2026-02-26T20:01:11.462Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -2941,5 +2929,21 @@
     "tags": [],
     "createdAt": "2026-03-06T04:01:59.627Z",
     "updatedAt": "2026-03-06T04:01:59.627Z"
+  },
+  {
+    "id": "idea_1772776954122_a8b272ce",
+    "title": "CoinUsUp growth audit — UX friction, missing features, growth levers (Mar 6)",
+    "description": "Priority recommendations from codebase + SEO review.\n\nTOP 3 UX FRICTION POINTS\n1) High activation friction before first value (NoOrganization gate + multi-step setup: campaign/event/members/shifts/donation). New users must complete many admin tasks before seeing useful output.\n   Effort to fix: M (3-5 days) for guided quick-start + sample data mode + 1-click demo org.\n2) Setup guide is checklist-heavy but not outcome-oriented. It tracks object creation, not user outcomes (e.g., first campaign page published, first donor touchpoint sent).\n   Effort to fix: M (2-4 days) to add outcome milestones + contextual CTA shortcuts.\n3) Manual donation-heavy workflow and limited automation. Donation entry relies on form input; limited auto-import/payment sync evidence.\n   Effort to fix: M-L (1-2 weeks) for CSV import v2 + bank/processor connector starter.\n\nTOP 3 MISSING FEATURES USERS LIKELY WANT\n1) Donor CRM workflow automation (thank-you sequences, pledge follow-up, lapsed-donor reactivation).\n   Effort: L (2-3 weeks).\n2) Public campaign pages + donor self-serve flow (shareable campaign/event links with clear CTAs, recurring donation support).\n   Effort: L (2-4 weeks depending on payment stack).\n3) Integrations & exports for operations (QuickBooks/Xero class exports, Mailchimp/HubSpot sync, webhook/API).\n   Effort: M-L (1-3 weeks phased).\n\nTOP 3 GROWTH LEVERS (SEO, VIRALITY, MONETIZATION)\n1) SEO technical fixes with immediate upside: sitemap.xml, robots sitemap directive, prerender/SSR for marketing pages, internal linking depth.\n   Effort: S-M (2-5 days). Expected impact: stronger indexing + lower CAC.\n2) Built-in referral/share loops for admins: post-campaign summary share cards + invite templates + referral attribution.\n   Effort: M (4-7 days). Expected impact: organic acquisition compounding.\n3) Monetization optimization: package automation/integrations as Pro differentiators (not just object-count limits), add annual incentive + ROI-focused pricing copy.\n   Effort: S-M (2-6 days for pricing/packaging tests). Expected impact: better free→paid conversion and lower churn.\n\nPRIORITIZED EXECUTION ORDER\nP1 (this week): SEO technical fixes + onboarding quick-start (highest ROI, lowest effort).\nP2 (next sprint): referral/share loop + outcome-based setup milestones.\nP3 (following sprint): donor automation + integrations bundle for Pro monetization.\n\nConfidence: medium-high (based on current code architecture + prior SEO audit findings).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-06T06:02:34.122Z",
+    "updatedAt": "2026-03-06T06:02:34.122Z"
   }
 ]
