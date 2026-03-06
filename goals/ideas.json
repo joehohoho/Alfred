@@ -1351,21 +1351,16 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "archived",
+    "status": "new",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": {
-      "score": 3.7,
-      "notes": "Violates NO FINANCIAL SERVICES boundary (HST/GST tax compliance). Market unvalidated. High build complexity (mobile + offline + tax compliance) with moderate revenue potential. HST compliance creates ongoing maintenance burden (tax law updates, support overhead) — not passive. Archive per directive."
-    },
+    "evaluation": null,
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-06T14:00:00.000Z",
-    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary",
-    "rejectedAt": "2026-03-06T14:00:00.000Z"
+    "updatedAt": "2026-02-26T20:01:11.462Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -2851,7 +2846,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-05T16:02:03.472Z",
-    "updatedAt": "2026-03-05T16:02:03.472Z"
+    "updatedAt": "2026-03-06T21:01:36.467Z",
+    "comments": [
+      {
+        "id": "cmt_1772830896467_dfdee83c",
+        "author": "alfred",
+        "text": "## Portfolio Health Snapshot — 2026-03-06 (Proactive Review)\n\nUpdated one-page review across current/potential revenue streams.\n\n### 1) CoinUsUp\n- **Current status:** Live + maintained; multiple growth/security/dependency tasks completed, but monetization still mostly unactivated.\n- **Estimated current MRR:** **$0–$100/mo** (effectively pre-monetization).\n- **Estimated potential MRR (12 months):** **$500–$2,000/mo** with paid tiers + activation funnel.\n- **Biggest bottleneck:** Monetization packaging + steady acquisition channel still missing.\n\n### 2) Even Us Up\n- **Current status:** Product strategy now clearer (settlement-first differentiation vs Splitwise).\n- **Estimated current MRR:** **$0/mo**.\n- **Estimated potential MRR (12 months):** **$300–$1,200/mo** if settlement-native flow + household mode + migration/import are shipped.\n- **Biggest bottleneck:** No executed growth loop yet (onboarding + switching friction + retention mechanics).\n\n### 3) Signal App *(internal/personal use boundary for external productization)*\n- **Current status:** Technical foundation improved (market-signal-lab upgrades complete); direct retail trading-product paths are intentionally constrained.\n- **Estimated current MRR:** **$0/mo**.\n- **Estimated potential MRR (12 months):** **$0–$1,000/mo** only via compliant adjacent packaging (if any); **not a primary external product focus under current boundaries**.\n- **Biggest bottleneck:** Strategic boundary (no external trading-app product) limits direct monetization path.\n\n### 4) Automation Consulting\n- **Current status:** Still the portfolio cash engine.\n- **Estimated current MRR:** **~$3,000/mo** (range **$3k–$5k** by load).\n- **Estimated potential MRR (12 months):** **$5,000–$12,000/mo equivalent** through productized service bundles + repeatable delivery.\n- **Biggest bottleneck:** Capacity ceiling (time-for-money) without delegation/productization.\n\n---\n\n## Portfolio Summary (Mar 6)\n- **Current total MRR:** **~$3k/mo**, concentrated in consulting.\n- **Passive/app revenue:** still near-zero.\n- **Best near-term leverage:** convert consulting know-how into productized, recurring offers.\n- **Even Us Up upside:** real if settlement speed + trust layer is executed quickly.\n\n## Suggested 60-day allocation\n- **55%** Automation Consulting (cash + productization)\n- **30%** Even Us Up (differentiation execution + activation loop)\n- **15%** CoinUsUp maintenance + monetization experiments\n\n*Directionally estimated for planning; not booked finance statements.*",
+        "createdAt": "2026-03-06T21:01:36.467Z"
+      }
+    ]
   },
   {
     "id": "idea_1772762496628_13c09ef9",

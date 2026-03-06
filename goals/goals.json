@@ -678,14 +678,12 @@
     "title": "Alfred infra: HAL unblocking + resilient dispatch + checkpoint cost guard",
     "description": "Infrastructure scan (2026-03-03): Top 3 improvements: (1) Auto-clear stale in_progress cards blocking HAL dispatch, (2) HAL dispatch retry queue with rate-limit backoff/jitter and model fallback, (3) checkpoint/cost guard to batch sync+status calls and avoid duplicate cron-trigger overhead. Add observability counters for each.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-03-06T22:01:21.361Z",
+    "metadata": {},
     "createdAt": "2026-03-04T12:36:03.182Z",
-    "updatedAt": "2026-03-04T23:01:08.043Z",
+    "updatedAt": "2026-03-06T22:01:21.361Z",
     "comments": [
       {
         "id": "cmt_1772628678176_bf956f48",
