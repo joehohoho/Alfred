@@ -1351,16 +1351,21 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 3.7,
+      "notes": "Violates NO FINANCIAL SERVICES boundary (HST/GST tax compliance). Market unvalidated. High build complexity (mobile + offline + tax compliance) with moderate revenue potential. HST compliance creates ongoing maintenance burden (tax law updates, support overhead) — not passive. Archive per directive."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-02-26T20:01:11.462Z"
+    "updatedAt": "2026-03-06T14:00:00.000Z",
+    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary",
+    "rejectedAt": "2026-03-06T14:00:00.000Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -2536,13 +2541,19 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-03T15:01:58.354Z",
-    "updatedAt": "2026-03-05T11:02:12.126Z",
+    "updatedAt": "2026-03-06T17:02:22.302Z",
     "comments": [
       {
         "id": "cmt_1772708532126_a2dead31",
         "author": "alfred",
         "text": "Proactive research complete — Signal App monetization strategy (early-stage recommendation).\n\nCompetitor benchmark (public pricing snapshots):\n1) TradingView (retail charting/signal ecosystem): Essential ~C$19.59/mo, Plus ~C$39.59/mo, Premium ~C$78.99/mo (annual billing). Strong laddered upsell and free entry point.\n2) CryptoQuant (on-chain + pro analytics): Basic Free, Advanced $29/mo, Professional $99/mo, Premium $799/mo (annual billing). Clear segmentation from retail to pro/institutional.\n3) CoinGlass API (data/API-first product): Hobbyist $29/mo, Startup $79/mo, Standard $299/mo, Professional $699/mo, Enterprise custom. Strong value metric = API limits + commercial rights.\n\nRecommendation for Joe’s audience (early-stage, trust-building first):\n- Adopt Freemium + 2 paid tiers + B2B API add-on (not one-time purchase).\n\nSuggested packaging/pricing:\n- Free: delayed/basic signals, limited assets, limited history, no webhook/API.\n- Pro (core retail): US$19/mo or US$190/yr\n  - Real-time signals, watchlist alerts, basic strategy notes, email/Telegram/Discord delivery.\n- Pro+ (serious users): US$49/mo or US$490/yr\n  - Multi-timeframe confirmations, priority alerts, richer context (risk score / regime labels), export + integrations.\n- API/Commercial (B2B): starts US$299/mo (usage + seat/add-on model)\n  - Webhook/API access, higher rate limits, commercial usage rights, SLA-lite support.\n\nWhy this is best now:\n- Price anchors below TradingView/CryptoQuant pro levels, reducing signup friction for Joe’s current network.\n- Freemium creates top-of-funnel without forcing immediate trust transfer.\n- $49 tier captures power users without jumping too early into enterprise complexity.\n- API tier opens higher-ARPU path once signal quality + retention are proven.\n\nExecution order (fastest path):\nPhase 1 (now): Free + Pro launch, annual discount only.\nPhase 2 (after retention evidence): add Pro+ features + limited API beta.\nPhase 3: formal B2B/API licensing and partner onboarding.\n\nKPIs to validate pricing within 30-45 days:\n- Free→Pro conversion target: 3-7%\n- Pro monthly churn target: <8%\n- % choosing annual plan target: >20%\n- Upgrade Pro→Pro+ target: >10% of paid base once launched\n\nIf needed, I can next draft exact feature gating + paywall copy + launch offer experiment matrix (A/B price points: $19 vs $24, $49 vs $59).",
         "createdAt": "2026-03-05T11:02:12.126Z"
+      },
+      {
+        "id": "cmt_1772816542302_324a2654",
+        "author": "alfred",
+        "text": "Proactive research complete — monetization benchmark + recommendation for **Signal App**.\n\n### Competitor benchmark (3)\n1) **TradingView** (broad signal/chart competitor)\n- Public plan ladder commonly listed around: Essential ~$14.95/mo, Plus ~$29.95/mo, Premium ~$59.95/mo (annual billing discounts often 40–60%).\n- Monetization pattern: strong freemium entry, then feature-gated upgrades (alerts, backtesting depth, multi-chart, webhook scale).\n\n2) **Token Metrics** (AI crypto signal competitor)\n- Public pricing references indicate: Advanced ~$39.99/mo (or ~$399.99/yr), Premium ~$199.99/mo (or ~$1,999.99/yr), with lower entry/basic tiers in some materials.\n- Monetization pattern: high-ARPU premium intelligence + portfolio/signal depth at upper tiers.\n\n3) **CryptoQuant** (on-chain signal/intelligence competitor)\n- Public references point to free + paid tiers, with commonly cited Advanced around ~$39/mo (annual discount variants observed).\n- Monetization pattern: paid access to deeper/real-time metrics and advanced alerting.\n\n> Note: competitor pricing changes frequently; use this as directional benchmarking and re-validate exact numbers at launch.\n\n### Best early-stage pricing strategy (Joe audience)\n**Recommendation: Freemium + 2 paid tiers + delayed B2B API**\n\n#### Tier design\n- **Free**\n  - Delayed signals (e.g., 15–30 min), limited watchlist, limited daily alerts\n  - Goal: acquisition + habit loop\n- **Pro (core retail)** — target **CAD $19–$29/mo** (or CAD $190–$290/yr)\n  - Real-time signals, multi-asset watchlists, priority alerts, basic backtest/performance view\n  - Goal: maximize conversion with clear value vs free\n- **Pro+ / Power** — target **CAD $49–$79/mo**\n  - Advanced filters, regime overlays, custom alert logic, more automation/reporting\n  - Goal: ARPU lift without enterprise overhead\n\n#### B2B/API (phase 2, not day 1)\n- Launch after retail PMF and stable data infra\n- Suggested starting point: **CAD $299–$999/mo** based on request volume + SLA\n- Target users: niche fintechs/newsletters/automation builders\n\n### Why this is best now\n- One-time purchase is weak for recurring signal value; subscription matches continuous data + model upkeep.\n- Freemium reduces adoption friction and supports social proof/invite loops.\n- Two paid tiers avoid over-complexity while still capturing willingness-to-pay segments.\n- Delaying B2B protects focus and reduces support burden before core product retention is proven.\n\n### 90-day monetization KPIs\n- Free → Pro conversion: **5–8%** target\n- Trial-to-paid: **25%+**\n- Monthly churn (paid): **<6%** early target\n- ARPU blended: **CAD $24+** by month 3\n- CAC payback: **<3 months**\n\nIf approved, next step is a concrete paywall/event instrumentation spec (events, gating points, experiments, and pricing test matrix).",
+        "createdAt": "2026-03-06T17:02:22.302Z"
       }
     ]
   },
