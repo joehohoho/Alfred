@@ -88,32 +88,40 @@ BODY=$(echo "$RESULT" | jq -r '.body' 2>/dev/null || echo "")
 
 # Fallback: if claude failed or parsing broke, use a hardcoded fresh question pool
 if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
-  # Fallback pool — expanded + diverse to minimize repeat feeling
-  # Format: title|body|theme (used for rotation + dedup diversity)
+  # Fallback pool — 16 questions to prevent 4-day cycle from repeating
+  # Format: title|body|topic
   FALLBACKS=(
-    "Consulting: recurring client problem → product idea?|You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a $49+/mo SaaS? Worth a weekend prototype?|consulting"
-    "Signal App: what's the #1 blocker right now?|Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.|signal"
-    "Even Us Up: monetization sprint or maintenance mode?|Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minimum?|even-us-up"
-    "Tedious recurring task you still do manually?|You hired me for tedium. What's one thing you do regularly that shouldn't need your attention? Even small chores—I can probably automate or cut friction.|automation"
-    "Which project needs attention first: CoinUsUp, Signal App, or Consulting growth?|With three active projects going, which one deserves focus next week? What's the bottleneck/opportunity you're thinking about most?|projects"
-    "Passive income idea you've been sitting on?|Any half-baked passive income idea you've been meaning to explore but haven't had time for? I can do the research and feasibility work overnight.|passive-income"
-    "What's the weakest part of your current automation consulting process?|Where does your consulting work slow down or feel manual? Are you losing deals, struggling with delivery, or something in pitch/discovery?|consulting"
-    "Could any Signal App feature be spun into a standalone product?|Signal App has a lot of value. Is there a specific feature (better signals, backtesting, alerts) that could be a standalone cheaper tool for a different user?|signal"
+    "Consulting: recurring client problem → product idea?|You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a $49+/mo SaaS? Worth a weekend prototype?|consulting-opportunity"
+    "Signal App: what's the #1 blocker right now?|Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.|signal-blocker"
+    "Even Us Up: monetization sprint or maintenance mode?|Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minimum?|even-us-up-strategy"
+    "Tedious recurring task you still do manually?|You hired me for tedium. What's one thing you do regularly that shouldn't need your attention? Even small chores—I can probably automate or cut friction.|automation-friction"
+    "What's your actual passive income target?|Is it $500/mo, $5k/mo, or $50k/mo? Having a concrete number helps me think about which projects move the needle. What does 'enough' look like?|passive-income-target"
+    "What's the weakest part of your consulting business right now?|Where does your consulting work slow down or lose deals? Sales pitch, delivery, client retention, or something else?|consulting-weakness"
+    "Could Signal App be packaged for non-trading uses?|You built Signal App for crypto. Could the core signal logic work for other markets—stocks, commodities, forex? New verticals = new revenue.|signal-expansion"
+    "Which project deserves a dedicated sprint next?|You have CoinUsUp, Signal App, Even Us Up, and consulting. If you picked one for a 2-week sprint, what would move the needle most?|project-priority"
+    "Any new app idea you've been researching?|Beyond your current projects, has something caught your attention lately? A tool you wish existed, a market gap you noticed?|new-idea-pipeline"
+    "How should I prioritize overnight work differently?|Are you happy with how I spend idle hours, or would you prefer I focus differently? More feature work? More research? More system improvements?|alfred-optimization"
+    "What does success look like for CoinUsUp right now?|Growth, profitability, feature completeness, or something else? One concrete win would help me suggest next steps.|coinusup-vision"
+    "Is there a consulting project you could productize?|Have you done the same consulting engagement 2+ times? That's a product idea waiting to happen—could be a tool or SaaS.|productize-consulting"
+    "What's preventing Even Us Up from growing faster?|Marketing, features, user friction, or just low priority? One honest sentence about the blocker helps me identify next steps.|even-us-up-blocker"
+    "Passive income bet you'd make if risk was zero?|If you had unlimited time/energy and no failure risk, which of your current ideas would you double down on? That tells me where your real interest is.|passive-income-bet"
+    "How much time should I expect you to invest in new ideas?|Are you thinking 5 hrs/week on new projects, or is everything maintenance mode right now? Helps me calibrate what's realistic.|capacity-expectations"
+    "What's the most annoying part of your current workflow?|Not the biggest problem—just the thing that bugs you most in daily work. Sometimes small friction kills motivation.|workflow-friction"
   )
   
-  # Build a set of recent topics to avoid (more robust than title substring matching)
-  # Filter by date: only topics from last 7 days (prevents 4-day cycle from repeating same topics)
+  # Build a set of recent topics to avoid (stricter: 7-day window to prevent 4-day cycle repeats)
+  # Filter by date: only topics from last 7 days
   RECENT_TOPICS=$(awk -F'"' -v cutoff="$SEVEN_DAYS_AGO" '$2 >= cutoff {print}' "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
   PENDING_TOPICS=$(jq -r '[.[] | select(.answered == false) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
   ALL_TOPICS="$RECENT_TOPICS|$PENDING_TOPICS"
   
-  # Pick first fallback not in recent topics (allows same title if different angle)
+  # Pick first fallback not in recent topics
   for entry in "${FALLBACKS[@]}"; do
     FB_TITLE="${entry%%|*}"
     FB_BODY="${entry#*|}"; FB_BODY="${FB_BODY%%|*}"
     FB_TOPIC="${entry##*|}"
     
-    # Skip if topic was asked in last 20 inquiries
+    # Skip if topic was asked in last 7 days (prevents cycle repeats)
     if [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
       TITLE="$FB_TITLE"
       BODY="$FB_BODY"

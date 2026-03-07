@@ -1351,21 +1351,16 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "archived",
+    "status": "new",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": {
-      "score": 3.9,
-      "notes": "Violates NO FINANCIAL SERVICES boundary (2026-03-04): explicitly requires HST-compliant invoice templates and tax compliance logic. While niche market exists, Joe explicitly stated to avoid financial services vertical unless there is a very clear and easy path. Archive."
-    },
+    "evaluation": null,
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-07T04:00:00.000Z",
-    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary",
-    "rejectedAt": "2026-03-07T04:00:00.000Z"
+    "updatedAt": "2026-02-26T20:01:11.462Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -3068,5 +3063,53 @@
     "tags": [],
     "createdAt": "2026-03-07T07:01:39.748Z",
     "updatedAt": "2026-03-07T07:01:39.748Z"
+  },
+  {
+    "id": "idea_1772874078448_ba5b8153",
+    "title": "Acadian Bilingual Content Ops Copilot",
+    "description": "Demand: NB has a high share of bilingual customer-facing SMBs, and CDAP ending leaves many firms without agency support for ongoing French/English updates. Build a lightweight SaaS that auto-generates/updates bilingual website pages, menus, promos, and social posts with locale QA (Acadian French variants), then pushes to CMS + social scheduler. Moat: Atlantic-local language tuning + bilingual workflow templates competitors ignore in small markets. Revenue: -/mo per business + setup fee; partner channel via local marketing freelancers/agencies.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T09:01:18.448Z",
+    "updatedAt": "2026-03-07T09:01:18.448Z"
+  },
+  {
+    "id": "idea_1772874082679_2f94fdba",
+    "title": "Offline-First FieldOps for Rural Contractors",
+    "description": "Demand: CRTC/Canada connectivity reports continue to show rural coverage and reliability gaps; field crews in Atlantic regions regularly work in weak-signal zones. Build mobile-first scheduling + job logging + photo proof + voice notes that works offline and syncs when signal returns. Include ultra-light mode for low bandwidth and bilingual crew/customer messaging. Moat: offline reliability + rural-specific UX + Atlantic deployment/support. Revenue: -/mo per company (seat tiers) + optional white-glove onboarding for trades SMBs.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T09:01:22.679Z",
+    "updatedAt": "2026-03-07T09:01:22.679Z"
+  },
+  {
+    "id": "idea_1772874087277_61336105",
+    "title": "Atlantic Tender Digest (Bilingual SMB Edition)",
+    "description": "Demand: Small Atlantic SMBs miss municipal/provincial opportunities because tenders are fragmented across portals and often bilingual/format-inconsistent. Build a SaaS that ingests NB/NS/PEI/NL public and private tender feeds, summarizes scope in plain language, classifies fit by trade/service, and sends daily 'action list' with deadlines. Moat: Atlantic source coverage + bilingual normalization + vertical templates for local SMBs. Revenue: -/mo + premium managed opportunity matching.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T09:01:27.277Z",
+    "updatedAt": "2026-03-07T09:01:27.277Z"
   }
 ]
