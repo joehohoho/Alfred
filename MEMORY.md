@@ -395,10 +395,10 @@ Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<descr
 - Utilization target: 70-80% (HAL actively working on complex tasks)
 - Local commit policy: HAL commits locally; Alfred reviews before push (no auto-push)
 
-**Current status (as of Mar 3):**
-- HAL dispatched on webpack CRA→Vite migration (ETA Mar 3, ~6-8 hours, eliminates 28 vulnerabilities)
-- Blocked on: 2 stale in_progress kanban cards preventing new HAL assignment (pending Joe clarification on clearing them)
-- Next assignment candidate: HST/GST Filing Automation MVP (Phase 2)
+**Current status (as of Mar 7):**
+- HAL dispatched on webpack CRA→Vite migration (ETA Mar 3, ~6-8 hours, eliminates 28 vulnerabilities) — completion pending
+- Stale in_progress cards no longer block new assignments (Joe directive Mar 7: HAL skips to next available To Do item if current card stuck)
+- Next assignment: Scan To Do column for next high-priority item; skip un-actionable cards; proceed immediately
 
 **Documentation:** Full protocol in `/Users/hopenclaw/HAL-UTILIZATION-PLAN.md` (task template, routing guide, monitoring responsibilities, Q2 growth plan)
 
@@ -421,11 +421,11 @@ Use: `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<descr
 - Current state: 14 review cards stuck, creating false "review backlog"
 - **Action:** Implement enforcement in Alfred's kanban move logic going forward (check deliverable completion, move if done)
 
-**Issue 3: Stale In-Progress Cards Blocking HAL Assignment — MEDIUM**
-- 2 cards stuck in_progress (webpack migration, HST/GST Phase 2) preventing new HAL assignment
-- Kanban protocol requires `in_progress` empty before HAL can be dispatched
-- **Options:** (1) Joe clears manually, (2) endpoints to force-clear, (3) HAL works in parallel
-- **Status:** Waiting on Joe clarification since Mar 2
+**Issue 3: Stale In-Progress Cards — RESOLVED (2026-03-07)**
+- **DIRECTIVE:** HAL should NOT be blocked by stale in_progress cards. If a card is stuck/unactionable, HAL skips to next available To Do item instead of waiting
+- **Updated dispatch logic:** Check To Do column for next available item (sorted by priority/age); skip un-actionable cards; only escalate if entire queue is blocked
+- **Impact:** Removes queue lockup, keeps HAL productive
+- **Status:** ✅ RESOLVED — moving to implementation
 
 **Issue 4: System Resource Pressure — LOW**
 - Disk at 75-78% (session files reduced 2939→6.5MB but trending up)

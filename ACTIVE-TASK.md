@@ -138,4 +138,7 @@
 
 - **Consulting: recurring client problem → product idea?** (_question_, Mar 07 14:00)
   ID: `notif_1772892000253_a7cfec31` — You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend...
+
+- **Codex Token Expiring** (_system_, Mar 07 19:40)
+  ID: `notif_1772912451998_bfd11e28` — Codex OAuth token expires in -0h. Refresh via: openclaw models auth login --provider openai-codex
 <!-- PENDING-Q-END -->
