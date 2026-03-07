@@ -1351,16 +1351,26 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5.1,
+      "notes": "Real problem for NB contractor market, but addressable market is small (~2000 active trades, price-sensitive). Offline-first mobile is complex build; billing expertise is a plus but not exclusive to this niche. No synergy with existing CoinUsUp/Even Us Up work. SaaS model is good, but small geography limits passive income potential without Atlantic-wide expansion. Below promotion threshold (7+).",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 5,
+        "joes_edge_2x": 6,
+        "synergy_1x": 3,
+        "passive_potential_2x": 4
+      }
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-02-26T20:01:11.462Z"
+    "updatedAt": "2026-03-07T08:00:00.000Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -3111,5 +3121,21 @@
     "tags": [],
     "createdAt": "2026-03-07T09:01:27.277Z",
     "updatedAt": "2026-03-07T09:01:27.277Z"
+  },
+  {
+    "id": "idea_1772881304766_9600519a",
+    "title": "CoinUsUp growth audit: UX friction, missing features, growth levers",
+    "description": "Priority recommendations based on codebase + SEO audit:\\n\\nTOP 3 UX FRICTION POINTS (Priority order)\\n1) Onboarding + setup friction (P1, Effort: M)\\n   - Public CTA goes to generic auth; no guided first-run workflow shown on marketing pages.\\n   - New orgs likely hit empty-state complexity across campaigns/events/members before value is obvious.\\n   - Fix: role-based quickstart wizard (create org -> first campaign -> first event -> invite 1 member) + sample data toggle.\\n\\n2) Packaging friction in lower tiers (P1, Effort: S-M)\\n   - Free/Basic limits are restrictive for collaborative fundraising (Free: 1 team member, 1 campaign, 1 event).\\n   - Early teams may churn before experiencing collaboration value.\\n   - Fix: raise trial limits temporarily (first 14-30 days), add usage nudges + in-app upgrade moments tied to outcomes.\\n\\n3) Mobile/task-flow friction for volunteers (P2, Effort: M)\\n   - Product has many modules, but no obvious mobile-first volunteer execution flow (check-in, shift reminders, quick actions).\\n   - Fix: volunteer quick actions (accept shift, check-in/out, task complete) + push reminder defaults and simplified mobile dashboard.\\n\\nTOP 3 MISSING FEATURES USERS LIKELY WANT\\n1) Donor CRM + recurring giving pipeline (P1, Effort: L)\\n   - Need lifecycle view: first-time -> repeat -> lapsed, segments, recurring conversion prompts, donor notes.\\n\\n2) Native payment/checkout & campaign landing pages (P1, Effort: L)\\n   - Current value prop emphasizes tracking, but growth requires seamless donation capture links/pages and payment integrations.\\n\\n3) Automation + integrations hub (P2, Effort: M-L)\\n   - Email/SMS journeys, webhook/Zapier/Make, calendar sync, accounting export, and event reminder automation.\\n\\nTOP 3 GROWTH LEVERS (SEO / Virality / Monetization)\\n1) SEO technical unlock (P1, Effort: M)\\n   - Existing audit flags: missing sitemap, SPA indexing limits, identical initial HTML/meta risks.\\n   - Impact: lift qualified inbound from nonprofits searching for fundraising software.\\n   - Actions: ship sitemap + robots reference, prerender/SSR marketing routes, add internal links and FAQ schema where missing.\\n\\n2) Built-in referral loops (P1, Effort: M)\\n   - Add referral program for org admins + member invite incentives (e.g., extra seats/campaign slots for successful referrals).\\n   - Pair with shareable campaign progress pages and milestone badges.\\n\\n3) Monetization expansion via add-ons (P2, Effort: M)\\n   - Keep core tiers; add paid add-ons: advanced reporting pack, donor intelligence pack, SMS credits, premium support.\\n   - Lets small orgs start cheap while ARPU grows with maturity.\\n\\n90-DAY PRIORITIZED EXECUTION\\n- Now (0-30 days): SEO technical fixes + onboarding wizard MVP + trial-limit tuning (highest ROI, lower build risk).\\n- Next (31-60 days): referral/invite loop + volunteer mobile quick actions.\\n- Later (61-90 days): donor CRM v1 + integrations roadmap definition + add-on packaging tests.\\n\\nExpected outcome: better activation (week 1), reduced early churn, and stronger inbound acquisition pipeline.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T11:01:44.766Z",
+    "updatedAt": "2026-03-07T11:01:44.766Z"
   }
 ]

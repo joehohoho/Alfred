@@ -132,4 +132,7 @@
 
 - **Codex Token Expiring** (_system_, Mar 07 07:40)
   ID: `notif_1772869244375_f682bf9c` — Codex OAuth token expires in 12h. Refresh via: openclaw models auth login --provider openai-codex
+
+- **Partial Recovery** (_system_, Mar 07 12:00)
+  ID: `notif_1772884823264_eabc9cd4` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
 <!-- PENDING-Q-END -->
