@@ -427,5 +427,14 @@
     "answered": false,
     "createdAt": "2026-03-06T19:40:36.884Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772869244375_f682bf9c",
+    "type": "system",
+    "title": "Codex Token Expiring",
+    "message": "Codex OAuth token expires in 12h. Refresh via: openclaw models auth login --provider openai-codex",
+    "answered": false,
+    "createdAt": "2026-03-07T07:40:44.375Z",
+    "answeredAt": null
   }
 ]

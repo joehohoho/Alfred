@@ -1351,16 +1351,21 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 3.9,
+      "notes": "Violates NO FINANCIAL SERVICES boundary (2026-03-04): explicitly requires HST-compliant invoice templates and tax compliance logic. While niche market exists, Joe explicitly stated to avoid financial services vertical unless there is a very clear and easy path. Archive."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-02-26T20:01:11.462Z"
+    "updatedAt": "2026-03-07T04:00:00.000Z",
+    "rejectedReason": "Violates NO FINANCIAL SERVICES boundary",
+    "rejectedAt": "2026-03-07T04:00:00.000Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -3015,5 +3020,53 @@
     "tags": [],
     "createdAt": "2026-03-06T15:01:45.819Z",
     "updatedAt": "2026-03-06T15:01:45.819Z"
+  },
+  {
+    "id": "idea_1772866889313_850cdadb",
+    "title": "Renewal Risk Radar for Agencies",
+    "description": "Problem: Small agencies lose retainers unexpectedly because churn signals are buried in email/slack/pm tools.\\nTarget market: 2-20 person marketing/automation agencies and consultants.\\nDemand signals: Growing agency push toward productized recurring revenue + retention tooling demand (agency SaaS mode/retention discussions and recurring revenue playbooks).\\nMRR potential: 40 customers x - = ~.2k-k MRR in year 1.\\nTech complexity: 3/5 (connectors + scoring + weekly digest).\\nCompetition: Medium (generic CRMs), low in retention-risk niche for small agencies.\\nWhy Joe can win: Strong automation integration background + direct fit with consultant workflows; can ship opinionated retention scoring quickly.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T07:01:29.313Z",
+    "updatedAt": "2026-03-07T07:01:29.313Z"
+  },
+  {
+    "id": "idea_1772866894568_2cf70f4e",
+    "title": "Voice-to-SOP Builder for Field Service Teams",
+    "description": "Problem: Field teams in trades/service businesses fail to document repeatable procedures; onboarding is slow and quality drifts.\\nTarget market: HVAC, plumbing, electrical, restoration, and mobile service companies (5-50 staff).\\nDemand signals: Continued growth in AI-assisted SOP/documentation software and SMB preference for easy cloud automation.\\nMRR potential: 30 customers x - = ~k-k MRR initial target.\\nTech complexity: 2/5 (speech-to-text + templated SOP output + approval workflow).\\nCompetition: Medium-high for enterprise SOP tools, lower for voice-first field-service niche.\\nWhy Joe can win: Practical automation delivery experience + ability to target narrow workflow (job-close SOP capture) instead of generic knowledge-base tooling.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T07:01:34.568Z",
+    "updatedAt": "2026-03-07T07:01:34.568Z"
+  },
+  {
+    "id": "idea_1772866899748_b407514d",
+    "title": "Consultant Meeting-to-Action Autopilot",
+    "description": "Problem: Solo consultants waste hours converting meeting notes into client action plans, follow-ups, and accountability updates.\\nTarget market: Independent consultants, boutique agencies, fractional operators.\\nDemand signals: Persistent demand for AI meeting productivity tooling; clear willingness to pay for workflow tools tied to billable efficiency.\\nMRR potential: 60 users x - = ~.7k-.7k MRR with low support burden.\\nTech complexity: 2/5 (meeting transcript ingest, action extraction, client-ready summaries, reminders).\\nCompetition: High for note takers, medium-low for consultant-specific action-delivery automation.\\nWhy Joe can win: Deep consulting ops context + can differentiate with deliverable-quality outputs (not generic summaries).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T07:01:39.748Z",
+    "updatedAt": "2026-03-07T07:01:39.748Z"
   }
 ]

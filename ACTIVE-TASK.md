@@ -129,4 +129,7 @@
 
 - **Codex Token Expiring** (_system_, Mar 06 19:40)
   ID: `notif_1772826036884_450b9c79` — Codex OAuth token expires in 24h. Refresh via: openclaw models auth login --provider openai-codex
+
+- **Codex Token Expiring** (_system_, Mar 07 07:40)
+  ID: `notif_1772869244375_f682bf9c` — Codex OAuth token expires in 12h. Refresh via: openclaw models auth login --provider openai-codex
 <!-- PENDING-Q-END -->
