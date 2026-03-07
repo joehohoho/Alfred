@@ -1351,26 +1351,16 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "evaluated",
+    "status": "new",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": {
-      "score": 5.1,
-      "notes": "Real problem for NB contractor market, but addressable market is small (~2000 active trades, price-sensitive). Offline-first mobile is complex build; billing expertise is a plus but not exclusive to this niche. No synergy with existing CoinUsUp/Even Us Up work. SaaS model is good, but small geography limits passive income potential without Atlantic-wide expansion. Below promotion threshold (7+).",
-      "breakdown": {
-        "market_fit_3x": 6,
-        "effort_reward_2x": 5,
-        "joes_edge_2x": 6,
-        "synergy_1x": 3,
-        "passive_potential_2x": 4
-      }
-    },
+    "evaluation": null,
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-07T08:00:00.000Z"
+    "updatedAt": "2026-02-26T20:01:11.462Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -3137,5 +3127,69 @@
     "tags": [],
     "createdAt": "2026-03-07T11:01:44.766Z",
     "updatedAt": "2026-03-07T11:01:44.766Z"
+  },
+  {
+    "id": "idea_1772888498100_ac791650",
+    "title": "Even Us Up growth audit (Mar 2026)",
+    "description": "Priority focus: differentiate from Splitwise by being lighter, faster to settle, and better for recurring roommate/couple workflows.\n\n## Top 3 UX Friction Points (highest impact first)\n1) **Settle-up path likely too many taps / unclear next action**\n   - Symptom: users can track expenses but delay settling because the payoff flow is not obvious.\n   - Fix: persistent “Settle now” CTA + one-screen settlement summary + prefilled payment links.\n   - Effort: **M (4–7 days)**\n\n2) **Onboarding/import friction for existing groups**\n   - Symptom: manual member + balance setup causes drop-off in first session.\n   - Fix: invite-link onboarding + quick-start templates (trip, roommates, couple) + optional “starting balances”.\n   - Effort: **M (3–5 days)**\n\n3) **Insufficient transparency in split logic**\n   - Symptom: equal/weighted/percentage splits can feel untrustworthy without a visible calculation trail.\n   - Fix: per-expense “How this was calculated” explainer + live preview before save.\n   - Effort: **S-M (2–4 days)**\n\n## Top 3 Missing Features (product gap)\n1) **Recurring expenses + autopost reminders** (rent, utilities, subscriptions)\n   - Differentiator: stronger for everyday household use vs event-only apps.\n   - Effort: **M-L (1–2 weeks)**\n\n2) **Receipt OCR + smart category suggestions**\n   - Differentiator: speed of entry; less manual typing than competitors.\n   - Effort: **L (2–3 weeks)**\n\n3) **Rule-based split presets** (e.g., 60/40 groceries, fixed rent shares)\n   - Differentiator: ideal for couples/roommates with stable patterns.\n   - Effort: **M (1 week)**\n\n## Top 3 Growth Levers (go-to-market)\n1) **“First settlement in <5 minutes” activation funnel**\n   - KPI: D1 activation = create group + add 2 expenses + complete first settle-up.\n   - Tactic: guided checklist + progress meter.\n   - Effort: **S (2–3 days)**\n\n2) **Niche positioning: couples + roommates + small recurring groups**\n   - Different from Splitwise broad positioning; focus messaging on recurring life admin.\n   - Tactic: dedicated landing pages + in-app templates.\n   - Effort: **S-M (3–5 days)**\n\n3) **Viral growth via settlement artifacts**\n   - Tactic: shareable monthly summary + one-tap invite from “you’re owed”/“you owe” screens.\n   - KPI: invite conversion rate + K-factor.\n   - Effort: **M (4–6 days)**\n\n## 30-day Prioritized Plan\n1. **Settle-up UX overhaul** (highest ROI)\n2. **Recurring expense engine + presets**\n3. **Activation funnel + niche landing copy**\n4. **OCR after above improvements stabilize**",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T13:01:38.100Z",
+    "updatedAt": "2026-03-07T13:01:38.100Z"
+  },
+  {
+    "id": "idea_1772895688493_50641639",
+    "title": "Cron Delivery Channel Linter + Auto-Remediation",
+    "description": "Audit finding: multiple cron jobs are disabled/failing because delivery.channel is unset in a multi-channel environment (seen in jobs like Evening Routine, Daily Update Check, Morning Brief). Build a preflight linter that runs on cron save/reload to detect invalid delivery config, auto-assign default channel per job class, and open a blocker card instead of silently accumulating failures. Include daily drift report of jobs with consecutiveErrors>0. Expected impact: prevent recurring auto-disables and reduce manual recovery time + wasted runs.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T15:01:28.493Z",
+    "updatedAt": "2026-03-07T15:01:28.493Z"
+  },
+  {
+    "id": "idea_1772895692703_62694b6f",
+    "title": "Idempotency Ledger for Proactive/Idle Automations",
+    "description": "Audit finding: hourly idle/proactive loops can re-run similar analyses and create duplicate effort. Add an idempotency ledger keyed by task fingerprint (task_title + normalized task block + day window) used by kanban-idle-loop, alfred-proactive-check, and downstream scripts. If same task already completed within TTL, skip execution and attach prior result link. Include override flag for forced reruns. Expected impact: fewer duplicate idea cards/comments, lower token usage, cleaner proactive pipeline.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T15:01:32.703Z",
+    "updatedAt": "2026-03-07T15:01:32.703Z"
+  },
+  {
+    "id": "idea_1772895698479_9eb3f476",
+    "title": "HAL Dispatch Acceptance Gate + Auto-Close Policy Engine",
+    "description": "Audit finding: HAL deliverables can stall in review due to inconsistent acceptance checks and manual close behavior. Add a policy engine that validates required deliverables (artifacts/tests/summary) on HAL completion, posts structured completion comment, and auto-moves Review→Done when acceptance criteria are met (with reversible grace window). If criteria missing, auto-create specific follow-up checklist instead of leaving ambiguous review cards. Expected impact: reduce stuck review backlog and speed throughput without sacrificing quality.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-07T15:01:38.479Z",
+    "updatedAt": "2026-03-07T15:01:38.479Z"
   }
 ]

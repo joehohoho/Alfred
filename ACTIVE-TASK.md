@@ -135,4 +135,7 @@
 
 - **Partial Recovery** (_system_, Mar 07 12:00)
   ID: `notif_1772884823264_eabc9cd4` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
+
+- **Consulting: recurring client problem → product idea?** (_question_, Mar 07 14:00)
+  ID: `notif_1772892000253_a7cfec31` — You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend...
 <!-- PENDING-Q-END -->
