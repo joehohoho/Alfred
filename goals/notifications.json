@@ -512,5 +512,23 @@
     "answered": false,
     "createdAt": "2026-03-08T13:00:00.258Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772997070330_9f743e9b",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-08T19:11:10.330Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772998870787_6c4cf7e2",
+    "type": "system",
+    "title": "Codex Token Expiring",
+    "message": "Codex OAuth token expires in -24h. Refresh via: openclaw models auth login --provider openai-codex",
+    "answered": false,
+    "createdAt": "2026-03-08T19:41:10.787Z",
+    "answeredAt": null
   }
 ]
