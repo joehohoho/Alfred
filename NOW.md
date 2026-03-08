@@ -1,27 +1,26 @@
-# NOW.md — Active Session Checkpoint
+# NOW.md — Live Checkpoint (Idle Memory Review)
 
-**Last Updated:** 2026-03-08 05:00 ADT (Haiku, idle-activity memory review)
+**Timestamp:** 2026-03-08 16:00 ADT  
+**Context:** 45% usage (90k tokens) — healthy  
+**Task:** Memory hygiene pass (3-file scan)
 
-## Session State
-- **Status:** Idle-activity complete
-- **Context Usage:** ~18% (healthy)
-- **Next Action:** Memory hygiene, commit, notify
+## Key Findings (Mar 6-8)
 
-## Key Findings (3-Day Scan)
-1. Kanban approval bottleneck documented; workflow efficiency fixes identified (approval buttons, cron watchdog, token batching)
-2. 2 critical crons disabled since Mar 5 → infrastructure risk → restart testing needed
-3. Passive income portfolio: Signal App + White-Label Marketplace + CoinUsUp ads converge on productization strategy
-4. Daily-inquiry dedup working; boundary enforcement tight; 3 new ideas added (Bill Review, Change Management, Freelancer Tax)
+1. ✅ Daily-inquiry dedup bug **FIXED** (title-based dedup + reset log working)
+2. ✅ Critical crons **RESTARTED** (Evening Routine, Nightly Git Commit back online)
+3. ⚠️ Approval bottleneck identified (5+ review cards waiting) → WORKFLOW-EFFICIENCY-SCAN.md created
+4. ✅ Passive income strategy synthesized (Alfred/HAL align: White-Label Marketplace > Signal App > CoinUsUp ads)
+5. ⚠️ MEMORY.md bloat (25.9k > 20k limit) — needs trim before hitting gateway truncation
 
-## Immediate Next Steps
-- Re-enable Evening Routine + HAL Idle Check (low-traffic test Mon/Tue)
-- Review approval button workflow fix (2h estimate)
-- Continue passive income idea exploration (quality gate passing)
+## Action Items for Next Session
+- Monitor MEMORY.md size (consider archiving old Moltbook reviews to MEMORY-ARCHIVE.md)
+- Implement approval buttons on notifications (2h ROI: 4-5h/week saved)
 
-## Infrastructure Status
-- 12 disabled crons documented in DISABLED-CRON-JOBS.md (priority levels set)
-- All 3 workspace satellites current (WORKFLOW-EFFICIENCY-SCAN.md, PASSIVE-INCOME-PORTFOLIO-SNAPSHOT.md, IDEAS-SYSTEM.md)
-- Commitment queue: workspace files ready to commit
+## System Status
+- ✅ Infrastructure stable (13 LaunchAgents running)
+- ✅ All crons operational
+- ✅ Kanban board waiting on Joe's 5 decisions
+- ✅ No emergency state needed
 
-## No Critical Blockers
-All patterns stable. System waiting on Joe's 5 pending kanban approvals (Even Us Up, pricing, referral, CoinUsUp scope, capacitor). No external dependencies.
+---
+*No blockers. Continue normal operations.*
