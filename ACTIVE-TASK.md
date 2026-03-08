@@ -144,4 +144,7 @@
 
 - **Session Size Guard** (_warning_, Mar 08 06:04)
   ID: `notif_1772949885056_bf740d53` — Main session was .5MB (over 3MB limit). Auto-reset and gateway restarted. Backup: d76a9f5f-9aca-4884-a16c-209976248541.20260308-030441.jsonl
+
+- **Codex Token Expiring** (_system_, Mar 08 07:40)
+  ID: `notif_1772955659671_6f29ffe6` — Codex OAuth token expires in -12h. Refresh via: openclaw models auth login --provider openai-codex
 <!-- PENDING-Q-END -->

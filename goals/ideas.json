@@ -1351,27 +1351,16 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "evaluated",
+    "status": "new",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": {
-      "score": 4.8,
-      "notes": "Solves real pain point (offline-first + bilingual + HST for NB trades), but market is very geographically constrained (~5K NB contractors). Joe has strong billing expertise but lacks trades domain knowledge. High engineering effort (offline sync, HST compliance, progress billing logic) vs. small TAM creates unfavorable risk/reward. Below promotion threshold due to weak market fit and modest passive income ceiling.",
-      "breakdown": {
-        "market_fit_3x": 5,
-        "effort_reward_2x": 5,
-        "joes_edge_2x": 5,
-        "synergy_1x": 3,
-        "passive_potential_2x": 4
-      },
-      "evaluatedAt": "2026-03-08T01:00:00.000Z"
-    },
+    "evaluation": null,
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-08T01:05:00.000Z"
+    "updatedAt": "2026-02-26T20:01:11.462Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -3202,5 +3191,53 @@
     "tags": [],
     "createdAt": "2026-03-07T15:01:38.479Z",
     "updatedAt": "2026-03-07T15:01:38.479Z"
+  },
+  {
+    "id": "idea_1772953280166_7a27c0f4",
+    "title": "Bill Review & Invoice Audit Automation (Canadian SMB SaaS)",
+    "description": "Self-serve invoice review tool for SMB accounting teams. Auto-flags duplicates, overcharges, contract variance. Freemium ($25–50/mo pro). Est. MRR: $2–5k/month (100 customers). Tech: 2/5. Why Joe: 20y billing software expertise. Competition: Medium niche.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-08T07:01:20.166Z",
+    "updatedAt": "2026-03-08T07:01:20.166Z"
+  },
+  {
+    "id": "idea_1772953283028_7fd8137d",
+    "title": "AI-Powered Change Management Documentation (Regulated Industries)",
+    "description": "Compliance-focused change doc generator using Claude API + context-aware forms. Target: Canadian healthcare/finance/insurance. $79–299/mo tiers. Est. MRR: $1.5–4k/month. Tech: 3/5. Why Joe: AI + automation + reg knowledge. Competition: Low-medium.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-08T07:01:23.028Z",
+    "updatedAt": "2026-03-08T07:01:23.028Z"
+  },
+  {
+    "id": "idea_1772953283047_668b6b2e",
+    "title": "Freelancer Income Smoothing & Tax Estimation (Canadian Self-Employed)",
+    "description": "Income volatility predictor + quarterly tax calculator for Canadian freelancers. Freemium → $9.99/mo pro. Est. MRR: $1–3k/month (200 customers). Tech: 2/5. Why Joe: automation + large TAM. Watch for churn.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-08T07:01:23.047Z",
+    "updatedAt": "2026-03-08T07:01:23.047Z"
   }
 ]
