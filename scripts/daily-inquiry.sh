@@ -115,14 +115,14 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
   PENDING_TOPICS=$(jq -r '[.[] | select(.answered == false) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
   ALL_TOPICS="$RECENT_TOPICS|$PENDING_TOPICS"
   
-  # Pick first fallback not in recent topics
+  # Pick first fallback not in recent TITLES or TOPICS (both checks prevent 4-day cycle repeats)
   for entry in "${FALLBACKS[@]}"; do
     FB_TITLE="${entry%%|*}"
     FB_BODY="${entry#*|}"; FB_BODY="${FB_BODY%%|*}"
     FB_TOPIC="${entry##*|}"
     
-    # Skip if topic was asked in last 7 days (prevents cycle repeats)
-    if [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
+    # Skip if title OR topic was asked in last 7 days (prevent both exact + thematic duplicates)
+    if [[ "$RECENT_TITLES" != *"$FB_TITLE"* ]] && [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
       TITLE="$FB_TITLE"
       BODY="$FB_BODY"
       TOPIC="$FB_TOPIC"
