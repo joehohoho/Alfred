@@ -1358,12 +1358,20 @@
     "synergies": [],
     "evaluation": {
       "score": 4.8,
-      "notes": "Solves real pain point (offline-first + bilingual + HST for NB trades), but market is very geographically constrained. Joe has billing expertise but limited trades domain knowledge. High development effort vs. small addressable market (~5K NB tradespeople) creates unfavorable risk/reward. Below promotion threshold due to weak market fit and modest passive income ceiling."
+      "notes": "Solves real pain point (offline-first + bilingual + HST for NB trades), but market is very geographically constrained (~5K NB contractors). Joe has strong billing expertise but lacks trades domain knowledge. High engineering effort (offline sync, HST compliance, progress billing logic) vs. small TAM creates unfavorable risk/reward. Below promotion threshold due to weak market fit and modest passive income ceiling.",
+      "breakdown": {
+        "market_fit_3x": 5,
+        "effort_reward_2x": 5,
+        "joes_edge_2x": 5,
+        "synergy_1x": 3,
+        "passive_potential_2x": 4
+      },
+      "evaluatedAt": "2026-03-08T01:00:00.000Z"
     },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-07T19:00:00.000Z"
+    "updatedAt": "2026-03-08T01:05:00.000Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
