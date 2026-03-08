@@ -482,5 +482,35 @@
     "answered": false,
     "createdAt": "2026-03-08T07:40:59.671Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772959946285_d52bbb91",
+    "type": "question",
+    "title": "Channel Expansion Pilot — 5 Inputs Needed to Launch",
+    "message": "\n\n✅ **Framework Ready to Execute**\n\nI've built the complete 30-day pilot infrastructure (tracking dashboard template, creative test matrix, weekly reallocation logic, reporting template). Card moved to in_progress.\n\nTo launch Day 1 immediately, I need 5 clarifications:\n\n**1. App Selection:**\n   - CoinUsUp (crypto trading)\n   - Even Us Up (expense sharing)  \n   - Both in parallel?\n\n**2. Monthly CAC/LTV Budget:**\n   - $50-100 (learning phase)\n   - $250-500 (balanced test)\n   - $1000+\n   - Other amount?\n\n**3. LTV Definition (required for ROI calculation):**\n   - What's the monthly revenue per paying user?\n   - Average customer lifetime (in months)?\n   - LTV = (monthly revenue) × (lifetime months)\n\n**4. Existing Partnerships:**\n   - Any affiliate/partner relationships already established?\n   - Any platforms/networks to prioritize or avoid?\n\n**5. Content Creator Budget:**\n   - How should creators be paid? (% revenue, fixed per signup, other?)\n   - Any creators/influencers already interested?\n\n**My Recommendation:**\n- Start with **CoinUsUp** (more mature, measurable monetization)\n- Budget: **$250/month** (enough data to learn, manageable spend)\n- Channels: **Affiliate networks (Stripe, payment partners) + Content partnerships (Reddit, YouTube fintech)**\n- Timeline: Days 1-2 onboarding, Days 3-30 testing & reallocation\n\n📋 Full framework saved to: `~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md`\n\nOnce you confirm, I'll begin Day 1 (channel outreach, tracking setup) within the hour.\n",
+    "goalId": "task_1772199318344_19e8fa66",
+    "source": "channel-expansion-pilot",
+    "answered": false,
+    "createdAt": "2026-03-08T08:52:26.285Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772967621249_4bca222f",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_ERROR:HTTP Error 401: Unauthorized). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-08T11:00:21.249Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1772974800258_332cf8da",
+    "type": "question",
+    "title": "Signal App: what's the #1 blocker right now?",
+    "message": "Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-08T13:00:00.258Z",
+    "answeredAt": null
   }
 ]
