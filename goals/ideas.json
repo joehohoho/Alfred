@@ -1356,11 +1356,23 @@
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.0,
+      "notes": "Solid pain point (offline invoicing, bilingual docs, HST) but lacks Joe's construction trades domain expertise. Geographic constraint (NB only) limits addressable market significantly. Offline-first support overhead + small TAM keep below promotion threshold. Canadian HST knowledge + consulting invoicing patterns provide moderate synergy.",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 6,
+        "joes_edge_2x": 5,
+        "synergy_1x": 5,
+        "passive_potential_2x": 6
+      },
+      "weighted_score": 60,
+      "evaluatedAt": "2026-03-08T12:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-02-26T20:01:11.462Z"
+    "updatedAt": "2026-03-08T12:00:00.000Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -3239,5 +3251,53 @@
     "tags": [],
     "createdAt": "2026-03-08T07:01:23.047Z",
     "updatedAt": "2026-03-08T07:01:23.047Z"
+  },
+  {
+    "id": "idea_1772982066838_c267450d",
+    "title": "Bilingual Compliance Software (English/French for Atlantic Canada)",
+    "description": "SMB compliance tool for bilingual requirements (NB mandatory, federal tenders). Generates bilingual invoices, French CRA templates, Quebec payroll rules. Target: 200–400 NB/Maritime contractors. Freemium $5–12/mo pro. Est. MRR: $1.5–3.5k (low competition). Tech: 2/5. Why Joe: compliance expertise + niche market moat.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-08T15:01:06.838Z",
+    "updatedAt": "2026-03-08T15:01:06.838Z"
+  },
+  {
+    "id": "idea_1772982066855_2377d3ca",
+    "title": "Trades/Contractor Invoice + CRA T4A/T776 Filing Helper",
+    "description": "Self-employed trades automation: T4A invoicing to GCs, T776 rental tracking, HST quarterly filing + recovery, expense categorization for CRA audits. Target: 50k+ Maritime trades. Freemium $3–7/mo pro. Est. MRR: $2–4.5k (sticky, high repeat revenue). Tech: 2/5. Why Joe: trades = loyal customer base, untapped market.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-08T15:01:06.856Z",
+    "updatedAt": "2026-03-08T15:01:06.856Z"
+  },
+  {
+    "id": "idea_1772982066874_f8832053",
+    "title": "Rural Connectivity Tools (Home Office Outage Recovery)",
+    "description": "Internet outage resilience for rural NB home office workers. Auto-backup + mesh-sync when offline, resume on mobile hotspot, Slack/email alerts when back. Target: 15k+ rural Atlantic Canada home office workers. Freemium $3–5/mo pro. Est. MRR: $1–2.5k. Tech: 3/5 (local sync, mesh networking). Competition: Low (geography-specific moat).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-08T15:01:06.874Z",
+    "updatedAt": "2026-03-08T15:01:06.874Z"
   }
 ]
