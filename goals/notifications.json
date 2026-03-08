@@ -464,5 +464,14 @@
     "answered": false,
     "createdAt": "2026-03-07T19:40:51.998Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1772949885056_bf740d53",
+    "type": "warning",
+    "title": "Session Size Guard",
+    "message": "Main session was .5MB (over 3MB limit). Auto-reset and gateway restarted. Backup: d76a9f5f-9aca-4884-a16c-209976248541.20260308-030441.jsonl",
+    "answered": false,
+    "createdAt": "2026-03-08T06:04:45.056Z",
+    "answeredAt": null
   }
 ]
