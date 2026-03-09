@@ -3484,5 +3484,21 @@
     ],
     "createdAt": "2026-03-09T15:02:16.736Z",
     "updatedAt": "2026-03-09T15:02:16.736Z"
+  },
+  {
+    "id": "idea_1773086496293_8e39e019",
+    "title": "Portfolio Health Snapshot (Mar 2026): MRR + Bottlenecks",
+    "description": "One-page portfolio review completed for CoinUsUp, Even Us Up, Signal App, and Automation Consulting. Summary: CoinUsUp/EvenUsUp currently pre-revenue, consulting remains cash-flow anchor, Signal App intentionally internal-use only. Estimated potential MRR bands documented with top 3 bottlenecks: (1) distribution loops, (2) activation quality, (3) founder bandwidth. Report: reports/portfolio-health-2026-03-09.md",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-09T20:01:36.293Z",
+    "updatedAt": "2026-03-09T20:01:36.293Z"
   }
 ]
