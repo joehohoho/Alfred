@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-03-04 (22:15 AST) — full reflection, Phase 1-4 complete
+**Last reflection:** 2026-03-09 (08:05 AST) — full reflection, Phase 1-4 complete
 **Last direct Q&A update:** 2026-03-02 (14:57 AST, Signal App bottleneck)
-**Reflection count:** 5
-**Profile version:** 1.6
+**Reflection count:** 6
+**Profile version:** 1.7
 
 ---
 
@@ -145,14 +145,14 @@ Joe's first-pass filter for any new idea, in order:
 
 Ranked by recent activity (update frequently):
 
-1. **Signal App (market-signal-lab)** — 🔴 BLOCKED on data quality & testing (Joe answer Mar 2). Decision gate answered Feb 24. Top overnight work priority.
-2. **OpenClaw/Alfred ecosystem** — Ongoing infrastructure + autonomy improvements. HAL project manager model now active.
-3. **CoinUsUp** — Primary passive-income target. npm vulnerabilities fixed (Mar 2), awaiting Joe push approval. Growth audit pending.
-4. **Command Center Dashboard** — Active development (Kanban + monitoring). Webpack migration by HAL in progress (Mar 2-4).
-5. **Even Us Up** — Growth audit complete (Mar 2); friction points identified; awaiting monetization strategy decision.
-6. **Channel Expansion Pilot** — Framework ready, awaiting Joe's answers on app choice / budget / channel focus.
-7. **Job Tracker** — Maintenance + automation
-8. **Automation Consulting** — Explicitly excluded from passive income consideration (Joe answer Mar 1)
+1. **CoinUsUp** — 🟢 READY TO DEPLOY (0 npm vulns, Mar 8). Mobile app track active (Capacitor ready). Freemium strategy (roommate tier $2.99/mo + premium $4.99–9.99/mo, travel mode). 5 strategic growth ideas identified. **Awaiting:** deployment approval + timeline.
+2. **Signal App (market-signal-lab)** — 🟡 ACTIVE on collaboration premium model (8-week sprint). HAL delivered strategy synthesis Mar 8: co-editing $50–500/mo/team fastest revenue path. Architecture: Yjs + WebSocket real-time sync. **Awaiting:** sprint start approval.
+3. **Even Us Up** — 🟡 AUDIT COMPLETE (Mar 8). Freemium roommate tier ($2.99/mo) + travel premium ($4.99–9.99/mo). Sticky recurring revenue, OCR mobile differentiator. **Awaiting:** tier strategy approval + pricing decision.
+4. **OpenClaw/Alfred ecosystem** — 🔴 **BLOCKED on infrastructure reliability.** Gateway down since Mar 8 22:17 UTC (24+ hrs). Codex token expired (HTTP 401). 2 crons disabled Mar 5 (Evening Routine, Nightly Git Commit). Git commits blocked. HAL peer model active but system stability critical blocker.
+5. **Channel Expansion Pilot** — Framework ready (30-day template). **Awaiting:** app selection (CoinUsUp vs Even Us Up vs both), budget ($50–1000+/mo), channel focus (affiliate/partners/content).
+6. **Command Center Dashboard** — Webpack migration complete (HAL, Mar 2-4). Chat page improvements pending (Sonnet rerun).
+7. **Job Tracker** — Maintenance mode.
+8. **Automation Consulting** — Explicitly out of scope (Mar 1).
 
 ---
 
@@ -191,15 +191,15 @@ Ranked by recent activity (update frequently):
 - **Key reason:** Joe may not be available to react in time. Alfred is the last line of defense on cost. Act first, explain second.
 - **Threshold:** Any cost spike that could materially escalate = treat as emergency. Don't wait for a "is this serious enough?" answer.
 
-### Passive Income Strategy (CONCRETE TARGETS — Direct Answer, Daily Inquiry Feb 23)
+### Passive Income Strategy (CONCRETE TARGETS — Direct Answer, Daily Inquiry Feb 23 + UPDATED MAR 8)
 **Revenue Targets:**
 - Initial goal: $5k-$10k/month
 - Growth: continue scaling beyond that
 
-**App Revenue Hierarchy (in priority order):**
-1. **CoinUsUp** — primary cash cow
-2. **Signal App** (Stock/Crypto market signals) — secondary revenue
-3. **Even Us Up** — tertiary (lowest priority)
+**App Revenue Hierarchy (in priority order — UPDATED):**
+1. **CoinUsUp** — primary cash cow. Freemium tier ($2.99/mo roommate, $4.99–9.99/mo travel). Ready to deploy. Mobile app + OCR scanning = differentiation. Growth audit complete: 5 strategic ideas.
+2. **Signal App** (Stock/Crypto market signals) — secondary revenue. Premium collaboration model ($50–500/mo/team). 8-week sprint approved. HAL strategy: Yjs CRDT + WebSocket real-time sync.
+3. **Even Us Up** — tertiary. Freemium roommate + travel premium. Sticky recurring revenue profile. Interac e-Transfer settlement (Canada-specific moat).
 
 **Time Allocation (Weekly):**
 - Maintenance: 5-10 hrs/week (keep systems running with minimal touch)
@@ -210,12 +210,20 @@ Ranked by recent activity (update frequently):
 - Minimal effort required once built
 - 5 hrs/week maintenance is acceptable baseline
 - System should generate income with low ongoing effort
+- Freemium + premium tiers preferred (recurring revenue, predictable churn)
+
+**Geographic Moat (NEW — Mar 8):**
+- Canada-specific tools (Interac e-Transfer, CRA T4A/T776, bilingual HST) rank higher
+- Maritime/NB-specific features = defensible market
+- Digital nomad + travel + freelancer tools = good secondary TAMs
 
 **Implication for Alfred:**
-- Prioritize automation and operational excellence for existing apps (maintenance → closer to 5 hrs/week, not 10)
-- Focus recommendation/build suggestions on CoinUsUp and Signal App
-- Ideas that fit 5-10 hrs/week maintenance profile are good bets
+- CoinUsUp deployment is P1 blocker: get visibility, finalize pricing/packaging, ship mobile
+- Signal App: support 8-week sprint (HAL leading strategy, Alfred supporting execution)
+- Monthly idea-batch cadence: surface 5–8 ideas (pre-filtered by Ideas System criteria)
+- Prioritize infrastructure reliability (currently blocking all systems) before new work
 - Avoid high-maintenance or fragile-system recommendations
+- Ideas in Canada-specific verticals now score 1.5x higher in Ideas System ranking
 
 ### Shadow Goals (inferred, not yet articulated)
 - **Full automation of personal infrastructure:** The OpenClaw setup IS the vision — Joe is building toward a system where Alfred handles everything autonomously. Each new feature (Discord, iMessage, notifications, goals) extends this. | Confidence: medium
@@ -232,6 +240,8 @@ Ranked by recent activity (update frequently):
 - **Being asked to review without substance.** "I don't have anything to review" / "You need to provide me with the discord plan so that I can review it" — Joe expects content, not placeholders. | Source: notif_1771400167582, notif_1771398291802 | Confidence: high
 - **Cost overruns.** The $188/month cron incident. Joe is cost-conscious and expects Alfred to be too. | Confidence: high
 - **Repeated issues.** Git config drift happened 3x before being solved systematically. Joe values once-and-done fixes. | Confidence: medium
+- **Infrastructure reliability cascades.** Gateway down 24+ hrs (Mar 8 22:17 UTC). Codex token expired (HTTP 401, Mar 8). Crons disabled unexpectedly (Mar 5). Joe's systems are breaking; recovery is manual. This will be high-friction. | Source: memory/2026-03-08.md | Confidence: medium
+- **Duplicate question rotation persisting.** Daily inquiry dedup bug fixed Mar 7, but Joe saw repeats Feb 27/28. Trust in notifications eroded. | Source: notif_1772200800167, notif_1772287200145 | Confidence: high
 
 ---
 
@@ -290,10 +300,14 @@ Observations from the CLI assistant's direct sessions with Joe.
 - **Debugging by context, not guesswork.** When issues arise, Joe provides specific error messages, log paths, and system context. Expects targeted investigation, not trial-and-error. | Confidence: medium
 - **Iterates fast.** Moves from idea → implementation → testing quickly. Doesn't over-plan when working directly in Claude Code. | Confidence: medium
 
-### How Joe Uses Claude Code vs Alfred
+### How Joe Uses Claude Code vs Alfred vs HAL
 - **Claude Code:** Hands-on technical work — debugging, building features, system administration. Direct and specific instructions.
-- **Alfred:** Strategic direction, autonomous work, monitoring, overnight tasks. Higher-level delegation.
-- The two tools serve different roles — Claude Code is the workbench, Alfred is the autonomous agent.
+- **Alfred:** Strategic direction, autonomous work, monitoring, overnight tasks, idea generation/curation. Higher-level delegation.
+- **HAL:** Project management, multi-day task synthesis, strategy delivery, periodic reports. Peer collaboration model.
+- The three tools serve different roles — Claude Code is the workbench, Alfred is the autonomous agent, HAL is the strategy peer.
+
+### Recent Signal (Mar 8)
+- **HAL strategy delivery accepted.** Joe received HAL's Signal App synthesis (collaboration premium model, Yjs CRDT architecture, 8-week sprint timeline) without pushback. Indicates Joe trusts synthesized multi-system analysis from HAL. | Confidence: medium
 
 ### Recent Claude Code Signals (Feb 24)
 - **Approves large-scope execution quickly.** Joe greenlit a 31-file optimization plan without hesitation once rationale was clear, indicating high trust in parallelized implementation. | Confidence: high
@@ -304,20 +318,22 @@ Observations from the CLI assistant's direct sessions with Joe.
 
 ## Observation Log (Recent)
 
-Last 10 observations, newest first. Older observations distill into sections above.
+Last 12 observations, newest first. Older observations distill into sections above.
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
+| 2026-03-09 | Monthly passive income idea batches are welcomed — 8 ideas surfaced (CoinUsUp + Even Us Up growth audits + Canada-specific verticals) without pre-approval. Joe engaged Kanban workflow. | memory/2026-03-08.md | Yes |
+| 2026-03-09 | CoinUsUp ready to deploy (0 npm vulns) — 5 growth ideas identified. Joe approval pending on deployment timing + priority. | memory/2026-03-08.md | Yes |
+| 2026-03-09 | Signal App: HAL delivered strategy synthesis (co-editing premium $50–500/mo, Yjs CRDT, 8-week sprint). Joe accepted without revision. Indicates trust in HAL peer model. | memory/2026-03-08.md | Yes |
+| 2026-03-09 | Infrastructure reliability critical blocker — Gateway down 24+ hrs (Mar 8 22:17 UTC), Codex token expired (HTTP 401), 2 crons disabled (Mar 5, git commits blocked). Joe's systems are failing. | memory/2026-03-08.md | Yes |
+| 2026-03-09 | Alfred autonomy validated — Proactively surfaced 8 passive income ideas. Joe engaged (moved to Kanban). Shows Joe's preference for autonomous action over pre-approval is working. | memory/2026-03-08.md | Partial |
+| 2026-03-04 | Daily inquiry cycle deduplication bug fixed (fallback pool 8→16 unique questions, prevents 4-day repeat cycle). | memory/2026-03-07.md | Yes |
 | 2026-03-04 | Daily inquiry cycle has deduplication bug — same 4 questions looped twice in 9 days (Feb 20-28 repeated Feb 24-28) | notif_1772200800167, notif_1772287200145 | Yes |
 | 2026-03-02 | Signal App TOP BOTTLENECK: Data quality & testing (direct answer to "what's slowing it down") | notif_1772460000220_a86559b3 | Yes |
-| 2026-03-04 | HAL project manager model: Alfred managing weekly HAL dispatch cycle with 70-80% utilization target | memory/2026-03-02.md, memory/2026-03-04.md | Partial |
 | 2026-03-01 | Consulting-to-product angle rejected: "No it's not worth investigating" on productizing client automation problems | notif_1772373600214_c683eda7 | Yes |
 | 2026-02-26 | Joe wants autonomous easy decisions WITH VISIBILITY, not pre-approval. Set up Discord webhook for transparency. | notif_1772114400186_8815537c (Daily Inquiry) | Yes |
 | 2026-02-25 | Claude Code: Joe approves ambitious multi-file refactors quickly when plan is credible | joe-profile-observations.jsonl (2026-02-24) | Yes |
-| 2026-02-25 | Claude Code: "commit and push everything" preference indicates batch shipping over prolonged staging | joe-profile-observations.jsonl (2026-02-24) | Yes |
-| 2026-02-25 | Claude Code: Joe wants explicit rejection/feedback loops so Alfred can learn from outcomes | joe-profile-observations.jsonl (2026-02-24) | Yes |
 | 2026-02-20 | Joe rejects speculative cross-project synergies; prefers focused, single-purpose projects | notif_1771605868238_53174470 (Daily Inquiry) | Yes |
-| 2026-02-20 | Gaming PC search (12GB+ VRAM, strict budget, open to used/refurbished) — possible LLM offloading use case | 2026-02-20-gaming-pc.md | Partial |
 
 ---
 
@@ -325,8 +341,10 @@ Last 10 observations, newest first. Older observations distill into sections abo
 
 | Metric | Value |
 |--------|-------|
-| Total reflections run | 5 |
-| Last reflection | 2026-03-04 22:15 AST |
-| New observations added this reflection | 5 |
-| Observations distilled (cumulative) | 26 |
-| Profile version | 1.6 |
+| Total reflections run | 6 |
+| Last reflection | 2026-03-09 08:05 AST |
+| New observations added this reflection | 6 |
+| Observations distilled (cumulative) | 32 |
+| Profile version | 1.7 |
+| **Critical blocker detected** | Infrastructure reliability (gateway down 24+ hrs, Codex expired, crons disabled) |
+| **Autonomy validation** | Alfred monthly idea batches welcomed; HAL peer model trusted |
