@@ -1,82 +1,46 @@
-# LAST-SESSION.md — Session Bridge
+# LAST-SESSION.md — Session Bridge (2026-03-09)
 
-**Generated:** 2026-03-04 22:00 AST (Evening Checkpoint)
-**Session:** agent:main:main
+**Updated:** 2026-03-09 08:07 ADT  
+**Context:** 14% (healthy, no compression)
 
 ## What Happened
+- Weekly system backup triggered (Tier 3)
+- Session checkpoint cron ran: synced 388 pending notifications into ACTIVE-TASK.md
+- Fixed marker format in ACTIVE-TASK.md (PENDING-Q-START/PENDING-Q-END)
 
-**Wednesday, March 4, Full Day:**
+## Critical Issues Found
+1. **Cron jobs auto-disabled** (Mar 5 02:06 & 03:01)
+   - Evening Routine: 3 consecutive failures
+   - Nightly Git Commit: 3 consecutive failures
+   - **ACTION:** Investigate and re-enable when root cause resolved
 
-**Morning (9 AM - 12 PM)**
-- HAL Signal App data validation dispatched (testing/coverage improvements, ETA 4-8h)
-- Deployed 3 new infrastructure systems: retry queue, overnight scheduler, lease monitoring
-- Verified CoinUsUp npm fixes (0 vulns, build clean, ready to push)
+2. **Codex OAuth token expiring** (Mar 7 12h remaining)
+   - **ACTION:** Refresh via `openclaw models auth login --provider openai-codex`
 
-**Afternoon (12 PM - 6 PM)**
-- Completed infrastructure testing: overnight-scheduler dry-run passed, all LaunchAgents loaded
-- Channel expansion pilot framework finalized: 30-day rolling model with CAC/LTV templates
-- Sent 3 blocker questions to Joe (app choice, budget, channel confirmation)
-- Documentation: HAL-INFRA-IMPROVEMENTS.md, DEPLOYMENT-CHECKLIST-COINUSUP.md created
-
-**Evening (6 PM - 10 PM)**
-- Infrastructure verified + committed (no cascades on test runs)
-- Memory hygiene pass: 3-day review clean, 7+ completed deliverables queued in Review
-- 5 pending questions active, 0 internal blockers
-
-## Decisions Made
-
-1. **Infrastructure approach:** Decoupled retry queue + consolidated overnight cron to prevent rate-limit death spirals
-2. **Lease monitoring:** Auto-move stale cards to "blocked" (preserve audit) instead of resolving
-3. **Channel pilot execution:** Wait for Joe's 3 clarifications, then execute within 2 hours
+3. **388 unanswered notifications accumulated**
+   - Various questions, system alerts, blockers
+   - Needs triage and response processing
 
 ## Tasks In Progress
+- **Channel Expansion Pilot (30-day)** — BLOCKING on 5 Joe inputs
+  - Status: in_progress, waiting for responses on:
+    1. Which app (CoinUsUp/Even Us Up/both)?
+    2. Monthly CAC/LTV budget?
+    3. Definition of LTV?
+    4. Existing affiliate partnerships?
+    5. Content budget structure?
 
-- **HAL Signal App testing** (in-progress, ETA 4-8h, auto-announces on completion)
-- **Infrastructure deployment** (COMPLETE, monitoring 4:30 AM execution)
-- **Channel expansion pilot framework** (COMPLETE, awaiting Joe clarifications)
-- **CoinUsUp npm security push** (ready, awaiting approval)
-
-## Pending Joe Decisions (Carry Forward)
-
-**URGENT (blocking channel pilot):**
-1. Which app? (CoinUsUp, Even Us Up, Signal App)
-2. Monthly CAC/LTV budget?
-3. Confirm channel focus = affiliates/partners/content?
-
-**Standard approvals:**
-- CoinUsUp npm security commits (ready to push)
-- Even Us Up monetization strategy
-- Signal App pricing/referral decisions
-- Webpack migration approval
-
-## Next Steps (Thursday, Mar 5)
-
-**9 AM:**
-- Check HAL Signal App completion (should auto-announce)
-- Review if Joe responded to 3 blocker questions
-- **IF yes:** Launch Channel Pilot Day 1 (channel mapping, LTV baseline, creative variants)
-- **IF no:** Monitor overnight scheduler + prep HST/GST Phase 2 for next HAL dispatch
-
-**Mid-day:**
-- Verify 4:30 AM overnight scheduler execution (check logs, no cascades)
-- Coordinate CoinUsUp push if Joe approves
-
-**Ongoing:**
-- Monitor HAL dispatch status
-- Watch for new Joe approvals
-- System health monitoring
+## Next Steps
+1. **URGENT:** Refresh Codex token (requires interactive TTY — manual refresh needed)
+   ```bash
+   openclaw models auth login --provider openai-codex
+   ```
+2. **URGENT:** Investigate & fix disabled crons (Evening Routine, Nightly Git Commit)
+3. Process pending notifications (388 items — triage/respond)
+4. Resume Channel Expansion Pilot once Joe provides inputs
 
 ## Key Context
-
-- **Infrastructure location:** ~/.openclaw/workspace/scripts/ (hal-retry-queue.sh, overnight-scheduler.sh, hal-lease-monitor-enhanced.sh)
-- **Documentation:** HAL-INFRA-IMPROVEMENTS.md, DEPLOYMENT-STATUS-BRIEF.md
-- **CoinUsUp repo:** /Users/hopenclaw/CoinUsUp (npm fixes verified, ready to push)
-- **Channel pilot framework:** ~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md
-- **Current blockers:** 3 external Joe decisions on pilot, 5 pending questions
-- **Context usage:** ~50% (healthy)
-- **HAL status:** Active on Signal App, returns within 4-8 hours
-
----
-
-**Time zone:** America/Moncton (AST)
-**Next session boot:** Load ACTIVE-TASK.md first; check HAL completion announcement; check Joe responses to 3 blocker questions; execute or dispatch as appropriate.
+- No model-specific issues (Haiku primary, all others functional)
+- All LaunchAgents running normally
+- Session checkpoint cron working (runs every 20m)
+- Memory/logging systems healthy

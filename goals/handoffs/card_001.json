@@ -1,0 +1,55 @@
+{
+  "task_id": "card_001",
+  "objective": "Implement preflight handshake for HAL task dispatch: WS auth validation + chat.send probe before queue assignment, with 3-second timeout and fail-fast error handling.",
+  "constraints": [
+    "Do NOT modify ~/.openclaw/openclaw.json",
+    "Probe timeout must be ≤3 seconds (fail fast)",
+    "No blocking calls — probes must be async/concurrent",
+    "Backward compatible: existing tasks should work without preflight",
+    "Must preserve message ordering (no out-of-order deliveries)"
+  ],
+  "deliverables": {
+    "code": [
+      "gateway/preflight.js",
+      "scripts/route-task.sh",
+      "~/dispatcher-gating-logic.js"
+    ],
+    "tests": [
+      "npm test -- gateway/preflight.test.js (expect: 12/12 passing)",
+      "bash scripts/test-preflight.sh (expect: all probes timeout or succeed correctly)",
+      "bash scripts/test-dispatcher-gating.sh (expect: cards blocked correctly on probe failure)"
+    ],
+    "docs": [
+      "PREFLIGHT-IMPLEMENTATION.md (architecture, API spec, examples)",
+      "API.md (POST /api/preflight/auth-check and POST /api/preflight/send-probe schemas)",
+      "ROLLBACK.md (steps to disable preflight if needed)"
+    ]
+  },
+  "validation_command": "npm test && bash scripts/test-preflight.sh && bash scripts/test-dispatcher-gating.sh",
+  "success_criteria": [
+    "Both probes (auth + send) succeed <3s latency when healthy",
+    "Probes fail gracefully with timeout/error on connectivity issues",
+    "Dispatcher blocks HAL assignment if either probe fails",
+    "Failed tasks retry after 30s (max 3 retries)",
+    "No regression in existing task dispatch (100% backward compatible)",
+    "Docs include examples of probe response + fallback behavior"
+  ],
+  "owner": "alfred",
+  "deadline": "2026-03-15",
+  "estimated_effort": {
+    "hours": 6,
+    "model_tier": "haiku"
+  },
+  "context": {
+    "parent_task_id": null,
+    "related_cards": [
+      "card_002",
+      "card_003"
+    ],
+    "memory_refs": [
+      "MEMORY.md#Phase-1-Preflight-Handshake",
+      "IMPLEMENTATION-PLAN.md"
+    ],
+    "acceptance_note": "This is the reliability foundation. Get preflight right before moving to routing policy. Focus on latency + error handling."
+  }
+}

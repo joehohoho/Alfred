@@ -36,6 +36,8 @@ Practical routing:
 
 Codex rate-limit reminder: watch TPM spikes and batch work.
 
+**HAL Subscription Support (NEW 2026-03-09):** HAL now has access to Anthropic subscription models (Haiku/Sonnet/Opus) with quota collision prevention. See **HAL-MODEL-HIERARCHY.md** and **HAL-QUOTA-SAFEGUARDS.md** for full details. HAL spawn script automatically selects optimal model based on task complexity/type. Quota gates prevent both Alfred and HAL from context-death collision.
+
 ---
 
 ## Core Operating Principles
@@ -57,11 +59,12 @@ References:
 1. `SOUL.md`
 2. `USER.md`
 3. `IDENTITY.md`
-4. `memory/INDEX.md`
-5. `memory/YYYY-MM-DD.md` (today, if exists)
-6. `ACTIVE-TASK.md` (including pending questions)
-7. `LAST-SESSION.md`
-8. If `ACTIVE-TASK.md` status is `in_progress`, read the kanban card's comments
+4. **`OPEN-LOOPS.md`** (NEW: unified pending work view)
+5. `memory/INDEX.md`
+6. `memory/YYYY-MM-DD.md` (today, if exists)
+7. `ACTIVE-TASK.md` (including pending questions)
+8. `LAST-SESSION.md`
+9. If `ACTIVE-TASK.md` status is `in_progress`, read the kanban card's comments
    (`GET http://localhost:3001/api/kanban/<card_id>`) to recover your approach and progress.
 
 Do **not** auto-load full history or old tool output.
@@ -99,6 +102,29 @@ Session bridge updates:
 - `LAST-SESSION.md`
 - `memory/YYYY-MM-DD.md`
 - `ACTIVE-TASK.md` (if unfinished)
+
+---
+
+## Three Reliability Systems (Implemented 2026-03-09)
+
+**NEW:** Three interconnected systems for task clarity, decision continuity, and system reliability:
+
+1. **OPEN-LOOPS.md** — Unified dashboard (pending questions, active cards, notifications, deadlines). Auto-refreshes daily at 08:55 AM.
+   - Read at morning standup (09:00 AM)
+   - Single source of truth for all pending work
+   - Eliminates 10 min/day mental synthesis
+
+2. **HANDOFF-PROTOCOL.md** — Formal task contracts for every HAL delegation. Prevents ambiguity + rework.
+   - See `goals/handoffs/TEMPLATE.json` for format
+   - Run `bash scripts/validate-handoff.sh card_XXX` before dispatch
+   - 100% of HAL tasks now have explicit requirements + validation criteria
+
+3. **DECISION-MEMORY.md** — Preserve strategic decisions. Guard prevents repeated questioning.
+   - See `decisions/INDEX.md` for active decisions
+   - Run `bash scripts/check-decision-guard.sh "Question"` before asking Joe
+   - Prevents duplicate questions within review period (default: 1 month)
+
+Full deployment doc: **[RELIABILITY-SYSTEMS-DEPLOYMENT.md](RELIABILITY-SYSTEMS-DEPLOYMENT.md)**
 
 ---
 

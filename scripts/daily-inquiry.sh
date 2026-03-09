@@ -55,6 +55,11 @@ KANBAN_STATE=$(curl -s http://localhost:3001/api/kanban 2>/dev/null | jq -r '[.[
 # Theme rotation (4 themes)
 CYCLE_NUM=$(( ($(wc -l < "$INQUIRY_LOG") % 4) + 1 ))
 
+# Build stronger dedup filter: get all questions asked in last 7 days by scanning inquiry-log + notifications
+# Calculate 7 days ago as epoch timestamp
+SEVEN_DAYS_EPOCH=$(date -j -f "%s" "$(date -v-7d +%s 2>/dev/null || date --date="-7 days" +%s)" +%s 2>/dev/null || date +%s -d "7 days ago")
+ASKED_RECENTLY=$(jq -r "[.[] | select(.last_asked != null and (.last_asked | tonumber) > ($SEVEN_DAYS_EPOCH - 604800)) | .topic] | sort | unique | join(\"|\")" "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
+
 # Build a dynamic question using claude/haiku for real freshness
 CONTEXT_BLOCK="Recent memory:\n$RECENT_MEM\n\nActive kanban: $KANBAN_STATE\n\nRecent question titles + pending notifications (avoid repeating): $ALL_TITLES"
 
@@ -110,25 +115,53 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
   )
   
   # Build a set of recent topics to avoid (stricter: 7-day window to prevent 4-day cycle repeats)
-  # Filter by date: only topics from last 7 days
-  RECENT_TOPICS=$(awk -F'"' -v cutoff="$SEVEN_DAYS_AGO" '$2 >= cutoff {print}' "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
-  PENDING_TOPICS=$(jq -r '[.[] | select(.answered == false) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
-  ALL_TOPICS="$RECENT_TOPICS|$PENDING_TOPICS"
+  # Check inquiry-log for topics asked in last 7 days
+  RECENT_TOPICS=$(awk -v cutoff="$SEVEN_DAYS_AGO" '$0 >= cutoff' "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
   
-  # Pick first fallback not in recent TITLES or TOPICS (both checks prevent 4-day cycle repeats)
+  # Also check notifications for answered items (these shouldn't be asked again)
+  ANSWERED_TOPICS=$(jq -r '[.[] | select(.answered == true) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
+  
+  ALL_TOPICS="$RECENT_TOPICS|$ANSWERED_TOPICS"
+  
+  # Pick first fallback not asked in last 7 days (stricter dedup to prevent cycling)
+  PICKED=0
   for entry in "${FALLBACKS[@]}"; do
     FB_TITLE="${entry%%|*}"
     FB_BODY="${entry#*|}"; FB_BODY="${FB_BODY%%|*}"
     FB_TOPIC="${entry##*|}"
     
-    # Skip if title OR topic was asked in last 7 days (prevent both exact + thematic duplicates)
-    if [[ "$RECENT_TITLES" != *"$FB_TITLE"* ]] && [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
+    # Skip if topic was asked in last 7 days (prevents 4-day cycle from repeating)
+    if [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
       TITLE="$FB_TITLE"
       BODY="$FB_BODY"
       TOPIC="$FB_TOPIC"
+      PICKED=1
       break
     fi
   done
+  
+  # If all topics exhausted, pick oldest one by last_asked timestamp (fair rotation)
+  if [ $PICKED -eq 0 ]; then
+    FALLBACK_POOL=$(cat <<'EOF'
+consulting-opportunity|passive-income-target|signal-blocker|even-us-up-strategy|automation-friction|consulting-weakness|signal-expansion|project-priority|new-idea-pipeline|alfred-optimization|coinusup-vision|productize-consulting|even-us-up-blocker|passive-income-bet|capacity-expectations|workflow-friction
+EOF
+)
+    # Pick the first one (oldest rotation, resets pool fairly)
+    FIRST_TOPIC=$(echo "$FALLBACK_POOL" | cut -d'|' -f1)
+    
+    # Find matching entry
+    for entry in "${FALLBACKS[@]}"; do
+      FB_TOPIC="${entry##*|}"
+      if [ "$FB_TOPIC" = "$FIRST_TOPIC" ]; then
+        FB_TITLE="${entry%%|*}"
+        FB_BODY="${entry#*|}"; FB_BODY="${FB_BODY%%|*}"
+        TITLE="$FB_TITLE"
+        BODY="$FB_BODY"
+        TOPIC="$FB_TOPIC"
+        break
+      fi
+    done
+  fi
 fi
 
 # Send if we have content
@@ -137,4 +170,11 @@ if [ -n "$TITLE" ] && [ -n "$BODY" ]; then
   # Log with topic for stronger dedup on future runs
   TOPIC="${TOPIC:-unknown}"
   echo "{\"date\":\"$TODAY\",\"title\":\"$TITLE\",\"topic\":\"$TOPIC\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
+  
+  # Update question tracking file (7-day dedup enforcement)
+  TRACKING_FILE="$WORKSPACE/memory/question-tracking.json"
+  if [ -f "$TRACKING_FILE" ]; then
+    # Update last_asked + increment count for this topic
+    jq --arg topic "$TOPIC" --arg today "$TODAY" '.topics[$topic].last_asked = $today | .topics[$topic].count += 1 | .last_updated = now | tostring' "$TRACKING_FILE" > "${TRACKING_FILE}.tmp" 2>/dev/null && mv "${TRACKING_FILE}.tmp" "$TRACKING_FILE" 2>/dev/null || true
+  fi
 fi

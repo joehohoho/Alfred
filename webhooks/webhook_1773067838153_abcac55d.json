@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1773067838153_abcac55d",
+  "timestamp": "2026-03-09T14:50:38.153Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1773057664673_ba83397c",
+  "title": "🔒 Gateway Security Audit: 2 CRITICAL Issues Detected",
+  "message": "**Status:** Monday 9:00 AM security audit found 2 critical config issues requiring your approval.\n\n**CRITICAL #1: Control UI Wildcard Origins**\n- Current: `gateway.controlUi.allowedOrigins` set to `*`\n- Risk: Disables origin allowlisting; any domain can access Control UI\n- Fix: Replace with explicit trusted origins (e.g., `https://control.example.com`)\n\n**CRITICAL #2: Device Auth Disabled**\n- Current: `dangerouslyDisableDeviceAuth=true`\n- Risk: Break-glass debug setting; should only be used temporarily\n- Fix: Disable unless you're actively debugging gateway auth\n\n**WARNINGS (non-blocking):**\n- iMessage groupAllowFrom is empty (group messages silently dropped)\n- Time Machine not running\n- OpenClaw update available (v2026.3.8)\n\n**What This Means:**\nThese are live security gaps in your gateway config. I cannot modify `~/.openclaw/openclaw.json` directly (safety boundary), so this needs your approval and manual fix.\n\n**Your Action Items:**\n1. Decide: Do you want to fix these configs now, or leave the break-glass debug flag on?\n2. If fixing: Update `gateway.controlUi.allowedOrigins` and disable `dangerouslyDisableDeviceAuth`\n3. Optional: Fix iMessage group policy\n\nLet me know how you'd like to proceed.",
+  "userAnswer": "Fix all issues and make sure the critical items get taken care of right away.",
+  "answeredAt": "2026-03-09T14:50:38.150Z"
+}

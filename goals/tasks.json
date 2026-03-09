@@ -968,7 +968,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.236Z",
-    "updatedAt": "2026-03-01T15:07:50.930Z",
+    "updatedAt": "2026-03-09T15:01:14.891Z",
     "comments": [
       {
         "id": "cmt_1772377635361_ae3ea2eb",
@@ -981,6 +981,12 @@
         "author": "alfred",
         "text": "I pulled the current pricing from CoinUsUp source code. Here is what exists today and what I would suggest changing:\n\n**Current plans:**\n| Plan | CA/mo | US/mo | Annual discount |\n|------|-------|-------|----------------|\n| Free | $0 | $0 | — |\n| Basic | $25 CAD / $20 USD | — | 15% |\n| Pro | $65 CAD / $50 USD | — | 20% |\n| Enterprise | $130 CAD / $100 USD | — | 25% |\n\n**My assessment: the structure is solid — I would not change tiers or pricing.** 4 tiers with a free entry point, regional pricing (CAD/USD), and escalating annual discounts is a mature, well-designed setup. No need to rebuild.\n\n**What I would suggest changing (3 things):**\n\n1. **Free tier is too restrictive** — 1 org, 1 campaign, 1 event, 1 user, 0 expenses. Most users will hit the wall before they see value. Recommendation: raise Free to 1 org, 2 campaigns, 3 events, 5 users. Give them enough to actually try it before asking for money.\n\n2. **Add a free trial on paid tiers** — Currently there is no trial visible. A 14-day free trial on Basic/Pro removes the biggest barrier to first payment. Implementation: add a `trial_ends_at` field, treat trial as the plan tier it is trialing. Free to build, high conversion impact.\n\n3. **Enterprise annual discount is the best deal (25%) but Enterprise pricing may be too high for solo-dev acquisition** — at $130 CAD/mo the Enterprise buyer is a real org, which is hard to acquire without sales. Consider whether Enterprise should stay or be renamed/repositioned once you have traction on Basic/Pro.\n\n**Bottom line:** Do not rewrite pricing. Make 2 tweaks: loosen Free limits slightly + add 14-day trial on Basic/Pro. That is a 1-day HAL task.\n\nWant me to have HAL implement both changes?",
         "createdAt": "2026-03-01T15:07:50.930Z"
+      },
+      {
+        "id": "cmt_1773068474891_9610b27e",
+        "author": "joe",
+        "text": "For #1, update to Free 1 org, 1 campaign, 3 events and users they currently can add but can't invite which the paid tier should be the level if they want other users to interact.  #2, implement everywhere necessary a free 14day trial, before it gets published I need to know what updates have to be made with Stripe.",
+        "createdAt": "2026-03-09T15:01:14.891Z"
       }
     ]
   },
@@ -1017,7 +1023,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.277Z",
-    "updatedAt": "2026-03-01T15:06:48.779Z",
+    "updatedAt": "2026-03-09T15:02:57.001Z",
     "comments": [
       {
         "id": "cmt_1772377587651_41f074b0",
@@ -1030,6 +1036,12 @@
         "author": "alfred",
         "text": "Good call avoiding cash — it creates tax complexity, fraud risk, and PayPal/Stripe payout infrastructure you do not need right now.\n\n**Best easy-to-implement option: Premium feature unlock**\n\nWhen a user refers someone who installs and uses the app:\n- Referrer gets: 1 month of a premium tier unlocked (or a specific premium feature)\n- Referred user gets: same 1-month trial as a welcome bonus\n\n**Why this works for your setup:**\n- No money moves — zero payment infrastructure needed\n- Technically simple: store a `referral_code` per user, a `referred_by` field on signup, and a `premium_until` date. One DB column + one check at feature access.\n- Fraud is low-stakes: worst case someone creates fake accounts to get free premium. No real cost to you.\n- Creates a natural upsell: if they enjoy premium for a month, some convert to paid.\n\n**Implementation sketch (very lean):**\n1. Generate a unique referral code per user (UUID or short hash)\n2. Share link: `yourapp.com/signup?ref=ABC123`\n3. On signup with valid ref code: set `premium_until = now + 30 days` for both users\n4. Gate 1-2 premium features behind `premium_until > now` check\n\n**What premium feature to gate?** That depends on the app — do you want me to suggest specific features for CoinUsUp or Even Us Up? Or is this card for a different app?\n\nThis whole thing is a weekend build. Want me to assign it to HAL once we confirm which app and which feature to unlock?",
         "createdAt": "2026-03-01T15:06:48.779Z"
+      },
+      {
+        "id": "cmt_1773068577001_dff6df62",
+        "author": "joe",
+        "text": "Would it make sense to add a referral option that if they refer someone who signs up for at least 3months on a paid subscription they will receive one month free on their current plan?",
+        "createdAt": "2026-03-09T15:02:57.001Z"
       }
     ]
   },
@@ -1078,10 +1090,10 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.344Z",
-    "updatedAt": "2026-03-08T08:52:32.045Z",
-    "assignedAt": "2026-03-08T08:51:25.421Z",
+    "updatedAt": "2026-03-09T11:08:26.407Z",
+    "assignedAt": "2026-03-09T11:08:19.029Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "fde1b591-e07a-44d4-8200-885f7800a4f3",
+    "deliveryMessageId": "61801a22-2643-4401-a2e1-601629a60989",
     "comments": [
       {
         "id": "cmt_1772222453822_45b224a5",
@@ -1196,6 +1208,12 @@
         "author": "alfred",
         "text": "📋 **FRAMEWORK COMPLETE & READY TO EXECUTE**\n\n✅ 30-day pilot infrastructure built:\n- Tracking dashboard template (CAC/LTV metrics, UTM setup, data sources)\n- Channel selection matrix (affiliate networks + content partners)\n- Creative test variants (3-5 per channel)\n- Weekly budget reallocation logic\n- Reporting template + success metrics\n\n📄 Full plan: ~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md\n\n⏳ **BLOCKING: 5 inputs sent to Joe via Command Center notification**\n\n1. Which app? (CoinUsUp / Even Us Up / both?)\n2. Budget ceiling? ($50-100 / $250-500 / $1000+ / other?)\n3. LTV data? (monthly revenue/user × lifetime months)\n4. Existing partnerships? (Any to prioritize?)\n5. Creator payment structure? (% revenue / per signup / other?)\n\n🎯 **Recommendation:** Start with CoinUsUp + $250/month + affiliates + content partners. Can launch within 1h of Joe approval.\n\nStatus: Awaiting inputs → Day 1 launch",
         "createdAt": "2026-03-08T08:52:32.045Z"
+      },
+      {
+        "id": "cmt_1773054506407_30a48327",
+        "author": "alfred",
+        "text": "📌 **ACKNOWLEDGED - IN PROGRESS**\n\nStarting: Channel expansion pilot (affiliates/partners/content).\n\n**Approach:**\n1. Analyze current acquisition channels → identify 1-2 expansion targets (affiliates or content partnerships)\n2. Design 30-day pilot with clear tracking: CAC, LTV, ROAS per channel\n3. Test 2-3 creative variations per channel\n4. Weekly budget reallocation based on performance metrics\n5. Document results + learning → inform scaling strategy\n\n**Next:** Fetching Joe's project context + current acquisition data to select pilot channels.\n\n**ETA:** Initial channel selection + pilot plan by EOD.",
+        "createdAt": "2026-03-09T11:08:26.407Z"
       }
     ]
   },
@@ -1840,7 +1858,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-28T15:31:14.542Z",
-    "updatedAt": "2026-03-01T14:55:54.700Z",
+    "updatedAt": "2026-03-09T15:03:23.878Z",
     "assignedAt": "2026-02-28T16:01:11.773Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "466b1d2a-f036-42c4-ad9c-bf3170b8646c",
@@ -1862,6 +1880,12 @@
         "author": "alfred",
         "text": "Nothing hands-on needed — HAL verified everything already. Here is the summary:\n\n**What was done:** Uninstalled `@capacitor/assets` (a dev tool for generating icons — one-time use, no longer needed since icons are already committed). Build and sync both passed locally.\n\n**Audit result:** Vulnerabilities dropped from 10 → 4 HIGH. The remaining 4 are all inside the `vite-plugin-pwa` chain — unfixable without a major version upgrade, and `npm audit --omit=dev` confirms 0 production vulnerabilities.\n\n**To ship:** Push commit b6f8b08:\n```\ncd ~/CoinUsUp && git push\n```\n\n**One thing to know:** If you ever need to regenerate app icons in the future, you would run `npm install @capacitor/assets --save-dev` temporarily, generate, then uninstall again. Not a big deal.\n\nNo risk to approve. Want me to push it?",
         "createdAt": "2026-03-01T14:55:54.700Z"
+      },
+      {
+        "id": "cmt_1773068603878_0e153ad4",
+        "author": "joe",
+        "text": "What do i need to review on this card?",
+        "createdAt": "2026-03-09T15:03:23.878Z"
       }
     ]
   },
@@ -1910,7 +1934,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-02T13:03:06.928Z",
-    "updatedAt": "2026-03-04T12:31:21.910Z",
+    "updatedAt": "2026-03-09T15:29:25.622Z",
     "comments": [
       {
         "id": "cmt_1772456609237_6aacd74c",
@@ -1941,6 +1965,12 @@
         "author": "alfred",
         "text": "The 3 decisions needed to unblock this audit:\n\n1. **Audit Scope** — Which growth aspect? (user acquisition, retention/churn, monetization, engagement, channel attribution, DAU/MAU trends)\n\n2. **Time Period & Baseline** — What timeframe? (last 30/60/90 days, YoY comparison, since last feature?)\n\n3. **Recommendation Depth** — What action level? (identify top 3 bottlenecks, or full strategy with specific channels/features to prioritize + impact projections?)\n\nReady to execute once you clarify these.",
         "createdAt": "2026-03-04T12:31:21.909Z"
+      },
+      {
+        "id": "cmt_1773070165622_8a3c095b",
+        "author": "joe",
+        "text": "1. User acquisition 2. 30days 3. identify top 3 bottlenecks",
+        "createdAt": "2026-03-09T15:29:25.622Z"
       }
     ],
     "assignedAt": "2026-03-02T14:02:43.317Z",
@@ -2201,7 +2231,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-03T01:02:55.984Z",
-    "updatedAt": "2026-03-03T13:01:07.036Z",
+    "updatedAt": "2026-03-09T14:57:43.691Z",
     "comments": [
       {
         "id": "cmt_1772499782260_f9d13c3c",
@@ -2226,6 +2256,12 @@
         "author": "alfred",
         "text": "🔄 Stale re-dispatch — card stale for 7h. Attempting re-dispatch to get it moving again. If still stuck after 2h, it will be moved to Blocked.",
         "createdAt": "2026-03-03T13:00:52.830Z"
+      },
+      {
+        "id": "cmt_1773068263691_e8f5d4d3",
+        "author": "joe",
+        "text": "List the items I need to review for this card so it can be unblocked.",
+        "createdAt": "2026-03-09T14:57:43.691Z"
       }
     ],
     "assignedAt": "2026-03-03T06:01:23.152Z",

@@ -9,26 +9,11 @@
 ## 🎯 Pending Questions for Joe
 _Source: Command Center notifications (manual review + input)_
 
-- [ ] **Passive Income Targets (Q2)**
-  - Context: Market Signal Lab launch; need revenue targets
-  - Questions: 
-    - Specific target revenue: $X/month?
-    - Timeline: immediate (March) vs. Q2 (April-May)?
-  - Assigned to: Alfred | Status: **AWAITING ANSWER** | Priority: HIGH
+**All 3 strategic blockers CLEARED — 2026-03-09 12:59 PM**
 
-- [ ] **App Growth Strategy (Priority)**
-  - Context: CoinUsUp + Even Us Up competing for Q2 cycles
-  - Questions:
-    - Which app to prioritize for Q2 growth?
-    - Resource allocation: HAL bandwidth vs. Alfred focus?
-  - Assigned to: Alfred | Status: **AWAITING ANSWER** | Priority: HIGH
-
-- [ ] **Market Signal Lab Scope Clarification**
-  - Context: Product roadmap + external user interest
-  - Questions:
-    - Ship as public product vs. keep as internal trading tool?
-    - If public: pricing model + feature gates?
-  - Assigned to: Alfred | Status: **AWAITING ANSWER** | Priority: NORMAL
+✅ **Passive Income Targets (Q2):** $500/mo by end of Q2 (June 30)  
+✅ **App Growth Strategy:** CoinUsUp priority; maximize Alfred + HAL handling  
+✅ **Market Signal Lab Scope:** Personal tool; focus on backtest improvements + signal quality (no public launch yet)
 
 ---
 

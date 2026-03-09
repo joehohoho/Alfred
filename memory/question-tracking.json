@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "description": "Tracks when each inquiry topic was last asked (prevents 4-day cycle repeats). Enforce 7-day minimum between repeats.",
+  "last_updated": "2026-03-09T15:03:00Z",
+  "topics": {
+    "consulting-opportunity": {
+      "last_asked": "2026-03-09",
+      "count": 3,
+      "note": "Asked Feb 27, Feb 28, Mar 07, Mar 09 (FLAGGED: too frequent)"
+    },
+    "signal-blocker": {
+      "last_asked": "2026-03-08",
+      "count": 2,
+      "note": "Asked Mar 06, Mar 08"
+    },
+    "even-us-up-strategy": {
+      "last_asked": "2026-03-03",
+      "count": 1
+    },
+    "automation-friction": {
+      "last_asked": "2026-03-04",
+      "count": 1
+    },
+    "consulting-weakness": {
+      "last_asked": null,
+      "count": 0
+    },
+    "signal-expansion": {
+      "last_asked": null,
+      "count": 0
+    },
+    "project-priority": {
+      "last_asked": null,
+      "count": 0
+    },
+    "new-idea-pipeline": {
+      "last_asked": null,
+      "count": 0
+    },
+    "alfred-optimization": {
+      "last_asked": null,
+      "count": 0
+    },
+    "coinusup-vision": {
+      "last_asked": null,
+      "count": 0
+    },
+    "productize-consulting": {
+      "last_asked": null,
+      "count": 0
+    },
+    "even-us-up-blocker": {
+      "last_asked": null,
+      "count": 0
+    },
+    "passive-income-target": {
+      "last_asked": null,
+      "count": 0
+    },
+    "passive-income-bet": {
+      "last_asked": null,
+      "count": 0
+    },
+    "capacity-expectations": {
+      "last_asked": null,
+      "count": 0
+    },
+    "workflow-friction": {
+      "last_asked": null,
+      "count": 0
+    }
+  }
+}

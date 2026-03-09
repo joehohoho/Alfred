@@ -3459,5 +3459,25 @@
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.526Z",
     "updatedAt": "2026-03-08T19:01:34.526Z"
+  },
+  {
+    "id": "idea_1773068536736_df834fbf",
+    "title": "Signal App: Monetization Strategy (Freemium + $19.99 Pro)",
+    "description": "HAL research complete: Freemium + tiered subscription recommended. Pro tier $19.99/mo, Professional $49.99/mo (Month 4). Expected $120k MRR by Month 12 with 5-8% conversion. Differentiation: public signal accuracy (60-75% win rate) vs competitors (2-3%). Full analysis: projects/SIGNAL-APP-MONETIZATION-RECOMMENDATION.md. Next: validate with 20-30 users on pricing.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "low",
+    "potential": "high",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "monetization",
+      "signal-app",
+      "research-complete"
+    ],
+    "createdAt": "2026-03-09T15:02:16.736Z",
+    "updatedAt": "2026-03-09T15:02:16.736Z"
   }
 ]

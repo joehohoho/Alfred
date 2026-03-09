@@ -1,0 +1,53 @@
+{
+  "task_id": "card_XXX",
+  "objective": "One-line goal with critical constraints. Specific enough to prevent misinterpretation.",
+  "constraints": [
+    "Hard boundary 1 (e.g., 'Do NOT modify ~/.openclaw/openclaw.json')",
+    "Hard boundary 2 (e.g., 'Max 2h execution time')",
+    "Hard boundary 3 (e.g., 'Preserve backward compatibility')",
+    "Safety/scope boundary (e.g., 'No breaking changes to existing API')"
+  ],
+  "deliverables": {
+    "code": [
+      "path/to/file1.js",
+      "path/to/script.sh",
+      "~/goals/config.json"
+    ],
+    "tests": [
+      "npm test -- file1.test.js (expect: all passing)",
+      "bash scripts/integration-test.sh (expect: zero errors)"
+    ],
+    "docs": [
+      "IMPLEMENTATION.md (setup, usage, examples)",
+      "API.md (endpoint schema, error codes)",
+      "ROLLBACK.md (steps to revert if needed)"
+    ]
+  },
+  "validation_command": "npm test && bash scripts/validate.sh && npm run lint",
+  "success_criteria": [
+    "All tests pass (npm test returns 0)",
+    "Validation command succeeds (exit code 0)",
+    "No regressions in existing functionality",
+    "Code reviewed and approved by Alfred",
+    "[Specific metric 1 improved by X%]",
+    "[Specific metric 2 meets target]"
+  ],
+  "owner": "alfred",
+  "deadline": "2026-03-15",
+  "estimated_effort": {
+    "hours": 4,
+    "model_tier": "haiku"
+  },
+  "context": {
+    "parent_task_id": "card_001",
+    "related_cards": [
+      "card_002",
+      "card_003"
+    ],
+    "memory_refs": [
+      "MEMORY.md#Phase-1-Preflight-Handshake",
+      "IMPLEMENTATION-PLAN.md"
+    ],
+    "acceptance_note": "Focus on latency + reliability. HAL should prioritize validation tests over perfection in docs."
+  }
+}

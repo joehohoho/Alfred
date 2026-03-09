@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "created": "2026-03-09T13:55:00Z",
+  "quota_gates": {
+    "enabled": true,
+    "alfred_context_limit_pct": 75,
+    "subscription_quota_limit_pct": 85,
+    "codex_timeout_threshold": 2,
+    "codex_timeout_window_hours": 1,
+    "description": "Hard gates prevent HAL spawn if quotas are dangerously high"
+  },
+  "quota_austerity": {
+    "enabled_at_pct": 70,
+    "prefer_models": ["local", "codex"],
+    "skip_models": ["sonnet", "opus"],
+    "description": "When quota > 70%, use only LOCAL/Codex to preserve remaining budget"
+  },
+  "monitoring": {
+    "daily_check_time": "07:00",
+    "daily_check_timezone": "America/Moncton",
+    "projection_days_ahead": 7,
+    "alert_if_consumption_accel_pct": 10,
+    "alert_if_alfred_context_growth_pct": 5,
+    "description": "Daily monitoring of quota burn rate and context growth"
+  },
+  "recovery": {
+    "quota_at_95_action": "STOP_SPAWNING",
+    "alfred_context_at_80_action": "AUTO_COMPRESS",
+    "codex_timeout_action": "FALLBACK_TO_HAIKU",
+    "description": "Automated recovery actions if thresholds breached"
+  },
+  "tuning_notes": {
+    "alfred_context_limit_pct_notes": "Conservative: 75% leaves 5% headroom before gate 2. If too aggressive, lower to 70%. If too lenient, raise to 80% (not recommended).",
+    "subscription_quota_limit_pct_notes": "85% leaves 15% buffer for Alfred's essential work. Don't lower below 80%.",
+    "quota_austerity_enabled_at_pct_notes": "At 70% quota consumed, HAL model selection becomes conservative. Adjust +/- 5% if quota burn too fast/slow.",
+    "codex_timeout_threshold_notes": "2 timeouts = Codex is saturated. Increase to 3 if false-positive rate high; decrease to 1 if needed aggressively."
+  }
+}

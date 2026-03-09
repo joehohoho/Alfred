@@ -1,0 +1,10 @@
+{
+  "id": "webhook_1773067937813_cb6e51b3",
+  "timestamp": "2026-03-09T14:52:17.813Z",
+  "type": "notification-answered",
+  "notificationId": "notif_1772719200252_2f94af8e",
+  "title": "Consulting: recurring client problem → product idea?",
+  "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+  "userAnswer": "No",
+  "answeredAt": "2026-03-09T14:52:17.811Z"
+}

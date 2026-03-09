@@ -1,8 +1,33 @@
 # ACTIVE-TASK.md - Current Work State
 
-## Primary Task: Channel Expansion Pilot (30-day)
+## Primary Task: LegalBillAI Setup & Launch (Q2 Passive Income)
 
-**Status:** `in_progress`  
+**Status:** `in_progress` — Implementation complete, ready for Firebase setup  
+**Card ID:** (not on kanban yet)
+**Priority:** HIGH  
+**Goal:** $500/mo passive income by June 30
+
+### Objective
+Deploy LegalBillAI to production with email-based free tier tracking, then drive organic customer acquisition to hit $500/month revenue target by end of Q2.
+
+### Current Status (as of 2026-03-09 13:45 ADT)
+✅ Option C (email-based free tier) implemented in code  
+✅ Economics analyzed (break-even at <1 customer, Q2 target achievable in 6-8 weeks)  
+✅ Next steps documented in `/Users/hopenclaw/legal-bill-ai/ECONOMICS.md` and `/Users/hopenclaw/legal-bill-ai/next-steps.md`  
+⏳ Ready for: Firebase setup → Deployment → Outreach
+
+### Next Step
+Resume from `/Users/hopenclaw/legal-bill-ai/next-steps.md`:
+1. Firebase setup (5 min)
+2. Local testing (5 min)
+3. Vercel deployment (5 min)
+4. Start outreach (LinkedIn/Reddit/email)
+
+---
+
+## Secondary Task: Channel Expansion Pilot (30-day)
+
+**Status:** `paused` — Awaiting decision on Phase 1 messaging  
 **Card ID:** task_1772199318344_19e8fa66  
 **Priority:** URGENT  
 **Started:** 2026-03-08 05:51 ADT  
@@ -24,18 +49,31 @@ Run 30-day acquisition pilot across 1-2 channels (affiliates/partners/content) w
 ⏳ **BLOCKING:** Awaiting Joe inputs on 5 questions (see below)
 
 ### Next Step
-Collect answers to 5 open questions from Joe, then:
-1. Select target app (CoinUsUp or Even Us Up)
-2. Finalize channel list (affiliates + content partners)
-3. Define tracking infrastructure
-4. Launch Day 1 (channel onboarding + baseline metrics)
+✅ All 5 Joe inputs collected (2026-03-09 12:59 PM). Strategic decisions locked:
+- **Target:** CoinUsUp (fundraising app, public launch, pre-monetization)
+- **Budget:** $50-100/mo available in May (starting $0 now)
+- **Monetization:** Not yet determined (pre-monetization phase)
+- **Relationships:** Using Stripe for payments; no existing affiliate/content partners
+- **Timeline:** Phase 1 organic pilot (Mar-Apr), Phase 2 paid pilot (May)
+
+**Ready for Phase 1 execution (organic acquisition):**
+1. ✅ Draft 3-5 positioning messages ("What is CoinUsUp?" variants)
+2. ✅ Set up UTM parameter strategy
+3. ✅ Build tracking sheet (CSV: Date | Channel | Signups | Notes)
+4. ✅ Plan Reddit/Product Hunt/IH launches
+5. ✅ Define success metrics for organic phase (50-100 signups by Apr 30)
 
 ### Pending Questions for Joe
-1. **Which app to focus on?** (CoinUsUp, Even Us Up, or both?)
-2. **Monthly CAC/LTV budget?** ($50-100, $250-500, $1000+, or other?)
-3. **What is LTV?** (monthly revenue/user × avg customer lifetime in months)
-4. **Existing affiliate/partner relationships?** (Any to prioritize or avoid?)
-5. **Content partnership budget?** (Creator payment structure?)
+<!-- PENDING-Q-START -->
+- **⚠️ Stale card escalated: "Channel expansion pilot (affiliates/partners/content)"** (_question_, Mar 01 21:01)
+  ID: `notif_1772398863541_2f663b83` — Card "Channel expansion pilot (affiliates/partners/content)" (task_1772199318344_19e8fa66) has been in_progress for 6h with no updates. A re-dispatch ...
+
+- **What's a tedious recurring task you still do manually?** (_question_, Mar 04 14:00)
+  ID: `notif_1772632800242_979542ae` — You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can pro...
+
+- **Channel Expansion Pilot — 5 Inputs Needed to Launch** (_question_, Mar 08 08:52)
+  ID: `notif_1772959946285_d52bbb91` —   ✅ **Framework Ready to Execute**  I've built the complete 30-day pilot infrastructure (tracking dashboard template, creative test matrix, weekly rea...
+<!-- PENDING-Q-END -->
 
 ---
 

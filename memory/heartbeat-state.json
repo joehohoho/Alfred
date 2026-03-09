@@ -1,20 +1,21 @@
 {
-  "timestamp": "2026-03-08T07:04:00Z",
-  "checks": {
-    "context_compression": {
-      "context_pct": 19,
-      "status": "OK",
+  "timestamp": "2026-03-09T09:05:00-0400",
+  "checks_run": {
+    "check_1_context_compression": {
+      "status": "ok",
+      "context_percent": 27,
+      "threshold": 60,
       "action": "none"
     },
-    "system_reliability": {
-      "launchagents_running": 21,
-      "launchagents_target": 10,
-      "ollama_health": "responsive",
-      "cron_activity": "log_rotated_recently",
-      "status": "OK"
+    "check_4_system_reliability": {
+      "status": "ok",
+      "launchagents_running": 22,
+      "target_minimum": 10,
+      "ollama_response_ms": 16,
+      "ollama_threshold_ms": 1000,
+      "action": "none"
     }
   },
-  "quiet_hours": true,
-  "alert_needed": false
+  "overall_status": "healthy",
+  "next_check": "2026-03-09T09:35:00-0400"
 }
-{"timestamp":"2026-03-08T06:07:00-0300","context_pct":22,"status":"OK"}
