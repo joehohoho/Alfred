@@ -93,7 +93,7 @@ BODY=$(echo "$RESULT" | jq -r '.body' 2>/dev/null || echo "")
 
 # Fallback: if claude failed or parsing broke, use a hardcoded fresh question pool
 if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
-  # Fallback pool — 16 questions to prevent 4-day cycle from repeating
+  # Fallback pool — 30+ questions to prevent 7-day window from cycling
   # Format: title|body|topic
   FALLBACKS=(
     "Consulting: recurring client problem → product idea?|You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a $49+/mo SaaS? Worth a weekend prototype?|consulting-opportunity"
@@ -112,6 +112,20 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
     "Passive income bet you'd make if risk was zero?|If you had unlimited time/energy and no failure risk, which of your current ideas would you double down on? That tells me where your real interest is.|passive-income-bet"
     "How much time should I expect you to invest in new ideas?|Are you thinking 5 hrs/week on new projects, or is everything maintenance mode right now? Helps me calibrate what's realistic.|capacity-expectations"
     "What's the most annoying part of your current workflow?|Not the biggest problem—just the thing that bugs you most in daily work. Sometimes small friction kills motivation.|workflow-friction"
+    "CoinUsUp: organic growth or paid marketing?|Is CoinUsUp scaling naturally through word-of-mouth, or does it need ad spend? Do you have a growth budget in mind?|coinusup-growth"
+    "What's one feature users keep asking for?|Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.|feature-requests"
+    "How much of your week is client work vs own projects?|Rough split would help me understand what percentage of time should go to passive income vs consulting.|time-split"
+    "If you had to pick one metric to grow, what is it?|Revenue, users, features shipped, or something else? What does winning look like in the next 90 days?|success-metric"
+    "Are there manual processes in your consulting work?|Beyond code—invoicing, scheduling, proposal generation, follow-up, reporting? Any of these could be partially automated.|consulting-automation"
+    "What's the longest-running bug or debt in your apps?|Not a critical issue—just technical debt that's been nagging you. Worth tackling, or deprioritized?|technical-debt"
+    "How do you currently find new consulting clients?|Referrals, inbound, networking, or actively pitching? Any method that's working exceptionally well?|consulting-pipeline"
+    "What would make Even Us Up more sticky?|Better UX, gamification, integration with other tools, pricing change? What keeps users coming back?|user-retention"
+    "Is your tech stack still serving you?|Doing any refactoring or migration plans? Any tools or frameworks you wish you were using instead?|tech-stack"
+    "What does a \"perfect\" week look like for you?|Time breakdown: consulting, own projects, learning, admin, family. Understanding your ideal helps me prioritize better.|ideal-week"
+    "Any startup ideas you've been sitting on?|Not just apps—could be services, communities, content. Sometimes ideas need just the right moment.|startup-ideas"
+    "How often do you think about quitting consulting?|Rhetorical, but does it still energize you, or is it becoming a drag? Tells me whether passive income is escape or growth.|consulting-mindset"
+    "What's the ROI of your current passive income work?|Time invested vs $ earned over last 90 days? Helps prioritize which projects deserve more focus.|passive-roi"
+    "If one of your apps could go viral, which would you choose?|Which project would excite you most if it suddenly 10x'd? That's a signal of where your real interest is.|viral-choice"
   )
   
   # Build a set of recent topics to avoid (stricter: 7-day window to prevent 4-day cycle repeats)
