@@ -177,6 +177,18 @@ When HAL finishes a task (card moves to review with HAL results), post to the HA
 `bash ~/.openclaw/workspace/scripts/hal-slack-notify.sh "Task Title" "One-paragraph summary of what HAL delivered"`
 Webhook: Discord HAL completions channel — Joe's directive (updated 2026-02-26, was Slack C0AH618DE5C).
 
+### KNOWN ISSUE: Kanban Approval Bottleneck (Identified 2026-03-07, Confirmed 2026-03-09)
+**Problem:** 4-5 review cards stall indefinitely waiting for Joe approval. Notifications sent but no approve/reject buttons in notification UI. Joe must navigate to kanban board separately to approve, creating friction.
+
+**Impact:** ~4-5 hrs/week of manual approval checking. Slows iterative work cycles.
+
+**Suggested fixes (from WORKFLOW-EFFICIENCY-SCAN.md):**
+1. Add approve/reject action buttons to approval notifications (2h) — fastest UX improvement
+2. Auto-promote review cards after 7 days of inactivity (1h) — fallback auto-escalation
+3. Batch approval notifications (reduce daily noise)
+
+**Status:** Known issue, recommended for next workflow optimization cycle.
+
 ### Chat-assigned tasks (non-kanban message)
 Create a card first:
 `bash ~/.openclaw/workspace/scripts/kanban-create.sh task "<title>" "<description>" urgent`
