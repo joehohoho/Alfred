@@ -94,3 +94,30 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 2. Decision packet wrapper (cuts interruption overhead)
 3. Kanban auto-enforcement policy (stabilizes pipeline)
 
+
+## Workflow Efficiency Scan — 2026-03-09
+
+### Top repetitive patterns and concrete improvements
+
+1. **Duplicate Kanban reminder/comment batches (rework + noise)**
+   - **Pattern:** Connectivity retries replay the same `[KANBAN-COMMENT-BATCH]`, causing duplicate processing passes.
+   - **Impact:** Wasted execution cycles and risk of duplicate/conflicting card comments.
+   - **Improvement proposal:** Add idempotency guard in comment-batch handler using `batch_hash + processed_at` ledger (`.hal-alfred-tracking/kanban-comment-batch-ledger.jsonl`). If same batch hash appears within 2h, acknowledge + skip reposting.
+   - **Success metric:** 0 duplicate batch reprocessing events per week.
+
+2. **Stale/null Kanban records forcing repeated cleanup sweeps**
+   - **Pattern:** Idle loop repeatedly finds `null` stale in_progress cards and moves them, indicating upstream data integrity drift.
+   - **Impact:** Board hygiene work keeps recurring; false state can block HAL pickup logic.
+   - **Improvement proposal:** Add pre-clean validator in `kanban-idle-loop.sh` to detect null-id cards and quarantine them to a `kanban-data-anomalies.log` file, then auto-heal once per day (single batch) instead of each loop.
+   - **Success metric:** Reduce stale-card cleanup actions by 70% and eliminate repeated `null` stale alerts.
+
+3. **Ad-hoc model/cost explanations create decision friction**
+   - **Pattern:** Same model hierarchy and subscription-quota questions recur during implementation (cost vs quota semantics).
+   - **Impact:** Re-clarification overhead and slower approvals.
+   - **Improvement proposal:** Add a single source briefing card/template (`HAL-MODEL-FAQ.md`) auto-linked in HAL-related comments: "subscription pool shared, no marginal monthly cost, quota gates at 70/75/85".
+   - **Success metric:** Cut follow-up model-cost clarification questions by 50% over next 2 weeks.
+
+### Recommended implementation order (highest ROI first)
+1. Comment-batch idempotency guard (fastest/noise reduction)
+2. Kanban null-card validator + daily heal batch
+3. HAL model FAQ auto-linking in related card comments

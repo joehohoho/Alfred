@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-03-09T16:55:04Z",
+  "action": "dispatch_check",
+  "model_tier": "[2026-03-09T16:55:04Z] [MODEL] Normal mode (quota 0%): Codex with LOCAL fallback
+codex",
+  "quota_gates": "PASS"
+}

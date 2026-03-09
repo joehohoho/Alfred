@@ -305,7 +305,7 @@
     "createdAt": "2026-03-03T14:00:00.213Z",
     "answeredAt": "2026-03-09T14:52:02.018Z",
     "userAnswer": "It's a household app only at the moment, in the next couple months I will most likely try to monetize it.",
-    "deliveryStatus": "failed"
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1772632800242_979542ae",
@@ -327,7 +327,7 @@
     "createdAt": "2026-03-05T14:00:00.252Z",
     "answeredAt": "2026-03-09T14:52:17.811Z",
     "userAnswer": "No",
-    "deliveryStatus": "failed"
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1772805600255_09ade466",
@@ -339,7 +339,7 @@
     "createdAt": "2026-03-06T14:00:00.255Z",
     "answeredAt": "2026-03-09T14:48:50.528Z",
     "userAnswer": "Poor signals to buy and trade, backtest doesn't seem to improve",
-    "deliveryStatus": "failed"
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1772959946285_d52bbb91",
@@ -362,7 +362,7 @@
     "createdAt": "2026-03-09T12:01:04.673Z",
     "answeredAt": "2026-03-09T14:50:38.150Z",
     "userAnswer": "Fix all issues and make sure the critical items get taken care of right away.",
-    "deliveryStatus": "failed"
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1773061200280_3d53d2ba",
@@ -374,6 +374,6 @@
     "createdAt": "2026-03-09T13:00:00.280Z",
     "answeredAt": "2026-03-09T14:50:53.745Z",
     "userAnswer": "No there hasn't been.",
-    "deliveryStatus": "failed"
+    "deliveryStatus": "sent"
   }
 ]

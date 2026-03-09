@@ -65,9 +65,6 @@ Run 30-day acquisition pilot across 1-2 channels (affiliates/partners/content) w
 
 ### Pending Questions for Joe
 <!-- PENDING-Q-START -->
-- **⚠️ Stale card escalated: "Channel expansion pilot (affiliates/partners/content)"** (_question_, Mar 01 21:01)
-  ID: `notif_1772398863541_2f663b83` — Card "Channel expansion pilot (affiliates/partners/content)" (task_1772199318344_19e8fa66) has been in_progress for 6h with no updates. A re-dispatch ...
-
 - **What's a tedious recurring task you still do manually?** (_question_, Mar 04 14:00)
   ID: `notif_1772632800242_979542ae` — You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can pro...
 
