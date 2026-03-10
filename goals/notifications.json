@@ -397,22 +397,53 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1773140427523_e9bafeca",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-10T11:00:27.523Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773147600293_16aa9988",
     "type": "question",
     "title": "Signal App: what's the #1 blocker right now?",
     "message": "Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-10T13:00:00.293Z",
+    "answeredAt": "2026-03-10T15:09:25.720Z",
+    "userAnswer": "I've already answered this, the quality of the signals is poor and the model isn't learning well.",
+    "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1773157651809_269b3216",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-10T15:47:31.809Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773157651812_e395bd64",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Update Check: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-10T15:47:31.812Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773157651815_ff263de5",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-10T15:47:31.815Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773157849693_b600165e",
+    "type": "question",
+    "title": "CoinUsUp Phase 1 Launch — 1 Clarification Needed",
+    "message": "I'm starting the 30-day organic acquisition pilot for CoinUsUp today and have the full framework ready. However, I need ONE clarification before I launch Reddit posts and Product Hunt listing:\n\n**What is CoinUsUp?**\n\n- ACTIVE-TASK.md describes it as: 'fundraising app, public launch, pre-monetization'\n- My positioning variants assumed: crypto tax tracking / crypto trading app\n- These are different value props, so I need the correct one\n\n**To finalize positioning, I also need:**\n1. Main value proposition (what problem does it solve?)\n2. Target user profile (age, income, use case?)\n3. Landing page URL (for Reddit + PH links)\n4. GA4 tracking status (ready or need setup?)\n\n**Impact:** Wrong positioning wastes Week 1. Right positioning with accurate problem/solution messaging launches today.\n\n**Options:**\n- Option A: Clarify in next 2 hours → I launch today\n- Option B: Send me 30 seconds of voice explaining CoinUsUp → I'll extract the positioning automatically\n- Option C: Share existing CoinUsUp docs/landing page → I'll extract positioning from those\n\n**Recommendation:** Option A or B (fastest path). I have Week 1 plan locked and ready to execute the moment I understand what we're selling.\n\nReady to move immediately.",
+    "goalId": "task_1772199318344_19e8fa66",
+    "taskId": "task_1772199318344_19e8fa66",
+    "answered": false,
+    "createdAt": "2026-03-10T15:50:49.693Z",
     "answeredAt": null
   }
 ]

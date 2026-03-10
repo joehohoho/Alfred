@@ -1,11 +1,11 @@
 # ACTIVE-TASK.md - Current Work State
 
-## Primary Task: LegalBillAI Setup & Launch (Q2 Passive Income)
+## Primary Task: System Utilization Fix (Critical Infrastructure)
 
-**Status:** `in_progress` — Implementation complete, ready for Firebase setup  
-**Card ID:** (not on kanban yet)
-**Priority:** HIGH  
-**Goal:** $500/mo passive income by June 30
+**Status:** `in_progress` — Cron fixes applied, Kanban execution pathway unclear  
+**Card ID:** audit-utilization-2026-03-10
+**Priority:** CRITICAL  
+**Goal:** Restore Alfred to 2-4 hours/day utilization (from current 16 min/day)
 
 ### Objective
 Deploy LegalBillAI to production with email-based free tier tracking, then drive organic customer acquisition to hit $500/month revenue target by end of Q2.
@@ -27,44 +27,46 @@ Resume from `/Users/hopenclaw/legal-bill-ai/next-steps.md`:
 
 ## Secondary Task: Channel Expansion Pilot (30-day)
 
-**Status:** `paused` — Awaiting decision on Phase 1 messaging  
+**Status:** `in_progress` — Phase 1 (Organic) execution ACTIVE  
 **Card ID:** task_1772199318344_19e8fa66  
 **Priority:** URGENT  
-**Started:** 2026-03-08 05:51 ADT  
-**Deadline:** 2026-04-07 (30 days)
+**Started:** 2026-03-08 05:51 ADT | **Phase 1 execution:** 2026-03-10 12:48 ADT  
+**Deadline:** 2026-04-09 (Phase 1), 2026-05-31 (Phase 2)
 
 ### Objective
-Run 30-day acquisition pilot across 1-2 channels (affiliates/partners/content) with CAC/LTV tracking, creative tests, and weekly budget reallocation.
+**Phase 1 (Mar-Apr):** Run 30-day organic acquisition pilot for CoinUsUp, validate messaging + channels, generate 50-100 signups.  
+**Phase 2 (May+):** Scale to paid channels with $50-100/month budget based on Phase 1 learnings.
 
 ### Approach
-1. **Days 1-2:** Channel selection + baseline metrics capture
-2. **Days 3-5:** CAC/LTV tracking infrastructure setup
-3. **Days 6-10:** Creative test matrix design (3-5 variants per channel)
-4. **Days 1-30:** Daily monitoring + weekly budget reallocation + reporting
-5. **Day 30:** Final analysis + scaling recommendations
+**Phase 1 (Organic, $0 budget):**
+1. **Days 1-2 (Now):** Draft positioning variants (3-5 messages), set up UTM tracking
+2. **Days 3-7:** Launch Reddit + Product Hunt + Indie Hackers
+3. **Days 8-14:** Monitor, iterate, amplify (Twitter, Discord, micro-influencers)
+4. **Days 15-30:** Consolidate learnings, document best variant + channel, prepare for Phase 2
+5. **Day 30:** Final analysis + Phase 2 recommendations
 
-### Current Status (as of 2026-03-08)
-✅ Framework document created: `~/.openclaw/workspace/projects/channel-expansion-pilot-30day.md`  
-✅ Card moved to in_progress  
-⏳ **BLOCKING:** Awaiting Joe inputs on 5 questions (see below)
+### Current Status (as of 2026-03-10 12:48 ADT)
+✅ Phase 1 execution plan created: `~/.openclaw/workspace/projects/channel-pilot-phase1-organic.md`  
+✅ Tracking CSV initialized: `~/.openclaw/workspace/projects/channel-pilot-data-phase1.csv`  
+✅ 5 positioning variants drafted (Tax problem, Transparency, FOMO, Benefit, Problem-solver)  
+✅ Week 1 immediate actions scoped (Reddit posts, GA4 setup, PH timing)  
+✅ Card moved to in_progress (2026-03-10 12:48)  
 
-### Next Step
-✅ All 5 Joe inputs collected (2026-03-09 12:59 PM). Strategic decisions locked:
-- **Target:** CoinUsUp (fundraising app, public launch, pre-monetization)
-- **Budget:** $50-100/mo available in May (starting $0 now)
-- **Monetization:** Not yet determined (pre-monetization phase)
-- **Relationships:** Using Stripe for payments; no existing affiliate/content partners
-- **Timeline:** Phase 1 organic pilot (Mar-Apr), Phase 2 paid pilot (May)
-
-**Ready for Phase 1 execution (organic acquisition):**
-1. ✅ Draft 3-5 positioning messages ("What is CoinUsUp?" variants)
-2. ✅ Set up UTM parameter strategy
-3. ✅ Build tracking sheet (CSV: Date | Channel | Signups | Notes)
-4. ✅ Plan Reddit/Product Hunt/IH launches
-5. ✅ Define success metrics for organic phase (50-100 signups by Apr 30)
+### Next Step (Week 1 — Mar 10-16)
+1. **Today/tomorrow:** Reddit posts to r/personalfinance + r/cryptocurrency (Variants 1 & 2)
+2. **This week:** GA4 setup + Product Hunt draft
+3. **Weekly tracking:** Monitor signups by channel + variant
+4. **Success target:** 15-25 signups by end of Week 1
 
 ### Pending Questions for Joe
 <!-- PENDING-Q-START -->
+- **🚨 Critical: Who executes Kanban in_progress cards?** (_question_, Mar 10 13:15)
+  - A) Alfred (loads from ACTIVE-TASK.md + executes directly)
+  - B) HAL (auto-dispatched when card moves to in_progress)
+  - C) Work-executor cron (every 30 min checks + delegates)
+  - D) Manual (Joe clicks "start" button in Command Center)
+  - **Impact:** 7 cron jobs fixed, but Channel Expansion card still stuck. Need to know execution model to proceed.
+
 - **What's a tedious recurring task you still do manually?** (_question_, Mar 04 14:00)
   ID: `notif_1772632800242_979542ae` — You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can pro...
 
