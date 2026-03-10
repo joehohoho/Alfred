@@ -395,5 +395,24 @@
     "answered": false,
     "createdAt": "2026-03-10T06:05:31.535Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773140427523_e9bafeca",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-10T11:00:27.523Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773147600293_16aa9988",
+    "type": "question",
+    "title": "Signal App: what's the #1 blocker right now?",
+    "message": "Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-10T13:00:00.293Z",
+    "answeredAt": null
   }
 ]

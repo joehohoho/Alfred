@@ -76,6 +76,12 @@ Run 30-day acquisition pilot across 1-2 channels (affiliates/partners/content) w
 
 - **⚠️ Stale card escalated: "CoinUsUp Growth Audit"** (_question_, Mar 10 06:05)
   ID: `notif_1773122731535_e6026d16` — Card "CoinUsUp Growth Audit" (task_1772456586928_1632e222) has been in_progress for 6h with no updates. A re-dispatch was attempted but the card is st...
+
+- **Partial Recovery** (_system_, Mar 10 11:00)
+  ID: `notif_1773140427523_e9bafeca` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
+
+- **Signal App: what's the #1 blocker right now?** (_question_, Mar 10 13:00)
+  ID: `notif_1773147600293_16aa9988` — Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioriti...
 <!-- PENDING-Q-END -->
 
 ---

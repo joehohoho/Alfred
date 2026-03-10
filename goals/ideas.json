@@ -1739,11 +1739,23 @@
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.5,
+      "notes": "Strong execution fit with Joe's consulting expertise and real SMB pain point. Market has existing monitoring alternatives (Cronitor, Healthchecks.io). Below promotion threshold; differentiation needed. Recommend focusing on Zapier/Make-specific failed-run intelligence + retry playbooks as unique angle vs generic uptime monitoring.",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 7,
+        "joes_edge_2x": 7,
+        "synergy_1x": 7,
+        "passive_potential_2x": 8
+      },
+      "weighted_score": 65,
+      "evaluatedAt": "2026-03-10T11:01:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T17:41:14.515Z",
-    "updatedAt": "2026-02-27T17:41:14.515Z"
+    "updatedAt": "2026-03-10T11:01:00.000Z"
   },
   {
     "id": "idea_1772224937065_65b311c0",
@@ -3548,5 +3560,53 @@
     "tags": [],
     "createdAt": "2026-03-10T06:05:59.153Z",
     "updatedAt": "2026-03-10T06:05:59.153Z"
+  },
+  {
+    "id": "idea_1773151285164_9a1144a7",
+    "title": "NB Bilingual Ops Copilot (EN/FR)",
+    "description": "Atlantic Canada SMBs (health/home services, trades, local retail) lose time duplicating customer comms in English/French for quotes, appointment reminders, and policy updates. Build a bilingual messaging/content layer that auto-generates EN/FR customer-facing text from one source, with industry templates and approval workflow. Geography-specific moat: local FR-CA phrasing + NB bilingual norms that larger US tools ignore. Demand signal to validate: interview 15 NB SMB owners, target 30%+ reporting weekly bilingual friction; collect 20 waitlist signups from local chambers. Monetization: SaaS tiered by monthly contacts/seats (e.g., //), with setup package for template customization. Why now: few SMB-focused bilingual workflow tools tuned to Atlantic market language reality.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T14:01:25.164Z",
+    "updatedAt": "2026-03-10T14:01:25.164Z"
+  },
+  {
+    "id": "idea_1773151291517_9e074773",
+    "title": "Offline-First Field Service Hub for Rural Atlantic",
+    "description": "Rural NB/NS trades and contractors struggle with weak connectivity; estimates, job photos, checklists, and customer sign-offs fail in cloud-only apps. Build an offline-first mobile web app for field teams: job packets, photo capture, e-sign, and sync-on-connect with conflict resolution. Geography-specific moat: engineered for low-bandwidth Atlantic routes + bilingual customer-facing forms. Demand validation: pilot with 5-8 local contractors, measure >25% reduction in admin rework/time-to-invoice. Monetization: per-crew subscription (-/mo) + optional white-label onboarding fee. Competitive angle: mainstream FSM tools assume stable connectivity and are overbuilt/overpriced for small Atlantic crews.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T14:01:31.517Z",
+    "updatedAt": "2026-03-10T14:01:31.517Z"
+  },
+  {
+    "id": "idea_1773151304303_c92ea06b",
+    "title": "Atlantic Contractor Client Portal-in-a-Box",
+    "description": "Small contractors in Atlantic Canada still manage client approvals via scattered SMS/email calls, causing delays and disputes. Build a lightweight branded client portal for quotes, scope approvals, change orders, progress updates, and payment-status visibility (without becoming a payment processor). Geography moat: built for micro-teams (1-20 staff), bilingual templates, and local service workflows (snow removal, renovations, HVAC, marine services). Demand validation: 10 discovery calls + 3 paid design-partner pilots; target 15% faster project approval cycle. Monetization: base subscription + project volume add-on + optional implementation service. Profitability: sticky workflow software with low support burden once templates are set.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T14:01:44.303Z",
+    "updatedAt": "2026-03-10T14:01:44.303Z"
   }
 ]
