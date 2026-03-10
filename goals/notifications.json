@@ -375,5 +375,25 @@
     "answeredAt": "2026-03-09T14:50:53.745Z",
     "userAnswer": "No there hasn't been.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1773122731531_b307371f",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
+    "taskId": "task_1772456586928_1632e222",
+    "answered": false,
+    "createdAt": "2026-03-10T06:05:31.531Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773122731535_e6026d16",
+    "type": "question",
+    "title": "⚠️ Stale card escalated: \"CoinUsUp Growth Audit\"",
+    "message": "Card \"CoinUsUp Growth Audit\" (task_1772456586928_1632e222) has been in_progress for 6h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "source": "stale-card-handler",
+    "answered": false,
+    "createdAt": "2026-03-10T06:05:31.535Z",
+    "answeredAt": null
   }
 ]

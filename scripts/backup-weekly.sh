@@ -7,7 +7,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE="${SCRIPT_DIR%/scripts}"
-BACKUP_DIR="$WORKSPACE/.backups"
+BACKUP_DIR="$HOME/backups/openclaw"
 LOG_FILE="$BACKUP_DIR/backup.log"
 
 mkdir -p "$BACKUP_DIR"

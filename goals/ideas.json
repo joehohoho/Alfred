@@ -3500,5 +3500,53 @@
     "tags": [],
     "createdAt": "2026-03-09T20:01:36.293Z",
     "updatedAt": "2026-03-09T20:01:36.293Z"
+  },
+  {
+    "id": "idea_1773122758692_d2da0da4",
+    "title": "Inbox-to-Action Autopilot for Consultants",
+    "description": "Problem: Solo consultants lose billable time manually triaging Gmail/Slack into follow-ups and tasks. Target market: Independent consultants and 2-20 person agencies. MRR potential: k-k within 6-12 months at -/mo. Tech complexity: 3/5 (Gmail + Slack + task integrations, rules engine, digest UI). Competition: Medium (Zapier/Make are generic; niche assistant workflow gap). Why Joe can win: Deep automation consulting background + understands real client ops pain; can ship opinionated templates fast.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T06:05:58.692Z",
+    "updatedAt": "2026-03-10T06:05:58.692Z"
+  },
+  {
+    "id": "idea_1773122758926_9c87b2d9",
+    "title": "Renewal & Churn Rescue Playbooks for Micro-SaaS",
+    "description": "Problem: Small SaaS founders lack automated renewal reminders, failed-payment recovery, and cancel-flow win-backs. Target market: Bootstrapped SaaS founders under k MRR. MRR potential: k-k at -/mo. Tech complexity: 2/5 (Stripe webhooks, email sequences, lightweight analytics dashboard). Competition: Medium-high (dunning tools exist, but few bundle churn playbooks + guided setup for micro-SaaS). Why Joe can win: Strong product/automation execution and practical growth focus; can package proven playbooks instead of raw tooling.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T06:05:58.926Z",
+    "updatedAt": "2026-03-10T06:05:58.926Z"
+  },
+  {
+    "id": "idea_1773122759153_541a3e10",
+    "title": "Customer Support Triage Copilot for Indie Apps",
+    "description": "Problem: Founders manually sort support tickets/DMs, causing slow response and missed churn signals. Target market: Indie app owners and small SaaS teams. MRR potential: k-k at -/mo. Tech complexity: 3/5 (email/helpdesk ingestion, intent tagging, priority scoring, daily brief). Competition: Medium (Intercom/Zendesk too heavy for small teams; gap for lightweight AI triage). Why Joe can win: Existing app maintenance experience + can design low-maintenance workflows and actionable summaries for solo operators.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T06:05:59.153Z",
+    "updatedAt": "2026-03-10T06:05:59.153Z"
   }
 ]

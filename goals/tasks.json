@@ -1115,12 +1115,12 @@
     "title": "Channel expansion pilot (affiliates/partners/content)",
     "description": "Run 30-day pilot across 1-2 acquisition channels with CAC/LTV tracking, creative tests, and weekly budget reallocation.",
     "goalId": "",
-    "status": "in_progress",
+    "status": "review",
     "priority": "critical",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-02-27T13:35:18.344Z",
-    "updatedAt": "2026-03-09T11:08:26.407Z",
+    "updatedAt": "2026-03-10T00:03:27.298Z",
     "assignedAt": "2026-03-09T11:08:19.029Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "61801a22-2643-4401-a2e1-601629a60989",
@@ -1970,7 +1970,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-02T13:03:06.928Z",
-    "updatedAt": "2026-03-09T16:59:51.518Z",
+    "updatedAt": "2026-03-10T06:05:31.533Z",
     "comments": [
       {
         "id": "cmt_1772456609237_6aacd74c",
@@ -2013,6 +2013,12 @@
         "author": "alfred",
         "text": "✓ CoinUsUp Growth Audit scope locked:\n1. **User acquisition funnel:** Signup → Onboard → First action (identify where drop-off heaviest)\n2. **30-day cohort analysis:** Retention %, churn points, estimated LTV\n3. **Top 3 bottlenecks:** Quantified (% of users affected, priority ranking)\n\nAudit execution starts tomorrow morning. Results + recommendations by Friday end-of-day. Spreadsheet will have funnel visualization + bottleneck impact scores.",
         "createdAt": "2026-03-09T16:59:51.518Z"
+      },
+      {
+        "id": "cmt_1773122731528_052e4a0a",
+        "author": "alfred",
+        "text": "⛔ Escalated to blocked — card stale for 6h. Re-dispatch was attempted 173h ago with no progress. Moving to Blocked for Joe's review.",
+        "createdAt": "2026-03-10T06:05:31.528Z"
       }
     ],
     "assignedAt": "2026-03-02T14:02:43.317Z",
