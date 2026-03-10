@@ -1734,7 +1734,7 @@
     "title": "SMB Automation Health Monitor",
     "description": "Lightweight monitoring SaaS for Zapier/Make/n8n workflows: heartbeat checks, failed-run digest, retry playbooks, and weekly ROI report emailed to owner. Position as \"insurance for automations\" for consultants/SMBs. Effort: Low (2-3 weeks MVP). Upside: High (-/mo, sticky recurring due to operational risk reduction).",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1750,12 +1750,12 @@
         "passive_potential_2x": 8
       },
       "weighted_score": 65,
-      "evaluatedAt": "2026-03-10T11:01:00.000Z"
+      "evaluatedAt": "2026-03-10T20:01:00.000Z"
     },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T17:41:14.515Z",
-    "updatedAt": "2026-03-10T11:01:00.000Z"
+    "updatedAt": "2026-03-10T20:01:00.000Z"
   },
   {
     "id": "idea_1772224937065_65b311c0",
@@ -3608,5 +3608,21 @@
     "tags": [],
     "createdAt": "2026-03-10T14:01:44.303Z",
     "updatedAt": "2026-03-10T14:01:44.303Z"
+  },
+  {
+    "id": "idea_1773183778952_0071e10f",
+    "title": "CoinUsUp growth audit — prioritized UX/features/growth levers",
+    "description": "CoinUsUp growth audit (workspace/code + existing SEO/PWA reports) — prioritized recommendations with effort estimates.\n\nTOP 3 UX FRICTION POINTS\n1) Onboarding-to-value is too long (Highest impact)\n- Symptoms: New users must set org + campaign + events + members before seeing early wins; broad dashboard complexity creates setup fatigue.\n- Recommendation: Add a 10-minute “Quick Start” wizard (Create org → launch first campaign → share first link → log first donation).\n- Effort: M (4-6 dev days)\n\n2) Feature/navigation overload for first-time admins\n- Symptoms: App exposes many modules early (Campaigns, Events, Donations, Chat, Expenses, Reports, etc.), which increases decision friction.\n- Recommendation: Progressive disclosure by role/maturity stage (Starter view, then unlock advanced modules).\n- Effort: M (3-5 dev days)\n\n3) Mobile-heavy workflows still table/form intensive\n- Symptoms: Mobile support exists, but day-to-day actions (member mgmt, donations, expenses) remain click-heavy on phone.\n- Recommendation: Add “mobile quick actions” (one-tap Add Donation/Add Expense/Add Shift) and simplified mobile data-entry paths.\n- Effort: M (3-4 dev days)\n\nTOP 3 MISSING FEATURES USERS LIKELY WANT\n1) Guided setup templates (Highest demand)\n- What users likely expect: preset campaign templates (school fundraiser, sports team, community event) + checklist progress.\n- Why: Reduces blank-page anxiety and shortens time-to-first-success.\n- Effort: M (4-7 dev days)\n\n2) Donor/payment & data import integrations\n- What users likely want: CSV import + Stripe/PayPal connectors + donor sync from past systems.\n- Why: Real organizations already have data; manual migration kills activation.\n- Effort: L (2-4 weeks)\n\n3) Volunteer and donor self-serve portal workflows\n- What users likely want: public signup pages, shift self-selection, donor receipts/status, automated reminders.\n- Why: Reduces coordinator admin load and improves repeat participation.\n- Effort: M/L (1-2 weeks)\n\nTOP 3 GROWTH LEVERS (SEO, VIRALITY, MONETIZATION)\n1) SEO technical unlock (Highest ROI near-term)\n- Current gap (from SEO audit): missing sitemap + SPA rendering constraints + schema gaps.\n- Actions: add sitemap+robots reference, FAQ schema, Organization schema, pre-render/SSR for marketing pages.\n- Effort: M (5-8 dev days)\n- Expected impact: Better organic discoverability and lower CAC.\n\n2) Built-in referral/viral loops for campaigns\n- Actions: shareable campaign pages with social proof widgets, “invite 3 organizers” onboarding trigger, referral credits for paid tiers.\n- Effort: M (1 week)\n- Expected impact: low-cost acquisition via organizer network effects.\n\n3) Packaging & pricing conversion improvements\n- Actions: 14-day Basic/Pro trial, annual discount framing, clear feature gate messaging by org size, in-app upgrade prompts at limit boundaries.\n- Effort: S/M (2-4 dev days)\n- Expected impact: improved free→paid conversion + reduced sales friction.\n\nPRIORITIZED EXECUTION ORDER (FASTEST VALUE)\nPhase 1 (0-2 weeks)\n- Quick Start wizard\n- SEO technical fixes (sitemap/schema/robots + key pre-render pages)\n- 14-day trial + pricing packaging updates\n\nPhase 2 (2-6 weeks)\n- Campaign templates + onboarding checklist\n- Mobile quick actions\n- Basic referral mechanics\n\nPhase 3 (6-10 weeks)\n- Integrations (CSV + Stripe/PayPal)\n- Self-serve volunteer/donor workflows\n\nNotes:\n- Assessment based on current repository + internal SEO/PWA audits.\n- Next step can convert Phase 1 into implementation tickets with acceptance criteria.\n",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-10T23:02:58.952Z",
+    "updatedAt": "2026-03-10T23:02:58.952Z"
   }
 ]
