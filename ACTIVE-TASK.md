@@ -70,6 +70,12 @@ Run 30-day acquisition pilot across 1-2 channels (affiliates/partners/content) w
 
 - **Channel Expansion Pilot — 5 Inputs Needed to Launch** (_question_, Mar 08 08:52)
   ID: `notif_1772959946285_d52bbb91` —   ✅ **Framework Ready to Execute**  I've built the complete 30-day pilot infrastructure (tracking dashboard template, creative test matrix, weekly rea...
+
+- **Blocker on card** (_kanban-blocked_, Mar 10 06:05)
+  ID: `notif_1773122731531_b307371f` — Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.
+
+- **⚠️ Stale card escalated: "CoinUsUp Growth Audit"** (_question_, Mar 10 06:05)
+  ID: `notif_1773122731535_e6026d16` — Card "CoinUsUp Growth Audit" (task_1772456586928_1632e222) has been in_progress for 6h with no updates. A re-dispatch was attempted but the card is st...
 <!-- PENDING-Q-END -->
 
 ---
