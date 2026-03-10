@@ -20,9 +20,26 @@ POOL_FILE="$WORKSPACE/HAL-PROACTIVE-TASKS.md"
 POOL_INDEX_FILE="$TRACK_DIR/proactive-pool-index.txt"
 LOG="$TRACK_DIR/hal-dispatch.log"
 
+LAST_SUCCESS_FILE="$TRACK_DIR/last-successful-dispatch.json"
+
 mkdir -p "$TRACK_DIR"
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
+
+# Write last-successful-dispatch.json — single source of truth for HAL reachability
+write_success_status() {
+  local task="$1" dtype="$2" session="$3"
+  python3 -c "
+import json, sys
+json.dump({
+  'timestamp': sys.argv[1],
+  'task': sys.argv[2],
+  'type': sys.argv[3],
+  'session': sys.argv[4],
+  'failCountAtTime': 0
+}, open(sys.argv[5], 'w'), indent=2)
+" "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$task" "$dtype" "$session" "$LAST_SUCCESS_FILE"
+}
 
 # Check forced-idle state — skip all dispatches during maintenance
 FORCED_IDLE_FILE="$TRACK_DIR/hal-forced-idle.json"
@@ -115,6 +132,8 @@ Instructions: Complete this task. When done, report your results."
     DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
       log "DISPATCH_OK: $DISPATCH_OUT"
       echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
+      SESSION_KEY=$(echo "$DISPATCH_OUT" | grep -oP 'session=\K\S+' || echo "")
+      write_success_status "$TITLE" "kanban" "$SESSION_KEY"
       # Log the successful dispatch
       python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$TASK_ID" "HAL" "$TITLE" "kanban" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
@@ -198,6 +217,8 @@ PROACTIVE_ID="proactive_$(date +%s)"
 DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
   log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK} — $DISPATCH_OUT"
   echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
+  SESSION_KEY=$(echo "$DISPATCH_OUT" | grep -oP 'session=\K\S+' || echo "")
+  write_success_status "$NEXT_TASK" "proactive" "$SESSION_KEY"
   # Log the successful dispatch
   python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$PROACTIVE_ID" "HAL" "$NEXT_TASK" "proactive" <<'PY' >> "$DISPATCH_LOG"
 import sys, json
