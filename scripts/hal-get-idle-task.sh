@@ -9,20 +9,10 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROUTER="$SCRIPT_DIR/hal-alfred-route-auto.sh"
 API="http://localhost:3001/api/kanban"
 
-# Guard: only dispatch a kanban card when in_progress is completely empty.
-# If anything is in_progress (active or stale), bail — don't pile on.
-# Proactive tasks (no board move) are handled upstream in hal-idle-dispatch-cron.sh.
+# Phase 3 change: do NOT block HAL dispatch just because cards exist in in_progress.
+# HAL should continue pulling actionable To Do cards even when in_progress contains
+# stale/unactionable/waiting cards. Queue lockup prevention > strict single-slot blocking.
 BOARD_JSON=$(curl -s "$API")
-IN_PROG_COUNT=$(echo "$BOARD_JSON" | python3 -c "
-import sys, json
-b = json.load(sys.stdin)
-cards = [c for c in b.get('columns', {}).get('in_progress', []) if c.get('type') != 'idea']
-print(len(cards))
-" 2>/dev/null || echo "0")
-if [[ "$IN_PROG_COUNT" -gt 0 ]]; then
-  # Something is in_progress — don't dispatch another kanban card
-  echo "" ; exit 0
-fi
 
 # Get To Do cards using correct board structure
 TODO_JSON=$(echo "$BOARD_JSON" | python3 -c "

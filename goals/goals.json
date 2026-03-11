@@ -159,10 +159,13 @@
     "title": "Cost-Per-Project P&L",
     "description": "Automatic cost tracking across projects (dev time, API spend, hosting, tools). Real-time unit economics for each app: revenue per hour, CAC, LTV, burn rate.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {},
+    "completedAt": "2026-03-10T17:05:00.000Z",
+    "metadata": {
+      "completedBy": "daily-goal-review",
+      "note": "scripts/project-pnl.js fully implemented and generating live per-project P&L data with revenue/hour, CAC, LTV, burn-rate, and category breakdowns. Dashboard wired in Command Center. Phase 2 (automated refresh scheduling) tracked separately."
+    },
     "createdAt": "2026-02-24T08:45:32.218Z",
     "updatedAt": "2026-02-27T16:39:03.019Z",
     "comments": [

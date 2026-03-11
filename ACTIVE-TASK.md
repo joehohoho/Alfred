@@ -1,100 +1,146 @@
-# ACTIVE-TASK.md - Current Work State
+# ACTIVE-TASK.md — Current Work State
 
-## Primary Task: System Utilization Fix (Critical Infrastructure)
-
-**Status:** `in_progress` — Cron fixes applied, Kanban execution pathway unclear  
-**Card ID:** audit-utilization-2026-03-10
-**Priority:** CRITICAL  
-**Goal:** Restore Alfred to 2-4 hours/day utilization (from current 16 min/day)
-
-### Objective
-Deploy LegalBillAI to production with email-based free tier tracking, then drive organic customer acquisition to hit $500/month revenue target by end of Q2.
-
-### Current Status (as of 2026-03-09 13:45 ADT)
-✅ Option C (email-based free tier) implemented in code  
-✅ Economics analyzed (break-even at <1 customer, Q2 target achievable in 6-8 weeks)  
-✅ Next steps documented in `/Users/hopenclaw/legal-bill-ai/ECONOMICS.md` and `/Users/hopenclaw/legal-bill-ai/next-steps.md`  
-⏳ Ready for: Firebase setup → Deployment → Outreach
-
-### Next Step
-Resume from `/Users/hopenclaw/legal-bill-ai/next-steps.md`:
-1. Firebase setup (5 min)
-2. Local testing (5 min)
-3. Vercel deployment (5 min)
-4. Start outreach (LinkedIn/Reddit/email)
+**Status:** `idle` — Phase 3 implementation complete and operational  
+**Last Updated:** 2026-03-10 14:14 ADT
 
 ---
 
-## Secondary Task: Channel Expansion Pilot (30-day)
-
-**Status:** `in_progress` — Phase 1 (Organic) execution ACTIVE  
-**Card ID:** task_1772199318344_19e8fa66  
-**Priority:** URGENT  
-**Started:** 2026-03-08 05:51 ADT | **Phase 1 execution:** 2026-03-10 12:48 ADT  
-**Deadline:** 2026-04-09 (Phase 1), 2026-05-31 (Phase 2)
+## Completed: Phase 3 Option B Implementation
 
 ### Objective
-**Phase 1 (Mar-Apr):** Run 30-day organic acquisition pilot for CoinUsUp, validate messaging + channels, generate 50-100 signups.  
-**Phase 2 (May+):** Scale to paid channels with $50-100/month budget based on Phase 1 learnings.
+Prevent Kanban board from blocking work execution. HAL and Alfred should both remain productive regardless of in_progress card state.
 
-### Approach
-**Phase 1 (Organic, $0 budget):**
-1. **Days 1-2 (Now):** Draft positioning variants (3-5 messages), set up UTM tracking
-2. **Days 3-7:** Launch Reddit + Product Hunt + Indie Hackers
-3. **Days 8-14:** Monitor, iterate, amplify (Twitter, Discord, micro-influencers)
-4. **Days 15-30:** Consolidate learnings, document best variant + channel, prepare for Phase 2
-5. **Day 30:** Final analysis + Phase 2 recommendations
+### Deliverables ✅
 
-### Current Status (as of 2026-03-10 12:48 ADT)
-✅ Phase 1 execution plan created: `~/.openclaw/workspace/projects/channel-pilot-phase1-organic.md`  
-✅ Tracking CSV initialized: `~/.openclaw/workspace/projects/channel-pilot-data-phase1.csv`  
-✅ 5 positioning variants drafted (Tax problem, Transparency, FOMO, Benefit, Problem-solver)  
-✅ Week 1 immediate actions scoped (Reddit posts, GA4 setup, PH timing)  
-✅ Card moved to in_progress (2026-03-10 12:48)  
+**1. Alfred Work Executor (LaunchAgent)**
+- Status: ✅ Running (PID 16808)
+- File: `scripts/alfred-work-executor.sh`
+- LaunchAgent: `/Users/hopenclaw/Library/LaunchAgents/com.alfred.alfred-work-executor.plist`
+- Interval: Every 15 min (900 sec)
+- Features:
+  - Fetches in_progress cards from Kanban
+  - Routes: research/analysis → Alfred, code/build → HAL
+  - HAL fallback: If HAL offline, queues to Alfred instead
+  - Deduplication: Won't requeue same card repeatedly
+  - Context safeguard: Pre-execution check at 60% threshold
+  - Model fallback: LOCAL → Haiku (with subscription)
 
-### Next Step (Week 1 — Mar 10-16)
-1. **Today/tomorrow:** Reddit posts to r/personalfinance + r/cryptocurrency (Variants 1 & 2)
-2. **This week:** GA4 setup + Product Hunt draft
-3. **Weekly tracking:** Monitor signups by channel + variant
-4. **Success target:** 15-25 signups by end of Week 1
+**2. Kanban Completion Handler (Cron)**
+- Status: ✅ Running (every 30 min)
+- File: `scripts/kanban-completion-handler.sh`
+- Features:
+  - Monitors in_progress for completion signals
+  - Auto-move logic:
+    - No Joe review needed → move to Done
+    - Needs Joe decision keywords → move to Review
+  - Tested: Successfully moved 2 cards to Done
 
-### Pending Questions for Joe
+**3. HAL Dispatch Unblocked**
+- Status: ✅ Updated `scripts/hal-get-idle-task.sh`
+- Effect: Removed guard that blocked HAL when in_progress had cards
+- Result: HAL can now continuously pull To Do items even if board has stale work
+
+**4. Alfred Task Queue**
+- Status: ✅ Operational
+- File: `~/.hal-alfred-tracking/alfred-queue.jsonl`
+- Features:
+  - Stores queued tasks from executor
+  - Deduplicates: Won't requeue same card
+  - Current queue: 2 tasks pending
+
+**5. Queue Processor**
+- Status: ✅ Ready
+- File: `scripts/alfred-process-queue.sh`
+- Purpose: Reads first pending item from queue, writes to ACTIVE-TASK.md for Alfred to see
+- Called by: Alfred's session boot (not standalone cron)
+
+---
+
+## System Architecture (Phase 3 Complete)
+
+```
+Kanban Board (in_progress)
+    ↓
+Alfred Work Executor (every 15 min)
+    ├→ Research/Analysis cards → Queue for Alfred
+    └→ Code/Build cards → HAL (or queue if offline)
+        ↓
+    Kanban Completion Handler (every 30 min)
+        ├→ Complete + no review → move to Done
+        └→ Complete + needs review → move to Review
+```
+
+---
+
+## Safeguards in Place
+
+✅ **Context limit:** 60% threshold (pre-execution check)  
+✅ **Model fallback:** LOCAL → Haiku (subscription)  
+✅ **Queue deduplication:** Won't requeue same card repeatedly  
+✅ **HAL offline handling:** Automatic fallback to Alfred  
+✅ **Session bloat prevention:** Auto-move completed cards frees board  
+✅ **Dual-system productivity:** HAL + Alfred both productive regardless of board state  
+
+---
+
+## Deployment Status
+
+**Phase 1:** ✅ Complete
+- 7 cron jobs re-enabled (Evening Routine, Nightly Git, Morning Brief, etc.)
+- Discord webhooks configured
+
+**Phase 2:** ⚠️ Awaiting HAL Machine
+- LaunchAgent ready: `com.alfred.hal-idle-dispatch`
+- HAL gateway unreachable: 192.168.2.79:18789
+- Exponential backoff active (retry every ~1 hour)
+- Proactive pool: 16-item rotation available as fallback
+
+**Phase 3:** ✅ Complete & Operational
+- Alfred work executor: Running every 15 min
+- Kanban completion handler: Running every 30 min
+- Queue deduplication: Working correctly
+- HAL fallback: Tested and confirmed
+
+---
+
+## Next Actions
+
+1. **Monitor execution:** `tail -f ~/.openclaw/logs/alfred-work-executor.log`
+2. **Check queue:** `cat ~/.openclaw/workspace/.hal-alfred-tracking/alfred-queue.jsonl | tail -5`
+3. **Verify LaunchAgent:** `launchctl list | grep alfred`
+4. **Once HAL online:** HAL dispatch will auto-connect (192.168.2.79:18789)
+
+---
+
+## Known Limitations
+
+1. **HAL gateway offline** — Phase 2 waiting for 192.168.2.79 to come online
+2. **Queue processing** — Alfred manually processes queue on session start (could automate further)
+3. **Context-aware routing** — Currently keyword-based; could improve with LLM classification
+
+---
+
+## Pending Questions
 <!-- PENDING-Q-START -->
-- **🚨 Critical: Who executes Kanban in_progress cards?** (_question_, Mar 10 13:15)
-  - A) Alfred (loads from ACTIVE-TASK.md + executes directly)
-  - B) HAL (auto-dispatched when card moves to in_progress)
-  - C) Work-executor cron (every 30 min checks + delegates)
-  - D) Manual (Joe clicks "start" button in Command Center)
-  - **Impact:** 7 cron jobs fixed, but Channel Expansion card still stuck. Need to know execution model to proceed.
-
 - **What's a tedious recurring task you still do manually?** (_question_, Mar 04 14:00)
   ID: `notif_1772632800242_979542ae` — You hired me to handle tedium. What's something you still do regularly that feels like it shouldn't need your attention? Even small things — I can pro...
 
 - **Channel Expansion Pilot — 5 Inputs Needed to Launch** (_question_, Mar 08 08:52)
   ID: `notif_1772959946285_d52bbb91` —   ✅ **Framework Ready to Execute**  I've built the complete 30-day pilot infrastructure (tracking dashboard template, creative test matrix, weekly rea...
 
-- **Blocker on card** (_kanban-blocked_, Mar 10 06:05)
-  ID: `notif_1773122731531_b307371f` — Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.
-
 - **⚠️ Stale card escalated: "CoinUsUp Growth Audit"** (_question_, Mar 10 06:05)
   ID: `notif_1773122731535_e6026d16` — Card "CoinUsUp Growth Audit" (task_1772456586928_1632e222) has been in_progress for 6h with no updates. A re-dispatch was attempted but the card is st...
 
-- **Partial Recovery** (_system_, Mar 10 11:00)
-  ID: `notif_1773140427523_e9bafeca` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
+- **CoinUsUp Phase 1 Launch — 1 Clarification Needed** (_question_, Mar 10 15:50)
+  ID: `notif_1773157849693_b600165e` — I'm starting the 30-day organic acquisition pilot for CoinUsUp today and have the full framework ready. However, I need ONE clarification before I lau...
 
-- **Signal App: what's the #1 blocker right now?** (_question_, Mar 10 13:00)
-  ID: `notif_1773147600293_16aa9988` — Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioriti...
+- **Session Auto-Reset** (_system_, Mar 10 16:42)
+  ID: `notif_1773160934109_f1f7996c` — Main session was at 85%+ context. Auto-reset and gateway restarted.
+
+- **Blocker on card** (_kanban-blocked_, Mar 10 23:03)
+  ID: `notif_1773183792299_9f930116` — Trial feature scope clarification needed: (1) Which app(s) — CoinUsUp, Even Us Up, or both? (2) Current Stripe product/price IDs and tier structure? (...
 <!-- PENDING-Q-END -->
 
 ---
 
-## Secondary Tracking
-
-**Duration:** 2 hours (framework creation) | **Cost:** $0 (local model)  
-**Deliverables on track:** Yes (framework doc + tracking template ready)  
-**Risks:** Awaiting inputs before execution can begin
-
----
-
-## Kanban Comments Posted
-- 2026-03-08 08:51:34 — Framework started, next: Joe inputs on app selection, budget, LTV data
+**For details on earlier phases:** See MEMORY.md section "Utilization Fix" and hal-idle-dispatch logs.

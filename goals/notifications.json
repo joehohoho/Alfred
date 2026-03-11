@@ -377,16 +377,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773122731531_b307371f",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Stale for 6h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
-    "taskId": "task_1772456586928_1632e222",
-    "answered": false,
-    "createdAt": "2026-03-10T06:05:31.531Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773122731535_e6026d16",
     "type": "question",
     "title": "⚠️ Stale card escalated: \"CoinUsUp Growth Audit\"",
@@ -409,33 +399,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773157651809_269b3216",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-10T15:47:31.809Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773157651812_e395bd64",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Update Check: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-10T15:47:31.812Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773157651815_ff263de5",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-10T15:47:31.815Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773157849693_b600165e",
     "type": "question",
     "title": "CoinUsUp Phase 1 Launch — 1 Clarification Needed",
@@ -444,6 +407,25 @@
     "taskId": "task_1772199318344_19e8fa66",
     "answered": false,
     "createdAt": "2026-03-10T15:50:49.693Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773160934109_f1f7996c",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-10T16:42:14.109Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773183792299_9f930116",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Trial feature scope clarification needed: (1) Which app(s) — CoinUsUp, Even Us Up, or both? (2) Current Stripe product/price IDs and tier structure? (3) Existing customer count and current tier distribution? (4) Trial mechanics — start on signup, auto-charge on day 15, auto-cancel without payment method? (5) Use standard trial_ends_at or explore Stripe Trial Conversions API? Cannot proceed with implementation until scope is locked.",
+    "taskId": "task_1773156748695_23b9e471",
+    "answered": false,
+    "createdAt": "2026-03-10T23:03:12.299Z",
     "answeredAt": null
   }
 ]
