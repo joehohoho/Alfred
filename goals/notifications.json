@@ -127,18 +127,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1771718479555_8d2d2c03",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Which OpenClaw components should I prioritize for maintenance?",
-    "taskId": "task_1771697316207_cc03d367",
-    "answered": true,
-    "createdAt": "2026-02-22T00:01:19.555Z",
-    "answeredAt": "2026-02-22T00:09:50.821Z",
-    "userAnswer": "I need more details on what the components are",
-    "deliveryStatus": "sent"
-  },
-  {
     "id": "notif_1771758003622_67a8f632",
     "type": "question",
     "title": "⚠️ AGENTS.md Size Warning",
@@ -221,18 +209,6 @@
     "createdAt": "2026-02-25T14:00:00.142Z",
     "answeredAt": "2026-02-25T15:41:40.614Z",
     "userAnswer": "Focus your energy on all 4 items mentioned.",
-    "deliveryStatus": "sent"
-  },
-  {
-    "id": "notif_1772087044680_0445bdb5",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "CoinUsUp repo not found. The task specifies scope: /Users/hopenclaw/CoinUsUp but that directory doesn't exist on this machine. Options: (1) Point me to the correct path (e.g. a different directory or GitHub repo to clone), (2) Clone it from GitHub now (share the repo URL). Recommendation: clone from GitHub so I can work in a fresh branch. Without the path I cannot start the migration.",
-    "taskId": "task_1772085832985_39c4617c",
-    "answered": true,
-    "createdAt": "2026-02-26T06:24:04.680Z",
-    "answeredAt": "2026-02-26T06:27:52.188Z",
-    "userAnswer": "Scan the pc to see if it could be located somewhere else, if it isn't then it hasn't been cloned yet which you can go ahead and do on both pc's if it helps.",
     "deliveryStatus": "sent"
   },
   {
@@ -419,13 +395,23 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1773183792299_9f930116",
+    "id": "notif_1773212557754_a8ff0a17",
     "type": "kanban-blocked",
     "title": "Blocker on card",
-    "message": "Trial feature scope clarification needed: (1) Which app(s) — CoinUsUp, Even Us Up, or both? (2) Current Stripe product/price IDs and tier structure? (3) Existing customer count and current tier distribution? (4) Trial mechanics — start on signup, auto-charge on day 15, auto-cancel without payment method? (5) Use standard trial_ends_at or explore Stripe Trial Conversions API? Cannot proceed with implementation until scope is locked.",
-    "taskId": "task_1773156748695_23b9e471",
+    "message": "Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
+    "taskId": "task_1773156422473_a612cdac",
     "answered": false,
-    "createdAt": "2026-03-10T23:03:12.299Z",
+    "createdAt": "2026-03-11T07:02:37.754Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773212557758_2ed6adb4",
+    "type": "question",
+    "title": "⚠️ Stale card escalated: \"CoinUsUp: Onboarding Checklist + Sample Data\"",
+    "message": "Card \"CoinUsUp: Onboarding Checklist + Sample Data\" (task_1773156422473_a612cdac) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "source": "stale-card-handler",
+    "answered": false,
+    "createdAt": "2026-03-11T07:02:37.758Z",
     "answeredAt": null
   }
 ]

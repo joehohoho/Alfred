@@ -2483,12 +2483,12 @@
     "title": "CoinUsUp: Onboarding Checklist + Sample Data",
     "description": "Low effort, High impact. Add 3-step onboarding checklist (Create Group → Create Campaign → Invite Member) with sample data. Expected 20-40% activation improvement.",
     "goalId": "",
-    "status": "in_progress",
+    "status": "blocked",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:27:02.473Z",
-    "updatedAt": "2026-03-11T00:02:11.650Z",
+    "updatedAt": "2026-03-11T07:02:37.756Z",
     "assignedAt": "2026-03-10T16:51:46.920Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "b8c5f689-1074-41bb-85e7-aaf8b98e6fe6",
@@ -2511,6 +2511,12 @@
         "author": "alfred",
         "text": "📋 ANALYSIS COMPLETE:\n\n**Current State:**\n- GetStartedModal exists (5-step tutorial with images)\n- No dedicated onboarding checklist component\n- No sample data seeding logic yet\n\n**Task Scope (3-step checklist):**\n1. Create Group (with sample data)\n2. Create Campaign (with sample data)  \n3. Invite Member (with sample data)\n\n**Approach:**\nA) Create OnboardingChecklist component (separate from tutorial modal)\nB) Build sample data seed service\nC) Track completion state in profiles table\nD) Add to Dashboard to show new users\n\n**Next Step:** Building OnboardingChecklist component with sample data service. ETA: 30-40 min",
         "createdAt": "2026-03-10T23:02:02.692Z"
+      },
+      {
+        "id": "cmt_1773212557751_dc7156e8",
+        "author": "alfred",
+        "text": "⛔ Escalated to blocked — card stale for 7h. Re-dispatch was attempted 8h ago with no progress. Moving to Blocked for Joe's review.",
+        "createdAt": "2026-03-11T07:02:37.751Z"
       }
     ]
   },
