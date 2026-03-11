@@ -1897,16 +1897,27 @@
     "title": "Automation Audit SaaS for Small Law Firms",
     "description": "Micro-SaaS: self-serve tool that law firms use to audit their current workflows and get a prioritized automation roadmap. Firm fills out intake questionnaire, tool generates a PDF/dashboard report showing top 5 automation wins, estimated time savings, and suggested tools. Upsell: Joe's implementation services. EFFORT: 2-3 weeks (form + report generator + Stripe for $199 one-time or $49/month retainer for quarterly re-audits). UPSIDE: $199 per audit or $49/month retainer. 20 audits/month = $4k. Maintenance: minimal — mostly static logic + PDF template. Positions Joe as expert, feeds consulting pipeline.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.3,
+      "notes": "Joe's legal domain expertise is strong (8/10 edge), but the score is held down by: (1) weak market differentiation — audit services are commoditized and many tools already exist, (2) moderate passive potential — $49/mo retainer model requires ongoing delivery/reaudit work, not truly passive, (3) legal vertical conflict — Joe has stated preference to avoid law firm software unless obviously novel, highly profitable, and easy to implement. This idea doesn't meet that bar. Score below promotion threshold (7+).",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 6,
+        "joes_edge_2x": 8,
+        "synergy_1x": 7,
+        "passive_potential_2x": 5
+      },
+      "weighted_score": 63
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T23:22:34.628Z",
-    "updatedAt": "2026-02-27T23:22:34.628Z"
+    "updatedAt": "2026-03-11T11:01:00.000Z"
   },
   {
     "id": "idea_1772237607004_5b9e4cb9",
@@ -3697,5 +3708,21 @@
     "tags": [],
     "createdAt": "2026-03-11T09:02:58.824Z",
     "updatedAt": "2026-03-11T09:02:58.824Z"
+  },
+  {
+    "id": "idea_1773234121691_d1f726a1",
+    "title": "Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate",
+    "description": "Top 3 workflow improvements from 2026-03-11 scan:\\n1) Add kanban schema guard + anomaly quarantine to stop recurring null-card stale sweeps.\\n2) Add pending-question priority/TTL filter (auto-archive non-critical >72h, keep top 3 active blockers).\\n3) Add proactive proposal graduation gate so each scan creates/updates a trackable Kanban artifact (or SKIP_DUPLICATE).\\n\\nExpected impact: fewer board hygiene loops, lower context-switch cost, better execution throughput.\\nSuccess metrics: 0 null stale events/7d, <=3 active pending questions on boot, >=70% proactive scans convert to trackable actions within 24h.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-11T13:02:01.691Z",
+    "updatedAt": "2026-03-11T13:02:01.691Z"
   }
 ]

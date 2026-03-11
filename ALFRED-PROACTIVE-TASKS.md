@@ -121,3 +121,31 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Comment-batch idempotency guard (fastest/noise reduction)
 2. Kanban null-card validator + daily heal batch
 3. HAL model FAQ auto-linking in related card comments
+
+
+## Workflow Efficiency Scan — 2026-03-11
+
+### Top repetitive patterns and concrete improvements
+
+1. **Null-card stale sweeps keep recurring in idle loop (board hygiene loop)**
+   - **Pattern:** `kanban-idle-loop.sh` repeatedly reports stale `in_progress` items with `card_id=null` and auto-moves them.
+   - **Impact:** Ongoing cleanup churn, unreliable board state, and potential blockage of HAL dispatch logic that depends on accurate `in_progress` status.
+   - **Improvement proposal:** Add a strict schema check before stale-card logic (`card_id`, `column`, `updated_at` required). Invalid rows are quarantined to `logs/kanban-anomalies.jsonl` and excluded from move operations. Run a once-daily reconciliation script to repair/delete bad rows in one controlled batch.
+   - **Success metric:** 0 `card_id=null` stale events for 7 consecutive days.
+
+2. **Pending-question sync volume is high and likely includes stale asks (attention tax)**
+   - **Pattern:** Sync currently pulls a large pending set (e.g., 9 open questions), which can include low-priority or superseded prompts.
+   - **Impact:** Higher cognitive load when resuming sessions; important blockers can get buried by old noise.
+   - **Improvement proposal:** Add priority+TTL to `sync-pending-questions.sh`: auto-archive non-critical unanswered questions older than 72h, keep only top 3 active blockers in `ACTIVE-TASK.md`, and include a compact “expired backlog” link.
+   - **Success metric:** Reduce active pending questions displayed on boot to ≤3 while preserving full audit trail.
+
+3. **Proactive task loop can recycle similar analyses without implementation closure (execution drift)**
+   - **Pattern:** Repeated workflow scans generate good recommendations, but some recur across days without explicit owner, due date, or enforcement.
+   - **Impact:** Insight accumulates faster than implementation; recurring work feels busy but not compounding.
+   - **Improvement proposal:** Add a “proposal graduation gate”: every proactive scan must produce either (a) one new Kanban card with acceptance criteria, or (b) a status update on an existing card proving progress/blocker. If neither, mark task as `SKIP_DUPLICATE`.
+   - **Success metric:** At least 70% of proactive scans convert into trackable Kanban actions within 24h.
+
+### Recommended implementation order (highest ROI first)
+1. Null-card schema guard + anomaly quarantine (stabilizes board truth)
+2. Pending-question priority/TTL filtering (cuts context-switch overhead immediately)
+3. Proposal graduation gate for proactive scans (improves execution throughput)
