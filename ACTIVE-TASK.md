@@ -89,11 +89,12 @@ Alfred Work Executor (every 15 min)
 - 7 cron jobs re-enabled (Evening Routine, Nightly Git, Morning Brief, etc.)
 - Discord webhooks configured
 
-**Phase 2:** ⚠️ Awaiting HAL Machine
-- LaunchAgent ready: `com.alfred.hal-idle-dispatch`
-- HAL gateway unreachable: 192.168.2.79:18789
-- Exponential backoff active (retry every ~1 hour)
-- Proactive pool: 16-item rotation available as fallback
+**Phase 2:** ✅ HAL Online (2026-03-11 14:05)
+- LaunchAgent: `com.alfred.hal-idle-dispatch`
+- HAL gateway reachable: 192.168.2.79:18789 (HTTP 200, WebSocket OK)
+- Fail counter: Reset to 0
+- Root cause: Windows firewall rule removed; re-added
+- Normal dispatch: ACTIVE
 
 **Phase 3:** ✅ Complete & Operational
 - Alfred work executor: Running every 15 min

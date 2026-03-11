@@ -2483,12 +2483,12 @@
     "title": "CoinUsUp: Onboarding Checklist + Sample Data",
     "description": "Low effort, High impact. Add 3-step onboarding checklist (Create Group → Create Campaign → Invite Member) with sample data. Expected 20-40% activation improvement.",
     "goalId": "",
-    "status": "blocked",
+    "status": "in_progress",
     "priority": "medium",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:27:02.473Z",
-    "updatedAt": "2026-03-11T07:02:37.756Z",
+    "updatedAt": "2026-03-11T17:39:38.750Z",
     "assignedAt": "2026-03-10T16:51:46.920Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "b8c5f689-1074-41bb-85e7-aaf8b98e6fe6",
@@ -2517,6 +2517,18 @@
         "author": "alfred",
         "text": "⛔ Escalated to blocked — card stale for 7h. Re-dispatch was attempted 8h ago with no progress. Moving to Blocked for Joe's review.",
         "createdAt": "2026-03-11T07:02:37.751Z"
+      },
+      {
+        "id": "cmt_1773250772370_e81648ec",
+        "author": "joe",
+        "text": "Proceed with the next steps",
+        "createdAt": "2026-03-11T17:39:32.370Z"
+      },
+      {
+        "id": "cmt_1773250778750_b092ff6f",
+        "author": "alfred",
+        "text": "Unblocking and moving to in_progress. Proceeding with CoinUsUp onboarding checklist and sample data setup.",
+        "createdAt": "2026-03-11T17:39:38.750Z"
       }
     ]
   },
@@ -2554,7 +2566,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-03-10T23:03:12.300Z",
+    "updatedAt": "2026-03-11T17:40:17.796Z",
     "assignedAt": "2026-03-10T16:51:46.886Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "26cd3d5d-4d02-4986-8e7e-f8a3efca0f3a",
@@ -2571,6 +2583,18 @@
         "author": "alfred",
         "text": "🔄 Stale re-dispatch — card stale for 6h. Attempting re-dispatch to get it moving again. If still stuck after 2h, it will be moved to Blocked.",
         "createdAt": "2026-03-10T23:01:15.735Z"
+      },
+      {
+        "id": "cmt_1773250806228_83e3de88",
+        "author": "joe",
+        "text": "What task do I need to do for this card?",
+        "createdAt": "2026-03-11T17:40:06.228Z"
+      },
+      {
+        "id": "cmt_1773250817796_605a8b77",
+        "author": "alfred",
+        "text": "**What you need to do:** Review and confirm the Stripe spec for the 14-day trial feature before I proceed with implementation.\n\n**Specifically:**\n1. Which app(s) does this apply to? (CoinUsUp? Even Us Up? Both?)\n2. Validate the trial_ends_at field structure and Stripe API approach\n3. Review the migration strategy for existing customers\n\nOnce you provide the Stripe spec/design, I'll move this to To Do and start implementation. Current blocker: waiting for spec review + scope clarification.",
+        "createdAt": "2026-03-11T17:40:17.796Z"
       }
     ]
   }
