@@ -142,6 +142,9 @@ Alfred Work Executor (every 15 min)
 
 - **⚠️ Stale card escalated: "CoinUsUp: Onboarding Checklist + Sample Data"** (_question_, Mar 11 07:02)
   ID: `notif_1773212557758_2ed6adb4` — Card "CoinUsUp: Onboarding Checklist + Sample Data" (task_1773156422473_a612cdac) has been in_progress for 7h with no updates. A re-dispatch was attem...
+
+- **Partial Recovery** (_system_, Mar 11 11:00)
+  ID: `notif_1773226824554_272ea061` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
 <!-- PENDING-Q-END -->
 
 ---

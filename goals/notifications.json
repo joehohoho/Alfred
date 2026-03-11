@@ -413,5 +413,14 @@
     "answered": false,
     "createdAt": "2026-03-11T07:02:37.758Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773226824554_272ea061",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-11T11:00:24.554Z",
+    "answeredAt": null
   }
 ]
