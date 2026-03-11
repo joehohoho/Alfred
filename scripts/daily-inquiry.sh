@@ -128,23 +128,30 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
     "If one of your apps could go viral, which would you choose?|Which project would excite you most if it suddenly 10x'd? That's a signal of where your real interest is.|viral-choice"
   )
   
-  # Build a set of recent topics to avoid (stricter: 7-day window to prevent 4-day cycle repeats)
-  # Check inquiry-log for topics asked in last 7 days
-  RECENT_TOPICS=$(awk -v cutoff="$SEVEN_DAYS_AGO" '$0 >= cutoff' "$INQUIRY_LOG" 2>/dev/null | jq -r '.topic // "unknown"' 2>/dev/null | sort -u | tr '\n' '|' || echo "")
+  # Build a set of recently-asked topics to avoid (7-day minimum between repeats)
+  # CRITICAL FIX: Read from question-tracking.json to enforce 7-day rule per topic
+  TRACKING_FILE="$WORKSPACE/memory/question-tracking.json"
+  
+  RECENT_TOPICS=""
+  if [ -f "$TRACKING_FILE" ]; then
+    # For each topic, if last_asked is within 7 days, add to skip list
+    # Note: tracking file is stored as a JSON-stringified object, so we need fromjson first
+    RECENT_TOPICS=$(cat "$TRACKING_FILE" | jq -r '. | fromjson | .topics | to_entries[] | select(.value.last_asked != null) | (.value.last_asked + "T00:00:00Z" | fromdateiso8601) as $last_asked | if (now - $last_asked) < 604800 then .key else empty end' 2>/dev/null | tr '\n' '|' || echo "")
+  fi
   
   # Also check notifications for answered items (these shouldn't be asked again)
   ANSWERED_TOPICS=$(jq -r '[.[] | select(.answered == true) | .topic // .title] | sort | unique | join("|")' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "")
   
   ALL_TOPICS="$RECENT_TOPICS|$ANSWERED_TOPICS"
   
-  # Pick first fallback not asked in last 7 days (stricter dedup to prevent cycling)
+  # Pick first fallback not asked in last 7 days (enforces 7-day minimum gap between repeats)
   PICKED=0
   for entry in "${FALLBACKS[@]}"; do
     FB_TITLE="${entry%%|*}"
     FB_BODY="${entry#*|}"; FB_BODY="${FB_BODY%%|*}"
     FB_TOPIC="${entry##*|}"
     
-    # Skip if topic was asked in last 7 days (prevents 4-day cycle from repeating)
+    # Skip if topic was asked in last 7 days
     if [[ "$ALL_TOPICS" != *"$FB_TOPIC"* ]]; then
       TITLE="$FB_TITLE"
       BODY="$FB_BODY"
@@ -189,6 +196,6 @@ if [ -n "$TITLE" ] && [ -n "$BODY" ]; then
   TRACKING_FILE="$WORKSPACE/memory/question-tracking.json"
   if [ -f "$TRACKING_FILE" ]; then
     # Update last_asked + increment count for this topic
-    jq --arg topic "$TOPIC" --arg today "$TODAY" '.topics[$topic].last_asked = $today | .topics[$topic].count += 1 | .last_updated = now | tostring' "$TRACKING_FILE" > "${TRACKING_FILE}.tmp" 2>/dev/null && mv "${TRACKING_FILE}.tmp" "$TRACKING_FILE" 2>/dev/null || true
+    jq --arg topic "$TOPIC" --arg today "$TODAY" '.topics[$topic].last_asked = $today | .topics[$topic].count += 1 | .last_updated = now' "$TRACKING_FILE" > "${TRACKING_FILE}.tmp" 2>/dev/null && mv "${TRACKING_FILE}.tmp" "$TRACKING_FILE" 2>/dev/null || true
   fi
 fi

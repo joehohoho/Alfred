@@ -134,17 +134,8 @@ Alfred Work Executor (every 15 min)
 - **CoinUsUp Phase 1 Launch — 1 Clarification Needed** (_question_, Mar 10 15:50)
   ID: `notif_1773157849693_b600165e` — I'm starting the 30-day organic acquisition pilot for CoinUsUp today and have the full framework ready. However, I need ONE clarification before I lau...
 
-- **Session Auto-Reset** (_system_, Mar 10 16:42)
-  ID: `notif_1773160934109_f1f7996c` — Main session was at 85%+ context. Auto-reset and gateway restarted.
-
-- **Blocker on card** (_kanban-blocked_, Mar 11 07:02)
-  ID: `notif_1773212557754_a8ff0a17` — Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.
-
 - **⚠️ Stale card escalated: "CoinUsUp: Onboarding Checklist + Sample Data"** (_question_, Mar 11 07:02)
   ID: `notif_1773212557758_2ed6adb4` — Card "CoinUsUp: Onboarding Checklist + Sample Data" (task_1773156422473_a612cdac) has been in_progress for 7h with no updates. A re-dispatch was attem...
-
-- **Partial Recovery** (_system_, Mar 11 11:00)
-  ID: `notif_1773226824554_272ea061` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
 
 - **Even Us Up: monetization sprint or maintenance mode?** (_question_, Mar 11 13:00)
   ID: `notif_1773234000280_7d474226` — Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minim...
