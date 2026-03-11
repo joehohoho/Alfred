@@ -137,8 +137,11 @@ Alfred Work Executor (every 15 min)
 - **Session Auto-Reset** (_system_, Mar 10 16:42)
   ID: `notif_1773160934109_f1f7996c` — Main session was at 85%+ context. Auto-reset and gateway restarted.
 
-- **Blocker on card** (_kanban-blocked_, Mar 10 23:03)
-  ID: `notif_1773183792299_9f930116` — Trial feature scope clarification needed: (1) Which app(s) — CoinUsUp, Even Us Up, or both? (2) Current Stripe product/price IDs and tier structure? (...
+- **Blocker on card** (_kanban-blocked_, Mar 11 07:02)
+  ID: `notif_1773212557754_a8ff0a17` — Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.
+
+- **⚠️ Stale card escalated: "CoinUsUp: Onboarding Checklist + Sample Data"** (_question_, Mar 11 07:02)
+  ID: `notif_1773212557758_2ed6adb4` — Card "CoinUsUp: Onboarding Checklist + Sample Data" (task_1773156422473_a612cdac) has been in_progress for 7h with no updates. A re-dispatch was attem...
 <!-- PENDING-Q-END -->
 
 ---
