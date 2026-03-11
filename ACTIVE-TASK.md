@@ -145,6 +145,9 @@ Alfred Work Executor (every 15 min)
 
 - **Partial Recovery** (_system_, Mar 11 11:00)
   ID: `notif_1773226824554_272ea061` — Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
+
+- **Even Us Up: monetization sprint or maintenance mode?** (_question_, Mar 11 13:00)
+  ID: `notif_1773234000280_7d474226` — Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minim...
 <!-- PENDING-Q-END -->
 
 ---

@@ -1,26 +1,19 @@
-# NOW.md — Live Checkpoint (Idle Memory Review)
+# NOW.md — Session Checkpoint (2026-03-11 10:01 ADT)
 
-**Timestamp:** 2026-03-08 16:00 ADT  
-**Context:** 45% usage (90k tokens) — healthy  
-**Task:** Memory hygiene pass (3-file scan)
+**Status:** Idle memory review completed.
 
-## Key Findings (Mar 6-8)
+## Key Context
 
-1. ✅ Daily-inquiry dedup bug **FIXED** (title-based dedup + reset log working)
-2. ✅ Critical crons **RESTARTED** (Evening Routine, Nightly Git Commit back online)
-3. ⚠️ Approval bottleneck identified (5+ review cards waiting) → WORKFLOW-EFFICIENCY-SCAN.md created
-4. ✅ Passive income strategy synthesized (Alfred/HAL align: White-Label Marketplace > Signal App > CoinUsUp ads)
-5. ⚠️ MEMORY.md bloat (25.9k > 20k limit) — needs trim before hitting gateway truncation
+- **System state:** Infrastructure audit (Mar 10) identified 4 critical items (cron jobs, LaunchAgent configs, script duplication, memory/disk pressure) — not yet fixed.
+- **Kanban:** 2 tasks stalled (CoinUsUp free trial + onboarding) waiting for Joe input. No forward progress available.
+- **Notifications:** 7 pending requiring Joe review (approval bottleneck is known UX issue).
+- **Memory:** Daily inquiry dedup stable, patterns documented, no anomalies.
 
-## Action Items for Next Session
-- Monitor MEMORY.md size (consider archiving old Moltbook reviews to MEMORY-ARCHIVE.md)
-- Implement approval buttons on notifications (2h ROI: 4-5h/week saved)
+## Next Steps
 
-## System Status
-- ✅ Infrastructure stable (13 LaunchAgents running)
-- ✅ All crons operational
-- ✅ Kanban board waiting on Joe's 5 decisions
-- ✅ No emergency state needed
+1. Monitor for Joe response on stalled cards
+2. Await decision on system audit priorities (cron jobs, LaunchAgent fixes)
+3. Continue idle activities (goal progress checks, idea evaluations, workspace hygiene)
 
 ---
-*No blockers. Continue normal operations.*
+*Last updated: 2026-03-11 10:01 ADT by idle:review-memory*
