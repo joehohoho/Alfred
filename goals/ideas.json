@@ -1820,16 +1820,27 @@
     "title": "Automation Drift Monitor for SMB Workflows",
     "description": "Micro-SaaS that watches Zapier/Make/n8n/Google Sheet automations for silent failures, schema changes, rising run-time, and missing outputs; sends plain-English alerts + one-click remediation playbooks. Recurring model: by number of workflows monitored. Effort: Medium (3-5 weeks MVP). Upside: High (broad SMB demand; k-k MRR potential with low support).",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Strong fit for Joe's automation consulting expertise with genuine SMB pain point. Medium build effort (3-5 weeks) for high passive revenue potential via sticky recurring model. Playbook-driven remediation is the key differentiator in crowded monitoring space. Natural upsell to consulting clients.",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 8,
+        "joes_edge_2x": 7,
+        "synergy_1x": 7,
+        "passive_potential_2x": 8
+      },
+      "evaluatedAt": "2026-03-11T10:02:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T20:42:25.902Z",
-    "updatedAt": "2026-02-27T20:42:25.902Z"
+    "updatedAt": "2026-03-11T10:02:00.000Z"
   },
   {
     "id": "idea_1772234554217_9de72f03",
@@ -3632,5 +3643,53 @@
     "tags": [],
     "createdAt": "2026-03-10T23:02:58.952Z",
     "updatedAt": "2026-03-10T23:02:58.952Z"
+  },
+  {
+    "id": "idea_1773219767433_c1d1bae1",
+    "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)",
+    "description": "Audit finding: review cards are stalling because approval requires manual board navigation. Improvement: add actionable approve/reject controls directly in notifications, plus an SLA escalator (e.g., 72h reminder, 7-day auto-promote for low-risk deliverables). Scope: Command Center notification payload schema, kanban API action endpoint, audit trail in card comments. Expected impact: remove 4-5h/week approval polling and reduce review queue aging.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-11T09:02:47.433Z",
+    "updatedAt": "2026-03-11T09:02:47.433Z"
+  },
+  {
+    "id": "idea_1773219773743_3c9adf92",
+    "title": "Quiet-Hours Outbox + Morning Digest Dispatcher",
+    "description": "Audit finding: quiet-hours policy blocks direct messaging but proactive jobs still generate results. Improvement: implement a durable outbox that captures overnight updates/questions and auto-delivers a structured morning digest at 09:00 AST. Include dedup, priority buckets (critical vs normal), and expiry rules for stale notices. Integrations: notification routing + Command Center feed + cron-event pipelines. Expected impact: fewer dropped updates, better signal quality, lower daytime interruption cost.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-11T09:02:53.743Z",
+    "updatedAt": "2026-03-11T09:02:53.743Z"
+  },
+  {
+    "id": "idea_1773219778824_1dbe41d8",
+    "title": "Memory Lifecycle Manager (Hot/Warm/Archive + Auto-Summarize)",
+    "description": "Audit finding: daily memory grows quickly and context cost rises despite index-first strategy. Improvement: add automated memory lifecycle tiers: hot (7 days), warm (8-30), archive (31+), with nightly summarization + backlink updates to INDEX.md and OPEN-LOOPS.md. Add integrity checks to prevent orphaned references and duplicate unresolved questions. Expected impact: lower token burn, faster boot loading, improved continuity after context resets.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-11T09:02:58.824Z",
+    "updatedAt": "2026-03-11T09:02:58.824Z"
   }
 ]
