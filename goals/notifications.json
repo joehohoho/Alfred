@@ -386,25 +386,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1773160934109_f1f7996c",
-    "type": "system",
-    "title": "Session Auto-Reset",
-    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
-    "answered": false,
-    "createdAt": "2026-03-10T16:42:14.109Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773212557754_a8ff0a17",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
-    "taskId": "task_1773156422473_a612cdac",
-    "answered": false,
-    "createdAt": "2026-03-11T07:02:37.754Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773212557758_2ed6adb4",
     "type": "question",
     "title": "⚠️ Stale card escalated: \"CoinUsUp: Onboarding Checklist + Sample Data\"",
@@ -412,15 +393,6 @@
     "source": "stale-card-handler",
     "answered": false,
     "createdAt": "2026-03-11T07:02:37.758Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773226824554_272ea061",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-11T11:00:24.554Z",
     "answeredAt": null
   },
   {

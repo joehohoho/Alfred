@@ -3724,5 +3724,21 @@
     "tags": [],
     "createdAt": "2026-03-11T13:02:01.691Z",
     "updatedAt": "2026-03-11T13:02:01.691Z"
+  },
+  {
+    "id": "idea_1773241303642_ec300785",
+    "title": "Portfolio Health Snapshot — 2026-03-11",
+    "description": "Current MRR est: .25k–.5k (CoinUsUp –400, Even Us Up –100, Signal App /bin/zsh internal lab, Consulting k–k). Practical 12-month potential: .5k–.5k. Top bottlenecks: (1) distribution/acquisition for CoinUsUp, (2) grow-vs-harvest decision gap for Even Us Up, (3) consulting founder-time ceiling. 30-day actions: run 2 paid acquisition tests for CoinUsUp, make explicit Even Us Up direction decision, productize one consulting workflow into fixed-scope offer. Full snapshot: PASSIVE-INCOME-PORTFOLIO-SNAPSHOT.md",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-11T15:01:43.642Z",
+    "updatedAt": "2026-03-11T15:01:43.642Z"
   }
 ]
