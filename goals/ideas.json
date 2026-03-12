@@ -3740,5 +3740,21 @@
     "tags": [],
     "createdAt": "2026-03-11T15:01:43.642Z",
     "updatedAt": "2026-03-11T15:01:43.642Z"
+  },
+  {
+    "id": "idea_1773273792362_0eb75631",
+    "title": "Passive income idea scan — 3 realistic niches (Mar 11)",
+    "description": "Top 3 low-maintenance recurring SaaS opportunities (filtered to Joe boundaries: no legal services, no financial/compliance/tax, no trading products).\\n\\n1) AI Data Mapping Copilot (CSV/API transformations for consultants + SMB ops teams)\\n- Problem: Teams burn hours mapping columns/fields between exports and destination systems; mapping errors cause rework.\\n- Target: Automation consultants, revops agencies, SMB ops managers migrating tools.\\n- Est. MRR potential: k-k in 90-180 days (20-40 customers at -).\\n- Tech complexity: 3/5\\n- Competition: Medium (generic ETL tools exist, but few lightweight mapping-first copilots).\\n- Why Joe can win: 20+ years in data transformation; can ship practical guardrails + templates fast.\\n\\n2) Workflow Reliability Monitor for No-Code/Low-Code Automations\\n- Problem: n8n/Make/Zapier workflows fail silently; owners discover issues too late.\\n- Target: Agencies + SMBs running 10+ automations.\\n- Est. MRR potential: .5k-k in 90-180 days (30-60 customers at -).\\n- Tech complexity: 2/5\\n- Competition: Medium-High (platform-native alerts exist; gap is cross-platform + business-impact summaries).\\n- Why Joe can win: Deep automation ops experience + can package reliability playbooks, not just alerts.\\n\\n3) Client Onboarding Packet Autopilot (proposal → kickoff docs → task plan)\\n- Problem: Service businesses manually build repetitive onboarding docs/emails/checklists for each client.\\n- Target: Small agencies, freelancers, automation consultants.\\n- Est. MRR potential: k-k in 90-180 days (25-50 customers at -).\\n- Tech complexity: 2/5\\n- Competition: Medium (many generic PM tools; fewer onboarding-specific autopilot flows).\\n- Why Joe can win: Strong consulting workflow knowledge; can deliver outcome-specific templates + bilingual options for Atlantic market.\\n\\nDemand/competition notes from quick market scan:\\n- Automation reliability has active demand signal (n8n docs/templates/articles heavily focused on error handling and alerting).\\n- SOP/workflow compliance space is crowded, favoring niche wedge products over broad platforms.\\n- Agency onboarding automation has monetization precedent via white-label/SaaS-mode ecosystems, indicating recurring willingness-to-pay.\\n\\nRecommendation: Prioritize #1 (AI Data Mapping Copilot) for best fit + defensibility; #2 is fastest to first revenue.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-12T00:03:12.362Z",
+    "updatedAt": "2026-03-12T00:03:12.362Z"
   }
 ]
