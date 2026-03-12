@@ -422,5 +422,15 @@
     "answered": false,
     "createdAt": "2026-03-12T11:00:26.226Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773320400292_03348553",
+    "type": "question",
+    "title": "Even Us Up: monetization sprint or maintenance mode?",
+    "message": "Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minimum?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-12T13:00:00.292Z",
+    "answeredAt": null
   }
 ]

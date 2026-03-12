@@ -149,3 +149,31 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Null-card schema guard + anomaly quarantine (stabilizes board truth)
 2. Pending-question priority/TTL filtering (cuts context-switch overhead immediately)
 3. Proposal graduation gate for proactive scans (improves execution throughput)
+
+
+## Workflow Efficiency Scan — 2026-03-12
+
+### Top repetitive patterns and concrete improvements
+
+1. **Idle-loop repeatedly cleaning malformed Kanban rows (`card_id=null`)**
+   - **Pattern:** The 09:01 idle run again detected stale `in_progress` entries with null IDs and moved them to `review`.
+   - **Impact:** Repeated hygiene work, noisy logs, and risk that dispatch logic trusts corrupted board state.
+   - **Improvement proposal:** Add a guardrail in `kanban-idle-loop.sh` to hard-skip rows missing `card_id`, write them once to `logs/kanban-anomalies.jsonl`, and trigger a single daily repair job (`scripts/kanban-anomaly-reconcile.sh`) instead of per-loop remediation.
+   - **Success metric:** 0 recurring `STALE: null` events over 7 consecutive days.
+
+2. **Heartbeat health checks surface the same Ollama MLX warning without triage status**
+   - **Pattern:** Ollama responds quickly, but health checks keep returning MLX dynamic-library warnings, creating a recurring “is this critical?” decision.
+   - **Impact:** Repeated manual interpretation and alert fatigue during routine heartbeat checks.
+   - **Improvement proposal:** Add warning classification to heartbeat audit: if latency <1s and model commands succeed, classify as `DEGRADED_NON_BLOCKING`; open/attach one tracked Kanban incident and suppress repeat alerts unless severity changes.
+   - **Success metric:** Reduce repeated identical Ollama alerts by 80% while preserving first-occurrence visibility.
+
+3. **Proactive scans are generated frequently, but execution conversion remains inconsistent**
+   - **Pattern:** Workflow scans are high quality but often remain in-document recommendations without immediate task ownership.
+   - **Impact:** Context-switch cost persists because recommendations are re-discovered rather than implemented.
+   - **Improvement proposal:** Enforce a conversion step in `alfred-proactive-check.sh`: on `DO_PROACTIVE`, require output to include either (a) target card ID commented, or (b) auto-created idea card JSON payload ready for `kanban-create.sh`.
+   - **Success metric:** ≥75% of proactive scans produce a tracked Kanban artifact within the same run.
+
+### Recommended implementation order (highest ROI first)
+1. Null-row hard guard + daily reconciliation batch
+2. Heartbeat alert classification + deduped incident tracking
+3. Proactive-to-Kanban conversion enforcement
