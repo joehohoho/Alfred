@@ -1,7 +1,7 @@
 # ACTIVE-TASK.md — Current Work State
 
-**Status:** `idle` — Phase 3 implementation complete and operational  
-**Last Updated:** 2026-03-10 14:14 ADT
+**Status:** `in_progress` — CoinUsUp: Onboarding Checklist + Sample Data  
+**Last Updated:** 2026-03-12 05:52 ADT
 
 ---
 
