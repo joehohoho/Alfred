@@ -432,5 +432,14 @@
     "answered": false,
     "createdAt": "2026-03-12T13:00:00.292Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773320715300_1b150285",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-12T13:05:15.300Z",
+    "answeredAt": null
   }
 ]

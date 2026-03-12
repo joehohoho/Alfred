@@ -149,6 +149,9 @@ Alfred Work Executor (every 15 min)
 
 - **Even Us Up: monetization sprint or maintenance mode?** (_question_, Mar 12 13:00)
   ID: `notif_1773320400292_03348553` — Even Us Up has been running. Is it growing naturally or on life support? Should I explore monetization (paid tier, B2B) or keep the lights on at minim...
+
+- **Cron Auto-Disabled** (_system_, Mar 12 13:05)
+  ID: `notif_1773320715300_1b150285` — Daily Config & Memory Review: 3 consecutive failures — auto-disabled
 <!-- PENDING-Q-END -->
 
 ---

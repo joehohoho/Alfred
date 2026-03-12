@@ -322,7 +322,8 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
-| 2026-03-09 | **Consulting product boundary is FIRM.** Asked 3x in 8 days (Mar 1, 5, 9) re: productizing client problems. Consistent answer: "No." Not a soft maybe — hard boundary. | notif_1773061200280, notif_1772719200252 (both Mar 9, 5) | Yes |
+| 2026-03-10 | **Duplicate daily inquiry bug RETURNED.** Joe flagged Mar 10 with frustration: "I've already answered this." Same Signal App question asked multiple times. Dedup fix from Mar 7 is not working. Trust in notifications eroding again (pattern from Feb 27-28). | notif_1773147600293 | Yes |
+| 2026-03-09 | **Consulting product boundary is FIRM.** Asked 5x total (Mar 1, 5, 9, Feb 26, Feb 20) re: productizing client problems. Consistent answer: "No." Not a soft maybe — hard boundary. | notif_1773061200280, notif_1772719200252 (both Mar 9, 5) | Yes |
 | 2026-03-09 | **Signal App bottleneck clarified.** Originally "data quality & testing" (Feb 23), Joe updated to "Poor signals to buy and trade, backtest doesn't seem to improve" (Mar 6). Real issue is algorithm/strategy effectiveness, not data collection. | notif_1772805600255_09ade466 | Yes |
 | 2026-03-09 | Monthly passive income idea batches are welcomed — 8 ideas surfaced (CoinUsUp + Even Us Up growth audits + Canada-specific verticals) without pre-approval. Joe engaged Kanban workflow. | memory/2026-03-08.md | Yes |
 | 2026-03-09 | CoinUsUp ready to deploy (0 npm vulns) — 5 growth ideas identified. Joe approval pending on deployment timing + priority. | memory/2026-03-08.md | Yes |
