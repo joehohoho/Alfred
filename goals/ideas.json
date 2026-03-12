@@ -3756,5 +3756,53 @@
     "tags": [],
     "createdAt": "2026-03-12T00:03:12.362Z",
     "updatedAt": "2026-03-12T00:03:12.362Z"
+  },
+  {
+    "id": "idea_1773280895125_5ae103b8",
+    "title": "NB Bilingual Customer Ops Copilot (EN/FR)",
+    "description": "Atlantic/NB SMB SaaS for bilingual customer communication: auto-generate French+English replies, quote templates, appointment reminders, FAQ snippets, and website/social copy with brand glossary + approval workflow. Geography moat: NB is officially bilingual, while larger competitors ignore small regional bilingual nuances. 90-day MVP: inbox integration + template engine + approval queue + analytics. Monetization: -/mo per location.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-12T02:01:35.125Z",
+    "updatedAt": "2026-03-12T02:01:35.125Z"
+  },
+  {
+    "id": "idea_1773280904400_e59b7e48",
+    "title": "Offline-First Trades Workflow for Rural Atlantic",
+    "description": "Field-service SaaS for contractors/trades in rural Atlantic Canada where connectivity is unreliable: offline job cards, estimates, photos, signatures, and customer updates that auto-sync when signal returns. Geography moat: rural connectivity gaps are a known regional barrier; most generic FSM tools assume always-online workflows. 90-day MVP: mobile PWA, offline queue, sync conflict resolver, bilingual customer receipts. Monetization: -/mo per crew.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-12T02:01:44.400Z",
+    "updatedAt": "2026-03-12T02:01:44.400Z"
+  },
+  {
+    "id": "idea_1773280909840_d7259e0c",
+    "title": "Atlantic Seasonal Staffing + Shift Fill Automation",
+    "description": "SMB operations SaaS for tourism/hospitality/retail in Atlantic Canada: shift-gap alerts, bilingual shift broadcast messages, no-show replacement workflows, and weather-aware staffing prompts. Geography moat: Atlantic businesses face seasonal demand spikes and labor shortages; localized workflows outperform generic scheduling apps. 90-day MVP: shift ingest + auto-broadcast + acceptance tracking + replacement logic. Monetization: -/mo per location.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-12T02:01:49.840Z",
+    "updatedAt": "2026-03-12T02:01:49.840Z"
   }
 ]
