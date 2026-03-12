@@ -2041,16 +2041,21 @@
     "title": "🔐 Security Posture Review — Feb 28 2026",
     "description": "Security audit complete. See HAL completion notification for details.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 1.1,
+      "notes": "Completed operational audit (not a business idea). Security reviews are one-time infrastructure work with zero revenue potential or passive income applicability. Belongs in MEMORY.md or documentation, not Ideas column. Archive to clean up board."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-28T15:21:59.848Z",
-    "updatedAt": "2026-03-02T19:35:12.211Z",
+    "updatedAt": "2026-03-12T09:01:00.000Z",
+    "rejectedReason": "Not a business idea — completed operational audit",
+    "rejectedAt": "2026-03-12T09:01:00.000Z",
     "comments": [
       {
         "id": "cmt_1772292128254_7cb8e646",
@@ -2596,7 +2601,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-03T15:01:58.354Z",
-    "updatedAt": "2026-03-11T11:02:27.675Z",
+    "updatedAt": "2026-03-12T10:02:14.449Z",
     "comments": [
       {
         "id": "cmt_1772708532126_a2dead31",
@@ -2615,6 +2620,12 @@
         "author": "alfred",
         "text": "Proactive research update (2026-03-11): Monetization benchmark + recommendation for Signal App.\n\nCompetitor snapshot (3):\n1) TradingView — tiered freemium model (free + multiple paid levels; market references commonly show paid tiers roughly from low double-digits/month up to high tiers near ~$199/month depending on feature bundle/data access). Strength: wide top-of-funnel via free plan; paid conversion via alerts/charts/advanced workflows.\n2) Glassnode — premium analytics positioning, including institutional/high-end pricing bands (public references cite enterprise/pro tiers reaching high hundreds/month). Strength: clear value-based pricing tied to depth/uniqueness of on-chain analytics.\n3) Santiment — dual-path monetization: user-facing plans + API/data plans. Strength: captures both retail and B2B revenue with feature/API quota gating.\n\nMonetization model analysis:\n- Pure one-time purchase: weak fit (signals are ongoing value; users expect ongoing updates).\n- Freemium + Pro subscription: strongest early-stage GTM for acquisition + retention.\n- B2B/API licensing: best long-term margin lever, but requires stable data quality + support commitments.\n\nRecommended early-stage strategy (for Joe’s current audience):\n- Phase 1 (validate demand): Free tier + Pro tier around CAD $19–$29/mo with strict feature gates (signal delay limits, fewer assets, limited alerts on free).\n- Phase 2 (prove retention): Add Team/Power tier around CAD $79–$149/mo for advanced alerts, exports, and higher limits.\n- Phase 3 (only after product-market proof): API licensing for partners at CAD $299+/mo with usage caps/SLA boundaries.\n\nRationale:\n- Minimizes initial friction (freemium),\n- Preserves recurring revenue path (subscription),\n- Keeps upside open for higher-value B2B monetization without overbuilding too early.\n\nImportant strategic caveat (policy alignment): Joe’s current boundary rejects launching external retail trading/crypto products. So this should be treated as market/pricing research only unless Joe explicitly re-opens this category. If staying within current boundaries, the safest adaptation is to repurpose this into non-trading analytics tooling or internal-use decision support rather than public trading product commercialization.",
         "createdAt": "2026-03-11T11:02:27.675Z"
+      },
+      {
+        "id": "cmt_1773309734449_3369d6b2",
+        "author": "alfred",
+        "text": "Proactive update (Monetization strategy benchmark + recommendation):\n\n## Context check first\nPer current Ideas quality/boundary directives, external retail crypto/trading products are currently out of scope. So the best strategy is **validate monetization without public launch risk** (private pilot + B2B data/alerts packaging), then decide if this should be commercialized or kept internal.\n\n## Competitor benchmark (3)\n1) **TradingView** (market benchmark for trader tooling)\n   - Public plan references commonly cited around **$14.95 / $29.95 / $59.95 monthly** (annual discounts available).\n   - Model: freemium entry + paid capability tiers + add-ons.\n\n2) **TipRanks** (retail signals/research packaging)\n   - Public references show **Premium ~ $360/yr** and **Ultimate ~ $600/yr** (some sources also quote ~$29.95/mo annualized Premium).\n   - Model: free/basic funnel + tiered annual subscriptions.\n\n3) **Seeking Alpha Premium** (research/signal-adjacent subscription)\n   - Public references show **Premium ~ $299/yr**.\n   - Model: free content funnel + premium paywall + higher-tier pro offerings.\n\n## Pattern from market\n- Most products use **freemium → paid tier ladder**\n- Typical retail paid range clusters around **~$20–$60/month equivalent** (or $299–$600/year for annual plans)\n- Annual billing and trust/track-record proof are key for conversion\n\n## Best early-stage strategy for Joe’s audience\n### Recommended: **Freemium + Founding Pro annual pilot (not broad public launch yet)**\n- **Free tier**: delayed/non-actionable signals + 1 watchlist + weekly digest\n- **Pro tier**: near-real-time alerts, risk notes, more symbols, backtest snapshots\n- **Pilot price**: **$19/month or $190/year** for first cohort (founding pricing)\n- **Why this price**: below major incumbents, still high enough to validate willingness-to-pay\n\n### Add B2B path in parallel (lower compliance/marketing drag)\n- Offer **API/license feed** to a small set of vetted partners at **$299–$999/month** depending on symbol coverage/latency\n- This tests higher-ARPU monetization without requiring broad retail acquisition\n\n## Decision recommendation\nGiven current no-trading-product boundary, treat this as a **monetization validation framework** and run only a controlled pilot (or keep internal) until Joe confirms commercialization scope.\n\nIf approved later, next step would be a 2-week pricing test plan with conversion KPIs (trial→paid, retention at 30 days, cancellation reasons).",
+        "createdAt": "2026-03-12T10:02:14.449Z"
       }
     ]
   },

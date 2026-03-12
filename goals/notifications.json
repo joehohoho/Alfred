@@ -404,5 +404,23 @@
     "answered": false,
     "createdAt": "2026-03-11T13:00:00.280Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773309904622_2030eaeb",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-12T10:05:04.622Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773313226226_4e4fd997",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-12T11:00:26.226Z",
+    "answeredAt": null
   }
 ]
