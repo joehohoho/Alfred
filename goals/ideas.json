@@ -3810,5 +3810,21 @@
     "tags": [],
     "createdAt": "2026-03-12T02:01:49.840Z",
     "updatedAt": "2026-03-12T02:01:49.840Z"
+  },
+  {
+    "id": "idea_1773288117026_d8f7a806",
+    "title": "CoinUsUp Growth Audit — Friction, Missing Features, Growth Levers (Mar 12)",
+    "description": "Prioritized recommendations based on repo/docs review (ONBOARDING_CHECKLIST.md, SEO_AUDIT_REPORT.md, App routes/components).\n\nTOP 3 UX FRICTION POINTS (priority + effort)\n1) Activation still too multi-step before first value (High impact, Medium effort: 2-4 days)\n   - New onboarding checklist confirms this pain: users currently must create group + campaign + invite before momentum.\n   - Recommendation: add one-click 'Quick Start campaign' path with auto-generated defaults + optional teammate invite later.\n\n2) Product surface area is overwhelming for first-week users (High impact, Medium effort: 3-5 days)\n   - App exposes many modules early (campaigns, events, members, tasks, shifts, chat, reports, expenses).\n   - Recommendation: role-aware progressive navigation that unlocks advanced modules after first campaign milestone.\n\n3) Permission/role visibility confusion risk (Medium impact, Medium effort: 2-3 days)\n   - Dashboard logic has multiple role gates (admin/fundraising_lead/treasurer/event_manager/owner).\n   - Recommendation: add inline 'why can/can’t I see this?' helper + role capability matrix in Settings.\n\nTOP 3 LIKELY MISSING FEATURES USERS WILL WANT\n1) Guided onboarding analytics funnel (High impact, Small effort: 1-2 days)\n   - Track drop-off by step; currently listed as future enhancement.\n   - Add events: checklist_started, step_completed, onboarding_completed, first_donation_logged.\n\n2) Contact import + first outreach templates (High impact, Medium effort: 3-6 days)\n   - Users need to move quickly from setup to asks.\n   - Add CSV import + 3 starter email/SMS templates tied to campaign launch.\n\n3) Donor retention automation (High impact, Medium/Large effort: 1-2 weeks)\n   - Add thank-you + follow-up cadence + recurring donation nudges.\n   - Converts one-time donors into repeat contributors.\n\nTOP 3 GROWTH LEVERS\n1) SEO technical fixes already identified (Very high impact, Medium effort: 4-7 days)\n   - Ship sitemap.xml + robots sitemap reference + SSR/prerender for marketing pages.\n   - Fixes indexation/discovery ceiling from SPA shell issue.\n\n2) In-product referral loop for organizers (High impact, Medium effort: 4-6 days)\n   - 'Invite another organizer, both unlock X days of Pro features'.\n   - Build referral attribution + reward logic.\n\n3) Conversion-focused onboarding experiments (High impact, Small/Medium effort: 2-4 days)\n   - A/B test: checklist copy, CTA order, sample data auto-create vs manual.\n   - Goal: improve onboarding completion and first-week activation.\n\n90-DAY EXECUTION ORDER (recommended)\nPhase 1 (Weeks 1-2): SEO fixes + onboarding analytics\nPhase 2 (Weeks 3-4): Quick Start flow + progressive navigation\nPhase 3 (Weeks 5-8): Referral loop + outreach templates\nPhase 4 (Weeks 9-12): Donor retention automation + optimization\n\nExpected outcome if executed: higher organic acquisition + better activation + improved retention without major platform rewrite.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-12T04:01:57.026Z",
+    "updatedAt": "2026-03-12T04:01:57.026Z"
   }
 ]
