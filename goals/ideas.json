@@ -2134,16 +2134,28 @@
     "title": "SaaS: Compliance Deadline Tracker for Regulated Micro-Businesses",
     "description": "IDEA: Simple subscription SaaS that tracks permit renewals, health inspections, license expirations, and regulatory deadlines for hyper-regulated small businesses — tattoo/piercing studios, food trucks, cannabis dispensaries, daycares, estheticians. These businesses face fines or closure for missed renewals yet manage everything manually or forget entirely. Pricing: $29-49/month. BUILD EFFORT: Very low — essentially a smart calendar + alert engine with a simple onboarding wizard per business type. MAINTENANCE: Minimal — regulations change slowly; update deadlines annually. UPSIDE: Massive total addressable market (millions of regulated businesses); very low churn (fear of fines drives retention). 200 customers = $6K-10K MRR. NOVEL ANGLE: Not invoicing, not accounting — pure compliance peace-of-mind for overlooked trades that existing tools totally ignore.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.1,
+      "notes": "Strong B+ opportunity: massive TAM (millions of regulated micro-businesses), very low build effort (1-2 weeks MVP), and exceptional passive potential (sticky SaaS subscription, minimal ongoing maintenance). Main constraint: no Joe domain edge in regulated trades, but speed to revenue + low effort offset that weakness. Recommended GTM: start with food trucks + tattoo shops (highest search intent). If 50 customers in 30 days, continue; otherwise pivot.",
+      "breakdown": {
+        "market_fit_3x": 8,
+        "effort_reward_2x": 8,
+        "joes_edge_2x": 5,
+        "synergy_1x": 3,
+        "passive_potential_2x": 9
+      },
+      "weighted_score": 71,
+      "evaluatedAt": "2026-03-15T19:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-28T15:47:40.185Z",
-    "updatedAt": "2026-02-28T15:47:40.185Z"
+    "updatedAt": "2026-03-15T19:00:00.000Z"
   },
   {
     "id": "idea_1772293668252_fcf7fa5a",

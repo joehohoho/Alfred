@@ -177,3 +177,40 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Null-row hard guard + daily reconciliation batch
 2. Heartbeat alert classification + deduped incident tracking
 3. Proactive-to-Kanban conversion enforcement
+
+
+## Workflow Efficiency Scan — 2026-03-15
+
+### Top repetitive patterns and concrete improvements
+
+1. **Pending-question sync is flooding active context (attention thrash)**
+   - **Pattern:** Idle loop synced **1863 pending questions** into ACTIVE-TASK state before dispatch.
+   - **Impact:** High context-switch cost, slower prioritization, and increased risk that true blockers are buried.
+   - **Improvement proposal:** Add a hard cap + triage tiering in `sync-pending-questions.sh`:
+     - Keep only top 5 actionable blockers in ACTIVE-TASK.md
+     - Auto-archive the rest to `memory/pending-questions-archive.jsonl`
+     - Surface one-line counters (`critical`, `needs_decision`, `stale`) instead of full list expansion
+   - **Success metric:** Active pending-question display reduced from 1863 to ≤5 in working context, with zero loss of audit trail.
+
+2. **HAL proactive dispatch keeps retrying into unreachable gateway (wasted cycles)**
+   - **Pattern:** HAL dispatch logs show repeated EHOSTUNREACH failures with a very high historical failure count (500+), even with backoff.
+   - **Impact:** Repeated failed proactive attempts create noise and consume scheduler/runtime attention without productive output.
+   - **Improvement proposal:** Add a circuit-breaker tier to `hal-idle-dispatch-cron.sh`:
+     - After N consecutive network failures (e.g., 12), enter `degraded_offline` mode for 2 hours
+     - In degraded mode, skip HAL dispatch and run local Alfred-only proactive tasks
+     - Send one consolidated recovery probe per window; auto-exit on first success
+   - **Success metric:** Reduce failed HAL dispatch attempts by 80% during outage windows while maintaining recovery responsiveness.
+
+3. **Null-card stale cleanup remains unresolved and repeats every idle cycle (board hygiene debt)**
+   - **Pattern:** `kanban-idle-loop.sh` still reports `STALE: null` entries and moves them repeatedly.
+   - **Impact:** False board churn, reduced trust in board state, and potential blockage side effects for dispatch rules.
+   - **Improvement proposal:** Enforce schema validation at read boundary:
+     - Reject any row missing `card_id` before stale logic
+     - Log first occurrence per day to `logs/kanban-anomalies.jsonl` (idempotent)
+     - Add a daily repair script that reports root cause source table/file + rows fixed
+   - **Success metric:** 0 repeated `STALE: null` events for 7 days and a daily anomaly report with deterministic repairs.
+
+### Recommended implementation order (highest ROI first)
+1. Pending-question hard cap + triage tiering (biggest immediate cognitive load reduction)
+2. HAL dispatch circuit-breaker for gateway outages (reduces repeated failed work)
+3. Kanban row schema gate + daily repair report (stabilizes board truth)
