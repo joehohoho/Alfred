@@ -4066,5 +4066,21 @@
     "tags": [],
     "createdAt": "2026-03-15T17:01:41.835Z",
     "updatedAt": "2026-03-15T17:01:41.835Z"
+  },
+  {
+    "id": "idea_1773601292470_c6d9b8e9",
+    "title": "Signal App monetization strategy (benchmark + launch pricing)",
+    "description": "Benchmarked competitors and proposed early-stage pricing model for Stock/Crypto Buy/Sell Signal App.\n\nCompetitor benchmark (2026 snapshot):\n1) TradingView (signal/charting ecosystem): Essential ~US.95/mo, Plus ~US.95/mo, Premium ~US.95/mo (annual discounts commonly offered).\n2) 3Commas (automation + signal bots): common published tiers around US / US / US per month (Starter/Advanced/Pro-style packaging).\n3) CoinStats (portfolio + alerts): Free tier + Premium at US.99/mo (annual billed), high-end Degen ~US.91/mo, lifetime options (/).\n\nRecommendation for Joe's early-stage audience:\n- Use FREEMIUM + 2 paid tiers (not one-time purchase) to maximize conversion + recurring revenue.\n- Free: limited delayed signals, 1 watchlist, basic alerts.\n- Pro (launch): US/mo (or C) early-adopter price for first 100 users, then US/mo.\n- Pro+ (power users): US/mo with advanced filters, multi-timeframe confluence, webhook/API export, priority support.\n- Annual plans: 20% off to improve cash flow and retention.\n\nB2B/API licensing strategy:\n- Do NOT lead with broad B2B on day 1.\n- Add a 'Team/API' tier after PMF (target: 3-5 paying B2B pilots), starting at US/mo + usage caps.\n\nWhy this is best now:\n- Price anchors against known market bands (13.99-99).\n- Keeps entry friction low for Joe's likely retail/prosumer audience.\n- Preserves upside via Pro+ and later API licensing without overbuilding too early.\n\nSuggested 30-day validation:\n- A/B test Pro at  vs  landing page waitlist conversion.\n- Track trial->paid conversion and 30-day retention before enabling Team/API.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-15T19:01:32.470Z",
+    "updatedAt": "2026-03-15T19:01:32.470Z"
   }
 ]

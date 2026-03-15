@@ -5714,6 +5714,18 @@ Alfred Work Executor (every 15 min)
 
 - **Session Auto-Reset** (_system_, Mar 15 16:44)
   ID: `notif_1773593094658_541902ea` — Main session was at 85%+ context. Auto-reset and gateway restarted.
+
+- **Cron Auto-Disabled** (_system_, Mar 15 18:04)
+  ID: `notif_1773597849360_12cb2350` — Daily Config & Memory Review: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 15 18:04)
+  ID: `notif_1773597849368_b17c1ca0` — Evening Routine: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 15 18:04)
+  ID: `notif_1773597849379_03ae8442` — Daily Update Check: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 15 18:04)
+  ID: `notif_1773597849391_946bc5bb` — Nightly Git Commit: 3 consecutive failures — auto-disabled
 <!-- PENDING-Q-END -->
 
 ---
