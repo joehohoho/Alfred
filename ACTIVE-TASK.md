@@ -5726,6 +5726,9 @@ Alfred Work Executor (every 15 min)
 
 - **Cron Auto-Disabled** (_system_, Mar 15 18:04)
   ID: `notif_1773597849391_946bc5bb` — Nightly Git Commit: 3 consecutive failures — auto-disabled
+
+- **Alfred has a question** (_--help_, Mar 15 20:00)
+  ID: `notif_1773604853300_6abbb116` — No details provided
 <!-- PENDING-Q-END -->
 
 ---
