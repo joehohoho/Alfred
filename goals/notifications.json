@@ -17112,5 +17112,14 @@
     "answered": false,
     "createdAt": "2026-03-15T18:04:09.391Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773604853300_6abbb116",
+    "type": "--help",
+    "title": "Alfred has a question",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-15T20:00:53.300Z",
+    "answeredAt": null
   }
 ]
