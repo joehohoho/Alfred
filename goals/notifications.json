@@ -17031,5 +17031,50 @@
     "answered": false,
     "createdAt": "2026-03-15T15:03:58.342Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773591242490_4c82a76a",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-15T16:14:02.490Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773591242502_7c2b1c62",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-15T16:14:02.502Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773591242522_04bf2c00",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Update Check: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-15T16:14:02.522Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773591242535_05ff30a0",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-15T16:14:02.535Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773593094658_541902ea",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-15T16:44:54.658Z",
+    "answeredAt": null
   }
 ]

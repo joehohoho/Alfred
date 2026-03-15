@@ -1,7 +1,7 @@
 # ACTIVE-TASK.md — Current Work State
 
-**Status:** `in_progress` — CoinUsUp: Onboarding Checklist + Sample Data  
-**Last Updated:** 2026-03-12 05:52 ADT
+**Status:** `in_progress` — MEMORY.md Overflow Prevention & Gateway Recovery  
+**Last Updated:** 2026-03-15 13:04 ADT
 
 ---
 
@@ -104,12 +104,30 @@ Alfred Work Executor (every 15 min)
 
 ---
 
-## Next Actions
+## MEMORY.md Overflow Prevention (2026-03-15)
 
-1. **Monitor execution:** `tail -f ~/.openclaw/logs/alfred-work-executor.log`
-2. **Check queue:** `cat ~/.openclaw/workspace/.hal-alfred-tracking/alfred-queue.jsonl | tail -5`
-3. **Verify LaunchAgent:** `launchctl list | grep alfred`
-4. **Once HAL online:** HAL dispatch will auto-connect (192.168.2.79:18789)
+**Root Cause:** MEMORY.md was 25,877 chars (127% over 20KB limit), causing session bootstrap failures
+
+**What was done:**
+1. ✅ Compressed MEMORY.md to 2,991 chars (14% of limit)
+2. ✅ Created `scripts/memory-size-monitor.sh` (monitors every 30 min)
+3. ✅ Created `scripts/memory-smart-archive.sh` (nightly archival at 20:00 AST)
+4. ✅ Created `memory/MEMORY-ARCHIVE.md` (destination for old entries)
+5. ✅ Created comprehensive documentation (3 guides + deployment plan)
+6. ✅ Gateway is now stable (pid 46721, running)
+7. ✅ **CRONS ENABLED** (2026-03-15 13:06)
+   - Memory Size Monitor: every 30 min (Job ID: 4c4bf0ca-...)
+   - Daily Memory Archival: 20:00 AST (Job ID: 1de89ca5-...)
+
+**Status:** ✅ COMPLETE - System in production
+
+**Documentation:**
+- `MEMORY-OVERFLOW-PREVENTION.md` — Full 3-layer plan + risk mitigation
+- `GATEWAY-RECOVERY-SUMMARY.md` — Executive summary of what happened + fix
+- `MEMORY-MAINTENANCE.md` — Quick reference for ongoing maintenance
+- `CRON-DEPLOYMENT-LOG.md` — Deployment verification + monitoring points
+
+**Next checkup:** 2026-03-22 (1-week verification for false positives)
 
 ---
 
@@ -5681,6 +5699,21 @@ Alfred Work Executor (every 15 min)
 
 - **Gateway Down** (_system_, Mar 15 15:03)
   ID: `notif_1773587038342_23649e0e` — Gateway is down and auto-restart failed. Check manually.
+
+- **Cron Auto-Disabled** (_system_, Mar 15 16:14)
+  ID: `notif_1773591242490_4c82a76a` — Daily Config & Memory Review: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 15 16:14)
+  ID: `notif_1773591242502_7c2b1c62` — Evening Routine: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 15 16:14)
+  ID: `notif_1773591242522_04bf2c00` — Daily Update Check: 3 consecutive failures — auto-disabled
+
+- **Cron Auto-Disabled** (_system_, Mar 15 16:14)
+  ID: `notif_1773591242535_05ff30a0` — Nightly Git Commit: 3 consecutive failures — auto-disabled
+
+- **Session Auto-Reset** (_system_, Mar 15 16:44)
+  ID: `notif_1773593094658_541902ea` — Main session was at 85%+ context. Auto-reset and gateway restarted.
 <!-- PENDING-Q-END -->
 
 ---
