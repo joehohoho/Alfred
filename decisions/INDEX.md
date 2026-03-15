@@ -1,6 +1,6 @@
 # Decision Index
 
-**Updated:** 2026-03-09 15:31 UTC | **Next auto-update:** Fridays at 3 PM AST  
+**Updated:** 2026-03-15 15:10 UTC | **Next auto-update:** Fridays at 3 PM AST  
 **Purpose:** Quick reference for all active decisions. Prevents repeat questions by showing what's been decided + when to re-ask.
 
 ---
@@ -10,11 +10,11 @@ _Do NOT re-ask questions in this section until review date passes._
 
 | Decision | Asked | Decided | Review Date | Status | Link |
 |----------|-------|---------|-------------|--------|------|
-| Passive Income Targets (Q2 Growth) | [Parse] | [Parse] | [Parse] | [Parse] | [Passive Income Targets (Q2 Growth)](#) |
-| App Growth Strategy (Priority) | [Parse] | [Parse] | [Parse] | [Parse] | [App Growth Strategy (Priority)](#) |
-| Market Signal Lab Scope | [Parse] | [Parse] | [Parse] | [Parse] | [Market Signal Lab Scope](#) |
-| Reliability Infrastructure Priority | [Parse] | [Parse] | [Parse] | [Parse] | [Reliability Infrastructure Priority](#) |
-| Reliability Systems Configuration | [Parse] | [Parse] | [Parse] | [Parse] | [Reliability Systems Configuration](#) |
+| Passive Income Targets (Q2 Growth) | 2026-02-20 | 2026-03-09 | 2026-04-10 | ✅ DECIDED | [March log](./2026-03.md#decision-passive-income-targets-q2-growth) |
+| App Growth Strategy (Priority) | 2026-02-27 | 2026-03-09 | 2026-04-10 | ✅ DECIDED | [March log](./2026-03.md#decision-app-growth-strategy-priority) |
+| Market Signal Lab Scope | 2026-03-02 | 2026-03-09 | 2026-06-01 | ✅ DECIDED | [March log](./2026-03.md#decision-market-signal-lab-scope) |
+| Reliability Infrastructure Priority | 2026-03-09 | 2026-03-09 | 2026-04-09 | ✅ DECIDED | [March log](./2026-03.md#decision-reliability-infrastructure-priority) |
+| Reliability Systems Configuration | 2026-03-09 | 2026-03-09 | 2026-04-09 | ✅ DECIDED | [March log](./2026-03.md#decision-reliability-systems-configuration) |
 
 ---
 
@@ -23,7 +23,7 @@ _These were asked but not yet answered. Will be re-asked on due date if no answe
 
 | Decision | Asked By | Asked Date | Due Date | Next Re-Ask | Priority |
 |----------|----------|-----------|----------|------------|----------|
-| [Auto-populated from monthly files with ⏳ PENDING status] | — | — | — | — | — |
+| _None currently pending_ | — | — | — | — | — |
 
 ---
 
@@ -32,7 +32,11 @@ _Decisions made in the past week. Included for context._
 
 | Decision | Decided | Status | Next Review |
 |----------|---------|--------|-------------|
-| [Auto-populated] | — | — | — |
+| Passive Income Targets (Q2 Growth) | 2026-03-09 | ✅ DECIDED | 2026-04-10 |
+| App Growth Strategy (Priority) | 2026-03-09 | ✅ DECIDED | 2026-04-10 |
+| Market Signal Lab Scope | 2026-03-09 | ✅ DECIDED | 2026-06-01 |
+| Reliability Infrastructure Priority | 2026-03-09 | ✅ DECIDED | 2026-04-09 |
+| Reliability Systems Configuration | 2026-03-09 | ✅ DECIDED | 2026-04-09 |
 
 ---
 
@@ -41,6 +45,7 @@ _Reference only. Do not re-ask._
 
 | Month | Link | Count |
 |-------|------|-------|
+| _None yet_ | — | 0 |
 
 ---
 
@@ -53,8 +58,8 @@ _Reference only. Do not re-ask._
 
 **Example flows:**
 - ✅ **OK to ask:** Question not in index, or review date has passed
-- ❌ **DO NOT ASK:** "Passive Income Targets" — already in pending since Feb 20, due Mar 15
-- ⚠️ **ESCALATE:** Today is Mar 15 and "Passive Income Targets" still pending → send Joe notification
+- ❌ **DO NOT ASK:** Any active decision whose review date has not passed
+- ⚠️ **ESCALATE:** Pending decision has reached or passed due date without answer
 
 ---
 
