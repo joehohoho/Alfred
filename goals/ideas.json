@@ -4050,5 +4050,21 @@
     "tags": [],
     "createdAt": "2026-03-15T15:11:34.074Z",
     "updatedAt": "2026-03-15T15:11:34.074Z"
+  },
+  {
+    "id": "idea_1773594101835_f7217d73",
+    "title": "Alfred Infra Scan (2026-03-15): Top 3 reliability/cost improvements",
+    "description": "1) HAL Dispatch Circuit Breaker + Pool Quarantine\\n- Observed: hal-idle-dispatch failed with EHOSTUNREACH and failure counter at 508. Current backoff prevents cascades, but the same failing pool task can still be retried repeatedly over days.\\n- Improvement: add per-task quarantine (e.g., skip task for 6h after N fails), plus host health probe before dispatching to 192.168.2.79. Auto-demote unreachable node tasks to local fallback queue.\\n- Impact: fewer wasted dispatch cycles, less noise, lower token/tool overhead.\\n\\n2) Kanban Data Integrity Guard (null-card stale sweeper hardening)\\n- Observed: kanban-idle-loop moved stale cards with title/id=null into review, indicating malformed/ghost entries in in_progress.\\n- Improvement: schema validation + repair job before stale sweep (reject/migrate cards missing id/title/updatedAt), and write anomalies to a dedicated audit log with auto-heal.\\n- Impact: prevents incorrect board mutations and keeps executor trustworthy.\\n\\n3) Trigger/Event Debounce Layer for Cron Executors\\n- Observed: overlapping schedulers (Kanban Idle Loop hourly + Work Executor every 30m + HAL Dispatch every 15m) increase duplicate checks and repeated no-op loops.\\n- Improvement: add a lightweight event bus/debouncer keyed by board hash + cooldown token; if board state unchanged since last run, skip expensive checks and API calls.\\n- Impact: lower token spend + less duplicate effort while preserving responsiveness.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-15T17:01:41.835Z",
+    "updatedAt": "2026-03-15T17:01:41.835Z"
   }
 ]
