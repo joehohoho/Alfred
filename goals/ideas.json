@@ -4094,5 +4094,21 @@
     "tags": [],
     "createdAt": "2026-03-15T19:01:32.470Z",
     "updatedAt": "2026-03-15T19:01:32.470Z"
+  },
+  {
+    "id": "idea_1773615676674_0b8e920b",
+    "title": "Portfolio Health Snapshot — Passive Income (Mar 15, 2026)",
+    "description": "CoinUsUp: Status=Active maintenance/growth with strategic priority. Current MRR=Unknown (needs dashboard pull). Potential MRR (12mo)=$500-$2,000 if acquisition + conversion engine is executed. Bottleneck=No consistent growth engine (acquisition/activation loops not yet systemized).\\n\\nEven Us Up: Status=Running, strategic direction unresolved (monetization sprint vs maintenance mode). Current MRR=Unknown/likely low. Potential MRR (12mo)=$100-$800 with paid tier or niche B2B variant. Bottleneck=Positioning + monetization decision not finalized.\\n\\nSignal App (Market Signal Lab): Status=Early stage, personal tool focus, active technical improvements/backtesting. Current MRR=$0 (not public launch). Potential MRR (12mo)=$0-$500 if converted to paid insights later; near-term value is internal decision support. Bottleneck=Product strategy intentionally constrained to personal use (no go-to-market yet).\\n\\nAutomation Consulting: Status=Active client work (primary near-term cashflow pillar). Current MRR=Unknown but currently revenue-generating. Potential MRR (12mo)=$2,000-$10,000 depending on packaging/retainers and lead flow consistency. Bottleneck=Productization + repeatable offer packaging to reduce time-for-money dependence.\\n\\nPortfolio readout:\\n- Revenue resilience: Moderate (consulting carries most likely revenue)\\n- Scalability: Low-to-moderate (apps not yet in repeatable growth mode)\\n- Biggest cross-portfolio gap: Distribution + monetization systems\\n- Next best move: Build one shared growth operating system (weekly acquisition targets, funnel metrics, offer tests) and apply it first to CoinUsUp, then Even Us Up.\\n\\nAssumptions note: MRR figures are directional ranges due to missing live financial telemetry in this run.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-15T23:01:16.674Z",
+    "updatedAt": "2026-03-15T23:01:16.674Z"
   }
 ]
