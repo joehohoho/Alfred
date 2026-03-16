@@ -4230,5 +4230,21 @@
     "tags": [],
     "createdAt": "2026-03-16T09:01:38.791Z",
     "updatedAt": "2026-03-16T09:01:38.791Z"
+  },
+  {
+    "id": "idea_1773658935130_c7ad5273",
+    "title": "Alfred Infra Scan (2026-03-16): Top 3 NEW reliability/cost improvements",
+    "description": "Evidence snapshot (08:00 run): kanban-idle-loop reported stale null cards moved to review; openclaw status shows gateway unreachable for operator.read scope and HAL heartbeat disabled; 7 active sessions with multiple idle threads.\\n\\n1) Gateway Scope Canary + Safe Escalation\\n- Gap: openclaw status is partially blind (gateway unreachable: missing operator.read). This reduces observability exactly when diagnosing failures.\\n- Improvement: add hourly canary that runs 'openclaw gateway probe' + checks required scopes; if scope missing, post a structured blocker to Kanban with remediation steps and suppress noisy repeats for 12h.\\n- Impact: faster incident triage, fewer wasted debug loops, fewer duplicate investigations.\\n\\n2) Session TTL Janitor (token + context hygiene)\\n- Gap: multiple stale idle sessions accumulate (status showed 7 active sessions, several old idle threads). This increases context clutter and hidden token overhead over time.\\n- Improvement: add low-risk janitor that archives/closes sessions older than threshold unless pinned/active in last N hours; weekly digest of reclaimed session slots.\\n- Impact: lower token drift, cleaner continuity, simpler debugging.\\n\\n3) HAL Heartbeat Auto-Recovery + Confidence Gate\\n- Gap: status showed HAL heartbeat disabled, which can silently reduce dispatch reliability until noticed manually.\\n- Improvement: monitor HAL heartbeat state; auto-restart/re-enable once, then open blocker if still unhealthy. Add confidence gate so proactive dispatch pauses when HAL health score is below threshold.\\n- Impact: fewer silent failures and less wasted proactive execution during degraded HAL state.\\n\\nWhy these are NEW vs existing ideas: they target observability scope health, session lifecycle hygiene, and HAL heartbeat auto-recovery (not circuit-breaker/quarantine, stale-card schema repair, or trigger debounce already logged).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-16T11:02:15.130Z",
+    "updatedAt": "2026-03-16T11:02:15.130Z"
   }
 ]
