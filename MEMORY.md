@@ -65,10 +65,11 @@
 
 ## Next Actions (Priority Order)
 
-1. **Re-enable cron jobs** (Evening Routine, Daily Inquiry) — they auto-disabled on Mar 12
-2. **Implement daily inquiry deduplication** — prevent repeat questions <7 days old
-3. **Enforce auto-move for HAL deliverables** — cleanup Review column
-4. **Monitor gateway stability** — watch for further memory overflow
+1. **Fix cron job auto-disable pattern (RECURRING)** — 5 jobs repeatedly disable due to Discord routing; need explicit channel ID config or fallback routing
+2. **Repair ACTIVE-TASK.md sync script** — marker format drift breaks pending-questions refresh; sync-pending-questions.sh needs compatibility fix
+3. **Re-enable cron jobs** (Evening Routine, Daily Inquiry) — disabled Mar 12-15; waiting on #1 fix
+4. **Enforce auto-move for HAL deliverables** — cleanup Review column backlog
+5. **Monitor gateway stability** — watch for further memory overflow
 
 ---
 

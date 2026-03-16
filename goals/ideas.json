@@ -4122,5 +4122,53 @@
     "tags": [],
     "createdAt": "2026-03-15T23:01:16.674Z",
     "updatedAt": "2026-03-15T23:01:16.674Z"
+  },
+  {
+    "id": "idea_1773630068224_fa7f6e18",
+    "title": "CompliancePulse Canada",
+    "description": "Problem: Canadian SMB owners miss filing/payroll/GST/HST deadlines and incur penalties. Target: 1-50 employee Canadian SMBs + solo operators. Offer: automated deadline tracker + reminder workflows + filing checklist packs (not legal advice). Estimated MRR: k-k in 6-12 months (100-300 users at -). Tech complexity: 2/5. Competition: Medium (generic reminder tools, few Canada-specific compliance copilots). Why Joe can win: automation consulting + Canadian context + low-maintenance recurring reminders/checklists.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-16T03:01:08.224Z",
+    "updatedAt": "2026-03-16T03:01:08.224Z"
+  },
+  {
+    "id": "idea_1773630068453_3f3470bc",
+    "title": "SignalOps Lite for Retail Traders",
+    "description": "Problem: traders drown in noisy indicators and inconsistent journaling. Target: self-directed retail traders/crypto swing traders. Offer: signal ingestion + simple confluence scoring + weekly performance digest + alert automation (education-only). Estimated MRR: k-k (50-200 users at -). Tech complexity: 3/5. Competition: High, but differentiated by practical signal hygiene + lightweight setup. Why Joe can win: already building signal stack; can ship a focused low-support layer instead of full platform.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-16T03:01:08.453Z",
+    "updatedAt": "2026-03-16T03:01:08.453Z"
+  },
+  {
+    "id": "idea_1773630068679_a5b861c7",
+    "title": "ClientFlow Automator Kits",
+    "description": "Problem: consultants/SMBs lose time on onboarding, follow-ups, and handoffs. Target: solo consultants/agencies (incl. Joe's network). Offer: productized automation templates (lead intake -> proposal -> kickoff -> follow-up) sold as monthly kit + setup videos. Estimated MRR: k-k (80-250 subscribers at -). Tech complexity: 2/5. Competition: Medium. Why Joe can win: direct consulting experience + reusable SOPs + fast implementation with low support burden.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-16T03:01:08.679Z",
+    "updatedAt": "2026-03-16T03:01:08.679Z"
   }
 ]
