@@ -2162,16 +2162,28 @@
     "title": "SaaS: Daily Wellness Check-in Service for Elderly Living Alone",
     "description": "IDEA: Automated daily check-in service for seniors living alone. A friendly automated call or SMS each morning confirms they're okay; if no response within a window, it escalates to a designated family contact. Families subscribe, not the senior — $19-29/month. BUILD EFFORT: Low — Twilio calls/SMS + scheduling + contact tree logic. MVP in 1-2 weeks. No AI needed for core flow. MAINTENANCE: Very low — stable domain, minimal feature creep. UPSIDE: 14M+ Americans aged 65+ live alone (Stats Canada equivalent in Canada). Families will pay gladly for peace of mind — extremely emotional purchase, very sticky, near-zero churn. 300 families = $6K-9K MRR. NOVEL ANGLE: Deeply human problem, no dominant player in the micro-SaaS space. Not health monitoring hardware — purely software/telecom. Unexplored territory for a solo founder.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.8,
+      "notes": "Strong market fit (14M+ elderly TAM, emotional purchase, zero churn) + excellent passive potential (low maintenance). Build is low (1-2 weeks Twilio integration). Main constraints: no Joe domain edge in healthcare/elderly care, regulatory/compliance concerns unclear, customer acquisition path unvalidated. Below promotion threshold (7+) but high-quality B+ opportunity. Recommend: pursue only with clear 30-day customer validation (5 paying families, NPS > 7). If validated, promote.",
+      "breakdown": {
+        "market_fit_3x": 8,
+        "effort_reward_2x": 8,
+        "joes_edge_2x": 5,
+        "synergy_1x": 2,
+        "passive_potential_2x": 8
+      },
+      "weighted_score": 68,
+      "evaluatedAt": "2026-03-15T23:01:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-28T15:47:48.252Z",
-    "updatedAt": "2026-02-28T15:47:48.252Z"
+    "updatedAt": "2026-03-15T23:01:00.000Z"
   },
   {
     "id": "idea_1772319717428_0df456cd",
