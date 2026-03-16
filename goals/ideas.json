@@ -3251,7 +3251,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T11:01:44.766Z",
-    "updatedAt": "2026-03-07T11:01:44.766Z"
+    "updatedAt": "2026-03-16T07:02:00.601Z",
+    "comments": [
+      {
+        "id": "cmt_1773644520601_7a5615d6",
+        "author": "alfred",
+        "text": "CoinUsUp Growth Audit (2026-03-16)\n\nPrioritized recommendations with effort estimates:\n\nP1) Fix activation friction in first-session setup (Effort: M, 3-5 days)\n- Friction #1: New users must understand org + campaign + member setup before seeing value.\n- Evidence: Dedicated ONBOARDING_CHECKLIST.md was added to improve activation; this indicates prior setup drop-off risk.\n- Recommendation: Make a \"Quick Start\" mode with one-click sample campaign + guided checklist + persistent progress analytics.\n\nP1) Improve sign-up/login convenience (Effort: S-M, 1-3 days)\n- Friction #2: Social login is not enabled (Google/Apple TODOs in AuthPage).\n- User impact: More password friction + likely higher abandonment on mobile.\n- Recommendation: Enable Google OAuth first, then Apple Sign-In (especially for iOS audience).\n\nP1) Reduce perceived load and SEO discoverability bottlenecks (Effort: M-L, 4-8 days)\n- Friction #3: SPA-first rendering + prior SEO technical gaps reduce landing-page clarity and acquisition.\n- Evidence: SEO_AUDIT_REPORT flagged sitemap missing and SPA rendering/indexation issues; performance docs show improvements, but discoverability remains a growth limiter.\n- Recommendation: Ship sitemap + robots sitemap reference + pre-render/SSR for marketing pages.\n\nTop missing features users likely want:\n1) Donor-facing public campaign pages + shareable donation links (Effort: M, 4-7 days)\n   - Current product is strong for internal ops; fundraising growth needs external donor conversion pages.\n2) Automated donor comms + receipts + follow-up sequences (Effort: M, 3-6 days)\n   - Strongly improves retention and repeat giving; currently mostly manual operational tooling.\n3) Integrations (Stripe/PayPal + accounting export + CRM sync) (Effort: L, 2-4 weeks)\n   - Reduces admin burden and increases willingness to adopt at org level.\n\nTop growth levers:\n1) SEO + intent pages (Highest ROI, Effort: M)\n   - Build high-intent pages: school fundraiser tracker, sports team fundraising app, church donation tracker, etc.\n   - Pair with SSR/pre-render and FAQ/schema improvements.\n2) Viral/Referral loops inside campaigns (Effort: M)\n   - Add \"Invite members\" and \"Share campaign\" growth prompts with referral tracking + incentive (e.g., free month / upgraded feature).\n3) Monetization packaging and conversion optimization (Effort: S-M)\n   - Clarify free-to-paid thresholds (members, campaigns, reports), add ROI calculator + social proof on pricing page.\n\nExecution order:\nPhase 1 (this sprint): OAuth + sitemap/robots + onboarding analytics.\nPhase 2: Donor-facing public campaign pages + share/referral loop.\nPhase 3: Integrations + pricing/packaging experiments.\n\nExpected outcome (90 days): higher signup completion, better organic acquisition, and stronger free-to-paid conversion.",
+        "createdAt": "2026-03-16T07:02:00.601Z"
+      }
+    ]
   },
   {
     "id": "idea_1772888498100_ac791650",
