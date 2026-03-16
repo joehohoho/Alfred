@@ -4214,5 +4214,21 @@
         "createdAt": "2026-03-16T05:01:59.590Z"
       }
     ]
+  },
+  {
+    "id": "idea_1773651698791_0b4ce7cf",
+    "title": "Even Us Up growth audit: UX friction, feature gaps, growth levers",
+    "description": "Priority roadmap (differentiated vs Splitwise):\\n\\nTOP UX FRICTION (highest impact first)\\n1) Settlement clarity is too weak (who pays whom, in what order)\\n   - Pain: users understand balances but not exact next action; causes drop-off before settlement.\\n   - Fix: one-tap smart settlement plan with minimal transfers + payment app deep links.\\n   - Effort: M (3-5 days)\\n\\n2) Group setup and recurring expenses are too manual\\n   - Pain: trips/roommates repeatedly re-enter similar participants + categories.\\n   - Fix: group templates (trip/household/couple), recurring expense presets, duplicate-last-expense shortcut.\\n   - Effort: M (4-7 days)\\n\\n3) Add-expense flow has too much cognitive load\\n   - Pain: split method, payer, participants, notes, currency all at once slows entry.\\n   - Fix: progressive disclosure + smart defaults based on prior behavior; “quick add” in <10 sec.\\n   - Effort: M (3-6 days)\\n\\nTOP MISSING FEATURES (ranked)\\n1) Lightweight receipt capture + auto-line extraction\\n   - Why it matters: removes manual typing; differentiator when accuracy + speed both matter.\\n   - Scope: snap receipt -> merchant/date/total prefill + editable split suggestions.\\n   - Effort: L (2-3 weeks with OCR integration + QA)\\n\\n2) Built-in payment confirmation workflow\\n   - Why it matters: closes the loop from “you owe” to “settled,” reducing disputes.\\n   - Scope: mark-paid + request-confirm + audit trail/timeline.\\n   - Effort: M (1-2 weeks)\\n\\n3) Scenario-aware split logic (couples/families/roommates)\\n   - Why it matters: Splitwise is strong at generic splits; vertical presets can win niche retention.\\n   - Scope: income-weighted, custody-day weighting, household contribution caps.\\n   - Effort: L (2-4 weeks incl UX + edge-case handling)\\n\\nTOP GROWTH LEVERS (ranked)\\n1) Viral settlement moments (shareable + actionable)\\n   - Tactic: send clean “settle now” links/screens after events; include payer-specific CTA.\\n   - KPI: invite conversion rate, D7 payer activation.\\n   - Effort: M (1-2 weeks)\\n\\n2) Niche positioning campaign (family/couples-first, not generic roommates-only)\\n   - Tactic: landing pages + onboarding copy + templates for 3 niches.\\n   - KPI: activation by cohort, 30-day retention lift.\\n   - Effort: S-M (3-8 days, mostly product marketing + onboarding edits)\\n\\n3) Weekly “money clarity” digest\\n   - Tactic: proactive summary (what changed, who is pending, recommended settle actions).\\n   - KPI: WAU reactivation, settlement completion rate.\\n   - Effort: M (1-2 weeks)\\n\\nDIFFERENTIATION STRATEGY VS SPLITWISE\\n- Compete on execution quality, not just balance tracking:\\n  1) Faster capture (receipt + quick add)\\n  2) Smarter settlement (minimal-transfer + payment rails)\\n  3) Relationship-aware splitting (family/couple/household logic)\\n\\n90-DAY PRIORITIZED BUILD ORDER\\nPhase 1 (Weeks 1-3): Smart settlement + quick add defaults + group templates\\nPhase 2 (Weeks 4-7): Payment confirmation workflow + weekly digest\\nPhase 3 (Weeks 8-12): Receipt OCR beta + scenario-aware split presets\\n\\nExpected outcome: higher activation (faster first expense), better D30 retention (less friction), stronger invite loop (clear settlement CTAs).",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-16T09:01:38.791Z",
+    "updatedAt": "2026-03-16T09:01:38.791Z"
   }
 ]
