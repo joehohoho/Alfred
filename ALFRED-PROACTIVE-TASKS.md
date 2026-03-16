@@ -214,3 +214,40 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Pending-question hard cap + triage tiering (biggest immediate cognitive load reduction)
 2. HAL dispatch circuit-breaker for gateway outages (reduces repeated failed work)
 3. Kanban row schema gate + daily repair report (stabilizes board truth)
+
+
+## Workflow Efficiency Scan — 2026-03-16
+
+### Top repetitive patterns and concrete improvements
+
+1. **Checkpoint sync keeps failing due to ACTIVE-TASK marker drift (manual rescue loop)**
+   - **Pattern:** `sync-pending-questions.sh` failed again with `Markers not found in ACTIVE-TASK.md`.
+   - **Impact:** Session checkpoint automation degrades to manual recovery; pending blockers become stale/inaccurate.
+   - **Improvement proposal:** make sync script marker-agnostic with a structured section parser:
+     - detect/create `## Pending Questions` if missing (self-heal)
+     - support legacy + new marker variants
+     - fail-soft (append recovery section) instead of hard exit
+   - **Success metric:** 100% successful sync runs for 7 days (no marker-related failures).
+
+2. **Kanban executor enters gateway-down path with invalid JSON (repeat outage handling overhead)**
+   - **Pattern:** `kanban-work-executor-phase2.sh` reported `GATEWAY_DOWN: Invalid JSON response (HTTP 200)` and skipped dispatch.
+   - **Impact:** Scheduler cycles are consumed without productive work; operator attention is pulled into repeated health triage.
+   - **Improvement proposal:** add response contract validation + fast fallback:
+     - treat malformed 200 as transport failure in circuit breaker counters
+     - cache last-known-good board snapshot for read-only continuity
+     - emit one consolidated incident every 30 min (deduped), not per run
+   - **Success metric:** reduce duplicate gateway-down alerts by 80% and preserve deterministic no-op behavior during malformed responses.
+
+3. **Null stale-card churn still recurring in idle loop (data integrity tax)**
+   - **Pattern:** idle run still showed `STALE: null` entries being auto-moved.
+   - **Impact:** noisy audits, false transitions, and potential side effects in downstream state logic.
+   - **Improvement proposal:** enforce strict ID guard at API ingest boundary:
+     - drop rows without valid `id` before stale evaluation
+     - write a single daily anomaly digest (`count + sample payload + suspected source`)
+     - block moves when card id is null/undefined (hard stop)
+   - **Success metric:** zero `STALE: null` move attempts for 7 consecutive days.
+
+### Recommended implementation order (highest ROI first)
+1. Fix `sync-pending-questions.sh` self-healing parser (restores checkpoint reliability immediately)
+2. Harden malformed-JSON gateway handling + deduped incidents (reduces outage noise/waste)
+3. Add hard null-ID move guard + anomaly digest (stabilizes kanban truth)

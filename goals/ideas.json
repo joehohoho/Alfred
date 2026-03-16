@@ -2218,12 +2218,24 @@
     "title": "Even Us Up — Growth Audit (Alfred, Feb 28)",
     "description": "## Even Us Up Growth Audit\n\n### Context\nProactive audit vs. Splitwise/competitors. Splitwise is bleeding users (paywalled basic features, 3-transaction daily limit on free tier, bloated UX) — this is Even Us Up window.\n\n---\n\n### Top 3 UX Friction Points\n\n1. **Onboarding cold-start** (Effort: S) — New users must invite friends before getting value. Let solo users log IOUs first, invite later. High drop-off risk at signup.\n\n2. **Settlement flow ambiguity** (Effort: M) — Is settlement recorded-only or payment-triggered? Make state explicit. If no payment rail, add clear Recorded/Paid toggle.\n\n3. **Recurring expense entry** (Effort: M) — Couples and roommates re-enter fixed monthly splits every month. Splitwise Pro locks this. Offer it free as differentiator.\n\n---\n\n### Top 3 Missing Features\n\n1. **E-Transfer / Payment Integration — Canada focus** (Effort: L) — Interac e-Transfer is the Canadian default. Deep-link to e-Transfer pre-filled with amount + email. Splitwise payment integration is US-centric — this is a real gap for Canadian users.\n\n2. **Recurring / scheduled expense templates** (Effort: M) — Monthly auto-add for rent, Netflix splits, etc. Free tier. Splitwise charges for this. Offer free = migration incentive.\n\n3. **Spending insights / charts** (Effort: M) — Simple analytics (You spent $340 on restaurants with Alex this month) increase stickiness. Splitwise buries behind Pro. Low-hanging retention feature.\n\n---\n\n### Top 3 Growth Levers\n\n1. **Splitwise Refugee positioning** (Effort: S — marketing) — Splitwise paywall backlash is massive (multiple viral Reddit threads, Feb 2025 still active). Campaign: Tired of Splitwise daily limits? Even Us Up is free. This window is open RIGHT NOW.\n\n2. **Couples niche** (Effort: S-M) — Splitwise targets friend groups. The couples-only niche (Honeydue, Zeta) is underserved in Canada. Lean into couples UX: joint budget view, monthly summary for two. Higher retention + LTV.\n\n3. **Referral loop** (Effort: M) — Expense apps are inherently viral (need friends on it). Formal referral mechanic: Invite 3 friends, unlock feature. Tracked invite links beat organic word-of-mouth.\n\n---\n\n### Priority Matrix\n\n| Item | Impact | Effort | Priority |\n|---|---|---|---|\n| Splitwise Refugee campaign | High | S | Do now |\n| Recurring expenses free | High | M | Do now |\n| Onboarding cold-start fix | High | S | Do now |\n| Settlement state clarity | Medium | S | Quick win |\n| E-Transfer integration | High | L | Next sprint |\n| Spending insights | Medium | M | After above |\n| Referral loop | Medium | M | After above |\n\n*Alfred proactive audit — Feb 28 2026*",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Excellent growth audit with validated Splitwise moat (paywall backlash is live on Reddit). Splitwise Refugee campaign is time-sensitive + low effort = HIGHEST ROI. Recurring expense templates + onboarding fix are quick wins (S effort) that unlock retention. E-Transfer integration is Canada-specific differentiator. Couples niche targeting is underexplored vs Splitwise's friend-group focus. High market fit (expense-sharing is inherently viral), medium passive potential (SaaS model once monetized). Even Us Up has deep codebase synergy + proven retention (existing users). Recommend prioritizing 4 quick wins first (Refugee campaign, onboarding, settlement clarity, recurring templates) within 30 days to capture window.",
+      "breakdown": {
+        "market_fit_3x": 8,
+        "effort_reward_2x": 8,
+        "joes_edge_2x": 7,
+        "synergy_1x": 8,
+        "passive_potential_2x": 7
+      },
+      "weighted_score": 78,
+      "evaluatedAt": "2026-03-16T20:03:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T01:01:54.693Z",
@@ -2345,7 +2357,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T06:02:04.468Z",
-    "updatedAt": "2026-03-04T12:47:32.926Z",
+    "updatedAt": "2026-03-16T13:02:40.178Z",
     "comments": [
       {
         "id": "cmt_1772628446360_f68aaba8",
@@ -2358,6 +2370,12 @@
         "author": "alfred",
         "text": "Acknowledged. Deprioritizing monetization strategy until Signal App is battle-tested for personal use. Current focus: validate core signals and refine product reliability. Monetization can follow once product-market fit is proven.",
         "createdAt": "2026-03-04T12:47:32.926Z"
+      },
+      {
+        "id": "cmt_1773666160178_d2caab2c",
+        "author": "alfred",
+        "text": "Updated monetization benchmark (2026-03-16):\n\nBenchmarked 3 competitors:\n1) TradingView — freemium + multiple paid feature-gated tiers (alerts/data/history limits)\n2) CoinStats — free + Premium (~$13.99/mo annualized) + high-end Degen tier\n3) Cryptohopper — free + 3 paid tiers (~$24/$57/$107 mo) with automation-depth gates\n\nRecommendation for Signal App (early-stage, Joe audience):\n- Use freemium funnel + recurring subscriptions (not one-time as primary model)\n- Proposed tiers:\n  • Free: 3 assets, delayed signals, 1 alert/day\n  • Starter: CAD $19/mo — realtime alerts, 10 assets, basic indicators\n  • Pro: CAD $49/mo — portfolio alerts, backtesting-lite, advanced filters\n  • Team/API: CAD $299/mo base + usage for B2B/white-label/API licensing\n\nWhy this pricing mix:\n- Aligns with market expectations (recurring + usage caps)\n- Keeps entry friction low while preserving upgrade path\n- Protects infrastructure cost by gating heavy compute/AI to Pro/API\n\nKey launch metrics:\n- Trial→paid conversion target >4%\n- Churn target <8% monthly for Starter\n- Alert delivery SLA + cost per active user tracked weekly",
+        "createdAt": "2026-03-16T13:02:40.178Z"
       }
     ],
     "rejectedReason": "Rejected via kanban board",
@@ -4234,7 +4252,7 @@
   {
     "id": "idea_1773658935130_c7ad5273",
     "title": "Alfred Infra Scan (2026-03-16): Top 3 NEW reliability/cost improvements",
-    "description": "Evidence snapshot (08:00 run): kanban-idle-loop reported stale null cards moved to review; openclaw status shows gateway unreachable for operator.read scope and HAL heartbeat disabled; 7 active sessions with multiple idle threads.\\n\\n1) Gateway Scope Canary + Safe Escalation\\n- Gap: openclaw status is partially blind (gateway unreachable: missing operator.read). This reduces observability exactly when diagnosing failures.\\n- Improvement: add hourly canary that runs 'openclaw gateway probe' + checks required scopes; if scope missing, post a structured blocker to Kanban with remediation steps and suppress noisy repeats for 12h.\\n- Impact: faster incident triage, fewer wasted debug loops, fewer duplicate investigations.\\n\\n2) Session TTL Janitor (token + context hygiene)\\n- Gap: multiple stale idle sessions accumulate (status showed 7 active sessions, several old idle threads). This increases context clutter and hidden token overhead over time.\\n- Improvement: add low-risk janitor that archives/closes sessions older than threshold unless pinned/active in last N hours; weekly digest of reclaimed session slots.\\n- Impact: lower token drift, cleaner continuity, simpler debugging.\\n\\n3) HAL Heartbeat Auto-Recovery + Confidence Gate\\n- Gap: status showed HAL heartbeat disabled, which can silently reduce dispatch reliability until noticed manually.\\n- Improvement: monitor HAL heartbeat state; auto-restart/re-enable once, then open blocker if still unhealthy. Add confidence gate so proactive dispatch pauses when HAL health score is below threshold.\\n- Impact: fewer silent failures and less wasted proactive execution during degraded HAL state.\\n\\nWhy these are NEW vs existing ideas: they target observability scope health, session lifecycle hygiene, and HAL heartbeat auto-recovery (not circuit-breaker/quarantine, stale-card schema repair, or trigger debounce already logged).",
+    "description": "**Evidence snapshot (08:00 run):**\n- Kanban: idle-loop reported stale null cards moved to review\n- Gateway: unreachable for operator.read scope (observability gap)\n- HAL: heartbeat disabled\n- Active sessions: 7, multiple idle threads\n\n---\n\n## 1) Gateway Scope Canary + Safe Escalation\n\n**Gap:** `openclaw status` is partially blind — missing `operator.read` scope reduces observability exactly when diagnosing failures.\n\n**Improvement:** Add hourly canary that runs `openclaw gateway probe` + checks required scopes. If scope missing, post structured blocker to Kanban with remediation steps; suppress noisy repeats for 12h.\n\n**Impact:** Faster incident triage, fewer wasted debug loops, fewer duplicate investigations.\n\n---\n\n## 2) Session TTL Janitor (token + context hygiene)\n\n**Gap:** Multiple stale idle sessions accumulate (7 active, several old idle threads). This increases context clutter and hidden token overhead over time.\n\n**Improvement:** Add low-risk janitor that archives/closes sessions older than threshold (unless pinned/active in last N hours). Weekly digest of reclaimed slots.\n\n**Impact:** Lower token drift, cleaner continuity, simpler debugging.\n\n---\n\n## 3) HAL Heartbeat Auto-Recovery + Confidence Gate\n\n**Gap:** HAL heartbeat disabled — can silently reduce dispatch reliability until noticed manually.\n\n**Improvement:** Monitor HAL heartbeat state; auto-restart/re-enable once, then open blocker if still unhealthy. Add confidence gate so proactive dispatch pauses when HAL health score < threshold.\n\n**Impact:** Fewer silent failures, less wasted proactive execution during HAL degradation.\n\n---\n\n**Why NEW:** Target observability scope health, session lifecycle hygiene, HAL heartbeat auto-recovery — NOT circuit-breaker, card schema repair, or trigger debounce (already logged).",
     "category": "growth",
     "status": "new",
     "source": "joe-submitted",
@@ -4245,6 +4263,20 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-16T11:02:15.130Z",
-    "updatedAt": "2026-03-16T11:02:15.130Z"
+    "updatedAt": "2026-03-16T16:29:12.447Z",
+    "comments": [
+      {
+        "id": "cmt_1773678540041_2d3f15ad",
+        "author": "joe",
+        "text": "The description is a large paragraph not formatted well for review, can you update it so it's easier to review and read.",
+        "createdAt": "2026-03-16T16:29:00.041Z"
+      },
+      {
+        "id": "cmt_1773678552447_5b0909dd",
+        "author": "alfred",
+        "text": "Done. Reformatted with:\n\n- **Evidence snapshot** at top (bullet summary)\n- **3 improvements** as numbered sections:\n  - Gap (what's broken)\n  - Improvement (what to do)\n  - Impact (why it matters)\n- **Distinction** at bottom (explains why new vs. prior ideas)\n\nMuch cleaner for scanning. Ready for review.",
+        "createdAt": "2026-03-16T16:29:12.447Z"
+      }
+    ]
   }
 ]

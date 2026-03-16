@@ -1,0 +1,23 @@
+{
+  "objective": "Brief one-line goal (e.g., 'Fix login redirect bug without breaking email flow')",
+  "owner": "hal",
+  "kanban_card_id": "card-123-xyz",
+  "deliverables": [
+    "src/auth.js — updated authentication logic",
+    "tests/auth.test.js — test coverage for fix",
+    "ROLLBACK.md — step-by-step rollback instructions",
+    "MIGRATION.md — deployment guide (if needed)"
+  ],
+  "validation_command": "npm test -- auth.test.js && npm run lint -- src/auth.js",
+  "validation_expected_output": "All tests pass, no lint errors",
+  "rollback_plan": "1. Revert src/auth.js to HEAD~1\n2. Run: npm install\n3. Restart service: npm run dev\n4. Test login flow manually",
+  "constraints": [
+    "Do not modify database schema (risk of data loss)",
+    "Maintain backward compatibility with email notification system",
+    "Deploy during maintenance window only (9pm-11pm AST)"
+  ],
+  "estimated_tokens": 3500,
+  "estimated_cost_usd": 0.15,
+  "risk_level": "medium",
+  "notes": "User reported redirects happening to wrong URL. Likely issue in auth.js:42-50."
+}

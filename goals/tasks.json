@@ -2578,7 +2578,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-03-11T17:40:17.796Z",
+    "updatedAt": "2026-03-16T16:25:14.878Z",
     "assignedAt": "2026-03-10T16:51:46.886Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "26cd3d5d-4d02-4986-8e7e-f8a3efca0f3a",
@@ -2607,7 +2607,49 @@
         "author": "alfred",
         "text": "**What you need to do:** Review and confirm the Stripe spec for the 14-day trial feature before I proceed with implementation.\n\n**Specifically:**\n1. Which app(s) does this apply to? (CoinUsUp? Even Us Up? Both?)\n2. Validate the trial_ends_at field structure and Stripe API approach\n3. Review the migration strategy for existing customers\n\nOnce you provide the Stripe spec/design, I'll move this to To Do and start implementation. Current blocker: waiting for spec review + scope clarification.",
         "createdAt": "2026-03-11T17:40:17.796Z"
+      },
+      {
+        "id": "cmt_1773678303410_47fd0cf2",
+        "author": "joe",
+        "text": "1. this is for CoinUsUp only.\n2. what detail do i need to verify with Stripe?",
+        "createdAt": "2026-03-16T16:25:03.410Z"
+      },
+      {
+        "id": "cmt_1773678314878_657b46a9",
+        "author": "alfred",
+        "text": "✅ **Tier Confirmation:** Correct — CoinUsUp only (Basic/Pro tiers).\n\n**Stripe Verification Checklist:**\n\n1. **Trial Setup Mode** — Are you using Stripe Billing (subscriptions) or Checkout? Confirm trial auto-conversion behavior.\n2. **Payment on File** — Require card upfront for trial, or allow trial-without-card?\n3. **Subscription Behavior** — Auto-renewal on day 15? What's the first billing date?\n4. **Cancellation Rules** — If user cancels mid-trial, lose access immediately or at trial end?\n5. **Webhook Events** — Confirm customer.subscription.created, trial_will_end (3 days notice), invoice.paid events are hooked.\n6. **Proration & Upgrades** — How to handle Basic→Pro upgrade during trial?\n\nOnce you confirm these, we can implement the trial logic + email reminders (day 13) + Stripe event handlers. Ready when you are.",
+        "createdAt": "2026-03-16T16:25:14.878Z"
       }
     ]
+  },
+  {
+    "id": "task_1773672258312_393a575f",
+    "title": "Mission Control Phase 1: Stability & Visibility",
+    "description": "Implement Cron Job Status Panel, Enhanced Task Board, Quick File Access Sidebar. Est. 18-22h. Target: complete by 2026-03-30",
+    "goalId": "",
+    "status": "in_progress",
+    "priority": "medium",
+    "estimatedHours": 0,
+    "completedAt": null,
+    "createdAt": "2026-03-16T14:44:18.312Z",
+    "updatedAt": "2026-03-16T23:03:10.639Z",
+    "comments": [
+      {
+        "id": "cmt_1773672288340_3b02f6a8",
+        "author": "alfred",
+        "text": "🚀 Starting Phase 1 (2026-03-16 11:44 ADT)\n\n**Approach:** Sequential backend-first model. HAL implements Cron API, Alfred builds frontend in parallel.\n\n**Phase 1 Deliverables:**\n1. Cron Job Status Panel (6-8h) — API + UI\n2. Enhanced Task Board (4-6h) — Drag-drop, quick-add, filters\n3. Quick File Sidebar (2-3h) — Links to ACTIVE-TASK, OPEN-LOOPS, MEMORY\n\n**Timeline:** Target 2026-03-30 gate. See ACTIVE-TASK.md for full execution plan.\n\n**Next:** HAL spawning for Cron API work (async, parallel).",
+        "createdAt": "2026-03-16T14:44:48.340Z"
+      },
+      {
+        "id": "cmt_1773702190639_0a092fcf",
+        "author": "alfred",
+        "text": "🔄 Stale re-dispatch — card stale for 6h. Attempting re-dispatch to get it moving again. If still stuck after 2h, it will be moved to Blocked.",
+        "createdAt": "2026-03-16T23:03:10.639Z"
+      }
+    ],
+    "assignedAt": "2026-03-16T16:52:16.241Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "65b039e5-5132-4e08-8a65-3cc7a5d57f9d",
+    "lastRescanAt": "2026-03-16T16:52:16.241Z"
   }
 ]
