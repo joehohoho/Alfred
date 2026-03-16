@@ -28,6 +28,13 @@
 - Archived old entries to `memory/MEMORY-ARCHIVE.md`
 - Result: Gateway bootstrap now clean, no truncation warnings
 
+### ⚠️ Cron Job Auto-Disable Pattern (RECURRING)
+**Issue:** Mar 10, 12, 15 — jobs auto-disable due to Discord channel routing with invalid IDs
+- Root cause: `delivery.mode="announce"` + missing explicit `delivery.to` (channel ID)
+- Workaround: Fix `to` field with correct Discord channel ID, re-enable job
+- Affected jobs: 6 critical daily jobs (Evening Routine, Daily Inquiry, Daily Config, Nightly Git, Moltbook Review, Joe Profile Reflection)
+- Status: Documented pattern, fix strategy in CRON-JOBS-FIX.md, awaiting batch re-enable
+
 ### Daily Inquiry Duplicate Questions (PRIORITY 1)
 **Issue:** Same questions cycle every 4 days without deduplication
 - Passive income targets, synergies asked repeatedly
