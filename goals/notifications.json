@@ -398,5 +398,24 @@
     "answered": false,
     "createdAt": "2026-03-17T19:22:02.132Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773775410172_bad50023",
+    "type": "question",
+    "title": "Consulting: recurring client problem → product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-17T19:23:30.172Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773775622487_f92a6055",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-17T19:27:02.487Z",
+    "answeredAt": null
   }
 ]

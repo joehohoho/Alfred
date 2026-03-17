@@ -4429,5 +4429,21 @@
     "tags": [],
     "createdAt": "2026-03-17T18:01:42.641Z",
     "updatedAt": "2026-03-17T18:01:42.641Z"
+  },
+  {
+    "id": "idea_1773777690085_672144ea",
+    "title": "Even Us Up growth audit — Mar 17 (settlement + Canada moat)",
+    "description": "Even Us Up growth audit (Mar 17 refresh) — prioritized by near-term ROI and differentiation vs Splitwise.\n\nTop 3 UX friction points (priority order)\n1) Time-to-first-settlement too slow (users add expenses but don’t close the loop quickly)\n   - Impact: high (activation + D7 retention)\n   - Why it hurts vs Splitwise: users remember “did this actually help me settle?”\n   - Fix: first-session guided path to one completed settle-up\n   - Effort: M (3–5 dev days)\n\n2) Invite/join friction for the second person\n   - Impact: high (viral loop bottleneck)\n   - Why it hurts vs Splitwise: group utility collapses if invites leak\n   - Fix: magic-link joins + prefilled context + lightweight guest confirmation flow\n   - Effort: S-M (2–4 dev days)\n\n3) Split explainability/trust gap on non-equal splits\n   - Impact: medium-high (disputes + churn)\n   - Why it hurts vs Splitwise: trust is the product in shared money tools\n   - Fix: inline “how this was calculated” + live preview before save\n   - Effort: S-M (2–3 dev days)\n\nTop 3 missing features (true strategic gaps)\n1) Settlement rails for Canada-first users (Interac deep links + paid confirmation trail)\n   - Differentiator: strong Canada moat where Splitwise payment flow is weaker\n   - Effort: M-L (1–2 weeks MVP)\n\n2) Household recurring automation (rent/utilities/subscriptions with rules)\n   - Differentiator: own recurring life-admin, not one-off trip splitting\n   - Effort: M (4–7 dev days)\n\n3) Debt-aging nudges + monthly close digest\n   - Differentiator: proactive closure, less mental overhead for couples/roommates\n   - Effort: M (4–6 dev days)\n\nTop 3 growth levers\n1) Positioning: “Settle faster than Splitwise for couples/roommates in Canada”\n   - Effort: S (1–2 days copy + landing updates)\n\n2) Referral trigger at value moment (immediately after successful settle-up)\n   - Effort: S-M (2–4 dev days)\n\n3) Programmatic SEO pages (split rent Canada, roommate expense split, trip settle calculator)\n   - Effort: M (4–7 dev days initial set)\n\nRecommended implementation order (next 2 sprints)\nSprint 1 (highest ROI):\n- First-session settle flow\n- Invite/join simplification\n- Split explainability panel\n\nSprint 2:\n- Interac settlement links + payment confirmation\n- Recurring household rules\n- Referral at post-settlement moment\n\nExpected KPI movement:\n- Activation: +20–30% (first group + first settled balance)\n- Invite conversion: +15–25%\n- D30 retention: +10–15% (recurring + nudges)\n\nThesis: Compete on settlement speed + trust + Canada-first payment closure, not feature-count parity.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T20:01:30.085Z",
+    "updatedAt": "2026-03-17T20:01:30.085Z"
   }
 ]

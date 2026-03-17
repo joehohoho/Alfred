@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
   "description": "Tracks when each inquiry topic was last asked (prevents 4-day cycle repeats). Enforce 7-day minimum between repeats.",
-  "last_updated": 1773666000.49256,
+  "last_updated": 1773775410.238909,
   "topics": {
     "consulting-opportunity": {
-      "last_asked": "2026-03-16",
-      "count": 4,
+      "last_asked": "2026-03-17",
+      "count": 5,
       "note": "Asked Feb 27, Feb 28, Mar 07, Mar 09 (FLAGGED: too frequent)"
     },
     "signal-blocker": {
