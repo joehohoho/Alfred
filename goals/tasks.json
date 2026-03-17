@@ -2632,7 +2632,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-16T14:44:18.312Z",
-    "updatedAt": "2026-03-17T06:00:51.616Z",
+    "updatedAt": "2026-03-17T17:57:48.272Z",
     "comments": [
       {
         "id": "cmt_1773672288340_3b02f6a8",
@@ -2657,6 +2657,12 @@
         "author": "alfred",
         "text": "⛔ Escalated to blocked — card stale for 7h. Re-dispatch was attempted 7h ago with no progress. Moving to Blocked for Joe's review.",
         "createdAt": "2026-03-17T06:00:51.610Z"
+      },
+      {
+        "id": "cmt_1773770268272_3cf4dae2",
+        "author": "joe",
+        "text": "What is there for me to review",
+        "createdAt": "2026-03-17T17:57:48.272Z"
       }
     ],
     "assignedAt": "2026-03-16T16:52:16.241Z",

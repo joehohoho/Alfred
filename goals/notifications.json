@@ -364,42 +364,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1773734786668_74244f68",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T08:06:26.668Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773734786670_2c8cb13d",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T08:06:26.670Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773734786672_9d00c47a",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Update Check: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T08:06:26.672Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773734786675_1c992dd4",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T08:06:26.675Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773764210057_902f6165",
     "type": "system",
     "title": "Codex Token Expiring",
