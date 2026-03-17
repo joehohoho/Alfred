@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-10T17:06:38Z",
-  "task": "Test dispatch (manual)",
+  "timestamp": "2026-03-17T18:01:49Z",
+  "task": "Git hygiene",
   "type": "proactive",
-  "session": "agent:main:task-1773158605764-5b31b7",
+  "session": "",
   "failCountAtTime": 0
 }

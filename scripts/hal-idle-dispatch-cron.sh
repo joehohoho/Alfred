@@ -132,7 +132,7 @@ Instructions: Complete this task. When done, report your results."
     DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
       log "DISPATCH_OK: $DISPATCH_OUT"
       echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
-      SESSION_KEY=$(echo "$DISPATCH_OUT" | grep -oP 'session=\K\S+' || echo "")
+      SESSION_KEY=$(echo "$DISPATCH_OUT" | sed -n 's/.*session=\([^ ]*\).*/\1/p')
       write_success_status "$TITLE" "kanban" "$SESSION_KEY"
       # Log the successful dispatch
       python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$TASK_ID" "HAL" "$TITLE" "kanban" <<'PY' >> "$DISPATCH_LOG"

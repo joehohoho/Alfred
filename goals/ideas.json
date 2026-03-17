@@ -4413,5 +4413,21 @@
     "tags": [],
     "createdAt": "2026-03-17T15:49:25.147Z",
     "updatedAt": "2026-03-17T15:49:25.147Z"
+  },
+  {
+    "id": "idea_1773770502641_10acdc4d",
+    "title": "CoinUsUp growth audit (Q2 2026): UX friction, missing features, growth levers",
+    "description": "Priority recommendations based on repo/docs audit.\\n\\nTOP 3 UX FRICTION POINTS (priority)\\n1) Onboarding complexity + setup friction (High impact, Med effort to fix)\\n- Evidence: dedicated onboarding checklist/sample data feature indicates first-run friction is material.\\n- Pain: users must create org + campaign + invite flow before value is obvious.\\n- Fixes: one-click guided setup wizard, prebuilt templates by fundraiser type, progressive disclosure.\\n- Effort: M (1-2 sprints).\\n\\n2) Information density/navigation overload for small teams (High impact, Med effort)\\n- Evidence: many modules (campaigns, events, tasks, shifts, chat, group email, donations, reports, expenses) can overwhelm early users.\\n- Pain: too many choices before first success metric.\\n- Fixes: role-based dashboard modes (Starter/Advanced), Next",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T18:01:42.641Z",
+    "updatedAt": "2026-03-17T18:01:42.641Z"
   }
 ]
