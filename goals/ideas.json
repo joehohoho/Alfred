@@ -2406,16 +2406,19 @@
     "title": "Workflow Efficiency Scan — Top 3 Improvement Proposals",
     "description": "## Workflow Efficiency Scan (Alfred, Mar 1 2026 4AM)\n\n### Finding 1: Overnight Rate Limit Cascade (HIGH PRIORITY)\nThe gateway rate-limit circuit breaker fired 4 consecutive times overnight (4AM, 5AM, 6AM, 7AM AST). Each hour something triggers enough LLM calls to trip the breaker, stopping the gateway for 5 min every hour.\n\n**Root cause likely:** Two overlapping hourly cron jobs (both schedule expr `0 * * * *`) + Alfred proactive tasks + HAL idle tasks all colliding in the same hour window.\n\n**Proposal:**\n- Stagger the two hourly crons by 15+ min (add `staggerMs: 900000` to one)\n- Add a global overnight rate-limit governor: cap total LLM calls per hour to 80% of quota between 11PM–7AM\n- Use LOCAL/Codex exclusively for overnight idle proactive tasks (currently they may be using Sonnet/Haiku)\n- Cost: 0. Benefit: eliminates 4+ gateway restart events per night.\n\n---\n\n### Finding 2: Discord Webhooks Dead — HAL Completions Not Being Delivered (URGENT)\nBoth `DISCORD_WEBHOOK_ALFRED_HAL` and `DISCORD_WEBHOOK_HAL_COMPLETIONS` are returning HTTP 403 Forbidden as of Mar 1 03:40 AM. Any HAL task completions during this period were silently lost — Joe never saw them.\n\n**Proposal:**\n- Regenerate both Discord webhook URLs (takes 2 min in Discord server settings)\n- Add webhook health check to the daily 7AM cron: `curl -s -o /dev/null -w '%{http_code}' <webhook_url>` — alert if not 200/204\n- Store new URLs in .env, run `scripts/hal-slack-notify.sh` to test\n\n---\n\n### Finding 3: 14-Card Review Backlog With No Digest (MEDIUM PRIORITY)\nThere are currently 14 cards in the Review column. Joe has to manually open the Kanban board to discover what needs his attention. Many of these cards only need a quick yes/no or a push to Done.\n\n**Pattern observed:** Joe often asks 'Is there anything I need to review?' on individual cards — this question is being asked card-by-card instead of being answered in bulk.\n\n**Proposal:**\n- Add a daily 9AM Morning Brief section: 'Cards awaiting your review: [N cards, with titles]'\n- Add a simple rule: if a card has been in Review > 48h with no Joe comment, Alfred sends a single consolidated ping — not per-card pings\n- Cards that have no Joe-action required (pure Alfred deliverables) → Alfred moves to Done autonomously per Joe's directive (Feb 27: 'if complete and does not require your validation, move to Done directly')\n\nJoe already granted this autonomy. The gap is that Alfred is not consistently applying it — some completed cards still sit in Review waiting for Joe to say 'done.'",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 8,
+      "notes": "Urgent workflow blocking issues with proven operational impact. All three findings address real automation pain points: rate-limit cascades disrupt nightly execution, dead webhooks silently drop task completions, and review backlog creates manual approval overhead. Effort is medium for high ROI (eliminates 4+ nightly restarts, restores completion delivery, saves 4-5h/week approval polling). Joe has expertise in automation optimization. Weak only on passive-income potential (infrastructure improvement, not product). Recommend implementing sequentially: webhook health check first (2 days), cron stagger + rate-limiter (3-4 days), review digest (2-3 days)."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T08:02:47.952Z",
-    "updatedAt": "2026-03-01T08:02:47.952Z"
+    "updatedAt": "2026-03-17T14:00:00.000Z"
   },
   {
     "id": "idea_1772359266881_8a7b62ea",
@@ -4362,5 +4365,53 @@
     "tags": [],
     "createdAt": "2026-03-17T10:01:10.052Z",
     "updatedAt": "2026-03-17T10:01:10.052Z"
+  },
+  {
+    "id": "idea_1773762555304_e413d77f",
+    "title": "NB Bilingual CRA Copilot for SMBs",
+    "description": "Opportunity (Atlantic Canada/NB moat): Build a bilingual (EN/FR) compliance copilot for small businesses that combines GST/HST filing deadlines, CRA remittance calendar, and payroll task reminders in one workflow. Why moat: national tools are generic and weak on NB bilingual UX + province-aware filing cadence. MVP: deadline engine + CRA checklist + accountant handoff packet (PDF/email) + audit trail. Revenue: -/mo per business + accountant partner referrals.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T15:49:15.304Z",
+    "updatedAt": "2026-03-17T15:49:15.304Z"
+  },
+  {
+    "id": "idea_1773762561179_da5e88e9",
+    "title": "Atlantic Contractor Cashflow + Invoicing (Low-Connectivity Mode)",
+    "description": "Opportunity: Invoicing + collections tool for trades/contractors in NB/Atlantic regions with intermittent connectivity. Include offline-first estimate/invoice capture, auto-sync, progress billing, holdback tracking, and bilingual client-facing docs. Geography moat: rural/offline reliability + local tax defaults (GST/HST handling) + contractor workflows ignored by broader SaaS. MVP: mobile offline queue + SMS/email payment reminders + receivables dashboard.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T15:49:21.179Z",
+    "updatedAt": "2026-03-17T15:49:21.179Z"
+  },
+  {
+    "id": "idea_1773762565147_57380f1e",
+    "title": "Payroll Gap-Filler for Small NB Teams (Ceridian/ADP Companion)",
+    "description": "Opportunity: Build a companion layer for small businesses that already use enterprise payroll (Ceridian/Dayforce/ADP) but still do manual admin. Focus on shift imports, exception detection, remittance-ready summaries, and bilingual employee comms. Geography moat: tailored to Atlantic SMB operations and French/English workforce messaging. MVP: connector/import + validation rules + payroll anomaly alerts + manager approval queue.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T15:49:25.147Z",
+    "updatedAt": "2026-03-17T15:49:25.147Z"
   }
 ]
