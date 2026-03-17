@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-03-09 (08:05 AST) — full reflection, Phase 1-4 complete
-**Last direct Q&A update:** 2026-03-02 (14:57 AST, Signal App bottleneck)
-**Reflection count:** 6
-**Profile version:** 1.7
+**Last reflection:** 2026-03-17 (19:23 AST) — full reflection, Phase 1-5 complete
+**Last direct Q&A update:** 2026-03-17 (19:23 AST, Daily inquiry cycle validation)
+**Reflection count:** 7
+**Profile version:** 1.8
 
 ---
 
@@ -240,8 +240,9 @@ Ranked by recent activity (update frequently):
 - **Being asked to review without substance.** "I don't have anything to review" / "You need to provide me with the discord plan so that I can review it" — Joe expects content, not placeholders. | Source: notif_1771400167582, notif_1771398291802 | Confidence: high
 - **Cost overruns.** The $188/month cron incident. Joe is cost-conscious and expects Alfred to be too. | Confidence: high
 - **Repeated issues.** Git config drift happened 3x before being solved systematically. Joe values once-and-done fixes. | Confidence: medium
-- **Infrastructure reliability cascades.** Gateway down 24+ hrs (Mar 8 22:17 UTC). Codex token expired (HTTP 401, Mar 8). Crons disabled unexpectedly (Mar 5). Joe's systems are breaking; recovery is manual. This will be high-friction. | Source: memory/2026-03-08.md | Confidence: medium
-- **Duplicate question rotation persisting.** Daily inquiry dedup bug fixed Mar 7, but Joe saw repeats Feb 27/28. Trust in notifications eroded. | Source: notif_1772200800167, notif_1772287200145 | Confidence: high
+- **Infrastructure reliability cascades.** Gateway down 24+ hrs (Mar 8 22:17 UTC). Codex token expired (HTTP 401, Mar 8). Crons disabled unexpectedly (Mar 5). Mar 17: 3 more crons auto-disabled (Evening Routine, Daily Update Check, Nightly Git), Codex token expiring 47h. Root cause: Discord channel routing failures + missing explicit channel IDs. Fixed Mar 17 05:00 by re-enabling with verified IDs, but pattern indicates deeper reliability issues. | Source: memory/2026-03-08.md, memory/2026-03-17.md (05:00), notif_1773764210057, notif_1773775322127-132 | Confidence: high
+- **Duplicate question rotation persisting.** Daily inquiry dedup bug fixed Mar 7, but Joe flagged repeat on Mar 10 ("I've already answered this"). Double-encoding bug found in question-tracking.json (fixed Mar 17 22:00). Inquiry log shows Mar 17 still cycling duplicate consulting question. Joe's trust in notification system eroding. | Source: notif_1773147600293, notif_1772200800167, notif_1772287200145, memory/2026-03-17.md (22:00), inquiry-log.jsonl | Confidence: high
+- **Kanban approval bottleneck.** 4-5 cards stalled in review waiting for Joe approval (Mission Control Phase 1: 7h, 14-day trial: 4d+). Blockers are genuine (HAL API pending, Joe responses needed) but lack action buttons in notifications. Joe must navigate to board separately. Creates friction in iterative workflows. | Source: memory/2026-03-17.md (06:00, 16:00), notif_1773727251612, notif_1773727251618 | Confidence: medium
 
 ---
 
@@ -286,8 +287,8 @@ Ranked by recent activity (update frequently):
 - Confidence: high
 
 ### Shadow Goals to Watch
-- **Infrastructure-first mode:** Current work (Discord, iMessage, Kanban, gateway improvements) suggests Joe is building a robust personal operating system FIRST, before expanding to passive income apps. This is patient, strategic work.
-- **Autonomous Alfred:** The broader pattern is Joe testing whether Alfred can make good implementation decisions independently. Every "go ahead and implement" is gathering data on Alfred's autonomy threshold.
+- **Infrastructure-first mode:** Current work (Discord, iMessage, Kanban, gateway improvements, Command Center enhancements) suggests Joe is building a robust personal operating system FIRST, before expanding passive income apps to full scale. Joe wants Command Center monitoring "all apps health" (Mar 24 answer). This is patient, strategic work — the foundation before growth. | Source: notif_1771941600146, memory/2026-03-16.md | Confidence: medium
+- **Autonomous Alfred:** The broader pattern is Joe testing whether Alfred can make good implementation decisions independently. Every "go ahead and implement" is gathering data on Alfred's autonomy threshold. Mar 17 activity validates this — 6 autonomous fixes + 3 idea evaluations with zero objections. | Source: memory/2026-03-17.md (05:00, 14:00), AGENTS.md | Confidence: high
 
 ---
 
@@ -322,6 +323,10 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
+| 2026-03-17 | **Cron reliability crisis + autonomy validation.** 3 crons auto-disabled (Evening Routine, Daily Update Check, Nightly Git) + Codex token expiring 47h. Root cause: Discord channel routing failures, missing explicit channel IDs (AGENTS.md safeguard added Mar 17). Alfred autonomously fixed 6 jobs + evaluated 3 ideas with zero objections. Validates Feb 26 "make easy decisions with transparency" directive. | memory/2026-03-17.md (05:00, 14:00), notif_1773764210057, notif_1773775322127-132 | Yes |
+| 2026-03-17 | **Duplicate question cycle persists despite Mar 7 fix.** Double-encoding in question-tracking.json (fixed Mar 17 22:00), but March 17 inquiry log still shows duplicate consulting question. Even Us Up repeated 4 times (Mar 12-15). Trust in daily inquiry system degrading. Needs broader deduplication window or topic retirement. | notif_1773147600293, memory/2026-03-17.md (22:00), inquiry-log.jsonl | Yes |
+| 2026-03-17 | **Kanban approval bottleneck identified.** 4-5 cards stalled in review (Mission Control 7h, 14-day trial 4d+). Blockers genuine but lack action buttons in notifications. Joe must navigate to board separately. Friction point in iterative workflows. | memory/2026-03-17.md (06:00, 16:00), notif_1773727251612 | Yes |
+| 2026-03-16 | **Command Center as central control hub.** Joe wants dashboard monitoring "all apps health." Mission Control video analysis (Mar 16) shows 12 core features needed. Pattern: infrastructure-first mode before passive income scaling. | memory/2026-03-16.md, notif_1771941600146 | Yes |
 | 2026-03-10 | **Duplicate daily inquiry bug RETURNED.** Joe flagged Mar 10 with frustration: "I've already answered this." Same Signal App question asked multiple times. Dedup fix from Mar 7 is not working. Trust in notifications eroding again (pattern from Feb 27-28). | notif_1773147600293 | Yes |
 | 2026-03-09 | **Consulting product boundary is FIRM.** Asked 5x total (Mar 1, 5, 9, Feb 26, Feb 20) re: productizing client problems. Consistent answer: "No." Not a soft maybe — hard boundary. | notif_1773061200280, notif_1772719200252 (both Mar 9, 5) | Yes |
 | 2026-03-09 | **Signal App bottleneck clarified.** Originally "data quality & testing" (Feb 23), Joe updated to "Poor signals to buy and trade, backtest doesn't seem to improve" (Mar 6). Real issue is algorithm/strategy effectiveness, not data collection. | notif_1772805600255_09ade466 | Yes |
@@ -344,10 +349,11 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Metric | Value |
 |--------|-------|
-| Total reflections run | 6 |
-| Last reflection | 2026-03-09 08:05 AST |
-| New observations added this reflection | 6 |
-| Observations distilled (cumulative) | 32 |
-| Profile version | 1.7 |
-| **Critical blocker detected** | Infrastructure reliability (gateway down 24+ hrs, Codex expired, crons disabled) |
-| **Autonomy validation** | Alfred monthly idea batches welcomed; HAL peer model trusted |
+| Total reflections run | 7 |
+| Last reflection | 2026-03-17 19:23 AST |
+| New observations added this reflection | 4 |
+| Observations distilled (cumulative) | 36 |
+| Profile version | 1.8 |
+| **Critical issues identified** | Duplicate question cycle persists; Cron auto-disable pattern + Codex token expiration (Mar 17); Kanban approval bottleneck |
+| **Autonomy validation** | REINFORCED — 6 autonomous cron fixes + 3 idea evaluations (Mar 17) with zero objections. Feb 26 directive working as designed. |
+| **Infrastructure-first pattern** | CONFIRMED — Joe prioritizing Command Center centralization before passive income app scaling |
