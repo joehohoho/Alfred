@@ -4314,5 +4314,53 @@
     "tags": [],
     "createdAt": "2026-03-17T06:01:36.493Z",
     "updatedAt": "2026-03-17T06:01:36.493Z"
+  },
+  {
+    "id": "idea_1773741669597_9bea0142",
+    "title": "AI trust-audit layer for SMB automations",
+    "description": "Problem: SMBs adopt AI workflows but can't prove why actions were taken or quickly recover from bad automations. Target market: Canadian SMBs + agencies running Zapier/Make/n8n/OpenClaw flows. Offer: drop-in audit/approval layer with confidence scores, source traces, rollback logs, and weekly risk reports. Estimated MRR potential: Ck-Ck within 6-12 months (40-120 customers at C/mo). Tech complexity: 3/5 (event ingestion, rule engine, dashboard, connectors). Competition: Medium (many automation tools, few trust/compliance overlays focused on auditability). Why Joe can win: strong automation consulting background + immediate access to real client pain around reliability/governance.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T10:01:09.597Z",
+    "updatedAt": "2026-03-17T10:01:09.597Z"
+  },
+  {
+    "id": "idea_1773741669824_550cca1b",
+    "title": "PIPEDA-ready AI email intake copilot for professional services",
+    "description": "Problem: Canadian firms need fast client intake but worry about privacy/compliance and inconsistent follow-up. Target market: small law/accounting/consulting firms (5-50 staff). Offer: classify inbound emails/docs, extract key fields, generate draft responses/tasks, and maintain PIPEDA-oriented retention/audit controls. Estimated MRR potential: Ck-Ck (30-100 firms at C/mo plus setup). Tech complexity: 4/5 (email parsing, doc extraction, policy controls, approval queue). Competition: Medium-high globally, low for Canada-compliance-first micro-SaaS. Why Joe can win: 20+ years legal software/data transformation expertise + existing credibility in workflow automation.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T10:01:09.824Z",
+    "updatedAt": "2026-03-17T10:01:09.824Z"
+  },
+  {
+    "id": "idea_1773741670052_7a122e02",
+    "title": "Signal discipline companion (risk + journaling API addon)",
+    "description": "Problem: retail traders fail from poor execution discipline, not lack of signal sources. Target market: active crypto/stock traders using TradingView + broker APIs. Offer: regime detection, position sizing templates, pre-trade checklist, post-trade auto-journal and behavior analytics; positioned as decision-support not advice. Estimated MRR potential: Ck-Ck (100-500 users at C/mo). Tech complexity: 3/5 (rule-based analytics first, lightweight ML later). Competition: High in signals, lower in execution-discipline tooling with explainability. Why Joe can win: existing signal app foundation + direct domain context + ability to bundle with education/automation workflows.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T10:01:10.052Z",
+    "updatedAt": "2026-03-17T10:01:10.052Z"
   }
 ]
