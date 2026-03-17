@@ -1,39 +1,49 @@
-# CRON Jobs Auto-Disable Pattern — FIX GUIDE
+# Cron Jobs Auto-Disable Fix (2026-03-17)
 
-**Issue:** 6 cron jobs repeatedly fail with "Channel is required when multiple channels are configured" error.
+## Root Cause
+**5 cron jobs auto-disabled due to Discord channel routing failures:**
+- `delivery.mode="announce"` + invalid/missing Discord channel IDs → gateway can't route → 3 consecutive failures → auto-disable
 
-**Root cause:** Jobs have `delivery.mode="announce"` + `channel="discord"` but missing explicit `to` (channel ID).
+## Affected Jobs (DISABLED)
+1. **Evening Routine** (2feb9515) → Discord `to: 1476945255331791060` (invalid)
+2. **Daily Config & Memory Review** (3a45acd2) → Discord `to: 1476944218751635609` (invalid)  
+3. **Nightly Git Commit** (21454f7a) → Discord `to: 1476951511736258722` (invalid)
+4. **Daily Update Check** (1e33752f) → Discord `to: 1476951029659734139` (invalid)
+5. **Joe Profile Reflection** (a3e7c1d9) → Discord `to: 1476590410557034546` (valid, but "Channel is required" error indicates sessionTarget/channel mismatch)
 
-**Affected jobs (auto-disabled Mar 15):**
-1. `Moltbook Weekly Review` (ID: 1ee0d578)
-2. `Daily Update Check` (ID: 1e33752f)
-3. `Nightly Git Commit` (ID: 21454f7a)
-4. `Evening Routine` (ID: 2feb9515)
-5. `Daily Config & Memory Review` (ID: 3a45acd2)
-6. `Joe Profile Reflection` (ID: a3e7c1d9)
+**Additional Issues:**
+- **Daily Config & Memory Review** also failed with "Error: Unknown Channel"
+- **Moltbook Weekly Review** (1ee0d578) → failing with channel routing error (enabled but non-functional)
 
-**Quick Fix for Each:**
-Use `cron action=update` to add explicit Discord channel IDs to `delivery.to`.
+## Solution
+**Strategy:** Switch all Discord announce deliveries to Slack (stable, verified channel IDs).
 
-**Example (Evening Routine):**
-```bash
-cron action=update jobId=2feb9515 patch='{"delivery":{"mode":"announce","channel":"discord","to":"1476945255331791060"}}'
-```
+**Slack channels configured & available:**
+- `C0ADCTD7S2D` — #general
+- `C0ADUCZ4AF3` — #commands
+- `C0AELHDE84Q` — #discussion
+- `C0AE72DKGCQ` — #code-review
+- `C0AEA8LMEUD` — #ai-logs
+- `C0AEE0PLKB4` — #notifications
+- `C0AF64H7FDF` — #updates
+- `C0AH1L4BRUG` — #daily-config
+- `C0AHET5GMUY` — #weather-alerts
 
-**Channel ID Reference (from current delivery configs):**
-- `#general` / default channel: `1476945255331791060`
-- `#evening-routine`: `1476945255331791060` (mapped)
-- `#daily-config`: `1476944218751635609`
-- `#moltbook`: (TBD — check Discord)
-- `#joe-profile`: `1476590410557034546`
+### Recommended Mappings:
+- **Evening Routine** → `C0AEE0PLKB4` (#notifications)
+- **Daily Config & Memory Review** → `C0AH1L4BRUG` (#daily-config)
+- **Nightly Git Commit** → `C0AEE0PLKB4` (#notifications)
+- **Daily Update Check** → `C0AF64H7FDF` (#updates)
+- **Joe Profile Reflection** → `C0ADUCZ4AF3` (#commands) or `C0AELHDE84Q` (#discussion)
+- **Moltbook Weekly Review** → `C0AELHDE84Q` (#discussion)
 
-**When to use:**
-- Only jobs that explicitly call `announce delivery` or post to Discord
-- jobs using systemEvent (main session) don't need channel config
-- jobs using agentTurn (isolated) can omit if delivery.mode="none"
+## Implementation
+For each disabled job:
+1. Update delivery config: `delivery.mode="announce"`, `delivery.channel="slack"`, `delivery.to="<slack_channel_id>"`
+2. Re-enable the job
+3. Verify next execution
 
-**Follow-up:** Run `cron list` to verify all 6 are re-enabled after fix.
-
----
-
-**Alternative (simpler):** Just disable delivery on jobs that don't need it, OR silence their announce mode (delivery.mode="none").
+## Prevention
+- **All future cron jobs with deliver mode "announce"** MUST specify explicit Slack channel ID
+- Alternative: Use `delivery.mode="none"` for jobs that don't need announcements (silent execution)
+- Document channel mappings in CRON-JOBS-FIX.md (this file) for future reference
