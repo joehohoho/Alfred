@@ -159,6 +159,16 @@ Test with: curl http://localhost:3001/api/cron/status
 
 ---
 
+## 🔴 Current Status (2026-03-17 16:20 ADT)
+
+**Blocker:** HAL Cron Status API not started. Waiting on HAL to investigate OpenClaw Gateway API capability and begin implementation.
+
+**Unblocked:** Phase 1.3 (QuickFileAccess sidebar) ready to code — no backend dependency. Can proceed immediately while waiting on HAL.
+
+**Frontend codebase:** Located at `/Users/hopenclaw/command-center` (React + TypeScript, Vite).
+
+---
+
 ## 🔴 Known Blockers & Risks
 
 ### Blocker 1: Cron API Availability
@@ -189,15 +199,15 @@ Test with: curl http://localhost:3001/api/cron/status
 
 ## 🎯 Next Steps (Immediate Actions)
 
-**Alfred (now):**
-1. ✅ Read MISSION-CONTROL-IMPLEMENTATION-PLAN.md § 2.1-2.3
-2. ✅ Spawn HAL for Cron API (see command below)
-3. ⏳ Start Phase 1.3 (Quick File Sidebar) — lowest risk, highest ROI
-4. ⏳ Start Phase 1.2 (Task Board) — no backend dependency
-5. ⏳ Wait for HAL API, then Phase 1.1 (Cron Panel)
+**Alfred (tomorrow morning):**
+1. ✅ Dashboard codebase located: `/Users/hopenclaw/command-center`
+2. ⏳ Code Phase 1.3 (QuickFileAccess sidebar) — lowest risk, highest ROI
+3. ⏳ Check HAL API status (09:00 AM standup)
+4. ⏳ If HAL API ready → integrate Phase 1.1 frontend
+5. ⏳ If HAL blocked → start Phase 1.2 (Task Board enhancements)
 
-**HAL (async, parallel):**
-1. ✅ Receive full spec + handoff
+**HAL (async, waiting on spawn signal):**
+1. ⏳ Receive full spec + handoff
 2. ⏳ Investigate OpenClaw Gateway API capability
 3. ⏳ Implement Cron Status endpoints (4 endpoints)
 4. ⏳ Test locally + deliver working API
@@ -225,54 +235,22 @@ If blockers arise, file as `[KANBAN-BLOCKER]` on this task.
 - `memory/2026-03-16.md` — Mission Control video review notes
 - `COMMAND-CENTER.md` — Existing dashboard architecture (if exists)
 - `cron/jobs.json` — Current cron job config (data source)
+- `/Users/hopenclaw/command-center` — Frontend codebase (React + TypeScript)
 
 ---
 
-## ✅ Status Summary
+## ✅ Status Summary (2026-03-17 16:20 ADT)
 
 | Component | Owner | Status | ETA |
 |-----------|-------|--------|-----|
-| **Cron API** | HAL | 🟡 INVESTIGATING | 2026-03-18 |
-| **File Sidebar** | Alfred | 🔴 BLOCKED (need codebase path) | 2026-03-17 |
-| **Task Board** | Alfred | 🔴 BLOCKED (need codebase path) | 2026-03-18 |
-| **Cron Panel UI** | Alfred | 🔴 BLOCKED (need codebase path) | 2026-03-20 |
-| **Phase 1 Gate** | Both | 🔴 BLOCKED | 2026-03-30 |
+| **Cron API** | HAL | 🔴 NOT STARTED | TBD |
+| **File Sidebar** | Alfred | 🟢 READY TO CODE | 2026-03-18 |
+| **Task Board** | Alfred | 🟡 BLOCKED (wait on HAL) | 2026-03-18-19 |
+| **Cron Panel UI** | Alfred | 🟡 BLOCKED (wait on HAL) | 2026-03-20 |
+| **Phase 1 Gate** | Both | 🟡 ON TRACK | 2026-03-30 |
 
 ---
 
-## ✅ BLOCKER RESOLVED: Dashboard Codebase Located
-
-**Found:** `/Users/hopenclaw/command-center`
-- **Stack:** React + TypeScript (Vite)
-- **Frontend:** `frontend/src/` (components, pages, hooks)
-- **Backend:** `backend/dist/index.js` (Node.js server)
-- **LaunchAgent:** `com.alfred.dashboard-nextjs` (runs backend/dist/index.js)
-- **Port:** 3001
-- **Git:** Yes, full git history available
-
-**Current Components:**
-- ✅ CronTable.tsx (exists, basic)
-- ✅ KanbanColumn.tsx, KanbanCardComponent.tsx (exist, need enhancement)
-- ✅ ActivityLog.tsx, GatewayStatus.tsx (sidebar info available)
-- ❌ QuickFileAccess.tsx (needs creation)
-- ❌ ContextMonitor.tsx (needs creation)
-- ❌ HALCompletionFeed.tsx (needs creation)
-
----
-
-## 🚀 RESUMING PHASE 1 NOW
-
-**Approach Change:** Start with Phase 1.3 (QuickFileAccess sidebar) — zero backend dependency, fastest to working code.
-
-**Components to Build (Phase 1):**
-1. **QuickFileAccess.tsx** (2-3h) — Links to ACTIVE-TASK.md, OPEN-LOOPS.md, MEMORY.md, etc.
-2. **Enhance CronTable.tsx** (4-5h) — Add enable/disable buttons, better UX
-3. **Enhance KanbanColumn.tsx** (2-3h) — Add column task counts, filters
-
-**Next Step:** Read the existing codebase to understand structure, then begin coding.
-
----
-
-**Last Updated:** 2026-03-16 20:03 ADT  
-**Updated By:** Alfred
-**Status:** RESUMING WORK - Blocker cleared, coding Phase 1 now
+**Last Updated:** 2026-03-17 16:20 ADT  
+**Updated By:** Alfred (evening routine)  
+**Status:** Waiting on HAL API; Alfred ready to code Phase 1.3 tomorrow

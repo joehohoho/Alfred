@@ -371,5 +371,32 @@
     "answered": false,
     "createdAt": "2026-03-17T16:16:50.057Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773775322127_5396e0d1",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-17T19:22:02.127Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773775322130_44cde5c6",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Update Check: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-17T19:22:02.130Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773775322132_62db72ee",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-17T19:22:02.132Z",
+    "answeredAt": null
   }
 ]
