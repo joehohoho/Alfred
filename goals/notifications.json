@@ -417,5 +417,23 @@
     "answered": false,
     "createdAt": "2026-03-17T19:27:02.487Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773781328287_a053d8b0",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-17T21:02:08.287Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773781328289_951b77ec",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-17T21:02:08.289Z",
+    "answeredAt": null
   }
 ]
