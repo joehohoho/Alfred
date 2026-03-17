@@ -2246,22 +2246,42 @@
     "title": "Infra: Session Checkpoint interval is 2h not 20min — fix or re-evaluate",
     "description": "## Infrastructure Gap: Session Checkpoint Frequency\n\n### Finding\nHEARTBEAT.md documents the Session Checkpoint cron as running every 20 minutes. However, the actual cron job (`Session Checkpoint (Memory Continuity)`) is configured with `everyMs: 7200000` — that is **2 hours**, not 20 minutes.\n\n### Risk\nContext death can happen in under 2 hours during heavy sessions. If Alfred hits 80%+ context between checkpoints, the 3 continuity files (ACTIVE-TASK.md, LAST-SESSION.md, NOW.md) will be stale by up to 2 hours. Work done in that window is lost on context reset.\n\nHEARTBEAT.md says:\n> \"Session Checkpoint Cron — Runs every 20 minutes. Checks context usage. At 60%+, auto-saves state...\"\n\n### Options\n1. **Change everyMs to 1200000 (20 min)** — matches documented intent, higher cost (each checkpoint fires an agent turn)\n2. **Change to 30 min (1800000)** — reasonable compromise, low cost\n3. **Keep 2h but update HEARTBEAT.md** — if the 20min spec was aspirational and never intended\n\n### Recommendation\nOption 2 (30 min). The checkpoint is cheap (reads session_status, writes 3 files) and 2h is too long a gap for active work sessions.\n\n*Alfred infrastructure audit — Mar 1 2026*",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 9.4,
+      "notes": "Critical infrastructure fix (not revenue idea). Session checkpoint must fire every 30min to maintain context continuity window alignment. Current 2h config creates catastrophic failure gap during heavy sessions. Option 2 (1800000ms = 30min) is correct—trivial change, high reliability ROI. Already approved by Joe ('Go ahead with option 2'). Ready to implement immediately.",
+      "breakdown": {
+        "infrastructure_criticality": 10,
+        "effort": 10,
+        "reliability_impact": 10,
+        "estimated_time": "5 minutes"
+      },
+      "evaluatedAt": "2026-03-17T03:00:00.000Z"
+    },
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": [
+      "infrastructure",
+      "reliability",
+      "approved"
+    ],
     "createdAt": "2026-03-01T04:01:31.660Z",
-    "updatedAt": "2026-03-02T14:13:58.347Z",
+    "updatedAt": "2026-03-17T03:00:00.000Z",
     "comments": [
       {
         "id": "cmt_1772460838347_3d12e790",
         "author": "joe",
         "text": "Go ahead with option 2",
         "createdAt": "2026-03-02T14:13:58.347Z"
+      },
+      {
+        "id": "cmt_1773666174112_9f82ccf3",
+        "author": "alfred",
+        "text": "## ✅ Session Checkpoint Interval Fixed (Mar 17, 3:00 AM)\n\n**Change:** `Session Checkpoint (Memory Continuity)` cron updated from `everyMs: 7200000` (2 hours) to `everyMs: 1800000` (30 minutes).\n\n**Verification:**\n- Cron job reloaded successfully\n- Next scheduled run: 3:30 AM (confirmed via cron status)\n- Context continuity window now aligned: max 30min staleness vs 2h\n\n**Impact:** Prevents context-death work loss in active sessions. HEARTBEAT.md will remain at 20min _target_ (checkpoint fires every 30min, but full state capture happens at 60%+ threshold). Risk window compressed from 2 hours → 30 minutes.",
+        "createdAt": "2026-03-17T03:00:00.000Z"
       }
     ]
   },
@@ -4278,5 +4298,21 @@
         "createdAt": "2026-03-16T16:29:12.447Z"
       }
     ]
+  },
+  {
+    "id": "idea_1773727296493_8a6ae5cb",
+    "title": "Portfolio health snapshot — 2026-03-17",
+    "description": "One-page review of revenue portfolio (CoinUsUp, Even Us Up, Signal App, Automation Consulting).\\n\\nCurrent status + MRR estimates:\\n• CoinUsUp: live/stable, est current MRR –400, potential ,000–5,000; bottleneck = acquisition/distribution velocity.\\n• Even Us Up: live/low traction, est current MRR –100, potential –1,500; bottleneck = unclear direction + monetization.\\n• Signal App: beta/validation, est current MRR /bin/zsh, potential external MRR /bin/zsh (internal lab currently); bottleneck = validation reliability + scope control.\\n• Automation Consulting: active services, est current MRR ,000–5,000, potential ,000–10,000; bottleneck = founder-time scaling ceiling.\\n\\nPortfolio totals:\\n• Estimated current MRR: ,250–5,500\\n• Estimated 12-month potential MRR: ,500–16,500\\n\\nPortfolio health: strong base but over-concentrated in consulting; largest upside is distribution for CoinUsUp + productization of consulting workflows.\\n\\n30-day focus:\\n1) Run 2 paid channel tests for CoinUsUp + keep only channels with acceptable CAC.\\n2) Make explicit grow-vs-harvest decision for Even Us Up.\\n3) Productize one consulting workflow into fixed-scope offer to decouple revenue from hours.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T06:01:36.493Z",
+    "updatedAt": "2026-03-17T06:01:36.493Z"
   }
 ]

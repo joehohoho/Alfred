@@ -342,5 +342,25 @@
     "answeredAt": "2026-03-10T15:09:25.720Z",
     "userAnswer": "I've already answered this, the quality of the signals is poor and the model isn't learning well.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1773727251612_e54267b5",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
+    "taskId": "task_1773672258312_393a575f",
+    "answered": false,
+    "createdAt": "2026-03-17T06:00:51.612Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773727251618_e604f69d",
+    "type": "question",
+    "title": "⚠️ Stale card escalated: \"Mission Control Phase 1: Stability & Visibility\"",
+    "message": "Card \"Mission Control Phase 1: Stability & Visibility\" (task_1773672258312_393a575f) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "source": "stale-card-handler",
+    "answered": false,
+    "createdAt": "2026-03-17T06:00:51.618Z",
+    "answeredAt": null
   }
 ]
