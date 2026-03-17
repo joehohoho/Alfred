@@ -146,6 +146,12 @@ When Joe comments on a kanban card, Alfred MUST:
 
 **This step is mandatory.** Responding only in chat means Joe sees nothing on the board.
 
+### Cron Job Configuration (SAFEGUARD — Added 2026-03-17)
+**Always use explicit channel IDs** in `delivery.to` field. Never assume implicit routing.
+- Example: `"delivery": { "mode": "announce", "to": "C0AEE0PLKB4" }` (verify channel ID before deploy)
+- Reason: Implicit Discord routing has caused 6 job auto-disables (Mar 10-17)
+- Prevention: Add channel ID validation step to cron job creation workflow
+
 ### On `[KANBAN-ASSIGNMENT]`
 1. Move card to in_progress:  
    `bash ~/.openclaw/workspace/scripts/kanban-move.sh <CARD_ID> in_progress`
