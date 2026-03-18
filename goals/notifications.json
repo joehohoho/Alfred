@@ -444,5 +444,32 @@
     "answered": false,
     "createdAt": "2026-03-18T04:16:57.558Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773813760280_7e38d5bc",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-18T06:02:40.280Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773813760282_62657686",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-18T06:02:40.282Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773813760285_ccefa855",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-18T06:02:40.285Z",
+    "answeredAt": null
   }
 ]
