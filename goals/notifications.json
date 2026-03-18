@@ -519,5 +519,14 @@
     "answered": false,
     "createdAt": "2026-03-18T16:17:05.039Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773853399843_6ddcad21",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-18T17:03:19.843Z",
+    "answeredAt": null
   }
 ]
