@@ -4558,5 +4558,21 @@
     "tags": [],
     "createdAt": "2026-03-18T15:01:27.700Z",
     "updatedAt": "2026-03-18T15:01:27.700Z"
+  },
+  {
+    "id": "idea_1773853287717_ee5ce610",
+    "title": "Canada-specific passive income scan: 3 Atlantic moats",
+    "description": "Scan focus: Atlantic Canada/NB SMB pain points (bilingual compliance, CRA/HST deadlines, payroll gaps, contractor invoicing, rural connectivity).\\n\\nTop opportunities:\\n\\n1) Bilingual CRA/HST Compliance Copilot for micro-SMBs\\n- Problem: Small firms miss filing deadlines, remittance schedules, and province/federal form nuances; most tools are generic and English-first.\\n- Product: Deadline engine + document checklist + French/English reminders + accountant handoff packet.\\n- Moat: Atlantic-focused rules presets, bilingual UX/content, local accountant partner network.\\n- Monetization: -/mo + tax-season upsell package.\\n\\n2) Trades Progress Billing + Holdback Assistant (NB/Atlantic specific)\\n- Problem: Contractors struggle with milestone billing, statutory holdbacks, change orders, and payment follow-up; spreadsheets dominate.\\n- Product: Job-based invoicing with progress draws, holdback tracking, lien deadline alerts, photo/proof attachments, one-click client statements.\\n- Moat: Province-specific defaults/templates and workflows for small trade teams competitors ignore due to market size.\\n- Monetization: -/mo per company + per-active-project add-on.\\n\\n3) Rural Field Ops Offline Suite (invoicing + dispatch + sync)\\n- Problem: Rural connectivity causes failed syncs, delayed invoicing, and lost work logs for service businesses.\\n- Product: Offline-first mobile app (work orders, signatures, invoice drafting) with resilient conflict-safe sync when signal returns.\\n- Moat: Reliability in low-connectivity Atlantic regions + lightweight pricing for 2-20 person teams.\\n- Monetization: -/mo + optional SMS reminders bundle.\\n\\nRecommended validation sprint (2 weeks):\\n- 10 discovery calls across accountants, electricians/plumbers, and rural service companies\\n- Build landing tests for each concept\\n- Success gate: >=20% interviewees willing to pre-register or pay pilot deposit",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T17:01:27.717Z",
+    "updatedAt": "2026-03-18T17:01:27.717Z"
   }
 ]
