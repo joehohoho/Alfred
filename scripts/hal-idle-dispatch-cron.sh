@@ -56,19 +56,28 @@ KANBAN_COOLDOWN_MIN=10   # don't re-dispatch a Kanban task within 10 min
 PROACTIVE_COOLDOWN_MIN=15 # don't re-dispatch a proactive task within 15 min
 
 # ── HAL gateway health backoff ─────────────────────────────────────────────────
-# If HAL gateway is unreachable, back off exponentially to avoid wasting process slots
+# If HAL gateway is unreachable, back off to avoid wasting process slots.
+# BUT: always do a cheap HTTP health check first — if HAL responds, reset and proceed.
 FAIL_COUNT_FILE="$TRACK_DIR/hal-dispatch-fail-count.txt"
 FAIL_COUNT=0
 [[ -f "$FAIL_COUNT_FILE" ]] && FAIL_COUNT=$(cat "$FAIL_COUNT_FILE" 2>/dev/null || echo "0")
-# After 3+ consecutive failures, only try every 4th run (~hourly instead of 15 min)
+# After 3+ consecutive failures, do a quick HTTP ping before backing off
 if [[ "$FAIL_COUNT" -ge 3 ]]; then
-  if [[ $(( FAIL_COUNT % 4 )) -ne 0 ]]; then
-    log "SKIP: HAL gateway unreachable ($FAIL_COUNT consecutive failures, backing off)"
-    echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
-    echo "[ACTION:SKIP] reason=hal_offline_backoff fail_count=${FAIL_COUNT}"
-    exit 0
+  HAL_HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 "http://192.168.2.79:18789" 2>/dev/null || echo "000")
+  if [[ "$HAL_HTTP_STATUS" == "200" ]]; then
+    log "RECOVERY: HAL gateway responds to HTTP (was $FAIL_COUNT failures) — resetting backoff"
+    FAIL_COUNT=0
+    echo "0" > "$FAIL_COUNT_FILE"
+  else
+    # HAL still offline — apply backoff (only try every 4th run, ~hourly)
+    if [[ $(( FAIL_COUNT % 4 )) -ne 0 ]]; then
+      log "SKIP: HAL gateway unreachable ($FAIL_COUNT consecutive failures, backing off)"
+      echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
+      echo "[ACTION:SKIP] reason=hal_offline_backoff fail_count=${FAIL_COUNT}"
+      exit 0
+    fi
+    log "RETRY: HAL gateway check (attempt after $FAIL_COUNT failures)"
   fi
-  log "RETRY: HAL gateway check (attempt after $FAIL_COUNT failures)"
 fi
 
 # ── Helper: minutes since last dispatch of a given type ─────────────────────
@@ -217,7 +226,7 @@ PROACTIVE_ID="proactive_$(date +%s)"
 DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
   log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK} — $DISPATCH_OUT"
   echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
-  SESSION_KEY=$(echo "$DISPATCH_OUT" | grep -oP 'session=\K\S+' || echo "")
+  SESSION_KEY=$(echo "$DISPATCH_OUT" | sed -n 's/.*session=\([^ ]*\).*/\1/p')
   write_success_status "$NEXT_TASK" "proactive" "$SESSION_KEY"
   # Log the successful dispatch
   python3 - "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" "$PROACTIVE_ID" "HAL" "$NEXT_TASK" "proactive" <<'PY' >> "$DISPATCH_LOG"

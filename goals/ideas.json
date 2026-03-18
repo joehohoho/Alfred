@@ -4240,7 +4240,7 @@
     "title": "SignalOps Lite for Retail Traders",
     "description": "Problem: traders drown in noisy indicators and inconsistent journaling. Target: self-directed retail traders/crypto swing traders. Offer: signal ingestion + simple confluence scoring + weekly performance digest + alert automation (education-only). Estimated MRR: k-k (50-200 users at -). Tech complexity: 3/5. Competition: High, but differentiated by practical signal hygiene + lightweight setup. Why Joe can win: already building signal stack; can ship a focused low-support layer instead of full platform.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4249,7 +4249,23 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-16T03:01:08.453Z",
-    "updatedAt": "2026-03-16T03:01:08.453Z"
+    "updatedAt": "2026-03-18T21:50:29.263Z",
+    "comments": [
+      {
+        "id": "cmt_1773870618627_d70737f4",
+        "author": "joe",
+        "text": "Rejected: The signal app requires a lot of work to improve the signals before anything can be done to monetize this.",
+        "createdAt": "2026-03-18T21:50:18.627Z"
+      },
+      {
+        "id": "cmt_1773870629263_c2dcbdd2",
+        "author": "alfred",
+        "text": "**Joe Decision:** Signal app rejected for now—needs signal quality improvements before monetization makes sense. Blocker: signal accuracy/reliability. Once signals are solid, revisit monetization strategy.",
+        "createdAt": "2026-03-18T21:50:29.263Z"
+      }
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-03-18T21:50:21.800Z"
   },
   {
     "id": "idea_1773630068679_a5b861c7",
@@ -4495,14 +4511,22 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T22:01:48.199Z",
-    "updatedAt": "2026-03-17T22:01:48.199Z"
+    "updatedAt": "2026-03-18T21:36:38.731Z",
+    "comments": [
+      {
+        "id": "cmt_1773869798730_3a138990",
+        "author": "joe",
+        "text": "what is the proposed solution to implement for this card?",
+        "createdAt": "2026-03-18T21:36:38.730Z"
+      }
+    ]
   },
   {
     "id": "idea_1773792145403_cda45401",
     "title": "Signal App monetization strategy (benchmark + pricing recommendation)",
     "description": "Objective: Recommend monetization model for Stock/Crypto Signal App (early stage, Joe audience), benchmark 3 competitors, prioritize effort vs upside vs recurring revenue.\n\nCompetitive benchmark (Mar 2026 snapshot)\n1) TradingView (broad market leader)\n- Model: Freemium + tiered subscription (Essential/Plus/Premium), annual discounts, heavy upsell on alert limits/features.\n- Observed pricing signals (3rd-party review + market references): roughly ~$15/$30/$60 monthly range for non-pro tiers; frequent sale promotions.\n- Takeaway: Freemium works for top-of-funnel; conversion driven by alert limits + serious-user features.\n\n2) TrendSpider (advanced signal/automation platform)\n- Model: Premium subscription (higher ARPU), paid trial, add-ons (data feeds, scan/backtest depth, AI sidekick tiers).\n- Observed market references: starts around ~$100+/mo in listings/reviews, with add-on monetization.\n- Takeaway: Higher pricing is viable when value is quant/automation depth; add-ons increase ARPU without bloating base plan.\n\n3) StocksToTrade (retail trading suite)\n- Model: Paid subscription + low-cost trial entry; annual prepay discount.\n- Public page snapshot: Monthly $179.95, Annual $1899.50, 14-day trial $7.\n- Takeaway: Low-friction paid trial + high-ticket core plan can work when positioned as \"actionable edge\" not generic signals.\n\nBest-fit monetization strategy for Joe (early stage)\nRecommendation: Hybrid Freemium + Tiered Subscription + Optional Team/API add-on (later)\n\nWhy this is best now\n- Freemium captures wide curiosity traffic in trading niche.\n- Tiered subscriptions create predictable MRR and match user sophistication.\n- B2B/API should be phase 2 after signal quality + retention are proven.\n- One-time lifetime deals hurt long-term support economics in signal products.\n\nProposed pricing architecture (90-day launch)\nFree\n- Delayed/limited signals (e.g., 3 alerts/day)\n- 1 market/watchlist\n- Basic dashboard + weekly recap\n- Goal: activation + trust building\n\nStarter (Core) — US$19/mo (or $190/yr)\n- Real-time alerts (e.g., 25–50/month)\n- Multi-asset watchlists (stocks + crypto)\n- Basic risk flags + simple journal export\n- Target: hobbyist/intermediate traders\n\nPro — US$49/mo (or $490/yr)\n- Higher alert caps (e.g., 200+/month)\n- Regime/risk overlays + \"what changed\" explanations\n- Strategy templates, webhook/Discord alerts\n- Priority support\n- Target: serious self-directed traders\n\nTeam/API Add-on (Phase 2) — from US$199/mo\n- For small communities/educators/finfluencer ops\n- Shared workspaces, alert routing, limited API access\n- Do NOT build until single-user churn/retention is healthy\n\nGo-to-market experiments (next 6 weeks)\n1) Price test A/B: $19 vs $29 Starter (keep features constant)\n2) Conversion lever: limit by alerts + advanced explainability, not by fake scarcity\n3) 14-day paid trial ($7) OR 7-day free trial with card-on-file test\n4) Annual anchor: 2 months free equivalent to improve cashflow\n\nKey risks + mitigations\n- Risk: Weak trust in signal quality -> churn\n  Mitigation: show rationale/explainability + post-trade review insights (not advice claims)\n\n- Risk: Support load from low-priced users\n  Mitigation: strict feature gating, self-serve docs, in-app diagnostics\n\n- Risk: Regulatory/compliance exposure\n  Mitigation: position as decision-support analytics, clear disclaimers, avoid direct \"financial advice\" language\n\n- Risk: Building B2B/API too early\n  Mitigation: gate phase-2 build on retention KPI thresholds\n\nNorth-star metrics to decide scaling\n- Free -> paid conversion target: 4-8%\n- 30-day paid retention target: >70%\n- MRR per support hour (critical for solo feasibility)\n- Alert engagement rate + weekly active usage\n\nFinal recommendation\nLaunch with Free + $19 Starter + $49 Pro immediately; defer API/B2B until retention proves value. This balances solo-dev feasibility, recurring revenue, and fastest path to validated MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4511,7 +4535,23 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-18T00:02:25.403Z",
-    "updatedAt": "2026-03-18T00:02:25.403Z"
+    "updatedAt": "2026-03-18T21:50:47.629Z",
+    "comments": [
+      {
+        "id": "cmt_1773870640581_3d0ad8d7",
+        "author": "joe",
+        "text": "Rejected: The signal app requires a lot of work to improve the signals before anything can be done to monetize this.",
+        "createdAt": "2026-03-18T21:50:40.581Z"
+      },
+      {
+        "id": "cmt_1773870647629_027c4f58",
+        "author": "alfred",
+        "text": "Acknowledged — Joe rejected monetization approach. Signal quality is prerequisite before any revenue strategy. Next step: Focus on improving signal accuracy/reliability. Monetization deferred pending signal improvements.",
+        "createdAt": "2026-03-18T21:50:47.629Z"
+      }
+    ],
+    "rejectedReason": "Rejected via kanban board",
+    "rejectedAt": "2026-03-18T21:50:41.931Z"
   },
   {
     "id": "idea_1773806503406_c9dbca68",
