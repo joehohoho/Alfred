@@ -2452,16 +2452,30 @@
     "title": "💡 SaaS Idea: Canadian HST/GST Filing Automation for Freelancers",
     "description": "Automated HST return prep tool for Canadian freelancers/consultants. Connects to Wave/QuickBooks, calculates net tax owing, generates CRA-ready filing summary. Recurring pain every quarter for ~2.5M self-employed Canadians.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5.7,
+      "notes": "Real pain point (2.5M Canadian freelancers file quarterly HST/GST) but crowded market (Wave, QuickBooks, StudioBooks, Freshbooks all offer HST integration). Joe lacks tax/compliance domain expertise beyond billing background. No project synergy (standalone vertical). Passive potential constrained by ongoing CRA rule updates + API maintenance + support overhead. Below 7.0 promotion threshold. Better opportunities exist: CoinUsUp paid tier (quick $500/mo), Even Us Up growth (Splitwise refugee window), Signal App reliability fixes before monetization.",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 5,
+        "joes_edge_2x": 4,
+        "synergy_1x": 3,
+        "passive_potential_2x": 4
+      },
+      "weighted_score": 57,
+      "evaluatedAt": "2026-03-18T12:01:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T14:01:24.782Z",
-    "updatedAt": "2026-03-04T12:36:45.798Z",
+    "updatedAt": "2026-03-18T12:01:00.000Z",
+    "rejectedReason": "Crowded market (Wave/QB/Freshbooks), no Joe domain edge in tax/CRA compliance, no project synergy, passive potential constrained by ongoing API/rule maintenance",
+    "rejectedAt": "2026-03-18T12:01:00.000Z",
     "comments": [
       {
         "id": "cmt_1772373720469_8fbb50db",
@@ -4496,5 +4510,53 @@
     "tags": [],
     "createdAt": "2026-03-18T04:01:43.406Z",
     "updatedAt": "2026-03-18T04:01:43.406Z"
+  },
+  {
+    "id": "idea_1773846076329_cd78e97b",
+    "title": "Canadian Law Firm Trust Reconciliation Co-Pilot",
+    "description": "Problem: small/mid Canadian firms lose hours on monthly trust reconciliation and compliance checks. Target: 1-20 lawyer firms on LEAP/CosmoLex/PCLaw. MRR: Ck-25k (80-250 firms @ C/mo). Complexity: 3/5 (ETL + reconciliation rules + exception UI). Competition: Medium (practice suites exist but weak cross-system reconciliation automation). Why Joe wins: 20+ years legal billing/data transformation expertise and domain trust.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T15:01:16.329Z",
+    "updatedAt": "2026-03-18T15:01:16.329Z"
+  },
+  {
+    "id": "idea_1773846081071_d3623030",
+    "title": "CRA GST/HST Compliance Copilot for Canadian SMB",
+    "description": "Problem: SMB owners/bookkeepers struggle with GST/HST categorization, evidence collection, and filing readiness. Target: Canadian SMBs + bookkeeping boutiques (services/ecom). MRR: Ck-40k (100-400 accounts @ C/mo avg incl. partner tiers). Complexity: 2/5 (rules engine + bank/csv ingestion + filing checklists). Competition: Medium-High (general accounting tools, but low Canada-specific compliance coaching automation). Why Joe wins: automation consulting + workflow design strength, can niche down to high-friction verticals first.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T15:01:21.071Z",
+    "updatedAt": "2026-03-18T15:01:21.071Z"
+  },
+  {
+    "id": "idea_1773846087700_90bde0bb",
+    "title": "SignalOps: Trading Signal QA + Auto-Journal",
+    "description": "Problem: creators and serious retail traders cannot reliably validate signal quality or maintain disciplined trading journals. Target: signal communities, solo traders, small trading Discords/Telegram groups. MRR: Ck-30k (200-1000 users @ C/mo, plus creator plans). Complexity: 3/5 (exchange/broker imports, rule-based scoring, journaling workflow). Competition: Medium (journals exist; fewer combine signal QA + execution discipline loops). Why Joe wins: already building stock/crypto signal app and can bundle analytics + automation as premium upsell.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T15:01:27.700Z",
+    "updatedAt": "2026-03-18T15:01:27.700Z"
   }
 ]

@@ -471,5 +471,44 @@
     "answered": false,
     "createdAt": "2026-03-18T06:02:40.285Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1773831627169_42ee3352",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-18T11:00:27.169Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773838800340_a6be36fe",
+    "type": "question",
+    "title": "Consulting: recurring client problem → product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-18T13:00:00.340Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773846049921_3b9c6e19",
+    "type": "kanban-blocked",
+    "title": "Blocker on card",
+    "message": "Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
+    "taskId": "task_1773156748695_23b9e471",
+    "answered": false,
+    "createdAt": "2026-03-18T15:00:49.921Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773846049925_5c244c9d",
+    "type": "question",
+    "title": "⚠️ Stale card escalated: \"Implement 14-day free trial on Basic/Pro tiers\"",
+    "message": "Card \"Implement 14-day free trial on Basic/Pro tiers\" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "source": "stale-card-handler",
+    "answered": false,
+    "createdAt": "2026-03-18T15:00:49.925Z",
+    "answeredAt": null
   }
 ]

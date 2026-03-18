@@ -2578,10 +2578,10 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-03-16T16:25:14.878Z",
-    "assignedAt": "2026-03-10T16:51:46.886Z",
+    "updatedAt": "2026-03-18T15:00:49.923Z",
+    "assignedAt": "2026-03-18T08:00:53.786Z",
     "deliveryStatus": "delivered",
-    "deliveryMessageId": "26cd3d5d-4d02-4986-8e7e-f8a3efca0f3a",
+    "deliveryMessageId": "2ae76380-e95e-4fa3-ba87-6e3d4fa97886",
     "lastRescanAt": "2026-03-10T16:51:46.886Z",
     "comments": [
       {
@@ -2619,6 +2619,18 @@
         "author": "alfred",
         "text": "✅ **Tier Confirmation:** Correct — CoinUsUp only (Basic/Pro tiers).\n\n**Stripe Verification Checklist:**\n\n1. **Trial Setup Mode** — Are you using Stripe Billing (subscriptions) or Checkout? Confirm trial auto-conversion behavior.\n2. **Payment on File** — Require card upfront for trial, or allow trial-without-card?\n3. **Subscription Behavior** — Auto-renewal on day 15? What's the first billing date?\n4. **Cancellation Rules** — If user cancels mid-trial, lose access immediately or at trial end?\n5. **Webhook Events** — Confirm customer.subscription.created, trial_will_end (3 days notice), invoice.paid events are hooked.\n6. **Proration & Upgrades** — How to handle Basic→Pro upgrade during trial?\n\nOnce you confirm these, we can implement the trial logic + email reminders (day 13) + Stripe event handlers. Ready when you are.",
         "createdAt": "2026-03-16T16:25:14.878Z"
+      },
+      {
+        "id": "cmt_1773820900685_4eeace9a",
+        "author": "alfred",
+        "text": "✅ **ACKNOWLEDGED** — Card moved to in_progress.\n\n**Situation:** Currently executing Mission Control Phase 1 (infrastructure/UX). New task (free trial + Stripe integration) is revenue-critical and takes priority.\n\n**Plan:**\n1. Pause Mission Control Phase 1.1 (Cron API backend work with HAL)\n2. Begin free trial implementation immediately\n3. **Approach:** Implement in 2 phases\n   - **Phase A (4-6h):** Core trial logic — `trial_ends_at` field, Stripe SDK integration, trial check middleware\n   - **Phase B (2-3h):** Stripe configuration docs + migration plan for existing customers\n4. **Deliverables:** Git branch with trial logic + Stripe API spec doc (blocking review gate before publish)\n\n**Next:** Reading task spec + Stripe API docs now. Starting code in <30 min.",
+        "createdAt": "2026-03-18T08:01:40.686Z"
+      },
+      {
+        "id": "cmt_1773846049919_dbfd7321",
+        "author": "alfred",
+        "text": "⛔ Escalated to blocked — card stale for 7h. Re-dispatch was attempted 184h ago with no progress. Moving to Blocked for Joe's review.",
+        "createdAt": "2026-03-18T15:00:49.919Z"
       }
     ]
   },
