@@ -4480,5 +4480,21 @@
     "tags": [],
     "createdAt": "2026-03-18T00:02:25.403Z",
     "updatedAt": "2026-03-18T00:02:25.403Z"
+  },
+  {
+    "id": "idea_1773806503406_c9dbca68",
+    "title": "Portfolio Health Snapshot — Revenue Streams (Mar 2026)",
+    "description": "# Portfolio Health Snapshot (Mar 18, 2026)\n\n## 1) CoinUsUp\n- **Current status:** 🟢 Ready to deploy; pricing strategy defined; growth audit completed; mobile/store execution is main gate.\n- **Estimated current MRR:** **$0–$200** (pre-scale / limited live monetization evidence in workspace).\n- **Estimated 12-month potential MRR:** **$3k–$15k** if mobile launch + OCR onboarding + tiered upsell execute.\n- **Biggest bottleneck:** **Distribution + ship velocity** (store launch + activation funnel not fully live).\n\n## 2) Signal App (market-signal-lab)\n- **Current status:** 🟡 Active build phase; monetization strategy documented; key constraint remains signal quality/trust and backtest credibility.\n- **Estimated current MRR:** **$0** (early stage).\n- **Estimated 12-month potential MRR:** **$2k–$20k** (wide range; depends on trust, retention, and conversion from free to paid).\n- **Biggest bottleneck:** **Product truth before growth** (signal quality + explainability must be reliable before scaling acquisition).\n\n## 3) Even Us Up\n- **Current status:** 🟡 Audit complete; differentiated positioning exists (Interac/Canada context); monetization tier decisions pending.\n- **Estimated current MRR:** **$0–$100** (likely low/early monetization).\n- **Estimated 12-month potential MRR:** **$1k–$8k** with roommate/travel premium packaging + retention loops.\n- **Biggest bottleneck:** **Positioning + monetization clarity** (must sharpen why switch from Splitwise alternatives).\n\n## 4) Automation Consulting\n- **Current status:** 🟢 Active client-work cashflow lane; strongest near-term revenue reliability but lower passivity.\n- **Estimated current MRR-equivalent:** **$5k–$20k+** (project/retainer dependent).\n- **Estimated passive-like potential MRR:** **$1k–$10k** via productized offers/templates/monitoring subscriptions.\n- **Biggest bottleneck:** **Scalability trap** (custom work can consume build time and block product compounding).\n\n---\n\n## Portfolio-level readout\n- **Near-term cash engine:** Automation Consulting\n- **Primary scalable bet:** CoinUsUp (if mobile + activation shipped)\n- **High-upside, high-uncertainty bet:** Signal App (quality/trust gated)\n- **Underrated steady bet:** Even Us Up (sticky household use case, Canada moat)\n\n## Recommended focus for next 30 days\n1. **Ship CoinUsUp mobile + onboarding funnel** (highest leverage blocker removal).\n2. **Set Signal App trust baseline** (validation dashboard + explainability + no overclaim positioning).\n3. **Lock Even Us Up pricing test** (single clear premium offer + 2-week conversion experiment).\n4. **Cap consulting custom scope** and channel repeatable pieces into productized subscription modules.\n\n## Target mix (90-day)\n- **Cashflow floor:** Consulting\n- **MRR growth:** CoinUsUp + Even Us Up\n- **Option value:** Signal App\n\n*(Ranges are directional estimates based on current workspace context; refresh monthly with actual Stripe/subscription metrics.)*",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T04:01:43.406Z",
+    "updatedAt": "2026-03-18T04:01:43.406Z"
   }
 ]
