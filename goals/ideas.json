@@ -4445,5 +4445,37 @@
     "tags": [],
     "createdAt": "2026-03-17T20:01:30.085Z",
     "updatedAt": "2026-03-17T20:01:30.085Z"
+  },
+  {
+    "id": "idea_1773784908199_ea22890c",
+    "title": "Alfred infra scan: 3 reliability/cost fixes (Mar 17)",
+    "description": "Infrastructure scan findings (cron + kanban + routing + HAL pipeline):\n\n1) Fix stale-card detector null-card bug in kanban-idle-loop\n- Evidence: idle loop reported and moved two stale cards with id=null and impossible age (~29M minutes), indicating parser/data-shape bug.\n- Risk: false card moves to review, audit noise, trust erosion.\n- Action: harden stale checker to skip invalid IDs, validate createdAt timestamps, and log structured reason when skipping malformed entries.\n- Acceptance: no null-card actions for 7 days; stale audit only references valid card IDs.\n\n2) Add preflight validator for proactive tasks + HAL handoffs (single schema)\n- Gap: task execution quality still depends on instruction format; ambiguous handoffs trigger rework.\n- Action: one validator script requiring objective/scope/deliverables/validation/owner before dispatch (for HAL and proactive task blocks).\n- Automation: fail-fast with actionable error and auto-template fill suggestions.\n- Acceptance: reduce review rework loops by >30% and eliminate missing",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-17T22:01:48.199Z",
+    "updatedAt": "2026-03-17T22:01:48.199Z"
+  },
+  {
+    "id": "idea_1773792145403_cda45401",
+    "title": "Signal App monetization strategy (benchmark + pricing recommendation)",
+    "description": "Objective: Recommend monetization model for Stock/Crypto Signal App (early stage, Joe audience), benchmark 3 competitors, prioritize effort vs upside vs recurring revenue.\n\nCompetitive benchmark (Mar 2026 snapshot)\n1) TradingView (broad market leader)\n- Model: Freemium + tiered subscription (Essential/Plus/Premium), annual discounts, heavy upsell on alert limits/features.\n- Observed pricing signals (3rd-party review + market references): roughly ~$15/$30/$60 monthly range for non-pro tiers; frequent sale promotions.\n- Takeaway: Freemium works for top-of-funnel; conversion driven by alert limits + serious-user features.\n\n2) TrendSpider (advanced signal/automation platform)\n- Model: Premium subscription (higher ARPU), paid trial, add-ons (data feeds, scan/backtest depth, AI sidekick tiers).\n- Observed market references: starts around ~$100+/mo in listings/reviews, with add-on monetization.\n- Takeaway: Higher pricing is viable when value is quant/automation depth; add-ons increase ARPU without bloating base plan.\n\n3) StocksToTrade (retail trading suite)\n- Model: Paid subscription + low-cost trial entry; annual prepay discount.\n- Public page snapshot: Monthly $179.95, Annual $1899.50, 14-day trial $7.\n- Takeaway: Low-friction paid trial + high-ticket core plan can work when positioned as \"actionable edge\" not generic signals.\n\nBest-fit monetization strategy for Joe (early stage)\nRecommendation: Hybrid Freemium + Tiered Subscription + Optional Team/API add-on (later)\n\nWhy this is best now\n- Freemium captures wide curiosity traffic in trading niche.\n- Tiered subscriptions create predictable MRR and match user sophistication.\n- B2B/API should be phase 2 after signal quality + retention are proven.\n- One-time lifetime deals hurt long-term support economics in signal products.\n\nProposed pricing architecture (90-day launch)\nFree\n- Delayed/limited signals (e.g., 3 alerts/day)\n- 1 market/watchlist\n- Basic dashboard + weekly recap\n- Goal: activation + trust building\n\nStarter (Core) — US$19/mo (or $190/yr)\n- Real-time alerts (e.g., 25–50/month)\n- Multi-asset watchlists (stocks + crypto)\n- Basic risk flags + simple journal export\n- Target: hobbyist/intermediate traders\n\nPro — US$49/mo (or $490/yr)\n- Higher alert caps (e.g., 200+/month)\n- Regime/risk overlays + \"what changed\" explanations\n- Strategy templates, webhook/Discord alerts\n- Priority support\n- Target: serious self-directed traders\n\nTeam/API Add-on (Phase 2) — from US$199/mo\n- For small communities/educators/finfluencer ops\n- Shared workspaces, alert routing, limited API access\n- Do NOT build until single-user churn/retention is healthy\n\nGo-to-market experiments (next 6 weeks)\n1) Price test A/B: $19 vs $29 Starter (keep features constant)\n2) Conversion lever: limit by alerts + advanced explainability, not by fake scarcity\n3) 14-day paid trial ($7) OR 7-day free trial with card-on-file test\n4) Annual anchor: 2 months free equivalent to improve cashflow\n\nKey risks + mitigations\n- Risk: Weak trust in signal quality -> churn\n  Mitigation: show rationale/explainability + post-trade review insights (not advice claims)\n\n- Risk: Support load from low-priced users\n  Mitigation: strict feature gating, self-serve docs, in-app diagnostics\n\n- Risk: Regulatory/compliance exposure\n  Mitigation: position as decision-support analytics, clear disclaimers, avoid direct \"financial advice\" language\n\n- Risk: Building B2B/API too early\n  Mitigation: gate phase-2 build on retention KPI thresholds\n\nNorth-star metrics to decide scaling\n- Free -> paid conversion target: 4-8%\n- 30-day paid retention target: >70%\n- MRR per support hour (critical for solo feasibility)\n- Alert engagement rate + weekly active usage\n\nFinal recommendation\nLaunch with Free + $19 Starter + $49 Pro immediately; defer API/B2B until retention proves value. This balances solo-dev feasibility, recurring revenue, and fastest path to validated MRR.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T00:02:25.403Z",
+    "updatedAt": "2026-03-18T00:02:25.403Z"
   }
 ]
