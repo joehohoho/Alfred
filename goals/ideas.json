@@ -2603,7 +2603,13 @@
       "evaluatedAt": "2026-03-18T16:00:00.000Z"
     },
     "promotedToGoalId": null,
-    "tags": ["trades", "bilingual", "canada-specific", "niche-saas", "low-tam"],
+    "tags": [
+      "trades",
+      "bilingual",
+      "canada-specific",
+      "niche-saas",
+      "low-tam"
+    ],
     "createdAt": "2026-03-01T21:02:27.174Z",
     "updatedAt": "2026-03-18T16:00:00.000Z",
     "comments": [
@@ -4586,5 +4592,21 @@
     "tags": [],
     "createdAt": "2026-03-18T17:01:27.717Z",
     "updatedAt": "2026-03-18T17:01:27.717Z"
+  },
+  {
+    "id": "idea_1773860551660_a22ba912",
+    "title": "CoinUsUp growth audit: UX friction + feature gaps + levers",
+    "description": "Evidence-based audit from current CoinUsUp codebase/docs (README, ONBOARDING_CHECKLIST, SEO_AUDIT_REPORT, routes/components).\n\nPRIORITY RECOMMENDATIONS (effort estimates):\n\nP0 (High impact / Low-medium effort)\n1) Reduce activation friction in first 10 minutes (Effort: M = 3-5 dev days)\n   - Friction observed:\n     • First-value path depends on creating org + campaign + inviting member before collaborative value shows.\n     • Free plan is extremely tight (1 user, no invites, no chat) which blocks viral/collab aha too early.\n     • README is generic Lovable template; weak onboarding context for contributors/support.\n   - Actions:\n     • Convert onboarding checklist to role-based quick-start (Org Admin, Volunteer Lead, Treasurer).\n     • Allow limited invite/chat trial during first 14 days on Free (or 3-member trial sandbox).\n     • Add “Guided First Fundraiser” one-click template prefilled with defaults.\n\n2) Fix top-of-funnel discoverability + indexability (Effort: S-M = 1-3 dev days)\n   - Friction observed:\n     • Historical SEO gaps (missing sitemap/reference, SPA rendering concerns, schema gaps).\n     • Marketing pages exist but conversion surface lacks dynamic proof/interactive tools.\n   - Actions:\n     • Ensure SSR/prerender for marketing routes (Home/Features/Pricing/Blog).\n     • Ship schema completeness: Organization + Breadcrumb + FAQ.\n     • Add one high-intent interactive landing tool (fundraising goal calculator) to capture organic intent.\n\n3) Add in-product referral/invite growth loop (Effort: M = 4-7 dev days)\n   - Growth gap observed:\n     • No explicit referral engine surfaced in product architecture.\n   - Actions:\n     • Trigger invite CTA immediately after first campaign setup and first donation logged.\n     • Dual-sided incentive: inviter + invitee each get 30 days Basic features.\n     • Add invite attribution tracking (invite_sent, invite_accepted, org_activated).\n\nP1 (Medium impact / Medium effort)\nTOP 3 MISSING FEATURES USERS LIKELY WANT:\nA) Public campaign/donation pages with shareable links + progress widgets (Effort: L = 1-2 weeks)\n   Why: Current route map is mostly internal/authenticated; public fundraising virality needs donor-facing pages.\n\nB) CRM-style donor segmentation + automated follow-up journeys (Effort: L = 1-2 weeks)\n   Why: Existing app tracks donations/events/tasks but lacks clear donor lifecycle automation for repeat giving.\n\nC) Native integrations (Stripe/QuickBooks/Mailchimp/Zapier) + webhook automations (Effort: L = 2-3 weeks)\n   Why: Reduces manual ops and increases switching stickiness for organizations.\n\nTOP 3 UX FRICTION POINTS (ranked):\n1. Activation requires too much setup before value is visible (M)\n2. Free-plan collaboration limits may block virality before habit formation (S)\n3. Marketing/SEO conversion path not yet compounding enough from intent traffic (S-M)\n\nTOP 3 GROWTH LEVERS (ranked):\n1. SEO + intent landing tools (calculator/templates + schema + prerender)\n2. Built-in referral/invite loop tied to success milestones\n3. Monetization timing: milestone-triggered upgrade prompts + annual ROI offer\n\nMONETIZATION IMPROVEMENTS:\n- Keep free generous enough for first team win, then gate scale/automation/reporting.\n- Introduce outcome-timed paywalls (after X donations processed, Y volunteers added).\n- Add annual “impact savings” framing at moment of ROI demonstration.\n\nSUCCESS METRICS TO INSTRUMENT (must-have):\n- Activation: signup → org_created → campaign_created → first_donation_logged\n- Collaboration: invite_sent → invite_accepted → second_active_member\n- Retention: D1/D7/D30 by acquisition source\n- Revenue: free→basic and basic→pro conversion by milestone trigger\n\nSuggested execution order:\nWeek 1-2: Activation + instrumentation\nWeek 3: Referral loop MVP\nWeek 4: SEO conversion asset + schema/prerender polish\nWeek 5-6: Public campaign pages MVP + donor follow-up automation\n\nExpected 90-day outcome if executed: materially higher activation, stronger referral K-factor, and improved free→paid conversion with less paid acquisition dependence.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T19:02:31.660Z",
+    "updatedAt": "2026-03-18T19:02:31.660Z"
   }
 ]
