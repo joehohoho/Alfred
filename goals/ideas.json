@@ -2582,18 +2582,30 @@
   {
     "id": "idea_1772398947174_67e6f126",
     "title": "🍁 SaaS Idea: BillTrade NB — Bilingual Invoicing + HST for Atlantic Trades",
-    "description": "Bilingual (French/English) invoice + HST tool for solo/small trades in NB, NS, PEI. Targets plumbers, electricians, HVAC, contractors who need: bilingual invoice output (NB Official Languages compliance), HST 15% auto-calc, WorkSafeNB clearance reminders, mobile-first UX. Competitors (Jobber, ServiceTitan) are too expensive; Wave/QBO aren't trades-specific or genuinely bilingual. NB is Canada's only officially bilingual province — 33% francophone, completely underserved by English-first tools. Moat: NB-specific from day 1, Acadian community trust, bilingual-native (not translated). Revenue: -20/mo, target 500 users = ~k MRR.",
+    "description": "Bilingual (French/English) invoice + HST tool for solo/small trades in NB, NS, PEI. Targets plumbers, electricians, HVAC, contractors who need: bilingual invoice output (NB Official Languages compliance), HST 15% auto-calc, WorkSafeNB clearance reminders, mobile-first UX. Competitors (Jobber, ServiceTitan) are too expensive; Wave/QBO aren't trades-specific or genuinely bilingual. NB is Canada's only officially bilingual province — 33% francophone, completely underserved by English-first tools. Moat: NB-specific from day 1, Acadian community trust, bilingual-native (not translated). Revenue: $20/mo target, 500 users = ~$10k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 5.8,
+      "notes": "Real pain point (bilingual invoicing, HST, trades-specific) with Joe's strong domain edge (20yr billing expertise, NB geography knowledge, bilingual capability). However, TAM severely constrained (NB trades ~30k). Even at 500-user target = ~$10k/mo MRR requires dedicated GTM effort (contractor associations, trade shows) contradicting passive-income goal. Incumbents (Wave, Freshbooks, Jobber) already entrenched. Below promotion threshold (7.0). Revisit only with Atlantic Canada expansion validation or service-vertical partnership strategy.",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 6,
+        "joes_edge_2x": 7,
+        "synergy_1x": 4,
+        "passive_potential_2x": 5
+      },
+      "weighted_score": 58,
+      "evaluatedAt": "2026-03-18T16:00:00.000Z"
+    },
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": ["trades", "bilingual", "canada-specific", "niche-saas", "low-tam"],
     "createdAt": "2026-03-01T21:02:27.174Z",
-    "updatedAt": "2026-03-01T21:03:03.696Z",
+    "updatedAt": "2026-03-18T16:00:00.000Z",
     "comments": [
       {
         "id": "cmt_1772398983695_0f5fc384",
