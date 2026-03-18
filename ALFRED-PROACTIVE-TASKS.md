@@ -251,3 +251,40 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Fix `sync-pending-questions.sh` self-healing parser (restores checkpoint reliability immediately)
 2. Harden malformed-JSON gateway handling + deduped incidents (reduces outage noise/waste)
 3. Add hard null-ID move guard + anomaly digest (stabilizes kanban truth)
+
+## Workflow Efficiency Scan — 2026-03-17
+
+### Top repetitive patterns and concrete improvements
+
+1. **Cross-channel delivery failures from unresolved recipient aliases (retry/rework loop)**
+   - **Pattern:** Proactive updates attempted with `message(action=send, channel=slack, to="joe")` fail because Slack requires explicit target format (`channel:<id>` / `user:<id>`).
+   - **Impact:** Time lost on failed sends, fragmented updates (some logged only in memory), and inconsistent visibility of completed work.
+   - **Improvement proposal:** Add a destination resolver layer used before every proactive send:
+     - map human aliases (`joe`, `hal-completions`, etc.) → provider-safe IDs in one maintained registry file (e.g., `config/delivery-aliases.json`)
+     - preflight validator script (`scripts/resolve-delivery-target.sh`) returns normalized target or hard-fails before send
+     - fallback policy during quiet hours: if target unresolved, write to Kanban comment queue instead of retrying message send
+   - **Success metric:** 0 proactive delivery failures due to invalid target format for 14 consecutive days.
+
+2. **Analysis outputs are generated but not consistently converted into trackable Kanban artifacts (insight-to-execution gap)**
+   - **Pattern:** High-quality strategy analyses (market trends, collaboration quality, passive income plans) are produced, but conversion to idea cards/comments is inconsistent.
+   - **Impact:** Recommendations accumulate in logs/memory without clear owner, due date, or acceptance criteria; repeated rediscovery increases context-switch cost.
+   - **Improvement proposal:** Enforce a “publish gate” on proactive completion:
+     - every proactive analysis must end with either (a) a new Kanban idea card payload, or (b) a comment on an existing card with next action + owner
+     - add `scripts/proactive-publish-gate.sh` to check for `artifact_type={idea_card|card_comment}` before marking run complete
+     - include a 3-item action shortlist (`Now / Next / Later`) in each artifact to reduce review friction
+   - **Success metric:** ≥80% of proactive analyses produce a Kanban artifact in the same run.
+
+3. **Recurring malformed/stale Kanban records (`STALE: null`) still trigger cleanup churn (board integrity tax)**
+   - **Pattern:** Idle loop continues to detect and move `null` stale entries.
+   - **Impact:** Noisy audit logs, false board transitions, and reduced trust in dispatch state.
+   - **Improvement proposal:** Add hard null-ID suppression + anomaly fingerprinting:
+     - block stale-move actions when `card_id` is null/empty (no-op + log)
+     - fingerprint anomaly payloads and suppress duplicate logs for 24h
+     - run one daily reconciliation report listing source endpoint/table and suggested fix path
+   - **Success metric:** zero `STALE: null` move attempts for 7 consecutive days; anomaly log volume reduced by 90%.
+
+### Recommended implementation order (highest ROI first)
+1. Delivery target resolver + preflight validation (eliminates immediate send failures)
+2. Proactive publish gate to force Kanban artifact creation (turns insight into execution)
+3. Null-ID suppression + anomaly fingerprinting in idle loop (stabilizes board truth)
+

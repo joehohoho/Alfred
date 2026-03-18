@@ -2425,12 +2425,15 @@
     "title": "Passive Income Portfolio Health Snapshot — Mar 2026",
     "description": "Portfolio review of all revenue-generating projects. See card comments for full analysis.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 4.8,
+      "notes": "Operational planning document, not a revenue idea. Portfolio reviews are governance/strategy tools best managed in MEMORY.md or as quarterly operational reflections, not in Ideas backlog. No customers, no business model, no passive revenue potential."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T10:01:06.881Z",
