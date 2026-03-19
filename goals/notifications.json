@@ -369,19 +369,11 @@
     "title": "Consulting: recurring client problem → product idea?",
     "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-17T19:23:30.172Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773838800340_a6be36fe",
-    "type": "question",
-    "title": "Consulting: recurring client problem → product idea?",
-    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
-    "source": "daily-inquiry",
-    "answered": false,
-    "createdAt": "2026-03-18T13:00:00.340Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-19T13:20:09.111Z",
+    "userAnswer": "There is nothing and this question is asked twice already in the notifications page and has been asked before, don't keep asking the same questions.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1773846049921_3b9c6e19",
@@ -437,6 +429,25 @@
     "message": "Main session was .5MB (over 3MB limit). Auto-reset and gateway restarted. Backup: e4dc5530-d57a-49b1-b61d-c7ca3065e642.20260319-024655.jsonl",
     "answered": false,
     "createdAt": "2026-03-19T05:46:59.568Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773918022926_202afa12",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-19T11:00:22.926Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773925200321_6eb416a4",
+    "type": "question",
+    "title": "Consulting: recurring client problem → product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-19T13:00:00.321Z",
     "answeredAt": null
   }
 ]

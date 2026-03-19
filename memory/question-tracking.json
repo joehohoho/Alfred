@@ -1,17 +1,21 @@
 {
   "schema_version": "1.0",
-  "description": "Tracks when each inquiry topic was last asked (prevents 4-day cycle repeats). Enforce 7-day minimum between repeats.",
-  "last_updated": 1773838800.434353,
+  "description": "Tracks when each inquiry topic was last asked. 30-day cooldown between repeats. permanently_closed=true means NEVER ask again.",
+  "last_updated": 1773926832.997636,
   "topics": {
     "consulting-opportunity": {
-      "last_asked": "2026-03-18",
-      "count": 6,
-      "note": "Asked Feb 27, Feb 28, Mar 07, Mar 09 (FLAGGED: too frequent)"
+      "last_asked": "2026-03-19",
+      "count": 7,
+      "note": "Asked Feb 27, Feb 28, Mar 07, Mar 09 (FLAGGED: too frequent)",
+      "permanently_closed": true,
+      "closed_reason": "Joe said NO 3+ times (Mar 1, 5, 9, 17, 19). Topic permanently closed."
     },
     "signal-blocker": {
       "last_asked": "2026-03-10",
       "count": 3,
-      "note": "Asked Mar 06, Mar 08"
+      "note": "Asked Mar 06, Mar 08",
+      "permanently_closed": true,
+      "closed_reason": "Joe answered on Mar 2 and Mar 10, said stop asking. Closed."
     },
     "even-us-up-strategy": {
       "last_asked": "2026-03-03",
@@ -55,7 +59,9 @@
     },
     "passive-income-target": {
       "last_asked": null,
-      "count": 0
+      "count": 0,
+      "permanently_closed": true,
+      "closed_reason": "Joe answered definitively on Feb 23 ($5-10k/month). Closed."
     },
     "passive-income-bet": {
       "last_asked": null,

@@ -130,34 +130,33 @@ fi
 validate_kanban_json() {
   local json="$1"
 
-  python3 << 'PYEOF'
+  printf '%s' "$json" | python3 -c '
 import sys
 import json
 
 try:
-  data = json.loads(sys.stdin.read())
+  data = json.load(sys.stdin)
 
   assert isinstance(data, dict), "JSON not an object"
-  assert 'columns' in data, "Missing 'columns' key"
-  assert isinstance(data['columns'], dict), "'columns' is not an object"
-  assert 'in_progress' in data['columns'], "Missing 'in_progress' column"
+  assert "columns" in data, "Missing columns key"
+  assert isinstance(data["columns"], dict), "columns is not an object"
+  assert "in_progress" in data["columns"], "Missing in_progress column"
 
-  cards = data['columns']['in_progress']
-  assert isinstance(cards, list), "'in_progress' is not an array"
+  cards = data["columns"]["in_progress"]
+  assert isinstance(cards, list), "in_progress is not an array"
 
   if cards and len(cards) > 0:
     first = cards[0]
     assert isinstance(first, dict), "Card is not an object"
-    assert 'id' in first, "Card missing 'id' field"
-    assert 'title' in first, "Card missing 'title' field"
+    assert "id" in first, "Card missing id field"
+    assert "title" in first, "Card missing title field"
 
   print("VALID")
   sys.exit(0)
-
 except Exception as e:
   print(f"INVALID: {str(e)}", file=sys.stderr)
   sys.exit(1)
-PYEOF
+'
 
   return $?
 }
@@ -169,7 +168,7 @@ HTTP_STATUS="000"
 # Make request and capture HTTP status code
 HTTP_RESPONSE=$(curl -s -w "\n%{http_code}" "http://localhost:3001/api/kanban" 2>/dev/null || echo "")
 HTTP_STATUS=$(echo "$HTTP_RESPONSE" | tail -1)
-KANBAN_JSON=$(echo "$HTTP_RESPONSE" | head -1)
+KANBAN_JSON=$(echo "$HTTP_RESPONSE" | sed '$d')
 
 # Check HTTP status (A5 — HTTP Status Code Checks)
 if [[ ! "$HTTP_STATUS" =~ ^[2] ]]; then
@@ -338,12 +337,12 @@ PYEOF
 validate_card_fields() {
   local card_json="$1"
 
-  python3 << 'PYEOF'
+  python3 - "$card_json" << 'PYEOF'
 import sys
 import json
 
 try:
-  card = json.load(sys.stdin)
+  card = json.loads(sys.argv[1])
 
   required = ['id', 'title']
   for field in required:

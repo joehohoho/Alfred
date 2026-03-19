@@ -191,6 +191,14 @@ function attemptConnection() {
 
   ws.on('error', (err) => {
     if (!done) {
+      // Retry once on EHOSTUNREACH (intermittent on HAL's Windows PC waking from sleep)
+      if (err.message && err.message.includes('EHOSTUNREACH') && !ws._retried) {
+        ws._retried = true;
+        setTimeout(() => {
+          if (!done) attemptConnection();
+        }, 5000); // Wait 5s for NIC to wake up
+        return;
+      }
       console.error('WebSocket error:', err.message);
       process.exit(1);
     }

@@ -106,42 +106,54 @@ Instructions: Complete this task. Report results in a comment on the Kanban card
   }
 }
 
-# ── 6. Queue work for Alfred (write to dispatch queue, deduplicate) ────────────
+# ── 6. Dispatch work to Alfred via Command Center wake API ─────────────────────
 dispatch_to_alfred() {
   local card_id="$1"
   local title="$2"
   local desc="$3"
   local priority="$4"
-  
-  local queue_file="$TRACK_DIR/alfred-queue.jsonl"
-  
-  # Deduplicate: don't queue if this card_id already has a pending entry
-  if [[ -f "$queue_file" ]]; then
-    local existing=$(grep "\"card_id\":\"$card_id\"" "$queue_file" | grep "\"status\":\"pending\"" | wc -l)
-    if [[ "$existing" -gt 0 ]]; then
-      log "  → Already queued for Alfred: $title (card: $card_id)"
+
+  # Deduplicate: track recently dispatched cards (avoid re-sending every 15 min)
+  local dispatch_tracker="$TRACK_DIR/alfred-dispatched.json"
+  if [[ -f "$dispatch_tracker" ]]; then
+    local already=$(python3 -c "
+import json, time
+try:
+    d = json.load(open('$dispatch_tracker'))
+    entry = d.get('$card_id', {})
+    age = time.time() - entry.get('at', 0)
+    print('yes' if age < 3600 else 'no')  # 1-hour dedup window
+except: print('no')
+" 2>/dev/null)
+    if [[ "$already" == "yes" ]]; then
+      log "  → Already dispatched to Alfred within 1h: $title (card: $card_id)"
       return 0
     fi
   fi
-  
-  # Append new entry to queue
-  python3 - "$card_id" "$title" "$desc" "$priority" <<'PY' >> "$queue_file"
-import sys, json
-from datetime import datetime, timezone
-card_id, title, desc, priority = sys.argv[1:5]
-entry = {
-  "queued_at": datetime.now(timezone.utc).isoformat(),
-  "card_id": card_id,
-  "title": title,
-  "description": desc,
-  "priority": priority,
-  "status": "pending"
-}
-print(json.dumps(entry, separators=(',', ':')))
-PY
-  
-  log "  ✓ Queued for Alfred: $title (card: $card_id)"
-  return 0
+
+  # Send work to Alfred via Command Center wake endpoint (uses gateway WebSocket)
+  local wake_result
+  wake_result=$(curl -s --max-time 15 -X POST "http://localhost:3001/api/kanban/wake" 2>/dev/null)
+  local wake_ok=$(echo "$wake_result" | python3 -c "import sys,json; print(json.load(sys.stdin).get('dispatched', False))" 2>/dev/null || echo "False")
+
+  if [[ "$wake_ok" == "True" ]]; then
+    log "  ✓ Dispatched to Alfred via wake: $title (card: $card_id)"
+    # Track this dispatch to avoid re-sending
+    python3 -c "
+import json, time
+path = '$dispatch_tracker'
+try: d = json.load(open(path))
+except: d = {}
+d['$card_id'] = {'at': time.time(), 'title': '$title'}
+# Prune entries older than 24h
+d = {k:v for k,v in d.items() if time.time() - v.get('at',0) < 86400}
+json.dump(d, open(path, 'w'), indent=2)
+" 2>/dev/null
+    return 0
+  else
+    log "  ✗ Wake dispatch failed for: $title (card: $card_id) — result: $wake_result"
+    return 1
+  fi
 }
 
 # ── 7. Move card to Done or Review ────────────────────────────────────────────
