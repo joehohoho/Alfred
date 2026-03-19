@@ -397,7 +397,7 @@
     "title": "Signal App Data Feed API",
     "description": "Package the market signal detection logic from the Signal App as a JSON/WebSocket API. Sell data feeds to other traders, trading bots, and trading platforms. Low maintenance (data already generated as part of Signal App development), recurring revenue model, minimal incremental effort. Potential customers: retail traders, prop trading firms, crypto funds, algo trading communities.",
     "category": "passive-income",
-    "status": "evaluated",
+    "status": "archived",
     "source": "alfred-generated",
     "effort": "low",
     "potential": "high",
@@ -418,7 +418,9 @@
       "low-maintenance"
     ],
     "createdAt": "2026-02-23T16:32:20.432Z",
-    "updatedAt": "2026-02-24T08:56:16.057Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Signal App: Monetization Strategy (Freemium + $19.99 Pro)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1771903200001_lawfirm_billing",
@@ -970,7 +972,7 @@
     "title": "Client Onboarding Autopilot for Automation Consultants",
     "description": "Automates the post-sale onboarding process for automation consultants. When a new client is signed, it triggers intake collection, provisions accounts (Slack, Notion, Drive), sends welcome sequences, schedules kickoff, and generates the project brief — all without the consultant touching it. Subscription ($49–$99/mo) + template marketplace for passive income. Joe is the ideal customer — built for people doing exactly what he does.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -982,7 +984,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T06:25:02.192Z",
-    "updatedAt": "2026-03-05T08:00:00.000Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Niche SaaS: Client Onboarding Packet Autopilot for small agencies\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772099236147_d417567b",
@@ -1351,7 +1355,7 @@
     "title": "Rural Contractor Invoice + Progress Billing Kit (NB trades)",
     "description": "Canada-specific passive-income opportunity (Atlantic/NB):\\n\\nProblem:\\nNB trades/contractors (electricians, HVAC, renovators) lose time and revenue on manual estimates, change orders, and bilingual customer documentation. Connectivity in rural areas makes cloud-only apps painful onsite.\\n\\nOpportunity:\\nOffline-first mobile invoicing and progress-billing app tailored to Canadian trades:\\n- quote -> change order -> invoice workflow\\n- HST-compliant invoice templates (EN/FR)\\n- holdback/progress billing support for renovation projects\\n- syncs when online; sends finalized docs automatically\\n\\nMoat:\\nOffline-first + bilingual + Canada-specific invoicing norms in a small, underserved geography where incumbents underinvest.\\n\\nMonetization:\\n/user/mo + transaction add-ons (payment links, automated reminders).",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1372,7 +1376,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-26T20:01:11.462Z",
-    "updatedAt": "2026-03-08T17:00:00.000Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Atlantic Contractor Client Portal-in-a-Box\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772143997042_57927d76",
@@ -1734,7 +1740,7 @@
     "title": "SMB Automation Health Monitor",
     "description": "Lightweight monitoring SaaS for Zapier/Make/n8n workflows: heartbeat checks, failed-run digest, retry playbooks, and weekly ROI report emailed to owner. Position as \"insurance for automations\" for consultants/SMBs. Effort: Low (2-3 weeks MVP). Upside: High (-/mo, sticky recurring due to operational risk reduction).",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1755,7 +1761,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T17:41:14.515Z",
-    "updatedAt": "2026-03-10T20:01:00.000Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Niche SaaS: SOP Drift Detector for AI automations\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772224937065_65b311c0",
@@ -1820,7 +1828,7 @@
     "title": "Automation Drift Monitor for SMB Workflows",
     "description": "Micro-SaaS that watches Zapier/Make/n8n/Google Sheet automations for silent failures, schema changes, rising run-time, and missing outputs; sends plain-English alerts + one-click remediation playbooks. Recurring model: by number of workflows monitored. Effort: Medium (3-5 weeks MVP). Upside: High (broad SMB demand; k-k MRR potential with low support).",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1840,7 +1848,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T20:42:25.902Z",
-    "updatedAt": "2026-03-11T10:02:00.000Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Niche SaaS: SOP Drift Detector for AI automations\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772234554217_9de72f03",
@@ -1897,7 +1907,7 @@
     "title": "Automation Audit SaaS for Small Law Firms",
     "description": "Micro-SaaS: self-serve tool that law firms use to audit their current workflows and get a prioritized automation roadmap. Firm fills out intake questionnaire, tool generates a PDF/dashboard report showing top 5 automation wins, estimated time savings, and suggested tools. Upsell: Joe's implementation services. EFFORT: 2-3 weeks (form + report generator + Stripe for $199 one-time or $49/month retainer for quarterly re-audits). UPSIDE: $199 per audit or $49/month retainer. 20 audits/month = $4k. Maintenance: minimal — mostly static logic + PDF template. Positions Joe as expert, feeds consulting pipeline.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -1917,7 +1927,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-27T23:22:34.628Z",
-    "updatedAt": "2026-03-11T11:01:00.000Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned legal industry pattern (law firm billing/automation audit) from 4+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772237607004_5b9e4cb9",
@@ -2190,7 +2202,7 @@
     "title": "CoinUsUp Growth Audit — Feb 28 2026",
     "description": "## Top 3 UX Friction Points\n\n1. **No clear paid value proposition** — The app has features gated behind a freemium model but no obvious prompt explaining what you get by paying. Users hit limits silently (useLimitCheck returns allowed:false) with no compelling upgrade path. Fix: add contextual upgrade prompts at friction points with specific benefit callouts.\n\n2. **Single root ErrorBoundary** — Any crash in Chat, Campaigns, or Members takes down the entire app UI. Users see a blank screen with no recovery option. HAL's code review (today) confirmed this is the only error boundary. Fix: per-feature boundaries so one broken section doesn't kill the whole experience.\n\n3. **205 console.log calls in production** — Many are debug-emoji logs (🔴 [AuthContext]) logging user IDs and session state on every render. While invisible to users, these slow down render performance in DevTools and waste resources. Fix: gate behind DEBUG env flag.\n\n## Top 3 Missing Features\n\n1. **Push notifications for campaign milestones** — Users tracking donation campaigns have no way to know when they hit 50%, 75%, or 100% of goal without manually checking. A simple Capacitor push notification on milestone would drive re-engagement.\n\n2. **CSV/PDF export of financial data** — Currently gated behind paid tier but needs to actually exist. Donors and campaign managers need to export for accounting. This is a high-leverage paid feature unlock.\n\n3. **Team/org dashboard for admins** — No top-level view showing all campaigns, events, and members at a glance. Admins currently drill into each item individually. A summary dashboard would improve retention for power users.\n\n## Top 3 Growth Levers\n\n1. **Add paid tier NOW** — The app has users, Stripe is (or can be trivially) integrated, and there's zero MRR. Even .99/mo for CSV export + unlimited campaigns would convert some % of existing users. Highest-leverage action with no new acquisition cost. Effort: ~1 week.\n\n2. **Fix SEO gaps identified in audit** — Three remaining: WebP images + lazy loading (LCP impact), internal linking between About/Contact/Features (crawl depth), sitemap submission to Google Search Console (indexing speed). Total effort: ~4-6 hours. Incremental organic traffic with zero ongoing cost.\n\n3. **In-app referral/sharing mechanic** — Campaign organizers naturally want to share their campaign with donors. Adding a native 'Share this campaign' button (copy link, SMS, social) costs ~4 hours and creates a viral loop where every active campaign becomes a distribution channel.\n\n*Generated by Alfred proactive growth audit — 2026-02-28*",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2211,14 +2223,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-02-28T23:01:57.428Z",
-    "updatedAt": "2026-03-16T03:12:00.000Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772326914693_71a9433e",
     "title": "Even Us Up — Growth Audit (Alfred, Feb 28)",
     "description": "## Even Us Up Growth Audit\n\n### Context\nProactive audit vs. Splitwise/competitors. Splitwise is bleeding users (paywalled basic features, 3-transaction daily limit on free tier, bloated UX) — this is Even Us Up window.\n\n---\n\n### Top 3 UX Friction Points\n\n1. **Onboarding cold-start** (Effort: S) — New users must invite friends before getting value. Let solo users log IOUs first, invite later. High drop-off risk at signup.\n\n2. **Settlement flow ambiguity** (Effort: M) — Is settlement recorded-only or payment-triggered? Make state explicit. If no payment rail, add clear Recorded/Paid toggle.\n\n3. **Recurring expense entry** (Effort: M) — Couples and roommates re-enter fixed monthly splits every month. Splitwise Pro locks this. Offer it free as differentiator.\n\n---\n\n### Top 3 Missing Features\n\n1. **E-Transfer / Payment Integration — Canada focus** (Effort: L) — Interac e-Transfer is the Canadian default. Deep-link to e-Transfer pre-filled with amount + email. Splitwise payment integration is US-centric — this is a real gap for Canadian users.\n\n2. **Recurring / scheduled expense templates** (Effort: M) — Monthly auto-add for rent, Netflix splits, etc. Free tier. Splitwise charges for this. Offer free = migration incentive.\n\n3. **Spending insights / charts** (Effort: M) — Simple analytics (You spent $340 on restaurants with Alex this month) increase stickiness. Splitwise buries behind Pro. Low-hanging retention feature.\n\n---\n\n### Top 3 Growth Levers\n\n1. **Splitwise Refugee positioning** (Effort: S — marketing) — Splitwise paywall backlash is massive (multiple viral Reddit threads, Feb 2025 still active). Campaign: Tired of Splitwise daily limits? Even Us Up is free. This window is open RIGHT NOW.\n\n2. **Couples niche** (Effort: S-M) — Splitwise targets friend groups. The couples-only niche (Honeydue, Zeta) is underserved in Canada. Lean into couples UX: joint budget view, monthly summary for two. Higher retention + LTV.\n\n3. **Referral loop** (Effort: M) — Expense apps are inherently viral (need friends on it). Formal referral mechanic: Invite 3 friends, unlock feature. Tracked invite links beat organic word-of-mouth.\n\n---\n\n### Priority Matrix\n\n| Item | Impact | Effort | Priority |\n|---|---|---|---|\n| Splitwise Refugee campaign | High | S | Do now |\n| Recurring expenses free | High | M | Do now |\n| Onboarding cold-start fix | High | S | Do now |\n| Settlement state clarity | Medium | S | Quick win |\n| E-Transfer integration | High | L | Next sprint |\n| Spending insights | Medium | M | After above |\n| Referral loop | Medium | M | After above |\n\n*Alfred proactive audit — Feb 28 2026*",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2239,7 +2253,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T01:01:54.693Z",
-    "updatedAt": "2026-03-01T01:01:54.693Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Even Us Up growth audit — prioritized UX/features/growth plan\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772337691660_482a7565",
@@ -2406,7 +2422,7 @@
     "title": "Workflow Efficiency Scan — Top 3 Improvement Proposals",
     "description": "## Workflow Efficiency Scan (Alfred, Mar 1 2026 4AM)\n\n### Finding 1: Overnight Rate Limit Cascade (HIGH PRIORITY)\nThe gateway rate-limit circuit breaker fired 4 consecutive times overnight (4AM, 5AM, 6AM, 7AM AST). Each hour something triggers enough LLM calls to trip the breaker, stopping the gateway for 5 min every hour.\n\n**Root cause likely:** Two overlapping hourly cron jobs (both schedule expr `0 * * * *`) + Alfred proactive tasks + HAL idle tasks all colliding in the same hour window.\n\n**Proposal:**\n- Stagger the two hourly crons by 15+ min (add `staggerMs: 900000` to one)\n- Add a global overnight rate-limit governor: cap total LLM calls per hour to 80% of quota between 11PM–7AM\n- Use LOCAL/Codex exclusively for overnight idle proactive tasks (currently they may be using Sonnet/Haiku)\n- Cost: 0. Benefit: eliminates 4+ gateway restart events per night.\n\n---\n\n### Finding 2: Discord Webhooks Dead — HAL Completions Not Being Delivered (URGENT)\nBoth `DISCORD_WEBHOOK_ALFRED_HAL` and `DISCORD_WEBHOOK_HAL_COMPLETIONS` are returning HTTP 403 Forbidden as of Mar 1 03:40 AM. Any HAL task completions during this period were silently lost — Joe never saw them.\n\n**Proposal:**\n- Regenerate both Discord webhook URLs (takes 2 min in Discord server settings)\n- Add webhook health check to the daily 7AM cron: `curl -s -o /dev/null -w '%{http_code}' <webhook_url>` — alert if not 200/204\n- Store new URLs in .env, run `scripts/hal-slack-notify.sh` to test\n\n---\n\n### Finding 3: 14-Card Review Backlog With No Digest (MEDIUM PRIORITY)\nThere are currently 14 cards in the Review column. Joe has to manually open the Kanban board to discover what needs his attention. Many of these cards only need a quick yes/no or a push to Done.\n\n**Pattern observed:** Joe often asks 'Is there anything I need to review?' on individual cards — this question is being asked card-by-card instead of being answered in bulk.\n\n**Proposal:**\n- Add a daily 9AM Morning Brief section: 'Cards awaiting your review: [N cards, with titles]'\n- Add a simple rule: if a card has been in Review > 48h with no Joe comment, Alfred sends a single consolidated ping — not per-card pings\n- Cards that have no Joe-action required (pure Alfred deliverables) → Alfred moves to Done autonomously per Joe's directive (Feb 27: 'if complete and does not require your validation, move to Done directly')\n\nJoe already granted this autonomy. The gap is that Alfred is not consistently applying it — some completed cards still sit in Review waiting for Joe to say 'done.'",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2418,7 +2434,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T08:02:47.952Z",
-    "updatedAt": "2026-03-17T14:00:00.000Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772359266881_8a7b62ea",
@@ -2584,7 +2602,7 @@
     "title": "🍁 SaaS Idea: BillTrade NB — Bilingual Invoicing + HST for Atlantic Trades",
     "description": "Bilingual (French/English) invoice + HST tool for solo/small trades in NB, NS, PEI. Targets plumbers, electricians, HVAC, contractors who need: bilingual invoice output (NB Official Languages compliance), HST 15% auto-calc, WorkSafeNB clearance reminders, mobile-first UX. Competitors (Jobber, ServiceTitan) are too expensive; Wave/QBO aren't trades-specific or genuinely bilingual. NB is Canada's only officially bilingual province — 33% francophone, completely underserved by English-first tools. Moat: NB-specific from day 1, Acadian community trust, bilingual-native (not translated). Revenue: $20/mo target, 500 users = ~$10k MRR.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2611,7 +2629,7 @@
       "low-tam"
     ],
     "createdAt": "2026-03-01T21:02:27.174Z",
-    "updatedAt": "2026-03-18T16:00:00.000Z",
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
     "comments": [
       {
         "id": "cmt_1772398983695_0f5fc384",
@@ -2619,7 +2637,9 @@
         "text": "## 🍁 Canada-Specific Passive Income Scan — Research Summary\n\n**Scan focus:** Atlantic Canada / NB SMB pain points with geography-specific moat\n\n### Why this is the strongest of the 3 ideas:\n\n**Problem is real and overlooked:**\n- NB is Canada's only officially bilingual province (~33% francophone)\n- Trades/contractors are the largest employer segment in rural NB/NS/PEI\n- Most existing tools: Jobber ($49-$199/mo, overkill), ServiceTitan (enterprise), Wave/QBO (English-first, not trades-specific)\n- NB Official Languages Act creates a legal compliance angle for bilingual invoicing\n\n**Moat factors:**\n1. **Language:** Built French-native, not translated — Acadian French users can tell immediately\n2. **HST specificity:** Atlantic Canada HST 15% is not the same as Ontario 13% or BC 5% — a dedicated tool that just gets this right without user config has value\n3. **WorkSafeNB:** Unique to NB — contractors need clearance certificates; no tool handles this reminders workflow\n4. **Mobile-first:** Rural NB trades work on phones; most invoicing tools assume desktop\n5. **Small market = no big competitor bothers:** $8-10k MRR ceiling is beneath VC interest but ideal for indie/vibe coder\n\n**Revenue model:**\n- $15-20/mo per user\n- 500 users = $7,500-$10,000/mo MRR\n- Low churn: trades businesses use invoicing tools continuously, not seasonally\n- Potential upsell: HST return preparation export for accountant\n\n**Joe's edge:** Lives in Dieppe, bilingual market knowledge, existing NB network from consulting\n\n**Scan also produced:**\n- AtlanticTax Reminders (compliance calendar, bookkeeper-focused)\n- FrancoBiz (French-first bookkeeping for Acadian SMBs)\nAll 3 added to Kanban Ideas.",
         "createdAt": "2026-03-01T21:03:03.695Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (HST invoicing) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772398956459_7c78678d",
@@ -2658,7 +2678,7 @@
     "title": "🍁 SaaS Idea: FrancoBiz — French-First Micro-Business Bookkeeping for NB Acadians",
     "description": "100% French-first bookkeeping SaaS targeting Acadian francophone micro-businesses in NB (restaurants, retail, services in Moncton/Dieppe, Bathurst, Campbellton, Edmundston). Features: native French UI (not translated), HST tracking, T4/T4A generation, simple CRA-ready P&L, bilingual invoice output. Big tools (Wave, QBO) are English-first with poor French UX; Sage is enterprise. NB Official Languages Act requires bilingual output for businesses serving the public — this tool makes compliance automatic. Community moat: trust in Acadian markets, local-first positioning, ACOA + Office of the Commissioner of Official Languages grant eligibility. Revenue: /mo, 1000 users = k MRR.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2667,7 +2687,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-01T21:02:46.386Z",
-    "updatedAt": "2026-03-01T21:02:46.386Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial vertical pattern (bookkeeping SaaS) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772517663984_70a63535",
@@ -2716,7 +2738,7 @@
     "title": "Signal App monetization strategy (pricing + competitor benchmark)",
     "description": "Monetization recommendation for Signal App after competitor scan.\n\nCompetitor benchmark (public pricing/pages):\n1) Cryptohopper (crypto bot/signal platform)\n   - Free tier + paid tiers: Explorer ~$24/mo, Adventurer ~$57.5/mo, Hero ~$107.5/mo\n   - Upsell ladder tied to automation depth, scan power, and portfolio bot limits.\n2) TrendSpider (trading analysis/alerts)\n   - Free trial + subscription model (pricing gated by plan + add-ons like market data)\n   - Strong value framing around AI/backtesting/alerts, then monetizes advanced depth + add-ons.\n3) Telegram/crypto signal providers (market range from industry listings)\n   - Typical paid signal range ~$30-$290/mo\n   - Most run freemium funnel (free channel -> VIP paid) with high churn risk and low trust.\n\nRecommended pricing strategy (early stage Joe audience):\n- Launch with 3-tier hybrid: Free / Pro / Founder.\n  - Free: delayed signals, limited assets, no webhook/API.\n  - Pro: real-time alerts + risk context + watchlists at CA$19-29/mo.\n  - Founder: early adopter lifetime or annual prepay (e.g., CA$199-299 one-time or CA$199/yr) capped seats.\n- Add B2B/API later (not now): after proving retail retention, license signal feed/API to small advisory/newsletter operators.\n\nWhy this wins now:\n- Beats premium-heavy competitors on entry price while keeping clear upgrade path.\n- Captures cash early with Founder prepay to fund iteration.\n- Keeps complexity low (subscription first, API licensing later).\n\nExecution plan (next 30 days):\nWeek 1: Landing page + Stripe + pricing test (A/B Pro at CA$19 vs CA$29)\nWeek 2: Free tier + Pro paywall + referral hook\nWeek 3: Founder offer launch (limited seats, countdown)\nWeek 4: Measure conversion, churn intent, and feature usage; adjust tiers.\n\nSuccess gates:\n- Free->Pro conversion >= 5% in first 30 days\n- Founder seats: >= 25 sold\n- Weekly active Pro users >= 40%\nIf misses: tighten niche/use-case before adding features.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2725,7 +2747,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-03T15:01:58.354Z",
-    "updatedAt": "2026-03-12T10:02:14.449Z",
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
     "comments": [
       {
         "id": "cmt_1772708532126_a2dead31",
@@ -2751,14 +2773,16 @@
         "text": "Proactive update (Monetization strategy benchmark + recommendation):\n\n## Context check first\nPer current Ideas quality/boundary directives, external retail crypto/trading products are currently out of scope. So the best strategy is **validate monetization without public launch risk** (private pilot + B2B data/alerts packaging), then decide if this should be commercialized or kept internal.\n\n## Competitor benchmark (3)\n1) **TradingView** (market benchmark for trader tooling)\n   - Public plan references commonly cited around **$14.95 / $29.95 / $59.95 monthly** (annual discounts available).\n   - Model: freemium entry + paid capability tiers + add-ons.\n\n2) **TipRanks** (retail signals/research packaging)\n   - Public references show **Premium ~ $360/yr** and **Ultimate ~ $600/yr** (some sources also quote ~$29.95/mo annualized Premium).\n   - Model: free/basic funnel + tiered annual subscriptions.\n\n3) **Seeking Alpha Premium** (research/signal-adjacent subscription)\n   - Public references show **Premium ~ $299/yr**.\n   - Model: free content funnel + premium paywall + higher-tier pro offerings.\n\n## Pattern from market\n- Most products use **freemium → paid tier ladder**\n- Typical retail paid range clusters around **~$20–$60/month equivalent** (or $299–$600/year for annual plans)\n- Annual billing and trust/track-record proof are key for conversion\n\n## Best early-stage strategy for Joe’s audience\n### Recommended: **Freemium + Founding Pro annual pilot (not broad public launch yet)**\n- **Free tier**: delayed/non-actionable signals + 1 watchlist + weekly digest\n- **Pro tier**: near-real-time alerts, risk notes, more symbols, backtest snapshots\n- **Pilot price**: **$19/month or $190/year** for first cohort (founding pricing)\n- **Why this price**: below major incumbents, still high enough to validate willingness-to-pay\n\n### Add B2B path in parallel (lower compliance/marketing drag)\n- Offer **API/license feed** to a small set of vetted partners at **$299–$999/month** depending on symbol coverage/latency\n- This tests higher-ARPU monetization without requiring broad retail acquisition\n\n## Decision recommendation\nGiven current no-trading-product boundary, treat this as a **monetization validation framework** and run only a controlled pilot (or keep internal) until Joe confirms commercialization scope.\n\nIf approved later, next step would be a 2-week pricing test plan with conversion KPIs (trial→paid, retention at 30 days, cancellation reasons).",
         "createdAt": "2026-03-12T10:02:14.449Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: matches banned financial/trading vertical pattern (monetizing trading signals to external users) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772557285014_8eea607e",
     "title": "Workflow efficiency scan: top 3 automation wins (Mar 3)",
     "description": "Top repetitive patterns + concrete fixes:\\n\\n1) HAL dispatch failure churn (high-frequency noise + wasted cycles)\\nPattern: hal-idle-dispatch runs every 15m even when HAL gateway is unreachable, generating repeated failures/backoff churn and operator checks.\\nProposal: add preflight health gate + adaptive sleep tiers (15m -> 60m -> 3h) after N failures; auto-resume to 15m on first successful websocket handshake; write single summarized incident per hour instead of per-run failure logs.\\nImplementation: patch hal-idle-dispatch-cron.sh to checkpoint last-failure-window + suppress duplicate logs, add explicit websocket probe before full dispatch.\\nExpected ROI: less alert noise, fewer manual restarts/checks, cleaner overnight automation signal.\\n\\n2) Manual triage/context switching between kanban idle + proactive + discussion paths\\nPattern: multiple scripts (kanban-idle-loop.sh, alfred-proactive-check.sh, alfred-hal-discussion.sh) require operator reasoning to route tasks correctly.\\nProposal: introduce a unified dispatcher wrapper (single entrypoint) that outputs structured JSON route decision: {action, task_type, target, next_script}.\\nImplementation: new script orchestrator that runs the three checks sequentially and enforces branch policy automatically; add daily summary artifact.\\nExpected ROI: lower cognitive overhead, fewer branching mistakes, faster unattended execution.\\n\\n3) Repetitive weekly maintenance checks are scattered and partially manual\\nPattern: launchctl status, heartbeat thresholds, session cleanup, log rotation, and reliability checks are split across docs/scripts and require ad-hoc verification.\\nProposal: create a consolidated \"ops snapshot\" generator every 2-4h writing one markdown report with: gateway health, idle-loop health, failed dispatch count delta, launchagent anomalies, and top pending blockers.\\nImplementation: script + cron writing to memory/YYYY-MM-DD.md and optional Kanban comment when thresholds breached.\\nExpected ROI: fewer manual status probes, faster root-cause detection, improved continuity after context resets.\\n\\nPriority recommendation: implement #1 first (same-day), #2 second (this week), #3 third (this week).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2767,14 +2791,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-03T17:01:25.014Z",
-    "updatedAt": "2026-03-03T17:01:25.014Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772571671916_3a26f08e",
     "title": "Portfolio health snapshot — passive income (Q2 focus)",
     "description": "One-page portfolio review (2026-03-03):\\n\\n1) CoinUsUp\\n- Current status: Live/maintenance mode; no major growth push active\\n- Est. current MRR: Low (likely near /bin/zsh- without active acquisition)\\n- Est. potential MRR (12 mo with focused GTM): k-k\\n- Biggest bottleneck: No dedicated growth engine (distribution + conversion funnel)\\n\\n2) Even Us Up\\n- Current status: Live/maintenance mode; similar to CoinUsUp, limited active expansion\\n- Est. current MRR: Low (likely near /bin/zsh- without active acquisition)\\n- Est. potential MRR (12 mo with focused GTM): k-k\\n- Biggest bottleneck: Activation/retention loop not being actively optimized\\n\\n3) Signal App\\n- Current status: Early-stage build/validation; strongest scalable upside if monetized early\\n- Est. current MRR: /bin/zsh (pre-revenue or negligible)\\n- Est. potential MRR (12 mo): k-k (if paid pilot -> subscription conversion succeeds)\\n- Biggest bottleneck: Monetization validation risk (must prove willingness to pay before feature expansion)\\n\\n4) Automation Consulting\\n- Current status: Active service business with immediate revenue capability\\n- Est. current MRR: Highest among portfolio (project-based/consulting cashflow)\\n- Est. potential MRR-equivalent: k-k via productized offers + repeatable delivery\\n- Biggest bottleneck: Time-for-money ceiling unless productized into fixed-scope packages\\n\\nPortfolio takeaways\\n- Best near-term cash engine: Automation Consulting\\n- Best passive-income upside: Signal App (if run as paid validation sprint)\\n- Current drag: splitting focus equally across all projects\\n\\nRecommended focus allocation (next quarter)\\n- 50% Automation Consulting (cash + reusable IP)\\n- 35% Signal App (paid validation, narrow MVP)\\n- 15% CoinUsUp + Even Us Up (maintenance-only unless KPI trigger)\\n\\nNotes\\n- MRR ranges are directional planning estimates, not booked revenue.\\n- Trigger for legacy app reinvestment: clear traction signal (retention/conversion lift).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2783,14 +2809,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-03T21:01:11.916Z",
-    "updatedAt": "2026-03-03T21:01:11.916Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772604233853_1b613408",
     "title": "2026 market trends: vertical AI + reliability-core + outcome pricing",
     "description": "From Alfred↔HAL discussion: (1) pick one narrow high-frequency wedge and validate with 8-12 interviews in 30 days, (2) build reusable AI reliability core (schema validation, confidence routing, fallback models, audit logs, cost telemetry), (3) use 4-6 week outcome-based pilots on real customer data then convert to recurring SaaS.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2799,7 +2827,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T06:03:53.853Z",
-    "updatedAt": "2026-03-04T06:03:53.853Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Passive income idea scan — 3 realistic niches (Mar 11)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772611271266_d3849e59",
@@ -2838,7 +2868,7 @@
     "title": "CRA Compliance Autopilot for Canadian Service SMBs",
     "description": "Problem: Service SMBs miss GST/HST remittance windows, payroll remittances, and filing deadlines; penalties are painful and predictable.\\nTarget market: Canadian agencies/consultancies/trades with 2-50 staff and simple bookkeeping stacks (QBO/Xero).\\nMRR potential: k-k/mo (100-400 accounts at -, plus concierge setup).\\nTech complexity: 2/5.\\nCompetition: Medium (bookkeeping tools track data, but proactive deadline-risk copilot + plain-language action plans is still weak in market).\\nWhy Joe can win: Strong automation consulting background + implementation discipline; can ship practical reminder/workflow system fast with low support burden.\\nMVP: ingest accounting calendar + automated deadline timeline + risk flags + one-click task checklists + accountant handoff notes.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2847,7 +2877,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T08:01:17.604Z",
-    "updatedAt": "2026-03-04T08:01:17.604Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA compliance automation) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772611283847_899f0695",
@@ -2886,7 +2918,7 @@
     "title": "Atlantic Payroll Guard (NB/NS bilingual payroll + CRA deadlines)",
     "description": "SMB payroll co-pilot for Atlantic Canada: bilingual employee/paystub templates (EN/FR), province-aware source deduction reminders, CRA remittance calendar, and Ceridian/QuickBooks export bridge. Moat: region-specific compliance pack and French-first workflows that national tools under-serve.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2895,14 +2927,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T10:01:07.946Z",
-    "updatedAt": "2026-03-04T10:01:07.946Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (payroll + CRA deadlines) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772618468159_c1b86da8",
     "title": "HST/GST Pulse for microbusinesses (construction + contractors)",
     "description": "Simple filing assistant focused on NB/NL/NS/PEI small operators: tracks mixed-tax invoices, flags ITC misses, predicts next remittance amount, and sends deadline nudges keyed to filing frequency. Moat: Atlantic filing heuristics + contractor-specific defaults competitors ignore.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2911,14 +2945,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T10:01:08.159Z",
-    "updatedAt": "2026-03-04T10:01:08.159Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (HST/GST compliance) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772618468371_0ebe149a",
     "title": "Rural Ops Sync (offline-first field invoicing + job docs)",
     "description": "Offline-first app for trades/contractors in low-connectivity areas: capture time/materials/photos/signatures offline, auto-sync when signal returns, generate bilingual invoices and payment reminders. Moat: rural connectivity resilience + Atlantic trades templates.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2927,14 +2963,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T10:01:08.371Z",
-    "updatedAt": "2026-03-04T10:01:08.371Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Low-Bandwidth Field Ops Hub for Rural Atlantic Contractors\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772625702114_3c9f0c04",
     "title": "CoinUsUp growth audit: UX, features, levers",
     "description": "Priority recommendations (based on current app + marketing copy review)\n\nTop 3 UX friction points (highest impact first)\n1) First-run complexity + role friction (Effort: M)\n   - Product launches users into a broad sidebar with many modules (campaigns/events/members/donations/expenses/chat/group email/shifts/tasks/reports/settings) and role-gated visibility.\n   - New users likely face cognitive overload before seeing a quick win.\n   - Recommendation: add role-based starter modes + guided checklists that collapse non-essential modules until setup milestones are completed.\n\n2) Onboarding depends on user discovery, not outcome-first flow (Effort: M)\n   - SetupGuide exists, but requires users to execute multiple admin tasks in sequence before value is obvious.\n   - Recommendation: add one-click sample org/campaign/event and “demo data” path so users can see a populated dashboard in <2 minutes.\n\n3) Plan/limit friction appears early for smaller teams (Effort: S-M)\n   - Free/Basic plans are restrictive (e.g., low campaign/event/shift limits), creating early upgrade pressure before habit formation.\n   - Recommendation: introduce a 14-day Pro trial or milestone-based temporary boosts (e.g., unlock extra events after first completed campaign).\n\nTop 3 likely missing features users want\n1) Donor CRM lifecycle automation (Effort: L)\n   - Missing explicit donor journey tools: segmentation, pledge tracking, renewal reminders, re-engagement workflows.\n   - Build: donor health score + saved segments + scheduled outreach templates.\n\n2) Native payment + giving page optimization suite (Effort: L)\n   - Marketing emphasizes tracking, but conversion tooling appears limited.\n   - Build: embeddable donation pages, suggested ask amounts, recurring gift nudges, A/B tests for page copy.\n\n3) Executive “Board-ready” reporting packs (Effort: M)\n   - Reports exist, but likely need turnkey outputs for board meetings/sponsors.\n   - Build: one-click monthly board packet PDF, campaign postmortems, KPI benchmark views.\n\nTop 3 growth levers (SEO, virality, monetization)\n1) SEO moat via programmatic nonprofit content (Effort: M)\n   - Current marketing pages are good foundation, but expand with intent clusters:\n     - “Fundraising plan templates for schools/churches/sports clubs”\n     - “Donation tracking spreadsheet alternative”\n     - “Volunteer shift planning templates”\n   - Add downloadable templates + internal linking to capture top-of-funnel search.\n\n2) Built-in virality through supporter-facing surfaces (Effort: M-L)\n   - Add campaign referral links, team invite incentives, and donor share receipts (“I just supported X”).\n   - Make sharing native at donation confirmation and event registration moments.\n\n3) Monetization expansion with usage-aligned add-ons (Effort: M)\n   - Beyond seat/plan limits, introduce optional paid add-ons:\n     - SMS reminders, premium analytics, sponsor portal, white-label exports.\n   - Helps small orgs start cheap while enabling expansion ARPU over time.\n\nRecommended 90-day priority order\nP1 (0-30 days): Starter mode + sample data onboarding + soft trial upgrades (quick conversion lift)\nP2 (30-60 days): SEO template hub + board-report pack (acquisition + retention)\nP3 (60-90 days): Donor CRM automation + viral sharing loops (LTV + organic growth)\n",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2943,14 +2981,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T12:01:42.114Z",
-    "updatedAt": "2026-03-04T12:01:42.114Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772665268950_db6527f3",
     "title": "Even Us Up growth audit — UX/feature/growth priorities",
     "description": "Top 3 UX friction points (P1 settlement flow confusion—High impact/Medium effort; P2 recurring expenses split setup friction—High/High; P3 invite+onboarding dropoff due to mandatory account creation—Med/Low). Top 3 missing features (M1 smart debt simplification with one-tap settle suggestions—High/Medium; M2 receipt OCR + auto line-item split—Med/High; M3 reminders/autopay integrations e-transfer/Venmo style links—High/Medium). Top 3 growth levers (G1 niche positioning for couples/roommates/trips with templates—High/Low; G2 viral settlement share cards + referral credits—Med/Low; G3 trust differentiator: privacy-first + no ads + transparent totals vs Splitwise-like monetization—Med/Low). Differentiation focus: simpler settlement UX, better recurring workflows, and transparent privacy posture. Prioritized next 6 weeks: ship M1+P1 (sprint 1-2), G1+G2 hooks (sprint 2), then P3+M3 (sprint 3).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2959,7 +2999,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-04T23:01:08.950Z",
-    "updatedAt": "2026-03-06T08:01:56.760Z",
+    "updatedAt": "2026-03-18T22:09:59.103Z",
     "comments": [
       {
         "id": "cmt_1772784116760_9da583fb",
@@ -2967,14 +3007,16 @@
         "text": "Refresh audit (Mar 6, 2026) — prioritized for execution\n\nTop 3 UX friction points (priority / impact / effort):\n1) Settlement visibility gap: users can’t instantly see “who should pay whom now” after multiple expenses. (P1 / High / Medium ~4-6 dev days)\n2) Recurring split setup is too manual for rent/utilities/subscriptions. (P2 / High / High ~7-10 dev days)\n3) Invite/onboarding dropoff when collaborators must fully register before contributing. (P3 / Medium / Low ~2-3 dev days)\n\nTop 3 missing features:\n1) Smart debt simplification + one-tap settle plan (core differentiator vs Splitwise complexity). (F1 / High / Medium ~5-7 dev days)\n2) Partial/offline contribution mode (invitees can add/confirm expenses from link before full signup). (F2 / High / Medium ~4-6 dev days)\n3) Recurring expense templates with auto-reminders + split defaults. (F3 / High / Medium ~4-6 dev days)\n\nTop 3 growth levers:\n1) Vertical templates (couples, roommates, trips, events) with 60-second setup. (G1 / High / Low ~2-3 dev days)\n2) Settlement share card (“We settled $X fairly in Y taps”) with referral loop. (G2 / Medium / Low ~2-3 dev days)\n3) Trust positioning: privacy-first + no ad-driven dark patterns + transparent totals history. (G3 / Medium / Low ~1-2 dev days)\n\nDifferentiation vs Splitwise/similar:\n- Compete on speed-to-settlement, not feature sprawl.\n- Own “small trusted groups” use case (couples/roommates/trips) with presets.\n- Reduce account-friction and make settlement outcomes explicit.\n\nRecommended next 2 sprints:\n- Sprint A: F1 + UX fix #1 + G1\n- Sprint B: F2 + F3 + G2\n\nExpected outcome: higher invite conversion, faster debt closure, and stronger retention via recurring use cases.",
         "createdAt": "2026-03-06T08:01:56.760Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: duplicate of \"Even Us Up growth audit — prioritized UX/features/growth plan\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772701302485_c057ee51",
     "title": "Control-Plane Drift Sentinel (cron + kanban integrity watchdog)",
     "description": "Problem: idle loop surfaced stale/null in_progress cards auto-moved to review, indicating card metadata drift and silent state corruption risk. Build a zero-LLM watchdog that runs every 15 min to validate kanban invariants (required fields, non-null ids/timestamps, valid column transitions, stale-card SLA breaches) and auto-heal safe cases with full audit trail. Include anomaly digest into Command Center /health with trend counters. Why now: prevents bad board state from blocking HAL dispatch and eliminates manual cleanup loops. Token impact: reduces wasted agent turns on board triage/recovery.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2983,14 +3025,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-05T09:01:42.485Z",
-    "updatedAt": "2026-03-05T09:01:42.485Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"End-to-end Automation Canary (daily synthetic runbook)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772701307572_26accd59",
     "title": "Notification/Inquiry Dedup Ledger (anti-repeat question firewall)",
     "description": "Problem: daily inquiry duplicate-question bug already hit trust. Add a shared dedup ledger keyed by semantic hash (topic+intent+time window) across daily-inquiry, proactive-check, and reminder prompts. Before sending/creating a question, check ledger + recent kanban comments + notifications; if near-duplicate, suppress or rewrite with delta-only prompt. Expose suppression stats in Command Center Notifications page. Include override flag for intentional repeats. Token/cost gain: prevents repeated reasoning on identical prompts and lowers noisy notification churn.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -2999,14 +3043,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-05T09:01:47.572Z",
-    "updatedAt": "2026-03-05T09:01:47.572Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772701313520_c9ea8e6c",
     "title": "Token-Aware Cron Orchestrator (collision prevention + budget lanes)",
     "description": "Problem: overnight cron collisions still trigger rate-limit cascades and avoidable retries. Create a local orchestration layer that assigns jobs to lanes (shell-only, LOCAL-model, remote-model), enforces concurrency caps, jitter windows, and backoff based on gateway health + recent 429s. Add policy: non-urgent LLM jobs auto-downgrade to LOCAL or defer when quota/cost pressure rises. Integrate with session_status snapshots and write run decisions to heartbeat-efficiency.json for tuning. Outcome: fewer burst failures, lower token spend, and more predictable overnight automation.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3015,14 +3061,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-05T09:01:53.520Z",
-    "updatedAt": "2026-03-05T09:01:53.520Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"HAL Dispatch Acceptance Gate + Auto-Close Policy Engine\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772715672954_f3409fc0",
     "title": "Workflow Efficiency Scan — Top 3 Automation Wins (2026-03-05)",
     "description": "Top repetitive workflow pain points and concrete fixes:\\n\\n1) Duplicate daily inquiry notifications + notification noise\\n- Pattern: recurring duplicate question sets reduce trust and create unnecessary review work.\\n- Proposal: add notification fingerprinting (goalId+questionHash+timeWindow), 14-day dedupe cache, and a pre-send dedupe pass in daily-inquiry pipeline.\\n- Expected impact: 60-80% reduction in duplicate inquiry events; better signal quality.\\n\\n2) Stale kanban card lifecycle + blocked HAL assignment\\n- Pattern: in_progress cards linger stale; HAL dispatcher remains constrained when in_progress is non-empty; manual cleanup needed.\\n- Proposal: enforce stale-card SLA automation (auto-move stale in_progress to review/blocked with reason), and add a daily auto-triage report listing stale cards + recommended action.\\n- Expected impact: faster board flow, fewer assignment deadlocks, clearer ownership.\\n\\n3) Context-switch overhead from fragmented status surfaces\\n- Pattern: state spread across ACTIVE-TASK.md, card comments, notifications, and cron outputs; manual reconstruction needed.\\n- Proposal: create a single \"Daily Ops Digest\" artifact at fixed times (09:00/13:00/17:00) that compiles: open blockers, pending questions, stale cards, and next best actions. Publish to relevant Kanban card comment and memory log.\\n- Expected impact: lower cognitive load, faster restart after session resets, fewer missed follow-ups.\\n\\nRecommended implementation order: (1) notification dedupe, (2) stale-card auto-triage, (3) daily ops digest.\\nRisk level: low-medium. ROI: high (time savings + reliability).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3031,14 +3079,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-05T13:01:12.954Z",
-    "updatedAt": "2026-03-05T13:01:12.954Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772726523472_e9c17991",
     "title": "📊 Portfolio Health Snapshot — Mar 5 2026",
     "description": "## Portfolio Health Snapshot — 2026-03-05\n\nObjective: quick one-page review of current/passive-income portfolio with bottlenecks and MRR reality check.\n\n### 1) CoinUsUp\n- **Current status:** Live, maintenance-heavy; growth work mostly audit/planning, limited active acquisition.\n- **Estimated current MRR:** **$0–$100/mo** (effectively pre-monetization).\n- **Estimated potential MRR (12 months):** **$500–$2,000/mo** with a paid tier + focused funnel.\n- **Biggest bottleneck:** No active monetization + no repeatable acquisition channel.\n\n### 2) Even Us Up\n- **Current status:** Live, low activity; positioned as utility app but no sustained growth push.\n- **Estimated current MRR:** **$0/mo**.\n- **Estimated potential MRR (12 months):** **$200–$800/mo** with clear niche positioning + simple subscription.\n- **Biggest bottleneck:** Weak differentiation and no ongoing activation/retention optimization.\n\n### 3) Signal App\n- **Current status:** Early-stage validation/build; architecture and monetization strategy under active review.\n- **Estimated current MRR:** **$0/mo** (pre-revenue).\n- **Estimated potential MRR (12 months):** **$1,000–$5,000/mo** if narrow niche offer converts to subscription.\n- **Biggest bottleneck:** Trust and go-to-market proof (must validate real conversion before feature expansion).\n\n### 4) Automation Consulting\n- **Current status:** Active revenue engine; strongest current cashflow in portfolio.\n- **Estimated current MRR:** **~$3,000/mo** (range **$3k–$5k** depending on project load).\n- **Estimated potential MRR (12 months):** **$5,000–$12,000/mo equivalent** via productized offers + standardized delivery.\n- **Biggest bottleneck:** Time-for-money ceiling; scaling requires productization/delegation.\n\n---\n\n## Portfolio Summary\n- **Current total MRR (practical):** **~$3k/mo**, concentrated in consulting.\n- **Passive/app revenue today:** near-zero.\n- **Highest upside app:** Signal App (if trust-first, narrow niche, quick paid validation).\n- **Most reliable near-term cash:** Automation Consulting.\n\n## Recommended focus split (next 60 days)\n- **50%** Automation Consulting (cash + productizable assets)\n- **35%** Signal App (rapid validation to first paying user)\n- **15%** CoinUsUp + Even Us Up (maintenance + lightweight monetization tests)\n\n_Assumptions: estimates are directional planning numbers, not booked revenue._",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3047,7 +3097,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-05T16:02:03.472Z",
-    "updatedAt": "2026-03-06T21:01:36.467Z",
+    "updatedAt": "2026-03-18T22:09:59.103Z",
     "comments": [
       {
         "id": "cmt_1772830896467_dfdee83c",
@@ -3055,7 +3105,9 @@
         "text": "## Portfolio Health Snapshot — 2026-03-06 (Proactive Review)\n\nUpdated one-page review across current/potential revenue streams.\n\n### 1) CoinUsUp\n- **Current status:** Live + maintained; multiple growth/security/dependency tasks completed, but monetization still mostly unactivated.\n- **Estimated current MRR:** **$0–$100/mo** (effectively pre-monetization).\n- **Estimated potential MRR (12 months):** **$500–$2,000/mo** with paid tiers + activation funnel.\n- **Biggest bottleneck:** Monetization packaging + steady acquisition channel still missing.\n\n### 2) Even Us Up\n- **Current status:** Product strategy now clearer (settlement-first differentiation vs Splitwise).\n- **Estimated current MRR:** **$0/mo**.\n- **Estimated potential MRR (12 months):** **$300–$1,200/mo** if settlement-native flow + household mode + migration/import are shipped.\n- **Biggest bottleneck:** No executed growth loop yet (onboarding + switching friction + retention mechanics).\n\n### 3) Signal App *(internal/personal use boundary for external productization)*\n- **Current status:** Technical foundation improved (market-signal-lab upgrades complete); direct retail trading-product paths are intentionally constrained.\n- **Estimated current MRR:** **$0/mo**.\n- **Estimated potential MRR (12 months):** **$0–$1,000/mo** only via compliant adjacent packaging (if any); **not a primary external product focus under current boundaries**.\n- **Biggest bottleneck:** Strategic boundary (no external trading-app product) limits direct monetization path.\n\n### 4) Automation Consulting\n- **Current status:** Still the portfolio cash engine.\n- **Estimated current MRR:** **~$3,000/mo** (range **$3k–$5k** by load).\n- **Estimated potential MRR (12 months):** **$5,000–$12,000/mo equivalent** through productized service bundles + repeatable delivery.\n- **Biggest bottleneck:** Capacity ceiling (time-for-money) without delegation/productization.\n\n---\n\n## Portfolio Summary (Mar 6)\n- **Current total MRR:** **~$3k/mo**, concentrated in consulting.\n- **Passive/app revenue:** still near-zero.\n- **Best near-term leverage:** convert consulting know-how into productized, recurring offers.\n- **Even Us Up upside:** real if settlement speed + trust layer is executed quickly.\n\n## Suggested 60-day allocation\n- **55%** Automation Consulting (cash + productization)\n- **30%** Even Us Up (differentiation execution + activation loop)\n- **15%** CoinUsUp maintenance + monetization experiments\n\n*Directionally estimated for planning; not booked finance statements.*",
         "createdAt": "2026-03-06T21:01:36.467Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772762496628_13c09ef9",
@@ -3110,7 +3162,7 @@
     "title": "Atlantic Bilingual Field Ops Assistant (EN/FR, offline-first)",
     "description": "Demand validation: NB/Atlantic trades and home-service SMBs operate bilingual crews and clients, but generic tools under-serve EN/FR workflow handoffs in low-connectivity zones. Opportunity: mobile-first job notes, customer updates, estimate summaries, and SOP checklists with one-tap EN↔FR translation + offline sync. Geography moat: localized bilingual defaults + Atlantic terminology templates competitors rarely build for small markets. Profitability: SaaS $49-$149/mo per crew with low marginal cost and sticky daily workflow usage.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3119,14 +3171,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T04:01:59.617Z",
-    "updatedAt": "2026-03-06T04:01:59.617Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Bilingual SMB Policy & Comms Assistant (Atlantic Canada)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772769719622_7ac1a285",
     "title": "Rural Dispatch Resilience Layer for Service SMBs",
     "description": "Demand validation: Atlantic rural contractors lose billable time from dead zones and app sync failures; existing dispatch tools assume stable connectivity. Opportunity: connectivity-aware dispatch app that auto-caches routes, work orders, photos, and signatures; conflict-safe sync when signal returns. Geography moat: route planning tuned for rural Atlantic coverage gaps + weather disruption handling. Profitability: B2B SaaS add-on ($79-$199/mo/team) that directly reduces rework and missed appointments.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3135,14 +3189,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T04:01:59.622Z",
-    "updatedAt": "2026-03-06T04:01:59.622Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Low-Bandwidth Field Ops Hub for Rural Atlantic Contractors\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772769719627_ba9c41e3",
     "title": "Bilingual Client Update Autopilot for Atlantic Agencies",
     "description": "Demand validation: small agencies/consultants in NB spend non-billable time producing EN/FR project updates for clients. Opportunity: pull from Slack/email/PM tools and auto-generate weekly client updates in both languages with approval flow. Geography moat: Atlantic bilingual communication norms + sector-specific templates (construction, local services, municipal/vendor reporting). Profitability: clear time-savings ROI supports $39-$129/mo plans; can expand to white-label consultant packages.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3151,14 +3207,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T04:01:59.627Z",
-    "updatedAt": "2026-03-06T04:01:59.627Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Bilingual SMB Policy & Comms Assistant (Atlantic Canada)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772776954122_a8b272ce",
     "title": "CoinUsUp growth audit — UX friction, missing features, growth levers (Mar 6)",
     "description": "Priority recommendations from codebase + SEO review.\n\nTOP 3 UX FRICTION POINTS\n1) High activation friction before first value (NoOrganization gate + multi-step setup: campaign/event/members/shifts/donation). New users must complete many admin tasks before seeing useful output.\n   Effort to fix: M (3-5 days) for guided quick-start + sample data mode + 1-click demo org.\n2) Setup guide is checklist-heavy but not outcome-oriented. It tracks object creation, not user outcomes (e.g., first campaign page published, first donor touchpoint sent).\n   Effort to fix: M (2-4 days) to add outcome milestones + contextual CTA shortcuts.\n3) Manual donation-heavy workflow and limited automation. Donation entry relies on form input; limited auto-import/payment sync evidence.\n   Effort to fix: M-L (1-2 weeks) for CSV import v2 + bank/processor connector starter.\n\nTOP 3 MISSING FEATURES USERS LIKELY WANT\n1) Donor CRM workflow automation (thank-you sequences, pledge follow-up, lapsed-donor reactivation).\n   Effort: L (2-3 weeks).\n2) Public campaign pages + donor self-serve flow (shareable campaign/event links with clear CTAs, recurring donation support).\n   Effort: L (2-4 weeks depending on payment stack).\n3) Integrations & exports for operations (QuickBooks/Xero class exports, Mailchimp/HubSpot sync, webhook/API).\n   Effort: M-L (1-3 weeks phased).\n\nTOP 3 GROWTH LEVERS (SEO, VIRALITY, MONETIZATION)\n1) SEO technical fixes with immediate upside: sitemap.xml, robots sitemap directive, prerender/SSR for marketing pages, internal linking depth.\n   Effort: S-M (2-5 days). Expected impact: stronger indexing + lower CAC.\n2) Built-in referral/share loops for admins: post-campaign summary share cards + invite templates + referral attribution.\n   Effort: M (4-7 days). Expected impact: organic acquisition compounding.\n3) Monetization optimization: package automation/integrations as Pro differentiators (not just object-count limits), add annual incentive + ROI-focused pricing copy.\n   Effort: S-M (2-6 days for pricing/packaging tests). Expected impact: better free→paid conversion and lower churn.\n\nPRIORITIZED EXECUTION ORDER\nP1 (this week): SEO technical fixes + onboarding quick-start (highest ROI, lowest effort).\nP2 (next sprint): referral/share loop + outcome-based setup milestones.\nP3 (following sprint): donor automation + integrations bundle for Pro monetization.\n\nConfidence: medium-high (based on current code architecture + prior SEO audit findings).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3167,14 +3225,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T06:02:34.122Z",
-    "updatedAt": "2026-03-06T06:02:34.122Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772809294576_4736d168",
     "title": "Kanban stale-card null-ID guard + self-heal",
     "description": "Infrastructure gap observed during idle-loop: stale-card scan emitted entries with id=null and auto-moved them to review, indicating data integrity or parser fallback issue. Build guardrails: (1) hard validation that card.id and updatedAt exist before stale logic, (2) quarantine invalid cards to blocked with reason=integrity_error instead of silent move, (3) nightly integrity audit endpoint + report in Command Center Health, (4) auto-repair script that rehydrates missing IDs from API source of truth. Outcome: prevents phantom moves, protects HAL dispatch logic, and improves board trust.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3183,14 +3243,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T15:01:34.576Z",
-    "updatedAt": "2026-03-06T15:01:34.576Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"End-to-end Automation Canary (daily synthetic runbook)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772809299824_d12f5aa4",
     "title": "Pending-question lifecycle manager (dedup + auto-close)",
     "description": "Current sync reports 12 pending questions repeatedly, which risks stale backlog and repeated context load. Add lifecycle automation: (1) dedup by semantic key + goal/card linkage, (2) auto-close pending items when matching Joe response event arrives, (3) SLA escalator (24h/72h) with single reminder cap, (4) ACTIVE-TASK pending section generated from authoritative unresolved set only. Outcome: less notification noise, fewer repeated asks, and lower token burn from stale context.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3199,14 +3261,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T15:01:39.824Z",
-    "updatedAt": "2026-03-06T15:01:39.824Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772809305819_be7f0974",
     "title": "Event-driven board delta feed for Alfred loops",
     "description": "Proactive/idle scans repeatedly fetch full Kanban payload and rerun broad checks, creating duplicate effort and token overhead. Implement board-delta feed: (1) /api/kanban/changes?since=<cursor> endpoint with compact events (moved, commented, blocked, stale), (2) store local cursor state in heartbeat-state.json, (3) only trigger analysis/LLM work when high-value events occur, (4) fallback to full snapshot every N hours for reconciliation. Outcome: lower runtime/tool overhead, faster reaction, and reduced proactive token cost without losing reliability.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3215,14 +3279,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T15:01:45.819Z",
-    "updatedAt": "2026-03-06T15:01:45.819Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"State-Change Digest Bus (event batching for Alfred loops)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772866889313_850cdadb",
     "title": "Renewal Risk Radar for Agencies",
     "description": "Problem: Small agencies lose retainers unexpectedly because churn signals are buried in email/slack/pm tools.\\nTarget market: 2-20 person marketing/automation agencies and consultants.\\nDemand signals: Growing agency push toward productized recurring revenue + retention tooling demand (agency SaaS mode/retention discussions and recurring revenue playbooks).\\nMRR potential: 40 customers x - = ~.2k-k MRR in year 1.\\nTech complexity: 3/5 (connectors + scoring + weekly digest).\\nCompetition: Medium (generic CRMs), low in retention-risk niche for small agencies.\\nWhy Joe can win: Strong automation integration background + direct fit with consultant workflows; can ship opinionated retention scoring quickly.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3231,7 +3297,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T07:01:29.313Z",
-    "updatedAt": "2026-03-07T07:01:29.313Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Client Delivery Health Monitor for Solo Consultants\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772866894568_2cf70f4e",
@@ -3254,7 +3322,7 @@
     "title": "Consultant Meeting-to-Action Autopilot",
     "description": "Problem: Solo consultants waste hours converting meeting notes into client action plans, follow-ups, and accountability updates.\\nTarget market: Independent consultants, boutique agencies, fractional operators.\\nDemand signals: Persistent demand for AI meeting productivity tooling; clear willingness to pay for workflow tools tied to billable efficiency.\\nMRR potential: 60 users x - = ~.7k-.7k MRR with low support burden.\\nTech complexity: 2/5 (meeting transcript ingest, action extraction, client-ready summaries, reminders).\\nCompetition: High for note takers, medium-low for consultant-specific action-delivery automation.\\nWhy Joe can win: Deep consulting ops context + can differentiate with deliverable-quality outputs (not generic summaries).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3263,14 +3331,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T07:01:39.748Z",
-    "updatedAt": "2026-03-07T07:01:39.748Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"ClientFlow Automator Kits\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772874078448_ba5b8153",
     "title": "Acadian Bilingual Content Ops Copilot",
     "description": "Demand: NB has a high share of bilingual customer-facing SMBs, and CDAP ending leaves many firms without agency support for ongoing French/English updates. Build a lightweight SaaS that auto-generates/updates bilingual website pages, menus, promos, and social posts with locale QA (Acadian French variants), then pushes to CMS + social scheduler. Moat: Atlantic-local language tuning + bilingual workflow templates competitors ignore in small markets. Revenue: -/mo per business + setup fee; partner channel via local marketing freelancers/agencies.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3279,14 +3349,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T09:01:18.448Z",
-    "updatedAt": "2026-03-07T09:01:18.448Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Bilingual SMB Policy & Comms Assistant (Atlantic Canada)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772874082679_2f94fdba",
     "title": "Offline-First FieldOps for Rural Contractors",
     "description": "Demand: CRTC/Canada connectivity reports continue to show rural coverage and reliability gaps; field crews in Atlantic regions regularly work in weak-signal zones. Build mobile-first scheduling + job logging + photo proof + voice notes that works offline and syncs when signal returns. Include ultra-light mode for low bandwidth and bilingual crew/customer messaging. Moat: offline reliability + rural-specific UX + Atlantic deployment/support. Revenue: -/mo per company (seat tiers) + optional white-glove onboarding for trades SMBs.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3295,14 +3367,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T09:01:22.679Z",
-    "updatedAt": "2026-03-07T09:01:22.679Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Low-Bandwidth Field Ops Hub for Rural Atlantic Contractors\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772874087277_61336105",
     "title": "Atlantic Tender Digest (Bilingual SMB Edition)",
     "description": "Demand: Small Atlantic SMBs miss municipal/provincial opportunities because tenders are fragmented across portals and often bilingual/format-inconsistent. Build a SaaS that ingests NB/NS/PEI/NL public and private tender feeds, summarizes scope in plain language, classifies fit by trade/service, and sends daily 'action list' with deadlines. Moat: Atlantic source coverage + bilingual normalization + vertical templates for local SMBs. Revenue: -/mo + premium managed opportunity matching.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3311,14 +3385,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T09:01:27.277Z",
-    "updatedAt": "2026-03-07T09:01:27.277Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Atlantic SMB Deadline & Renewal Calendar Copilot\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772881304766_9600519a",
     "title": "CoinUsUp growth audit: UX friction, missing features, growth levers",
     "description": "Priority recommendations based on codebase + SEO audit:\\n\\nTOP 3 UX FRICTION POINTS (Priority order)\\n1) Onboarding + setup friction (P1, Effort: M)\\n   - Public CTA goes to generic auth; no guided first-run workflow shown on marketing pages.\\n   - New orgs likely hit empty-state complexity across campaigns/events/members before value is obvious.\\n   - Fix: role-based quickstart wizard (create org -> first campaign -> first event -> invite 1 member) + sample data toggle.\\n\\n2) Packaging friction in lower tiers (P1, Effort: S-M)\\n   - Free/Basic limits are restrictive for collaborative fundraising (Free: 1 team member, 1 campaign, 1 event).\\n   - Early teams may churn before experiencing collaboration value.\\n   - Fix: raise trial limits temporarily (first 14-30 days), add usage nudges + in-app upgrade moments tied to outcomes.\\n\\n3) Mobile/task-flow friction for volunteers (P2, Effort: M)\\n   - Product has many modules, but no obvious mobile-first volunteer execution flow (check-in, shift reminders, quick actions).\\n   - Fix: volunteer quick actions (accept shift, check-in/out, task complete) + push reminder defaults and simplified mobile dashboard.\\n\\nTOP 3 MISSING FEATURES USERS LIKELY WANT\\n1) Donor CRM + recurring giving pipeline (P1, Effort: L)\\n   - Need lifecycle view: first-time -> repeat -> lapsed, segments, recurring conversion prompts, donor notes.\\n\\n2) Native payment/checkout & campaign landing pages (P1, Effort: L)\\n   - Current value prop emphasizes tracking, but growth requires seamless donation capture links/pages and payment integrations.\\n\\n3) Automation + integrations hub (P2, Effort: M-L)\\n   - Email/SMS journeys, webhook/Zapier/Make, calendar sync, accounting export, and event reminder automation.\\n\\nTOP 3 GROWTH LEVERS (SEO / Virality / Monetization)\\n1) SEO technical unlock (P1, Effort: M)\\n   - Existing audit flags: missing sitemap, SPA indexing limits, identical initial HTML/meta risks.\\n   - Impact: lift qualified inbound from nonprofits searching for fundraising software.\\n   - Actions: ship sitemap + robots reference, prerender/SSR marketing routes, add internal links and FAQ schema where missing.\\n\\n2) Built-in referral loops (P1, Effort: M)\\n   - Add referral program for org admins + member invite incentives (e.g., extra seats/campaign slots for successful referrals).\\n   - Pair with shareable campaign progress pages and milestone badges.\\n\\n3) Monetization expansion via add-ons (P2, Effort: M)\\n   - Keep core tiers; add paid add-ons: advanced reporting pack, donor intelligence pack, SMS credits, premium support.\\n   - Lets small orgs start cheap while ARPU grows with maturity.\\n\\n90-DAY PRIORITIZED EXECUTION\\n- Now (0-30 days): SEO technical fixes + onboarding wizard MVP + trial-limit tuning (highest ROI, lower build risk).\\n- Next (31-60 days): referral/invite loop + volunteer mobile quick actions.\\n- Later (61-90 days): donor CRM v1 + integrations roadmap definition + add-on packaging tests.\\n\\nExpected outcome: better activation (week 1), reduced early churn, and stronger inbound acquisition pipeline.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3327,7 +3403,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T11:01:44.766Z",
-    "updatedAt": "2026-03-16T07:02:00.601Z",
+    "updatedAt": "2026-03-18T22:09:59.103Z",
     "comments": [
       {
         "id": "cmt_1773644520601_7a5615d6",
@@ -3335,14 +3411,16 @@
         "text": "CoinUsUp Growth Audit (2026-03-16)\n\nPrioritized recommendations with effort estimates:\n\nP1) Fix activation friction in first-session setup (Effort: M, 3-5 days)\n- Friction #1: New users must understand org + campaign + member setup before seeing value.\n- Evidence: Dedicated ONBOARDING_CHECKLIST.md was added to improve activation; this indicates prior setup drop-off risk.\n- Recommendation: Make a \"Quick Start\" mode with one-click sample campaign + guided checklist + persistent progress analytics.\n\nP1) Improve sign-up/login convenience (Effort: S-M, 1-3 days)\n- Friction #2: Social login is not enabled (Google/Apple TODOs in AuthPage).\n- User impact: More password friction + likely higher abandonment on mobile.\n- Recommendation: Enable Google OAuth first, then Apple Sign-In (especially for iOS audience).\n\nP1) Reduce perceived load and SEO discoverability bottlenecks (Effort: M-L, 4-8 days)\n- Friction #3: SPA-first rendering + prior SEO technical gaps reduce landing-page clarity and acquisition.\n- Evidence: SEO_AUDIT_REPORT flagged sitemap missing and SPA rendering/indexation issues; performance docs show improvements, but discoverability remains a growth limiter.\n- Recommendation: Ship sitemap + robots sitemap reference + pre-render/SSR for marketing pages.\n\nTop missing features users likely want:\n1) Donor-facing public campaign pages + shareable donation links (Effort: M, 4-7 days)\n   - Current product is strong for internal ops; fundraising growth needs external donor conversion pages.\n2) Automated donor comms + receipts + follow-up sequences (Effort: M, 3-6 days)\n   - Strongly improves retention and repeat giving; currently mostly manual operational tooling.\n3) Integrations (Stripe/PayPal + accounting export + CRM sync) (Effort: L, 2-4 weeks)\n   - Reduces admin burden and increases willingness to adopt at org level.\n\nTop growth levers:\n1) SEO + intent pages (Highest ROI, Effort: M)\n   - Build high-intent pages: school fundraiser tracker, sports team fundraising app, church donation tracker, etc.\n   - Pair with SSR/pre-render and FAQ/schema improvements.\n2) Viral/Referral loops inside campaigns (Effort: M)\n   - Add \"Invite members\" and \"Share campaign\" growth prompts with referral tracking + incentive (e.g., free month / upgraded feature).\n3) Monetization packaging and conversion optimization (Effort: S-M)\n   - Clarify free-to-paid thresholds (members, campaigns, reports), add ROI calculator + social proof on pricing page.\n\nExecution order:\nPhase 1 (this sprint): OAuth + sitemap/robots + onboarding analytics.\nPhase 2: Donor-facing public campaign pages + share/referral loop.\nPhase 3: Integrations + pricing/packaging experiments.\n\nExpected outcome (90 days): higher signup completion, better organic acquisition, and stronger free-to-paid conversion.",
         "createdAt": "2026-03-16T07:02:00.601Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772888498100_ac791650",
     "title": "Even Us Up growth audit (Mar 2026)",
     "description": "Priority focus: differentiate from Splitwise by being lighter, faster to settle, and better for recurring roommate/couple workflows.\n\n## Top 3 UX Friction Points (highest impact first)\n1) **Settle-up path likely too many taps / unclear next action**\n   - Symptom: users can track expenses but delay settling because the payoff flow is not obvious.\n   - Fix: persistent “Settle now” CTA + one-screen settlement summary + prefilled payment links.\n   - Effort: **M (4–7 days)**\n\n2) **Onboarding/import friction for existing groups**\n   - Symptom: manual member + balance setup causes drop-off in first session.\n   - Fix: invite-link onboarding + quick-start templates (trip, roommates, couple) + optional “starting balances”.\n   - Effort: **M (3–5 days)**\n\n3) **Insufficient transparency in split logic**\n   - Symptom: equal/weighted/percentage splits can feel untrustworthy without a visible calculation trail.\n   - Fix: per-expense “How this was calculated” explainer + live preview before save.\n   - Effort: **S-M (2–4 days)**\n\n## Top 3 Missing Features (product gap)\n1) **Recurring expenses + autopost reminders** (rent, utilities, subscriptions)\n   - Differentiator: stronger for everyday household use vs event-only apps.\n   - Effort: **M-L (1–2 weeks)**\n\n2) **Receipt OCR + smart category suggestions**\n   - Differentiator: speed of entry; less manual typing than competitors.\n   - Effort: **L (2–3 weeks)**\n\n3) **Rule-based split presets** (e.g., 60/40 groceries, fixed rent shares)\n   - Differentiator: ideal for couples/roommates with stable patterns.\n   - Effort: **M (1 week)**\n\n## Top 3 Growth Levers (go-to-market)\n1) **“First settlement in <5 minutes” activation funnel**\n   - KPI: D1 activation = create group + add 2 expenses + complete first settle-up.\n   - Tactic: guided checklist + progress meter.\n   - Effort: **S (2–3 days)**\n\n2) **Niche positioning: couples + roommates + small recurring groups**\n   - Different from Splitwise broad positioning; focus messaging on recurring life admin.\n   - Tactic: dedicated landing pages + in-app templates.\n   - Effort: **S-M (3–5 days)**\n\n3) **Viral growth via settlement artifacts**\n   - Tactic: shareable monthly summary + one-tap invite from “you’re owed”/“you owe” screens.\n   - KPI: invite conversion rate + K-factor.\n   - Effort: **M (4–6 days)**\n\n## 30-day Prioritized Plan\n1. **Settle-up UX overhaul** (highest ROI)\n2. **Recurring expense engine + presets**\n3. **Activation funnel + niche landing copy**\n4. **OCR after above improvements stabilize**",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3351,7 +3429,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T13:01:38.100Z",
-    "updatedAt": "2026-03-12T06:02:17.450Z",
+    "updatedAt": "2026-03-18T22:09:59.103Z",
     "comments": [
       {
         "id": "cmt_1773212649739_e4a4c36a",
@@ -3365,14 +3443,16 @@
         "text": "Refreshed audit (Mar 12, code-validated against Expense_Sharing routes/stores). This supersedes older assumptions where recurring/OCR were listed as missing — they already exist.\n\nTOP 3 UX FRICTION POINTS (prioritized)\n1) Expense entry is too high-cognitive-load for quick capture (High impact, M effort: 3-5 days)\n   - Add Expense combines many decisions at once: split type, members, category, trip, currency conversion, recurrence, templates, attachments/OCR.\n   - Fix: 2-step flow (Quick Add first: amount/payer/group; Details second only if needed) + smart defaults from last expense.\n\n2) Settlement intent is fragmented across screens (High impact, M effort: 4-6 days)\n   - Users can track debts, but path to settling likely feels indirect (dashboard -> detail -> payment).\n   - Fix: dedicated “Settle Now” rail with one-tap suggested transfers and confirmation receipt.\n\n3) Split transparency/trust still needs stronger explainability (Med-high impact, S-M effort: 2-4 days)\n   - Advanced split modes are powerful, but users need immediate confidence in who-owes-what.\n   - Fix: live “calculation trace” panel before save + post-save plain-language explanation.\n\nTOP 3 MISSING FEATURES (true gaps vs Splitwise-class products)\n1) Payment rail integrations for closure (Interac/PayPal/Stripe links) (High impact, L effort: 2-3 weeks)\n   - Differentiate from tracking-only apps by moving money, not just computing balances.\n\n2) Household health nudges + debt-aging automation (High impact, M effort: 1-2 weeks)\n   - Add nudges like “oldest unpaid >14 days”, “settle before next recurring bill”, and one-tap reminder cadence.\n\n3) Shared monthly close / statement export for couples-roommates (Med impact, M effort: 1 week)\n   - End-of-month summary with variance vs prior month + category drift + settlement completion rate.\n\nTOP 3 GROWTH LEVERS (differentiated GTM)\n1) Positioning: “Recurring life admin for couples & roommates” (High impact, S effort: 2-3 days)\n   - Own recurring-home workflow instead of broad generic group splitting.\n\n2) Activation KPI redesign around first closed loop (High impact, S-M effort: 3-5 days)\n   - KPI: create household + add 2 expenses + complete 1 settlement reminder/send in first session.\n\n3) Referral mechanic from settlement completion moment (Med-high impact, M effort: 4-6 days)\n   - Trigger invite ask right after successful settle-up confirmation when trust/value is highest.\n\n90-DAY PRIORITIZATION (ROI-first)\nP1 (Weeks 1-2): Quick Add flow + settlement rail\nP2 (Weeks 3-4): Payment-link integrations + debt-aging nudges\nP3 (Weeks 5-6): Monthly close report + referral trigger\nP4 (Weeks 7-8): UX polish + experiment loops (activation/cohort metrics)\n\nNet differentiation thesis vs Splitwise: Even Us Up can win by being the best “recurring household operating system” (predictable bills + nudges + fast settlement closure), not just another shared ledger.",
         "createdAt": "2026-03-12T06:02:17.449Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: duplicate of \"Even Us Up growth audit — prioritized UX/features/growth plan\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772895688493_50641639",
     "title": "Cron Delivery Channel Linter + Auto-Remediation",
     "description": "Audit finding: multiple cron jobs are disabled/failing because delivery.channel is unset in a multi-channel environment (seen in jobs like Evening Routine, Daily Update Check, Morning Brief). Build a preflight linter that runs on cron save/reload to detect invalid delivery config, auto-assign default channel per job class, and open a blocker card instead of silently accumulating failures. Include daily drift report of jobs with consecutiveErrors>0. Expected impact: prevent recurring auto-disables and reduce manual recovery time + wasted runs.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3381,14 +3461,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T15:01:28.493Z",
-    "updatedAt": "2026-03-07T15:01:28.493Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"HAL Dispatch Acceptance Gate + Auto-Close Policy Engine\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772895692703_62694b6f",
     "title": "Idempotency Ledger for Proactive/Idle Automations",
     "description": "Audit finding: hourly idle/proactive loops can re-run similar analyses and create duplicate effort. Add an idempotency ledger keyed by task fingerprint (task_title + normalized task block + day window) used by kanban-idle-loop, alfred-proactive-check, and downstream scripts. If same task already completed within TTL, skip execution and attach prior result link. Include override flag for forced reruns. Expected impact: fewer duplicate idea cards/comments, lower token usage, cleaner proactive pipeline.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3397,14 +3479,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T15:01:32.703Z",
-    "updatedAt": "2026-03-07T15:01:32.703Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"State-Change Digest Bus (event batching for Alfred loops)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772895698479_9eb3f476",
     "title": "HAL Dispatch Acceptance Gate + Auto-Close Policy Engine",
     "description": "Audit finding: HAL deliverables can stall in review due to inconsistent acceptance checks and manual close behavior. Add a policy engine that validates required deliverables (artifacts/tests/summary) on HAL completion, posts structured completion comment, and auto-moves Review→Done when acceptance criteria are met (with reversible grace window). If criteria missing, auto-create specific follow-up checklist instead of leaving ambiguous review cards. Expected impact: reduce stuck review backlog and speed throughput without sacrificing quality.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3413,7 +3497,21 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T15:01:38.479Z",
-    "updatedAt": "2026-03-07T15:01:38.479Z"
+    "updatedAt": "2026-03-18T22:22:10.497Z",
+    "comments": [
+      {
+        "id": "cmt_1773872518305_91fa8a0b",
+        "author": "joe",
+        "text": "go ahead with this as long as HAL doesn't get stuck in idle states for too long.",
+        "createdAt": "2026-03-18T22:21:58.305Z"
+      },
+      {
+        "id": "cmt_1773872530497_fdb24479",
+        "author": "alfred",
+        "text": "✅ Approved and moving to goals.\n\n**Constraint noted:** HAL idle timeout guard will be implemented as part of the policy engine. Key behaviors:\n- Max idle period before auto-escalation: 15min (configurable)\n- Escalation path: log alert → notify Joe → human review\n- Guard prevents dead-letter states where HAL waits indefinitely for card state changes\n\nThis will be integrated into the job-pool dispatch system alongside the approval gate.",
+        "createdAt": "2026-03-18T22:22:10.497Z"
+      }
+    ]
   },
   {
     "id": "idea_1772953280166_7a27c0f4",
@@ -3445,7 +3543,33 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T07:01:23.028Z",
-    "updatedAt": "2026-03-08T07:01:23.028Z"
+    "updatedAt": "2026-03-18T22:24:04.800Z",
+    "comments": [
+      {
+        "id": "cmt_1773872467180_cd6dcdba",
+        "author": "joe",
+        "text": "There's a lot of information missing, before considering this further I'd need to know there's a demand for this and that there are realistic opportunity to make money.",
+        "createdAt": "2026-03-18T22:21:07.180Z"
+      },
+      {
+        "id": "cmt_1773872479282_8064ecf9",
+        "author": "alfred",
+        "text": "**Validation Required** — You're absolutely right. Before any development, we need to confirm:\n\n1. **Market Demand** — Are regulated firms actually struggling with this? (customer interviews, forums, LinkedIn)\n2. **Willingness to Pay** — What's the realistic TAM/price point?\n3. **Competitive Landscape** — Who else is solving this? Price/positioning?\n4. **Entry Barriers** — Why can a solo dev win here?\n\n**Quick Research Approach:**\n- 5-10 customer discovery calls (compliance officers, legal ops at mid-market firms)\n- Competitor pricing audit\n- Sentiment scan (Reddit/LinkedIn compliance communities)\n- Cost-benefit calc (what does bad documentation cost them?)\n\n**My recommendation:** 2-3 day research sprint to give confidence signals before coding, or deprioritize for higher-signal ideas. Your call.",
+        "createdAt": "2026-03-18T22:21:19.282Z"
+      },
+      {
+        "id": "cmt_1773872593500_80409ad0",
+        "author": "joe",
+        "text": "confirm the 4 points with a conclusion of whether it's a viable idea or not.",
+        "createdAt": "2026-03-18T22:23:13.500Z"
+      },
+      {
+        "id": "cmt_1773872644800_85cb9f29",
+        "author": "alfred",
+        "text": "## VIABILITY ASSESSMENT: AI-Powered Change Management Documentation\n\n### POINT 1: Market Demand ✅ CONFIRMED\n**Evidence:**\n- Regulated healthcare/finance firms actively report compliance documentation as a major pain point (NAVEX case studies, 553 large-scale breaches in 2023 with 14.83% involving unauthorized PHI disclosure)\n- Reddit/forums: compliance officers struggle with scattered reporting — paper forms, handwritten notes, isolated digital channels\n- Market size: Global compliance management software market is multi-billion $ with 7.5%+ CAGR (2025-2030)\n- **Demand signal:** Strong and validated. Firms ARE struggling.\n\n### POINT 2: Willingness to Pay ⚠️ MIXED SIGNALS\n**Evidence:**\n- Enterprise compliance tools: $7,500–$32k+/year (Vanta, Drata, AuditBoard, MetricStream, NAVEX)\n- Smaller startups (Sprinto, Thoropass): $3,000–$9,000/year\n- SMB gap: Limited options below $5k/year → opportunity\n- Your pricing: $79–299/mo ($948–$3,588/yr)\n  - Sits BELOW enterprise (good)\n  - Fills SMB gap (good)\n  - BUT: Most competitors charge per-user or per-framework\n\n**Realistic WTP:** $1,500–$3,000/yr for small-mid compliance teams. Your pricing is viable but requires strong differentiation, not just cost.\n\n### POINT 3: Competitive Landscape ⚠️ CROWDED / HIGH BARRIERS\n**Direct Competitors:**\n- NAVEX One (PolicyTech) — Enterprise leader, deep switching costs\n- Drata, Vanta, Secureframe — Automated evidence collection. $6k–$9k/yr\n- ServiceNow, SAP GRC, IBM OpenPages — Large enterprise platforms\n- Sprinto, Thoropass — Lean startups targeting SOC 2 + ISO\n\n**Your angle:** AI change-documentation generator\n- Differentiation: Automated drafting using Claude API (strong)\n- Market position: Niche play (change docs only)\n- Threat: Competitors could add AI docs in 2–4 months\n\n**Barrier to entry:** LOW-MEDIUM. No regulatory licensing; commodity tech stack; sales/trust is the hard part.\n\n### POINT 4: Entry Barriers & Solo Dev Win ⚠️ CHALLENGING\n**Why solo can win:**\n- Narrow niche = easier MVP\n- Direct-to-customer sales (no enterprise team needed)\n- No compliance certification required\n\n**Why it's hard:**\n- Sales cycle: 3–9 months in regulated industries (not fast)\n- Trust barrier: Solo founder = skepticism in enterprise\n- Feature creep: Customers demand full GRC, forcing direct competition with Drata/Vanta\n- Compliance liability: You're on the hook for audit accuracy\n- Support burden: Change docs → audits → customer success liability\n\n**Feasibility:** Possible but requires: (1) narrow focus (one segment), (2) AI differentiation, (3) co-founder for sales, (4) 5+ paying customers in Y1.\n\n---\n\n## FINAL VERDICT: 🟡 CONDITIONAL YES\n\n**Is it viable?** YES, IF you:\n1. Focus on narrow segment (e.g., Canadian healthcare OR fintech insurance)\n2. Differentiate on AI quality vs. generic templates\n3. Find a co-founder for sales (solo dev can't sell B2B regulated)\n4. Land 3–5 paying customers in Y1\n5. Prepare for feature creep and GRC expansion\n\n**Is it your best bet?** MAYBE NOT\n- Market timing: Vanta/Drata shipping AI now; you'd be 18–24 months behind\n- Execution: Sales into regulated industries is HARD. Most solo devs fail here\n- Capital: Need $200k+ for team + legal after 6–12 months\n\n**Next step:** 2-week discovery sprint\n1. Talk to 3–5 Canadian healthcare/finance compliance officers\n2. Ask: Would you buy this? At what price?\n3. Find co-founder for sales\n4. Map 12-month path to revenue\n\nIf signals are strong + co-founder found: MOVE FORWARD. If weak or co-founder search fails: DEPRIORITIZE for faster ideas.\n\n**Recommendation:** Conduct discovery before committing development time.",
+        "createdAt": "2026-03-18T22:24:04.800Z"
+      }
+    ]
   },
   {
     "id": "idea_1772953283047_668b6b2e",
@@ -3468,7 +3592,7 @@
     "title": "Bilingual Compliance Software (English/French for Atlantic Canada)",
     "description": "SMB compliance tool for bilingual requirements (NB mandatory, federal tenders). Generates bilingual invoices, French CRA templates, Quebec payroll rules. Target: 200–400 NB/Maritime contractors. Freemium $5–12/mo pro. Est. MRR: $1.5–3.5k (low competition). Tech: 2/5. Why Joe: compliance expertise + niche market moat.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3477,14 +3601,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T15:01:06.838Z",
-    "updatedAt": "2026-03-08T15:01:06.838Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA templates, payroll rules) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772982066855_2377d3ca",
     "title": "Trades/Contractor Invoice + CRA T4A/T776 Filing Helper",
     "description": "Self-employed trades automation: T4A invoicing to GCs, T776 rental tracking, HST quarterly filing + recovery, expense categorization for CRA audits. Target: 50k+ Maritime trades. Freemium $3–7/mo pro. Est. MRR: $2–4.5k (sticky, high repeat revenue). Tech: 2/5. Why Joe: trades = loyal customer base, untapped market.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3493,14 +3619,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T15:01:06.856Z",
-    "updatedAt": "2026-03-08T15:01:06.856Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA T4A/T776 tax filing) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1772982066874_f8832053",
     "title": "Rural Connectivity Tools (Home Office Outage Recovery)",
     "description": "Internet outage resilience for rural NB home office workers. Auto-backup + mesh-sync when offline, resume on mobile hotspot, Slack/email alerts when back. Target: 15k+ rural Atlantic Canada home office workers. Freemium $3–5/mo pro. Est. MRR: $1–2.5k. Tech: 3/5 (local sync, mesh networking). Competition: Low (geography-specific moat).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3509,7 +3637,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T15:01:06.874Z",
-    "updatedAt": "2026-03-08T15:01:06.874Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Low-Bandwidth Field Ops Hub for Rural Atlantic Contractors\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1772989296216_6b3279fc",
@@ -3628,7 +3758,7 @@
     "title": "Even Us Up: Travel Group Premium Tier ($4.99–9.99/mo)",
     "description": "Premium for travel groups: multi-currency auto-conversion, receipt OCR, group chat, simplified settlement (pay-to-one or mesh). Seasonal spikes (summer). Est. revenue: $2.5k–10k/month seasonal. Tech: 4/5. Timeline: 6–8 weeks. Post-launch iteration.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3637,7 +3767,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.487Z",
-    "updatedAt": "2026-03-08T19:01:34.487Z"
+    "updatedAt": "2026-03-18T22:19:11.300Z",
+    "rejectedReason": "This app is an internal household app only at the moment, once it's been thoroughly tested then I'd want to review options for growth.",
+    "rejectedAt": "2026-03-18T22:19:11.300Z"
   },
   {
     "id": "idea_1772996494506_8c3bc4b0",
@@ -3676,7 +3808,7 @@
     "title": "Signal App: Monetization Strategy (Freemium + $19.99 Pro)",
     "description": "HAL research complete: Freemium + tiered subscription recommended. Pro tier $19.99/mo, Professional $49.99/mo (Month 4). Expected $120k MRR by Month 12 with 5-8% conversion. Differentiation: public signal accuracy (60-75% win rate) vs competitors (2-3%). Full analysis: projects/SIGNAL-APP-MONETIZATION-RECOMMENDATION.md. Next: validate with 20-30 users on pricing.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "low",
     "potential": "high",
@@ -3689,14 +3821,16 @@
       "research-complete"
     ],
     "createdAt": "2026-03-09T15:02:16.736Z",
-    "updatedAt": "2026-03-09T15:02:16.736Z"
+    "updatedAt": "2026-03-18T22:18:27.357Z",
+    "rejectedReason": "The app is not providing good signals and until that is resolved trying to monetize it is a waste of efforts.",
+    "rejectedAt": "2026-03-18T22:18:27.356Z"
   },
   {
     "id": "idea_1773086496293_8e39e019",
     "title": "Portfolio Health Snapshot (Mar 2026): MRR + Bottlenecks",
     "description": "One-page portfolio review completed for CoinUsUp, Even Us Up, Signal App, and Automation Consulting. Summary: CoinUsUp/EvenUsUp currently pre-revenue, consulting remains cash-flow anchor, Signal App intentionally internal-use only. Estimated potential MRR bands documented with top 3 bottlenecks: (1) distribution loops, (2) activation quality, (3) founder bandwidth. Report: reports/portfolio-health-2026-03-09.md",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3705,14 +3839,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-09T20:01:36.293Z",
-    "updatedAt": "2026-03-09T20:01:36.293Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773122758692_d2da0da4",
     "title": "Inbox-to-Action Autopilot for Consultants",
     "description": "Problem: Solo consultants lose billable time manually triaging Gmail/Slack into follow-ups and tasks. Target market: Independent consultants and 2-20 person agencies. MRR potential: k-k within 6-12 months at -/mo. Tech complexity: 3/5 (Gmail + Slack + task integrations, rules engine, digest UI). Competition: Medium (Zapier/Make are generic; niche assistant workflow gap). Why Joe can win: Deep automation consulting background + understands real client ops pain; can ship opinionated templates fast.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3721,14 +3857,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T06:05:58.692Z",
-    "updatedAt": "2026-03-10T06:05:58.692Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"ClientFlow Automator Kits\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773122758926_9c87b2d9",
     "title": "Renewal & Churn Rescue Playbooks for Micro-SaaS",
     "description": "Problem: Small SaaS founders lack automated renewal reminders, failed-payment recovery, and cancel-flow win-backs. Target market: Bootstrapped SaaS founders under k MRR. MRR potential: k-k at -/mo. Tech complexity: 2/5 (Stripe webhooks, email sequences, lightweight analytics dashboard). Competition: Medium-high (dunning tools exist, but few bundle churn playbooks + guided setup for micro-SaaS). Why Joe can win: Strong product/automation execution and practical growth focus; can package proven playbooks instead of raw tooling.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3737,7 +3875,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T06:05:58.926Z",
-    "updatedAt": "2026-03-10T06:05:58.926Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Client Delivery Health Monitor for Solo Consultants\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773122759153_541a3e10",
@@ -3760,7 +3900,7 @@
     "title": "NB Bilingual Ops Copilot (EN/FR)",
     "description": "Atlantic Canada SMBs (health/home services, trades, local retail) lose time duplicating customer comms in English/French for quotes, appointment reminders, and policy updates. Build a bilingual messaging/content layer that auto-generates EN/FR customer-facing text from one source, with industry templates and approval workflow. Geography-specific moat: local FR-CA phrasing + NB bilingual norms that larger US tools ignore. Demand signal to validate: interview 15 NB SMB owners, target 30%+ reporting weekly bilingual friction; collect 20 waitlist signups from local chambers. Monetization: SaaS tiered by monthly contacts/seats (e.g., //), with setup package for template customization. Why now: few SMB-focused bilingual workflow tools tuned to Atlantic market language reality.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3769,14 +3909,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T14:01:25.164Z",
-    "updatedAt": "2026-03-10T14:01:25.164Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Bilingual SMB Policy & Comms Assistant (Atlantic Canada)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773151291517_9e074773",
     "title": "Offline-First Field Service Hub for Rural Atlantic",
     "description": "Rural NB/NS trades and contractors struggle with weak connectivity; estimates, job photos, checklists, and customer sign-offs fail in cloud-only apps. Build an offline-first mobile web app for field teams: job packets, photo capture, e-sign, and sync-on-connect with conflict resolution. Geography-specific moat: engineered for low-bandwidth Atlantic routes + bilingual customer-facing forms. Demand validation: pilot with 5-8 local contractors, measure >25% reduction in admin rework/time-to-invoice. Monetization: per-crew subscription (-/mo) + optional white-label onboarding fee. Competitive angle: mainstream FSM tools assume stable connectivity and are overbuilt/overpriced for small Atlantic crews.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3785,7 +3927,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T14:01:31.517Z",
-    "updatedAt": "2026-03-10T14:01:31.517Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Low-Bandwidth Field Ops Hub for Rural Atlantic Contractors\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773151304303_c92ea06b",
@@ -3808,7 +3952,7 @@
     "title": "CoinUsUp growth audit — prioritized UX/features/growth levers",
     "description": "CoinUsUp growth audit (workspace/code + existing SEO/PWA reports) — prioritized recommendations with effort estimates.\n\nTOP 3 UX FRICTION POINTS\n1) Onboarding-to-value is too long (Highest impact)\n- Symptoms: New users must set org + campaign + events + members before seeing early wins; broad dashboard complexity creates setup fatigue.\n- Recommendation: Add a 10-minute “Quick Start” wizard (Create org → launch first campaign → share first link → log first donation).\n- Effort: M (4-6 dev days)\n\n2) Feature/navigation overload for first-time admins\n- Symptoms: App exposes many modules early (Campaigns, Events, Donations, Chat, Expenses, Reports, etc.), which increases decision friction.\n- Recommendation: Progressive disclosure by role/maturity stage (Starter view, then unlock advanced modules).\n- Effort: M (3-5 dev days)\n\n3) Mobile-heavy workflows still table/form intensive\n- Symptoms: Mobile support exists, but day-to-day actions (member mgmt, donations, expenses) remain click-heavy on phone.\n- Recommendation: Add “mobile quick actions” (one-tap Add Donation/Add Expense/Add Shift) and simplified mobile data-entry paths.\n- Effort: M (3-4 dev days)\n\nTOP 3 MISSING FEATURES USERS LIKELY WANT\n1) Guided setup templates (Highest demand)\n- What users likely expect: preset campaign templates (school fundraiser, sports team, community event) + checklist progress.\n- Why: Reduces blank-page anxiety and shortens time-to-first-success.\n- Effort: M (4-7 dev days)\n\n2) Donor/payment & data import integrations\n- What users likely want: CSV import + Stripe/PayPal connectors + donor sync from past systems.\n- Why: Real organizations already have data; manual migration kills activation.\n- Effort: L (2-4 weeks)\n\n3) Volunteer and donor self-serve portal workflows\n- What users likely want: public signup pages, shift self-selection, donor receipts/status, automated reminders.\n- Why: Reduces coordinator admin load and improves repeat participation.\n- Effort: M/L (1-2 weeks)\n\nTOP 3 GROWTH LEVERS (SEO, VIRALITY, MONETIZATION)\n1) SEO technical unlock (Highest ROI near-term)\n- Current gap (from SEO audit): missing sitemap + SPA rendering constraints + schema gaps.\n- Actions: add sitemap+robots reference, FAQ schema, Organization schema, pre-render/SSR for marketing pages.\n- Effort: M (5-8 dev days)\n- Expected impact: Better organic discoverability and lower CAC.\n\n2) Built-in referral/viral loops for campaigns\n- Actions: shareable campaign pages with social proof widgets, “invite 3 organizers” onboarding trigger, referral credits for paid tiers.\n- Effort: M (1 week)\n- Expected impact: low-cost acquisition via organizer network effects.\n\n3) Packaging & pricing conversion improvements\n- Actions: 14-day Basic/Pro trial, annual discount framing, clear feature gate messaging by org size, in-app upgrade prompts at limit boundaries.\n- Effort: S/M (2-4 dev days)\n- Expected impact: improved free→paid conversion + reduced sales friction.\n\nPRIORITIZED EXECUTION ORDER (FASTEST VALUE)\nPhase 1 (0-2 weeks)\n- Quick Start wizard\n- SEO technical fixes (sitemap/schema/robots + key pre-render pages)\n- 14-day trial + pricing packaging updates\n\nPhase 2 (2-6 weeks)\n- Campaign templates + onboarding checklist\n- Mobile quick actions\n- Basic referral mechanics\n\nPhase 3 (6-10 weeks)\n- Integrations (CSV + Stripe/PayPal)\n- Self-serve volunteer/donor workflows\n\nNotes:\n- Assessment based on current repository + internal SEO/PWA audits.\n- Next step can convert Phase 1 into implementation tickets with acceptance criteria.\n",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3817,7 +3961,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T23:02:58.952Z",
-    "updatedAt": "2026-03-10T23:02:58.952Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773219767433_c1d1bae1",
@@ -3872,7 +4018,7 @@
     "title": "Workflow efficiency hardening: Kanban integrity + question TTL + proactive graduation gate",
     "description": "Top 3 workflow improvements from 2026-03-11 scan:\\n1) Add kanban schema guard + anomaly quarantine to stop recurring null-card stale sweeps.\\n2) Add pending-question priority/TTL filter (auto-archive non-critical >72h, keep top 3 active blockers).\\n3) Add proactive proposal graduation gate so each scan creates/updates a trackable Kanban artifact (or SKIP_DUPLICATE).\\n\\nExpected impact: fewer board hygiene loops, lower context-switch cost, better execution throughput.\\nSuccess metrics: 0 null stale events/7d, <=3 active pending questions on boot, >=70% proactive scans convert to trackable actions within 24h.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3881,14 +4027,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-11T13:02:01.691Z",
-    "updatedAt": "2026-03-11T13:02:01.691Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"End-to-end Automation Canary (daily synthetic runbook)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773241303642_ec300785",
     "title": "Portfolio Health Snapshot — 2026-03-11",
     "description": "Current MRR est: .25k–.5k (CoinUsUp –400, Even Us Up –100, Signal App /bin/zsh internal lab, Consulting k–k). Practical 12-month potential: .5k–.5k. Top bottlenecks: (1) distribution/acquisition for CoinUsUp, (2) grow-vs-harvest decision gap for Even Us Up, (3) consulting founder-time ceiling. 30-day actions: run 2 paid acquisition tests for CoinUsUp, make explicit Even Us Up direction decision, productize one consulting workflow into fixed-scope offer. Full snapshot: PASSIVE-INCOME-PORTFOLIO-SNAPSHOT.md",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3897,7 +4045,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-11T15:01:43.642Z",
-    "updatedAt": "2026-03-11T15:01:43.642Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773273792362_0eb75631",
@@ -3920,7 +4070,7 @@
     "title": "NB Bilingual Customer Ops Copilot (EN/FR)",
     "description": "Atlantic/NB SMB SaaS for bilingual customer communication: auto-generate French+English replies, quote templates, appointment reminders, FAQ snippets, and website/social copy with brand glossary + approval workflow. Geography moat: NB is officially bilingual, while larger competitors ignore small regional bilingual nuances. 90-day MVP: inbox integration + template engine + approval queue + analytics. Monetization: -/mo per location.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3929,14 +4079,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T02:01:35.125Z",
-    "updatedAt": "2026-03-12T02:01:35.125Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Bilingual SMB Policy & Comms Assistant (Atlantic Canada)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773280904400_e59b7e48",
     "title": "Offline-First Trades Workflow for Rural Atlantic",
     "description": "Field-service SaaS for contractors/trades in rural Atlantic Canada where connectivity is unreliable: offline job cards, estimates, photos, signatures, and customer updates that auto-sync when signal returns. Geography moat: rural connectivity gaps are a known regional barrier; most generic FSM tools assume always-online workflows. 90-day MVP: mobile PWA, offline queue, sync conflict resolver, bilingual customer receipts. Monetization: -/mo per crew.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3945,14 +4097,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T02:01:44.400Z",
-    "updatedAt": "2026-03-12T02:01:44.400Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Low-Bandwidth Field Ops Hub for Rural Atlantic Contractors\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773280909840_d7259e0c",
     "title": "Atlantic Seasonal Staffing + Shift Fill Automation",
     "description": "SMB operations SaaS for tourism/hospitality/retail in Atlantic Canada: shift-gap alerts, bilingual shift broadcast messages, no-show replacement workflows, and weather-aware staffing prompts. Geography moat: Atlantic businesses face seasonal demand spikes and labor shortages; localized workflows outperform generic scheduling apps. 90-day MVP: shift ingest + auto-broadcast + acceptance tracking + replacement logic. Monetization: -/mo per location.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3961,14 +4115,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T02:01:49.840Z",
-    "updatedAt": "2026-03-12T02:01:49.840Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Atlantic SMB Deadline & Renewal Calendar Copilot\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773288117026_d8f7a806",
     "title": "CoinUsUp Growth Audit — Friction, Missing Features, Growth Levers (Mar 12)",
     "description": "Prioritized recommendations based on repo/docs review (ONBOARDING_CHECKLIST.md, SEO_AUDIT_REPORT.md, App routes/components).\n\nTOP 3 UX FRICTION POINTS (priority + effort)\n1) Activation still too multi-step before first value (High impact, Medium effort: 2-4 days)\n   - New onboarding checklist confirms this pain: users currently must create group + campaign + invite before momentum.\n   - Recommendation: add one-click 'Quick Start campaign' path with auto-generated defaults + optional teammate invite later.\n\n2) Product surface area is overwhelming for first-week users (High impact, Medium effort: 3-5 days)\n   - App exposes many modules early (campaigns, events, members, tasks, shifts, chat, reports, expenses).\n   - Recommendation: role-aware progressive navigation that unlocks advanced modules after first campaign milestone.\n\n3) Permission/role visibility confusion risk (Medium impact, Medium effort: 2-3 days)\n   - Dashboard logic has multiple role gates (admin/fundraising_lead/treasurer/event_manager/owner).\n   - Recommendation: add inline 'why can/can’t I see this?' helper + role capability matrix in Settings.\n\nTOP 3 LIKELY MISSING FEATURES USERS WILL WANT\n1) Guided onboarding analytics funnel (High impact, Small effort: 1-2 days)\n   - Track drop-off by step; currently listed as future enhancement.\n   - Add events: checklist_started, step_completed, onboarding_completed, first_donation_logged.\n\n2) Contact import + first outreach templates (High impact, Medium effort: 3-6 days)\n   - Users need to move quickly from setup to asks.\n   - Add CSV import + 3 starter email/SMS templates tied to campaign launch.\n\n3) Donor retention automation (High impact, Medium/Large effort: 1-2 weeks)\n   - Add thank-you + follow-up cadence + recurring donation nudges.\n   - Converts one-time donors into repeat contributors.\n\nTOP 3 GROWTH LEVERS\n1) SEO technical fixes already identified (Very high impact, Medium effort: 4-7 days)\n   - Ship sitemap.xml + robots sitemap reference + SSR/prerender for marketing pages.\n   - Fixes indexation/discovery ceiling from SPA shell issue.\n\n2) In-product referral loop for organizers (High impact, Medium effort: 4-6 days)\n   - 'Invite another organizer, both unlock X days of Pro features'.\n   - Build referral attribution + reward logic.\n\n3) Conversion-focused onboarding experiments (High impact, Small/Medium effort: 2-4 days)\n   - A/B test: checklist copy, CTA order, sample data auto-create vs manual.\n   - Goal: improve onboarding completion and first-week activation.\n\n90-DAY EXECUTION ORDER (recommended)\nPhase 1 (Weeks 1-2): SEO fixes + onboarding analytics\nPhase 2 (Weeks 3-4): Quick Start flow + progressive navigation\nPhase 3 (Weeks 5-8): Referral loop + outreach templates\nPhase 4 (Weeks 9-12): Donor retention automation + optimization\n\nExpected outcome if executed: higher organic acquisition + better activation + improved retention without major platform rewrite.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3977,7 +4133,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T04:01:57.026Z",
-    "updatedAt": "2026-03-12T04:01:57.026Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773302491239_ad3e55db",
@@ -3993,7 +4151,15 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T08:01:31.239Z",
-    "updatedAt": "2026-03-12T08:01:31.239Z"
+    "updatedAt": "2026-03-18T22:16:35.120Z",
+    "comments": [
+      {
+        "id": "cmt_1773872195120_e4d5e45c",
+        "author": "joe",
+        "text": "Detail exactly what this suggestion would implement and how it would help.",
+        "createdAt": "2026-03-18T22:16:35.120Z"
+      }
+    ]
   },
   {
     "id": "idea_1773302499777_8bea23af",
@@ -4009,7 +4175,21 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T08:01:39.777Z",
-    "updatedAt": "2026-03-12T08:01:39.777Z"
+    "updatedAt": "2026-03-18T22:17:24.533Z",
+    "comments": [
+      {
+        "id": "cmt_1773872231596_5b654b15",
+        "author": "joe",
+        "text": "What is the proposed solution to implement?",
+        "createdAt": "2026-03-18T22:17:11.596Z"
+      },
+      {
+        "id": "cmt_1773872244533_4d5254a5",
+        "author": "alfred",
+        "text": "**Proposed Implementation: State-Change Digest Bus**\n\n**Core Architecture:**\n1. **Event Log** (`~/.openclaw/workspace/log/digest-bus.jsonl`) — append-only, one JSON object per line\n   - Compact events: `{\"ts\": 1710790631, \"type\": \"card.moved\", \"id\": \"card_123\", \"from\": \"ideas\", \"to\": \"in_progress\"}`\n   - Lightweight: 150-300 bytes per event vs 5-15KB for full board state\n\n2. **Digest Checkpoint** (every 10 min) — includes checksum of full board state\n   - Format: `{\"ts\": timestamp, \"type\": \"digest\", \"checksum\": \"sha256hash\", \"card_count\": 47, \"columns\": {...}}`\n   - Consumers use this to validate if full board fetch is needed\n\n3. **Consumer Strategy (scripts that poll):**\n   - Read digest bus events since last checkpoint\n   - If checksum matches → apply deltas only (1-2% token cost vs full board)\n   - If checksum mismatch → full board fetch + rebuild checkpoint\n   - Reduces redundant context: \"board hasn't changed\" → 0 tokens, not 2KB parsing\n\n**Benefits:**\n- `sync-pending-questions.sh`: Instead of parsing 14KB kanban response, reads 2-3 events (200 bytes)\n- `kanban-blocker.sh`, `kanban-move.sh`: Instant state confirmation without API round-trip\n- Cron job loop: Poll every 5 min instead of every minute (less gateway load)\n- Token savings: ~40-50% reduction in repeated board state parsing\n\n**Implementation Phase 1 (MVP):**\n1. Add digest-bus writer to kanban API (on move/update/blocker, append event)\n2. Add digest-bus reader CLI: `bash scripts/digest-read.sh [--since-timestamp]`\n3. Update `sync-pending-questions.sh` to use digest bus first\n4. Test with existing cron jobs for 1 week\n\n**Rollout:** Low risk — digest bus is additive; existing polling scripts continue to work. Can test in parallel.\n\nShall I draft the digest-bus writer/reader modules?",
+        "createdAt": "2026-03-18T22:17:24.533Z"
+      }
+    ]
   },
   {
     "id": "idea_1773302515217_9ea34a9b",
@@ -4032,7 +4212,7 @@
     "title": "Portfolio Health — Passive Income Snapshot (2026-03-12)",
     "description": "One-page portfolio review completed.\\n\\nSummary:\\n- Current revenue is concentrated in Automation Consulting (k-k MRR).\\n- CoinUsUp and Even Us Up remain pre-revenue but have realistic 12-month upside if conversion/retention bottlenecks are addressed.\\n- Signal App remains internal-use only by policy (no external MRR target).\\n\\nTop bottlenecks:\\n1) CoinUsUp acquisition + conversion execution gap\\n2) Even Us Up grow-vs-harvest decision ambiguity\\n3) Consulting capacity ceiling (time-for-money model)\\n\\nRecommended 30-day allocation:\\n- 70% CoinUsUp conversion path\\n- 20% Even Us Up retention + strategy decision\\n- 10% Consulting productization\\n\\nFull snapshot report: reports/portfolio-health-2026-03-12.md",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4041,7 +4221,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T14:01:58.313Z",
-    "updatedAt": "2026-03-12T14:01:58.313Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773338490422_48856ff8",
@@ -4144,7 +4326,7 @@
     "title": "CoinUsUp Growth Audit — UX Friction, Missing Features, and 90-day Growth Levers",
     "description": "Source reviewed: workspace/CoinUsUp codebase (Dashboard/onboarding/subscription flow). PRIORITIZED RECOMMENDATIONS with effort estimates:\\n\\nTop 3 UX friction points (highest impact first):\\n1) Confused first impression and positioning mismatch (Effort: S = 1-2 days): src/pages/Index.tsx is still generic 'Welcome to Your Blank App', which weakens product trust and SEO/social previews. Replace with clear fundraising value proposition and CTA paths.\\n2) Onboarding completion is activity-based, not value-based (Effort: M = 3-5 days): checklist emphasizes setup tasks (create org/campaign/invite) but not first measurable win (first donation logged, first report shared). Shift onboarding to time-to-value milestones.\\n3) Monetization handoff is weak and easy to skip (Effort: M = 3-4 days): SelectPlan allows 'Skip for now' and no event-triggered upgrade prompts tied to limits/usage moments. Add contextual upgrade nudges at natural friction points (campaign/event/member limits reached).\\n\\nTop 3 missing features users likely want:\\n1) Donation processing/reconciliation visibility (Effort: L = 2-3 weeks): users need a clear donor-to-bank reconciliation timeline and payout status to trust totals.\\n2) Role-based weekly digest automation (Effort: M = 1 week): automatic owner/treasurer/event-manager summaries with action items.\\n3) Shareable external campaign page + referral tracking (Effort: M/L = 1-2 weeks): campaign pages should be easy to share publicly with trackable source attribution.\\n\\nTop 3 growth levers (SEO, virality, monetization):\\n1) SEO lever: Programmatic campaign toolkit content (Effort: M = 1-2 weeks initial): publish templates/checklists/calculators for school/sports/nonprofit fundraising workflows; each page funnels to product-specific CTA.\\n2) Virality lever: Built-in share loops for campaigns and updates (Effort: M = 1 week): one-click campaign update cards (progress + donor impact) for Facebook/email/SMS with UTM tracking.\\n3) Monetization lever: Usage-triggered upgrade system (Effort: M = 1 week): prompt upgrades exactly when users hit plan limits (campaigns/events/users/reports), with 7-day feature preview for higher tier conversion.\\n\\n90-day priority order: (1) Fix homepage positioning + onboarding value milestones, (2) ship usage-triggered monetization prompts, (3) launch shareable campaign pages + SEO template cluster. Expected outcome: better activation, cleaner upgrade conversion, and compounding acquisition from share+search channels.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4153,14 +4335,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-12T22:01:44.576Z",
-    "updatedAt": "2026-03-12T22:01:44.576Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773587494074_d5695c72",
     "title": "Even Us Up growth audit: UX, features, growth levers",
     "description": "Top UX friction points (priority):\\n1) Invite + onboarding friction (High impact, Medium effort): users churn before first shared expense if invite links/accounts feel mandatory. Add one-tap magic link invites + guest mode + auto-reminder.\\n2) Settlement clarity friction (High impact, Low effort): users unsure who pays whom after many expenses. Add 'Settle now' CTA with simplified net graph and one-tap payment deep links.\\n3) Recurring/group context friction (Medium impact, Medium effort): trips/roommates/events blend together; editing history is painful. Add group templates + recurring expenses + fast split presets.\\n\\nTop missing features (priority):\\n1) Smart settlement optimizer (High impact, Medium effort): minimize number of transfers and support partial settlements.\\n2) Receipt/OCR + auto-categorization (Medium-High impact, Medium effort): reduce manual entry; suggest payer/split from history.\\n3) Offline-first + conflict-safe sync (Medium impact, High effort): key differentiator for travel/poor connectivity groups.\\n\\nTop growth levers vs Splitwise (priority):\\n1) 'Fairness insights' positioning (High impact, Low-Med effort): differentiate with transparent fairness score, recurring imbalance alerts, and monthly 'who fronted what' digest.\\n2) Vertical templates + flows (High impact, Medium effort): roommate mode, couples mode, trip mode with tailored defaults/checklists.\\n3) Viral closure loop (Medium-High impact, Low effort): after settlement completion, prompt easy invite/share for next group + referral reward.\\n\\nDifferentiation thesis: win on clarity + automation + context-specific workflows (not generic expense ledger).\\n\\nExecution order (next 30 days):\\n- Week 1-2: settlement clarity + invite simplification\\n- Week 3: fairness insights MVP\\n- Week 4: one vertical template (Roommates) + referral loop",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4169,14 +4353,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-15T15:11:34.074Z",
-    "updatedAt": "2026-03-15T15:11:34.074Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Even Us Up growth audit — prioritized UX/features/growth plan\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773594101835_f7217d73",
     "title": "Alfred Infra Scan (2026-03-15): Top 3 reliability/cost improvements",
     "description": "1) HAL Dispatch Circuit Breaker + Pool Quarantine\\n- Observed: hal-idle-dispatch failed with EHOSTUNREACH and failure counter at 508. Current backoff prevents cascades, but the same failing pool task can still be retried repeatedly over days.\\n- Improvement: add per-task quarantine (e.g., skip task for 6h after N fails), plus host health probe before dispatching to 192.168.2.79. Auto-demote unreachable node tasks to local fallback queue.\\n- Impact: fewer wasted dispatch cycles, less noise, lower token/tool overhead.\\n\\n2) Kanban Data Integrity Guard (null-card stale sweeper hardening)\\n- Observed: kanban-idle-loop moved stale cards with title/id=null into review, indicating malformed/ghost entries in in_progress.\\n- Improvement: schema validation + repair job before stale sweep (reject/migrate cards missing id/title/updatedAt), and write anomalies to a dedicated audit log with auto-heal.\\n- Impact: prevents incorrect board mutations and keeps executor trustworthy.\\n\\n3) Trigger/Event Debounce Layer for Cron Executors\\n- Observed: overlapping schedulers (Kanban Idle Loop hourly + Work Executor every 30m + HAL Dispatch every 15m) increase duplicate checks and repeated no-op loops.\\n- Improvement: add a lightweight event bus/debouncer keyed by board hash + cooldown token; if board state unchanged since last run, skip expensive checks and API calls.\\n- Impact: lower token spend + less duplicate effort while preserving responsiveness.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4185,14 +4371,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-15T17:01:41.835Z",
-    "updatedAt": "2026-03-15T17:01:41.835Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Alfred infra scan: 3 reliability/cost fixes (Mar 17)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773601292470_c6d9b8e9",
     "title": "Signal App monetization strategy (benchmark + launch pricing)",
     "description": "Benchmarked competitors and proposed early-stage pricing model for Stock/Crypto Buy/Sell Signal App.\n\nCompetitor benchmark (2026 snapshot):\n1) TradingView (signal/charting ecosystem): Essential ~US.95/mo, Plus ~US.95/mo, Premium ~US.95/mo (annual discounts commonly offered).\n2) 3Commas (automation + signal bots): common published tiers around US / US / US per month (Starter/Advanced/Pro-style packaging).\n3) CoinStats (portfolio + alerts): Free tier + Premium at US.99/mo (annual billed), high-end Degen ~US.91/mo, lifetime options (/).\n\nRecommendation for Joe's early-stage audience:\n- Use FREEMIUM + 2 paid tiers (not one-time purchase) to maximize conversion + recurring revenue.\n- Free: limited delayed signals, 1 watchlist, basic alerts.\n- Pro (launch): US/mo (or C) early-adopter price for first 100 users, then US/mo.\n- Pro+ (power users): US/mo with advanced filters, multi-timeframe confluence, webhook/API export, priority support.\n- Annual plans: 20% off to improve cash flow and retention.\n\nB2B/API licensing strategy:\n- Do NOT lead with broad B2B on day 1.\n- Add a 'Team/API' tier after PMF (target: 3-5 paying B2B pilots), starting at US/mo + usage caps.\n\nWhy this is best now:\n- Price anchors against known market bands (13.99-99).\n- Keeps entry friction low for Joe's likely retail/prosumer audience.\n- Preserves upside via Pro+ and later API licensing without overbuilding too early.\n\nSuggested 30-day validation:\n- A/B test Pro at  vs  landing page waitlist conversion.\n- Track trial->paid conversion and 30-day retention before enabling Team/API.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4201,14 +4389,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-15T19:01:32.470Z",
-    "updatedAt": "2026-03-15T19:01:32.470Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/trading vertical pattern (monetizing trading signals to external users) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773615676674_0b8e920b",
     "title": "Portfolio Health Snapshot — Passive Income (Mar 15, 2026)",
     "description": "CoinUsUp: Status=Active maintenance/growth with strategic priority. Current MRR=Unknown (needs dashboard pull). Potential MRR (12mo)=$500-$2,000 if acquisition + conversion engine is executed. Bottleneck=No consistent growth engine (acquisition/activation loops not yet systemized).\\n\\nEven Us Up: Status=Running, strategic direction unresolved (monetization sprint vs maintenance mode). Current MRR=Unknown/likely low. Potential MRR (12mo)=$100-$800 with paid tier or niche B2B variant. Bottleneck=Positioning + monetization decision not finalized.\\n\\nSignal App (Market Signal Lab): Status=Early stage, personal tool focus, active technical improvements/backtesting. Current MRR=$0 (not public launch). Potential MRR (12mo)=$0-$500 if converted to paid insights later; near-term value is internal decision support. Bottleneck=Product strategy intentionally constrained to personal use (no go-to-market yet).\\n\\nAutomation Consulting: Status=Active client work (primary near-term cashflow pillar). Current MRR=Unknown but currently revenue-generating. Potential MRR (12mo)=$2,000-$10,000 depending on packaging/retainers and lead flow consistency. Bottleneck=Productization + repeatable offer packaging to reduce time-for-money dependence.\\n\\nPortfolio readout:\\n- Revenue resilience: Moderate (consulting carries most likely revenue)\\n- Scalability: Low-to-moderate (apps not yet in repeatable growth mode)\\n- Biggest cross-portfolio gap: Distribution + monetization systems\\n- Next best move: Build one shared growth operating system (weekly acquisition targets, funnel metrics, offer tests) and apply it first to CoinUsUp, then Even Us Up.\\n\\nAssumptions note: MRR figures are directional ranges due to missing live financial telemetry in this run.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4217,14 +4407,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-15T23:01:16.674Z",
-    "updatedAt": "2026-03-15T23:01:16.674Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773630068224_fa7f6e18",
     "title": "CompliancePulse Canada",
     "description": "Problem: Canadian SMB owners miss filing/payroll/GST/HST deadlines and incur penalties. Target: 1-50 employee Canadian SMBs + solo operators. Offer: automated deadline tracker + reminder workflows + filing checklist packs (not legal advice). Estimated MRR: k-k in 6-12 months (100-300 users at -). Tech complexity: 2/5. Competition: Medium (generic reminder tools, few Canada-specific compliance copilots). Why Joe can win: automation consulting + Canadian context + low-maintenance recurring reminders/checklists.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4233,7 +4425,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-16T03:01:08.224Z",
-    "updatedAt": "2026-03-16T03:01:08.224Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (GST/HST/payroll deadline tracker) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773630068453_3f3470bc",
@@ -4288,7 +4482,7 @@
     "title": "Canada-specific passive income scan (Atlantic/NB SMB moat)",
     "description": "3 geography-specific SaaS opportunities for Atlantic Canada/NB SMBs: bilingual compliance workflow, contractor field invoicing with offline mode, and CRA/HST deadline copilot. Includes MVP scope, moat, pricing, and validation plan.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4297,7 +4491,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-16T05:01:35.072Z",
-    "updatedAt": "2026-03-16T05:01:59.590Z",
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
     "comments": [
       {
         "id": "cmt_1773637319590_d92e92d9",
@@ -4305,14 +4499,16 @@
         "text": "Canada-specific passive-income scan (Atlantic Canada / NB SMB)\n\nContext / market gap\n- National incumbents (ADP, Ceridian/Dayforce, Wagepoint, QuickBooks ecosystem) serve Canada broadly, but Atlantic-specific workflows are underserved: bilingual realities, local tax cadence anxiety, trades-heavy contractor operations, and patchy rural connectivity.\n- Moat thesis: win by solving niche regional pain deeply (compliance + workflow + offline reliability), where larger vendors under-invest due to small TAM.\n\nTop 3 software opportunities\n\n1) NB Bilingual Compliance Copilot (HR + payroll + policy ops)\nWhat it solves\n- Small employers need bilingual employee-facing docs/processes but don’t have HR/legal ops capacity.\n- Existing payroll tools process pay, but don’t ensure bilingual policy packet completeness, acknowledgement logs, and audit readiness in one flow.\n\nMVP\n- Policy/document generator with bilingual side-by-side templates (offer letters, onboarding packs, leave notices, discipline notes).\n- Versioned acknowledgement tracking (who received/signed what, in which language).\n- Compliance checklist + exportable audit pack (PDF/ZIP timeline).\n- Integrations: upload/export CSV to payroll systems (don’t replace payroll on day 1).\n\nMoat\n- Region/language-specific compliance content + templates tuned for NB workflows.\n- Historical audit trail and bilingual evidence package are sticky once populated.\n\nMonetization\n- $79-$249/mo SMB tiers + paid onboarding pack.\n- Upsell: annual compliance review report.\n\nValidation (30-45 days)\n- 10 discovery calls with NB SMB owners/bookkeepers.\n- Concierge pilot for 3 firms; success metric = reduce policy/admin prep time by >=40%.\n\n2) TradesFlow Atlantic (offline-first contractor invoicing + payroll handoff)\nWhat it solves\n- Trades/contractor teams in rural/low-signal areas need jobsite-first capture: hours, materials, mileage, signed approvals, progress photos.\n- Current tools assume stable connectivity and create end-of-day reconciliation pain.\n\nMVP\n- Offline-first mobile app: timesheets, materials, change orders, customer signatures.\n- Auto-sync when connected; conflict-safe merge.\n- One-click invoice package + payroll-ready export (CSV/API bridge).\n- GST/HST-aware line-item templates for contractor workflows.\n\nMoat\n- Reliability in poor connectivity + trades-specific flow beats generic invoicing apps.\n- Field evidence bundle (photo/signature/time/location) reduces disputes and speeds payment.\n\nMonetization\n- Per crew seat pricing ($20-$40/user/mo) + invoice-volume add-on.\n\nValidation (30-60 days)\n- Pilot with 5-8 local trades businesses.\n- Success metric = days-to-invoice cut by >=30% and DSO/payment lag reduced measurably.\n\n3) CRA Deadline & HST Cashflow Copilot (micro-SMB finance ops)\nWhat it solves\n- Owners miss remittance dates or under-reserve tax cash, causing penalties and stress.\n- Accounting software tracks books but often lacks proactive, action-oriented deadline + reserve orchestration.\n\nMVP\n- Deadline engine: GST/HST, payroll remittance, instalments, filing windows (configurable per business profile).\n- “Set-aside” recommendations: weekly tax reserve targets based on current inflows.\n- Risk dashboard: upcoming obligations, confidence score, and what-to-do-this-week checklist.\n- Output reminders + accountant-ready summary bundle.\n\nMoat\n- Atlantic/NB-specific preset flows + practical “owner language” guidance (not accountant jargon).\n- Trust moat from accurate timeline + avoided penalties.\n\nMonetization\n- $29-$99/mo core; add accountant multi-client dashboard as channel expansion.\n\nValidation (30 days)\n- Waitlist + simple prototype with 20 SMBs/bookkeepers.\n- Success metric = >=50% weekly active checklist completion; qualitative signal on reduced filing anxiety.\n\nRecommended sequencing (ROI-first)\n1) Start with CRA Deadline & HST Cashflow Copilot (fastest MVP, lowest integration burden, broadest SMB pain).\n2) Expand into Bilingual Compliance Copilot (deeper NB moat, higher ARPU).\n3) Build TradesFlow Atlantic once field pilots confirm offline reliability demand.\n\nExecution guardrails\n- Keep scope narrow: workflow utility first, heavy integrations later.\n- Sell through local accountants/bookkeepers/industry associations to reduce CAC.\n- Build template/content moat early (checklists, bilingual packs, filing playbooks) to defend small-market niche.\n\nRisk notes\n- Regulatory/compliance advice boundaries: position as workflow + reminders, not legal/tax advice.\n- Data trust: audit logs, immutable history, and clear “source of truth” views are mandatory for retention.",
         "createdAt": "2026-03-16T05:01:59.590Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA/HST copilot + contractor invoicing scan) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773651698791_0b4ce7cf",
     "title": "Even Us Up growth audit: UX friction, feature gaps, growth levers",
     "description": "Priority roadmap (differentiated vs Splitwise):\\n\\nTOP UX FRICTION (highest impact first)\\n1) Settlement clarity is too weak (who pays whom, in what order)\\n   - Pain: users understand balances but not exact next action; causes drop-off before settlement.\\n   - Fix: one-tap smart settlement plan with minimal transfers + payment app deep links.\\n   - Effort: M (3-5 days)\\n\\n2) Group setup and recurring expenses are too manual\\n   - Pain: trips/roommates repeatedly re-enter similar participants + categories.\\n   - Fix: group templates (trip/household/couple), recurring expense presets, duplicate-last-expense shortcut.\\n   - Effort: M (4-7 days)\\n\\n3) Add-expense flow has too much cognitive load\\n   - Pain: split method, payer, participants, notes, currency all at once slows entry.\\n   - Fix: progressive disclosure + smart defaults based on prior behavior; “quick add” in <10 sec.\\n   - Effort: M (3-6 days)\\n\\nTOP MISSING FEATURES (ranked)\\n1) Lightweight receipt capture + auto-line extraction\\n   - Why it matters: removes manual typing; differentiator when accuracy + speed both matter.\\n   - Scope: snap receipt -> merchant/date/total prefill + editable split suggestions.\\n   - Effort: L (2-3 weeks with OCR integration + QA)\\n\\n2) Built-in payment confirmation workflow\\n   - Why it matters: closes the loop from “you owe” to “settled,” reducing disputes.\\n   - Scope: mark-paid + request-confirm + audit trail/timeline.\\n   - Effort: M (1-2 weeks)\\n\\n3) Scenario-aware split logic (couples/families/roommates)\\n   - Why it matters: Splitwise is strong at generic splits; vertical presets can win niche retention.\\n   - Scope: income-weighted, custody-day weighting, household contribution caps.\\n   - Effort: L (2-4 weeks incl UX + edge-case handling)\\n\\nTOP GROWTH LEVERS (ranked)\\n1) Viral settlement moments (shareable + actionable)\\n   - Tactic: send clean “settle now” links/screens after events; include payer-specific CTA.\\n   - KPI: invite conversion rate, D7 payer activation.\\n   - Effort: M (1-2 weeks)\\n\\n2) Niche positioning campaign (family/couples-first, not generic roommates-only)\\n   - Tactic: landing pages + onboarding copy + templates for 3 niches.\\n   - KPI: activation by cohort, 30-day retention lift.\\n   - Effort: S-M (3-8 days, mostly product marketing + onboarding edits)\\n\\n3) Weekly “money clarity” digest\\n   - Tactic: proactive summary (what changed, who is pending, recommended settle actions).\\n   - KPI: WAU reactivation, settlement completion rate.\\n   - Effort: M (1-2 weeks)\\n\\nDIFFERENTIATION STRATEGY VS SPLITWISE\\n- Compete on execution quality, not just balance tracking:\\n  1) Faster capture (receipt + quick add)\\n  2) Smarter settlement (minimal-transfer + payment rails)\\n  3) Relationship-aware splitting (family/couple/household logic)\\n\\n90-DAY PRIORITIZED BUILD ORDER\\nPhase 1 (Weeks 1-3): Smart settlement + quick add defaults + group templates\\nPhase 2 (Weeks 4-7): Payment confirmation workflow + weekly digest\\nPhase 3 (Weeks 8-12): Receipt OCR beta + scenario-aware split presets\\n\\nExpected outcome: higher activation (faster first expense), better D30 retention (less friction), stronger invite loop (clear settlement CTAs).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4321,14 +4517,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-16T09:01:38.791Z",
-    "updatedAt": "2026-03-16T09:01:38.791Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Even Us Up growth audit — prioritized UX/features/growth plan\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773658935130_c7ad5273",
     "title": "Alfred Infra Scan (2026-03-16): Top 3 NEW reliability/cost improvements",
     "description": "**Evidence snapshot (08:00 run):**\n- Kanban: idle-loop reported stale null cards moved to review\n- Gateway: unreachable for operator.read scope (observability gap)\n- HAL: heartbeat disabled\n- Active sessions: 7, multiple idle threads\n\n---\n\n## 1) Gateway Scope Canary + Safe Escalation\n\n**Gap:** `openclaw status` is partially blind — missing `operator.read` scope reduces observability exactly when diagnosing failures.\n\n**Improvement:** Add hourly canary that runs `openclaw gateway probe` + checks required scopes. If scope missing, post structured blocker to Kanban with remediation steps; suppress noisy repeats for 12h.\n\n**Impact:** Faster incident triage, fewer wasted debug loops, fewer duplicate investigations.\n\n---\n\n## 2) Session TTL Janitor (token + context hygiene)\n\n**Gap:** Multiple stale idle sessions accumulate (7 active, several old idle threads). This increases context clutter and hidden token overhead over time.\n\n**Improvement:** Add low-risk janitor that archives/closes sessions older than threshold (unless pinned/active in last N hours). Weekly digest of reclaimed slots.\n\n**Impact:** Lower token drift, cleaner continuity, simpler debugging.\n\n---\n\n## 3) HAL Heartbeat Auto-Recovery + Confidence Gate\n\n**Gap:** HAL heartbeat disabled — can silently reduce dispatch reliability until noticed manually.\n\n**Improvement:** Monitor HAL heartbeat state; auto-restart/re-enable once, then open blocker if still unhealthy. Add confidence gate so proactive dispatch pauses when HAL health score < threshold.\n\n**Impact:** Fewer silent failures, less wasted proactive execution during HAL degradation.\n\n---\n\n**Why NEW:** Target observability scope health, session lifecycle hygiene, HAL heartbeat auto-recovery — NOT circuit-breaker, card schema repair, or trigger debounce (already logged).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4337,7 +4535,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-16T11:02:15.130Z",
-    "updatedAt": "2026-03-16T16:29:12.447Z",
+    "updatedAt": "2026-03-18T22:09:59.103Z",
     "comments": [
       {
         "id": "cmt_1773678540041_2d3f15ad",
@@ -4351,14 +4549,16 @@
         "text": "Done. Reformatted with:\n\n- **Evidence snapshot** at top (bullet summary)\n- **3 improvements** as numbered sections:\n  - Gap (what's broken)\n  - Improvement (what to do)\n  - Impact (why it matters)\n- **Distinction** at bottom (explains why new vs. prior ideas)\n\nMuch cleaner for scanning. Ready for review.",
         "createdAt": "2026-03-16T16:29:12.447Z"
       }
-    ]
+    ],
+    "rejectedReason": "Auto-archived: duplicate of \"Alfred infra scan: 3 reliability/cost fixes (Mar 17)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773727296493_8a6ae5cb",
     "title": "Portfolio health snapshot — 2026-03-17",
     "description": "One-page review of revenue portfolio (CoinUsUp, Even Us Up, Signal App, Automation Consulting).\\n\\nCurrent status + MRR estimates:\\n• CoinUsUp: live/stable, est current MRR –400, potential ,000–5,000; bottleneck = acquisition/distribution velocity.\\n• Even Us Up: live/low traction, est current MRR –100, potential –1,500; bottleneck = unclear direction + monetization.\\n• Signal App: beta/validation, est current MRR /bin/zsh, potential external MRR /bin/zsh (internal lab currently); bottleneck = validation reliability + scope control.\\n• Automation Consulting: active services, est current MRR ,000–5,000, potential ,000–10,000; bottleneck = founder-time scaling ceiling.\\n\\nPortfolio totals:\\n• Estimated current MRR: ,250–5,500\\n• Estimated 12-month potential MRR: ,500–16,500\\n\\nPortfolio health: strong base but over-concentrated in consulting; largest upside is distribution for CoinUsUp + productization of consulting workflows.\\n\\n30-day focus:\\n1) Run 2 paid channel tests for CoinUsUp + keep only channels with acceptable CAC.\\n2) Make explicit grow-vs-harvest decision for Even Us Up.\\n3) Productize one consulting workflow into fixed-scope offer to decouple revenue from hours.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4367,7 +4567,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T06:01:36.493Z",
-    "updatedAt": "2026-03-17T06:01:36.493Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Portfolio Health Snapshot — Revenue Streams (Mar 2026)\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773741669597_9bea0142",
@@ -4406,7 +4608,7 @@
     "title": "Signal discipline companion (risk + journaling API addon)",
     "description": "Problem: retail traders fail from poor execution discipline, not lack of signal sources. Target market: active crypto/stock traders using TradingView + broker APIs. Offer: regime detection, position sizing templates, pre-trade checklist, post-trade auto-journal and behavior analytics; positioned as decision-support not advice. Estimated MRR potential: Ck-Ck (100-500 users at C/mo). Tech complexity: 3/5 (rule-based analytics first, lightweight ML later). Competition: High in signals, lower in execution-discipline tooling with explainability. Why Joe can win: existing signal app foundation + direct domain context + ability to bundle with education/automation workflows.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4415,14 +4617,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T10:01:10.052Z",
-    "updatedAt": "2026-03-17T10:01:10.052Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/trading vertical pattern (trading journaling + risk management) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773762555304_e413d77f",
     "title": "NB Bilingual CRA Copilot for SMBs",
     "description": "Opportunity (Atlantic Canada/NB moat): Build a bilingual (EN/FR) compliance copilot for small businesses that combines GST/HST filing deadlines, CRA remittance calendar, and payroll task reminders in one workflow. Why moat: national tools are generic and weak on NB bilingual UX + province-aware filing cadence. MVP: deadline engine + CRA checklist + accountant handoff packet (PDF/email) + audit trail. Revenue: -/mo per business + accountant partner referrals.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4431,14 +4635,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T15:49:15.304Z",
-    "updatedAt": "2026-03-17T15:49:15.304Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA copilot) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773762561179_da5e88e9",
     "title": "Atlantic Contractor Cashflow + Invoicing (Low-Connectivity Mode)",
     "description": "Opportunity: Invoicing + collections tool for trades/contractors in NB/Atlantic regions with intermittent connectivity. Include offline-first estimate/invoice capture, auto-sync, progress billing, holdback tracking, and bilingual client-facing docs. Geography moat: rural/offline reliability + local tax defaults (GST/HST handling) + contractor workflows ignored by broader SaaS. MVP: mobile offline queue + SMS/email payment reminders + receivables dashboard.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4447,14 +4653,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T15:49:21.179Z",
-    "updatedAt": "2026-03-17T15:49:21.179Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial vertical pattern (contractor invoicing + progress billing) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773762565147_57380f1e",
     "title": "Payroll Gap-Filler for Small NB Teams (Ceridian/ADP Companion)",
     "description": "Opportunity: Build a companion layer for small businesses that already use enterprise payroll (Ceridian/Dayforce/ADP) but still do manual admin. Focus on shift imports, exception detection, remittance-ready summaries, and bilingual employee comms. Geography moat: tailored to Atlantic SMB operations and French/English workforce messaging. MVP: connector/import + validation rules + payroll anomaly alerts + manager approval queue.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4463,14 +4671,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T15:49:25.147Z",
-    "updatedAt": "2026-03-17T15:49:25.147Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial vertical pattern (payroll gap-filler) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773770502641_10acdc4d",
     "title": "CoinUsUp growth audit (Q2 2026): UX friction, missing features, growth levers",
     "description": "Priority recommendations based on repo/docs audit.\\n\\nTOP 3 UX FRICTION POINTS (priority)\\n1) Onboarding complexity + setup friction (High impact, Med effort to fix)\\n- Evidence: dedicated onboarding checklist/sample data feature indicates first-run friction is material.\\n- Pain: users must create org + campaign + invite flow before value is obvious.\\n- Fixes: one-click guided setup wizard, prebuilt templates by fundraiser type, progressive disclosure.\\n- Effort: M (1-2 sprints).\\n\\n2) Information density/navigation overload for small teams (High impact, Med effort)\\n- Evidence: many modules (campaigns, events, tasks, shifts, chat, group email, donations, reports, expenses) can overwhelm early users.\\n- Pain: too many choices before first success metric.\\n- Fixes: role-based dashboard modes (Starter/Advanced), Next",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4479,14 +4689,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T18:01:42.641Z",
-    "updatedAt": "2026-03-17T18:01:42.641Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"CoinUsUp growth audit: UX friction + feature gaps + levers\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773777690085_672144ea",
     "title": "Even Us Up growth audit — Mar 17 (settlement + Canada moat)",
     "description": "Even Us Up growth audit (Mar 17 refresh) — prioritized by near-term ROI and differentiation vs Splitwise.\n\nTop 3 UX friction points (priority order)\n1) Time-to-first-settlement too slow (users add expenses but don’t close the loop quickly)\n   - Impact: high (activation + D7 retention)\n   - Why it hurts vs Splitwise: users remember “did this actually help me settle?”\n   - Fix: first-session guided path to one completed settle-up\n   - Effort: M (3–5 dev days)\n\n2) Invite/join friction for the second person\n   - Impact: high (viral loop bottleneck)\n   - Why it hurts vs Splitwise: group utility collapses if invites leak\n   - Fix: magic-link joins + prefilled context + lightweight guest confirmation flow\n   - Effort: S-M (2–4 dev days)\n\n3) Split explainability/trust gap on non-equal splits\n   - Impact: medium-high (disputes + churn)\n   - Why it hurts vs Splitwise: trust is the product in shared money tools\n   - Fix: inline “how this was calculated” + live preview before save\n   - Effort: S-M (2–3 dev days)\n\nTop 3 missing features (true strategic gaps)\n1) Settlement rails for Canada-first users (Interac deep links + paid confirmation trail)\n   - Differentiator: strong Canada moat where Splitwise payment flow is weaker\n   - Effort: M-L (1–2 weeks MVP)\n\n2) Household recurring automation (rent/utilities/subscriptions with rules)\n   - Differentiator: own recurring life-admin, not one-off trip splitting\n   - Effort: M (4–7 dev days)\n\n3) Debt-aging nudges + monthly close digest\n   - Differentiator: proactive closure, less mental overhead for couples/roommates\n   - Effort: M (4–6 dev days)\n\nTop 3 growth levers\n1) Positioning: “Settle faster than Splitwise for couples/roommates in Canada”\n   - Effort: S (1–2 days copy + landing updates)\n\n2) Referral trigger at value moment (immediately after successful settle-up)\n   - Effort: S-M (2–4 dev days)\n\n3) Programmatic SEO pages (split rent Canada, roommate expense split, trip settle calculator)\n   - Effort: M (4–7 dev days initial set)\n\nRecommended implementation order (next 2 sprints)\nSprint 1 (highest ROI):\n- First-session settle flow\n- Invite/join simplification\n- Split explainability panel\n\nSprint 2:\n- Interac settlement links + payment confirmation\n- Recurring household rules\n- Referral at post-settlement moment\n\nExpected KPI movement:\n- Activation: +20–30% (first group + first settled balance)\n- Invite conversion: +15–25%\n- D30 retention: +10–15% (recurring + nudges)\n\nThesis: Compete on settlement speed + trust + Canada-first payment closure, not feature-count parity.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4495,7 +4707,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-17T20:01:30.085Z",
-    "updatedAt": "2026-03-17T20:01:30.085Z"
+    "updatedAt": "2026-03-18T22:09:59.103Z",
+    "rejectedReason": "Auto-archived: duplicate of \"Even Us Up growth audit — prioritized UX/features/growth plan\"",
+    "rejectedAt": "2026-03-18T22:09:59.103Z"
   },
   {
     "id": "idea_1773784908199_ea22890c",
@@ -4574,7 +4788,7 @@
     "title": "Canadian Law Firm Trust Reconciliation Co-Pilot",
     "description": "Problem: small/mid Canadian firms lose hours on monthly trust reconciliation and compliance checks. Target: 1-20 lawyer firms on LEAP/CosmoLex/PCLaw. MRR: Ck-25k (80-250 firms @ C/mo). Complexity: 3/5 (ETL + reconciliation rules + exception UI). Competition: Medium (practice suites exist but weak cross-system reconciliation automation). Why Joe wins: 20+ years legal billing/data transformation expertise and domain trust.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4583,14 +4797,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-18T15:01:16.329Z",
-    "updatedAt": "2026-03-18T15:01:16.329Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned legal industry pattern (law firm trust reconciliation) from 4+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773846081071_d3623030",
     "title": "CRA GST/HST Compliance Copilot for Canadian SMB",
     "description": "Problem: SMB owners/bookkeepers struggle with GST/HST categorization, evidence collection, and filing readiness. Target: Canadian SMBs + bookkeeping boutiques (services/ecom). MRR: Ck-40k (100-400 accounts @ C/mo avg incl. partner tiers). Complexity: 2/5 (rules engine + bank/csv ingestion + filing checklists). Competition: Medium-High (general accounting tools, but low Canada-specific compliance coaching automation). Why Joe wins: automation consulting + workflow design strength, can niche down to high-friction verticals first.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4599,14 +4815,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-18T15:01:21.071Z",
-    "updatedAt": "2026-03-18T15:01:21.071Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA GST/HST compliance) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773846087700_90bde0bb",
     "title": "SignalOps: Trading Signal QA + Auto-Journal",
     "description": "Problem: creators and serious retail traders cannot reliably validate signal quality or maintain disciplined trading journals. Target: signal communities, solo traders, small trading Discords/Telegram groups. MRR: Ck-30k (200-1000 users @ C/mo, plus creator plans). Complexity: 3/5 (exchange/broker imports, rule-based scoring, journaling workflow). Competition: Medium (journals exist; fewer combine signal QA + execution discipline loops). Why Joe wins: already building stock/crypto signal app and can bundle analytics + automation as premium upsell.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4615,14 +4833,16 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-18T15:01:27.700Z",
-    "updatedAt": "2026-03-18T15:01:27.700Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/trading vertical pattern (trading signal QA + auto-journal) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773853287717_ee5ce610",
     "title": "Canada-specific passive income scan: 3 Atlantic moats",
     "description": "Scan focus: Atlantic Canada/NB SMB pain points (bilingual compliance, CRA/HST deadlines, payroll gaps, contractor invoicing, rural connectivity).\\n\\nTop opportunities:\\n\\n1) Bilingual CRA/HST Compliance Copilot for micro-SMBs\\n- Problem: Small firms miss filing deadlines, remittance schedules, and province/federal form nuances; most tools are generic and English-first.\\n- Product: Deadline engine + document checklist + French/English reminders + accountant handoff packet.\\n- Moat: Atlantic-focused rules presets, bilingual UX/content, local accountant partner network.\\n- Monetization: -/mo + tax-season upsell package.\\n\\n2) Trades Progress Billing + Holdback Assistant (NB/Atlantic specific)\\n- Problem: Contractors struggle with milestone billing, statutory holdbacks, change orders, and payment follow-up; spreadsheets dominate.\\n- Product: Job-based invoicing with progress draws, holdback tracking, lien deadline alerts, photo/proof attachments, one-click client statements.\\n- Moat: Province-specific defaults/templates and workflows for small trade teams competitors ignore due to market size.\\n- Monetization: -/mo per company + per-active-project add-on.\\n\\n3) Rural Field Ops Offline Suite (invoicing + dispatch + sync)\\n- Problem: Rural connectivity causes failed syncs, delayed invoicing, and lost work logs for service businesses.\\n- Product: Offline-first mobile app (work orders, signatures, invoice drafting) with resilient conflict-safe sync when signal returns.\\n- Moat: Reliability in low-connectivity Atlantic regions + lightweight pricing for 2-20 person teams.\\n- Monetization: -/mo + optional SMS reminders bundle.\\n\\nRecommended validation sprint (2 weeks):\\n- 10 discovery calls across accountants, electricians/plumbers, and rural service companies\\n- Build landing tests for each concept\\n- Success gate: >=20% interviewees willing to pre-register or pay pilot deposit",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4631,7 +4851,9 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-18T17:01:27.717Z",
-    "updatedAt": "2026-03-18T17:01:27.717Z"
+    "updatedAt": "2026-03-18T22:06:20.690750+00:00",
+    "rejectedReason": "Auto-archived: matches banned financial/tax vertical pattern (CRA/HST compliance + trades billing scan) from 16+ prior rejections",
+    "rejectedAt": "2026-03-18T22:06:20.690750+00:00"
   },
   {
     "id": "idea_1773860551660_a22ba912",
@@ -4648,5 +4870,83 @@
     "tags": [],
     "createdAt": "2026-03-18T19:02:31.660Z",
     "updatedAt": "2026-03-18T19:02:31.660Z"
+  },
+  {
+    "id": "idea_1773871326687_04f1dd9b",
+    "title": "Even Us Up growth audit — prioritized UX/features/growth plan",
+    "description": "Top 3 UX friction points (priority): 1) Settlement clarity + payment handoff confusion (S: 4-6h) — add clearer settle CTA, per-person net status, Interac-first language. 2) Onboarding to first expense takes too long (M: 6-10h) — guided first group + sample data + ‘add first expense’ wizard. 3) OCR receipt correction flow is brittle (M: 8-12h) — confidence indicators + inline edit before save + retry UX. Top 3 missing features: 1) Real-time notifications/reminders (M: 10-14h) — due reminders + nudges for inactive members. 2) Split templates + recurring expenses (M: 12-18h) — rent/utilities/grocery presets reduce repeat friction. 3) Multiple settlement rails (M: 10-16h) — Interac + manual + cash tracking with settle confirmation. Top 3 growth levers vs Splitwise: 1) Canada-first positioning (Interac-native settlement + CAD-focused UX) (S: 4-8h for landing+copy). 2) Couples/household mode (persistent monthly flows + recurring templates) (M: 12-20h). 3) Splitwise migration importer + switch campaign (M/L: 18-28h). Differentiation thesis: Splitwise is broad and generic; Even Us Up can win with Canada-local settlement + OCR-assisted capture + household-first recurring workflows. Recommended order (30 days): settlement clarity -> onboarding -> notifications -> Canada-first landing -> migration beta.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-18T22:02:06.687Z",
+    "updatedAt": "2026-03-18T22:15:10.646Z",
+    "comments": [
+      {
+        "id": "cmt_1773872057473_be6b1d1b",
+        "author": "joe",
+        "text": "propose a plan with the suggested improvements.",
+        "createdAt": "2026-03-18T22:14:17.473Z"
+      },
+      {
+        "id": "cmt_1773872110645_4e6ba186",
+        "author": "alfred",
+        "text": "Plan created: **Even Us Up Growth Plan — Q2 2026** (30-day sprint)\n\n📋 **Structure:**\n• **Phase 1 (UX Fixes, Days 1-12):** Settlement clarity → Onboarding wizard → OCR improvements\n• **Phase 2 (Features, Days 13-28):** Notifications → Recurring expenses → Multiple settlement rails\n• **Phase 3 (Growth, Days 21-30):** Canada-first landing → Household mode → Splitwise migration\n\n🎯 **Key Differentiators vs Splitwise:**\n1. Interac-native settlement + CAD positioning\n2. Household/recurring workflows (couples, shared utilities)\n3. OCR-assisted capture with improved UX\n\n📊 **Effort Estimate:** 102-152 hours (~2-3 weeks full-time dev)\n\n✅ **Next Steps:**\n1. You: Review plan + prioritize Phase 1 order\n2. You: Confirm MVP features vs nice-to-haves\n3. You: Decide in-house build or outsource\n4. Alfred: Break into Kanban cards + assign sprints\n\nFull plan saved to: `designs/even-us-up-growth-plan-2026-Q2.md`",
+        "createdAt": "2026-03-18T22:15:10.645Z"
+      }
+    ]
+  },
+  {
+    "id": "idea_1773878529721_1f98765b",
+    "title": "Service Source-of-Truth Map + Drift Guard for Dashboard/Command Center",
+    "description": "Gap observed: two dashboard codebases exist (~/.openclaw/workspace/dashboard static HTML and /Users/hopenclaw/command-center React app), causing edits in the wrong location and delayed fixes. Improvement: add a machine-readable service manifest (service -> source path -> launchctl label -> port), plus a pre-edit guard script that resolves active service root before modifications. Include weekly drift audit comparing running process cwd vs expected paths. Impact: prevents wrong-repo edits, reduces MTTR, and avoids duplicate effort during urgent fixes.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-19T00:02:09.721Z",
+    "updatedAt": "2026-03-19T00:02:09.721Z"
+  },
+  {
+    "id": "idea_1773878537449_12855207",
+    "title": "Prototype App Reliability Pack (auto-start + preflight + health contract)",
+    "description": "Failure mode observed: prototype listed in Apps page but showed offline due app process not supervised and runtime/build regressions. Improvement: add a Prototype Reliability Pack: (1) launchd supervisor per prototype, (2) preflight CI script (typecheck/build smoke test), (3) standardized /health endpoint contract, (4) dashboard status reason codes (offline_build_failed, offline_process_down, offline_health_timeout). Impact: fewer false offline states, faster diagnosis, and reliable demoability from Command Center.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-19T00:02:17.449Z",
+    "updatedAt": "2026-03-19T00:02:17.449Z"
+  },
+  {
+    "id": "idea_1773878543777_814db879",
+    "title": "Gateway Response Integrity Sentinel (JSON validity + degraded-mode routing)",
+    "description": "Gap observed in executor: gateway returned HTTP 200 with invalid JSON, triggering GATEWAY_DOWN safety path. Improvement: add a response-integrity sentinel that validates schema/content-type before consumers parse, then routes into explicit degraded mode with cached last-known-good state and targeted alerting. Add a runbook action matrix by failure type (auth, invalid JSON, timeout, scope denial). Impact: fewer blind failures, clearer recovery actions, and reduced noisy retry loops.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-19T00:02:23.777Z",
+    "updatedAt": "2026-03-19T00:02:23.777Z"
   }
 ]

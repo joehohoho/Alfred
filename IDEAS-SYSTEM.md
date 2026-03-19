@@ -50,21 +50,37 @@ Every Saturday at 2 PM AST, generate 2-3 new ideas. Process:
 - Read goals/goals.json (understand active work)
 - Optionally: web search for market trends in Joe's domains
 
-### 2. Generate Ideas
+### 2. Research & Validate (REQUIRED)
+Before generating ANY idea, do a quick web search to verify:
+- **Real demand:** People are searching for it, competitors exist, forums/communities discuss the problem
+- **Revenue viability:** There's a clear path to generating income (not just "could be useful")
+- **Joe's stack:** It can be built with Node.js, React, TypeScript, or Python
+
+If you can't find evidence of demand, DO NOT create the idea. No speculative ideas without evidence.
+
+### 3. Generate Ideas
 Aim for diversity across these dimensions:
 - **Effort level:** Mix of low, medium, high effort
 - **Time horizon:** Some quick wins, some long-term plays
 - **Category:** At least one passive-income idea per batch
 - **Leverage:** Ideas that build on Joe's existing skills, code, or infrastructure
 
-### 3. Evaluate Quality
+### 4. Format Descriptions (REQUIRED)
+Idea descriptions must NOT be one large paragraph. Use clear sections with markdown:
+- **Problem** (1-2 sentences) — What pain point exists
+- **Solution** (1-2 sentences) — What the product/tool does
+- **Revenue Model** — How it makes money
+- **Why Joe** — Why this fits Joe's skills and existing projects
+- **Evidence** — Links or data points from your research showing demand
+
+### 5. Evaluate Quality
 Before adding, ask:
 - Does this leverage Joe's unique background (legal billing, automation, AI)?
-- Is the market real (not hypothetical)?
+- Is the market real (not hypothetical)? — You should already have evidence from step 2
 - Can Joe realistically build this alongside current work?
 - Does it connect to existing projects (synergies)?
 
-### 4. Save & Notify
+### 6. Save & Notify
 - Write new ideas to goals/ideas.json
 - Post brief summary to Slack (1 line per idea)
 

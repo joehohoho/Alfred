@@ -364,42 +364,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1773764210057_902f6165",
-    "type": "system",
-    "title": "Codex Token Expiring",
-    "message": "Codex OAuth token expires in 47h. Refresh via: openclaw models auth login --provider openai-codex",
-    "answered": false,
-    "createdAt": "2026-03-17T16:16:50.057Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773775322127_5396e0d1",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T19:22:02.127Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773775322130_44cde5c6",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Update Check: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T19:22:02.130Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773775322132_62db72ee",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Nightly Git Commit: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T19:22:02.132Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773775410172_bad50023",
     "type": "question",
     "title": "Consulting: recurring client problem → product idea?",
@@ -407,78 +371,6 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-17T19:23:30.172Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773775622487_f92a6055",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T19:27:02.487Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773781328287_a053d8b0",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T21:02:08.287Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773781328289_951b77ec",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-17T21:02:08.289Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773807417558_2da13d2c",
-    "type": "system",
-    "title": "Codex Token Expiring",
-    "message": "Codex OAuth token expires in 35h. Refresh via: openclaw models auth login --provider openai-codex",
-    "answered": false,
-    "createdAt": "2026-03-18T04:16:57.558Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773813760280_7e38d5bc",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-18T06:02:40.280Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773813760282_62657686",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-18T06:02:40.282Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773813760285_ccefa855",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-18T06:02:40.285Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773831627169_42ee3352",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-18T11:00:27.169Z",
     "answeredAt": null
   },
   {
@@ -509,24 +401,6 @@
     "source": "stale-card-handler",
     "answered": false,
     "createdAt": "2026-03-18T15:00:49.925Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773850625039_a67437d3",
-    "type": "system",
-    "title": "Codex Token Expiring",
-    "message": "Codex OAuth token expires in 23h. Refresh via: openclaw models auth login --provider openai-codex",
-    "answered": false,
-    "createdAt": "2026-03-18T16:17:05.039Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773853399843_6ddcad21",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-18T17:03:19.843Z",
     "answeredAt": null
   }
 ]
