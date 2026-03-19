@@ -288,3 +288,30 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 2. Proactive publish gate to force Kanban artifact creation (turns insight into execution)
 3. Null-ID suppression + anomaly fingerprinting in idle loop (stabilizes board truth)
 
+
+## Workflow Efficiency Scan — 2026-03-19
+
+### Top repetitive patterns and concrete improvements
+
+1. **Wrong-target edits when multiple dashboards exist (rework loop + context switching)**
+   - **Pattern:** Work was first applied to `~/.openclaw/workspace/dashboard/index.html`, while the active Command Center Apps page is served from `/Users/hopenclaw/command-center/frontend/src/pages/Apps.tsx` + backend `/api/apps` route.
+   - **Impact:** Duplicate implementation effort, delayed delivery, and unnecessary restart/debug cycles.
+   - **Improvement proposal:** Add a preflight resolver script (`scripts/resolve-service-path.sh`) that maps service name → canonical repo path + launch agent + active port before any UI change. Make it mandatory for tasks mentioning "dashboard", "apps page", or "command center".
+   - **Success metric:** Reduce wrong-repo edits for UI tasks to 0 over 30 days.
+
+2. **Prototype apps repeatedly show offline due to missing runtime lifecycle automation**
+   - **Pattern:** HST/GST prototype appeared in Apps list but showed offline because the service was not running and had no managed startup (manual npm install/start required).
+   - **Impact:** Broken user trust in "Apps" status and repeated manual intervention every restart/session.
+   - **Improvement proposal:** Create a managed LaunchAgent/service wrapper for prototypes (`com.alfred.prototype.<app>`), with healthcheck endpoint validation and auto-restart. Add a registration helper script that updates both LaunchAgent and `/api/apps` metadata in one step.
+   - **Success metric:** Prototype uptime >95% during active hours and 0 manual restarts per week for registered prototype apps.
+
+3. **Cross-origin preview failures on Apps page cause avoidable debugging churn**
+   - **Pattern:** Inline preview failed (`chrome-error://chromewebdata` + origin mismatch) when app URL pointed to `http://localhost:3000` from Command Center origin.
+   - **Impact:** User-facing friction and repeated troubleshooting despite app itself being functional.
+   - **Improvement proposal:** Standardize prototype access via same-origin proxy route (`/apps/<id>`) as a policy: Apps registry only accepts relative URLs for prototypes, backend auto-proxies to local ports. Add validation check that rejects cross-origin prototype URLs at save/build time.
+   - **Success metric:** 0 CORS/iframe preview failures for prototype cards over next 14 days.
+
+### Recommended implementation order (highest ROI first)
+1. Same-origin prototype URL policy + proxy validation (fastest user-facing stability win)
+2. Prototype lifecycle automation via LaunchAgents (eliminates repeated offline state)
+3. Service-path preflight resolver for UI tasks (prevents wrong-repo rework)
