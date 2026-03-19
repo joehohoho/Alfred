@@ -397,5 +397,23 @@
     "answeredAt": "2026-03-19T13:32:07.725Z",
     "userAnswer": "This is a repeat question.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1773929076418_27ae073f",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-19T14:04:36.418Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1773929076422_0122fcdb",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Joe Profile Reflection: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-19T14:04:36.422Z",
+    "answeredAt": null
   }
 ]

@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-03-17 (19:23 AST) — full reflection, Phase 1-5 complete
-**Last direct Q&A update:** 2026-03-17 (19:23 AST, Daily inquiry cycle validation)
-**Reflection count:** 7
-**Profile version:** 1.8
+**Last reflection:** 2026-03-19 (11:03 AST) — full reflection, Phase 1-5 complete
+**Last direct Q&A update:** 2026-03-19 (11:03 AST, Consulting boundary + duplicate question crisis)
+**Reflection count:** 8
+**Profile version:** 1.9
 
 ---
 
@@ -113,7 +113,7 @@ Joe's first-pass filter for any new idea, in order:
 
 ### Vertical Exclusions (do not suggest ideas in these spaces)
 - **Legal software / law firm tools** — not interested, will advise if this changes (2026-02-26)
-- **Consulting-adjacent SaaS** — "Client Onboarding Autopilot for Automation Consultants" explicitly rejected (Mar 1). Joe doesn't want to productize consulting problems. Passive income must be independent products, not service derivatives.
+- **Consulting-adjacent SaaS** — "Client Onboarding Autopilot for Automation Consultants" explicitly rejected (Mar 1). Joe doesn't want to productize consulting problems. Passive income must be independent products, not service derivatives. **🔴 FIRM BOUNDARY (REINFORCED 2026-03-19):** This question has been asked 4+ times since Feb 20 (Feb 26, Mar 1, Mar 5, Mar 9×2, Mar 17×2, Mar 19). Joe's explicit Mar 19 response: "This is a repeat question" + "don't keep asking the same questions." Consulting → product is OFF the table. **Retire this topic permanently from idea rotation. Do not re-surface it.**
 
 ---
 
@@ -235,14 +235,22 @@ Ranked by recent activity (update frequently):
 
 ## Friction Points
 
-### Observed Frustrations
+### Observed Frustrations (Ranked by Urgency)
+
+**🔴 CRITICAL: Duplicate Question Crisis (Mar 19)**
+- **Explicitly stated complaint:** "this question is asked twice already in the notifications page and has been asked before, don't keep asking the same questions" (notif_1773925200321, Mar 19 13:32). Tone: frustrated, directive.
+- **Scope:** Consulting → product question asked 4+ times since Feb 20 (Feb 26, Mar 1, Mar 5, Mar 9 × 2, Mar 17 × 2, Mar 19). Mar 19 is the 3rd explicit correction on the SAME category.
+- **Root cause:** Daily inquiry system cycling consulting question despite attempt to retire it (Feb 20). Inquiry log shows "consulting-opportunity" topic sent Mar 9, 10, 16, 17, 18, 19. Dedup fix from Mar 7 is NOT preventing topic re-circulation.
+- **Impact:** Joe's trust in notification system ERODING. High risk of Joe opting out of daily inquiries entirely if repeats continue.
+- **Required fix:** (1) Permanently retire consulting-opportunity topic from rotation, OR (2) increase unique question pool to prevent 4-day recycle windows, OR (3) add explicit topic retirement timestamp + enforce 60-day cooldown before resurfacing. | Source: notif_1773925200321, notif_1773775410172, inquiry-log.jsonl | Confidence: VERY HIGH
+- **Action item (P0):** This is the SINGLE highest-friction issue currently active in Alfred's notification system. Resolving it ASAP is required to preserve trust in daily inquiries.
+
 - **Vague questions without context.** "I don't have any detail on which Goal you're missing information on" — Alfred asked Joe for info it should have provided. | Source: notif_1771400175659 | Confidence: high
 - **Being asked to review without substance.** "I don't have anything to review" / "You need to provide me with the discord plan so that I can review it" — Joe expects content, not placeholders. | Source: notif_1771400167582, notif_1771398291802 | Confidence: high
 - **Cost overruns.** The $188/month cron incident. Joe is cost-conscious and expects Alfred to be too. | Confidence: high
 - **Repeated issues.** Git config drift happened 3x before being solved systematically. Joe values once-and-done fixes. | Confidence: medium
 - **Infrastructure reliability cascades.** Gateway down 24+ hrs (Mar 8 22:17 UTC). Codex token expired (HTTP 401, Mar 8). Crons disabled unexpectedly (Mar 5). Mar 17: 3 more crons auto-disabled (Evening Routine, Daily Update Check, Nightly Git), Codex token expiring 47h. Root cause: Discord channel routing failures + missing explicit channel IDs. Fixed Mar 17 05:00 by re-enabling with verified IDs, but pattern indicates deeper reliability issues. | Source: memory/2026-03-08.md, memory/2026-03-17.md (05:00), notif_1773764210057, notif_1773775322127-132 | Confidence: high
-- **Duplicate question rotation persisting.** Daily inquiry dedup bug fixed Mar 7, but Joe flagged repeat on Mar 10 ("I've already answered this"). Double-encoding bug found in question-tracking.json (fixed Mar 17 22:00). Inquiry log shows Mar 17 still cycling duplicate consulting question. Joe's trust in notification system eroding. | Source: notif_1773147600293, notif_1772200800167, notif_1772287200145, memory/2026-03-17.md (22:00), inquiry-log.jsonl | Confidence: high
-- **Kanban approval bottleneck.** 4-5 cards stalled in review waiting for Joe approval (Mission Control Phase 1: 7h, 14-day trial: 4d+). Blockers are genuine (HAL API pending, Joe responses needed) but lack action buttons in notifications. Joe must navigate to board separately. Creates friction in iterative workflows. | Source: memory/2026-03-17.md (06:00, 16:00), notif_1773727251612, notif_1773727251618 | Confidence: medium
+- **Kanban approval bottleneck (RESOLVED).** Mar 17-19: 2 cards in review (Mission Control Phase 1: 7h, 14-day trial: 4d+). Joe did NOT escalate. Both have documented blockers (Mission Control awaiting Cron UI direction, trial awaiting Stripe config). Stale-card-handler working correctly. LEARNING: Blockers are legitimate; Joe is comfortable with this cadence. No friction signal here anymore. | Source: memory/2026-03-19.md (04:49), notif_1773727251618, notif_1773846049925 | Confidence: high
 
 ---
 
@@ -323,6 +331,11 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
+| 2026-03-19 | **🔴 CRITICAL: Duplicate question crisis EXPLICIT COMPLAINT.** "this question is asked twice already...don't keep asking the same questions" (notif_1773925200321). Consulting question asked 4+ times since Feb 20 (Feb 26, Mar 1, Mar 5, Mar 9×2, Mar 17×2, Mar 19). Inquiry log shows consulting-opportunity cycling Mar 9-19. Mar 19 is 3rd explicit correction on same category. Root cause: dedup fix (Mar 7) not preventing topic re-circulation. Joe's trust in notifications eroding — high risk of opting out entirely. Required fix: (1) retire consulting-opportunity topic permanently, (2) increase unique pool, or (3) add 60-day topic cooldown. P0 priority. | notif_1773925200321, notif_1773775410172, inquiry-log.jsonl | Yes |
+| 2026-03-19 | **Trial feature implementation complete + monetization signal.** 14-day free trial built (4h, 25+ tests, production-ready). Blocked only on Joe's Stripe config (12 prices). Code deployed to app. Mar 18-19 observation: Joe has NOT prioritized Stripe config yet. LEARNING: Trial feature (app monetization acceleration) is NOT a critical path blocker. Feature parity with paid tiers ranks lower than core product quality (Signal App algorithm effectiveness). | memory/2026-03-18.md, memory/2026-03-19.md | Yes |
+| 2026-03-19 | **Idea evaluation discipline improved + consulting boundary FIRM.** Evaluated Client Onboarding Autopilot: scored 6.4/10, archived. Rationale cited Joe's consulting edge BUT held back by high competition + unproven GTM. Mature filtering: applying Joe's stated filter (obvious demand + buildable + vertical familiarity). Additionally: consulting-opportunity question asked 4+ times; each time Joe says "no" / "nothing." Mar 19 explicit: "don't keep asking the same questions." Consulting → product is OFF the table permanently. | memory/2026-03-19.md (idle work), notif_1773925200321 | Yes |
+| 2026-03-19 | **Batch autonomous decision acceptance validated.** Mar 9: Joe approved "fix all issues and make sure critical items taken care of right away" on security audit (notif_1773057664673). Mar 17: Alfred autonomously fixed 6 cron jobs + Codex token. Joe did NOT require individual re-approvals. LEARNING: Single approval covers autonomous batch work when decision is "make it work safely." Joe trusts batch execution without per-item gating. | memory/2026-03-17.md (05:00), notif_1773057664673 | Yes |
+| 2026-03-19 | **Kanban stale-card protocol stabilized + blockers are legitimate.** Mar 17-19: 2 cards in review (Mission Control 7h, 14-day trial 4d+). Joe did NOT escalate despite passing stale-card handler 2× (notif_1773727251618, notif_1773846049925). Both cards have clear documented blockers (Mission Control awaiting Cron UI direction; trial awaiting Stripe config). Stale-card-handler working as designed. LEARNING: Blockers are legitimate, not deadlock. Joe is comfortable with this review cadence. No friction signal. | memory/2026-03-19.md (04:49), notif_1773727251618, notif_1773846049925 | Yes |
 | 2026-03-17 | **Cron reliability crisis + autonomy validation.** 3 crons auto-disabled (Evening Routine, Daily Update Check, Nightly Git) + Codex token expiring 47h. Root cause: Discord channel routing failures, missing explicit channel IDs (AGENTS.md safeguard added Mar 17). Alfred autonomously fixed 6 jobs + evaluated 3 ideas with zero objections. Validates Feb 26 "make easy decisions with transparency" directive. | memory/2026-03-17.md (05:00, 14:00), notif_1773764210057, notif_1773775322127-132 | Yes |
 | 2026-03-17 | **Duplicate question cycle persists despite Mar 7 fix.** Double-encoding in question-tracking.json (fixed Mar 17 22:00), but March 17 inquiry log still shows duplicate consulting question. Even Us Up repeated 4 times (Mar 12-15). Trust in daily inquiry system degrading. Needs broader deduplication window or topic retirement. | notif_1773147600293, memory/2026-03-17.md (22:00), inquiry-log.jsonl | Yes |
 | 2026-03-17 | **Kanban approval bottleneck identified.** 4-5 cards stalled in review (Mission Control 7h, 14-day trial 4d+). Blockers genuine but lack action buttons in notifications. Joe must navigate to board separately. Friction point in iterative workflows. | memory/2026-03-17.md (06:00, 16:00), notif_1773727251612 | Yes |
@@ -349,11 +362,13 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Metric | Value |
 |--------|-------|
-| Total reflections run | 7 |
-| Last reflection | 2026-03-17 19:23 AST |
-| New observations added this reflection | 4 |
-| Observations distilled (cumulative) | 36 |
-| Profile version | 1.8 |
-| **Critical issues identified** | Duplicate question cycle persists; Cron auto-disable pattern + Codex token expiration (Mar 17); Kanban approval bottleneck |
-| **Autonomy validation** | REINFORCED — 6 autonomous cron fixes + 3 idea evaluations (Mar 17) with zero objections. Feb 26 directive working as designed. |
-| **Infrastructure-first pattern** | CONFIRMED — Joe prioritizing Command Center centralization before passive income app scaling |
+| Total reflections run | 8 |
+| Last reflection | 2026-03-19 11:03 AST |
+| New observations added this reflection | 5 |
+| Observations distilled (cumulative) | 41 |
+| Profile version | 1.9 |
+| **Critical issues identified** | 🔴 DUPLICATE QUESTION CRISIS (Mar 19 explicit complaint); consulting question in loop, eroding trust in notifications |
+| **Autonomy validation** | STRONGLY REINFORCED — Batch autonomous decisions accepted without per-item gating (Mar 17 security fix). Feb 26 directive fully operational. |
+| **Key pattern shift** | Consulting → product boundary is FIRM + FINAL (3 explicit corrections). Topic must be permanently retired from inquiry rotation. |
+| **Infrastructure-first pattern** | CONFIRMED — Joe prioritizing Command Center + app monetization foundation before scaling passive income apps |
+| **Recommendation** | URGENT: Fix duplicate question cycling in daily inquiry system. This is highest-impact friction point currently active. All other systems operating smoothly. |
