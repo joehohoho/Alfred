@@ -61,15 +61,11 @@ PROACTIVE_COOLDOWN_MIN=15 # don't re-dispatch a proactive task within 15 min
 FAIL_COUNT_FILE="$TRACK_DIR/hal-dispatch-fail-count.txt"
 FAIL_COUNT=0
 [[ -f "$FAIL_COUNT_FILE" ]] && FAIL_COUNT=$(cat "$FAIL_COUNT_FILE" 2>/dev/null || echo "0")
-# After 3+ consecutive failures, do a quick HTTP ping before backing off
+# After 3+ consecutive failures, do HTTP + WebSocket health check before backing off
 if [[ "$FAIL_COUNT" -ge 3 ]]; then
   HAL_HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 "http://192.168.2.79:18789" 2>/dev/null || echo "000")
-  if [[ "$HAL_HTTP_STATUS" == "200" ]]; then
-    log "RECOVERY: HAL gateway responds to HTTP (was $FAIL_COUNT failures) — resetting backoff"
-    FAIL_COUNT=0
-    echo "0" > "$FAIL_COUNT_FILE"
-  else
-    # HAL still offline — apply backoff (only try every 4th run, ~hourly)
+  if [[ "$HAL_HTTP_STATUS" != "200" ]]; then
+    # HAL HTTP offline — apply backoff (only try every 4th run, ~hourly)
     if [[ $(( FAIL_COUNT % 4 )) -ne 0 ]]; then
       log "SKIP: HAL gateway unreachable ($FAIL_COUNT consecutive failures, backing off)"
       echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
@@ -77,6 +73,29 @@ if [[ "$FAIL_COUNT" -ge 3 ]]; then
       exit 0
     fi
     log "RETRY: HAL gateway check (attempt after $FAIL_COUNT failures)"
+  else
+    # HTTP OK — verify WebSocket is also reachable
+    WS_OK=$(timeout 8 node -e "
+const WebSocket = require('/usr/local/lib/node_modules/openclaw/node_modules/ws');
+const ws = new WebSocket('ws://192.168.2.79:18789');
+ws.on('message', () => { console.log('OK'); ws.close(); process.exit(0); });
+ws.on('error', () => { console.log('FAIL'); process.exit(1); });
+setTimeout(() => { console.log('TIMEOUT'); process.exit(1); }, 5000);
+" 2>/dev/null || echo "FAIL")
+    if [[ "$WS_OK" == "OK" ]]; then
+      log "RECOVERY: HAL gateway responds to HTTP + WebSocket (was $FAIL_COUNT failures) — resetting backoff"
+      FAIL_COUNT=0
+      echo "0" > "$FAIL_COUNT_FILE"
+    else
+      # HTTP OK but WebSocket broken — still count as failure
+      log "WARNING: HAL HTTP OK but WebSocket unreachable (ws_result=$WS_OK, $FAIL_COUNT consecutive failures)"
+      if [[ $(( FAIL_COUNT % 4 )) -ne 0 ]]; then
+        echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
+        echo "[ACTION:SKIP] reason=hal_ws_broken fail_count=${FAIL_COUNT}"
+        exit 0
+      fi
+      log "RETRY: attempting dispatch despite WebSocket check failure (attempt after $FAIL_COUNT failures)"
+    fi
   fi
 fi
 

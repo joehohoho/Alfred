@@ -25,27 +25,51 @@ fi
 
 # Fetch from both sources (with timeout + error handling)
 fetch_wttr() {
-  curl -s --max-time 10 "https://wttr.in/$LOCATION?format=j1" 2>/dev/null | jq '.weather[0:2]' 2>/dev/null || echo "[]"
+  local raw
+  raw=$(curl -s --max-time 10 "https://wttr.in/$LOCATION?format=j1" 2>/dev/null)
+  if [ -z "$raw" ]; then
+    echo "[]"
+    return
+  fi
+  echo "$raw" | jq '.weather[0:2] // []' 2>/dev/null || echo "[]"
 }
 
 fetch_openmeteo() {
   # Open-Meteo forecast endpoint for Dieppe, NB (lat 46.1, lon -64.75)
-  curl -s --max-time 10 "https://api.open-meteo.com/v1/forecast?latitude=46.1&longitude=-64.75&hourly=precipitation,precipitation_probability,weather_code,snow&forecast_days=2" 2>/dev/null | jq '.hourly' 2>/dev/null || echo "{}"
+  local raw
+  raw=$(curl -s --max-time 10 "https://api.open-meteo.com/v1/forecast?latitude=46.1&longitude=-64.75&hourly=precipitation,precipitation_probability,weather_code,snow&forecast_days=2" 2>/dev/null)
+  if [ -z "$raw" ]; then
+    echo "{}"
+    return
+  fi
+  echo "$raw" | jq '.hourly // {}' 2>/dev/null || echo "{}"
 }
 
 # Parse wttr.in for alerts
 parse_wttr() {
   local data="$1"
   local alerts=""
-  
+
+  # Bail out if data is empty/null/not-array
+  if [ -z "$data" ] || [ "$data" = "[]" ] || [ "$data" = "null" ]; then
+    echo ""
+    return
+  fi
+
   # Check each day in 48-hour window (2 days)
-  echo "$data" | jq -r '.[] | "\(.date) \(.hourly[] | select(.precipMM > 10 or .totalSnow_cm > 10) | "\(.time): \(.weatherDesc[0].value) - Rain: \(.precipMM)mm, Snow: \(.totalSnow_cm)cm")"' | while read line; do
-    if [ ! -z "$line" ]; then
-      alerts="$alerts
-$line"
-    fi
-  done
-  
+  # Use ? operator and // fallbacks to handle null/missing fields
+  alerts=$(echo "$data" | jq -r '
+    (.[] // empty) |
+    .date as $date |
+    (.hourly // [] | .[] |
+      select(
+        ((.precipMM // "0") | tonumber) > 10 or
+        ((.totalSnow_cm // "0") | tonumber) > 10
+      ) |
+      "\($date) \(.time // "?"): \((.weatherDesc // [{"value":"unknown"}])[0].value // "unknown") - Rain: \(.precipMM // "0")mm, Snow: \(.totalSnow_cm // "0")cm"
+    )
+  ' 2>/dev/null || echo "")
+
   echo "$alerts"
 }
 
@@ -57,11 +81,11 @@ WTTR_ALERTS=$(parse_wttr "$WTTR_DATA")
 
 # School cancellation analysis (when snow >= 10cm expected)
 school_cancellation_analysis() {
-  local snow_cm=$(echo "$WTTR_DATA" | jq -r '.[0].totalSnow_cm' 2>/dev/null || echo "0")
-  
+  local snow_cm=$(echo "$WTTR_DATA" | jq -r '(.[0].totalSnow_cm // "0") | tonumber' 2>/dev/null || echo "0")
+
   if (( $(echo "$snow_cm >= 10" | bc -l 2>/dev/null) )); then
     # Check temperature (cold = harder to clear roads)
-    local temp=$(echo "$WTTR_DATA" | jq -r '.[0].avgtempC' 2>/dev/null || echo "0")
+    local temp=$(echo "$WTTR_DATA" | jq -r '(.[0].avgtempC // "0") | tonumber' 2>/dev/null || echo "0")
     
     if [ "$temp" -lt "-5" ]; then
       echo "🚌 School Cancellation Likelihood: **HIGH** ($snow_cm cm snow, $temp°C)"

@@ -344,16 +344,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773727251612_e54267b5",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
-    "taskId": "task_1773672258312_393a575f",
-    "answered": false,
-    "createdAt": "2026-03-17T06:00:51.612Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773727251618_e604f69d",
     "type": "question",
     "title": "⚠️ Stale card escalated: \"Mission Control Phase 1: Stability & Visibility\"",
@@ -376,16 +366,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773846049921_3b9c6e19",
-    "type": "kanban-blocked",
-    "title": "Blocker on card",
-    "message": "Stale for 7h — re-dispatch attempted but no progress made. Needs human review or re-scoping.",
-    "taskId": "task_1773156748695_23b9e471",
-    "answered": false,
-    "createdAt": "2026-03-18T15:00:49.921Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773846049925_5c244c9d",
     "type": "question",
     "title": "⚠️ Stale card escalated: \"Implement 14-day free trial on Basic/Pro tiers\"",
@@ -400,45 +380,11 @@
     "type": "system",
     "title": "Codex Token Expiring",
     "message": "Codex OAuth token expires in 11h. Refresh via: openclaw models auth login --provider openai-codex",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-19T04:17:12.593Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773896644008_09ab9fad",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-19T05:04:04.008Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773896644010_d6c53968",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Evening Routine: 4 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-19T05:04:04.010Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773899219568_6c6b5b86",
-    "type": "warning",
-    "title": "Session Size Guard",
-    "message": "Main session was .5MB (over 3MB limit). Auto-reset and gateway restarted. Backup: e4dc5530-d57a-49b1-b61d-c7ca3065e642.20260319-024655.jsonl",
-    "answered": false,
-    "createdAt": "2026-03-19T05:46:59.568Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1773918022926_202afa12",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-19T11:00:22.926Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-19T13:31:47.986Z",
+    "userAnswer": "this was updated",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1773925200321_6eb416a4",
@@ -446,8 +392,10 @@
     "title": "Consulting: recurring client problem → product idea?",
     "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-19T13:00:00.321Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-19T13:32:07.725Z",
+    "userAnswer": "This is a repeat question.",
+    "deliveryStatus": "sent"
   }
 ]

@@ -29,6 +29,8 @@ new → researching → evaluated → promoted (becomes a Goal) or archived
   "effort": "low | medium | high",
   "potential": "low | medium | high",
   "revenueModel": "How it makes money (if applicable)",
+  "researchEvidence": "REQUIRED — URLs, competitor names, or data points proving demand exists. Ideas without this field will be auto-archived during evaluation.",
+  "demandValidation": "REQUIRED — 1-2 sentence summary of WHY this idea has demand (e.g., '50+ Reddit threads asking for this, 3 competitors with $10k+ MRR each')",
   "synergies": ["CoinUsUp", "Even Us Up", "market-signal-lab", ...],
   "evaluation": { "score": 0-10, "notes": "..." } | null,
   "promotedToGoalId": null | "goal_...",

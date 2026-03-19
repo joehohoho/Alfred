@@ -10,7 +10,7 @@ and safe to run autonomously.
    Scan src/ for common React issues: missing error boundaries, useEffect dependency array bugs, unhandled promise rejections, large unoptimized re-renders. Output: list of findings with file:line references.
 
 2. **Passive income idea scan**
-   Research 3 new niche SaaS/automation opportunities in Joe's expertise areas (automation, trading, law firm tooling, SaaS). Focus on low-build, low-maintenance, recurring revenue. Output: 3 ideas with effort/upside estimate — add to Kanban Ideas column.
+   Research 3 new niche SaaS/automation opportunities in Joe's expertise areas (automation, SaaS). BANNED verticals: financial/trading/tax, legal industry. Focus on low-build, low-maintenance, recurring revenue. For EACH idea you MUST: (a) web search to prove real demand exists (competitors, forums, search volume), (b) identify revenue model and rough pricing, (c) verify Joe can build it (Node.js/React/TypeScript/Python). If you can't find demand evidence, DO NOT create the idea. Schema: include `researchEvidence` (URLs/data) and `demandValidation` (1-2 sentence proof) fields. Format description with sections: Problem, Solution, Revenue Model, Why Joe, Evidence. Output: only VALIDATED ideas — add to Kanban Ideas column.
 
 3. **Dependency audit: CoinUsUp**
    Check package.json for outdated or vulnerable packages using npm outdated logic. Flag major version gaps or known CVEs. Output: summary with recommended updates.
@@ -25,7 +25,7 @@ and safe to run autonomously.
    Review the existing SEO audit (workspace/CoinUsUp/SEO_AUDIT_REPORT.md) and identify the 3 highest-impact remaining fixes that haven't been implemented yet. Output: actionable fix list with estimated effort.
 
 7. **Passive income idea scan (Canada-specific)**
-   Focus on Canadian SMB pain points: compliance, payroll, tax deadlines, bilingual requirements. Identify 2–3 niche software opportunities with geography-specific moat. Output: ideas for Kanban.
+   Focus on Canadian SMB pain points: bilingual requirements, seasonal business challenges, rural connectivity. BANNED: tax/CRA/HST/payroll/financial apps (rejected 16+ times). For EACH idea: web search to prove demand, identify competitors + pricing, verify Joe's stack fit. Include `researchEvidence` and `demandValidation` fields. Format: Problem, Solution, Revenue Model, Why Joe, Evidence sections. Only create ideas with proven demand.
 
 8. **Code review: Market Signal Lab**
    Review /Users/hopenclaw/market-signal-lab/src for signal quality improvements, edge case handling, or missing backtesting coverage. Output: findings list.
@@ -61,5 +61,5 @@ and safe to run autonomously.
 - Create Kanban cards for larger changes that need human review
 - Rotate pool index tracked in: .hal-alfred-tracking/proactive-pool-index.txt
 - **Before creating any new idea card:** check existing board + rejected cards/comments to avoid duplicate/recycled ideas
-- **New idea quality bar (mandatory):** include demand signal, competitor scan, monetization path, rough margin/profitability, speed-to-first-dollar, risks, and Go/Test/Reject recommendation
+- **New idea quality bar (mandatory):** include demand signal, competitor scan, monetization path, rough margin/profitability, speed-to-first-dollar, risks, and Go/Test/Reject recommendation. MUST populate `researchEvidence` (URLs/data proving demand) and `demandValidation` (1-2 sentence proof) fields in the idea JSON. Ideas without these fields will be auto-archived during evaluation. Format descriptions with sections: **Problem**, **Solution**, **Revenue Model**, **Why Joe**, **Evidence** — never one big paragraph.
 - **Value-first filter:** prefer tasks with concrete deliverables that improve revenue, reliability, or operator leverage
