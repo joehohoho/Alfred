@@ -3114,16 +3114,28 @@
     "title": "Niche SaaS: Client Onboarding Packet Autopilot for small agencies",
     "description": "Problem: Small agencies/consultants lose hours chasing client assets, credentials, and kickoff docs every new engagement. Demand signal: crowded category (ManyRequests, Leadsie, Motion.io, Content Snare) confirms persistent onboarding pain; room remains for niche vertical templates + lightweight setup. Target market: 1-20 person agencies/consultants (web, automation, paid media). MRR potential: k-k (100-300 customers x -/mo) solo-feasible. Tech complexity: 2/5 (forms, reminders, portal links, webhook integrations). Competition level: High (generic), Medium in niche-template wedge. Why Joe can win: Joe has direct automation consulting context and can productize real onboarding checklists faster than generic vendors. Profitability check: low infra cost + clear willingness to pay in existing SaaS pricing bands.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.4,
+      "notes": "Strong market validation (crowded category = confirmed demand) and Joes consulting edge (can productize battle-tested workflows) are compelling. However, high market competition + unproven customer acquisition path + moderate passive potential (30% active support needed) keep below promotion threshold (7.0). Recommend: pursue only with clear 30-day GTM plan (e.g., beta offer to 50 consulting clients). Otherwise, prioritize lower-friction passive income extensions (CoinUsUp paid tier, Even Us Up growth, Signal App monetization).",
+      "breakdown": {
+        "market_fit_3x": 6,
+        "effort_reward_2x": 7,
+        "joes_edge_2x": 7,
+        "synergy_1x": 6,
+        "passive_potential_2x": 6
+      },
+      "weighted_score": 64,
+      "evaluatedAt": "2026-03-19T00:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-06T02:01:36.628Z",
-    "updatedAt": "2026-03-06T02:01:36.628Z"
+    "updatedAt": "2026-03-19T00:00:00.000Z"
   },
   {
     "id": "idea_1772762503772_7863a775",
@@ -4948,5 +4960,21 @@
     "tags": [],
     "createdAt": "2026-03-19T00:02:23.777Z",
     "updatedAt": "2026-03-19T00:02:23.777Z"
+  },
+  {
+    "id": "idea_1773885759273_0326c1e1",
+    "title": "Signal App monetization strategy",
+    "description": "Benchmark + recommendation for Stock/Crypto Signal App:\\n\\nCompetitor benchmark (pricing models):\\n1) Cryptohopper: Freemium (Pioneer) + paid tiers around .16 / .50 / .50 monthly (annual-billed equivalents), feature gates by bot limits/signal coverage/AI tools.\\n2) 3Commas: Free trial + Starter/Pro/Expert ladder (market references suggest ~  /  /  monthly), gates by active bots, SmartTrades, backtests, API limits.\\n3) TradingView: Strong freemium-to-paid ladder (Essential/Plus/Premium style model), monetizes advanced alerts, indicator capacity, and professional workflows.\\n\\nBest early-stage strategy for Joe’s audience (retail + power users):\\n- Start with Freemium + 2 paid tiers (not 3 at launch).\\n- Free: delayed/basic signals, 1 watchlist, limited alerts, no auto-execution/API.\\n- Pro (–/mo): real-time signals, multi-asset alerts, backtest snapshots, priority notifications.\\n- Pro+ / Alpha (–/mo): advanced strategy packs, webhook/API, portfolio-level risk controls, higher alert limits.\\n- Annual discount: 20–30% to improve cash flow + retention.\\n\\nWhy this is best now:\\n- Freemium maximizes top-of-funnel acquisition.\\n- Mid-tier captures most conversion with clear utility unlocks.\\n- High tier monetizes power users without overcomplicating launch.\\n\\nMonetization roadmap (phase-in):\\nPhase 1 (0–60 days): Subscriptions only + annual plan.\\nPhase 2 (60–120 days): Add add-ons (SMS alerts, premium signal bundles).\\nPhase 3 (120+ days): B2B API licensing for creators/communities and affiliate/rev-share channels.\\n\\nKey guardrails:\\n- Do NOT paywall core trust signal quality.\\n- Gate speed, automation, and scale features instead.\\n- Instrument funnel metrics from day 1: activation, D7 retention, free→paid by cohort, churn by tier.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-19T02:02:39.273Z",
+    "updatedAt": "2026-03-19T02:02:39.273Z"
   }
 ]
