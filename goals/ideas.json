@@ -292,7 +292,7 @@
     "title": "AI Cost Optimization Service",
     "description": "Joe just optimized his cron costs from $188/mo to $0.22/mo. Package this expertise into a service: outsourced AI cost audits for app builders and AI teams. 30-min audit uncovers waste, recommend model/routing changes, provide monitoring templates. Follow-up: ongoing optimization ($99/mo). Direct monetization of his infrastructure and cost-optimization knowledge.",
     "category": "passive-income",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "alfred-generated",
     "effort": "low",
     "potential": "high",
@@ -314,7 +314,7 @@
         "passive_potential": 5
       }
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1773972058021_9f311154",
     "tags": [
       "saas",
       "cost-optimization",
@@ -324,14 +324,14 @@
       "high-margin"
     ],
     "createdAt": "2026-02-21T20:00:00.000Z",
-    "updatedAt": "2026-02-28T14:00:00.000Z"
+    "updatedAt": "2026-03-20T02:00:58.023Z"
   },
   {
     "id": "idea_1771768800002_consultant_toolkit",
     "title": "Independent Consultant Toolkit SaaS",
     "description": "Joe has 20 years of consulting and legal billing background. Package the playbook into a SaaS for 1099 consultants: rate optimization, project profitability tracking, client quality scoring, billing templates, retainer models, trust accounting basics, contract templates. Target freelance developers, consultants, agencies. Premium tier: automated invoicing + financial dashboards + client communication templates.",
     "category": "passive-income",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "high",
@@ -346,7 +346,7 @@
       "score": 7,
       "notes": "Strong domain moat — Joe's 20yr billing/consulting background differentiates from generic tools like HoneyBook/Bonsai. Crowded market is the main risk, but trust accounting + legal billing angle is underserved. Good passive revenue potential at $49/mo premium tier; worth building after LegalBillAI gains traction."
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1773979258311_ff2e6acb",
     "tags": [
       "saas",
       "consultants",
@@ -356,7 +356,7 @@
       "b2b"
     ],
     "createdAt": "2026-02-21T20:00:00.000Z",
-    "updatedAt": "2026-02-28T19:01:00.000Z"
+    "updatedAt": "2026-03-20T04:00:58.313Z"
   },
   {
     "id": "idea_1771768800003_vibe_coding_course",
@@ -3327,16 +3327,21 @@
     "title": "Voice-to-SOP Builder for Field Service Teams",
     "description": "Problem: Field teams in trades/service businesses fail to document repeatable procedures; onboarding is slow and quality drifts.\\nTarget market: HVAC, plumbing, electrical, restoration, and mobile service companies (5-50 staff).\\nDemand signals: Continued growth in AI-assisted SOP/documentation software and SMB preference for easy cloud automation.\\nMRR potential: 30 customers x - = ~k-k MRR initial target.\\nTech complexity: 2/5 (speech-to-text + templated SOP output + approval workflow).\\nCompetition: Medium-high for enterprise SOP tools, lower for voice-first field-service niche.\\nWhy Joe can win: Practical automation delivery experience + ability to target narrow workflow (job-close SOP capture) instead of generic knowledge-base tooling.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6,
+      "notes": "Real demand confirmed — FSM market active (Sera, FieldPulse, BuildOps) but none voice-first for SOP capture. Tech is low complexity (STT + templates) but MRR targets were stripped from description. Joe has a viable niche angle with automation consulting experience targeting job-close SOP capture workflow.",
+      "evaluatedAt": "2026-03-20T04:01:37.874862Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-07T07:01:34.568Z",
-    "updatedAt": "2026-03-07T07:01:34.568Z"
+    "updatedAt": "2026-03-20T04:01:37.875451Z",
+    "researchEvidence": "Active FSM market (Sera, FieldPulse, BuildOps, podium.com 2024 roundups) confirms field service SMB pain. No direct voice-first SOP competitor found — gap exists in voice capture niche."
   },
   {
     "id": "idea_1772866899748_b407514d",
@@ -5222,9 +5227,17 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-19T02:02:39.273Z",
-    "updatedAt": "2026-03-19T14:49:03.172Z",
+    "updatedAt": "2026-03-20T04:01:41.378Z",
     "rejectedReason": "The signals app requires work before anything is to be monetized, the signal strength are not strong.",
-    "rejectedAt": "2026-03-19T14:49:03.172Z"
+    "rejectedAt": "2026-03-19T14:49:03.172Z",
+    "comments": [
+      {
+        "id": "cmt_1773979301378_2cd24d2c",
+        "author": "alfred",
+        "text": "Signal App monetization strategy — Mar 20 (quiet hours research).\n\nCOMPETITOR BENCHMARK:\n1. TradingView — $14.95/mo (Essential) to $59.95/mo (Premium). Freemium with feature gates (indicators, alerts, chart layouts). 50M+ users. Strength: brand + ecosystem. Weakness: not signal-specific, no custom rule builder.\n2. MyCryptoParadise — Freemium: free Telegram signals + paid VIP ($50-150/mo). Manual signals from analysts. No automation/backtesting. Strength: human trust signal. Weakness: not scalable, no data API.\n3. Coinigy — $18.66/mo flat. Portfolio tracking + basic signals. Multi-exchange. Stale UX (last major update 2021). Strength: multi-exchange. Weakness: no AI/ML signals, dying product.\n\nKEY OBSERVATION: The gap is automated, backtestable, multi-exchange signals at an accessible price point. No competitor does this cleanly at the $25-50/mo range for retail traders.\n\nRECOMMENDED MONETIZATION MODEL (3-tier):\n\nTIER 1: Free (acquisition funnel)\n- 3 signal types, 1 exchange, 15-min delay\n- No alerts, no backtesting\n- Goal: let users see signal quality before paying\n\nTIER 2: Solo ($19/mo or $149/yr)\n- All signal types, 3 exchanges, real-time\n- Email/push alerts, basic backtesting (30-day lookback)\n- Target: active retail traders\n- Est. revenue: $5k MRR at 263 users\n\nTIER 3: Team/Collaboration ($49/mo or $399/yr per team)\n- Everything in Solo + multi-user workspaces\n- Real-time collaborative signal editing (Yjs CRDT — already in HAL sprint plan)\n- API access for bots/automation\n- 1-year backtesting, custom rule builder\n- Target: trading groups, Discord communities, small funds\n- Est. revenue: $10k MRR at 204 teams\n\nB2B API LICENSING (future, 6-12 months):\n- $199-499/mo for signal data feed\n- Target: fintech apps, trading bots, newsletters\n- High margin, low support burden\n\nRATIONALE:\n- Freemium eliminates trust barrier (signal quality must prove itself)\n- Solo tier at $19 is below TradingView ($15-60) but offers more signal specificity\n- Team tier at $49 aligns with HAL's collaboration premium model from Mar 8 synthesis\n- API licensing is the long-term high-margin play once signal quality is validated\n- Avoid one-time purchase: signals require ongoing data infrastructure = recurring costs\n\nBIGGEST RISK:\nSignal quality must be demonstrably better than free alternatives. If backtest shows weak performance, no pricing model saves it. Fix the algorithm first (Joe's Mar 6 feedback: 'poor signals, backtest doesnt improve') — pricing is secondary to product quality.\n\nPRIORITY:\n1. Fix signal quality (prerequisite for any paid tier)\n2. Launch freemium + solo tier (validate willingness to pay)\n3. Build team tier once solo converts at >5%\n4. API licensing after 12 months of signal track record",
+        "createdAt": "2026-03-20T04:01:41.378Z"
+      }
+    ]
   },
   {
     "id": "idea_1773939759086_bbbc5440",
@@ -5289,5 +5302,21 @@
     "tags": [],
     "createdAt": "2026-03-20T00:01:27.583Z",
     "updatedAt": "2026-03-20T00:01:27.583Z"
+  },
+  {
+    "id": "idea_1773972118340_9df02474",
+    "title": "Alfred Infra Audit — Mar 19 (3 Silent Gaps: iMessage/OPEN-LOOPS/daily-log)",
+    "description": "Alfred infrastructure audit — Mar 19 (quiet hours). 3 gaps not already in Kanban.\n\nGAP 1: iMessage group policy misconfiguration (SILENT MESSAGE DROP)\nFinding: openclaw doctor reports channels.imessage.groupPolicy='allowlist' but groupAllowFrom is empty. Result: ALL group iMessages are silently dropped right now. This is a live defect — Joe may be missing group iMessage messages without knowing it.\nFix: Either add group sender IDs to channels.imessage.groupAllowFrom, or change groupPolicy to 'open' if group iMessage is desired.\nRisk: High — silent failure, no error surfaced to Joe.\nEffort: Low — config change only.\nAction: Needs Joe decision: should group iMessage be enabled, and if so, which groups?\n\nGAP 2: OPEN-LOOPS.md is 10 days stale (last updated Mar 9)\nFinding: OPEN-LOOPS.md is supposed to be the unified pending-work dashboard, auto-refreshed daily at 08:55 AM. Last update was Mar 9 — 10 days ago. This means the daily refresh cron is either disabled or failing silently.\nFix: Check if OPEN-LOOPS refresh cron is enabled and routing correctly. Re-run manually and verify.\nRisk: Medium — daily standup context is stale, Alfred may miss pending items.\nEffort: Low — cron check + manual refresh.\n\nGAP 3: No automatic daily memory log creation guard\nFinding: memory/2026-03-19.md exists today, but the ensure-daily-memory.sh script is supposed to be called before writes. There is no cron that proactively creates the daily log at midnight if it doesnt exist yet. If Alfred tries to append to a missing file mid-session, writes fail silently or create malformed logs.\nFix: Add a midnight cron (00:01 AST) that runs ensure-daily-memory.sh to pre-create the daily log file.\nRisk: Low-Medium — data loss risk on session resets when log doesnt exist.\nEffort: Low — one cron job addition.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-20T02:01:58.340Z",
+    "updatedAt": "2026-03-20T02:01:58.340Z"
   }
 ]
