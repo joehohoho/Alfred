@@ -2578,7 +2578,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-03-20T06:02:35.590Z",
+    "updatedAt": "2026-03-20T21:01:54.930Z",
     "assignedAt": "2026-03-18T21:00:56.448Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "281cf54c-659a-4e19-ada8-dd5d3377fe01",
@@ -2661,6 +2661,12 @@
         "author": "alfred",
         "text": "[2026-03-20 03:00 ADT] Blocker confirmed: code + frontend complete, awaiting Joe to configure 12 Stripe prices (Basic/Pro × US/CA × Monthly/Annual = 12 prices, set trial_period_days: 14). Once done, Alfred will push and deploy. Existing stale notification (notif_1773846049925_5c244c9d) unanswered.",
         "createdAt": "2026-03-20T06:02:35.590Z"
+      },
+      {
+        "id": "cmt_1774040514930_07daed7b",
+        "author": "alfred",
+        "text": "Idle goal-progress check: Card still blocked on Stripe dashboard updates (12 prices). Existing notification was >48h old, so I sent a reminder notification (notif_1774040506805_f13c1b4b).",
+        "createdAt": "2026-03-20T21:01:54.930Z"
       }
     ]
   },
@@ -2674,7 +2680,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-16T14:44:18.312Z",
-    "updatedAt": "2026-03-20T06:02:35.586Z",
+    "updatedAt": "2026-03-20T21:01:54.910Z",
     "comments": [
       {
         "id": "cmt_1773672288340_3b02f6a8",
@@ -2741,6 +2747,12 @@
         "author": "alfred",
         "text": "[REMINDER sent 2026-03-20 03:00 ADT] Joe confirmed Option #1 (cron controls in React app). Sent reminder notification requesting implementation approval. Waiting on Joe go-ahead to proceed.",
         "createdAt": "2026-03-20T06:02:35.586Z"
+      },
+      {
+        "id": "cmt_1774040514910_87061716",
+        "author": "alfred",
+        "text": "Idle goal-progress check: Card still needs Joe decision to proceed with Mission Control Option #1 implementation. Existing notification was >48h old, so I sent a reminder notification (notif_1774040499423_b6664e1d).",
+        "createdAt": "2026-03-20T21:01:54.910Z"
       }
     ],
     "assignedAt": "2026-03-16T16:52:16.241Z",
@@ -3067,5 +3079,108 @@
         "createdAt": "2026-03-20T13:01:31.896Z"
       }
     ]
+  },
+  {
+    "id": "task_1774033251912_cd809622",
+    "goalId": "",
+    "title": "SaaS: Auto Repair Shop Customer Follow-up Automation",
+    "description": "IDEA: Automated SMS/email follow-up SaaS for independent auto repair shops. Sends service reminders, follows up on declined estimates, collects reviews, and prompts for repeat visits. 250,000+ shops in North America; most use zero automation. Pricing: $79-149/month per shop. BUILD EFFORT: Low — vibe-code in ~1-2 weeks (Twilio SMS + email + simple dashboard). MAINTENANCE: Low — no AI inference, just workflow automation + scheduling. UPSIDE: 100 shops = $8K-15K MRR. Very sticky (recurring pain, high habit). NOVEL ANGLE: Not invoicing/billing — pure customer lifecycle automation for grease-under-nails shop owners who have zero tech stack.",
+    "status": "done",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": "2026-03-20T21:01:25.346Z",
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-20T19:00:51.912Z",
+    "updatedAt": "2026-03-20T21:01:25.432Z",
+    "assignedAt": "2026-03-20T19:30:49.247Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "44aa4d5b-8cae-4ef1-8be2-020ef547c686",
+    "comments": [
+      {
+        "id": "cmt_1774035645821_379cd821",
+        "author": "alfred",
+        "text": "Starting: Build a complete MVP blueprint for Auto Repair Shop Follow-up SaaS. Approach: quick market validation + competitor/pricing scan, then produce implementation spec (workflows, schema, architecture, messaging compliance) and a 14-day build/launch plan with risk controls.",
+        "createdAt": "2026-03-20T19:40:45.821Z"
+      },
+      {
+        "id": "cmt_1774035708482_045dfa41",
+        "author": "alfred",
+        "text": "Completed deliverable: created detailed MVP blueprint at ideas/auto-repair-followup-saas-blueprint.md. Includes market validation notes, positioning, pricing hypothesis, in/out-of-scope MVP, architecture, minimum SQL schema, compliance requirements (A2P/consent/STOP), day-by-day 14-day build plan, GTM plan, KPI set, and risk mitigations. Ready for review; next recommended card is implementation kickoff (Day 1-4 build).",
+        "createdAt": "2026-03-20T19:41:48.482Z"
+      },
+      {
+        "id": "cmt_1774035734041_0d94a497",
+        "author": "alfred",
+        "text": "## EVIDENCE\nsummary_of_changes: Authored a complete MVP blueprint document for the auto-repair follow-up SaaS at ideas/auto-repair-followup-saas-blueprint.md, covering market validation notes, positioning, pricing, architecture, schema, automation workflows, compliance requirements, 14-day build plan, GTM, KPI targets, and risks/mitigations.\nvalidation_steps: 1) Verified deliverable file exists in workspace. 2) Reviewed content sections for scope completeness against card goals (service reminders, declined estimates, review requests, repeat-visit prompts). 3) Confirmed concrete next-step implementation path is included.\nvalidation_results: Pass. Deliverable exists and includes all requested business + build planning components, with explicit compliance and execution details.\nartifacts: /Users/hopenclaw/.openclaw/workspace/ideas/auto-repair-followup-saas-blueprint.md",
+        "createdAt": "2026-03-20T19:42:14.041Z"
+      },
+      {
+        "id": "cmt_1774040485432_3a65ac26",
+        "author": "alfred",
+        "text": "Idle goal-progress check: Reviewed deliverable and evidence; auto-repair SaaS blueprint is complete, validated, and ready for implementation kickoff. Moved review → done.",
+        "createdAt": "2026-03-20T21:01:25.432Z"
+      }
+    ]
+  },
+  {
+    "id": "task_1774036851586_0c5814fa",
+    "goalId": "",
+    "title": "SaaS: Daily Wellness Check-in Service for Elderly Living Alone",
+    "description": "IDEA: Automated daily check-in service for seniors living alone. A friendly automated call or SMS each morning confirms they're okay; if no response within a window, it escalates to a designated family contact. Families subscribe, not the senior — $19-29/month. BUILD EFFORT: Low — Twilio calls/SMS + scheduling + contact tree logic. MVP in 1-2 weeks. No AI needed for core flow. MAINTENANCE: Very low — stable domain, minimal feature creep. UPSIDE: 14M+ Americans aged 65+ live alone (Stats Canada equivalent in Canada). Families will pay gladly for peace of mind — extremely emotional purchase, very sticky, near-zero churn. 300 families = $6K-9K MRR. NOVEL ANGLE: Deeply human problem, no dominant player in the micro-SaaS space. Not health monitoring hardware — purely software/telecom. Unexplored territory for a solo founder.",
+    "status": "done",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": "2026-03-20T21:01:25.023Z",
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-20T20:00:51.586Z",
+    "updatedAt": "2026-03-20T21:01:25.151Z",
+    "assignedAt": "2026-03-20T20:30:49.852Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "7ad3038a-70aa-4729-bc38-5ed7f1aafd1c",
+    "comments": [
+      {
+        "id": "cmt_1774039260741_79238f0d",
+        "author": "alfred",
+        "text": "Starting: Build practical MVP package for Daily Wellness Check-in SaaS. Approach: validate market/compliance constraints, design Twilio-first architecture, define escalation state machine + data model, then produce implementation blueprint and launch plan for 1-2 week build.",
+        "createdAt": "2026-03-20T20:41:00.742Z"
+      },
+      {
+        "id": "cmt_1774039327294_d5af8ff3",
+        "author": "alfred",
+        "text": "Completed MVP package and saved deliverable: ideas/task_1774036851586_0c5814fa-wellness-checkin-mvp.md. Includes: product scope, Twilio-first architecture, escalation state machine, SQL schema, webhook endpoints, compliance guardrails (consent/TCPA/CASL/not-911), unit economics, 2-week implementation plan, and 30-day launch strategy.",
+        "createdAt": "2026-03-20T20:42:07.294Z"
+      },
+      {
+        "id": "cmt_1774039346795_047dcf2a",
+        "author": "alfred",
+        "text": "## EVIDENCE\nsummary_of_changes: Created a full MVP execution blueprint for a Twilio-based daily wellness check-in SaaS, including product scope, architecture, escalation workflow, SQL schema, webhook routes, compliance guardrails, pricing assumptions, and launch plan.\nvalidation_steps: 1) Reviewed target market assumptions and senior-living-alone demand references, 2) validated telecom feasibility using Twilio pricing page and flow capabilities, 3) designed state machine for retries/escalations, 4) mapped required persistence schema and operational endpoints, 5) packaged implementation timeline and KPIs.\nvalidation_results: Deliverable is implementation-ready for a 1-2 week MVP build; includes enough technical detail to begin coding immediately with clear risk/compliance boundaries.\nartifacts: ideas/task_1774036851586_0c5814fa-wellness-checkin-mvp.md",
+        "createdAt": "2026-03-20T20:42:26.796Z"
+      },
+      {
+        "id": "cmt_1774040485151_68973fe1",
+        "author": "alfred",
+        "text": "Idle goal-progress check: Reviewed deliverable and evidence; MVP blueprint is complete and implementation-ready with no open blockers on this card. Moved review → done.",
+        "createdAt": "2026-03-20T21:01:25.151Z"
+      }
+    ]
+  },
+  {
+    "id": "task_1774040451891_20bbec1d",
+    "goalId": "",
+    "title": "CoinUsUp Nonprofit+ Pricing Tier (Freemium → Premium SaaS)",
+    "description": "**Problem**\nCoinUsUp can attract organizations with a free tier, but lacks a clear nonprofit-focused upgrade path for groups that outgrow basic limits.\n\n**Solution**\nLaunch a pricing ladder tied to feature gates: Free (up to 50 members, basic campaigns), Nonprofit+ (unlimited members, donations, attendance, integrations), and Enterprise (white-label + advanced support), wired through the existing `SelectPlan.tsx` flow.\n\n**Revenue Model**\n- Free: acquisition funnel\n- Nonprofit+: $29–$49/month\n- Enterprise: $200–$500/month\n\n**Why Joe**\nJoe already owns and maintains CoinUsUp, so this is a low-to-medium implementation lift (Stripe subscriptions + feature flags) with immediate codebase leverage.\n\n**Evidence**\n- Donorbox public pricing shows a free entry tier plus paid nonprofit tiers, indicating demand for step-up pricing in nonprofit tooling: https://donorbox.org/pricing\n- Givebutter uses a free fundraising model with fee-based/upgrade economics, showing nonprofits adopt freemium fundraising platforms: https://givebutter.com/pricing\n- Bloomerang publishes multiple paid nonprofit product tiers (starting tiers + sales-led tiers), reinforcing willingness to pay for advanced nonprofit features: https://bloomerang.com/pricing/",
+    "status": "in_progress",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": null,
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-20T21:00:51.891Z",
+    "updatedAt": "2026-03-20T21:01:25.048Z",
+    "assignedAt": "2026-03-20T21:01:25.047Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "9d5ca814-6785-4510-8e2f-0e7a597fb44d"
   }
 ]

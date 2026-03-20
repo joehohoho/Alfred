@@ -455,5 +455,55 @@
     "answered": false,
     "createdAt": "2026-03-20T13:00:00.529Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774016168495_ca000f9b",
+    "type": "alert",
+    "title": "🔑 Codex OAuth Token Expired",
+    "message": "Codex auth is failing repeatedly (recent failures: 63). Alfred is falling back to Claude Sonnet so work continues, but Codex capacity is unavailable.\\n\\nOptions:\\n1) Re-authenticate Codex now\\n2) Keep fallback active and re-auth later\\n\\nRecommendation: Re-auth when convenient to restore free Codex throughput.",
+    "source": "check-codex-auth",
+    "answered": false,
+    "createdAt": "2026-03-20T14:16:08.495Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774021628679_7cd67a1d",
+    "type": "warning",
+    "title": "Session Size Guard",
+    "message": "Main session was .8MB (over 3MB limit). Auto-reset and gateway restarted. Backup: f2ec456e-cba7-4f18-b8cc-7676e5870174.20260320-124704.jsonl",
+    "answered": false,
+    "createdAt": "2026-03-20T15:47:08.679Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774025256987_ce5ba683",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-20T16:47:36.987Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774040499423_b6664e1d",
+    "type": "question",
+    "title": "[REMINDER] Mission Control Phase 1 blocked: choose implementation path",
+    "message": "Context: Mission Control Phase 1 is blocked pending your go-ahead after option analysis. You previously leaned to Option #1 (integrate cron controls directly into the React Command Center at localhost:3001), but final execution approval wasn’t confirmed.\\n\\nQuestion: Should I proceed now with Option #1 implementation?\\n\\nOptions:\\n1) Proceed with Option #1 now (single dashboard, better long-term maintainability).\\n2) Do Option #2 temporary separate cron panel first, then merge later (faster short-term visibility).\\n\\nRecommendation: Option 1 now, because it avoids split-brain UX and reduces long-term maintenance drift.\\n\\nDefault if no response: I will keep the card blocked and re-check in 48h.",
+    "taskId": "task_1773672258312_393a575f",
+    "source": "idle-goal-progress-check",
+    "answered": false,
+    "createdAt": "2026-03-20T21:01:39.423Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774040506805_f13c1b4b",
+    "type": "question",
+    "title": "[REMINDER] Stripe action needed to finish 14-day trial card",
+    "message": "Context: The CoinUsUp 14-day trial implementation is complete in code and UI, but production readiness is blocked by Stripe dashboard configuration. Existing blocker notification is older than 48h and still unanswered.\\n\\nQuestion: Can you confirm when you want me to proceed after Stripe prices are updated?\\n\\nOptions:\\n1) You update the 12 Stripe prices now (Basic/Pro × US/CA × Monthly/Annual set trial_period_days=14), then I immediately run staging verification and push.\\n2) I prepare a step-by-step Stripe checklist walkthrough for you first, then you update and I verify after.\\n\\nRecommendation: Option 1 if you’re ready now; it is the shortest path to launch verification.\\n\\nDefault if no response: Card remains in review with blocker noted, and I will send another reminder after 48h.",
+    "taskId": "task_1773156748695_23b9e471",
+    "source": "idle-goal-progress-check",
+    "answered": false,
+    "createdAt": "2026-03-20T21:01:46.805Z",
+    "answeredAt": null
   }
 ]
