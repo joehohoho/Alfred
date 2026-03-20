@@ -3613,18 +3613,25 @@
   {
     "id": "idea_1772953283047_668b6b2e",
     "title": "Freelancer Income Smoothing & Tax Estimation (Canadian Self-Employed)",
-    "description": "Income volatility predictor + quarterly tax calculator for Canadian freelancers. Freemium \u2192 $9.99/mo pro. Est. MRR: $1\u20133k/month (200 customers). Tech: 2/5. Why Joe: automation + large TAM. Watch for churn.",
+    "description": "**Problem**\nCanadian freelancers have volatile monthly income and struggle to estimate quarterly tax installments accurately.\n\n**Solution**\nA simple estimator that smooths income trends and projects quarterly tax set-asides for self-employed Canadians.\n\n**Revenue Model**\nFreemium calculator with Pro tier at $9.99/month for saved scenarios, reminders, and deeper projections.\n\n**Why Joe**\nGood automation fit, but this sits in the financial/tax-compliance space Joe has repeatedly deprioritized.\n\n**Evidence**\nDemand exists: multiple live competitors/tools in-market (TurboTax Self-Employed calculator, Freel.ca calculator, SideHustleTax.ca, BracketBuddy self-employed calculator).",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 3.9,
+      "notes": "Market demand is real (clear competitor presence), but this sits in a financial/tax vertical Joe has repeatedly rejected as out of scope due accuracy/risk concerns. Limited synergy with current projects and weak strategic fit outweigh decent passive-income mechanics."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T07:01:23.047Z",
-    "updatedAt": "2026-03-08T07:01:23.047Z"
+    "updatedAt": "2026-03-20T14:01:41Z",
+    "researchEvidence": "https://turbotax.intuit.ca/tax-resources/self-employed-expenses-calculator.jsp; https://freel.ca/tools/freelance-tax-calculator-canada; https://sidehustletax.ca/; https://bracketbuddy.ca/calculators/self-employed",
+    "demandValidation": "Validated demand: multiple Canada-focused self-employed tax estimators are actively marketed, indicating persistent freelancer demand for quarterly tax estimation and planning tools.",
+    "rejectedReason": "Out of scope: financial/tax vertical conflicts with repeated prior rejections",
+    "rejectedAt": "2026-03-20T14:01:41Z"
   },
   {
     "id": "idea_1772982066838_c267450d",
@@ -5369,5 +5376,53 @@
         "createdAt": "2026-03-20T08:02:45.768Z"
       }
     ]
+  },
+  {
+    "id": "idea_1774015283644_3ad1be5e",
+    "title": "NB Bilingual Compliance Copilot for SMBs",
+    "description": "Atlantic/NB SMBs struggle with bilingual customer-facing docs and compliance notices (French/English) while national tools ignore local bilingual requirements. Build lightweight SaaS: policy/doc templates, bilingual translation QA, province-aware checklists, renewal reminders, and audit trail exports. Geo moat: local legal-language templates for NB + Atlantic expansion.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-20T14:01:23.644Z",
+    "updatedAt": "2026-03-20T14:01:23.644Z"
+  },
+  {
+    "id": "idea_1774015283903_db02b69c",
+    "title": "CRA Deadline Guard + HST/GST Cashflow Planner for Atlantic Microbusinesses",
+    "description": "Pain: small contractors and service SMBs miss CRA/HST/GST remittance dates and get penalties; bookkeeping tools are generic and reactive. Build proactive deadline engine with CRA calendar, filing prep checklist, cash set-aside forecasting, and penalty-risk alerts tuned to quarterly/annual Atlantic patterns. Geo moat: Canada-first CRA workflows and local accountant partner handoff package.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-20T14:01:23.903Z",
+    "updatedAt": "2026-03-20T14:01:23.903Z"
+  },
+  {
+    "id": "idea_1774015284182_388fcda4",
+    "title": "Rural Jobsite Invoicing + Offline Sync for Trades in NB",
+    "description": "Pain: rural connectivity gaps break field invoicing/time tracking for trades/contractors (plumbers, HVAC, electricians). Build offline-first mobile invoicing app with auto-sync when signal returns, e-transfer friendly invoices, mileage/material logs, and payroll export to common Canadian systems. Geo moat: optimized for low-connectivity Atlantic regions and Canadian tax/payroll fields.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-20T14:01:24.182Z",
+    "updatedAt": "2026-03-20T14:01:24.182Z"
   }
 ]
