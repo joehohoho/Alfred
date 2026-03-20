@@ -31,6 +31,24 @@ SOURCE="${6:-}"
 
 API="http://localhost:3001/api/notifications"
 
+# Shared policy preflight (quiet-hours direct-user rule, external gate, dedup key)
+POLICY_APPROVED="${POLICY_APPROVED:-0}"
+POLICY_AUDIT_ONLY="${POLICY_AUDIT_ONLY:-0}"
+POLICY_PRIORITY="${POLICY_PRIORITY:-normal}"
+POLICY_DEDUP_KEY="${POLICY_DEDUP_KEY:-}"
+POLICY_DEDUP_WINDOW_SEC="${POLICY_DEDUP_WINDOW_SEC:-0}"
+
+bash "$SCRIPT_DIR/policy-preflight.sh" \
+  --script "send-notification.sh" \
+  --action notify \
+  --external 1 \
+  --target-class direct_user \
+  --priority "$POLICY_PRIORITY" \
+  --approved "$POLICY_APPROVED" \
+  --dedup-key "$POLICY_DEDUP_KEY" \
+  --dedup-window-sec "$POLICY_DEDUP_WINDOW_SEC" \
+  --audit-only "$POLICY_AUDIT_ONLY"
+
 # Build JSON safely with python3 to handle special chars in message
 JSON=$(python3 -c "
 import json, sys

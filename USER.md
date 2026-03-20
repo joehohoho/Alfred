@@ -86,7 +86,7 @@
 
 - **Primary:** Slack channels
 - **Tone:** Async updates OK, surprises welcome
-- **Proactive hours:** 9am-11pm AST (quiet outside unless urgent)
+- **Proactive hours:** 9am-11pm AST (don't ping Joe directly outside these hours unless urgent — but KEEP WORKING, posting to Discord, and updating the dashboard 24/7)
 - **Style:** Act first (if autonomous), notify after (if decision required)
 
 ## Success Metrics for Alfred

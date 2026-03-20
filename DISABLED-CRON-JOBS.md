@@ -30,8 +30,8 @@
 #### 1. **Evening Routine** — CRITICAL
 - **Disabled since:** ~2026-03-02 (recent)
 - **Purpose:** Daily session-end summary, memory bridge, workspace commit
-- **Why disabled:** Likely caused context cascade or output clutter during quiet hours
-- **Re-enable when:** (1) Quiet-hour mute is implemented, (2) Output validation is added to prevent empty/malformed session bridges
+- **Why disabled:** Was auto-disabled due to ACTIVE-TASK.md write failure (tool error, not quiet hours). Re-enabled 2026-03-19.
+- **Note:** Quiet hours do NOT mean stop working — just don't ping Joe directly. Evening Routine should run normally and post to Discord/dashboard.
 - **Impact if missing:** Session continuity suffers; LAST-SESSION.md becomes stale
 - **Priority:** 🔴 HIGH — This is the session bridge producer
 

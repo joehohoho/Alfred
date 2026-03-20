@@ -713,5 +713,39 @@
         "createdAt": "2026-03-04T23:01:08.042Z"
       }
     ]
+  },
+  {
+    "id": "goal_1773934119740_1bc964b9",
+    "title": "Policy-as-Code Guardrail Tests for Cron Tasks",
+    "description": "Gap: behavioral rules exist in docs (quiet hours, no outbound during quiet hours, approval boundaries) but enforcement is mostly manual/script-by-script. Proposal: add preflight policy tests shared by all cron entrypoints (quiet-hours outbound check, external-action gate, forbidden-file write denylist, duplicate-task dedup key) with fail-closed logging. Failure mode reduced: accidental rule drift and compliance regressions after script edits. Token/cost impact: fewer corrective cycles and less supervision overhead.",
+    "priority": "medium",
+    "status": "active",
+    "dueDate": null,
+    "completedAt": null,
+    "metadata": {
+      "inReview": true
+    },
+    "createdAt": "2026-03-19T15:28:39.740Z",
+    "updatedAt": "2026-03-19T15:49:40.338Z",
+    "comments": [
+      {
+        "id": "cmt_1773934153444_317b2ce8",
+        "author": "alfred",
+        "text": "Kickoff complete: implementation is now active under this in_progress goal. Next milestone update will include the initial `scripts/policy-preflight.sh` scaffold and audit-only coverage ledger wiring.",
+        "createdAt": "2026-03-19T15:29:13.444Z"
+      },
+      {
+        "id": "cmt_1773934634427_9df31515",
+        "author": "alfred",
+        "text": "Starting implementation now. Approach: add shared scripts/policy-preflight.sh with fail-closed policy checks (quiet-hours direct-DM gate, external-action approval, forbidden-file denylist, dedup key), add audit-only coverage ledger/report, wire into cron entrypoints, and validate with shell tests before moving to review.",
+        "createdAt": "2026-03-19T15:37:14.427Z"
+      },
+      {
+        "id": "cmt_1773935374412_5b8634c8",
+        "author": "alfred",
+        "text": "Implementation complete for phase-1 policy-as-code guardrails. Delivered: (1) scripts/policy-preflight.sh shared preflight with fail-closed checks (quiet-hours no_direct_dm, external-action gate, forbidden-file write denylist, dedup key window) + structured JSONL logs and coverage ledger, (2) scripts/policy-preflight-coverage-report.sh to detect missing entrypoint coverage, (3) config/policy-preflight-expected-entrypoints.txt inventory, (4) wiring in send-notification.sh, hal-slack-notify.sh, and daily-inquiry.sh (dedup key per daily inquiry), and (5) scripts/test-policy-preflight.sh with passing tests for allow/block scenarios. Validation run: bash scripts/test-policy-preflight.sh (all pass), bash -n on modified scripts (OK), coverage report currently shows 3/3 expected entrypoints covered in last 24h.",
+        "createdAt": "2026-03-19T15:49:34.412Z"
+      }
+    ]
   }
 ]

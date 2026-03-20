@@ -1,0 +1,11 @@
+{"ts": 1773934781, "iso": "2026-03-19T12:39:41-0300", "script": "test-basic.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935248, "iso": "2026-03-19T12:47:28-0300", "script": "test-basic.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935336, "iso": "2026-03-19T12:48:56-0300", "script": "test.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935336, "iso": "2026-03-19T12:48:56-0300", "script": "test.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935336, "iso": "2026-03-19T12:48:56-0300", "script": "test.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935336, "iso": "2026-03-19T12:48:56-0300", "script": "test.sh", "action": "file_write", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935337, "iso": "2026-03-19T12:48:57-0300", "script": "test.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935337, "iso": "2026-03-19T12:48:57-0300", "script": "test.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935355, "iso": "2026-03-19T12:49:15-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935355, "iso": "2026-03-19T12:49:15-0300", "script": "hal-slack-notify.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1773935355, "iso": "2026-03-19T12:49:15-0300", "script": "daily-inquiry.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}

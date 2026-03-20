@@ -1,0 +1,195 @@
+{
+  "projects": [
+    {
+      "id": "proj_eb00d94f",
+      "name": "CoinUsUp",
+      "color": "#06b6d4",
+      "createdAt": "2026-03-19T15:40:03.688Z",
+      "sortOrder": 0
+    },
+    {
+      "id": "proj_e03d82cb",
+      "name": "Personal",
+      "color": "#3b82f6",
+      "createdAt": "2026-03-19T16:35:27.963Z",
+      "sortOrder": 1
+    }
+  ],
+  "tasks": [
+    {
+      "id": "mytask_068db9db",
+      "projectId": "",
+      "title": "Test task with subtasks",
+      "notes": "Multi-line\nnotes\nhere",
+      "subtasks": [
+        {
+          "id": "sub_07d35c9c",
+          "text": "Step 1",
+          "completed": false
+        },
+        {
+          "id": "sub_09966eb7",
+          "text": "Step 2",
+          "completed": false
+        },
+        {
+          "id": "sub_b61301de",
+          "text": "Step 3",
+          "completed": false
+        }
+      ],
+      "dueDate": null,
+      "priority": "medium",
+      "completed": true,
+      "completedAt": "2026-03-19T15:45:56.166Z",
+      "createdAt": "2026-03-19T15:45:30.977Z",
+      "updatedAt": "2026-03-19T15:45:56.166Z",
+      "sortOrder": 0
+    },
+    {
+      "id": "mytask_f1a5b529",
+      "projectId": "proj_eb00d94f",
+      "title": "Apple Developer Account",
+      "notes": "",
+      "subtasks": [
+        {
+          "id": "sub_03b47b84",
+          "text": "1. Enable \"Sign in with Apple\" capability in your App ID at developer.apple.com",
+          "completed": false
+        },
+        {
+          "id": "sub_9170b6ec",
+          "text": "2. Configure Sign in with Apple in your Supabase dashboard (Authentication → Providers → Apple)",
+          "completed": false
+        },
+        {
+          "id": "sub_392334da",
+          "text": "3. Upload APNs authentication key for push notifications",
+          "completed": false
+        },
+        {
+          "id": "sub_72f7f531",
+          "text": "4. Create IAP products in App Store Connect matching your product IDs",
+          "completed": false
+        }
+      ],
+      "dueDate": null,
+      "priority": "medium",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-19T15:46:40.591Z",
+      "updatedAt": "2026-03-19T15:47:26.440Z",
+      "sortOrder": 0
+    },
+    {
+      "id": "mytask_8051dc2a",
+      "projectId": "proj_eb00d94f",
+      "title": "Google Play Console:",
+      "notes": "",
+      "subtasks": [
+        {
+          "id": "sub_ca07bae7",
+          "text": "1. Complete the Data Safety form (declare: email, name, phone, payment data collected)",
+          "completed": false
+        },
+        {
+          "id": "sub_96166811",
+          "text": "2. Create IAP products matching your product IDs",
+          "completed": false
+        },
+        {
+          "id": "sub_26ab81c6",
+          "text": "3. Upload app signing key",
+          "completed": false
+        },
+        {
+          "id": "sub_670b4368",
+          "text": "4. Set up domain verification for deep links (.well-known/assetlinks.json on coinusup.com)",
+          "completed": false
+        }
+      ],
+      "dueDate": null,
+      "priority": "medium",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-19T15:47:52.918Z",
+      "updatedAt": "2026-03-19T15:48:30.348Z",
+      "sortOrder": 1
+    },
+    {
+      "id": "mytask_68ae0824",
+      "projectId": "proj_eb00d94f",
+      "title": "Supabase Dashboard",
+      "notes": "",
+      "subtasks": [
+        {
+          "id": "sub_bc8e3a20",
+          "text": "1. Enable Apple as an auth provider (Authentication → Providers)",
+          "completed": false
+        },
+        {
+          "id": "sub_eae0f90f",
+          "text": "2. Set APPLE_SHARED_SECRET and GOOGLE_PLAY_SERVICE_ACCOUNT_JSON as Edge Function secrets for IAP receipt validation",
+          "completed": false
+        }
+      ],
+      "dueDate": null,
+      "priority": "medium",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-19T15:49:23.036Z",
+      "updatedAt": "2026-03-19T15:49:41.661Z",
+      "sortOrder": 2
+    },
+    {
+      "id": "mytask_d9df5243",
+      "projectId": "proj_e03d82cb",
+      "title": "CRA",
+      "notes": "",
+      "subtasks": [
+        {
+          "id": "sub_84665da1",
+          "text": "Call 1st week of May for payment plan",
+          "completed": false
+        },
+        {
+          "id": "sub_7f2f97e2",
+          "text": "Apply for interest relief and penalty relief",
+          "completed": false
+        }
+      ],
+      "dueDate": "2026-05-05",
+      "priority": "medium",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-19T16:36:00.729Z",
+      "updatedAt": "2026-03-19T16:37:18.789Z",
+      "sortOrder": 0
+    },
+    {
+      "id": "mytask_ccbebabd",
+      "projectId": "proj_e03d82cb",
+      "title": "Court",
+      "notes": "",
+      "subtasks": [
+        {
+          "id": "sub_c22c1c19",
+          "text": "Cross examination questions",
+          "completed": false
+        },
+        {
+          "id": "sub_cc5cd5fd",
+          "text": "List of exhibits (text, financials, etc)",
+          "completed": false
+        }
+      ],
+      "dueDate": null,
+      "priority": "medium",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-19T16:37:29.853Z",
+      "updatedAt": "2026-03-19T16:38:21.191Z",
+      "sortOrder": 1
+    }
+  ]
+}

@@ -16,6 +16,16 @@ ENV_FILE="${SCRIPT_DIR}/../.env"
 
 DISCORD_WEBHOOK="${DISCORD_WEBHOOK_HAL_COMPLETIONS:?DISCORD_WEBHOOK_HAL_COMPLETIONS not set in .env}"
 
+# Shared-channel outbound is allowed during quiet hours; still pass through policy preflight.
+bash "$SCRIPT_DIR/policy-preflight.sh" \
+  --script "hal-slack-notify.sh" \
+  --action notify \
+  --external 1 \
+  --target-class shared_channel \
+  --priority normal \
+  --approved "${POLICY_APPROVED:-0}" \
+  --audit-only "${POLICY_AUDIT_ONLY:-0}"
+
 TITLE="${1:-}"
 SUMMARY="${2:-}"
 RAW_MODE=false

@@ -29,6 +29,10 @@ touch "$INQUIRY_LOG"
 send_inquiry() {
   local title="$1"
   local message="$2"
+  local dedup_key="daily-inquiry:$(date +%Y-%m-%d):$title"
+  POLICY_DEDUP_KEY="$dedup_key" \
+  POLICY_DEDUP_WINDOW_SEC=86400 \
+  POLICY_AUDIT_ONLY="${POLICY_AUDIT_ONLY:-0}" \
   bash "$SCRIPT_DIR/send-notification.sh" "question" "$title" "$message" "" "" "daily-inquiry"
 }
 

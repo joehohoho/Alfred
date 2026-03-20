@@ -58,7 +58,7 @@
     "title": "Personal AI OS Platform (Alfred-as-a-Service)",
     "description": "Joe is building a sophisticated personal AI operating system (OpenClaw + Command Center + cron + notifications + multi-channel). This stack could be productized for other solopreneurs, consultants, and small business owners who want their own 'Alfred'. Sell the pickaxes during the gold rush. Could start as a self-hosted open-source project with paid managed hosting, or a SaaS with customizable AI agent templates.",
     "category": "passive-income",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "claude-code",
     "effort": "high",
     "potential": "high",
@@ -72,7 +72,7 @@
       "score": 7,
       "notes": "Joe has a genuine edge here — he built and runs this stack daily, and his consulting background mirrors the target market. Productizing is high effort, but SaaS/managed hosting offers strong passive revenue potential. Main risk is support overhead and onboarding complexity for non-technical users; a self-hosted open-source entry point would reduce friction and build community before monetizing."
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1773964848959_75a39bad",
     "tags": [
       "platform",
       "saas",
@@ -81,7 +81,7 @@
       "high-upside"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-26T13:01:09.009273Z",
+    "updatedAt": "2026-03-20T00:00:48.961Z",
     "rejectedReason": null,
     "rejectedAt": null
   },
@@ -3163,7 +3163,7 @@
     "title": "Niche SaaS: Auto Weekly Client Updates from work tools",
     "description": "Problem: Agencies/fractional teams spend non-billable time compiling weekly status updates from Slack, PM tools, and repos. Demand signal: growth of AI meeting summary/action-item workflows (n8n templates, Slack AI positioning, Otter-style updates) indicates strong appetite for automated communication outputs. Target market: fractional CTOs, dev shops, ops consultants, small remote teams. MRR potential: k-k (150-500 customers x /mo). Tech complexity: 2/5 (connectors + summarization templates + approval workflow). Competition level: Medium-High (general AI notes tools), Medium for consultant-facing weekly report niche. Why Joe can win: Joe already manages multi-project async updates and can design client-trust-first output formats. Profitability check: clear time savings (2-5 hrs/week/team) supports subscription pricing with low support burden.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3175,7 +3175,6 @@
     },
     "promotedToGoalId": null,
     "tags": [],
-    "status": "evaluated",
     "createdAt": "2026-03-06T02:01:52.806Z",
     "updatedAt": "2026-03-19T23:00:00.000Z"
   },
@@ -5258,5 +5257,37 @@
     "tags": [],
     "createdAt": "2026-03-19T19:01:22.905Z",
     "updatedAt": "2026-03-19T19:01:22.905Z"
+  },
+  {
+    "id": "idea_1773957711969_c6b8a2a6",
+    "title": "CoinUsUp Growth Audit — Mar 19 (UX + Features + Growth Levers)",
+    "description": "Alfred growth audit based on codebase review.\n\nTOP 3 UX FRICTION:\n1. Onboarding: 15+ pages visible at once, no wizard [Medium fix]\n2. No quick-add: logging expense should be 2 taps from home [Low fix]  \n3. SelectPlan paywall before core value experienced [Low fix]\n\nTOP 3 MISSING FEATURES:\n1. Recurring expense templates (rent, utilities) [Medium]\n2. Interac e-Transfer settlement hints — Canada moat [Low]\n3. Receipt photo/OCR capture — Capacitor camera already integrated [Medium-High]\n\nTOP 3 GROWTH LEVERS:\n1. App Store publish (P1 — zero organic discovery until live) [Medium, one-time]\n2. Referral incentive on existing Invite page (invite 3 = free month) [Low]\n3. Canada-specific SEO landing pages in existing marketing/ folder [Low]\n\nPRIORITY: Ship app stores first, then quick-add + recurring templates, then Interac + referral.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-19T22:01:51.969Z",
+    "updatedAt": "2026-03-19T22:01:51.969Z"
+  },
+  {
+    "id": "idea_1773964887583_5aad0c63",
+    "title": "Even Us Up Growth Audit — Mar 19 (UX + Features + Growth Levers)",
+    "description": "Alfred growth audit — Even Us Up (expense sharing app). Based on prior audits, HAL discussion (Mar 19), and codebase knowledge.\n\nTOP 3 UX FRICTION POINTS:\n1. Settlement execution is manual — App tracks balances but getting actually paid requires off-app coordination (iMessage, e-transfer, etc). No in-app settlement flow or proof-of-payment tracking. Users feel unresolved. [Low-Medium fix]\n2. Equal split is the default and only split — Real households have unequal contributions (different incomes, different occupancy). No income-weighted or time-aware split options. Users accept wrong fairness model or churn. [Medium fix]\n3. Onboarding requires group buy-in — Expense apps die if only one person signs up. No zero-login balance preview for invitees. Invite acceptance friction kills group activation. [Low fix — zero-login preview link]\n\nTOP 3 MISSING FEATURES:\n1. Recurring expense templates — Rent, utilities, internet repeat every month. Manual re-entry erodes retention. [Medium — High retention impact]\n2. Interac e-Transfer settlement hints — Canada-specific: deep-link or copy-to-clipboard with correct amount + memo. No competitor does this for Canadian roommates. [Low — strong Canada moat]\n3. Settlement score / monthly close — Show groups their 'settled % this month'. Gamifies completion and creates natural monthly engagement touchpoint. [Low — High engagement impact]\n\nTOP 3 GROWTH LEVERS:\n1. Freemium roommate tier ($2.99/mo) — Sticky 12-month cycle (lease term). Target: roommates, couples, household groups. Features: recurring templates, unlimited history, Interac hints. Already identified as P1 revenue strategy in Mar 8 audit. [Medium — highest MRR impact]\n2. Invite virality via zero-login preview — 'See your balance before signing up' link. Every debt notification becomes an acquisition channel. [Low effort, High conversion]\n3. Travel premium tier ($4.99-9.99/mo) — Trip-specific mode: prorated day splits, multi-currency, receipt OCR. Complements roommate tier. Seasonal acquisition spikes (summer, holidays). [Medium effort]\n\nDIFFERENTIATION vs SPLITWISE:\nCore positioning: 'Get fairly settled, faster' — not just expense tracking. Settlement execution + fairness models = the moat. Splitwise owns tracking; Even Us Up should own resolution.\n\nPRIORITY:\nP1: Freemium roommate tier + recurring templates (revenue + retention)\nP2: Interac settlement hints + zero-login invite preview (Canada moat + virality)\nP3: Settlement score + travel premium (engagement + expansion revenue)",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-20T00:01:27.583Z",
+    "updatedAt": "2026-03-20T00:01:27.583Z"
   }
 ]

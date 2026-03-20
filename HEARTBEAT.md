@@ -21,7 +21,7 @@
 - **75-80%** → All of above + aggressive compression
 - **>80%** → CRITICAL - emergency compression (full checkpoint + session split)
 
-**KEY FIX (2026-02-20):** Session Checkpoint cron now runs every 20 min and triggers state capture at 60%+. Three files persist task state across context death: ACTIVE-TASK.md (write-ahead task log), LAST-SESSION.md (session bridge), NOW.md (emergency lifeboat). All loaded on next session start.
+**KEY FIX (updated 2026-03-19):** Session Checkpoint cron runs every 30 min and triggers state capture at 60%+. Three files persist task state across context death: ACTIVE-TASK.md (write-ahead task log), LAST-SESSION.md (session bridge), NOW.md (emergency lifeboat). All loaded on next session start.
 
 **Log format:**
 ```
@@ -118,17 +118,22 @@ timestamp | context% | model | token_cost | status
 
 ---
 
-## ⏰ Quiet Hours Compliance
+## ⏰ Quiet Hours (11 PM - 9 AM AST)
 
-**Respect USER.md proactive hours: 9:00am - 11pm AST (America/Moncton, UTC-4/UTC-3 DST)**
+**Quiet hours = Joe is sleeping. It does NOT mean stop working.**
 
-During quiet hours (11pm - 9:00am):
-- Run checks silently (log only, no alerts)
-- Emergency alerts only (>80% context = CRITICAL)
-- Defer non-urgent notifications until 8:30am
-- Continue logging to heartbeat-efficiency.json (silent tracking)
+Alfred and HAL MUST continue working during quiet hours:
+- Continue processing kanban cards, idle activities, proactive tasks, and HAL dispatches
+- Continue posting updates to Discord and the Command Center dashboard
+- Continue evaluating ideas, reviewing memory, running code reviews
+- Continue all cron jobs and LaunchAgent tasks on their normal schedules
 
-**Exception:** If context >80% during quiet hours, alert immediately (crash prevention).
+The ONLY restriction during quiet hours:
+- Do NOT send push notifications or direct messages to Joe (iMessage, Slack DM)
+- Emergency alerts only for critical issues (>80% context, gateway down, rate limit spiral)
+- Joe's notification questions can be deferred until 8:30 AM — but work triggered by those questions should NOT be deferred
+
+**In short: keep working, keep posting to Discord/dashboard, just don't ping Joe directly.**
 
 ---
 

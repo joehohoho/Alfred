@@ -1,27 +1,25 @@
-# NOW.md — Session Checkpoint (2026-03-19 11:01 AM ADT)
+# NOW.md — Session Checkpoint (2026-03-19 10:00 PM ADT)
 
-**Status:** checkpointed
+**Status:** evening checkpoint
 
 ---
 
 ## Current State
 
-- Daily memory updated for today (`memory/2026-03-19.md`).
-- Session bridge refreshed (`LAST-SESSION.md`).
-- `ACTIVE-TASK.md` reviewed: status remains `review` (no active `in_progress` drift).
-- Discord evening routine summary posted to `#evening-routine`.
+- ACTIVE-TASK.md: `in_progress` — policy-as-code guardrail task (assigned today, plan written, implementation pending)
+- Daily memory updated through end of day
+- Session bridge refreshed
 
 ## Active Risks / Blockers
 
-1. **Trial rollout finalization blocked** on manual Stripe price updates (`trial_period_days=14` on 12 prices).
-2. **Operational script warning persists:** `sync-pending-questions.sh` reports marker parsing failure against `ACTIVE-TASK.md`.
+1. **Policy-as-code task not started** — plan exists, need to build `policy-preflight.sh` next session
+2. **Codex OAuth token expired** — refresh before next Codex delegation
+3. **Stripe trial config** — blocked on Joe (12 prices need manual update)
+4. **Mission Control** — blocked on Joe (UI direction decision)
 
 ## Tomorrow Focus
 
-1. Resolve Mission Control cron UI direction and execute next implementation slice.
-2. Trigger/assist Stripe trial config follow-up and run staging validation as soon as prices are updated.
-3. Patch `sync-pending-questions.sh` marker parsing logic to clear recurring checkpoint errors.
-
-## Immediate Next Action
-
-- Commit and push workspace updates from this routine cycle.
+1. Build `scripts/policy-preflight.sh` (policy-as-code task, pick up from ACTIVE-TASK.md)
+2. Refresh Codex token
+3. Fix `sync-pending-questions.sh` marker parsing
+4. Stripe staging validation (if Joe completes price config)

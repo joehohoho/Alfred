@@ -1,0 +1,4 @@
+# Phase 1 expected coverage (wired now)
+send-notification.sh
+hal-slack-notify.sh
+daily-inquiry.sh

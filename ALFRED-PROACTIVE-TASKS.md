@@ -262,7 +262,7 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
    - **Improvement proposal:** Add a destination resolver layer used before every proactive send:
      - map human aliases (`joe`, `hal-completions`, etc.) → provider-safe IDs in one maintained registry file (e.g., `config/delivery-aliases.json`)
      - preflight validator script (`scripts/resolve-delivery-target.sh`) returns normalized target or hard-fails before send
-     - fallback policy during quiet hours: if target unresolved, write to Kanban comment queue instead of retrying message send
+     - fallback policy: if target unresolved, write to Kanban comment queue instead of retrying message send (applies 24/7, not just quiet hours)
    - **Success metric:** 0 proactive delivery failures due to invalid target format for 14 consecutive days.
 
 2. **Analysis outputs are generated but not consistently converted into trackable Kanban artifacts (insight-to-execution gap)**
