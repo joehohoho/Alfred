@@ -1,30 +1,8 @@
 # ACTIVE-TASK.md — Current Work State
 
-**Status:** `review`  
-**Started:** 2026-03-19 12:38 ADT  
-**Completed:** 2026-03-19 (evening routine discovery)
-**Objective:** Implement policy-as-code guardrail tests for automation/cron entrypoints (goal_1773934119740_1bc964b9)
-
----
-
-## Chosen Approach
-1. Shared `scripts/policy-preflight.sh` with fail-closed evaluation + structured audit logging.
-2. Core checks enforced:
-   - quiet-hours direct-notification block (`no_direct_dm`, shared channels allowed)
-   - external-action approval gate
-   - forbidden-file denylist guard
-   - duplicate-run dedup key window
-3. Coverage report script for daily/adhoc audit of scripts not invoking preflight.
-4. Shell tests validated all 5 checks pass.
-
-## Progress
-- [x] Assignment accepted and execution started
-- [x] Implement `scripts/policy-preflight.sh`
-- [x] Add coverage report script (`scripts/policy-preflight-coverage-report.sh`)
-- [x] Tracking logs: `tracking/policy-preflight.jsonl`, `tracking/policy-preflight-coverage.jsonl`, `tracking/policy-preflight-dedup.jsonl`
-- [x] Tests pass (`scripts/test-policy-preflight.sh` — all 5 checks green)
-- [ ] Integration into existing cron entrypoints (optional follow-up)
-- [x] Post completion summary and move card to review
+**Status:** `idle`
+**Last Completed:** 2026-03-20 03:10 ADT
+**Last Task:** MSP Failed Backup → Client Report Bot (task_1773986453570_0eabfd2a) → moved to review
 
 ## Pending Questions
 <!-- PENDING-Q-START -->
@@ -34,6 +12,22 @@
 - **⚠️ Stale card escalated: "Implement 14-day free trial on Basic/Pro tiers"** (_question_, Mar 18 15:00)
   ID: `notif_1773846049925_5c244c9d` — Card "Implement 14-day free trial on Basic/Pro tiers" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates. A re-dispatch was att...
 
-- **Codex Token Expiring** (_system_, Mar 19 16:17)
-  ID: `notif_1773937039969_d7cc71ad` — Codex OAuth token expires in -1h. Refresh via: openclaw models auth login --provider openai-codex
+- **Joe refreshed token a few days ago but the expiry notification keeps firing. Token appears active in session_status (oauth mode working). To manually re-verify or re-auth, run: openclaw models auth login --provider openai-codex (requires interactive TTY — must run in terminal, not via Alfred). If notifications persist after refresh, the expiry detector may have a stale timestamp bug. No action needed now if Codex is working.** (_Codex Token Status_, Mar 20 05:10)
+  ID: `notif_1773983457394_b787d2b6` — low
+
+- **Joe confirmed Option #1 (add cron controls to React app). Alfred provided full pros/cons. Ready to implement. Should Alfred proceed with adding cron job management UI to the Command Center dashboard (localhost:3001)?
+
+Options:
+1. ✅ Yes — proceed, Alfred will implement cron controls in the React app
+2. ⏸️ Not now — leave blocked, revisit later
+3. ❌ Close — scope changed, no longer needed
+
+Alfred recommends Option 1 — Joe already chose this path, just needs implementation go-ahead.** (_[REMINDER] Mission Control Phase 1: Cron Controls Implementation_, Mar 20 06:02)
+  ID: `notif_1773986543704_ffb54ea1` — No details provided
+
+- **🔑 Codex OAuth Token Expired** (_alert_, Mar 20 10:01)
+  ID: `notif_1774000891116_39dc1b5e` — The openai-codex OAuth token is expired — Alfred has logged 509 auth failures today. The gateway is auto-falling back to Claude Sonnet, so work contin...
+
+- **Partial Recovery** (_system_, Mar 20 11:00)
+  ID: `notif_1774004425890_9b203583` — Codex still down (CODEX_ERROR:HTTP Error 401: Unauthorized). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
 <!-- PENDING-Q-END -->

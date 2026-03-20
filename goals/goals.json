@@ -719,14 +719,12 @@
     "title": "Policy-as-Code Guardrail Tests for Cron Tasks",
     "description": "Gap: behavioral rules exist in docs (quiet hours, no outbound during quiet hours, approval boundaries) but enforcement is mostly manual/script-by-script. Proposal: add preflight policy tests shared by all cron entrypoints (quiet-hours outbound check, external-action gate, forbidden-file write denylist, duplicate-task dedup key) with fail-closed logging. Failure mode reduced: accidental rule drift and compliance regressions after script edits. Token/cost impact: fewer corrective cycles and less supervision overhead.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-03-20T06:01:47.983Z",
+    "metadata": {},
     "createdAt": "2026-03-19T15:28:39.740Z",
-    "updatedAt": "2026-03-19T15:49:40.338Z",
+    "updatedAt": "2026-03-20T06:01:47.983Z",
     "comments": [
       {
         "id": "cmt_1773934153444_317b2ce8",
