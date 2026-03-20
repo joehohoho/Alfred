@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-20",
+  "defaultConfidence": 0.92,
+  "skills": [
+    {
+      "name": "coding",
+      "confidence": 0.94,
+      "keywords": ["implement", "build", "fix", "bug", "refactor", "script", "code", "api", "integration", "test", "deploy", "automation"]
+    },
+    {
+      "name": "ops",
+      "confidence": 0.91,
+      "keywords": ["cron", "launchagent", "monitor", "healthcheck", "reliability", "incident", "failure", "retry", "backoff", "watchdog"]
+    },
+    {
+      "name": "data",
+      "confidence": 0.9,
+      "keywords": ["analyze", "summary", "synthesis", "extract", "report", "audit", "compare", "investigate"]
+    }
+  ],
+  "alfredOnlyKeywords": ["message joe", "dm joe", "notify joe", "external post", "send email", "public post"]
+}
