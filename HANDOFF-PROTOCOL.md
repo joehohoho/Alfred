@@ -29,6 +29,8 @@ Formalize the contract for every task delegated from Alfred to HAL. Eliminates a
    - `success_criteria` — measurable acceptance criteria (min 1)
    - `owner` — who approves (usually "alfred")
    - `deadline` — ISO date (future only)
+   - `review_gate` — `requires_joe_approval` + escalation metadata
+   - `completion_evidence` — command-level test evidence contract
    - Optional: `estimated_effort.hours` + `context`
 
 3. **Validate the handoff:**
@@ -155,6 +157,8 @@ bash scripts/validate-handoff.sh card_XXX
 - ✅ `success_criteria` has ≥1 item
 - ✅ `owner` is one of: alfred, hal, joe
 - ✅ `deadline` is valid ISO date + future
+- ✅ `review_gate` includes approval dependency + escalation metadata
+- ✅ `completion_evidence` includes validation commands, expected/actual, exit code, and artifact/risk fields
 
 **If validation fails:** Dispatcher blocks HAL assignment + posts kanban comment with specific error
 

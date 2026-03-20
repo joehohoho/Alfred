@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Alfred↔HAL Task Handoff Contract",
+  "title": "Alfred\u2194HAL Task Handoff Contract",
   "description": "Formal specification for every task delegated from Alfred to HAL. Prevents ambiguity, rework, and feature creep.",
   "type": "object",
   "required": [
@@ -10,7 +10,10 @@
     "deliverables",
     "validation_command",
     "owner",
-    "deadline"
+    "deadline",
+    "autonomy_boundaries",
+    "review_gate",
+    "completion_evidence"
   ],
   "additionalProperties": false,
   "properties": {
@@ -144,6 +147,118 @@
         "acceptance_note": {
           "type": "string",
           "description": "Personal note from Alfred to HAL on what matters most in this task"
+        }
+      }
+    },
+    "review_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requires_joe_approval",
+        "escalation_reason"
+      ],
+      "properties": {
+        "requires_joe_approval": {
+          "type": "string",
+          "enum": [
+            "yes",
+            "no"
+          ],
+          "description": "Hard review-gate flag. If 'yes', escalation metadata must be completed before moving to review."
+        },
+        "escalation_reason": {
+          "type": "string",
+          "minLength": 2,
+          "description": "If requires_joe_approval='yes', explain why approval is needed; if 'no', use 'n/a'."
+        },
+        "escalation_posted_at": {
+          "type": "string",
+          "description": "ISO-8601 timestamp when escalation was posted (required when requires_joe_approval='yes')."
+        }
+      }
+    },
+    "completion_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validation_commands",
+        "expected_result",
+        "actual_result",
+        "exit_code",
+        "artifact_paths",
+        "not_run_reason",
+        "risk_if_not_run"
+      ],
+      "properties": {
+        "validation_commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "expected_result": {
+          "type": "string",
+          "minLength": 2
+        },
+        "actual_result": {
+          "type": "string",
+          "minLength": 2
+        },
+        "exit_code": {
+          "type": "integer",
+          "minimum": -1,
+          "maximum": 255,
+          "description": "Use 0 for pass, non-zero for fail, -1 if not run."
+        },
+        "artifact_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "not_run_reason": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Use 'n/a' when tests were run; otherwise state why validation was not run."
+        },
+        "risk_if_not_run": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Use 'n/a' when tests were run; otherwise classify risk (low/medium/high + impact)."
+        }
+      }
+    },
+    "autonomy_boundaries": {
+      "type": "object",
+      "description": "Explicit scope of what HAL may decide/execute autonomously vs. what requires Alfred/Joe approval.",
+      "additionalProperties": false,
+      "required": [
+        "can_decide",
+        "must_escalate"
+      ],
+      "properties": {
+        "can_decide": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "List of decisions/actions HAL may make independently without asking. E.g. ['Choose library version', 'File naming conventions', 'Internal code structure']"
+        },
+        "must_escalate": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "List of decisions/actions that require Alfred or Joe approval before proceeding. E.g. ['External API keys', 'Schema changes', 'Cost > $2/run']"
+        },
+        "time_limit_minutes": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 480,
+          "description": "Max wall-clock minutes HAL may spend before escalating if not done. Prevents silent hangs."
         }
       }
     }

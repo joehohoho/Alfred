@@ -32,8 +32,43 @@
     "[Specific metric 1 improved by X%]",
     "[Specific metric 2 meets target]"
   ],
+  "autonomy_boundaries": {
+    "can_decide": [
+      "File naming + internal code structure",
+      "Library/package version selection within major version",
+      "Logging verbosity and format",
+      "Test fixture data and test file organization"
+    ],
+    "must_escalate": [
+      "Any change to ~/.openclaw/openclaw.json",
+      "External API credentials or token rotation",
+      "Schema changes that affect existing data",
+      "Task cost exceeds $2.00",
+      "Any public-facing action (posts, emails, messages to others)"
+    ],
+    "time_limit_minutes": 60
+  },
   "owner": "alfred",
-  "deadline": "2026-03-15",
+  "deadline": "2026-04-30",
+  "review_gate": {
+    "requires_joe_approval": "no",
+    "escalation_reason": "n/a",
+    "escalation_posted_at": ""
+  },
+  "completion_evidence": {
+    "validation_commands": [
+      "npm test",
+      "bash scripts/validate.sh"
+    ],
+    "expected_result": "All listed validation commands exit 0 and key assertions pass.",
+    "actual_result": "PENDING - fill with concrete command output summary at completion.",
+    "exit_code": -1,
+    "artifact_paths": [
+      "PENDING"
+    ],
+    "not_run_reason": "PENDING - use 'n/a' when tests are run.",
+    "risk_if_not_run": "PENDING - use 'n/a' when tests are run."
+  },
   "estimated_effort": {
     "hours": 4,
     "model_tier": "haiku"
