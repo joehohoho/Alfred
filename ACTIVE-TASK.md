@@ -28,6 +28,12 @@
 
 ## Pending Questions
 <!-- PENDING-Q-START -->
+- **⚠️ Stale card escalated: "Mission Control Phase 1: Stability & Visibility"** (_question_, Mar 17 06:00)
+  ID: `notif_1773727251618_e604f69d` — Card "Mission Control Phase 1: Stability & Visibility" (task_1773672258312_393a575f) has been in_progress for 7h with no updates. A re-dispatch was at...
+
+- **⚠️ Stale card escalated: "Implement 14-day free trial on Basic/Pro tiers"** (_question_, Mar 18 15:00)
+  ID: `notif_1773846049925_5c244c9d` — Card "Implement 14-day free trial on Basic/Pro tiers" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates. A re-dispatch was att...
+
 - **Codex Token Expiring** (_system_, Mar 19 16:17)
-  ID: `notif_1773937039969_d7cc71ad` — Codex OAuth token expired. Refresh via: `openclaw models auth login --provider openai-codex`
+  ID: `notif_1773937039969_d7cc71ad` — Codex OAuth token expires in -1h. Refresh via: openclaw models auth login --provider openai-codex
 <!-- PENDING-Q-END -->
