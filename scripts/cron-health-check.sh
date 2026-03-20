@@ -31,22 +31,48 @@ echo ""
 
 # Check LaunchAgents running
 echo "🚀 LaunchAgents:"
-AGENTS=("com.ollama.keepalive" "com.openclaw.imsg-responder" "com.alfred.dashboard-nextjs" "com.cloudflare.tunnel")
+# Persistent agents (should have an active PID — numeric first column)
+PERSISTENT_AGENTS=("com.openclaw.imsg-responder" "com.alfred.dashboard-nextjs" "com.cloudflare.tunnel")
+# One-shot/keepalive agents: just check they are registered (any entry in launchctl list) and not exited with error
+ONESHOT_AGENTS=("com.ollama.keepalive")
 FAILED=0
-for agent in "${AGENTS[@]}"; do
-    if launchctl list | grep -q "^[0-9].*$agent"; then
+
+for agent in "${PERSISTENT_AGENTS[@]}"; do
+    if launchctl list | grep -qE "^[0-9]+[[:space:]].*$agent"; then
         echo "  ✅ $agent running"
     else
-        echo "  ❌ $agent NOT running"
+        # Check if registered at all
+        if launchctl list | grep -q "$agent"; then
+            EXIT_CODE=$(launchctl list | grep "$agent" | awk '{print $2}')
+            echo "  ⚠️  $agent registered but not running (last exit: $EXIT_CODE)"
+            FAILED=$((FAILED+1))
+        else
+            echo "  ❌ $agent NOT registered"
+            FAILED=$((FAILED+1))
+        fi
+    fi
+done
+
+for agent in "${ONESHOT_AGENTS[@]}"; do
+    if launchctl list | grep -q "$agent"; then
+        EXIT_CODE=$(launchctl list | grep "$agent" | awk '{print $2}')
+        if [[ "$EXIT_CODE" == "0" || "$EXIT_CODE" == "-" ]]; then
+            echo "  ✅ $agent registered (last exit: $EXIT_CODE — OK for keepalive)"
+        else
+            echo "  ⚠️  $agent last exit code: $EXIT_CODE (may have failed)"
+            FAILED=$((FAILED+1))
+        fi
+    else
+        echo "  ❌ $agent NOT registered"
         FAILED=$((FAILED+1))
     fi
 done
 echo ""
 
 if [[ $FAILED -gt 0 ]]; then
-    echo "⚠️  $FAILED LaunchAgent(s) offline — attempting recovery..."
-    for agent in "${AGENTS[@]}"; do
-        if ! launchctl list | grep -q "^[0-9].*$agent"; then
+    echo "⚠️  $FAILED agent(s) need attention — attempting recovery on persistent agents..."
+    for agent in "${PERSISTENT_AGENTS[@]}"; do
+        if ! launchctl list | grep -qE "^[0-9]+[[:space:]].*$agent"; then
             echo "   → Restarting $agent..."
             launchctl start "$agent" 2>&1 || echo "     (restart failed)"
         fi
