@@ -330,24 +330,69 @@ if [[ -f "$AUTH_FILE" ]]; then
 import json, sys, time, os
 auth_file = sys.argv[1]
 cooldown_file = sys.argv[2]
+state_file = os.path.expanduser("~/.openclaw/workspace/memory/.codex-expiry-state.json")
+
 with open(auth_file) as f:
     data = json.load(f)
+
 profiles = data.get("profiles", {})
-for name, profile in profiles.items():
-    if "codex" in name.lower() and "expires" in profile:
-        exp = profile["expires"] / 1000
-        remaining_h = (exp - time.time()) / 3600
-        if remaining_h < 48:
-            cooldown_key = f"{cooldown_file}.codex"
+last_good = data.get("lastGood", {}).get("openai-codex")
+
+# Prefer lastGood codex profile when available; otherwise use latest codex expiry.
+expires_ms = None
+if last_good and last_good in profiles and isinstance(profiles[last_good], dict):
+    v = profiles[last_good].get("expires")
+    if isinstance(v, (int, float)):
+        expires_ms = v
+
+if expires_ms is None:
+    codex_expires = []
+    for name, profile in profiles.items():
+        if "codex" in name.lower() and isinstance(profile, dict):
+            v = profile.get("expires")
+            if isinstance(v, (int, float)):
+                codex_expires.append(v)
+    if codex_expires:
+        expires_ms = max(codex_expires)
+
+if expires_ms is None:
+    raise SystemExit(0)
+
+# If token expiry jumped forward (fresh re-auth), reset cooldown and suppress stale alert noise.
+prev_exp = 0
+if os.path.exists(state_file):
+    try:
+        with open(state_file) as sf:
+            prev_exp = float(json.load(sf).get("last_expires", 0))
+    except Exception:
+        prev_exp = 0
+
+if expires_ms > prev_exp + 3600 * 1000:
+    cooldown_key = f"{cooldown_file}.codex"
+    try:
+        os.remove(cooldown_key)
+    except FileNotFoundError:
+        pass
+
+os.makedirs(os.path.dirname(state_file), exist_ok=True)
+with open(state_file, "w") as sf:
+    json.dump({"last_expires": expires_ms, "updated_at": time.time()}, sf)
+
+exp = expires_ms / 1000
+remaining_h = (exp - time.time()) / 3600
+if remaining_h < 48:
+    cooldown_key = f"{cooldown_file}.codex"
+    last = 0
+    if os.path.exists(cooldown_key):
+        try:
+            with open(cooldown_key) as cf:
+                last = float(cf.read().strip() or 0)
+        except Exception:
             last = 0
-            if os.path.exists(cooldown_key):
-                try: last = float(open(cooldown_key).read())
-                except: pass
-            if time.time() - last > 43200:
-                print(f"ALERT:Codex OAuth token expires in {remaining_h:.0f}h")
-                with open(cooldown_key, "w") as cf:
-                    cf.write(str(time.time()))
-            break
+    if time.time() - last > 43200:
+        print(f"ALERT:Codex OAuth token expires in {remaining_h:.0f}h")
+        with open(cooldown_key, "w") as cf:
+            cf.write(str(time.time()))
 PYCHECK
   )
   if [[ "$CODEX_ALERT" == ALERT:* ]]; then
