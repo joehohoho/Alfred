@@ -3781,7 +3781,7 @@
     "title": "CoinUsUp Nonprofit Content Hub (SEO Growth)",
     "description": "**Problem**\nCoinUsUp needs a low-cost, scalable top-of-funnel acquisition channel for nonprofit users searching for practical tools. Existing growth channels are likely narrower than search-driven discovery.\n\n**Solution**\nBuild a nonprofit content hub targeting high-intent keywords like \"free volunteer management\", \"donation tracking\", \"nonprofit CRM\", and \"grant reporting\" with practical guides, templates, and comparison pages that route readers into CoinUsUp trials.\n\n**Revenue Model**\nPrimary monetization is trial-to-paid conversion from organic search traffic (estimated 3–5% trial conversion in original idea assumptions), with compounding SEO traffic reducing paid acquisition dependency over time.\n\n**Why Joe**\nJoe already operates and iterates CoinUsUp, so this idea leverages an existing product and avoids greenfield build risk. It aligns with his automation/content execution strengths and can run as parallel marketing work.\n\n**Evidence**\nQuick demand validation shows active, competitive search demand for this problem space:\n- DonorPerfect positions donation tracking and nonprofit CRM as core needs (https://www.donorperfect.com/).\n- Multiple 2025–2026 roundups list large numbers of nonprofit CRM tools (e.g., CharityEngine top 25, Double the Donation top 22), indicating sustained market and keyword competition.\n- Current ecosystem content explicitly targets nonprofit CRM/fundraising software discovery queries, confirming ongoing search intent.\n\n(Validation source: Brave web search, 2026-03-21.)",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3799,10 +3799,10 @@
       "weighted_score": 75,
       "evaluatedAt": "2026-03-21T07:30:00-03:00"
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774090851207_60e23900",
     "tags": [],
     "createdAt": "2026-03-08T17:01:36.294Z",
-    "updatedAt": "2026-03-21T10:31:26.857871+00:00",
+    "updatedAt": "2026-03-21T11:00:51.209Z",
     "researchEvidence": {
       "validatedAt": "2026-03-21T07:30:00-03:00",
       "method": "web_search",
@@ -3825,32 +3825,60 @@
     "title": "Even Us Up: Roommate Mode + Freemium Tier ($2.99/mo)",
     "description": "Sticky recurring revenue for roommate groups (12-month engagement cycle). Features: recurring utilities split, shared grocery tracking, monthly Interac settlement, group chat. Est. revenue: $6–15k MRR (2–5k paying roommate groups). Tech: 3/5 (recurring logic + Interac integration). Timeline: 4–6 weeks. P1 — highest ROI vs. Splitwise.",
     "category": "growth",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
-    "promotedToGoalId": null,
+    "revenueModel": "Freemium: free for personal, $2.99/mo per group for recurring utilities + Interac settlement",
+    "synergies": [
+      "Even Us Up"
+    ],
+    "evaluation": {
+      "score": 7.6,
+      "notes": "Strong extension of existing Even Us Up codebase. Interac e-Transfer Request Money API confirmed available (VoPay, Paysafe, DCBank). Roommate groups are inherently sticky (12-month utilities cycle). 4-6 week timeline realistic. Main constraint: customer acquisition method untested (need SEO + referral mechanics). Recommend: prioritize alongside CoinUsUp paid tier for highest passive income ROI.",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 7,
+        "joes_edge_2x": 8,
+        "synergy_1x": 9,
+        "passive_potential_2x": 8
+      },
+      "weighted_score": 76,
+      "researchEvidence": "Interac e-Transfer Request Money API confirmed via VoPay, Paysafe, DCBank. Recurring payment support documented. Roommate expense-sharing market validated by Splitwise success and Even Us Up existing user base.",
+      "evaluatedAt": "2026-03-21T11:30:00.000Z"
+    },
+    "promotedToGoalId": "goal_1774103500000_roommate_mode_project",
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.449Z",
-    "updatedAt": "2026-03-08T19:01:34.449Z"
+    "updatedAt": "2026-03-21T11:30:00.000Z"
   },
   {
     "id": "idea_1772996494467_fb7569fe",
     "title": "Even Us Up: Receipt Scanning + OCR (Mobile Differentiator)",
     "description": "Mobile-first receipt capture with OCR parsing (Joe's data transformation background = moat). Photo → auto-parse → split ready. Est. mobile conversion lift: +20%. Tech: 3/5 (OCR integration, receipt templates). Timeline: 4–6 weeks. Parallel to Roommate mode.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.2,
+      "notes": "Strong market fit with validated demand: Splitwise Pro, ReceiptLens, Easy Expense all feature receipt OCR; DataIntelo reports spike in mobile OCR demand for expense tracking. Joe's data transformation background is a real edge for parsing edge cases. Medium build effort (4–6 weeks) with high retention value (frictionless logging). Natural feature extension of Even Us Up codebase with clear 20% conversion lift potential.",
+      "breakdown": {
+        "market_fit_3x": 8,
+        "effort_reward_2x": 7,
+        "joes_edge_2x": 8,
+        "synergy_1x": 9,
+        "passive_potential_2x": 6
+      },
+      "researchEvidence": "Splitwise Pro, ReceiptLens, Easy Expense, Forbes 2025 (receipt OCR is standard feature); DataIntelo market report confirms spike in mobile OCR demand for real-time expense tracking",
+      "evaluatedAt": "2026-03-21T14:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.467Z",
-    "updatedAt": "2026-03-08T19:01:34.467Z"
+    "updatedAt": "2026-03-21T14:00:00.000Z"
   },
   {
     "id": "idea_1772996494487_8bba51e2",
@@ -5655,5 +5683,53 @@
     "tags": [],
     "createdAt": "2026-03-21T10:31:34.668Z",
     "updatedAt": "2026-03-21T10:31:34.668Z"
+  },
+  {
+    "id": "idea_1774098087305_24b7ee50",
+    "title": "Atlantic Canada SMB SaaS opportunities (bilingual tax/payroll/connectivity)",
+    "description": "Scan result (NB/Atlantic moat opportunities):\\n\\n1) Bilingual Compliance Copilot (NB-first)\\n- Pain: Small businesses need English/French customer docs, WHMIS labels, invoices, policies, and forms; generic compliance tools ignore NB bilingual operational workflows.\\n- Product: Template + validation engine that checks required bilingual fields, auto-generates EN/FR document packs, and flags compliance gaps per document type.\\n- Moat: NB-specific bilingual-by-default workflows + local templates (construction, retail, food, home services) that larger SaaS vendors don’t prioritize.\\n- Revenue: -/mo + paid template packs.\\n\\n2) CRA Deadline + Filing Orchestrator for Micro-SMBs\\n- Pain: GST/HST + payroll remittance deadlines are missed because owners juggle monthly/quarterly/annual schedules with no simple single calendar.\\n- Product: Deadline graph + reminder workflow for GST/HST and source deductions; plain-language what",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T13:01:27.305Z",
+    "updatedAt": "2026-03-21T13:01:27.305Z"
+  },
+  {
+    "id": "idea_1774103518874_bc6939ff",
+    "title": "CoinUsUp growth audit: UX frictions, missing features, growth levers (2026-03-21)",
+    "description": "Completed audit from workspace/CoinUsUp. Priorities: (1) SEO/indexability blockers (missing sitemap + SPA rendering meta duplication) [M], (2) onboarding first-success flow + funnel analytics [M], (3) Mobile Ops Pack monetization (offline attendance + signed QR + push/deep-link hardening) [L]. Top UX frictions, missing features, and growth levers documented with effort estimates. Full report: /Users/hopenclaw/.openclaw/workspace/reports/coinusup-growth-audit-2026-03-21.md",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T14:31:58.874Z",
+    "updatedAt": "2026-03-21T14:31:58.874Z"
+  },
+  {
+    "id": "idea_1774108890742_ca7a30ce",
+    "title": "Even Us Up growth audit — Mar 21 refresh (UX/features/growth)",
+    "description": "Top 3 UX friction points (prioritized):\\n1) Settlement path clarity is still not obvious after multiple expenses (Impact: High, Effort: M = 4-6 dev days).\\n   - Why it hurts: users can track balances but hesitate to close the loop, which lowers retention.\\n   - Fix: persistent 'Settle now' rail + suggested minimal-transfer plan + payment confirmation state.\\n2) Add-expense flow has high cognitive load for routine use (Impact: High, Effort: M = 3-5 dev days).\\n   - Why it hurts: too many decisions upfront (split mode, participants, recurrence, notes), increasing abandonment.\\n   - Fix: 2-step Quick Add (amount/payer/group first) + smart defaults from last expense.\\n3) Invite-to-join onboarding leaks users before first shared value (Impact: Medium-High, Effort: S-M = 2-4 dev days).\\n   - Why it hurts: collaborator setup friction blocks first collaborative moment.\\n   - Fix: magic invite links + guest contribution mode + deferred full signup.\\n\\nTop 3 missing features (vs Splitwise-class expectations):\\n1) Payment closure integrations (Interac-first links + confirmation workflow) (Impact: High, Effort: L = 2-3 weeks).\\n   - Differentiator: Canada-first settlement completion, not just debt tracking.\\n2) Debt aging + household nudges (Impact: High, Effort: M = 1-2 weeks).\\n   - Examples: 'oldest unpaid >14 days', 'settle before next recurring bill', reminder cadence presets.\\n3) Monthly close/export for couples-roommates (Impact: Medium, Effort: M = ~1 week).\\n   - Output: one-click statement (who fronted what, settlement completion rate, category drift).\\n\\nTop 3 growth levers (differentiated from Splitwise):\\n1) Positioning: 'Recurring household operating system' (couples/roommates first) (Impact: High, Effort: S = 2-3 days).\\n   - Own recurring life-admin workflow instead of generic trip-only splitting.\\n2) Activation KPI redesign around first closed loop (Impact: High, Effort: S-M = 3-5 days).\\n   - KPI: create group + add 2 expenses + complete 1 settlement action in first session.\\n3) Referral trigger at successful settlement moment (Impact: Med-High, Effort: M = 4-6 days).\\n   - Prompt invite/share when trust and value are highest.\\n\\nDifferentiation thesis:\\nWin on speed-to-settlement + recurring household workflows + Canada-first payment closure. Compete on clarity and completion, not feature sprawl.\\n\\nRecommended build order (next 30 days):\\nWeek 1: Settlement rail + clarity UX\\nWeek 2: Quick Add defaults + invite friction fixes\\nWeek 3: Debt-aging nudges + reminder automation\\nWeek 4: Referral at settle moment + niche positioning pages\\n\\nPrimary success metrics:\\n- Activation: % of new groups reaching first settle action in session 1\\n- Retention: D7/D30 active group ratio\\n- Completion: settlement completion rate within 7 days\\n- Growth: invite conversion rate from settlement-triggered referral",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T16:01:30.742Z",
+    "updatedAt": "2026-03-21T16:01:30.742Z"
   }
 ]
