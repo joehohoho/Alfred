@@ -3735,7 +3735,7 @@
     "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)",
     "description": "**Problem**\nNonprofits relying heavily on one-time gifts have volatile cash flow and lower donor retention.\n\n**Solution**\nAdd Stripe-powered monthly/annual donor tiers inside CoinUsUp Donations + Campaigns, with recurring prompts and retention automations (failed-payment recovery, renewal nudges, churn win-backs).\n\n**Revenue Model**\nIncrease platform value via stronger recurring revenue performance for nonprofit clients; serves as a prerequisite capability for a Nonprofit+ premium tier.\n\n**Why Joe**\nJoe already operates CoinUsUp and can implement this as a native product extension instead of a bolt-on integration, giving speed and tighter UX control.\n\n**Evidence**\nM+R Benchmarks 2025 reports monthly giving grew while one-time giving was flat, and monthly giving represented 31% of online nonprofit revenue in 2024 (mrbenchmarks.com). Market demand is also reflected by established donation platforms (Donorbox, Givebutter, Zeffy) that prominently support recurring donations.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3744,27 +3744,37 @@
       "score": 7.4,
       "notes": "Demand is validated: recurring giving is a growing, mainstream nonprofit channel and now a material share of online revenue. Implementation effort is moderate-to-high, but upside is strong through retention/LTV gains plus clear fit with CoinUsUp's Donations/Campaigns and a future Nonprofit+ tier. Best path is phased rollout (monthly first, then annual + advanced retention automations)."
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774062049248_7486f8ba",
     "tags": [],
     "createdAt": "2026-03-08T17:01:36.254Z",
-    "updatedAt": "2026-03-21T02:03:31Z",
+    "updatedAt": "2026-03-21T03:00:49.251Z",
     "researchEvidence": "M+R Benchmarks 2025: monthly giving up while one-time giving flat; monthly giving was 31% of online nonprofit revenue in 2024 (mrbenchmarks.com/charts/fundraising, /key-findings). Competitor validation: recurring donation support is standard in Donorbox/Givebutter/Zeffy ecosystems, confirming demand."
   },
   {
     "id": "idea_1772989296274_c464dd43",
     "title": "CoinUsUp Attendance Tracking + QR Check-In (Volunteer Kiosk)",
-    "description": "Mobile-first attendance capture for volunteer shifts. QR code check-in, real-time attendance reports, attendance-to-volunteer tracking. Est. adoption boost: +10%. Tech: 3/5 (QR generation, mobile UI, schema). Timeline: 4\u20136 weeks. Bundle with mobile app launch.",
+    "description": "**Problem**\nVolunteer-led events lose accurate attendance data because check-ins are manual, slow, or inconsistent across shifts.\n\n**Solution**\nAdd mobile-first QR check-in + kiosk mode to CoinUsUp so volunteers can self-check-in quickly and admins can see real-time attendance per shift.\n\n**Revenue Model**\nPrimarily a growth/retention feature for CoinUsUp (higher activation and org stickiness), with potential to support future premium org/team tiers.\n\n**Why Joe**\nStrong fit with existing CoinUsUp codebase and mobile roadmap, so this can ship faster than a greenfield attendance product.\n\n**Evidence**\nMultiple volunteer-management competitors already market QR attendance as a core feature (GivePulse, VolunteerHub, POINT, Rosterfy), indicating proven demand.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.2,
+      "notes": "Demand is real: multiple incumbent volunteer platforms already ship QR/kiosk attendance features, so the problem is validated. For Joe, this is a good leverage play because it extends CoinUsUp rather than starting greenfield, with medium build effort and clear adoption upside. Passive-income impact is indirect (retention/growth feature), but synergy and execution fit are strong enough to mark as evaluated."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T17:01:36.274Z",
-    "updatedAt": "2026-03-08T17:01:36.274Z"
+    "updatedAt": "2026-03-21T06:01:27.257663+00:00",
+    "researchEvidence": [
+      "https://support.givepulse.com/hc/en-us/articles/360042254273-Using-QR-Codes-for-App-Sign-In",
+      "https://volunteerhub.com/blog/qr-check-in-added-to-onsite-app",
+      "https://pointapp.org/nonprofit-features/check-in-stations/",
+      "https://www.rosterfy.com/features-attendance-tracker"
+    ],
+    "demandValidation": "Demand validated by established nonprofit/volunteer platforms offering QR check-in and attendance tracking as core functionality, showing organizations actively need this workflow."
   },
   {
     "id": "idea_1772989296294_a8a2c082",
@@ -5553,5 +5563,21 @@
         "createdAt": "2026-03-21T01:56:43.457Z"
       }
     ]
+  },
+  {
+    "id": "idea_1774062078012_7fdbf952",
+    "title": "Portfolio Health Snapshot - Passive Income Review (2026-03-21)",
+    "description": "## Passive Income Portfolio Snapshot\\n\\n### 1) CoinUsUp\\n- **Current status:** Live + maintenance/growth mode (existing product)\\n- **Estimated current MRR:** Unknown (not centrally tracked in current memory)\\n- **Estimated potential MRR (next 6-12 mo):** Medium (existing base can be expanded with retention + growth loops)\\n- **Biggest bottleneck:** Inconsistent growth execution and limited documented KPI loop (activation/retention/churn)\\n\\n### 2) Even Us Up\\n- **Current status:** Live + maintenance/growth mode\\n- **Estimated current MRR:** Unknown (not centrally tracked in current memory)\\n- **Estimated potential MRR (next 6-12 mo):** Medium (clear utility product, room for conversion/upsell testing)\\n- **Biggest bottleneck:** Product/marketing velocity split across too many infra tasks; weak weekly experiment cadence\\n\\n### 3) Stock/Crypto Signal App\\n- **Current status:** Early stage (active ideation + monetization strategy research; PMF not fully proven)\\n- **Estimated current MRR:** 0 or negligible\\n- **Estimated potential MRR (next 6-12 mo):** High if signal quality + trust + conversion funnel validated\\n- **Biggest bottleneck:** Signal quality + public accountability loop not yet production-hardened; risk of overbuilding before first paying users\\n\\n### 4) Automation Consulting\\n- **Current status:** Active service revenue (core cash-flow pillar)\\n- **Estimated current MRR:** Existing but variable (client-dependent)\\n- **Estimated potential MRR (next 6-12 mo):** Medium-High with packaging/productized offers\\n- **Biggest bottleneck:** Capacity ceiling (time-for-money) and limited productized recurring offer structure\\n\\n---\\n\\n## Portfolio-Level Read\\n- **Cash-flow anchor:** Automation Consulting\\n- **Best near-term upside:** Signal App (if narrowed to a paid wedge quickly)\\n- **Most under-leveraged assets:** CoinUsUp + Even Us Up (existing products need tighter growth operating rhythm)\\n\\n## Recommended 30-day focus\\n1. **Signal App:** target first 3 paying users with a narrow paid offer (one market/timeframe/channel).\\n2. **Consulting:** package one recurring automation retainer tier to reduce revenue volatility.\\n3. **CoinUsUp/Even Us Up:** run one weekly KPI-driven growth experiment per app (activation or retention only).\\n\\n## Metrics to instrument immediately\\n- MRR by project (single dashboard)\\n- New paid users/week\\n- Churn/retention by product\\n- Revenue concentration risk (% from top clients)\\n\\n*Note:* Exact MRR baselines should be added from billing/export data to convert this from directional to quantitative scoring.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T03:01:18.012Z",
+    "updatedAt": "2026-03-21T03:01:18.012Z"
   }
 ]
