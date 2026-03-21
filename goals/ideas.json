@@ -3163,7 +3163,7 @@
     "title": "Niche SaaS: Auto Weekly Client Updates from work tools",
     "description": "Problem: Agencies/fractional teams spend non-billable time compiling weekly status updates from Slack, PM tools, and repos. Demand signal: growth of AI meeting summary/action-item workflows (n8n templates, Slack AI positioning, Otter-style updates) indicates strong appetite for automated communication outputs. Target market: fractional CTOs, dev shops, ops consultants, small remote teams. MRR potential: k-k (150-500 customers x /mo). Tech complexity: 2/5 (connectors + summarization templates + approval workflow). Competition level: Medium-High (general AI notes tools), Medium for consultant-facing weekly report niche. Why Joe can win: Joe already manages multi-project async updates and can design client-trust-first output formats. Profitability check: clear time savings (2-5 hrs/week/team) supports subscription pricing with low support burden.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3173,10 +3173,10 @@
       "notes": "Demand is validated \u2014 agencies/fractional teams clearly pay for automated reporting (Databox, DashThis, AgencyAnalytics all profitable in this space). However, competition is medium-high with established players like Databox and specialized tools. Joe's edge is real (consultant experience designing client-trust outputs), but differentiation from existing tools needs to be sharp to win at $29-49/mo. Worth exploring if a narrower niche (e.g., fractional CTOs specifically) could reduce competition and increase willingness to pay.",
       "researchEvidence": "Multiple established SaaS tools confirm demand (Databox, ecommboardroom.com Jan 2026 article on automated client reporting saving 10+ hrs/week). Market exists but has strong incumbents."
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774053050845_93a45189",
     "tags": [],
     "createdAt": "2026-03-06T02:01:52.806Z",
-    "updatedAt": "2026-03-19T23:00:00.000Z"
+    "updatedAt": "2026-03-21T00:30:50.848Z"
   },
   {
     "id": "idea_1772769719617_dad84875",
@@ -3327,7 +3327,7 @@
     "title": "Voice-to-SOP Builder for Field Service Teams",
     "description": "Problem: Field teams in trades/service businesses fail to document repeatable procedures; onboarding is slow and quality drifts.\\nTarget market: HVAC, plumbing, electrical, restoration, and mobile service companies (5-50 staff).\\nDemand signals: Continued growth in AI-assisted SOP/documentation software and SMB preference for easy cloud automation.\\nMRR potential: 30 customers x - = ~k-k MRR initial target.\\nTech complexity: 2/5 (speech-to-text + templated SOP output + approval workflow).\\nCompetition: Medium-high for enterprise SOP tools, lower for voice-first field-service niche.\\nWhy Joe can win: Practical automation delivery experience + ability to target narrow workflow (job-close SOP capture) instead of generic knowledge-base tooling.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3337,10 +3337,10 @@
       "notes": "Real demand confirmed \u2014 FSM market active (Sera, FieldPulse, BuildOps) but none voice-first for SOP capture. Tech is low complexity (STT + templates) but MRR targets were stripped from description. Joe has a viable niche angle with automation consulting experience targeting job-close SOP capture workflow.",
       "evaluatedAt": "2026-03-20T04:01:37.874862Z"
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774054884299_23d01b3d",
     "tags": [],
     "createdAt": "2026-03-07T07:01:34.568Z",
-    "updatedAt": "2026-03-20T04:01:37.875451Z",
+    "updatedAt": "2026-03-21T01:01:24.301Z",
     "researchEvidence": "Active FSM market (Sera, FieldPulse, BuildOps, podium.com 2024 roundups) confirms field service SMB pain. No direct voice-first SOP competitor found \u2014 gap exists in voice capture niche."
   },
   {
@@ -3544,7 +3544,7 @@
     "title": "Bill Review & Invoice Audit Automation (Canadian SMB SaaS)",
     "description": "**Problem**: SMB accounting teams manually review invoices for duplicates, overcharges, and contract variances.\n\n**Solution**: Self-serve invoice audit SaaS that auto-flags duplicates, overcharges, and contract variance.\n\n**Revenue Model**: Freemium with pro at $25-50/mo. Est. MRR: $2-5k/month at 100 customers.\n\n**Why Joe**: 20y billing software expertise gives genuine product insight into SMB pain points.\n\n**Evidence**: Stampli, BILL.ai, Enveyo confirm category demand. Canadian SMB niche underserved by enterprise incumbents.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3560,10 +3560,10 @@
         "passive_potential": 6
       }
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774058538023_ae4bf3d2",
     "tags": [],
     "createdAt": "2026-03-08T07:01:20.166Z",
-    "updatedAt": "2026-03-20T10:00:00.000Z",
+    "updatedAt": "2026-03-21T02:02:18.025Z",
     "researchEvidence": "Competitors validated: Stampli, BILL.ai (duplicate detection for SMBs), Enveyo/FreightPOP (freight audit). Invoice audit automation is an established SaaS category with SMB gaps, especially for Canadian market."
   },
   {
@@ -3713,7 +3713,7 @@
     "title": "CoinUsUp Mobile App Launch (iOS/Android Capacitor)",
     "description": "**Problem**\nCoinUsUp users likely need on-the-go shift coordination and attendance capture, but web-only workflows create friction for check-ins, chat, and offline usage.\n\n**Solution**\nLaunch iOS/Android apps via Capacitor with offline access, QR attendance check-in, and real-time chat/shift operations, bundled with attendance tracking.\n\n**Revenue Model**\nFreemium mobile tier at $0.99/month, with expected ARPU lift from mobile convenience and feature gating.\n\n**Why Joe**\nJoe already owns CoinUsUp and the underlying web stack, so he has product context, existing users, and a lower integration risk than a net-new founder.\n\n**Evidence**\nDemand is validated by active competitors and category growth: Buddy Punch markets to 10,000+ businesses for mobile time tracking and attendance controls; Calamari promotes mobile/QR/iBeacon attendance workflows across 130,000+ users in 106 countries; workforce management software market estimates project multi-billion-dollar growth through 2030.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3723,28 +3723,32 @@
       "notes": "Demand is real: multiple established products compete directly on mobile shift/time attendance, including QR check-in and workforce communication. Effort is moderate because core web infrastructure exists, but offline sync and mobile UX polish add delivery risk. Strong strategic fit for Joe because this expands an existing product and can lift ARPU without needing a new customer segment.",
       "evaluatedAt": "2026-03-20T22:31:37.886690Z"
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774049450946_985e3e26",
     "tags": [],
     "createdAt": "2026-03-08T17:01:36.234Z",
-    "updatedAt": "2026-03-20T22:31:37.887373Z",
+    "updatedAt": "2026-03-20T23:30:50.948Z",
     "researchEvidence": "Buddy Punch positions mobile time tracking for 10,000+ businesses and highlights attendance/accountability features; Calamari markets mobile + QR attendance and reports 130,000+ users across 106 countries; industry reports (e.g., Grand View Research) project workforce management market growth from $8.07B (2022) to ~$19.35B by 2030, supporting sustained demand.",
     "rejectedReason": null
   },
   {
     "id": "idea_1772989296254_4be72b64",
     "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)",
-    "description": "Add monthly/annual recurring donor tiers. Target: recurring revenue = 80%+ of nonprofit funding. Integrates with Donations + Campaigns pages. Est. donor LTV increase: +15\u201330%. Tech: 4/5 (Stripe recurring, retention automations). Timeline: 6\u20138 weeks. Prerequisite for Nonprofit+ premium tier.",
+    "description": "**Problem**\nNonprofits relying heavily on one-time gifts have volatile cash flow and lower donor retention.\n\n**Solution**\nAdd Stripe-powered monthly/annual donor tiers inside CoinUsUp Donations + Campaigns, with recurring prompts and retention automations (failed-payment recovery, renewal nudges, churn win-backs).\n\n**Revenue Model**\nIncrease platform value via stronger recurring revenue performance for nonprofit clients; serves as a prerequisite capability for a Nonprofit+ premium tier.\n\n**Why Joe**\nJoe already operates CoinUsUp and can implement this as a native product extension instead of a bolt-on integration, giving speed and tighter UX control.\n\n**Evidence**\nM+R Benchmarks 2025 reports monthly giving grew while one-time giving was flat, and monthly giving represented 31% of online nonprofit revenue in 2024 (mrbenchmarks.com). Market demand is also reflected by established donation platforms (Donorbox, Givebutter, Zeffy) that prominently support recurring donations.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Demand is validated: recurring giving is a growing, mainstream nonprofit channel and now a material share of online revenue. Implementation effort is moderate-to-high, but upside is strong through retention/LTV gains plus clear fit with CoinUsUp's Donations/Campaigns and a future Nonprofit+ tier. Best path is phased rollout (monthly first, then annual + advanced retention automations)."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T17:01:36.254Z",
-    "updatedAt": "2026-03-08T17:01:36.254Z"
+    "updatedAt": "2026-03-21T02:03:31Z",
+    "researchEvidence": "M+R Benchmarks 2025: monthly giving up while one-time giving flat; monthly giving was 31% of online nonprofit revenue in 2024 (mrbenchmarks.com/charts/fundraising, /key-findings). Competitor validation: recurring donation support is standard in Donorbox/Givebutter/Zeffy ecosystems, confirming demand."
   },
   {
     "id": "idea_1772989296274_c464dd43",
@@ -5256,7 +5260,7 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-19T02:02:39.273Z",
-    "updatedAt": "2026-03-20T04:01:41.378Z",
+    "updatedAt": "2026-03-20T23:32:20.332Z",
     "rejectedReason": "The signals app requires work before anything is to be monetized, the signal strength are not strong.",
     "rejectedAt": "2026-03-19T14:49:03.172Z",
     "comments": [
@@ -5265,6 +5269,12 @@
         "author": "alfred",
         "text": "Signal App monetization strategy \u2014 Mar 20 (quiet hours research).\n\nCOMPETITOR BENCHMARK:\n1. TradingView \u2014 $14.95/mo (Essential) to $59.95/mo (Premium). Freemium with feature gates (indicators, alerts, chart layouts). 50M+ users. Strength: brand + ecosystem. Weakness: not signal-specific, no custom rule builder.\n2. MyCryptoParadise \u2014 Freemium: free Telegram signals + paid VIP ($50-150/mo). Manual signals from analysts. No automation/backtesting. Strength: human trust signal. Weakness: not scalable, no data API.\n3. Coinigy \u2014 $18.66/mo flat. Portfolio tracking + basic signals. Multi-exchange. Stale UX (last major update 2021). Strength: multi-exchange. Weakness: no AI/ML signals, dying product.\n\nKEY OBSERVATION: The gap is automated, backtestable, multi-exchange signals at an accessible price point. No competitor does this cleanly at the $25-50/mo range for retail traders.\n\nRECOMMENDED MONETIZATION MODEL (3-tier):\n\nTIER 1: Free (acquisition funnel)\n- 3 signal types, 1 exchange, 15-min delay\n- No alerts, no backtesting\n- Goal: let users see signal quality before paying\n\nTIER 2: Solo ($19/mo or $149/yr)\n- All signal types, 3 exchanges, real-time\n- Email/push alerts, basic backtesting (30-day lookback)\n- Target: active retail traders\n- Est. revenue: $5k MRR at 263 users\n\nTIER 3: Team/Collaboration ($49/mo or $399/yr per team)\n- Everything in Solo + multi-user workspaces\n- Real-time collaborative signal editing (Yjs CRDT \u2014 already in HAL sprint plan)\n- API access for bots/automation\n- 1-year backtesting, custom rule builder\n- Target: trading groups, Discord communities, small funds\n- Est. revenue: $10k MRR at 204 teams\n\nB2B API LICENSING (future, 6-12 months):\n- $199-499/mo for signal data feed\n- Target: fintech apps, trading bots, newsletters\n- High margin, low support burden\n\nRATIONALE:\n- Freemium eliminates trust barrier (signal quality must prove itself)\n- Solo tier at $19 is below TradingView ($15-60) but offers more signal specificity\n- Team tier at $49 aligns with HAL's collaboration premium model from Mar 8 synthesis\n- API licensing is the long-term high-margin play once signal quality is validated\n- Avoid one-time purchase: signals require ongoing data infrastructure = recurring costs\n\nBIGGEST RISK:\nSignal quality must be demonstrably better than free alternatives. If backtest shows weak performance, no pricing model saves it. Fix the algorithm first (Joe's Mar 6 feedback: 'poor signals, backtest doesnt improve') \u2014 pricing is secondary to product quality.\n\nPRIORITY:\n1. Fix signal quality (prerequisite for any paid tier)\n2. Launch freemium + solo tier (validate willingness to pay)\n3. Build team tier once solo converts at >5%\n4. API licensing after 12 months of signal track record",
         "createdAt": "2026-03-20T04:01:41.378Z"
+      },
+      {
+        "id": "cmt_1774049540332_ca7cbefa",
+        "author": "alfred",
+        "text": "Signal App monetization refresh (Mar 20, 2026) \u2014 concise benchmark + recommendation.\n\nCompetitor benchmark (3):\n1) TradingView (official pricing page)\n- Model: freemium + tiered subscriptions with clear feature/alert gates.\n- Typical ladder: Essential/Plus/Premium style plans; strong upsell from indicator/alert limits.\n- Takeaway: Freemium + usage gates is proven for this audience.\n\n2) StocksToTrade (official plans page)\n- Pricing shown: $179.95/month, $1,899.50/year, $7/14-day trial.\n- Positioning: high-ticket active-trader toolkit + training.\n- Takeaway: Paid trial + high-ticket works only with strong trust/proof and coaching depth.\n\n3) CryptoQuant (official pricing page + market references)\n- Official pricing endpoint exists but rate-limited from our fetch path; market references indicate free + paid tiers.\n- Positioning: data/analytics depth for serious crypto participants.\n- Takeaway: analytics depth supports premium tiers once trust + retention are proven.\n\nBest early-stage strategy for Joe\u2019s audience:\n- Start with Freemium + 2 paid tiers, not one-time purchase and not B2B-first.\n- Suggested launch pricing:\n  - Free: delayed alerts + limited assets + weekly recap.\n  - Starter: $19/mo (real-time alerts, core assets, basic risk context).\n  - Pro: $49/mo (higher limits, richer signal context, Discord/webhook delivery).\n- Add B2B/API later (after retention proof) starting ~$199/mo.\n\nWhy this is best now:\n- Lowest friction to first payments.\n- Matches Joe\u2019s current network (retail/serious hobbyist) better than enterprise pricing.\n- Freemium + delay gating creates natural upgrade pressure without heavy sales.\n\nFastest path to first paying users (14 days):\n1) Ship one narrow wedge (e.g., BTC/ETH swing signals).\n2) Charge founding cohort immediately ($19/mo) in Discord/Telegram pilot.\n3) Publish transparent signal outcome log (wins/losses/timestamps) to build trust.\n\nDecision:\n- Recommend shipping Free + $19 + $49 now, then evaluate API tier after 30\u201345 days of retention data.",
+        "createdAt": "2026-03-20T23:32:20.332Z"
       }
     ]
   },
@@ -5346,7 +5356,21 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-20T02:01:58.340Z",
-    "updatedAt": "2026-03-20T02:01:58.340Z"
+    "updatedAt": "2026-03-21T02:02:06.195Z",
+    "comments": [
+      {
+        "id": "cmt_1774058371869_6224ecfc",
+        "author": "joe",
+        "text": "Are these items that are still gaps?",
+        "createdAt": "2026-03-21T01:59:31.869Z"
+      },
+      {
+        "id": "cmt_1774058526195_f36d0230",
+        "author": "alfred",
+        "text": "Checked now (2026-03-20 23:01 ADT):\n\n1) iMessage group policy gap: **STILL OPEN**. `openclaw doctor` still reports `channels.imessage.groupPolicy=allowlist` with empty `groupAllowFrom`, so group iMessages are still silently dropped. Needs Joe decision: keep blocked (intentional) or enable groups (set `groupAllowFrom` / policy change).\n\n2) OPEN-LOOPS stale gap: **FIXED**. I manually ran `scripts/refresh-open-loops.sh` and updated the disabled cron `Refresh OPEN-LOOPS Dashboard` to run that script directly; job is now enabled again.\n\n3) Daily memory guard gap: **FIXED**. Added new cron job `Daily Memory File Guard` at `00:01 America/Moncton` to run `scripts/ensure-daily-memory.sh` reminder each day before writes.\n\nIf you want, next step is I can open a dedicated decision card for #1 with two explicit options (keep group iMessage blocked vs enable specific groups).",
+        "createdAt": "2026-03-21T02:02:06.195Z"
+      }
+    ]
   },
   {
     "id": "idea_1773986489424_31ba190d",
@@ -5514,6 +5538,20 @@
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-20T21:01:57.787Z",
-    "updatedAt": "2026-03-20T21:01:57.787Z"
+    "updatedAt": "2026-03-21T01:56:43.457Z",
+    "comments": [
+      {
+        "id": "cmt_1774058087569_3a580c4b",
+        "author": "joe",
+        "text": "provide detail on how this will be implemented, what impacts there are on the system and tokens and are there any risks",
+        "createdAt": "2026-03-21T01:54:47.569Z"
+      },
+      {
+        "id": "cmt_1774058203457_2f84e154",
+        "author": "alfred",
+        "text": "Great feedback \u2014 here\u2019s the implementation detail for the Discord Delivery Contract Test Harness.\n\nImplementation plan (v1):\n1) Delivery contract registry\n- Create a single source-of-truth mapping for critical jobs: job_id -> expected channel id, channel type, and fallback lane.\n- Add schema validation so jobs without explicit delivery.to channel IDs fail pre-run validation (not runtime).\n\n2) Pre-run validator (before each high-value cron execution)\n- Validate: channel ID format, route exists, plugin/account reachable, and job payload has required delivery fields.\n- Classify failures into deterministic buckets: CONFIG_MISSING, TARGET_UNKNOWN, AUTH_FORBIDDEN(403), NETWORK_TIMEOUT, RATE_LIMIT(429), UNKNOWN.\n- Block or reroute based on class (policy table).\n\n3) Synthetic send test\n- Run a lightweight synthetic send to a non-user-impact lane (or dry-run mode where possible) to test route health.\n- If pass: allow normal delivery.\n- If fail: auto-switch to audited fallback lane (decision-notifications) and keep cron job enabled.\n\n4) Fallback lane + anti-disable guard\n- Replace auto-disable behavior for recoverable delivery failures with: retry + fallback + incident log.\n- Only disable on repeated hard-fail classes after threshold (e.g., 5 consecutive AUTH_FORBIDDEN).\n\n5) Daily delivery health report\n- Emit a daily digest with route pass rate, failure classes, jobs using fallback, and top root causes.\n- Include recommended remediations (e.g., stale channel ID, permissions drift).\n\nSystem impact\n- Reliability: strong improvement (should eliminate most false auto-disables from routing drift).\n- Latency: small pre-run overhead (~1-3s per protected job depending on synthetic test timeout).\n- Complexity: moderate increase (new policy table + health state storage + reporting).\n- Blast radius: low if isolated behind feature flag and only enabled for selected high-value jobs first.\n\nToken/cost impact\n- Near-zero LLM token impact for core harness if implemented as deterministic scripts + tool calls (no model reasoning needed per run).\n- Slight log volume increase from validation records and health summaries.\n- If we generate human-readable daily summaries via LLM, that adds small optional token spend; can keep template-based to avoid cost.\n\nRisks + mitigations\n1) False negatives/positives in validation\n- Mitigation: start in observe mode (warn-only), compare with real outcomes for 7 days, then enforce.\n\n2) Synthetic send noise/spam\n- Mitigation: use dedicated test channel/thread and message markers; suppress notifications on synthetic events.\n\n3) Fallback masking real config issues\n- Mitigation: fallback with escalation counters + required remediation ticket if fallback used >N times/day.\n\n4) Rate limit pressure\n- Mitigation: serialize synthetic checks, cache route health for short TTL, exponential backoff on 429.\n\n5) Permission drift over time\n- Mitigation: weekly permission audit + contract check against actual channel permissions.\n\nProposed rollout\n- Phase 1: design + registry + validator in observe mode\n- Phase 2: synthetic send + failure classification\n- Phase 3: controlled fallback + anti-disable guard for 2-3 critical jobs\n- Phase 4: daily digest + expand coverage\n\nIf you want, I can draft this as an implementation spec with exact file touch list, policy matrix, and validation commands before build starts.",
+        "createdAt": "2026-03-21T01:56:43.457Z"
+      }
+    ]
   }
 ]
