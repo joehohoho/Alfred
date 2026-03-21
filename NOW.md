@@ -1,25 +1,24 @@
-# NOW.md — Session Checkpoint (2026-03-19 10:00 PM ADT)
+# NOW.md — Session Checkpoint (2026-03-20 10:00 PM ADT)
 
-**Status:** evening checkpoint
+**Status:** evening checkpoint complete
 
 ---
 
 ## Current State
 
-- ACTIVE-TASK.md: `in_progress` — policy-as-code guardrail task (assigned today, plan written, implementation pending)
-- Daily memory updated through end of day
-- Session bridge refreshed
+- ACTIVE-TASK: `idle` (no active in-progress task)
+- Daily memory + LAST-SESSION bridge updated
+- Niche SaaS weekly-client-updates blueprint delivered and in review
 
 ## Active Risks / Blockers
 
-1. **Policy-as-code task not started** — plan exists, need to build `policy-preflight.sh` next session
-2. **Codex OAuth token expired** — refresh before next Codex delegation
-3. **Stripe trial config** — blocked on Joe (12 prices need manual update)
-4. **Mission Control** — blocked on Joe (UI direction decision)
+1. Mission Control Phase 1 blocked pending Joe go-ahead
+2. CoinUsUp 14-day trial blocked pending Stripe dashboard config
+3. Intermittent Codex token-expiry alerts may recur until fully re-authenticated
 
 ## Tomorrow Focus
 
-1. Build `scripts/policy-preflight.sh` (policy-as-code task, pick up from ACTIVE-TASK.md)
-2. Refresh Codex token
-3. Fix `sync-pending-questions.sh` marker parsing
-4. Stripe staging validation (if Joe completes price config)
+1. Morning triage: select top unblocked card and execute
+2. Trigger Stripe staging validation immediately if config is done
+3. Start Mission Control cron-controls implementation if approved
+4. Keep reliability cadence: workspace health + blocker hygiene

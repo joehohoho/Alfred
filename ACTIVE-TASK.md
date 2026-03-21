@@ -1,8 +1,12 @@
 # ACTIVE-TASK.md — Current Work State
 
 **Status:** `idle`
-**Last Completed:** 2026-03-20 03:10 ADT
-**Last Task:** MSP Failed Backup → Client Report Bot (task_1773986453570_0eabfd2a) → moved to review
+**Current Task:** None (awaiting next assignment)
+**Last Completed Task:** Niche SaaS: Auto Weekly Client Updates from work tools (`task_1774053050845_93a45189`)
+**Completed:** 2026-03-20 21:47 ADT
+
+**Result:** Built and documented execution blueprint in `ideas/NICHE_SAAS_AUTO_WEEKLY_CLIENT_UPDATES_BLUEPRINT_2026-03-20.md`; card moved to `review`.
+**Next Step:** Pick up highest-priority unblocked card tomorrow morning; no active in-progress work at checkpoint.
 
 ## Pending Questions
 <!-- PENDING-Q-START -->
@@ -30,4 +34,22 @@ Alfred recommends Option 1 — Joe already chose this path, just needs implement
 
 - **Partial Recovery** (_system_, Mar 20 11:00)
   ID: `notif_1774004425890_9b203583` — Codex still down (CODEX_ERROR:HTTP Error 401: Unauthorized). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.
+
+- **Could Signal App be packaged for non-trading uses?** (_question_, Mar 20 13:00)
+  ID: `notif_1774011600529_1822599c` — You built Signal App for crypto. Could the core signal logic work for other markets—stocks, commodities, forex? New verticals = new revenue.
+
+- **🔑 Codex OAuth Token Expired** (_alert_, Mar 20 14:16)
+  ID: `notif_1774016168495_ca000f9b` — Codex auth is failing repeatedly (recent failures: 63). Alfred is falling back to Claude Sonnet so work continues, but Codex capacity is unavailable.\...
+
+- **Session Size Guard** (_warning_, Mar 20 15:47)
+  ID: `notif_1774021628679_7cd67a1d` — Main session was .8MB (over 3MB limit). Auto-reset and gateway restarted. Backup: f2ec456e-cba7-4f18-b8cc-7676e5870174.20260320-124704.jsonl
+
+- **Session Auto-Reset** (_system_, Mar 20 16:47)
+  ID: `notif_1774025256987_ce5ba683` — Main session was at 85%+ context. Auto-reset and gateway restarted.
+
+- **[REMINDER] Mission Control Phase 1 blocked: choose implementation path** (_question_, Mar 20 21:01)
+  ID: `notif_1774040499423_b6664e1d` — Context: Mission Control Phase 1 is blocked pending your go-ahead after option analysis. You previously leaned to Option #1 (integrate cron controls d...
+
+- **[REMINDER] Stripe action needed to finish 14-day trial card** (_question_, Mar 20 21:01)
+  ID: `notif_1774040506805_f13c1b4b` — Context: The CoinUsUp 14-day trial implementation is complete in code and UI, but production readiness is blocked by Stripe dashboard configuration. E...
 <!-- PENDING-Q-END -->
