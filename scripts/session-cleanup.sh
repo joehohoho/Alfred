@@ -336,24 +336,46 @@ with open(auth_file) as f:
     data = json.load(f)
 
 profiles = data.get("profiles", {})
+usage = data.get("usageStats", {})
 last_good = data.get("lastGood", {}).get("openai-codex")
 
-# Prefer lastGood codex profile when available; otherwise use latest codex expiry.
+
+def normalize_expires_ms(v):
+    if not isinstance(v, (int, float)):
+        return None
+    # Some auth stores use seconds; normalize to milliseconds.
+    if v < 10_000_000_000:
+        v *= 1000
+    # Reject implausible values to avoid stale/invalid alerts.
+    now_ms = time.time() * 1000
+    if v < now_ms - (365 * 24 * 3600 * 1000):
+        return None
+    if v > now_ms + (3 * 365 * 24 * 3600 * 1000):
+        return None
+    return float(v)
+
+
+# Prefer lastGood codex profile when available; otherwise pick most recently used codex profile.
 expires_ms = None
 if last_good and last_good in profiles and isinstance(profiles[last_good], dict):
-    v = profiles[last_good].get("expires")
-    if isinstance(v, (int, float)):
-        expires_ms = v
+    expires_ms = normalize_expires_ms(profiles[last_good].get("expires"))
 
 if expires_ms is None:
-    codex_expires = []
+    candidates = []
     for name, profile in profiles.items():
         if "codex" in name.lower() and isinstance(profile, dict):
-            v = profile.get("expires")
-            if isinstance(v, (int, float)):
-                codex_expires.append(v)
-    if codex_expires:
-        expires_ms = max(codex_expires)
+            exp = normalize_expires_ms(profile.get("expires"))
+            if exp is None:
+                continue
+            last_used = 0
+            if isinstance(usage.get(name), dict):
+                lu = usage[name].get("lastUsed")
+                if isinstance(lu, (int, float)):
+                    last_used = float(lu)
+            candidates.append((last_used, exp))
+    if candidates:
+        candidates.sort(key=lambda t: (t[0], t[1]), reverse=True)
+        expires_ms = candidates[0][1]
 
 if expires_ms is None:
     raise SystemExit(0)
