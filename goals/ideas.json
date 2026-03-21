@@ -3857,7 +3857,7 @@
     "title": "Even Us Up: Receipt Scanning + OCR (Mobile Differentiator)",
     "description": "Mobile-first receipt capture with OCR parsing (Joe's data transformation background = moat). Photo → auto-parse → split ready. Est. mobile conversion lift: +20%. Tech: 3/5 (OCR integration, receipt templates). Timeline: 4–6 weeks. Parallel to Roommate mode.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3875,10 +3875,10 @@
       "researchEvidence": "Splitwise Pro, ReceiptLens, Easy Expense, Forbes 2025 (receipt OCR is standard feature); DataIntelo market report confirms spike in mobile OCR demand for real-time expense tracking",
       "evaluatedAt": "2026-03-21T14:00:00.000Z"
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774114248437_471a0f9e",
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.467Z",
-    "updatedAt": "2026-03-21T14:00:00.000Z"
+    "updatedAt": "2026-03-21T17:30:48.440Z"
   },
   {
     "id": "idea_1772996494487_8bba51e2",
@@ -3903,16 +3903,41 @@
     "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)",
     "description": "Three 2-day tasks: (1) Toggle \"repeats monthly\" on expenses, (2) Bill splitting rules (\"always 50/50 with X\"), (3) Simplify debts algorithm (minimize settlement txns). Est. engagement lift: +10–15%. Tech: 2/5 each. Timeline: 3 weeks. Ship now.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
+    "synergies": [
+      "Even Us Up"
+    ],
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Strong fit: bill-splitting market validated at $612M (2025) → $657M (2026, 7.3% CAGR). Splitwise paywall backlash is real (Reddit threads 2025-2026). Three 2-day features unlock quick engagement + monetization (recurring rules = paid tier differentiator). Deep codebase synergy (Even Us Up). Easy implementation + proven market demand = high-probability quick win.",
+      "breakdown": {
+        "market_fit_3x": 8,
+        "effort_reward_2x": 8,
+        "joes_edge_2x": 8,
+        "synergy_1x": 9,
+        "passive_potential_2x": 7
+      },
+      "weighted_score": 74,
+      "researchEvidence": {
+        "market_size": "$612M-$657M (2025-2026), forecast $1T+ by 2032",
+        "growth_rate": "7.3% CAGR",
+        "competitor_weakness": "Splitwise paywall + 3-txn daily limit; users seeking alternatives",
+        "sources": [
+          "GII Research (2025-2032 forecast)",
+          "Technavio market analysis",
+          "Reddit r/apps discussion threads (Feb-Nov 2025)",
+          "Market Research Future ($6.5B advanced features segment)"
+        ]
+      },
+      "evaluatedAt": "2026-03-21T18:30:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.506Z",
-    "updatedAt": "2026-03-08T19:01:34.506Z"
+    "updatedAt": "2026-03-21T18:30:00.000Z"
   },
   {
     "id": "idea_1772996494526_be1f4485",
@@ -5731,5 +5756,53 @@
     "tags": [],
     "createdAt": "2026-03-21T16:01:30.742Z",
     "updatedAt": "2026-03-21T16:01:30.742Z"
+  },
+  {
+    "id": "idea_1774128698542_8cc5c124",
+    "title": "Session Lifecycle Governor (TTL + auto-close + context carryover)",
+    "description": "Problem: OpenClaw status shows 20 active sessions with mixed unknown token states, which increases context/cache noise and recovery overhead.\\nProposal: Add a lifecycle governor that enforces session TTL by channel type (cron/direct/group), auto-closes stale sessions, and writes a compact carryover summary before closure (objective, last decision, next step, artifact paths).\\nWhy this is new: Existing checkpoint docs focus on active-task files, not session-level hygiene and auto-retirement.\\nImpact: lower token/caching waste, fewer stale contexts, cleaner routing decisions.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T21:31:38.542Z",
+    "updatedAt": "2026-03-21T21:31:38.542Z"
+  },
+  {
+    "id": "idea_1774128704043_d10734ad",
+    "title": "Memory-Core Self-Heal: plugin health gate + durable fallback writes",
+    "description": "Problem: openclaw status reports memory plugin enabled but unavailable. This creates silent risk where learned context is assumed persisted but is not.\\nProposal: Add a memory health gate in heartbeat/startup that verifies memory-core availability and, on failure, routes all persistence to file-backed durable logs (daily memory + INDEX + explicit incident entry) until recovered. Include periodic recheck + auto-recovery notification to dashboard.\\nWhy this is new: Current memory architecture emphasizes files but lacks an explicit runtime failover contract when memory-core is down.\\nImpact: prevents silent memory loss and reduces repeated analysis/rework.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T21:31:44.043Z",
+    "updatedAt": "2026-03-21T21:31:44.043Z"
+  },
+  {
+    "id": "idea_1774128711033_e67900fa",
+    "title": "Proactive Loop Idempotency Guard (dedupe + cap enforcement)",
+    "description": "Problem: kanban idle loop reported 'dispatched=True (16/15 today)', indicating proactive-dispatch can exceed intended daily cap and may duplicate effort.\\nProposal: Implement idempotency keys for proactive tasks (task_signature + day), atomic counter/lock for daily cap, and skip-if-duplicate checks before dispatch. Add audit log for attempted over-cap dispatches.\\nWhy this is new: Existing proactive pool and scans exist, but not strict dedupe+atomic quota enforcement at dispatch boundary.\\nImpact: reduced duplicate work, more predictable proactive throughput, lower unnecessary token/tool usage.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-21T21:31:51.033Z",
+    "updatedAt": "2026-03-21T21:31:51.033Z"
   }
 ]
