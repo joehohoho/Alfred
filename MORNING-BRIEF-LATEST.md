@@ -1,4 +1,4 @@
-# Morning Brief -- Saturday, 2026-03-21 04:35 ADT
+# Morning Brief -- Sunday, 2026-03-22 04:35 ADT
 
 > Fallback mode: Haiku synthesis unavailable. Raw data snapshot included.
 
@@ -9,10 +9,10 @@ DELIVERY_HINT: Cron delivery is configured for Morning Brief. Return formatted b
 === Cron Job Health Check (last 24 hours) ===
 
 📝 Git Commits:
-  ✅       26 commit(s) in last 24 hours
-     d5ac8a0 memory: log idle goal progress check actions for stalled kanban cards
-     f343003 Evaluate idea_1772989296274 with demand evidence and score
-     2a8369e fix: harden codex token expiry detector against stale timestamps
+  ✅       16 commit(s) in last 24 hours
+     2acbcdf [idle:goal-progress-check] All 11 blocked/review cards awaiting Joe's decisions — properly notified, approval gates enforced
+     ccf5e0e eval(idea_1773122759153): customer support triage copilot — score 6.2, archived (weak edge vs competitors, zero synergy)
+     07c75a3 Daily idle: memory review checkpoint (Mar 22 00:30 ADT)
 
 🔧 Ollama Health:
   ✅ Ollama responding
@@ -26,11 +26,11 @@ DELIVERY_HINT: Cron delivery is configured for Morning Brief. Return formatted b
 === Check Complete ===
 
 === LaunchAgent Health Check ===
-Timestamp: Sat Mar 21 04:35:04 ADT 2026
+Timestamp: Sun Mar 22 04:35:04 ADT 2026
 
 ⚠️  com.ollama.keepalive: LOADED BUT NOT RUNNING (exit code -1)
 ⚠️  com.openclaw.imsg-responder: EXIT CODE 599 (may be normal if one-shot job)
-⚠️  com.alfred.dashboard-nextjs: EXIT CODE 410 (may be normal if one-shot job)
+⚠️  com.alfred.dashboard-nextjs: EXIT CODE 12860 (may be normal if one-shot job)
 ⚠️  com.cloudflare.tunnel: EXIT CODE 610 (may be normal if one-shot job)
 
 Summary: 3 healthy, 1 failed
@@ -39,49 +39,107 @@ Attempting recovery for failed agents...
   → Restarting com.ollama.keepalive...
 
 === WEATHER: Dieppe, NB ===
-Light rain and snow +0°C feels like -4°C wind ↑12km/h humidity 100% UV 0
-dieppe,nb: 🌧   +0°C
+Partly cloudy -6°C feels like -12°C wind →16km/h humidity 79% UV 0
+dieppe,nb: ⛅️  -6°C
 
 === OVERNIGHT WORK ===
-# 2026-03-21 — Daily Memory Log
+# Daily Log — 2026-03-22 (ADT)
 
-[idle:review-memory] Wrote reports/daily-ops-2026-03-21.md from last 5 daily logs, verified ACTIVE-TASK.md is current, and prepared daily status update.
-[idle:improve-self] Hardened Codex token expiry detection in scripts/session-cleanup.sh (normalize sec/ms timestamps, ignore implausible stale expiries, prefer most recently used Codex profile) and validated with bash -n + parser test.
-[idle:evaluate-idea] Evaluated CoinUsUp QR volunteer attendance idea, added demand research evidence, reformatted description sections, and set score 7.2 (status: evaluated).
-[idle:goal-progress-check] Reviewed 6 stalled cards, posted status comments on all, sent 4 new review-decision notifications, and kept 2 blocked cards waiting due to fresh existing reminders.
+## 04:00 ADT – Idle Activity: Idea Evaluation
 
-=== YESTERDAY'S LOG ===
-
-- Implemented Comprehensive Operating Review system: added scripts/comprehensive-operating-review.sh, generated report reports/operating-review/20260320_134130.md, scheduled weekly cron (648bc4bb-4fba-4ba8-931e-828f393e59bc) with Discord delivery, and posted completion update to #autonomous-updates.
-
-- 2026-03-20 15:00 ADT: Ran weekly decision review. No decisions ready for archive/re-ask (next reviews start 2026-04-09). NOTE: scripts/update-decision-index.sh produced [Parse] placeholders; manually restored decisions/INDEX.md and flagged parser drift for follow-up.
-
-[idle:improve-self] Hardened Codex token-expiry detection in scripts/session-cleanup.sh to prefer active/latest profile and reset stale alert cooldown after re-auth.
-
-[idle:evaluate-idea] Evaluated idea_1772989296216_6b3279fc with external demand evidence, reformatted description sections, and set score 7.6 (status: evaluated).
-
-[kanban:task_1774036851586_0c5814fa] Completed and moved to review: created ideas/task_1774036851586_0c5814fa-wellness-checkin-mvp.md (Twilio-first MVP blueprint with scope, architecture, escalation state machine, SQL schema, webhook design, compliance guardrails, unit economics, and 2-week build + 30-day launch plan).
-- [idle:goal-progress-check] Reviewed 4 stalled cards: moved 2 SaaS idea cards from review→done, sent 48h reminder notifications for Mission Control and CoinUsUp trial blockers, and logged follow-up comments on both blocked cards.
-
-[idle:evaluate-idea] Evaluated CoinUsUp mobile launch idea with external demand evidence, reformatted description, and set score 7/10 (status: evaluated).
-
-[idle:workspace-check] Skipped workspace health run because reports/workspace-health-2026-03-20.md already exists; verified precondition and context is healthy.
-[idle:goal-progress-check] Reviewed 5 stalled cards; moved 3 review cards to done, confirmed 2 blocked/review cards still await Joe input with fresh reminders already in place.
-
-## 21:47 ADT — Kanban task_1774053050845_93a45189 completed draft
-- Built execution blueprint: `ideas/NICHE_SAAS_AUTO_WEEKLY_CLIENT_UPDATES_BLUEPRINT_2026-03-20.md`
-- Coverage: demand validation, ICP, differentiation, MVP architecture, pricing scenarios, 30-day launch plan, KPI/risk framework.
-- Sources captured: Slack AI docs, n8n weekly report workflow, agency reporting automation market references.
-
-## 22:00 ADT — Evening routine wrap-up
-- Completed end-of-day documentation pass: updated `ACTIVE-TASK.md`, `LAST-SESSION.md`, and `NOW.md` for clean startup continuity.
-- Confirmed no active in-progress execution at close; current state is `idle` with completed SaaS blueprint card in review.
-- Set tomorrow focus: pick highest-priority unblocked card, then immediately execute Stripe trial validation / Mission Control UI implementation if Joe approvals land.
-- Remaining blockers are external (Joe approval + Stripe dashboard config).
-[idle:evaluate-idea] Evaluated idea_1772989296254_4be72b64 (CoinUsUp recurring donations), added market evidence + score 7.4, set status to evaluated.
-
-- Completed card `task_1774058538023_ae4bf3d2` (Bill Review & Invoice Audit Automation). Delivered blueprint: `ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md` with Canadian SMB wedge, MVP rules engine, pricing tiers (Free/Pro/Growth), architecture, 6-week launch plan, KPIs, and risk mitigations.
+**Task:** Evaluate idea_1773122759153_541a3e10 (Customer Support Triage Copilot)
+**Status:** ✅ Completed. Archived with score 6.2/10 (below promotion threshold).
+**Evidence:** Market demand confirmed via research (Forethought, Assembled, Zendesk). Score depressed by: weak competitive edge (Joe lacks support domain expertise), crowded market (10+ incumbents), zero portfolio synergy.
+**Recommendation:** Focus portfolio growth on CoinUsUp paid tier + Signal App where Joe has 10x advantage.
 
 ---
-_generated_at_utc: 2026-03-21T07:35:05Z
+
+## Session Start: 00:39 ADT
+
+Joe approved Mission Control Phase 1 execution. Card moved from blocked → in_progress.
+
+### Phase 1 Execution (Checkpoint 1)
+
+**Objective:** Build cron job visibility + controls into Command Center dashboard
+
+**Approach:**
+1. HAL: React integration (read-only cron panel) — Checkpoint 1
+2. Alfred: Infrastructure stability (cron jobs + memory optimization) — Parallel track
+
+**Completed (Infrastructure Track):**
+- ✅ Backed up cron jobs (pre-phase1-1774150815)
+- ✅ Re-enabled 2 critical jobs: "Daily Config & Memory Review", "Weekly Wins & Impact Digest → Discord"
+- ✅ Validated 6/6 LaunchAgents operational
+- ✅ Confirmed MEMORY.md gateway injection OK (6.5KB / 20KB limit)
+- ✅ Created mission-control-phase1-infra.sh script for reproducibility
+
+**In Progress:**
+- HAL: CronJobsPanel React component (read-only status table)
+- Goal: Display at localhost:3001 by 02:45 ADT
+
+**Next Actions (After HAL Checkpoint 1):**
+1. Joe review + approval of cron status panel
+2. Phase 1.2: Action controls (enable/disable/run buttons) with safeguards
+3. 24h monitoring for job stability
+
+**Note:** 12 other jobs remain disabled (investigate root cause separately — likely deployment drift or schema changes). For now, critical path jobs re-enabled.
+
+## [04:30 ADT] Idle Activity: Goal Progress Check
+
+**Status:** 11 cards reviewed. All are appropriately blocked on Joe's decision.
+
+**Blocked on Approval (4 cards):**
+- CoinUsUp Recurring Donations (code complete, testing evidence posted)
+- Bill Review & Invoice Audit blueprint (full blueprint delivered)
+- Voice-to-SOP Builder plan (strategy + brief ready)
+- Niche SaaS weekly updates blueprint (execution blueprint done)
+→ Notifications sent Mar 21; awaiting Joe's yes/no per approval gates
+
+**Blocked on Priority/Go-Build Decision (7 cards):**
+- Mission Control Phase 1, Even Us Up features, CoinUsUp growth features
+→ Part of "Goal Progress" notification Mar 21; awaiting Joe's go/no-go
+
+**Unanswered Notifications (3 from Mar 21-22):**
+- Which project deserves next sprint?
+- Discovery phase complete on 3-feature task — which approach preferred?
+- 5 review cards + unanswered questions summary
+
+**Cron Jobs:** 2 auto-disables this morning (Daily Config & Memory Review). Known issue per MEMORY.md; waiting on cron routing fix.
+
+**Conclusion:** No items can be unblocked without Joe's input. All notifications are current (<48h old). Approval gates are properly enforced.
+
+=== YESTERDAY'S LOG ===
+- Even Us Up Quick Wins — discovery complete (recurring expenses, bill rules, debt optimization), needs direction on implementation approach
+- 14-day Trial (CoinUsUp) — blocked on Stripe price updates (12 SKUs × trial_period_days=14)
+- Even Us Up: Receipt OCR — waiting on status/next steps
+- CoinUsUp Nonprofit Hub — waiting on status/next steps
+- CoinUsUp Attendance Tracking — waiting on status/next steps
+
+### Unanswered Questions (backlog)
+- Signal App for stocks/commodities/forex? (Mar 20)
+- Which project deserves a 2-week sprint? (Mar 21)
+- Mission Control implementation path? (Mar 20)
+
+### Action Items to Unblock
+1. **4 Approvals Needed** — Moving to Done if quality looks good: Recurring Donations, Bill Audit blueprint, Voice-to-SOP, Niche SaaS  
+2. **3 Status Checks** — Even Us Up OCR, CoinUsUp Nonprofit Hub, CoinUsUp Attendance Tracking (review card status + next steps)
+3. **2 Decisions Needed** — Mission Control path choice, Even Us Up Quick Wins implementation approach (parallel HAL vs sequential vs hybrid)
+4. **1 Config Needed** — Stripe prices for 14-day trial
+
+### Next Session Priority
+- Contact Joe with approval/decision summary
+- Move auto-approved cards to Done
+- Unblock Mission Control and Even Us Up Quick Wins with clear direction
+- Address Codex quota issue (auto-fallen back to Haiku)
+
+### Notes
+- Daily Inquiry questions are flagged as duplicates (Joe requested no repeat questions)
+- Cron auto-disabled (3 consecutive failures on Refresh OPEN-LOOPS Dashboard)
+- Codex quota expired (using Haiku fallback)
+- Context usage healthy at 14% — can continue work for 2-3 more hours if needed
+[idle:evaluate-idea] Even Us Up B2B Expense Mgmt (idea_1772996494526_be1f4485) — score 6.2: strong market demand (CAGR 10% → $16.5B/2032) but crowded (Wave/QB), integration complexity reduces passive potential, below promotion threshold
+[idle:improve-self] Re-enabled 3 critical cron jobs (Daily Config, Daily Goal Analysis, Daily Inquiry) with proper Discord channel IDs. Fixed recurring auto-disable pattern from invalid Slack→Discord routing.
+
+---
+_generated_at_utc: 2026-03-22T07:35:05Z
 _generator: scripts/morning-brief.sh

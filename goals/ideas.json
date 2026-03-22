@@ -4137,16 +4137,33 @@
     "title": "Atlantic Contractor Client Portal-in-a-Box",
     "description": "Small contractors in Atlantic Canada still manage client approvals via scattered SMS/email calls, causing delays and disputes. Build a lightweight branded client portal for quotes, scope approvals, change orders, progress updates, and payment-status visibility (without becoming a payment processor). Geography moat: built for micro-teams (1-20 staff), bilingual templates, and local service workflows (snow removal, renovations, HVAC, marine services). Demand validation: 10 discovery calls + 3 paid design-partner pilots; target 15% faster project approval cycle. Monetization: base subscription + project volume add-on + optional implementation service. Profitability: sticky workflow software with low support burden once templates are set.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.4,
+      "notes": "Real market pain (change orders, email coordination, real-time visibility) with validated demand signals (ClearStory, Ayrmont, Reddit /r/GeneralContractor). Medium build effort (4-6 weeks). Geography moat (Atlantic Canada) is defensible. Main constraints: (1) Joe lacks construction domain expertise (mitigated by template-first approach), (2) TAM limited to Atlantic region (~5k small contractors), (3) no project synergy. Below 7.0 threshold. Recommend: validate with 3-5 contractor discovery calls (snow removal/renovation focus in NB/NS) to confirm willingness-to-pay before build."
+    },
+    "researchEvidence": [
+      {
+        "source": "Brave Search (2026-03-22)",
+        "finding": "ClearStory.build: Change order gap stems from lack of shared real-time system. Digital solution of cloud-based tracking eliminates processing delays."
+      },
+      {
+        "source": "Ayrmont ARMS (2026-03-22)",
+        "finding": "Late deliveries, wrong orders, lost work orders from email/paper coordination. Project management tools integrating contractor/supplier eliminate manual back-and-forth."
+      },
+      {
+        "source": "Reddit /r/GeneralContractor (2026-03-22)",
+        "finding": "Real pain: customer communication timing expectations, trade/sub coordination failures, project delays from approval gaps. Email/SMS communication is primary friction."
+      }
+    ],
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T14:01:44.303Z",
-    "updatedAt": "2026-03-10T14:01:44.303Z"
+    "updatedAt": "2026-03-22T06:00:00.000Z"
   },
   {
     "id": "idea_1773183778952_0071e10f",
@@ -5869,5 +5886,21 @@
     "tags": [],
     "createdAt": "2026-03-22T00:01:51.576Z",
     "updatedAt": "2026-03-22T00:01:51.576Z"
+  },
+  {
+    "id": "idea_1774162892629_0a59c0d8",
+    "title": "Portfolio Health Snapshot — Mar 22",
+    "description": "One-page portfolio snapshot (CoinUsUp, Even Us Up, Signal App, Automation Consulting):\n\n1) CoinUsUp\n- Current status: Existing app, maintenance/growth mode; monetization plumbing and trial work largely implemented, growth loop still inconsistent.\n- Est. current MRR: $0–$500\n- Est. potential MRR (12 mo): $1,500–$5,000\n- Biggest bottleneck: Distribution + conversion execution (repeatable acquisition + trial->paid optimization).\n\n2) Even Us Up\n- Current status: Existing app with lower traction; quick wins identified, in review/decision stage for next implementation path.\n- Est. current MRR: $0–$300\n- Est. potential MRR (12 mo): $1,000–$3,000\n- Biggest bottleneck: Positioning + retention mechanics (habit loop and repeat usage).\n\n3) Signal App\n- Current status: Early stage / pre-scale; active R&D with monetization still mostly at validation stage.\n- Est. current MRR: $0\n- Est. potential MRR (12 mo): $2,000–$10,000\n- Biggest bottleneck: Validation speed (tight build->measure->iterate paid pilot loop not yet systemized).\n\n4) Automation Consulting\n- Current status: Active and strongest cash-flow engine.\n- Est. current MRR: $3,000–$12,000\n- Est. potential MRR (12 mo): $8,000–$25,000\n- Biggest bottleneck: Capacity ceiling (revenue tied to Joe’s direct time).\n\nPortfolio readout:\n- Revenue concentration remains high in consulting.\n- Highest near-term product leverage: CoinUsUp conversion/distribution system.\n- Strategic risk: split focus across too many fronts without explicit 90-day experiment ownership.\n\nRecommended next focus (30 days):\n- 70% execution on CoinUsUp acquisition + trial->paid instrumentation\n- 20% Even Us Up retention experiment + explicit grow-vs-harvest decision\n- 10% Signal paid pilot validation design\n\nSource basis: prior portfolio health reports in workspace (Mar 9/12/19) + current workspace status notes.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-22T07:01:32.629Z",
+    "updatedAt": "2026-03-22T07:01:32.629Z"
   }
 ]
