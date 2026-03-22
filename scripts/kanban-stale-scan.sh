@@ -2,9 +2,11 @@
 # kanban-stale-scan.sh — Scan for stale/undelivered cards AND auto-move abandoned work
 # Called by cron every 4 hours as a safety net
 # Two functions:
-#   1. Rescan failed deliveries (existing)
-#   2. Auto-move in_progress cards stale >12h back to todo
+#   1. Auto-move stale in_progress cards back to todo
+#   2. Rescan failed deliveries (delivery rescan)
 # Usage: kanban-stale-scan.sh
+#
+# FIX (2026-03-20): Skip null/invalid card IDs; validate timestamps before acting.
 
 STALE_WORK_HOURS=12  # Cards in_progress with no update for this long get moved to todo
 
@@ -14,7 +16,7 @@ echo "=== Stale Work Check (>${STALE_WORK_HOURS}h in_progress) ==="
 BOARD=$(curl -s --max-time 10 http://localhost:3001/api/kanban 2>/dev/null)
 if [ -n "$BOARD" ]; then
   MOVED=$(echo "$BOARD" | python3 -c "
-import json, sys, subprocess
+import json, sys, subprocess, re
 from datetime import datetime, timezone
 
 STALE_HOURS = $STALE_WORK_HOURS
@@ -22,18 +24,48 @@ now = datetime.now(timezone.utc)
 board = json.load(sys.stdin)
 in_progress = board.get('columns', {}).get('in_progress', [])
 moved = 0
+skipped = 0
+
+# Valid card ID pattern: non-empty, non-null string (not 'null', not empty)
+def is_valid_id(cid):
+    if not cid:
+        return False
+    s = str(cid).strip()
+    if s.lower() in ('null', 'none', '', 'undefined'):
+        return False
+    return True
+
+# Valid ISO timestamp pattern
+def is_valid_ts(ts):
+    if not ts:
+        return False
+    try:
+        datetime.fromisoformat(str(ts).replace('Z', '+00:00'))
+        return True
+    except Exception:
+        return False
 
 for card in in_progress:
+    card_id = card.get('id')
+    title = card.get('title', '(no title)')[:60]
     updated = card.get('updatedAt', '')
-    if not updated:
+
+    # GUARD: skip null/invalid IDs
+    if not is_valid_id(card_id):
+        print(f'  ⚠ Skipping card with invalid id={repr(card_id)}: {title}')
+        skipped += 1
         continue
+
+    # GUARD: skip cards without valid timestamps
+    if not is_valid_ts(updated):
+        print(f'  ⚠ Skipping card with invalid/missing updatedAt ({repr(updated)}): {title} ({card_id})')
+        skipped += 1
+        continue
+
     try:
         dt = datetime.fromisoformat(updated.replace('Z', '+00:00'))
         hours = (now - dt).total_seconds() / 3600
         if hours > STALE_HOURS:
-            card_id = card['id']
-            title = card['title']
-            # Move back to todo via API
             result = subprocess.run(
                 ['curl', '-s', '-X', 'POST',
                  f'http://localhost:3001/api/kanban/{card_id}/move',
@@ -42,15 +74,18 @@ for card in in_progress:
                 capture_output=True, text=True, timeout=10
             )
             if result.returncode == 0 and 'todo' in result.stdout:
-                print(f'  ↩ Moved to todo: {title} (stale {hours:.1f}h)')
+                print(f'  ↩ Moved to todo: {title} ({card_id}) — stale {hours:.1f}h')
                 moved += 1
             else:
-                print(f'  ✗ Failed to move: {title} — {result.stdout[:100]}')
+                print(f'  ✗ Failed to move: {title} ({card_id}) — {result.stdout[:100]}')
+        # else: card not yet stale, skip silently
     except Exception as e:
-        print(f'  ✗ Error: {e}')
+        print(f'  ✗ Error processing {card_id}: {e}')
 
-if moved == 0:
+if moved == 0 and skipped == 0:
     print('  No stale work cards found')
+elif skipped > 0:
+    print(f'  Skipped {skipped} card(s) with null/invalid id or timestamp (not moved)')
 print(f'MOVED={moved}')
 " 2>/dev/null)
   echo "$MOVED"

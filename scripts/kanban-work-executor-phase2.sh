@@ -543,12 +543,28 @@ PYEOF
 
   # Dispatch
   if [[ "$EXEC_TYPE" == "hal" ]]; then
+    # Phase 2 hard gate: HAL dispatch requires validated handoff contract
+    if ! HANDOFF_OUT=$(bash "$SCRIPT_DIR/validate-handoff-generic.sh" "$CARD_ID" 2>&1); then
+      log "  🚫 HANDOFF_BLOCK: $(echo "$HANDOFF_OUT" | tr '\n' ' ' | cut -c1-240)"
+      curl -s -X POST "http://localhost:3001/api/kanban/$CARD_ID/comments" \
+        -H "Content-Type: application/json" \
+        -d "{\"author\": \"executor\", \"text\": \"🚫 HAL dispatch blocked: missing/invalid handoff contract at goals/handoffs/${CARD_ID}.json. Run: bash scripts/validate-handoff-generic.sh ${CARD_ID}.\"}" 2>/dev/null || true
+
+      # Treat as controlled skip, not a transient dispatch failure
+      if ! update_card_state "$CARD_ID" "last_attempt_at" "$(date +%s)"; then
+        log "  WARN: Failed to record attempt time"
+      fi
+      echo "[SKIPPED] card=$CARD_ID reason=handoff_missing_or_invalid"
+      continue
+    fi
+
     TASK_MSG="[KANBAN-TASK] $CARD_ID
 Title: $CARD_TITLE
 Priority: $CARD_PRIORITY
 Description: $CARD_DESC
 
-Complete this task. Report progress in card comments."
+Complete this task. Report progress in card comments.
+Handoff: validated ($CARD_ID)."
 
     if DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1); then
       # Extract session key from output for tracking (B2)

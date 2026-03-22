@@ -1,0 +1,8 @@
+Verification bundle created: /Users/hopenclaw/.openclaw/workspace/tracking/verification/20260320_131006
+Contents:
+SUMMARY.txt
+cron-preflight.txt
+label.txt
+launchctl-list.txt
+meta.txt
+openclaw-status.txt

@@ -70,6 +70,27 @@
 
 ---
 
+## Execution Directive (Added 2026-03-20, expanded 2026-03-20 12:47 ADT)
+
+For all system updates going forward:
+- Always do thorough research before implementation.
+- Evaluate the current setup in detail: dependencies, data flow, failure modes, performance, and blast radius.
+- Design the update path (how it functions + exact integration impact) before making changes.
+- Prefer best-fit/most robust solutions over easiest/quickest solutions.
+- Require guardrails and safety nets for every meaningful change: validation gates, retry/backoff, fallbacks, rollback path, and post-change verification.
+- Be detail-oriented and think outside the box; optimize for long-term reliability of Alfred + HAL infrastructure.
+- If tooling limits quality (e.g., transcript/visual extraction gaps, web search result limits), do not accept mediocre outputs; autonomously implement policy-compliant workarounds to recover best-possible results.
+- Follow autonomy boundaries: execute internal technical improvements proactively; ask before external/public actions.
+- Platform routing update (2026-03-20): Slack is deprecated for active operations; Discord is the primary channel/tooling target unless Joe explicitly requests otherwise.
+- Tooling evolution rule: if a better tool may improve reliability/quality, perform safe research first to find existing trusted options; if none fit, evaluate whether building a new tool is justified (security, maintenance cost, failure modes, ROI) before implementation.
+- Optimization rule: do not self-limit to first-pass methods; evaluate alternatives and attempt better approaches to achieve best possible outcomes.
+- Gateway restart policy (2026-03-20): when implementing new system changes or functionality, if a gateway restart is required, proceed autonomously when it is safe and low-risk; if not safely executable, notify Joe immediately with why restart is needed and what is blocked until restart.
+- Partner-mode autonomy directive (2026-03-20): once research, evaluation, and testing are complete and no significant risk requires Joe review, proceed end-to-end without seeking per-step/per-phase approvals; escalate only on material risk, policy boundary, or external-action decisions.
+- Autonomy execution default (2026-03-20): do not pause for routine confirmation when no critical blocker exists; continue implementation through next safe phases and post completion updates to Discord. Joe review is only required for true roadblocks, high-risk changes, or explicit approval gates.
+- Documentation hygiene rule (2026-03-20): whenever changes/updates are made, always update the correct system and memory files as part of completion (policy docs, runbooks, tracking records, and MEMORY continuity files).
+
+---
+
 ## Next Actions (Priority Order)
 
 1. **Fix cron job auto-disable pattern (RECURRING)** — 5 jobs repeatedly disable due to Discord routing; need explicit channel ID config or fallback routing

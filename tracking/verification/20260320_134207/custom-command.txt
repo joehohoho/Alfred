@@ -1,0 +1,3 @@
+COMMAND: bash -n scripts/comprehensive-operating-review.sh && test -f reports/operating-review/20260320_134130.md && echo report_ok
+---
+report_ok

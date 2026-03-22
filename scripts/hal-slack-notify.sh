@@ -44,8 +44,14 @@ ${SUMMARY}
 _Posted by Alfred • HAL completions_"
 fi
 
-curl -s -X POST "$DISCORD_WEBHOOK" \
-  -H "Content-Type: application/json" \
-  -d "$(python3 -c "import json,sys; print(json.dumps({'content':sys.argv[1]}))" "${MESSAGE}")"
-
-echo "Posted to HAL completions Discord: ${TITLE}"
+ACK_ID="hal-completion-$(date +%s)"
+if bash "$SCRIPT_DIR/notify-with-ack.sh" \
+  --webhook DISCORD_WEBHOOK_HAL_COMPLETIONS \
+  --message "$MESSAGE" \
+  --ack-id "$ACK_ID" \
+  --source "hal-slack-notify.sh"; then
+  echo "Posted to HAL completions Discord: ${TITLE} (ack_id=$ACK_ID)"
+else
+  echo "Failed to deliver HAL completion (ack_id=$ACK_ID)" >&2
+  exit 1
+fi

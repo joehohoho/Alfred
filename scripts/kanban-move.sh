@@ -28,6 +28,14 @@ fi
 
 API="http://localhost:3001/api/kanban/${CARD_ID}/move"
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ "$TO_COLUMN" = "review" ] || [ "$TO_COLUMN" = "done" ]; then
+  if ! bash "$SCRIPT_DIR/kanban-evidence-gate.sh" --card-id "$CARD_ID" --to-column "$TO_COLUMN"; then
+    echo "ERROR: Evidence gate blocked move for card '$CARD_ID' to '$TO_COLUMN'. Add required evidence or override." >&2
+    exit 1
+  fi
+fi
+
 JSON=$(python3 -c "
 import json, sys
 print(json.dumps({'toColumn': sys.argv[1], 'skipNotify': True}))

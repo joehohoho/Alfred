@@ -1,18 +1,38 @@
 {
-  "task_1773900088375_35106359": {
-    "at": 1773926224.305123,
-    "title": "Portfolio health snapshot \u2014 passive income review (2026-03-19)"
+  "task_1774049450946_985e3e26": {
+    "at": 1774052070.3981922,
+    "title": "CoinUsUp Mobile App Launch (iOS/Android Capacitor)"
   },
-  "goal_1773934119740_1bc964b9": {
-    "at": 1773934580.909451,
-    "title": "Policy-as-Code Guardrail Tests for Cron Tasks"
+  "task_1774053050845_93a45189": {
+    "at": 1774053871.706172,
+    "title": "Niche SaaS: Auto Weekly Client Updates from work tools"
   },
-  "task_1773935110676_16ae98ca": {
-    "at": 1773939083.932812,
-    "title": "Command Center - Comm DNA Page"
+  "task_1774054884299_23d01b3d": {
+    "at": 1774057473.804557,
+    "title": "Voice-to-SOP Builder for Field Service Teams"
   },
-  "task_1773946848990_c1728d68": {
-    "at": 1773954540.389395,
-    "title": "CoinUsUp Teams \u2014 Shared expense autopilot for micro-teams"
+  "task_1774058538023_ae4bf3d2": {
+    "at": 1774061075.138134,
+    "title": "Bill Review & Invoice Audit Automation (Canadian SMB SaaS)"
+  },
+  "task_1774062049248_7486f8ba": {
+    "at": 1774072152.890058,
+    "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
+  },
+  "task_1774074649936_75afe05f": {
+    "at": 1774087853.901671,
+    "title": "CoinUsUp Attendance Tracking + QR Check-In (Volunteer Kiosk)"
+  },
+  "task_1774090851207_60e23900": {
+    "at": 1774097008.866245,
+    "title": "CoinUsUp Nonprofit Content Hub (SEO Growth)"
+  },
+  "task_1774114248437_471a0f9e": {
+    "at": 1774127621.175843,
+    "title": "Even Us Up: Receipt Scanning + OCR (Mobile Differentiator)"
+  },
+  "task_1774130449066_c34541f7": {
+    "at": 1774136625.364565,
+    "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)"
   }
 }

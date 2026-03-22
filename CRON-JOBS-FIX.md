@@ -16,7 +16,9 @@
 - **Moltbook Weekly Review** (1ee0d578) → failing with channel routing error (enabled but non-functional)
 
 ## Solution
-**Strategy:** Switch all Discord announce deliveries to Slack (stable, verified channel IDs).
+**Strategy (historical):** This document originally switched Discord announce deliveries to Slack as a temporary stabilization path.
+
+**Current policy update (2026-03-20):** Slack is deprecated for active operations. Prefer Discord-only routing with explicit `delivery.channel="discord"` + explicit `delivery.to` channel IDs from allowlist.
 
 **Slack channels configured & available:**
 - `C0ADCTD7S2D` — #general

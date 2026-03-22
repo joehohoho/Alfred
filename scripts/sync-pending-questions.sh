@@ -11,6 +11,17 @@ NOTIF_FILE="$HOME/.openclaw/workspace/goals/notifications.json"
 ACTIVE_TASK="$HOME/.openclaw/workspace/ACTIVE-TASK.md"
 START_MARKER="<!-- PENDING-Q-START -->"
 END_MARKER="<!-- PENDING-Q-END -->"
+# Backward-compatible marker variants seen in older ACTIVE-TASK templates
+ALT_START_MARKERS=(
+  "<!--PENDING-Q-START-->"
+  "<!-- PENDING-QUESTIONS-START -->"
+  "<!--PENDING-QUESTIONS-START-->"
+)
+ALT_END_MARKERS=(
+  "<!--PENDING-Q-END-->"
+  "<!-- PENDING-QUESTIONS-END -->"
+  "<!--PENDING-QUESTIONS-END-->"
+)
 TMPFILE=$(mktemp /tmp/sync-pending-questions.XXXXXX)
 
 cleanup() { rm -f "$TMPFILE"; }
@@ -80,10 +91,25 @@ print(sum(1 for n in notifs if not n.get('answered', False)))
 " 2>/dev/null || echo "0")
 
 # Replace content between markers in ACTIVE-TASK.md using temp file (safe for all content)
-python3 - "$ACTIVE_TASK" "$TMPFILE" "$START_MARKER" "$END_MARKER" <<'PYEOF'
+python3 - "$ACTIVE_TASK" "$TMPFILE" "$START_MARKER" "$END_MARKER" "${ALT_START_MARKERS[@]}" -- "${ALT_END_MARKERS[@]}" <<'PYEOF'
+import re
 import sys
 
-active_task_file, tmp_file, marker_start, marker_end = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+args = sys.argv[1:]
+active_task_file = args[0]
+tmp_file = args[1]
+primary_start = args[2]
+primary_end = args[3]
+
+# Split args into alt starts / alt ends around sentinel --
+rest = args[4:]
+if '--' in rest:
+    split = rest.index('--')
+    alt_starts = rest[:split]
+    alt_ends = rest[split + 1:]
+else:
+    alt_starts = []
+    alt_ends = []
 
 with open(tmp_file, 'r') as f:
     pending_md = f.read().strip()
@@ -91,20 +117,51 @@ with open(tmp_file, 'r') as f:
 with open(active_task_file, 'r') as f:
     content = f.read()
 
-start_idx = content.find(marker_start)
-end_idx = content.find(marker_end)
+start_markers = [primary_start] + alt_starts
+end_markers = [primary_end] + alt_ends
 
-if start_idx == -1 or end_idx == -1:
-    print('WARN: Markers not found in ACTIVE-TASK.md', file=sys.stderr)
-    sys.exit(1)
+start_idx = -1
+start_marker_used = None
+for m in start_markers:
+    i = content.find(m)
+    if i != -1:
+        start_idx = i
+        start_marker_used = m
+        break
 
-new_content = (
-    content[:start_idx + len(marker_start)]
-    + '\n'
-    + pending_md
-    + '\n'
-    + content[end_idx:]
-)
+end_idx = -1
+end_marker_used = None
+if start_idx != -1:
+    for m in end_markers:
+        i = content.find(m, start_idx)
+        if i != -1:
+            end_idx = i
+            end_marker_used = m
+            break
+
+if start_idx != -1 and end_idx != -1:
+    # Normalize to canonical markers while replacing section body
+    new_content = (
+        content[:start_idx]
+        + primary_start
+        + '\n'
+        + pending_md
+        + '\n'
+        + primary_end
+        + content[end_idx + len(end_marker_used):]
+    )
+else:
+    # Drift recovery: append canonical marker block under "## Pending Questions" header if present,
+    # otherwise append at end of file.
+    block = f"\n{primary_start}\n{pending_md}\n{primary_end}\n"
+    header_match = re.search(r'^##\s+Pending Questions\s*$', content, flags=re.MULTILINE)
+    if header_match:
+        insert_at = header_match.end()
+        new_content = content[:insert_at] + block + content[insert_at:]
+    else:
+        if not content.endswith('\n'):
+            content += '\n'
+        new_content = content + '\n## Pending Questions\n' + block
 
 with open(active_task_file, 'w') as f:
     f.write(new_content)

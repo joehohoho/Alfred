@@ -30,6 +30,7 @@ TASK_ID="${5:-}"
 SOURCE="${6:-}"
 
 API="http://localhost:3001/api/notifications"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Shared policy preflight (quiet-hours direct-user rule, external gate, dedup key)
 POLICY_APPROVED="${POLICY_APPROVED:-0}"

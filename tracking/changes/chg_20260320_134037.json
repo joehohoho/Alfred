@@ -1,0 +1,65 @@
+{
+  "id": "chg_20260320_134037",
+  "title": "Comprehensive operating review system",
+  "status": "completed",
+  "created_at": "2026-03-20T16:40:37Z",
+  "created_local": "2026-03-20 13:40 ADT",
+  "problem_statement": "Current audits are fragmented; no unified recurring review across system/setup/infrastructure/workflow/process and Command Center product surface.",
+  "objective": "Implement comprehensive recurring operating review with explicit keep/improve/remove outcomes and run next available cycle immediately.",
+  "current_state": {
+    "dependencies": [
+      "openclaw CLI",
+      "localhost:3001 api/cron",
+      "localhost:3001 api/kanban",
+      "reports/ and scripts/ write access"
+    ],
+    "failure_points": [
+      "No single consolidated scorecard",
+      "No command-center page usage telemetry",
+      "No formal keep/improve/remove register"
+    ],
+    "blast_radius": "Low: adds script/reporting and cron job only."
+  },
+  "options_considered": [
+    {
+      "option": "Manual ad-hoc reviews",
+      "tradeoffs": "Inconsistent and not scalable"
+    },
+    {
+      "option": "Full analytics platform now",
+      "tradeoffs": "Too heavy for immediate rollout"
+    },
+    {
+      "option": "Scripted weekly review + incremental telemetry",
+      "tradeoffs": "Fastest safe path with clear evolution"
+    }
+  ],
+  "selected_solution": {
+    "choice": "Scripted weekly review + incremental telemetry",
+    "rationale": "Best-fit balance of reliability, speed, and low operational risk."
+  },
+  "guardrails": {
+    "preflight_checks": [
+      "script syntax validation",
+      "API reachability checks in script"
+    ],
+    "retry_backoff": "Cron-level retry behavior retained; no tight polling loops introduced.",
+    "fallback": "If APIs unavailable, report still generated with failure markers.",
+    "rollback": "Remove script + cron job and keep existing audit jobs only.",
+    "post_change_checks": [
+      "run script once immediately",
+      "generate verification bundle",
+      "confirm cron scheduled"
+    ]
+  },
+  "restart": {
+    "required": false,
+    "safe_to_restart_now": null,
+    "reason": "No gateway config apply/update action required."
+  },
+  "verification_bundle": "/Users/hopenclaw/.openclaw/workspace/tracking/verification/20260320_134207",
+  "completion": {
+    "summary": "Implemented comprehensive operating review script, generated immediate report, scheduled weekly Discord-delivered review, and posted completion update to Discord.",
+    "completed_at": "2026-03-20T16:42:22Z"
+  }
+}

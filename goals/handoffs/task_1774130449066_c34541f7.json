@@ -1,0 +1,98 @@
+{
+  "task_id": "task_1774130449066_c34541f7",
+  "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)",
+  "type": "feature_implementation",
+  "priority": "normal",
+  "timeline": "3 weeks",
+  "engagement_impact": "+10-15%",
+
+  "three_subtasks": [
+    {
+      "id": 1,
+      "title": "Recurring Expenses: Toggle 'repeats monthly' UI",
+      "tech_complexity": "2/5",
+      "est_hours": 16,
+      "description": "Add UI toggle on Expense form to enable/disable recurring, allow user to set frequency and billing date. Wire to existing Expense.isRecurring + recurringFrequency + recurringBillingDate fields.",
+      "current_state": "Fields exist in types.ts and Supabase schema; expansion logic functional in utils/expenses.ts; UI form needs frequency picker + billing date selector",
+      "acceptance_criteria": [
+        "Expense form has checkbox 'This is a recurring expense'",
+        "When checked, show frequency dropdown (DAILY, WEEKLY, BIWEEKLY, MONTHLY, QUARTERLY, YEARLY)",
+        "When frequency selected, show date picker for 'billing date' (when payment/charge occurs each cycle)",
+        "Recurring data persists to DB and loads correctly on edit",
+        "Expenses expanded correctly in settlement calculations (uses expandRecurringExpenses utility)"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bill Rules: 'Always 50/50 with X' split patterns",
+      "tech_complexity": "2/5",
+      "est_hours": 16,
+      "description": "Create reusable split templates/rules. User defines rule once ('always split rent 50/50 with Jane'), then apply rule to future expenses instead of re-entering splits.",
+      "current_state": "ExpenseTemplate schema exists (JSONB splits); templateStore has basic CRUD; no UI for rule creation or quick-apply",
+      "acceptance_criteria": [
+        "New 'Bill Rules' or 'Templates' section in settings/dashboard",
+        "Create rule: name, default payer, default split pattern, apply-to category filter",
+        "On Expense form: show 'Quick Rules' dropdown, select rule to auto-populate payer + splits",
+        "Edit/delete rules from settings",
+        "Rules stored in expense_sharing_expense_templates table",
+        "Rule changes don't retroactively affect past expenses (new rule applies forward only)"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Simplify Debts: Minimize settlement transactions",
+      "tech_complexity": "2/5",
+      "est_hours": 16,
+      "description": "Optimize calculateDebts() algorithm to merge intermediate debts and reduce settlement txn count. Current greedy algorithm is functional but not optimal.",
+      "current_state": "settlements.ts has working greedy matching (sorts debtors/creditors, matches amounts). Produces valid settlements but ~30-40% more txns than theoretical minimum.",
+      "acceptance_criteria": [
+        "Implement cycle-detection + cancellation (A→B→C→A becomes 0 txns)",
+        "Implement net-out optimization (A owes B $100, B owes C $50 → A owes C $50 instead of 2 txns)",
+        "Before/after comparison tests showing txn reduction (40%+ fewer txns on realistic household data)",
+        "Edge cases: multi-cycle debts, near-zero amounts, currency handling",
+        "Performance: calculation <100ms for 500+ members/expenses"
+      ]
+    }
+  ],
+
+  "code_structure": {
+    "frontend": "React/TypeScript with Zustand stores + Vite",
+    "backend": "Supabase (PostgreSQL + RLS)",
+    "tables_involved": [
+      "expense_sharing_expenses (isRecurring, recurringFrequency, recurringBillingDate fields present)",
+      "expense_sharing_expense_templates (new rules storage)",
+      "expense_sharing_expenses (splits array)",
+      "expense_sharing_payments (existing settlement txns)"
+    ],
+    "key_files": {
+      "types": "~/Expense_Sharing/types.ts",
+      "stores": "~/Expense_Sharing/stores/{expense,template,payment}Store.ts",
+      "utils": "~/Expense_Sharing/utils/{expenses,settlements}.ts",
+      "components": "~/Expense_Sharing/components/ (ExpenseForm, SettlementView, etc)"
+    }
+  },
+
+  "pre_implementation_checks": [
+    "✓ Repo cloned and accessible",
+    "✓ TypeScript types reviewed (Expense, ExpenseTemplate, RecurringFrequency, SplitType)",
+    "✓ Supabase schema confirmed (all fields present)",
+    "✓ Existing expansion/calculation logic verified (expandRecurringExpenses, calculateDebts)",
+    "✓ Store pattern established (Zustand optimistic updates)"
+  ],
+
+  "handoff_instructions": {
+    "for_code_reviewer": "After implementation, validate: (1) recurring expenses expand correctly across date ranges, (2) bill rules apply + don't mutate past expenses, (3) settlement counts reduce by 35%+ on test data, (4) no breaking changes to existing expense/payment flows.",
+    "for_qa_tester": "Test scenarios: (1) Create monthly recurring expense, verify appears in settlement calc, (2) Create bill rule for 50/50 split, apply to new expenses, verify splits persist, (3) Compare settlement txn counts before/after optimization on sample household data (100+ expenses, 5-10 members).",
+    "rollback_plan": "Each feature is independent. Revert DB migrations (remove isRecurring columns if needed), revert component files, clear browser cache."
+  },
+
+  "deployment_notes": {
+    "db_migrations_required": false,
+    "ui_components_required": true,
+    "breaking_changes": false,
+    "backwards_compatibility": "Full (existing expenses work unchanged)"
+  },
+
+  "created_at": "2026-03-21T22:30:58Z",
+  "alfred_notes": "Discovery phase complete. Codebase well-structured, data model supports all three features. No blocker concerns identified. Ready for implementation dispatch to HAL or direct development."
+}

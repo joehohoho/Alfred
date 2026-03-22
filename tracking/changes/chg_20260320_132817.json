@@ -1,0 +1,64 @@
+{
+  "id": "chg_20260320_132817",
+  "title": "Partner Mode v1 Phase 2 hard-gating",
+  "status": "completed",
+  "created_at": "2026-03-20T16:28:17Z",
+  "created_local": "2026-03-20 13:28 ADT",
+  "problem_statement": "HAL dispatch can proceed without explicit acceptance criteria/autonomy boundaries, causing ambiguity and rework risk.",
+  "objective": "Enforce handoff validation gate before HAL dispatch from all active dispatcher paths.",
+  "current_state": {
+    "dependencies": [
+      "scripts/hal-idle-dispatch-cron.sh",
+      "scripts/kanban-work-executor-phase2.sh",
+      "goals/handoffs/*.json"
+    ],
+    "failure_points": [
+      "Missing handoff files for active task IDs",
+      "Task IDs not matching strict card_ validator",
+      "Silent dispatch without contract"
+    ],
+    "blast_radius": "Medium operational impact: HAL kanban dispatches will skip until handoff contracts exist; proactive dispatch path unaffected."
+  },
+  "options_considered": [
+    {
+      "option": "Warn-only mode",
+      "tradeoffs": "Low disruption, weak enforcement"
+    },
+    {
+      "option": "Strict block with strict card_ validator",
+      "tradeoffs": "Strong enforcement but incompatible with task_* ids"
+    },
+    {
+      "option": "Strict block with generic validator",
+      "tradeoffs": "Strong enforcement + compatibility across id formats"
+    }
+  ],
+  "selected_solution": {
+    "choice": "Strict block with generic validator",
+    "rationale": "Best balance of reliability and practicality; enforces contract quality without depending on legacy id format."
+  },
+  "guardrails": {
+    "preflight_checks": [
+      "bash -n on modified scripts",
+      "validator negative-path test"
+    ],
+    "retry_backoff": "Existing dispatch cooldown/backoff logic preserved.",
+    "fallback": "If handoff invalid/missing, skip HAL dispatch and post explicit kanban comment.",
+    "rollback": "Remove generic validator and revert dispatch-script gate blocks.",
+    "post_change_checks": [
+      "syntax checks pass",
+      "verification bundle generated",
+      "change record completed"
+    ]
+  },
+  "restart": {
+    "required": false,
+    "safe_to_restart_now": null,
+    "reason": "No gateway config/apply/update changes."
+  },
+  "verification_bundle": "/Users/hopenclaw/.openclaw/workspace/tracking/verification/20260320_132838",
+  "completion": {
+    "summary": "Phase 2 baseline completed: generic handoff validator added and enforced in both HAL dispatch paths; missing/invalid handoffs now block with explicit kanban comment.",
+    "completed_at": "2026-03-20T16:28:58Z"
+  }
+}

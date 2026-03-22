@@ -1,143 +1,7 @@
 {
-  "lastActivityAt": "2026-03-20T13:01:06.566Z",
+  "lastActivityAt": "2026-03-22T01:30:48.798Z",
   "lastActivityType": "goal-progress-check",
   "recentActivities": [
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-03-16T09:00:51.276Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-16T10:00:53.857Z",
-      "ideaId": "idea_1772326914693_71a9433e"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-16T11:00:49.983Z"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-03-16T12:00:50.621Z"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-03-16T13:00:52.947Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-16T23:03:10.638Z",
-      "ideaId": "idea_1772326914693_71a9433e"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-17T06:00:51.609Z",
-      "ideaId": "idea_1772337691660_482a7565"
-    },
-    {
-      "type": "profile-reflection",
-      "dispatchedAt": "2026-03-17T07:00:49.338Z"
-    },
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-03-17T08:00:57.186Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-17T09:00:51.906Z"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-03-17T10:00:48.866Z"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-03-17T15:48:50.026Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-17T17:00:50.568Z",
-      "ideaId": "idea_1772352167952_ef510609"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-03-17T18:00:49.033Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-17T19:00:51.654Z"
-    },
-    {
-      "type": "surprise-delight",
-      "dispatchedAt": "2026-03-17T20:00:49.852Z"
-    },
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-03-17T21:00:49.980Z"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-03-17T22:00:50.755Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-18T03:00:50.660Z",
-      "ideaId": "idea_1772359266881_8a7b62ea"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-03-18T04:00:53.035Z"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-03-18T05:01:33.110Z"
-    },
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-03-18T06:00:51.739Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-18T07:00:52.084Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-18T15:00:49.918Z",
-      "ideaId": "idea_1772373684782_ead92db2"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-03-18T16:00:51.016Z"
-    },
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-03-18T17:00:50.071Z"
-    },
-    {
-      "type": "profile-reflection",
-      "dispatchedAt": "2026-03-18T18:00:49.807Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-18T19:00:55.328Z",
-      "ideaId": "idea_1772398947174_67e6f126"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-18T20:00:53.494Z"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-03-18T22:01:00.013Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-03-19T03:00:51.596Z",
-      "ideaId": "idea_1772762496628_13c09ef9"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-19T04:00:51.636Z"
-    },
     {
       "type": "improve-self",
       "dispatchedAt": "2026-03-19T05:01:27.327Z"
@@ -213,8 +77,146 @@
     {
       "type": "goal-progress-check",
       "dispatchedAt": "2026-03-20T13:01:06.566Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-20T14:00:52.100Z",
+      "ideaId": "idea_1772953283047_668b6b2e"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-20T15:00:50.797Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-03-20T16:00:50.239Z"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-03-20T19:00:51.910Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-20T20:00:51.584Z",
+      "ideaId": "idea_1772989296216_6b3279fc"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-20T21:00:51.889Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-20T22:30:49.228Z",
+      "ideaId": "idea_1772989296234_cf987141"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-20T23:30:50.944Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-21T00:30:50.843Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-03-21T01:01:24.272Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-21T02:02:18.022Z",
+      "ideaId": "idea_1772989296254_4be72b64"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-03-21T03:00:49.247Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-21T06:00:49.114Z",
+      "ideaId": "idea_1772989296274_c464dd43"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-21T06:30:49.934Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-21T10:30:49.122Z",
+      "ideaId": "idea_1772989296294_a8a2c082"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-21T11:00:51.205Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-21T13:00:48.738Z"
+    },
+    {
+      "type": "profile-reflection",
+      "dispatchedAt": "2026-03-21T13:30:48.834Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-21T14:00:55.098Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-21T14:30:49.287Z",
+      "ideaId": "idea_1772996494449_52313451"
+    },
+    {
+      "type": "surprise-delight",
+      "dispatchedAt": "2026-03-21T15:00:49.902Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-03-21T15:30:52.643Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-21T16:00:49.536Z"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-03-21T16:30:49.109Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-21T17:00:52.199Z",
+      "ideaId": "idea_1772996494467_fb7569fe"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-21T17:30:48.435Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-21T21:30:50.583Z",
+      "ideaId": "idea_1772996494506_8c3bc4b0"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-21T22:00:49.064Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-03-22T00:00:49.506Z",
+      "ideaId": "idea_1772996494526_be1f4485"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-03-22T00:30:49.171Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-22T01:01:07.793Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-22T01:30:48.798Z"
     }
   ],
-  "totalIdleDispatches": 218,
-  "cooldownMinutes": 25
+  "totalIdleDispatches": 250,
+  "cooldownMinutes": 15
 }

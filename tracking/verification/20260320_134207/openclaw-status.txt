@@ -1,0 +1,75 @@
+OpenClaw status
+
+Overview
+┌─────────────────┬────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Item            │ Value                                                                                              │
+├─────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Dashboard       │ http://192.168.2.74:18789/                                                                         │
+│ OS              │ macos 15.7.4 (x64) · node 22.22.0                                                                  │
+│ Tailscale       │ off                                                                                                │
+│ Channel         │ stable (config)                                                                                    │
+│ Update          │ pnpm · npm latest 2026.3.13                                                                        │
+│ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · unreachable (missing scope: operator.read)         │
+│ Gateway service │ LaunchAgent installed · loaded · running (pid 84465)                                               │
+│ Node service    │ LaunchAgent not installed                                                                          │
+│ Agents          │ 2 · no bootstrap files · sessions 22 · default main active just now                                │
+│ Memory          │ enabled (plugin memory-core) · unavailable                                                         │
+│ Probes          │ skipped (use --deep)                                                                               │
+│ Events          │ none                                                                                               │
+│ Heartbeat       │ 1h (main), disabled (hal)                                                                          │
+│ Sessions        │ 22 active · default gpt-5.3-codex (200k ctx) · 2 stores                                            │
+└─────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Security audit
+Summary: 2 critical · 3 warn · 1 info
+  CRITICAL Control UI allowed origins contains wildcard
+    gateway.controlUi.allowedOrigins includes "*" which effectively disables origin allowlisting for Control UI/WebChat requests.
+    Fix: Replace wildcard origins with explicit trusted origins (for example https://control.example.com).
+  CRITICAL DANGEROUS: Control UI device auth disabled
+    gateway.controlUi.dangerouslyDisableDeviceAuth=true disables device identity checks for the Control UI.
+    Fix: Disable it unless you are in a short-lived break-glass scenario.
+  WARN Insecure or dangerous config flags enabled
+    Detected 1 enabled flag(s): gateway.controlUi.dangerouslyDisableDeviceAuth=true.
+    Fix: Disable these flags when not actively debugging, or keep deployment scoped to trusted/local-only networks.
+  WARN Some configured models are below recommended tiers
+    Smaller/older models are generally more susceptible to prompt injection and tool misuse. - anthropic/claude-haiku-4-5 (Haiku tier (smaller model)) @ agents.def…
+    Fix: Use the latest, top-tier model for any bot with tools or untrusted inboxes. Avoid Haiku tiers; prefer GPT-5+ and Claude 4.5+.
+  WARN Potential multi-user setup detected (personal-assistant model warning)
+    Heuristic signals indicate this gateway may be reachable by multiple users: - channels.discord.groupPolicy="allowlist" with configured group targets - channels…
+    Fix: If users may be mutually untrusted, split trust boundaries (separate gateways + credentials, ideally separate OS users/hosts). If you intentionally run shared-user access, set agents.defaults.sandbox.mode="all", keep tools.fs.workspaceOnly=true, deny runtime/fs/web tools unless required, and keep personal/private identities + credentials off that runtime.
+Full report: openclaw security audit
+Deep probe: openclaw security audit --deep
+
+Channels
+┌──────────┬─────────┬────────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ Channel  │ Enabled │ State  │ Detail                                                                                 │
+├──────────┼─────────┼────────┼────────────────────────────────────────────────────────────────────────────────────────┤
+│ Discord  │ ON      │ OK     │ token config (MTQ3…wGqA · len 72) · accounts 1/1                                       │
+│ Slack    │ ON      │ OK     │ tokens ok (bot config, app config) (bot xoxb…ZSJW · len 59, app xapp…af0a · len 98) ·  │
+│          │         │        │ accounts 1/1                                                                           │
+│ iMessage │ ON      │ OK     │ configured                                                                             │
+└──────────┴─────────┴────────┴────────────────────────────────────────────────────────────────────────────────────────┘
+
+Sessions
+┌────────────────────────────────────────────────┬────────┬──────────┬───────────────┬─────────────────────────────────┐
+│ Key                                            │ Kind   │ Age      │ Model         │ Tokens                          │
+├────────────────────────────────────────────────┼────────┼──────────┼───────────────┼─────────────────────────────────┤
+│ agent:main:discord:channel:1484…               │ group  │ just now │ gpt-5.3-codex │ unknown/200k (?%)               │
+│ agent:main:cron:648bc4bb-4fba-4…               │ direct │ just now │ gpt-5.3-codex │ 18k/272k (7%) · 🗄️ 188% cached  │
+│ agent:main:cron:648bc4bb-4fba-4…               │ direct │ just now │ gpt-5.3-codex │ 18k/272k (7%) · 🗄️ 188% cached  │
+│ agent:main:main                                │ direct │ 2m ago   │ gpt-5.3-codex │ 76k/272k (28%) · 🗄️ 99% cached  │
+│ agent:main:idle:1774022450242                  │ direct │ 40m ago  │ gpt-5.3-codex │ 33k/272k (12%) · 🗄️ 8% cached   │
+│ agent:main:idle:1774018850798                  │ direct │ 2h ago   │ gpt-5.3-codex │ 22k/272k (8%) · 🗄️ 99% cached   │
+│ agent:main:cron:1e33752f-370b-4…               │ direct │ 2h ago   │ gpt-5.3-codex │ 30k/272k (11%) · 🗄️ 123% cached │
+│ agent:main:cron:1e33752f-370b-4…               │ direct │ 2h ago   │ gpt-5.3-codex │ 30k/272k (11%) · 🗄️ 123% cached │
+│ agent:main:cron:26cf4f11-84f4-4…               │ direct │ 2h ago   │ gpt-5.3-codex │ 40k/272k (15%) · 🗄️ 782% cached │
+│ agent:main:cron:26cf4f11-84f4-4…               │ direct │ 2h ago   │ gpt-5.3-codex │ 40k/272k (15%) · 🗄️ 782% cached │
+└────────────────────────────────────────────────┴────────┴──────────┴───────────────┴─────────────────────────────────┘
+
+FAQ: https://docs.openclaw.ai/faq
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
+
+Next steps:
+  Need to share?      openclaw status --all
+  Need to debug live? openclaw logs --follow
+  Fix reachability first: openclaw gateway probe

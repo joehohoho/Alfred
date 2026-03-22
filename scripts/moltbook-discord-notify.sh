@@ -18,36 +18,20 @@ if [ ${#BODY} -gt $MAX ]; then
   BODY="${BODY:0:$MAX}...(truncated)"
 fi
 
-PAYLOAD=$(python3 -c "
-import json, sys
+MESSAGE="🧠 **${TITLE}**
 
-title = sys.argv[1]
-body = sys.argv[2]
+${BODY}
 
-payload = {
-    'username': 'Alfred 🎩',
-    'embeds': [{
-        'title': title,
-        'description': body,
-        'color': 0x5865F2,
-        'footer': {
-            'text': 'Moltbook Weekly Review • OpenClaw Alfred'
-        }
-    }]
-}
-print(json.dumps(payload))
-" "$TITLE" "$BODY")
+_Moltbook Weekly Review • OpenClaw Alfred_"
+ACK_ID="moltbook-$(date +%s)"
 
-RESPONSE=$(curl -s -o /tmp/discord-moltbook-response.txt -w "%{http_code}" \
-  -X POST \
-  -H "Content-Type: application/json" \
-  -d "$PAYLOAD" \
-  "$DISCORD_WEBHOOK")
-
-if [ "$RESPONSE" = "204" ] || [ "$RESPONSE" = "200" ]; then
-  echo "✅ Posted to Discord (HTTP $RESPONSE)"
+if bash "$SCRIPT_DIR/notify-with-ack.sh" \
+  --webhook DISCORD_WEBHOOK_MOLTBOOK \
+  --message "$MESSAGE" \
+  --ack-id "$ACK_ID" \
+  --source "moltbook-discord-notify.sh"; then
+  echo "✅ Posted to Discord (ack_id=$ACK_ID)"
 else
-  echo "❌ Discord post failed (HTTP $RESPONSE)"
-  cat /tmp/discord-moltbook-response.txt
+  echo "❌ Discord post failed (ack_id=$ACK_ID)" >&2
   exit 1
 fi

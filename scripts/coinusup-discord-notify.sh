@@ -16,30 +16,20 @@ if [ ${#BODY} -gt $MAX ]; then
   BODY="${BODY:0:$MAX}...(truncated)"
 fi
 
-PAYLOAD=$(python3 -c "
-import json, sys
-title = sys.argv[1]
-body = sys.argv[2]
-payload = {
-    'username': 'Alfred 🎩',
-    'embeds': [{
-        'title': title,
-        'description': body,
-        'color': 0xF5A623,
-        'footer': {'text': 'CoinUsUp Audit • OpenClaw Alfred'}
-    }]
-}
-print(json.dumps(payload))
-" "$TITLE" "$BODY")
+MESSAGE="🪙 **${TITLE}**
 
-RESPONSE=$(curl -s -o /tmp/discord-cuu-response.txt -w "%{http_code}" \
-  -X POST -H "Content-Type: application/json" \
-  -d "$PAYLOAD" "$DISCORD_WEBHOOK")
+${BODY}
 
-if [ "$RESPONSE" = "204" ] || [ "$RESPONSE" = "200" ]; then
-  echo "✅ Posted to CUU Discord (HTTP $RESPONSE)"
+_CoinUsUp Audit • OpenClaw Alfred_"
+ACK_ID="cuu-$(date +%s)"
+
+if bash "$SCRIPT_DIR/notify-with-ack.sh" \
+  --webhook DISCORD_WEBHOOK_CUU_APP_AUDIT \
+  --message "$MESSAGE" \
+  --ack-id "$ACK_ID" \
+  --source "coinusup-discord-notify.sh"; then
+  echo "✅ Posted to CUU Discord (ack_id=$ACK_ID)"
 else
-  echo "❌ Discord post failed (HTTP $RESPONSE)"
-  cat /tmp/discord-cuu-response.txt
+  echo "❌ Discord post failed (ack_id=$ACK_ID)" >&2
   exit 1
 fi

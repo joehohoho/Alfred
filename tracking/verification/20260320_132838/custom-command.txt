@@ -1,0 +1,2 @@
+COMMAND: bash -n scripts/hal-idle-dispatch-cron.sh && bash -n scripts/kanban-work-executor-phase2.sh && bash -n scripts/validate-handoff-generic.sh
+---

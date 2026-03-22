@@ -1,0 +1,26 @@
+{
+  "agent:main:task-1774018869369-746fb3": {
+    "startMs": 1774016983662,
+    "lastSeenMs": 1774019295751
+  },
+  "agent:main:subagent:64e0e195-d883-48c3-997a-ae32b17cbc91": {
+    "startMs": 1774016726918,
+    "lastSeenMs": 1774019167379
+  },
+  "agent:main:task-1774018713445-40ee65": {
+    "startMs": 1774015917312,
+    "lastSeenMs": 1774018762576
+  },
+  "agent:main:task-1773945342030-abf56b": {
+    "startMs": 1773869078560,
+    "lastSeenMs": 1773945343200
+  },
+  "agent:main:task-1773940102302-c8d3a0": {
+    "startMs": 1773858683744,
+    "lastSeenMs": 1773940145792
+  },
+  "agent:main:task-1774028612001-c7b9c8": {
+    "startMs": 1774028477639,
+    "lastSeenMs": 1774028613201
+  }
+}

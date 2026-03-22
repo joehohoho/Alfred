@@ -191,3 +191,5 @@
 {"timestamp":"2026-03-18T21:06:06Z","task_id":"proactive_1773867966","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: CoinUsUp"}
 {"timestamp":"2026-03-19T14:32:44Z","task_id":"task_1773929266330_d9178b9d","route":"HAL","dispatch_result":"dispatched_to_hal","dispatch_type":"kanban","task":"Infra: Session Checkpoint interval is 2h not 20min \u2014 fix or re-evaluate"}
 {"timestamp":"2026-03-19T18:35:42Z","task_id":"proactive_1773945341","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Signal App research"}
+{"timestamp":"2026-03-20T15:01:09Z","task_id":"proactive_1774018869","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: Market Signal Lab"}
+{"timestamp":"2026-03-20T17:43:32Z","task_id":"proactive_1774028611","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Git hygiene"}

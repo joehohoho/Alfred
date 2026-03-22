@@ -1,6 +1,6 @@
 # Decision Index
 
-**Updated:** 2026-03-15 15:10 UTC | **Next auto-update:** Fridays at 3 PM AST  
+**Updated:** 2026-03-20 18:00 UTC | **Next auto-update:** Fridays at 3 PM AST  
 **Purpose:** Quick reference for all active decisions. Prevents repeat questions by showing what's been decided + when to re-ask.
 
 ---
@@ -32,11 +32,7 @@ _Decisions made in the past week. Included for context._
 
 | Decision | Decided | Status | Next Review |
 |----------|---------|--------|-------------|
-| Passive Income Targets (Q2 Growth) | 2026-03-09 | ✅ DECIDED | 2026-04-10 |
-| App Growth Strategy (Priority) | 2026-03-09 | ✅ DECIDED | 2026-04-10 |
-| Market Signal Lab Scope | 2026-03-09 | ✅ DECIDED | 2026-06-01 |
-| Reliability Infrastructure Priority | 2026-03-09 | ✅ DECIDED | 2026-04-09 |
-| Reliability Systems Configuration | 2026-03-09 | ✅ DECIDED | 2026-04-09 |
+| _None in last 7 days_ | — | — | — |
 
 ---
 

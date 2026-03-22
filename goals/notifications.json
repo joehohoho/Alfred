@@ -410,15 +410,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773983457394_b787d2b6",
-    "type": "Codex Token Status",
-    "title": "Joe refreshed token a few days ago but the expiry notification keeps firing. Token appears active in session_status (oauth mode working). To manually re-verify or re-auth, run: openclaw models auth login --provider openai-codex (requires interactive TTY — must run in terminal, not via Alfred). If notifications persist after refresh, the expiry detector may have a stale timestamp bug. No action needed now if Codex is working.",
-    "message": "low",
-    "answered": false,
-    "createdAt": "2026-03-20T05:10:57.394Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773986543704_ffb54ea1",
     "type": "[REMINDER] Mission Control Phase 1: Cron Controls Implementation",
     "title": "Joe confirmed Option #1 (add cron controls to React app). Alfred provided full pros/cons. Ready to implement. Should Alfred proceed with adding cron job management UI to the Command Center dashboard (localhost:3001)?\n\nOptions:\n1. ✅ Yes — proceed, Alfred will implement cron controls in the React app\n2. ⏸️ Not now — leave blocked, revisit later\n3. ❌ Close — scope changed, no longer needed\n\nAlfred recommends Option 1 — Joe already chose this path, just needs implementation go-ahead.",
@@ -438,15 +429,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774004425890_9b203583",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_ERROR:HTTP Error 401: Unauthorized). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-20T11:00:25.890Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774011600529_1822599c",
     "type": "question",
     "title": "Could Signal App be packaged for non-trading uses?",
@@ -454,34 +436,6 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-20T13:00:00.529Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774016168495_ca000f9b",
-    "type": "alert",
-    "title": "🔑 Codex OAuth Token Expired",
-    "message": "Codex auth is failing repeatedly (recent failures: 63). Alfred is falling back to Claude Sonnet so work continues, but Codex capacity is unavailable.\\n\\nOptions:\\n1) Re-authenticate Codex now\\n2) Keep fallback active and re-auth later\\n\\nRecommendation: Re-auth when convenient to restore free Codex throughput.",
-    "source": "check-codex-auth",
-    "answered": false,
-    "createdAt": "2026-03-20T14:16:08.495Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774021628679_7cd67a1d",
-    "type": "warning",
-    "title": "Session Size Guard",
-    "message": "Main session was .8MB (over 3MB limit). Auto-reset and gateway restarted. Backup: f2ec456e-cba7-4f18-b8cc-7676e5870174.20260320-124704.jsonl",
-    "answered": false,
-    "createdAt": "2026-03-20T15:47:08.679Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774025256987_ce5ba683",
-    "type": "system",
-    "title": "Session Auto-Reset",
-    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
-    "answered": false,
-    "createdAt": "2026-03-20T16:47:36.987Z",
     "answeredAt": null
   },
   {
@@ -504,6 +458,89 @@
     "source": "idle-goal-progress-check",
     "answered": false,
     "createdAt": "2026-03-20T21:01:46.805Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774074714389_b7b2118c",
+    "type": "Review needed: CoinUsUp recurring donations",
+    "title": "Context: Card task_1774062049248_7486f8ba is in review with implementation complete and evidence posted.\\n\\nQuestion: Can you approve this card for Done, or do you want specific revisions?\\n\\nOptions:\\n1) Approve as-is and move to Done\\n2) Request targeted changes (list them)\\n\\nRecommendation: Approve as-is if no blockers are seen, then we can prioritize the next revenue feature.\\n\\nIf no response: Card stays in Review and downstream planning remains delayed.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-21T06:31:54.389Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774074714662_50c1b177",
+    "type": "Review needed: Bill Review & Invoice Audit Automation",
+    "title": "Context: Card task_1774058538023_ae4bf3d2 is in review with full blueprint delivered at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md.\\n\\nQuestion: Approve this blueprint to move to Done, or request adjustments before execution planning?\\n\\nOptions:\\n1) Approve and move to Done\\n2) Request edits to ICP/pricing/MVP scope\\n\\nRecommendation: Approve and use it as baseline so implementation scoping can start.\\n\\nIf no response: Card remains in Review and this idea will not progress to build phase.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-21T06:31:54.662Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774074714935_f1f34381",
+    "type": "Review needed: Voice-to-SOP Builder blueprint",
+    "title": "Context: Card task_1774054884299_23d01b3d is in review with strategy + 14-day execution brief delivered at deliverables/task_1774054884299_23d01b3d-voice-to-sop-plan.md.\\n\\nQuestion: Approve current plan for Done, or request changes before we advance?\\n\\nOptions:\\n1) Approve and move to Done\\n2) Request revisions (pricing, wedge, rollout)\\n\\nRecommendation: Approve baseline now, then iterate with a scoped MVP build card.\\n\\nIf no response: Card remains stalled in Review.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-21T06:31:54.935Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774074715209_df1bee0e",
+    "type": "Review needed: Niche SaaS weekly client updates",
+    "title": "Context: Card task_1774053050845_93a45189 is in review with execution blueprint delivered at ideas/NICHE_SAAS_AUTO_WEEKLY_CLIENT_UPDATES_BLUEPRINT_2026-03-20.md.\\n\\nQuestion: Approve this blueprint to close the card, or request refinements first?\\n\\nOptions:\\n1) Approve and move to Done\\n2) Request revisions to MVP/connectors/pricing\\n\\nRecommendation: Approve as strategic baseline and open a separate implementation card.\\n\\nIf no response: Card remains in Review and implementation prioritization is delayed.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-21T06:31:55.209Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774090825977_82d1c963",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-21T11:00:25.977Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774094248564_b9883cd9",
+    "type": "system",
+    "title": "Cron Auto-Disabled",
+    "message": "Refresh OPEN-LOOPS Dashboard: 3 consecutive failures — auto-disabled",
+    "answered": false,
+    "createdAt": "2026-03-21T11:57:28.564Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774098000945_fd438421",
+    "type": "question",
+    "title": "Which project deserves a dedicated sprint next?",
+    "message": "You have CoinUsUp, Signal App, Even Us Up, and consulting. If you picked one for a 2-week sprint, what would move the needle most?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-21T13:00:00.945Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774130468304_d7f0c35b",
+    "type": "--title",
+    "title": "Goal Progress: 5 Review Cards + Unanswered Questions",
+    "message": "--message",
+    "goalId": "**STATUS SUMMARY:**\n\nI reviewed all 9 blocked/review cards. Here's what's actionable:\n\n**NEEDS YOUR APPROVAL (to move Done):**\n1. CoinUsUp Recurring Donations (task_1774062049248_7486f8ba) — code complete, testing evidence posted\n2. Bill Review & Invoice Audit blueprint (task_1774058538023_ae4bf3d2) — full blueprint delivered\n3. Voice-to-SOP Builder plan (task_1774054884299_23d01b3d) — strategy + 14-day brief ready\n4. Niche SaaS weekly updates blueprint (task_1774053050845_93a45189) — execution blueprint done\n\n**NEEDS YOUR INPUT (blockers):**\n5. Mission Control Phase 1 (blocked) — choose: option 1 (integrate into React dashboard) or 2 (separate panel first)?\n6. 14-day trial (review) — confirm when you'll update Stripe prices (12 SKUs × trial_period_days=14)\n7. Even Us Up OCR (review) — need status/next steps\n8. CoinUsUp Nonprofit Content Hub (review) — need status/next steps\n9. CoinUsUp Attendance Tracking (review) — need status/next steps\n\n**UNANSWERED QUESTIONS (from daily-inquiry):**\n- Could Signal App work for stocks/commodities/forex (Mar 20)?\n- Which project deserves a dedicated sprint next (Mar 21)?\n\nWhat would help most right now?",
+    "answered": false,
+    "createdAt": "2026-03-21T22:01:08.304Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774132376518_7d29f7f0",
+    "type": "Even Us Up: Quick Wins — Discovery Complete, Ready for Approval",
+    "title": "Alfred completed discovery phase for the 3-feature task (recurring expenses, bill rules, debt optimization). All findings documented. Three implementation approaches available — parallel HAL dispatch (fastest), sequential Alfred work, or hybrid. Handoff contract ready. Awaiting your review + direction on which approach you prefer.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-21T22:32:56.518Z",
     "answeredAt": null
   }
 ]

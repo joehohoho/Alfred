@@ -1,2 +1,3 @@
 {"ts": 1773935337, "iso": "2026-03-19T12:48:57-0300", "dedupKey": "test:key:1", "script": "test.sh", "action": "notify", "result": "allow"}
 {"ts": 1773968478, "iso": "2026-03-19T22:01:18-0300", "dedupKey": "test:key:1", "script": "test.sh", "action": "notify", "result": "allow"}
+{"ts": 1774098000, "iso": "2026-03-21T10:00:00-0300", "dedupKey": "daily-inquiry:2026-03-21:Which project deserves a dedicated sprint next?", "script": "send-notification.sh", "action": "notify", "result": "allow"}

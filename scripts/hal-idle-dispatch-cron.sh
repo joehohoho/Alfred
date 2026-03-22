@@ -22,9 +22,53 @@ LOG="$TRACK_DIR/hal-dispatch.log"
 
 LAST_SUCCESS_FILE="$TRACK_DIR/last-successful-dispatch.json"
 
+REMOTE_SESSIONS_FILE="$TRACK_DIR/hal-remote-sessions.json"
+
 mkdir -p "$TRACK_DIR"
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
+
+# Sync HAL's remote session data for uptime tracking (runs every 15 min via LaunchAgent)
+sync_hal_sessions() {
+  timeout 10 node -e "
+const WebSocket = require('/usr/local/lib/node_modules/openclaw/node_modules/ws');
+const fs = require('fs');
+const ws = new WebSocket('ws://192.168.2.79:18789', { headers: { origin: 'http://192.168.2.79:18789' } });
+ws.on('message', (raw) => {
+  const msg = JSON.parse(raw);
+  if (msg.event === 'connect.challenge') {
+    ws.send(JSON.stringify({type:'req',id:'s1',method:'connect',params:{
+      minProtocol:3,maxProtocol:3,
+      auth:{token:'ceebc03825b2a3d143b4097f4ebfb1649a874d91db1a2115'},
+      client:{id:'openclaw-control-ui',displayName:'SessionSync',version:'1.0.0',platform:process.platform,mode:'backend'},
+      role:'operator',scopes:['operator.read'],caps:[]
+    }}));
+  } else if (msg.id === 's1' && msg.ok) {
+    const snapshot = msg.payload?.snapshot || {};
+    const agents = snapshot.health?.agents || [];
+    const main = agents.find(a => a.agentId === 'main') || {};
+    const recent = main.sessions?.recent || [];
+    // Read existing file and merge
+    let existing = {};
+    try { existing = JSON.parse(fs.readFileSync('$REMOTE_SESSIONS_FILE','utf-8')); } catch {}
+    for (const s of recent) {
+      if (!s.key || !s.updatedAt) continue;
+      const prev = existing[s.key];
+      if (prev) { prev.lastSeenMs = Math.max(prev.lastSeenMs, s.updatedAt); }
+      else { existing[s.key] = { startMs: s.updatedAt - (s.age || 0), lastSeenMs: s.updatedAt }; }
+    }
+    fs.writeFileSync('$REMOTE_SESSIONS_FILE', JSON.stringify(existing, null, 2));
+    console.log('OK sessions=' + recent.length);
+    ws.close(); process.exit(0);
+  }
+});
+ws.on('error', () => process.exit(1));
+setTimeout(() => process.exit(1), 8000);
+" 2>/dev/null && log "HAL session sync OK" || true
+}
+
+# Run session sync at the start of every dispatch cycle
+sync_hal_sessions
 
 # Write last-successful-dispatch.json — single source of truth for HAL reachability
 write_success_status() {
@@ -150,11 +194,24 @@ if [[ -n "$TASK_JSON" ]]; then
   if [[ -n "$TASK_ID" && -n "$TITLE" ]]; then
     log "DISPATCH_KANBAN: [$TASK_ID] $TITLE (priority=$PRIORITY)"
 
+    # Phase 2 hard gate: HAL dispatch requires validated handoff contract
+    HANDOFF_VALIDATOR="$SCRIPT_DIR/validate-handoff-generic.sh"
+    if ! HANDOFF_OUT=$(bash "$HANDOFF_VALIDATOR" "$TASK_ID" 2>&1); then
+      log "HANDOFF_BLOCK: task_id=$TASK_ID reason=$(echo "$HANDOFF_OUT" | tr '\n' ' ' | cut -c1-240)"
+      # Post card comment so blocking reason is visible on board
+      curl -s -X POST "http://localhost:3001/api/kanban/$TASK_ID/comments" \
+        -H "Content-Type: application/json" \
+        -d "{\"author\":\"alfred\",\"text\":\"🚫 HAL dispatch blocked: missing/invalid handoff contract at goals/handoffs/${TASK_ID}.json. Run: bash scripts/validate-handoff-generic.sh ${TASK_ID}.\"}" >/dev/null 2>&1 || true
+      echo "[ACTION:SKIP] reason=handoff_missing_or_invalid task_id=${TASK_ID}"
+      exit 0
+    fi
+
     # Build task message for HAL
     TASK_MSG="[KANBAN-TASK] ID: ${TASK_ID} | Priority: ${PRIORITY}
 Title: ${TITLE}
 ${DESC:+Description: ${DESC}}
-Instructions: Complete this task. When done, report your results."
+Instructions: Complete this task. When done, report your results.
+Handoff: validated (${TASK_ID})."
 
     # Dispatch directly to HAL via WebSocket (no Alfred LLM needed)
     DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {

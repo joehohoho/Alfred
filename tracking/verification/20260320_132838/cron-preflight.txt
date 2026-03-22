@@ -1,0 +1,40 @@
+=== Cron Preflight Routing Validator ===
+Allowlist: /Users/hopenclaw/.openclaw/workspace/config/cron-routing-allowlist.json
+✅ [enabled] healthcheck:security-audit
+✅ [disabled] Daily Config & Memory Review
+✅ [enabled] Evening Routine
+✅ [enabled] Moltbook Weekly Review
+✅ [disabled] Morning Brief
+✅ [enabled] Daily Update Check
+✅ [disabled] Alfred Backup - Tier 2 (GitHub Push Hourly)
+✅ [disabled] Alfred Backup - Tier 3 (Full System Weekly)
+✅ [disabled] Daily Goal Analysis
+✅ [enabled] Webhook Listener - Check for Answers
+✅ [disabled] Log Rotation
+✅ [enabled] Joe Profile Reflection
+✅ [enabled] Nightly Git Commit
+✅ [enabled] Session Checkpoint (Memory Continuity)
+✅ [disabled] Kanban Stale Assignment Check
+✅ [enabled] Kanban Idle Loop
+✅ [disabled] HAL Idle Check & Dispatch
+✅ [disabled] OpenClaw Maintenance — Weekly Self-Heal
+✅ [enabled] Alfred ↔ HAL Daily Discussion
+✅ [disabled] Weekly Wins & Impact Digest → Discord
+✅ [disabled] HAL Backup - State Snapshot
+✅ [disabled] Refresh OPEN-LOOPS Dashboard
+✅ [enabled] Weekly Decision Review
+✅ [enabled] Daily Quota Monitor
+✅ [disabled] HAL Idle Dispatch with Safeguards
+✅ [disabled] Kanban Work Executor (Option C)
+✅ [disabled] Daily Inquiry Questions
+✅ [enabled] Memory Size Monitor
+✅ [enabled] Daily Memory Archival
+✅ [enabled] Comm DNA Weekly Refresh
+✅ [enabled] Cron Preflight Validator (Daily)
+✅ [enabled] Ops Health Dashboard (Daily)
+✅ [enabled] Weekly Known-Failure Patterns Review
+
+--- Summary ---
+Passed: 33
+Failed: 0
+Skipped: 0

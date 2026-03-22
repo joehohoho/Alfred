@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "description": "Registry of tasks HAL may execute autonomously without explicit per-task approval. Each entry defines scope, frequency, and escalation rules. Results are batched and reported to Joe weekly.",
+  "updated": "2026-03-20",
+  "global_constraints": [
+    "NEVER modify ~/.openclaw/openclaw.json",
+    "NEVER send messages to external people without Alfred approval",
+    "NEVER spend more than $2.00 per autonomous run",
+    "NEVER make schema changes to databases or APIs",
+    "ALWAYS write results to the designated output path",
+    "ALWAYS post completion summary via hal-slack-notify.sh"
+  ],
+  "tasks": [
+    {
+      "id": "auto-code-review",
+      "name": "Overnight Code Review",
+      "enabled": true,
+      "description": "Review recent commits to Joe's repos for quality issues, security concerns, and improvement opportunities",
+      "frequency": "nightly",
+      "trigger": "00:30 AST",
+      "can_decide": [
+        "Severity classification of findings (low/medium/high)",
+        "Which style issues to flag vs. ignore",
+        "Whether a pattern is an anti-pattern"
+      ],
+      "must_escalate": [
+        "Any security vulnerability (CVSS >= 7)",
+        "Suggested changes to auth or payment code",
+        "If review finds breaking changes in main branch"
+      ],
+      "output_path": "~/.openclaw/workspace/reports/code-review-{DATE}.md",
+      "report_channel": "hal-completions",
+      "time_limit_minutes": 45,
+      "model_tier": "haiku"
+    },
+    {
+      "id": "auto-idea-vetting",
+      "name": "Idea Vetting & Scoring",
+      "enabled": true,
+      "description": "Score and summarize new ideas in the kanban ideas column. Filter noise, surface top 3 worth Joe's attention.",
+      "frequency": "daily",
+      "trigger": "08:00 AST",
+      "can_decide": [
+        "Scoring criteria weights (market size, effort, fit)",
+        "Whether an idea is a duplicate of an existing project",
+        "Which ideas to archive as low-signal"
+      ],
+      "must_escalate": [
+        "Ideas that require Joe's personal network or active client relationships",
+        "Ideas with estimated >$5k upfront investment",
+        "Ideas that directly compete with existing Joe products"
+      ],
+      "output_path": "~/.openclaw/workspace/reports/idea-vetting-{DATE}.md",
+      "report_channel": "hal-completions",
+      "time_limit_minutes": 30,
+      "model_tier": "haiku"
+    },
+    {
+      "id": "auto-signal-vetting",
+      "name": "Market Signal Vetting",
+      "enabled": true,
+      "description": "Fetch and score crypto/stock signals from Market Signal Lab. Filter low-confidence signals, summarize top picks with rationale.",
+      "frequency": "daily",
+      "trigger": "07:00 AST",
+      "can_decide": [
+        "Confidence threshold for inclusion (default: >= 70%)",
+        "Whether to combine correlated signals",
+        "How to format the summary"
+      ],
+      "must_escalate": [
+        "Signals suggesting position sizes > 10% of portfolio",
+        "Contradictory signals on same asset (buy + sell)",
+        "Data source errors or API failures lasting >2h"
+      ],
+      "output_path": "~/.openclaw/workspace/reports/signal-vetting-{DATE}.md",
+      "report_channel": "hal-completions",
+      "time_limit_minutes": 20,
+      "model_tier": "haiku"
+    },
+    {
+      "id": "auto-weekly-collab-sync",
+      "name": "Weekly Alfred-HAL Collaboration Sync",
+      "enabled": true,
+      "description": "Weekly review of Alfred↔HAL handoff quality, bottlenecks, and improvement opportunities. Produces a short summary + 1–3 concrete improvements for next week.",
+      "frequency": "weekly",
+      "trigger": "Friday 14:00 AST",
+      "can_decide": [
+        "Which metrics to include in the report",
+        "Priority ordering of recommendations",
+        "Whether to flag a pattern as systemic vs. one-off"
+      ],
+      "must_escalate": [
+        "Recommendations that require Joe approval (policy, budget, external changes)",
+        "If collab health score drops below 60% two weeks in a row"
+      ],
+      "output_path": "~/.openclaw/workspace/reports/collab-sync-{DATE}.md",
+      "report_channel": "hal-completions",
+      "time_limit_minutes": 30,
+      "model_tier": "haiku"
+    }
+  ]
+}

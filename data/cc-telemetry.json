@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-03-20T18:54:43Z",
+  "endpoints": {
+    "/api/kanban": {
+      "last_accessed": null,
+      "count_7d": 0,
+      "count_30d": 0
+    },
+    "/api/kanban/*/move": {
+      "last_accessed": null,
+      "count_7d": 0,
+      "count_30d": 0
+    },
+    "/api/kanban/*/comments": {
+      "last_accessed": null,
+      "count_7d": 0,
+      "count_30d": 0
+    },
+    "/api/health": {
+      "last_accessed": null,
+      "count_7d": 0,
+      "count_30d": 0
+    },
+    "/api/cron": {
+      "last_accessed": null,
+      "count_7d": 0,
+      "count_30d": 0
+    }
+  },
+  "pages": {
+    "kanban_board": {
+      "api_hits_7d": 0,
+      "value_score": 9,
+      "status": "active",
+      "strategic_tag": "critical"
+    },
+    "health_api": {
+      "api_hits_7d": 0,
+      "value_score": 8,
+      "status": "active",
+      "strategic_tag": "critical"
+    },
+    "cron_manager": {
+      "api_hits_7d": 0,
+      "value_score": 7,
+      "status": "active",
+      "strategic_tag": "support"
+    },
+    "ops_health_dashboard": {
+      "api_hits_7d": 0,
+      "value_score": 6,
+      "status": "unknown",
+      "strategic_tag": "support"
+    },
+    "notification_center": {
+      "api_hits_7d": 0,
+      "value_score": 7,
+      "status": "unknown",
+      "strategic_tag": "support"
+    }
+  }
+}

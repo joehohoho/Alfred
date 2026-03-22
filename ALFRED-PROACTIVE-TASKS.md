@@ -315,3 +315,31 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Same-origin prototype URL policy + proxy validation (fastest user-facing stability win)
 2. Prototype lifecycle automation via LaunchAgents (eliminates repeated offline state)
 3. Service-path preflight resolver for UI tasks (prevents wrong-repo rework)
+
+
+## Workflow Efficiency Scan — 2026-03-20
+
+### Top repetitive patterns and concrete improvements
+
+1. **Discord routing confusion between webhook IDs and channel IDs (delivery retry churn)**
+   - **Pattern:** Status posts targeted webhook IDs as `channelId` through `message.send`, returning `Unknown Channel`; manual recovery required via webhook curl.
+   - **Impact:** Failed mirrored updates, repeated retries, and operator context switching during routine status propagation.
+   - **Improvement proposal:** add a `discord-target-normalize` preflight that classifies target as `{channel_id|webhook_url|webhook_id}` and chooses the correct transport automatically (`message` for channel IDs, webhook sender for webhook targets). Store canonical routing map with explicit `transport` per destination.
+   - **Success metric:** 0 `Unknown Channel` failures for known routes over 14 days.
+
+2. **HAL baseline/format requests are repeated with slight schema drift (manual formatting tax)**
+   - **Pattern:** Multiple near-duplicate HAL requests for JSON baselines with different strict schemas caused repeated reformatting rather than reusable outputs.
+   - **Impact:** Time spent re-authoring equivalent payloads; higher chance of inconsistent fields across messages.
+   - **Improvement proposal:** create versioned response templates (`templates/hal-review-baseline.v1.json`, `v2-strict.json`) plus a tiny generator script to emit compliant one-line JSON by schema key.
+   - **Success metric:** cut repeat baseline-response drafting time by 70% and eliminate schema mismatch follow-ups.
+
+3. **Long research tasks can occupy main session unless explicitly delegated (throughput bottleneck)**
+   - **Pattern:** Deep tasks (e.g., full video review + action plan) risk tying up the main thread unless delegation is proactively enforced.
+   - **Impact:** Reduced responsiveness to new commands and slower parallel execution.
+   - **Improvement proposal:** codify an execution gate: any task estimated >5 minutes or requiring external content extraction triggers `sessions_spawn` sub-agent by default, with main session limited to orchestration + final synthesis.
+   - **Success metric:** maintain main-session response SLA (<30s initial ack) while running long analyses in parallel.
+
+### Recommended implementation order (highest ROI first)
+1. Discord target normalization + transport auto-selection
+2. HAL JSON baseline template generator
+3. Mandatory sub-agent gate for long-running analysis tasks

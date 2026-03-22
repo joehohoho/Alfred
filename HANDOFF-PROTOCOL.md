@@ -351,9 +351,10 @@ If Alfred reviews + finds issues:
 
 - **Template:** `goals/handoffs/TEMPLATE.json`
 - **Schema:** `schemas/handoff.json`
-- **Validator:** `scripts/validate-handoff.sh`
-- **Examples:** `goals/handoffs/card_*.json`
-- **Integration:** See "Dispatcher Gating" section in kanban-idle-loop.sh
+- **Validator (strict card_*):** `scripts/validate-handoff.sh`
+- **Validator (generic task ids, used by live dispatch):** `scripts/validate-handoff-generic.sh`
+- **Examples:** `goals/handoffs/card_*.json` or `goals/handoffs/task_*.json`
+- **Integration:** Dispatch scripts enforce handoff validation before HAL assignment
 
 ---
 
