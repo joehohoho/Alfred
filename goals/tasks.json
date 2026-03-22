@@ -3821,5 +3821,19 @@
         "createdAt": "2026-03-22T11:09:06.574Z"
       }
     ]
+  },
+  {
+    "id": "task_1774182651318_79b657e0",
+    "goalId": "",
+    "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)",
+    "description": "Audit finding: review cards are stalling because approval requires manual board navigation. Improvement: add actionable approve/reject controls directly in notifications, plus an SLA escalator (e.g., 72h reminder, 7-day auto-promote for low-risk deliverables). Scope: Command Center notification payload schema, kanban API action endpoint, audit trail in card comments. Expected impact: remove 4-5h/week approval polling and reduce review queue aging.",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": null,
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-22T12:30:51.318Z",
+    "updatedAt": "2026-03-22T12:30:51.318Z"
   }
 ]
