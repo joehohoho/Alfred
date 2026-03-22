@@ -51,7 +51,15 @@
       "expansion"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-20T18:26:01.453Z"
+    "updatedAt": "2026-03-21T21:00:00.000Z",
+    "rejectedReason": "Limited differentiation vs Wave/QuickBooks; high support burden (multi-API integrations) reduces passive potential; unvalidated GTM path",
+    "rejectedAt": "2026-03-21T21:00:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Brave Search (2026-03-21)",
+        "finding": "Venn.ca and other fintech platforms actively promote Interac e-Transfer for business payments; market demand confirmed. However, Wave, QuickBooks dominate SMB expense management with established customer bases."
+      }
+    ]
   },
   {
     "id": "idea_1771538400005_alfred_platform",
@@ -3903,7 +3911,7 @@
     "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)",
     "description": "Three 2-day tasks: (1) Toggle \"repeats monthly\" on expenses, (2) Bill splitting rules (\"always 50/50 with X\"), (3) Simplify debts algorithm (minimize settlement txns). Est. engagement lift: +10–15%. Tech: 2/5 each. Timeline: 3 weeks. Ship now.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3934,10 +3942,10 @@
       },
       "evaluatedAt": "2026-03-21T18:30:00.000Z"
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774130449066_c34541f7",
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.506Z",
-    "updatedAt": "2026-03-21T18:30:00.000Z"
+    "updatedAt": "2026-03-21T22:00:49.068Z"
   },
   {
     "id": "idea_1772996494526_be1f4485",
