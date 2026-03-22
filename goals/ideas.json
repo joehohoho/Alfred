@@ -4137,7 +4137,7 @@
     "title": "Atlantic Contractor Client Portal-in-a-Box",
     "description": "Small contractors in Atlantic Canada still manage client approvals via scattered SMS/email calls, causing delays and disputes. Build a lightweight branded client portal for quotes, scope approvals, change orders, progress updates, and payment-status visibility (without becoming a payment processor). Geography moat: built for micro-teams (1-20 staff), bilingual templates, and local service workflows (snow removal, renovations, HVAC, marine services). Demand validation: 10 discovery calls + 3 paid design-partner pilots; target 15% faster project approval cycle. Monetization: base subscription + project volume add-on + optional implementation service. Profitability: sticky workflow software with low support burden once templates are set.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -4160,10 +4160,10 @@
         "finding": "Real pain: customer communication timing expectations, trade/sub coordination failures, project delays from approval gaps. Email/SMS communication is primary friction."
       }
     ],
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774171849501_375342e7",
     "tags": [],
     "createdAt": "2026-03-10T14:01:44.303Z",
-    "updatedAt": "2026-03-22T06:00:00.000Z"
+    "updatedAt": "2026-03-22T09:30:49.503Z"
   },
   {
     "id": "idea_1773183778952_0071e10f",
@@ -5902,5 +5902,53 @@
     "tags": [],
     "createdAt": "2026-03-22T07:01:32.629Z",
     "updatedAt": "2026-03-22T07:01:32.629Z"
+  },
+  {
+    "id": "idea_1774179091745_174e5c8f",
+    "title": "Elite 3E Migration Reconciliation Copilot",
+    "description": "Problem: Law firms migrating to Elite 3E cloud struggle with data mapping validation, trust-account reconciliation, and UAT evidence collection across finance teams.\n\nTarget market: Mid/large law firms and legal ops consultancies running Elite 3E migrations (AmLaw + regional firms).\n\nEstimated MRR potential: $3,000–$12,000 (10–20 customers at $300–$600/mo for audit/reconciliation automation layer).\n\nTech complexity (1–5): 4\n\nCompetition level: Medium (consultancies provide services; few lightweight automation-first products focused on migration QA + reconciliation evidence packs).\n\nWhy Joe is positioned to win: Joe has 20+ years in legal billing/data transformation and domain credibility in Elite-like implementations. Can encode consultant playbooks into repeatable checks and reduce expensive migration QA hours.\n\nEvidence notes: Search shows active Elite 3E migration demand and rising cloud adoption in top law firms (Elite customer news + BusinessWire adoption data + specialized migration testing providers).\n\nRecurring model: Base subscription + optional managed monthly validation/reporting add-on.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-22T11:31:31.745Z",
+    "updatedAt": "2026-03-22T11:31:31.745Z"
+  },
+  {
+    "id": "idea_1774179091760_b2bdde2f",
+    "title": "Signal Discipline Coach (Alerts + Journal)",
+    "description": "Problem: Retail traders struggle with execution discipline; they overtrade, skip journaling, and break strategy rules even when they have signal tools.\n\nTarget market: Solo retail traders using crypto/stocks alert tools who want structured execution and post-trade review.\n\nEstimated MRR potential: $1,500–$10,000 (50–200 users at $29–$79/mo depending on integrations/coaching analytics).\n\nTech complexity (1–5): 3\n\nCompetition level: High (trading journals exist), but differentiation possible via signal-to-action compliance workflows and behavioral guardrails.\n\nWhy Joe is positioned to win: Existing Signal App context + automation strength enables fast build of niche decision-support layer without full broker stack complexity.\n\nEvidence notes: Search surfaced multiple paid trading journal platforms and pricing around ~$29/mo, validating ongoing demand and subscription viability.\n\nRecurring model: Monthly subscription for rule-based alerts, journaling scorecards, and weekly discipline reports (decision-support only, no investment advice). ",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-22T11:31:31.760Z",
+    "updatedAt": "2026-03-22T11:31:31.760Z"
+  },
+  {
+    "id": "idea_1774179091769_5d9781ea",
+    "title": "Canadian SMB Compliance Deadline Tracker",
+    "description": "Problem: Small Canadian businesses miss permit, license, and filing renewals due to fragmented calendars/manual tracking, creating fines and operational risk.\n\nTarget market: Canadian SMB operators (restaurants, retail, trades, clinics, franchises) with recurring compliance deadlines.\n\nEstimated MRR potential: $2,000–$8,000 (100–400 accounts at $20/mo, upsell for multi-location compliance dashboards).\n\nTech complexity (1–5): 2\n\nCompetition level: Medium (general renewal tools exist, but Canada-specific templates/workflows are sparse for SMB-friendly setup).\n\nWhy Joe is positioned to win: Strong automation workflow skills + ability to ship low-maintenance reminder systems quickly; can productize with jurisdiction templates and recurring compliance checklists.\n\nEvidence notes: Search results show active category demand (permit/renewal reminder software directories and dedicated reminder products), confirming willingness to pay for deadline automation.\n\nRecurring model: Per-location monthly subscription with SMS/email reminder tiers and accountant/bookkeeper partner referrals.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-22T11:31:31.769Z",
+    "updatedAt": "2026-03-22T11:31:31.769Z"
   }
 ]

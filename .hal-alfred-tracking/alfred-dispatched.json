@@ -1,8 +1,4 @@
 {
-  "task_1774074649936_75afe05f": {
-    "at": 1774087853.901671,
-    "title": "CoinUsUp Attendance Tracking + QR Check-In (Volunteer Kiosk)"
-  },
   "task_1774090851207_60e23900": {
     "at": 1774097008.866245,
     "title": "CoinUsUp Nonprofit Content Hub (SEO Growth)"
@@ -22,5 +18,9 @@
   "task_1773672258312_393a575f": {
     "at": 1774162229.2251542,
     "title": "Mission Control Phase 1: Stability & Visibility"
+  },
+  "task_1774171849501_375342e7": {
+    "at": 1774177685.7762501,
+    "title": "Atlantic Contractor Client Portal-in-a-Box"
   }
 }

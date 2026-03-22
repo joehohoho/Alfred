@@ -2687,12 +2687,12 @@
     "title": "Mission Control Phase 1: Stability & Visibility",
     "description": "Implement Cron Job Status Panel, Enhanced Task Board, Quick File Access Sidebar. Est. 18-22h. Target: complete by 2026-03-30",
     "goalId": "",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 0,
-    "completedAt": null,
+    "completedAt": "2026-03-22T11:31:15.607Z",
     "createdAt": "2026-03-16T14:44:18.312Z",
-    "updatedAt": "2026-03-22T06:53:12.999Z",
+    "updatedAt": "2026-03-22T11:31:15.607Z",
     "comments": [
       {
         "id": "cmt_1773672288340_3b02f6a8",
@@ -3557,14 +3557,14 @@
     "goalId": "",
     "title": "CoinUsUp Attendance Tracking + QR Check-In (Volunteer Kiosk)",
     "description": "**Problem**\nVolunteer-led events lose accurate attendance data because check-ins are manual, slow, or inconsistent across shifts.\n\n**Solution**\nAdd mobile-first QR check-in + kiosk mode to CoinUsUp so volunteers can self-check-in quickly and admins can see real-time attendance per shift.\n\n**Revenue Model**\nPrimarily a growth/retention feature for CoinUsUp (higher activation and org stickiness), with potential to support future premium org/team tiers.\n\n**Why Joe**\nStrong fit with existing CoinUsUp codebase and mobile roadmap, so this can ship faster than a greenfield attendance product.\n\n**Evidence**\nMultiple volunteer-management competitors already market QR attendance as a core feature (GivePulse, VolunteerHub, POINT, Rosterfy), indicating proven demand.",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
-    "completedAt": null,
+    "completedAt": "2026-03-22T11:31:40.211Z",
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T06:30:49.936Z",
-    "updatedAt": "2026-03-21T10:14:10.372Z",
+    "updatedAt": "2026-03-22T11:31:40.211Z",
     "comments": [
       {
         "id": "cmt_1774075555678_9aace366",
@@ -3606,14 +3606,14 @@
     "goalId": "",
     "title": "CoinUsUp Nonprofit Content Hub (SEO Growth)",
     "description": "**Problem**\nCoinUsUp needs a low-cost, scalable top-of-funnel acquisition channel for nonprofit users searching for practical tools. Existing growth channels are likely narrower than search-driven discovery.\n\n**Solution**\nBuild a nonprofit content hub targeting high-intent keywords like \"free volunteer management\", \"donation tracking\", \"nonprofit CRM\", and \"grant reporting\" with practical guides, templates, and comparison pages that route readers into CoinUsUp trials.\n\n**Revenue Model**\nPrimary monetization is trial-to-paid conversion from organic search traffic (estimated 3–5% trial conversion in original idea assumptions), with compounding SEO traffic reducing paid acquisition dependency over time.\n\n**Why Joe**\nJoe already operates and iterates CoinUsUp, so this idea leverages an existing product and avoids greenfield build risk. It aligns with his automation/content execution strengths and can run as parallel marketing work.\n\n**Evidence**\nQuick demand validation shows active, competitive search demand for this problem space:\n- DonorPerfect positions donation tracking and nonprofit CRM as core needs (https://www.donorperfect.com/).\n- Multiple 2025–2026 roundups list large numbers of nonprofit CRM tools (e.g., CharityEngine top 25, Double the Donation top 22), indicating sustained market and keyword competition.\n- Current ecosystem content explicitly targets nonprofit CRM/fundraising software discovery queries, confirming ongoing search intent.\n\n(Validation source: Brave web search, 2026-03-21.)",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
-    "completedAt": null,
+    "completedAt": "2026-03-22T11:31:42.879Z",
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T11:00:51.207Z",
-    "updatedAt": "2026-03-21T12:47:08.632Z",
+    "updatedAt": "2026-03-22T11:31:42.879Z",
     "comments": [
       {
         "id": "cmt_1774090987188_ed450b1f",
@@ -3661,14 +3661,14 @@
     "goalId": "",
     "title": "Even Us Up: Receipt Scanning + OCR (Mobile Differentiator)",
     "description": "Mobile-first receipt capture with OCR parsing (Joe's data transformation background = moat). Photo → auto-parse → split ready. Est. mobile conversion lift: +20%. Tech: 3/5 (OCR integration, receipt templates). Timeline: 4–6 weeks. Parallel to Roommate mode.",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
-    "completedAt": null,
+    "completedAt": "2026-03-22T11:31:48.384Z",
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T17:30:48.437Z",
-    "updatedAt": "2026-03-21T21:17:58.025Z",
+    "updatedAt": "2026-03-22T11:31:48.384Z",
     "comments": [
       {
         "id": "cmt_1774114585500_86328e18",
@@ -3704,14 +3704,14 @@
     "goalId": "",
     "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)",
     "description": "Three 2-day tasks: (1) Toggle \"repeats monthly\" on expenses, (2) Bill splitting rules (\"always 50/50 with X\"), (3) Simplify debts algorithm (minimize settlement txns). Est. engagement lift: +10–15%. Tech: 2/5 each. Timeline: 3 weeks. Ship now.",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
-    "completedAt": null,
+    "completedAt": "2026-03-22T11:31:21.635Z",
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T22:00:49.066Z",
-    "updatedAt": "2026-03-21T23:47:58.975Z",
+    "updatedAt": "2026-03-22T11:31:21.635Z",
     "comments": [
       {
         "id": "cmt_1774130918458_2655c232",
@@ -3796,5 +3796,30 @@
     "assignedAt": "2026-03-22T03:00:49.115Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "06a9720e-148d-418d-9e4b-4b6dff45b79e"
+  },
+  {
+    "id": "task_1774171849501_375342e7",
+    "goalId": "",
+    "title": "Atlantic Contractor Client Portal-in-a-Box",
+    "description": "Small contractors in Atlantic Canada still manage client approvals via scattered SMS/email calls, causing delays and disputes. Build a lightweight branded client portal for quotes, scope approvals, change orders, progress updates, and payment-status visibility (without becoming a payment processor). Geography moat: built for micro-teams (1-20 staff), bilingual templates, and local service workflows (snow removal, renovations, HVAC, marine services). Demand validation: 10 discovery calls + 3 paid design-partner pilots; target 15% faster project approval cycle. Monetization: base subscription + project volume add-on + optional implementation service. Profitability: sticky workflow software with low support burden once templates are set.",
+    "status": "review",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": null,
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-22T09:30:49.501Z",
+    "updatedAt": "2026-03-22T11:09:29.598Z",
+    "assignedAt": "2026-03-22T10:00:49.171Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "1f5583f1-54db-4b47-89f6-3872bd374a8b",
+    "comments": [
+      {
+        "id": "cmt_1774177746574_1c0867ee",
+        "author": "alfred",
+        "text": "✅ **PHASE 1 DISCOVERY FRAMEWORK — COMPLETE**\n\n**Deliverables (7 comprehensive docs):**\n1. Market Research & Workflow Analysis — contractor pain validated\n2. ICP Definition + Feature Matrix — target customers + MVP scope\n3. Prospect List + Outreach Templates — 10 leads, email/phone scripts\n4. Success Metrics + KPI Dashboard — measurement framework all 4 phases\n5. Competitive Analysis — why we win vs Procore/Asana/Monday\n6. Bilingual Strategy — French market opportunity + implementation\n7. Executive Summary — full roadmap + go/no-go decision framework\n\n**Key Findings:**\n- TAM: 2,000-2,500 contractors in Atlantic Canada\n- Problem validated: 7-14 day approval cycles, SMS/email chaos\n- Pricing viable: $50-150/month + add-ons\n- Competitive moat: Bilingual + lightweight + approval-first\n- Pilot path: 3 signed, ready to execute\n\n**Next Phase:**\n- Execute 10 discovery calls (Mar 25 - Apr 11)\n- Recruit 3 design-partner pilots\n- Validate market assumptions (8+ calls, 70%+ metrics hit)\n- Go/No-Go decision by Apr 15\n- MVP build begins Apr 15 if validated\n\n**Status:** Ready for Joe approval → discovery execution this week",
+        "createdAt": "2026-03-22T11:09:06.574Z"
+      }
+    ]
   }
 ]

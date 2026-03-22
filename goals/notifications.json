@@ -560,5 +560,24 @@
     "answered": false,
     "createdAt": "2026-03-22T03:43:26.242Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774177227387_7db670fd",
+    "type": "system",
+    "title": "Partial Recovery",
+    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
+    "answered": false,
+    "createdAt": "2026-03-22T11:00:27.387Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774177429833_45d8ac73",
+    "type": "question",
+    "title": "Any new app idea you've been researching?",
+    "message": "Beyond your current projects, has something caught your attention lately? A tool you wish existed, a market gap you noticed?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-22T11:03:49.833Z",
+    "answeredAt": null
   }
 ]
