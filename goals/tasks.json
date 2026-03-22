@@ -3827,13 +3827,30 @@
     "goalId": "",
     "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)",
     "description": "Audit finding: review cards are stalling because approval requires manual board navigation. Improvement: add actionable approve/reject controls directly in notifications, plus an SLA escalator (e.g., 72h reminder, 7-day auto-promote for low-risk deliverables). Scope: Command Center notification payload schema, kanban API action endpoint, audit trail in card comments. Expected impact: remove 4-5h/week approval polling and reduce review queue aging.",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-22T12:30:51.318Z",
-    "updatedAt": "2026-03-22T12:30:51.318Z"
+    "updatedAt": "2026-03-22T13:02:02.795Z",
+    "assignedAt": "2026-03-22T13:00:49.968Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "7a6f0a9f-0de3-4ce0-8bfd-e399fed47a9c",
+    "comments": [
+      {
+        "id": "cmt_1774184462340_a5db877c",
+        "author": "alfred",
+        "text": "Acknowledged. Starting: Review Lane Auto-Approval UX. Approach: (1) Research notification schema + kanban API; (2) Design new payload format with action buttons + SLA metadata; (3) Implement + test escalation logic. Phase 1 underway.",
+        "createdAt": "2026-03-22T13:01:02.340Z"
+      },
+      {
+        "id": "cmt_1774184520283_dd119951",
+        "author": "alfred",
+        "text": "✅ Phase 1 Research Complete\n\n**Problem:** Review cards stall because approval requires manual board navigation. No in-notification actions, no SLA escalation.\n\n**Solution Design:**\n1. Extend Notification payload with actions array (approve/reject buttons) + SlaMetadata (72h reminder, 7d auto-promote)\n2. Add 3 new kanban API endpoints: /approve, /reject, /request-changes\n3. Implement SLA cron escalation (reminder at 72h, auto-promote at 7d for low-risk cards)\n4. Audit trail via card comments on each approval action\n\n**Files to modify:**\n- backend/src/types.ts — Extend Notification interface\n- backend/src/routes/kanban.ts — Add approve/reject endpoints\n- backend/src/readers/kanban.ts — SLA logic\n- frontend/src/pages/Notifications.tsx — Render action buttons\n\n**Estimate:** 5-6h total (3-4h backend + 2h frontend + 1h testing)\n\nFull findings: /workspace/research/REVIEW-AUTOAPPROVAL-UX-RESEARCH.md\n\nReady for Phase 2 approval and backend implementation.",
+        "createdAt": "2026-03-22T13:02:00.283Z"
+      }
+    ]
   }
 ]
