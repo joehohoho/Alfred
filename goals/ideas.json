@@ -3952,7 +3952,7 @@
     "title": "Even Us Up: B2B Expense Mgmt (Teams/Orgs — Long-Term)",
     "description": "SMB expense management (employees, contractors, clients). Differentiator: Interac e-Transfer auto-settlement, CRA T776 reporting, QuickBooks/FreshBooks integration. Joe's billing background = moat. Est. revenue: $3k–30k MRR. Tech: 5/5. Timeline: 12–16 weeks. Post-scale play.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -3970,10 +3970,10 @@
       "weighted_score": 62,
       "evaluatedAt": "2026-03-21T23:00:00.000Z"
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774146648749_3fca0508",
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.526Z",
-    "updatedAt": "2026-03-21T23:15:00.000Z",
+    "updatedAt": "2026-03-22T02:30:48.751Z",
     "researchEvidence": [
       {
         "source": "Brave Search (Expense Management Market)",
