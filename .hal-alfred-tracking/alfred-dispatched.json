@@ -1,20 +1,4 @@
 {
-  "task_1774049450946_985e3e26": {
-    "at": 1774052070.3981922,
-    "title": "CoinUsUp Mobile App Launch (iOS/Android Capacitor)"
-  },
-  "task_1774053050845_93a45189": {
-    "at": 1774053871.706172,
-    "title": "Niche SaaS: Auto Weekly Client Updates from work tools"
-  },
-  "task_1774054884299_23d01b3d": {
-    "at": 1774057473.804557,
-    "title": "Voice-to-SOP Builder for Field Service Teams"
-  },
-  "task_1774058538023_ae4bf3d2": {
-    "at": 1774061075.138134,
-    "title": "Bill Review & Invoice Audit Automation (Canadian SMB SaaS)"
-  },
   "task_1774062049248_7486f8ba": {
     "at": 1774072152.890058,
     "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
@@ -34,5 +18,9 @@
   "task_1774130449066_c34541f7": {
     "at": 1774136625.364565,
     "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)"
+  },
+  "task_1774146648749_3fca0508": {
+    "at": 1774149228.730062,
+    "title": "Even Us Up: B2B Expense Mgmt (Teams/Orgs \u2014 Long-Term)"
   }
 }

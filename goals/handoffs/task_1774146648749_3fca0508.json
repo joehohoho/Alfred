@@ -1,0 +1,192 @@
+{
+  "card_id": "task_1774146648749_3fca0508",
+  "card_title": "Even Us Up: B2B Expense Mgmt (Teams/Orgs — Long-Term)",
+  "phase": "Discovery Complete — Awaiting Implementation Decision",
+  "created_at": "2026-03-22T04:00:00Z",
+  "handoff_type": "discovery_to_implementation",
+  
+  "objective": "Complete Phase 1.0 implementation specification and discovery validation for B2B expense management feature targeting Canadian SMBs with 5-50 employees. Deliver fully-scoped MVP spec, risk assessment, and handoff contract ready for implementation phase.",
+  
+  "scope_completed": [
+    "Market research and competitive analysis (Expensify, Divvy, Concur, Xero, Zoho Books)",
+    "Differentiation strategy (Interac e-Transfer, CRA T5018/T776 reporting, QB/FreshBooks sync)",
+    "Revenue model and pricing tiers ($49/$149/$399/month)",
+    "Phase 1.0 MVP scope (approval workflow, categorization, reporting, org management)",
+    "Detailed database schema and API endpoints",
+    "UI wireframes for employee, manager, finance views",
+    "Development breakdown (6 weeks, 5-6 dev phases)",
+    "Success criteria and validation metrics",
+    "Risk assessment and mitigation strategies"
+  ],
+  
+  "deliverables": {
+    "discovery_document": "deliverables/task_1774146648749_3fca0508-b2b-expense-discovery.md",
+    "mvp_specification": "deliverables/task_1774146648749_3fca0508-phase-1-mvp-spec.md",
+    "handoff_contract": "goals/handoffs/task_1774146648749_3fca0508.json",
+    "evidence_summary": "discoverable at task_1774146648749_3fca0508-implementation-summary.md"
+  },
+  
+  "next_phase_options": {
+    "option_a": {
+      "name": "HAL Parallel Dispatch (Fastest)",
+      "description": "Spawn HAL to handle Phase 1.0 implementation end-to-end (backend + frontend). Alfred monitors progress and handles integration reviews.",
+      "timeline": "5-6 weeks",
+      "pros": [
+        "Fastest to market",
+        "HAL handles parallel task execution",
+        "Frees Alfred for concurrent work"
+      ],
+      "cons": [
+        "Requires tight handoff contract (prepared)",
+        "Higher risk if HAL communication breaks",
+        "Needs integration/review phase at end"
+      ],
+      "handoff_readiness": "CONTRACT_READY"
+    },
+    "option_b": {
+      "name": "Alfred Sequential Implementation",
+      "description": "Alfred implements Phase 1.0 features sequentially (backend → frontend → testing). Proven reliability, thorough testing.",
+      "timeline": "6-8 weeks",
+      "pros": [
+        "Single owner, proven reliability",
+        "Better for iterative feedback",
+        "Joe can provide input during development"
+      ],
+      "cons": [
+        "Slower to market",
+        "Blocks other work while in progress",
+        "Stretches to Week of May 5 launch"
+      ],
+      "handoff_readiness": "READY"
+    },
+    "option_c": {
+      "name": "Hybrid (Alfred + HAL)",
+      "description": "Alfred handles backend scaffolding + approval workflow. HAL handles frontend UI + reporting dashboard. Coordinate via daily standup.",
+      "timeline": "5-6 weeks",
+      "pros": [
+        "Parallelizes work while keeping core with Alfred",
+        "Faster than sequential, lower risk than pure HAL",
+        "Good balance of speed and oversight"
+      ],
+      "cons": [
+        "Requires coordination overhead",
+        "Need to define handoff points clearly"
+      ],
+      "handoff_readiness": "READY"
+    }
+  },
+  
+  "acceptance_criteria": {
+    "functional": [
+      "Multi-tenant org creation and user management (Admin, Manager, Employee, Finance roles)",
+      "Expense submission form with categorization, date, amount, receipt upload",
+      "Manager approval workflow (approve/reject with comments)",
+      "Finance dashboard with summary cards and expense list filtering",
+      "CSV export of expenses with date range filters",
+      "Email notifications for submission, approval, rejection",
+      "Role-based access control (employees see own expenses, managers see team, finance sees all)"
+    ],
+    "non_functional": [
+      "Page load time <2 seconds",
+      "API response time <500ms (p95)",
+      "Mobile-responsive design (CSS media queries, no native app)",
+      "Database supports 1000+ concurrent users per org",
+      "All user input validated (XSS, SQL injection protection)",
+      "Zero critical security vulnerabilities (external audit)",
+      "Password reset flow working",
+      "Org email domain invitations working"
+    ],
+    "testing": [
+      "Unit tests for approval logic, categorization, filtering (80%+ coverage)",
+      "Integration tests for API endpoints (happy path + error cases)",
+      "E2E tests for complete expense flow (submit → approve → view)",
+      "Manual testing with 5-10 pilot customers before launch"
+    ]
+  },
+  
+  "validation_commands": {
+    "backend_readiness": "npm run test:unit && npm run test:integration",
+    "frontend_readiness": "npm run test:unit && npm run build",
+    "e2e_smoke": "npm run test:e2e -- --smoke",
+    "security_check": "npm audit && npm run lint",
+    "performance_check": "lighthouse https://app.evenusup.local --output=json",
+    "db_migrations": "npm run migrate:up && npm run seed:test",
+    "pilot_deployment": "docker build . && docker run -e ENV=staging",
+    "success_signal": "20+ pilot orgs created, 50+ expenses submitted, NPS >30 in feedback survey"
+  },
+  
+  "blockers_and_dependencies": [
+    "No blockers identified; all tech stack decisions finalized",
+    "Dependency: AWS S3 credentials for file upload (staging + production)",
+    "Dependency: SendGrid API key for email notifications",
+    "Dependency: Database ready (PostgreSQL 14+ on staging)",
+    "Dependency: Stripe test account (for future Phase 2 billing, can be post-Phase-1.0)"
+  ],
+  
+  "risk_assessment": {
+    "technical": [
+      {
+        "risk": "Multi-tenant database isolation (data leakage)",
+        "probability": "low",
+        "impact": "critical",
+        "mitigation": "Use row-level security (RLS) in PostgreSQL; audit schema design with security expert; test tenant isolation with e2e tests"
+      },
+      {
+        "risk": "Approval workflow edge cases (simultaneous approval, status conflicts)",
+        "probability": "medium",
+        "impact": "high",
+        "mitigation": "Implement state machine (e.g., xstate); test all transitions; add idempotency keys to API"
+      },
+      {
+        "risk": "File upload failures (S3 unavailable, large file handling)",
+        "probability": "medium",
+        "impact": "medium",
+        "mitigation": "Implement retry logic (3 attempts, exponential backoff); user feedback UI; max file size 50MB"
+      },
+      {
+        "risk": "Email delivery (spam folder, bounces, rate limits)",
+        "probability": "low",
+        "impact": "medium",
+        "mitigation": "Use SendGrid, monitor deliverability dashboard; implement email verification in signup; test with staging"
+      }
+    ],
+    "business": [
+      {
+        "risk": "Pilot customers don't adopt (poor UX, missing features)",
+        "probability": "medium",
+        "impact": "high",
+        "mitigation": "Onboarding flow with tooltips; daily standup with pilot customers during first 2 weeks; iterate based on feedback"
+      },
+      {
+        "risk": "Scope creep (customers request features beyond Phase 1.0)",
+        "probability": "high",
+        "impact": "medium",
+        "mitigation": "Clear scope document shared with pilots; roadmap posted publicly; feature requests go to backlog for Phase 2"
+      }
+    ]
+  },
+  
+  "communication_protocol": {
+    "daily_standup": "9:00 AM AST (async update to Discord if remote)",
+    "blocking_issues": "Notify immediately via Discord #work-in-progress",
+    "progress_updates": "End-of-day summary in kanban card comments",
+    "design_decisions": "Post in Discord before implementation (5-minute decision window)",
+    "integration_review": "Joe reviews end-to-end before pilot launch (Wednesday of Week 6)",
+    "pilot_feedback": "Weekly sync with pilot customers (Fridays)"
+  },
+  
+  "sign_off_requirements": {
+    "alfred_approval": "Discovery complete; handoff contract ready for HAL or Alfred implementation. Recommendation: Option A (HAL parallel) if available; Option C (hybrid) if HAL unavailable.",
+    "joe_approval": "Joe must approve one of three implementation options (A/B/C) before Phase 1.0 begins. Target approval: today (2026-03-22) for Week of April 21 ship date."
+  },
+  
+  "timeline_summary": {
+    "discovery_phase": "2026-03-20 to 2026-03-22 (3 days)",
+    "phase_1_0_estimated": "2026-04-01 to 2026-05-19 (6 weeks)",
+    "pilot_validation": "2026-05-20 to 2026-06-09 (3 weeks)",
+    "phase_2_0_estimated": "2026-06-10 to 2026-07-15 (5-6 weeks)",
+    "full_launch_estimated": "2026-07-16"
+  },
+  
+  "notes": "This is a post-scale play with strong unit economics. Phase 1.0 MVP is achievable in 4-6 weeks with clear scope. Recommend HAL dispatch for fastest execution if Joe approves Option A. Otherwise, Alfred can execute sequentially with Joe's concurrent oversight on other cards. All discovery artifacts are in place; ready to move to implementation kanban."
+}

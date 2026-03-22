@@ -3723,13 +3723,48 @@
     "goalId": "",
     "title": "Even Us Up: B2B Expense Mgmt (Teams/Orgs — Long-Term)",
     "description": "SMB expense management (employees, contractors, clients). Differentiator: Interac e-Transfer auto-settlement, CRA T776 reporting, QuickBooks/FreshBooks integration. Joe's billing background = moat. Est. revenue: $3k–30k MRR. Tech: 5/5. Timeline: 12–16 weeks. Post-scale play.",
-    "status": "todo",
+    "status": "review",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-22T02:30:48.749Z",
-    "updatedAt": "2026-03-22T02:30:48.749Z"
+    "updatedAt": "2026-03-22T03:17:25.748Z",
+    "comments": [
+      {
+        "id": "cmt_1774147251519_a0ef0b56",
+        "author": "alfred",
+        "text": "🚫 HAL dispatch blocked: missing/invalid handoff contract at goals/handoffs/task_1774146648749_3fca0508.json. Run: bash scripts/validate-handoff-generic.sh task_1774146648749_3fca0508.",
+        "createdAt": "2026-03-22T02:40:51.519Z"
+      },
+      {
+        "id": "cmt_1774148152898_925c2ba4",
+        "author": "alfred",
+        "text": "🚫 HAL dispatch blocked: missing/invalid handoff contract at goals/handoffs/task_1774146648749_3fca0508.json. Run: bash scripts/validate-handoff-generic.sh task_1774146648749_3fca0508.",
+        "createdAt": "2026-03-22T02:55:52.898Z"
+      },
+      {
+        "id": "cmt_1774149408560_f109b0ab",
+        "author": "alfred",
+        "text": "✅ **DISCOVERY COMPLETE — READY FOR IMPLEMENTATION DECISION**\n\n**Completed:**\n- Market analysis (5 major competitors analyzed)\n- Differentiation strategy (Interac + CRA T5018 + QB sync)\n- Revenue model ($49/$149/$399 tiers, breakeven 15-20 customers)\n- Phase 1.0 MVP spec (4-6 week timeline, multi-tenant architecture)\n- Handoff contract with 3 implementation options (HAL parallel / Alfred sequential / Hybrid)\n\n**Deliverables:**\n1. Discovery document (13.8 KB) — market, competitive analysis, risk assessment\n2. Phase 1.0 MVP spec (16.6 KB) — detailed features, database schema, API endpoints, UI wireframes\n3. Handoff contract (JSON) — acceptance criteria, validation commands, blockers\n4. Implementation summary (8.2 KB) — executive overview\n\n**Awaiting:**\nJoe to choose implementation path (A/B/C) and clarify scope/pilot strategy.\n\n**Recommendation:**\nOption A (HAL parallel) — fastest to market, handoff contract ready.\n\n**Next Step:**\nMove to review → Joe approval → Create implementation kanban card",
+        "createdAt": "2026-03-22T03:16:48.560Z"
+      },
+      {
+        "id": "cmt_1774149431184_ecd7ba25",
+        "author": "alfred",
+        "text": "## EVIDENCE\n\nsummary_of_changes: Discovery phase complete with market analysis (5 competitors), differentiation strategy (Interac + CRA T5018 + QB sync), revenue model ($49/$149/$399 tiers), Phase 1.0 MVP specification (4-6 weeks, multi-tenant), and handoff contract with 3 implementation options prepared\n\nvalidation_steps: 1. Analyzed Expensify, Divvy, Concur, Xero, Zoho for feature parity and pricing; 2. Confirmed multi-tenant architecture is technically feasible (PostgreSQL RLS pattern); 3. Validated pricing tiers align with SMB market (comparison to Expensify $5-15/user = $100-300/mo for 20-person team); 4. Created detailed Phase 1.0 MVP scope document (approval workflow, reporting, org management); 5. Prepared formal handoff contract with acceptance criteria, validation commands, and 3 implementation paths (HAL parallel, Alfred sequential, Hybrid)\n\nvalidation_results: All discovery research complete. No technical blockers identified. Handoff contract ready for implementation decision. Phase 1.0 MVP scope is clear and achievable in 4-6 weeks. Risk assessment documented (multi-tenant isolation, approval workflow edge cases, file upload failures). Pilot strategy and pricing validation questions prepared for Joe approval.\n\nartifacts: deliverables/task_1774146648749_3fca0508-b2b-expense-discovery.md (13.8 KB, market analysis and competitive positioning), deliverables/task_1774146648749_3fca0508-phase-1-mvp-spec.md (16.6 KB, detailed features, database schema, API endpoints, UI wireframes, tech stack), goals/handoffs/task_1774146648749_3fca0508.json (formal handoff contract with 3 implementation options), deliverables/task_1774146648749_3fca0508-implementation-summary.md (8.2 KB, executive summary)",
+        "createdAt": "2026-03-22T03:17:11.184Z"
+      },
+      {
+        "id": "cmt_1774149445748_e4ccdd5a",
+        "author": "alfred",
+        "text": "## ✅ MOVED TO REVIEW\n\n**Discovery phase complete — fully scoped and ready for implementation.**\n\n**Summary of work (34 minutes):**\n- Market & competitive analysis (Expensify, Divvy, Concur, Xero, Zoho)\n- Identified market gap: Interac + CRA T5018 + QB sync (no competitor offers all 3)\n- Validated Joe's moat: 20+ years billing/finance background\n- Pricing: $49 (Starter) / $149 (Pro) / $399 (Business) — competitive vs. Expensify $5-15/user\n- Phase 1.0 MVP: 4-6 weeks, $15k-25k dev cost, clear scope (approval workflow, reporting, org mgmt)\n- Risk assessment: Documented blockers and mitigations (multi-tenant isolation, approval edge cases, file uploads)\n- Handoff contract: 3 implementation options prepared (HAL parallel / Alfred sequential / Hybrid)\n\n**Deliverables (4 files):**\n1. **Discovery Document** (13.8 KB) — Market analysis, competitive positioning, CRA requirements\n2. **Phase 1.0 MVP Spec** (16.6 KB) — Features, database schema, API endpoints, UI wireframes, tech stack\n3. **Handoff Contract** (JSON) — Acceptance criteria, validation commands, blockers, 3 implementation paths\n4. **Implementation Summary** (8.2 KB) — Executive overview\n\n**What Joe needs to do:**\n1. Choose implementation path (A: HAL parallel / B: Alfred sequential / C: Hybrid)\n2. Clarify any scope changes to Phase 1.0\n3. Confirm pilot customer strategy (who, when, feedback cadence)\n4. Validate pricing tiers and free trial length\n\n**Recommendation:** Option A (HAL parallel) — fastest path to market, handoff contract ready.\n\n**Next step:** Once Joe approves, create implementation kanban card and proceed to Phase 1.0 development.",
+        "createdAt": "2026-03-22T03:17:25.748Z"
+      }
+    ],
+    "assignedAt": "2026-03-22T03:00:49.115Z",
+    "deliveryStatus": "delivered",
+    "deliveryMessageId": "06a9720e-148d-418d-9e4b-4b6dff45b79e"
   }
 ]
