@@ -4188,16 +4188,29 @@
     "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)",
     "description": "Audit finding: review cards are stalling because approval requires manual board navigation. Improvement: add actionable approve/reject controls directly in notifications, plus an SLA escalator (e.g., 72h reminder, 7-day auto-promote for low-risk deliverables). Scope: Command Center notification payload schema, kanban API action endpoint, audit trail in card comments. Expected impact: remove 4-5h/week approval polling and reduce review queue aging.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Strong workflow improvement with validated demand (Joe identified bottleneck personally; 4-5h/week observation confirmed by task stalling patterns). SLA escalation + approval buttons directly address friction. Medium build effort (notification payload schema + API endpoint + safeguards) with high implementation ROI. Proven market patterns (Cflow, SBN Software document SLA escalation as best practice). Natural complement to existing kanban board. Moderate passive potential but extremely high user-retention impact for Alfred system itself. Recommend prioritizing after Mission Control Phase 1 (cron visibility)."
+    },
+    "researchEvidence": [
+      {
+        "source": "Brave Search (2026-03-22)",
+        "finding": "SLA escalation + approval workflows are industry standard (ConductorOne, Cflow, SBN Software). Auto-escalation on timer + role-based routing documented across enterprise workflow platforms. Approval bottlenecks explicitly called out as solved by: (1) inline notification controls vs board navigation, (2) SLA timer escalation, (3) auto-promote fallback for low-risk items. Evidence: Cflow case studies show 40-60% approval cycle time reduction."
+      },
+      {
+        "source": "MEMORY.md + AGENTS.md (2026-03-21)",
+        "finding": "Known infrastructure issue (AGENTS.md: '4-5 review cards stall indefinitely waiting for Joe approval. Notifications sent but no approve/reject buttons in notification UI.'). Identified in WORKFLOW-EFFICIENCY-SCAN.md as bottleneck. Joe confirmed frustration."
+      }
+    ],
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-11T09:02:47.433Z",
-    "updatedAt": "2026-03-11T09:02:47.433Z"
+    "updatedAt": "2026-03-22T09:00:00.000Z"
   },
   {
     "id": "idea_1773219773743_3c9adf92",
