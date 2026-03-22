@@ -3952,16 +3952,38 @@
     "title": "Even Us Up: B2B Expense Mgmt (Teams/Orgs — Long-Term)",
     "description": "SMB expense management (employees, contractors, clients). Differentiator: Interac e-Transfer auto-settlement, CRA T776 reporting, QuickBooks/FreshBooks integration. Joe's billing background = moat. Est. revenue: $3k–30k MRR. Tech: 5/5. Timeline: 12–16 weeks. Post-scale play.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.2,
+      "notes": "Moderate opportunity with real market demand (expense mgmt CAGR 10% to $16.5B by 2032). Main constraints: (1) Crowded market—Wave/QuickBooks are entrenched, (2) Joe's edge is billing (not multi-API integration support), (3) High implementation complexity (Interac, QuickBooks/FreshBooks APIs, CRA compliance rules) reduces passive potential—ongoing support overhead likely, (4) Only marginal differentiation vs competitors (Interac + T776 combo is nice but not a 10x moat). Build effort is medium-high (4-8 weeks for integrations). Revenue potential is $800–3k/mo at modest scale but requires active customer support/API maintenance. Below promotion threshold (7+) due to integration complexity and limited passive potential. Recommend: pursue only if Interac e-Transfer integration becomes unique selling point (validate demand first with 2-3 prospect calls).",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 5,
+        "joes_edge_2x": 6,
+        "synergy_1x": 6,
+        "passive_potential_2x": 4
+      },
+      "weighted_score": 62,
+      "evaluatedAt": "2026-03-21T23:00:00.000Z"
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-08T19:01:34.526Z",
-    "updatedAt": "2026-03-08T19:01:34.526Z"
+    "updatedAt": "2026-03-21T23:15:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Brave Search (Expense Management Market)",
+        "finding": "Expense management software market projected to grow from $8.30B in 2025 to $16.48B by 2032, CAGR 10.08%. North America 39% of market. Strong demand signal for B2B expense tools."
+      },
+      {
+        "source": "Market Analysis",
+        "finding": "Wave, QuickBooks dominate SMB expense tracking with established customer bases. No dedicated Interac e-Transfer + CRA T776 reporting combo exists in Canada = potential differentiation if positioning is precise. However, integration complexity (multiple SaaS APIs) and ongoing support burden reduce passive income potential."
+      }
+    ]
   },
   {
     "id": "idea_1773068536736_df834fbf",

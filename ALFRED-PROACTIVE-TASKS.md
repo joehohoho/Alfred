@@ -343,3 +343,39 @@ When in doubt, default to tasks that advance this goal (tasks 1, 2, 6, 8, 9).
 1. Discord target normalization + transport auto-selection
 2. HAL JSON baseline template generator
 3. Mandatory sub-agent gate for long-running analysis tasks
+
+## Workflow Efficiency Scan — 2026-03-21
+
+### Top repetitive patterns and concrete improvements
+
+1. **Proactive discussion outputs are produced, but Discord delivery fails on target formatting (visibility gap)**
+   - **Pattern:** Multiple high-value collaborative discussion summaries were completed, but `message.send` to Discord failed with `Unknown target` for `C0AH4QSA71T`.
+   - **Impact:** Good analysis is written to memory files but not surfaced in the intended channel, reducing decision velocity and creating manual follow-up work.
+   - **Improvement proposal:** implement a single delivery adapter (`scripts/post-discord-safe.sh`) with strict normalization:
+     - accept alias/channel key input (`hal-completions`, `collab-discussion`)
+     - resolve to canonical `channel:<id>`/provider-native target from a checked map
+     - preflight with one lightweight validation call and fallback to queued Kanban comment artifact when unresolved
+   - **Success metric:** 0 proactive delivery failures for known Discord destinations across 14 days.
+
+2. **Insight capture is happening, but publish path is inconsistent (memory-only trap)**
+   - **Pattern:** Completed scans/discussions are often persisted to `memory/*.md` after send failures, but no guaranteed second-stage publish/retry path exists.
+   - **Impact:** Findings become discoverable only by manual file review; actionable recommendations may miss the board/discussion channel in real time.
+   - **Improvement proposal:** add a publish queue (`.hal-alfred-tracking/publish-queue.jsonl`) with retry policy:
+     - every proactive artifact writes `{title, destination, payload_path, retries, next_attempt_at}`
+     - cron retry worker drains queue every 15 minutes
+     - after N failures, auto-post condensed summary to Kanban Ideas/comment with `DELIVERY_BLOCKED` tag
+   - **Success metric:** ≥95% of proactive artifacts reach an external destination or Kanban fallback within 1 hour.
+
+3. **Workflow-scan recommendations recur without implementation handoff binding (execution leakage)**
+   - **Pattern:** Similar recommendations (routing guards, dedupe, null-card hygiene, publish gating) appear repeatedly across scans, indicating weak conversion from analysis to owned implementation work.
+   - **Impact:** Re-analysis cost accumulates while critical reliability fixes remain partially implemented.
+   - **Improvement proposal:** enforce a “recommendation binding” rule for workflow scans:
+     - each new scan must include exactly 1 `IMPLEMENT_NOW` item with owner, script/file target, validation command, and done condition
+     - if a matching item already exists, scan must update status on that item instead of creating a new variant
+     - maintain `workflow-efficiency-backlog.md` as canonical deduped list
+   - **Success metric:** reduce repeated recommendation variants by 70% and increase scan-to-implementation conversion to ≥80% within 7 days.
+
+### Recommended implementation order (highest ROI first)
+1. Discord-safe delivery adapter + destination map normalization
+2. Publish queue with automated retry/fallback to Kanban artifact
+3. Recommendation binding rule + deduped workflow-efficiency backlog
