@@ -4066,16 +4066,35 @@
     "title": "Customer Support Triage Copilot for Indie Apps",
     "description": "Problem: Founders manually sort support tickets/DMs, causing slow response and missed churn signals. Target market: Indie app owners and small SaaS teams. MRR potential: k-k at -/mo. Tech complexity: 3/5 (email/helpdesk ingestion, intent tagging, priority scoring, daily brief). Competition: Medium (Intercom/Zendesk too heavy for small teams; gap for lightweight AI triage). Why Joe can win: Existing app maintenance experience + can design low-maintenance workflows and actionable summaries for solo operators.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 6.2,
+      "notes": "Real market demand (Forethought, Assembled, Zendesk all offer triage; indie founders searching for lightweight alternatives). However: weak competitive edge (Joe lacks support/email domain expertise), crowded market (10+ incumbents), and zero project synergy with existing portfolio. Recommend focusing on portfolio growth instead (CoinUsUp paid tier, Signal App where Joe has 10x advantage).",
+      "breakdown": {
+        "market_fit_3x": 7,
+        "effort_reward_2x": 6,
+        "joes_edge_2x": 5,
+        "synergy_1x": 3,
+        "passive_potential_2x": 7
+      },
+      "evaluatedAt": "2026-03-22T04:00:00.000Z"
+    },
+    "researchEvidence": [
+      {
+        "source": "Brave Search (2026-03-22)",
+        "finding": "Market validation confirmed. Forethought, Assembled, Zendesk AI, Fini all offer AI triage. Demand exists for lightweight indie-focused alternatives (search volume confirms 'AI customer support triage'). However, market is mature and incumbents have significant moat."
+      }
+    ],
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-03-10T06:05:59.153Z",
-    "updatedAt": "2026-03-10T06:05:59.153Z"
+    "updatedAt": "2026-03-22T04:00:00.000Z",
+    "rejectedReason": "Below promotion threshold. Market demand confirmed but weak edge vs 10+ competitors. Joe lacks domain expertise. Zero synergy with existing portfolio.",
+    "rejectedAt": "2026-03-22T04:00:00.000Z"
   },
   {
     "id": "idea_1773151285164_9a1144a7",
