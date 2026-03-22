@@ -5963,5 +5963,21 @@
     "tags": [],
     "createdAt": "2026-03-22T11:31:31.769Z",
     "updatedAt": "2026-03-22T11:31:31.769Z"
+  },
+  {
+    "id": "idea_1774186357833_74e4aefc",
+    "title": "Atlantic Canada SMB SaaS Opportunities Scan (NB-focused)",
+    "description": "Canada-specific passive income scan focused on Atlantic Canada/NB SMB pain points (bilingual compliance, CRA filing/deadlines, payroll friction, contractor invoicing, rural connectivity).\n\nTop 3 opportunities with geography-specific moat:\n\n1) NB Bilingual Compliance Copilot (Docs + Deadline + Audit Trail)\n- Problem: Small businesses in NB need bilingual customer-facing assets, policy notices, and employee-facing communications, but generic compliance tools under-serve NB bilingual realities.\n- Product: Upload templates (invoices, policies, notices, onboarding docs) -> generate/verify EN+FR versions, maintain version history, and produce \"inspection-ready\" audit export.\n- Moat: NB-specific policy packs + vocabulary presets + local regulator-ready evidence exports. Larger vendors usually ignore small bilingual provinces.\n- Monetization: $39/$99/$249 per month by location count.\n\n2) CRA Deadline Autopilot for SMB Bookkeepers + Owners (GST/HST + Payroll)\n- Problem: Filing/remittance deadlines (GST/HST, payroll source deductions, installments) are missed by owner-operators juggling ops; penalties hurt cash flow.\n- Product: Calendar-aware CRA deadline engine + proactive alerts + filing checklist + \"done\" proof log + accountant handoff packet.\n- Moat: Canada-first and Atlantic-tailored reminder windows (incl. local holidays/weather disruption tolerance) + bilingual notifications + simple owner mode (not enterprise ERP).\n- Monetization: $29/$79 monthly; add-on managed reminder channel (SMS/WhatsApp/Email) and accountant dashboard seat.\n\n3) Rural FieldOps Invoice + Offline Job Pack (Trades/Contractors)\n- Problem: Trades and service contractors in rural Atlantic areas deal with weak connectivity; quotes/timesheets/photos/signatures often captured ad hoc and invoicing is delayed.\n- Product: Offline-first mobile workflow for quote->worklog->signature->invoice sync when online; includes HST handling and bilingual invoice templates.\n- Moat: Designed for intermittent connectivity and low-friction field capture, with Atlantic rural defaults instead of urban-always-online assumptions.\n- Monetization: $49/user/mo + $0.50 per processed invoice bundle after threshold.\n\nWhy these 3 are attractive now:\n- Clear pain with compliance/deadline cost of failure\n- Underserved regional UX (NB bilingual + rural/offline)\n- Can be built from existing Alfred/Joe automation strengths (workflows, reminders, document generation, integrations)\n\nSuggested next step (2-week validation sprint):\n- Run 12-customer discovery: 4 accountants/bookkeepers, 4 trades contractors, 4 bilingual SMB operators in NB\n- Pre-sell landing pages for each concept with waitlist + pricing smoke test\n- Kill/scale gate: continue only concepts with >=25% interview \"would pay now\" and >=10 qualified waitlist signups in 14 days\n\nEvidence notes:\n- Prior workspace patterns already show recurring pain around CRA/reminder/compliance operations and regional workflow friction.\n- External context confirms continued federal focus on rural broadband completion timelines, reinforcing offline-first value until full coverage is achieved.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-22T13:32:37.833Z",
+    "updatedAt": "2026-03-22T13:32:37.833Z"
   }
 ]

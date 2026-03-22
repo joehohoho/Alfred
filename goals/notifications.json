@@ -579,5 +579,14 @@
     "answered": false,
     "createdAt": "2026-03-22T11:03:49.833Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774192687632_ea3a305a",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-22T15:18:07.632Z",
+    "answeredAt": null
   }
 ]
