@@ -42,6 +42,46 @@ Codex rate-limit reminder: watch TPM spikes and batch work.
 
 ---
 
+## Model-Specific Prompting Strategy (NEW 2026-03-23)
+
+Each frontier model (Opus, GPT) has optimized system prompts stored in `/prompts/`:
+
+- **Opus 4.6** → `prompts/opus-4-6.md` (optimized per Anthropic best practices)
+- **GPT-5.4** → `prompts/gpt-5-4.md` (optimized per OpenAI best practices)
+
+### Selection Logic
+
+```
+IF model_selected == opus:
+  LOAD prompts/opus-4-6.md
+ELSE IF model_selected == gpt:
+  LOAD prompts/gpt-5-4.md
+ELSE:
+  LOAD default system prompt (SOUL.md)
+```
+
+### Why Separate Prompts?
+
+Different models have different optimal prompt structures:
+- **Opus** responds well to: complex reasoning chains, detailed context, XML-structured tasks, ambiguity tolerance
+- **GPT** responds well to: explicit step-by-step instructions, concrete examples, clear output format, brevity
+
+### Maintenance
+
+Nightly cron (`scripts/sync-prompts.sh`) at 2 AM:
+1. Validates both prompts exist + are non-empty
+2. Checks file sizes (should be similar)
+3. Validates format (UTF-8, no credentials)
+4. Git commits if changes detected
+
+**Best practices guides** (source of truth):
+- `prompts/opus-best-practices.md` — Anthropic's official guide (updated quarterly)
+- `prompts/gpt-best-practices.md` — OpenAI's official guide (updated quarterly)
+
+See `prompts/README.md` for full details.
+
+---
+
 ## Core Operating Principles
 
 - Figure it out: attempt multiple approaches before declaring blocked.

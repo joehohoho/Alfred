@@ -570,44 +570,10 @@
     "title": "How should I prioritize overnight work differently?",
     "message": "Are you happy with how I spend idle hours, or would you prefer I focus differently? More feature work? More research? More system improvements?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-23T13:00:01.271Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774292765345_7f0f0a1e",
-    "type": "-title",
-    "title": "Unblock: Atlantic Contractor Portal - Phase 2 Ready",
-    "message": "-body",
-    "goalId": "Phase 2 (discovery execution) framework is complete and ready to deploy. Waiting on: (1) Approve prospect list with 10 verified leads, (2) Provide 2-3 warm intro names to boost response rate, (3) Confirm ready to proceed Mar 24 with cold outreach. Card: Atlantic Contractor Client Portal-in-a-Box. What's your call?",
-    "taskId": "-options",
-    "source": "approve_phase2,request_changes,defer",
-    "answered": false,
-    "createdAt": "2026-03-23T19:06:05.345Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774292768662_6204d5a1",
-    "type": "-title",
-    "title": "Unblock: Bill Review & Invoice Audit SaaS - Next Steps",
-    "message": "-body",
-    "goalId": "Market validation complete (strong demand confirmed, competitors identified, revenue model viable). Research summary: Stampli/BILL/Coupa exist but miss the Canadian SMB audit-first wedge. Our angle is solid. Ready to proceed with: (1) Discovery calls with 10 Canadian SMB finance leads (Mar 25+), (2) Clickable prototype + explainability demo, (3) 3-slot pilot recruitment. Proceed with discovery calls?",
-    "taskId": "-options",
-    "source": "proceed_discovery,request_revisions,defer",
-    "answered": false,
-    "createdAt": "2026-03-23T19:06:08.662Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774292771576_e21d2fc9",
-    "type": "-title",
-    "title": "[REMINDER] Unblock: 14-day Free Trial - Stripe Setup",
-    "message": "-body",
-    "goalId": "Implementation is code-complete and tested. Remaining: Update Stripe dashboard with trial_period_days=14 on 12 prices (Pro/Business tiers × monthly/annual/per-credit). This is the final step before deployment. Need you to: (1) Log into Stripe, (2) Set trial=14 days on prices, (3) Confirm complete. Time: ~5 min. Ready to do this now?",
-    "taskId": "-options",
-    "source": "ready_to_update,need_more_time,defer",
-    "answered": false,
-    "createdAt": "2026-03-23T19:06:11.576Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-23T19:39:05.676Z",
+    "userAnswer": "Feature work if there are valuable items identified and system improvements.",
+    "deliveryStatus": "sent"
   }
 ]
