@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxInvoice.ca – Canadian Invoice & Tax Organizer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto; margin: 0; color: #333; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center; }
+        header h1 { font-size: 2.5em; margin: 0 0 10px 0; }
+        .cta-button { background: white; color: #667eea; padding: 12px 30px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
+        .problem { max-width: 800px; margin: 60px auto; padding: 40px; background: #f8f9fa; border-radius: 12px; border-left: 5px solid #667eea; }
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        .feature { padding: 30px; border: 1px solid #e0e0e0; border-radius: 10px; }
+        .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        .pricing-card { border: 2px solid #e0e0e0; border-radius: 12px; padding: 30px; text-align: center; }
+        .pricing-card.featured { border-color: #667eea; background: rgba(102, 126, 234, 0.1); }
+        .price { font-size: 2.5em; color: #667eea; font-weight: 700; margin: 20px 0; }
+        .signup-form { max-width: 600px; margin: 80px auto 60px; padding: 40px; background: #f8f9fa; border-radius: 12px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1em; }
+        .submit-btn { width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        footer { background: #333; color: white; text-align: center; padding: 30px 20px; margin-top: 60px; }
+        @media (max-width: 768px) { .features, .pricing-cards { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TaxInvoice.ca</h1>
+        <p>Invoice tracking + CRA tax prep in minutes, not hours</p>
+        <button class="cta-button" onclick="scrollToSignup()">Get Early Access (Free)</button>
+    </header>
+    
+    <div class="problem">
+        <h2>The Problem</h2>
+        <p>📁 Scattered invoices across emails, folders, and spreadsheets</p>
+        <p>❓ CRA confusion about T4A/T776 requirements</p>
+        <p>⏱️ Hours spent organizing invoices before tax filing</p>
+        <p>💸 Tools too expensive or overly complex</p>
+    </div>
+    
+    <div style="max-width: 1000px; margin: 60px auto; padding: 0 20px;">
+        <h2 style="text-align: center; font-size: 2em; margin-bottom: 40px;">The Solution</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>📤 Upload & Auto-Parse</h3>
+                <p>Drag-drop invoices. OCR extracts dates, amounts, client names automatically.</p>
+            </div>
+            <div class="feature">
+                <h3>👥 Organize by Client</h3>
+                <p>Group by client. Track payments. Flag T4A reportables ($500+).</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Annual Summary</h3>
+                <p>Export CRA-ready T4A prep sheet + T776 income calculation.</p>
+            </div>
+            <div class="feature">
+                <h3>📅 Timeline View</h3>
+                <p>Calendar timeline. Audit-ready invoice documentation.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="max-width: 900px; margin: 60px auto; padding: 0 20px;">
+        <h2 style="text-align: center; font-size: 2em; margin-bottom: 40px;">Pricing</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="price">$0</div>
+                <p style="color: #999; font-size: 0.9em;">forever</p>
+                <ul style="text-align: left; list-style: none; padding: 20px 0;">
+                    <li>✓ 5 invoices/month</li>
+                    <li>✓ View & organize</li>
+                    <li>✓ Basic summaries</li>
+                </ul>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Premium</h3>
+                <div class="price">$6.99</div>
+                <p style="color: #999; font-size: 0.9em;">/month</p>
+                <ul style="text-align: left; list-style: none; padding: 20px 0;">
+                    <li>✓ Unlimited uploads</li>
+                    <li>✓ PDF export</li>
+                    <li>✓ Multi-year archive</li>
+                    <li>✓ CRA compliance guides</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="signup-form">
+        <h2>Get Early Access</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">Join Canadian freelancers beta testing.</p>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="clients">Clients per year</label>
+                <input type="number" id="clients" required>
+            </div>
+            <button type="submit" class="submit-btn">Get Early Access</button>
+        </form>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 TaxInvoice.ca – Simplifying Canadian freelancer taxes</p>
+    </footer>
+    
+    <script>
+        function scrollToSignup() { document.querySelector('.signup-form').scrollIntoView({ behavior: 'smooth' }); }
+        function handleSignup(event) { event.preventDefault(); alert('Thanks! Check your email.'); document.getElementById('signupForm').reset(); }
+    </script>
+</body>
+</html>

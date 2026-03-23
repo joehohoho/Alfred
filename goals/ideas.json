@@ -160,7 +160,7 @@
     "title": "T4A/T776 Invoice & Self-Employment Tax Organizer (Canada)",
     "description": "**Problem:** Canadian freelancers and self-employed consultants spend hours manually organizing invoices and billable income for T4A/T776 tax reporting. Excel spreadsheets, scattered PDFs, and CRA form confusion cost time and accuracy.\n\n**Solution:** A web app that auto-categorizes invoices by client, tracks billable hours/rates, generates organized summaries for tax season, and exports CRA-compliant T4A/T776 prep documents. Features: invoice upload + OCR, client/project grouping, annual tax summary, PDF export, calendar-based timeline view.\n\n**Revenue Model:** Freemium ($0 basic upload/view, $6.99/mo premium with PDF export + CRA prep guides + multi-year archive).\n\n**Why Joe:** 20+ years in billing software + data transformation = deep expertise in invoice automation. Canadian-specific CRA rules are a defensible moat. Low maintenance once built (form updates quarterly, not monthly).\n\n**Evidence:** 50+ Reddit threads (r/PersonalFinanceCanada, r/Freelance) asking \"how do I organize my invoices for T4A?\" Wave, Zoho, and Freshbooks all target this segment but are overkill for solo freelancers. Market gap: simple, cheap, Canada-first tool.",
     "category": "passive-income",
-    "status": "new",
+    "status": "promoted",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "medium",
@@ -173,7 +173,7 @@
       "score": 7.4,
       "notes": "Strong market validation. Joe's billing software background + Canadian-specific focus creates defensible positioning. Freemium model is low-touch maintenance. OCR + PDF export are main complexity; CRA form layer is straightforward. High synergy with existing projects."
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1774303728777_58be8aec",
     "tags": [
       "saas",
       "fintech",
@@ -197,9 +197,8 @@
       }
     ],
     "demandValidation": "Canadian self-employed professionals consistently ask for simple invoice organization + tax prep tools. Wave/Zoho/Freshbooks are too complex/expensive for solo freelancers; market gap exists for a focused, affordable alternative.",
-    "status": "evaluated",
     "createdAt": "2026-03-23T20:37:39.623Z",
-    "updatedAt": "2026-03-23T19:56:16.809Z",
+    "updatedAt": "2026-03-23T22:08:48.781Z",
     "comments": [
       {
         "id": "cmt_1774295707302_d58c40c5",

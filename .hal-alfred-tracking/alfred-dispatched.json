@@ -1,8 +1,4 @@
 {
-  "task_1774182651318_79b657e0": {
-    "at": 1774214124.651947,
-    "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)"
-  },
   "task_1774062049248_7486f8ba": {
     "at": 1774222503.765195,
     "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
@@ -14,5 +10,9 @@
   "task_1774295529315_b4807ff0": {
     "at": 1774300126.775984,
     "title": "Market Signals App \u2013 UI/UX Redesign"
+  },
+  "task_1774303728777_58be8aec": {
+    "at": 1774304661.4395368,
+    "title": "T4A/T776 Invoice & Self-Employment Tax Organizer (Canada)"
   }
 }
