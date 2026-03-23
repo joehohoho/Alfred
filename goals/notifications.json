@@ -419,24 +419,16 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774000891116_39dc1b5e",
-    "type": "alert",
-    "title": "🔑 Codex OAuth Token Expired",
-    "message": "The openai-codex OAuth token is expired — Alfred has logged 509 auth failures today. The gateway is auto-falling back to Claude Sonnet, so work continues, but Codex is unavailable.\\n\\nOptions:\\n1. Re-authenticate Codex via 'openclaw auth codex' (or equivalent CLI)\\n2. Leave it — Sonnet fallback is working fine\\n\\nRecommendation: Re-authenticate when convenient so free Codex capacity is restored.\\nDefault: Will keep using Sonnet fallback if no action taken.",
-    "source": "check-codex-auth",
-    "answered": false,
-    "createdAt": "2026-03-20T10:01:31.116Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774011600529_1822599c",
     "type": "question",
     "title": "Could Signal App be packaged for non-trading uses?",
     "message": "You built Signal App for crypto. Could the core signal logic work for other markets—stocks, commodities, forex? New verticals = new revenue.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-20T13:00:00.529Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-23T19:37:41.533Z",
+    "userAnswer": "It's just for internal use at the moment because the signals are not good and the quality needs to greatly improve before outside use.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774040499423_b6664e1d",
@@ -531,9 +523,11 @@
     "title": "Any new app idea you've been researching?",
     "message": "Beyond your current projects, has something caught your attention lately? A tool you wish existed, a market gap you noticed?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-22T11:03:49.833Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-23T19:38:19.375Z",
+    "userAnswer": "No the current apps need to be improved.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774214387751_c0c198a3",

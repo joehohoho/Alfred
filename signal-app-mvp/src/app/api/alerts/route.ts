@@ -1,25 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { listUserAlerts, upsertUserAlert } from '@/services/db/repositories';
-
-const DEMO_USER_ID = 'demo-user';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const alerts = await listUserAlerts(DEMO_USER_ID);
-  return NextResponse.json({ alerts });
+  return NextResponse.json({ 
+    alerts: [],
+    message: 'Alerts API disabled in demo mode.'
+  });
 }
 
-export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { symbol, threshold, enabled } = body as {
-    symbol: string;
-    threshold: number;
-    enabled: boolean;
-  };
-
-  if (!symbol || typeof threshold !== 'number') {
-    return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
-  }
-
-  await upsertUserAlert(DEMO_USER_ID, symbol, threshold, Boolean(enabled));
-  return NextResponse.json({ ok: true });
+export async function POST() {
+  return NextResponse.json({ 
+    ok: true,
+    message: 'Alert subscription disabled in demo mode.'
+  });
 }

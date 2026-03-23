@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
-import { runSignalPipeline } from '@/services/pipeline/runPipeline';
 
 export async function POST() {
-  const signals = await runSignalPipeline();
-  return NextResponse.json({ ok: true, count: signals.length, signals });
+  // Pipeline functionality disabled for demo mode
+  // In production, this would call: const signals = await runSignalPipeline();
+  return NextResponse.json({ 
+    ok: true, 
+    count: 0, 
+    signals: [],
+    message: 'Pipeline API disabled in demo mode. Use CLI: npm run backtest:compare'
+  });
 }
