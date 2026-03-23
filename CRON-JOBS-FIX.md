@@ -1,19 +1,18 @@
-# Cron Jobs Auto-Disable Fix (2026-03-17)
+# Cron Jobs Auto-Disable Fix (2026-03-17, FIXED 2026-03-23 20:15)
 
 ## Root Cause
 **5 cron jobs auto-disabled due to Discord channel routing failures:**
-- `delivery.mode="announce"` + invalid/missing Discord channel IDs → gateway can't route → 3 consecutive failures → auto-disable
+- `delivery.mode="announce"` + invalid Discord channel IDs → gateway can't route → 3 consecutive failures → auto-disable
 
-## Affected Jobs (DISABLED)
-1. **Evening Routine** (2feb9515) → Discord `to: 1476945255331791060` (invalid)
-2. **Daily Config & Memory Review** (3a45acd2) → Discord `to: 1476944218751635609` (invalid)  
-3. **Nightly Git Commit** (21454f7a) → Discord `to: 1476951511736258722` (invalid)
-4. **Daily Update Check** (1e33752f) → Discord `to: 1476951029659734139` (invalid)
-5. **Joe Profile Reflection** (a3e7c1d9) → Discord `to: 1476590410557034546` (valid, but "Channel is required" error indicates sessionTarget/channel mismatch)
+## Affected Jobs (FIXED ✅)
+1. **Evening Routine** (2feb9515) → Updated to Slack `C0AEE0PLKB4` (#notifications) ✅
+2. **Daily Config & Memory Review** (3a45acd2) → Updated to Slack `C0AH1L4BRUG` (#daily-config) ✅
+3. **Nightly Git Commit** (21454f7a) → Updated to Slack `C0AEE0PLKB4` (#notifications) ✅
+4. **Joe Profile Reflection** (a3e7c1d9) → Updated to Slack `C0ADUCZ4AF3` (#commands) ✅
 
-**Additional Issues:**
-- **Daily Config & Memory Review** also failed with "Error: Unknown Channel"
-- **Moltbook Weekly Review** (1ee0d578) → failing with channel routing error (enabled but non-functional)
+**Remaining Issues (Lower Priority):**
+- **Daily Update Check** (1e33752f) → `delivery.mode="none"` (silent execution, no routing needed)
+- **Moltbook Weekly Review** (1ee0d578) → `delivery.mode="none"` (no routing needed)
 
 ## Solution
 **Strategy (historical):** This document originally switched Discord announce deliveries to Slack as a temporary stabilization path.

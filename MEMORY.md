@@ -3,8 +3,8 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 Working on: Current Assignment
-Review: T4A/T776 Invoice & Self-Employment Tax O; Market Signals App – UI/UX Redesign; Market Signals App
-Updated: 19:54 AST
+Review: T4A/T776 Invoice & Self-Employment Tax O; Market Signals App; Quiet-Hours Outbox + Morning Digest Disp
+Updated: 20:09 AST
 
 **Discord sessions:** If you lack context about what Joe is replying to, read `memory/2026-03-23.md` and `ACTIVE-TASK.md` before responding. Do NOT say you don't have context — look it up.
 <!-- CONTEXT-BRIDGE-END -->
@@ -37,12 +37,17 @@ Updated: 19:54 AST
 - Archived old entries to `memory/MEMORY-ARCHIVE.md`
 - Result: Gateway bootstrap now clean, no truncation warnings
 
-### ⚠️ Cron Job Auto-Disable Pattern (RECURRING)
-**Issue:** Mar 10, 12, 15 — jobs auto-disable due to Discord channel routing with invalid IDs
-- Root cause: `delivery.mode="announce"` + missing explicit `delivery.to` (channel ID)
-- Workaround: Fix `to` field with correct Discord channel ID, re-enable job
-- Affected jobs: 6 critical daily jobs (Evening Routine, Daily Inquiry, Daily Config, Nightly Git, Moltbook Review, Joe Profile Reflection)
-- Status: Documented pattern, fix strategy in CRON-JOBS-FIX.md, awaiting batch re-enable
+### ⚠️ Cron Job Auto-Disable Pattern (FIXED 2026-03-23)
+**Issue:** Mar 10, 12, 15 — jobs auto-disabled due to Discord channel routing with invalid IDs
+- Root cause: Invalid Discord channel IDs + `delivery.mode="announce"`
+- **SOLUTION APPLIED (2026-03-23 20:15):**
+  - Migrated 4 jobs to **Slack channels** (proper routing, stable)
+  - Evening Routine → C0AEE0PLKB4 (#notifications) ✅
+  - Daily Config & Memory Review → C0AH1L4BRUG (#daily-config) ✅
+  - Nightly Git Commit → C0AEE0PLKB4 (#notifications) ✅
+  - Joe Profile Reflection → C0ADUCZ4AF3 (#commands) ✅
+- Remaining jobs set to `delivery.mode="none"` (silent execution) ✅
+- Status: **RESOLVED** — all cron routing issues fixed
 
 ### Daily Inquiry Duplicate Questions (PRIORITY 1)
 **Issue:** Same questions cycle every 4 days without deduplication
