@@ -1,119 +1,104 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { SignalCard } from '@/components/dashboard/SignalCard';
-import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { Signal } from '@/models/Signal';
+import { ArrowRight, Zap, TrendingUp, Settings } from 'lucide-react';
 
-export default function DashboardPage() {
-  const [signals, setSignals] = useState<Signal[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  async function fetchSignals() {
-    setLoading(true);
-    const res = await fetch('/api/signals');
-    const data = await res.json();
-    setSignals(data.signals ?? []);
-    setLoading(false);
-  }
-
-  async function runPipeline() {
-    setLoading(true);
-    await fetch('/api/pipeline', { method: 'POST' });
-    await fetchSignals();
-  }
-
-  useEffect(() => {
-    fetchSignals();
-  }, []);
-
+export default function HomePage() {
   return (
-    <div className="min-h-screen p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900">Signal Dashboard</h1>
-            <p className="text-gray-600 mt-2">Real-time buy/sell signals for crypto & stocks</p>
-          </div>
-          <div className="flex gap-3">
-            <Button onClick={fetchSignals} variant="outline">
-              Refresh
-            </Button>
-            <Button onClick={runPipeline}>Run Pipeline</Button>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Header */}
+        <div className="mb-16">
+          <h1 className="text-5xl font-bold mb-4">Market Signals App</h1>
+          <p className="text-xl text-slate-400">
+            Trading signals with 3 proven strategies, backtesting engine, and parameter optimizer
+          </p>
+        </div>
+
+        {/* Quick Start */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <Card className="bg-slate-800 border-slate-700">
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <Zap className="w-5 h-5 text-amber-400" />
+                <CardTitle className="text-white">Quick Test</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-400 mb-4">
+                Run backtests on any symbol with different strategies
+              </p>
+              <Link
+                href="/test"
+                className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold"
+              >
+                Test Now <ArrowRight className="w-4 h-4" />
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-slate-800 border-slate-700">
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <TrendingUp className="w-5 h-5 text-emerald-400" />
+                <CardTitle className="text-white">Strategies</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-400 mb-4">
+                3 adaptive strategies: SMA+RSI, MACD, Bollinger Bands
+              </p>
+              <p className="text-sm text-slate-500">Each backtested and optimized</p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-slate-800 border-slate-700">
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <Settings className="w-5 h-5 text-blue-400" />
+                <CardTitle className="text-white">CLI Tools</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-400 mb-4">
+                Run from terminal: npm run backtest:compare
+              </p>
+              <p className="text-sm text-slate-500">Full control + advanced options</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Features */}
+        <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 mb-12">
+          <h2 className="text-2xl font-bold mb-6">What&apos;s Included</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: 'Backtest Engine', desc: 'Validate strategies against 90+ days of data' },
+              { title: 'Parameter Optimizer', desc: 'Find best settings for current market conditions' },
+              { title: 'Multi-Strategy Voting', desc: 'Combine 3 strategies for robust signals' },
+              { title: 'Performance Metrics', desc: 'Win rate, Sharpe ratio, max drawdown, and more' },
+              { title: 'Signal Confidence', desc: 'Strength indicator (0-1) for each signal' },
+              { title: 'Trade History', desc: 'Entry/exit prices, P&L, duration of each trade' },
+            ].map((feature: any, i: number) => (
+              <div key={i} className="border-l-2 border-emerald-500 pl-4">
+                <h3 className="font-semibold text-emerald-400 mb-1">{feature.title}</h3>
+                <p className="text-slate-400 text-sm">{feature.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {loading ? (
-          <Card>
-            <CardContent className="p-12 text-center text-gray-500">Loading signals...</CardContent>
-          </Card>
-        ) : signals.length === 0 ? (
-          <Card>
-            <CardContent className="p-12 text-center">
-              <p className="text-gray-600 mb-4">No signals yet. Run the pipeline to generate signals.</p>
-              <Button onClick={runPipeline}>Run Pipeline Now</Button>
-            </CardContent>
-          </Card>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {signals.slice(0, 9).map((signal, idx) => (
-                <SignalCard key={idx} signal={signal} />
-              ))}
-            </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Recent Signals</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead className="bg-gray-50 border-b">
-                      <tr>
-                        <th className="text-left p-3">Symbol</th>
-                        <th className="text-left p-3">Type</th>
-                        <th className="text-left p-3">Signal</th>
-                        <th className="text-left p-3">Price</th>
-                        <th className="text-left p-3">RSI</th>
-                        <th className="text-left p-3">Confidence</th>
-                        <th className="text-left p-3">Generated</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {signals.map((signal, idx) => (
-                        <tr key={idx} className="border-b hover:bg-gray-50">
-                          <td className="p-3 font-medium">{signal.symbol}</td>
-                          <td className="p-3 text-gray-600">{signal.assetType}</td>
-                          <td className="p-3">
-                            <span
-                              className={
-                                signal.signalType === 'BUY'
-                                  ? 'text-green-600 font-bold'
-                                  : signal.signalType === 'SELL'
-                                  ? 'text-red-600 font-bold'
-                                  : 'text-gray-600'
-                              }
-                            >
-                              {signal.signalType}
-                            </span>
-                          </td>
-                          <td className="p-3 font-mono">${signal.price.toFixed(2)}</td>
-                          <td className="p-3 font-mono">{signal.rsi.toFixed(2)}</td>
-                          <td className="p-3 font-mono">{(signal.confidence * 100).toFixed(0)}%</td>
-                          <td className="p-3 text-gray-600 text-xs">
-                            {new Date(signal.generatedAt).toLocaleString()}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </CardContent>
-            </Card>
-          </>
-        )}
+        {/* Status */}
+        <div className="bg-slate-800 border border-slate-700 rounded-lg p-6 text-center">
+          <p className="text-slate-400 mb-2">Ready to test?</p>
+          <Link
+            href="/test"
+            className="inline-block px-6 py-3 bg-emerald-600 hover:bg-emerald-700 rounded font-semibold transition-colors"
+          >
+            Go to Test Interface
+          </Link>
+        </div>
       </div>
     </div>
   );

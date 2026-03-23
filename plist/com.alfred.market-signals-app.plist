@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.alfred.market-signals-app</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>-c</string>
+		<string>cd /Users/hopenclaw/.openclaw/workspace/signal-app-mvp && PORT=3002 npm run dev</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/hopenclaw/.openclaw/workspace/signal-app-mvp</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/market-signals-app.log</string>
+	<key>StandardErrorPath</key>
+	<string>/tmp/market-signals-app.log</string>
+	<key>KeepAlive</key>
+	<true/>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>/Users/hopenclaw</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>NODE_ENV</key>
+		<string>development</string>
+	</dict>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+</dict>
+</plist>

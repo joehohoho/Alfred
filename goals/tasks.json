@@ -4098,7 +4098,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-23T15:52:47.052Z",
-    "updatedAt": "2026-03-23T19:19:35.608Z",
+    "updatedAt": "2026-03-23T19:34:51.871Z",
     "comments": [
       {
         "id": "cmt_1774281664033_92601fde",
@@ -4213,6 +4213,12 @@
         "author": "joe",
         "text": "I'd like to be able test the app through the command center app page.  Setup whatever is required to access it that way",
         "createdAt": "2026-03-23T19:19:35.608Z"
+      },
+      {
+        "id": "cmt_1774294491870_b32fb09a",
+        "author": "joe",
+        "text": "On the apps page, the GST app links to the new market signals app, there should be a new card for this app and the app layout needs to be greatly improved, it's a very basic site that's not as intuitive.",
+        "createdAt": "2026-03-23T19:34:51.870Z"
       }
     ],
     "assignedAt": "2026-03-23T19:02:50.545Z",
@@ -4221,5 +4227,19 @@
     "reviewEnteredAt": "2026-03-23T19:05:36.119Z",
     "reviewSla72hReminderSent": false,
     "reviewSla7dAutoPromoteEligible": true
+  },
+  {
+    "id": "task_1774294539184_badad2f9",
+    "goalId": "",
+    "title": "Quiet-Hours Outbox + Morning Digest Dispatcher",
+    "description": "Audit finding: quiet-hours policy blocks direct messaging but proactive jobs still generate results. Improvement: implement a durable outbox that captures overnight updates/questions and auto-delivers a structured morning digest at 09:00 AST. Include dedup, priority buckets (critical vs normal), and expiry rules for stale notices. Integrations: notification routing + Command Center feed + cron-event pipelines. Expected impact: fewer dropped updates, better signal quality, lower daytime interruption cost.",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": null,
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-23T19:35:39.184Z",
+    "updatedAt": "2026-03-23T19:35:39.184Z"
   }
 ]
