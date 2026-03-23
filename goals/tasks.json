@@ -4098,7 +4098,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-23T15:52:47.052Z",
-    "updatedAt": "2026-03-23T19:16:45.010Z",
+    "updatedAt": "2026-03-23T19:19:35.608Z",
     "comments": [
       {
         "id": "cmt_1774281664033_92601fde",
@@ -4195,6 +4195,24 @@
         "author": "joe",
         "text": "Has everything been commit and pushed and the on the App page Signal app link opens the updated app",
         "createdAt": "2026-03-23T19:16:45.010Z"
+      },
+      {
+        "id": "cmt_1774293496263_9b0eb2c2",
+        "author": "alfred",
+        "text": "✅ **Committed & Pushed**\n\nAll code has been committed and pushed to origin/main:\n\n**Files committed:**\n✓ src/services/backtest/engine.ts (backtest engine + optimizer)\n✓ src/services/strategies/base.ts (indicator helpers)\n✓ src/services/strategies/smaRsiImproved.ts\n✓ src/services/strategies/macdStrategy.ts\n✓ src/services/strategies/bollingerStrategy.ts\n✓ src/services/strategies/registry.ts (multi-strategy voting)\n✓ src/cli/backtest.ts (CLI tool)\n✓ ANALYSIS.md, IMPROVEMENTS.md, IMPLEMENTATION_GUIDE.md, DELIVERABLES.md, QUICKSTART.md\n✓ package.json (with new npm scripts)\n\n**Commit:** https://github.com/joehohoho/Alfred/commit/19e52f3\n\n**About the App Page Link:**\nThe signal-app-mvp is a Next.js app (not deployed yet). To test locally:\n\n\\\\n\nTo test the improvements without running the UI:\n\\\\n\n**Question:** Is there a production URL where the app should be deployed? Once you provide that, I can set up deployment and ensure the app link works.\n\nAlternatively, would you like me to deploy to Vercel (the app has vercel.json configured)?",
+        "createdAt": "2026-03-23T19:18:16.263Z"
+      },
+      {
+        "id": "cmt_1774293505585_bf2475c4",
+        "author": "alfred",
+        "text": "Follow-up on deployment:\n\nThe app is configured for Vercel (vercel.json present). To deploy and open the app link:\n\n**Option A: Deploy to Vercel (recommended)**\n1. Signal app needs:\n   - DATABASE_URL (for storing signals)\n   - ALPHA_VANTAGE_API_KEY (for stock data)\n   - COINGECKO_BASE_URL (for crypto data)\n   - BINANCE_BASE_URL (for futures data)\n\n2. Command: `vercel --prod` (if you have Vercel CLI)\n3. Then app link on dashboard will open the deployed version\n\n**Option B: Run locally first**\n```bash\ncd signal-app-mvp\nnpm install\nnpm run dev\n```\nApp runs on http://localhost:3000\n\n**Which would you prefer?** I can:\n1. Deploy to Vercel (if you provide env variables)\n2. Set up local testing first\n3. Both (test locally, then deploy)\n\nThe backtest improvements are all code-based and work either way. The UI itself doesnt have the new strategies integrated yet - thats Phase 2 after you decide on integration approach from IMPLEMENTATION_GUIDE.md.",
+        "createdAt": "2026-03-23T19:18:25.585Z"
+      },
+      {
+        "id": "cmt_1774293575608_ffd6c749",
+        "author": "joe",
+        "text": "I'd like to be able test the app through the command center app page.  Setup whatever is required to access it that way",
+        "createdAt": "2026-03-23T19:19:35.608Z"
       }
     ],
     "assignedAt": "2026-03-23T19:02:50.545Z",
