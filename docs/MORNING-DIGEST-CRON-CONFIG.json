@@ -1,0 +1,21 @@
+{
+  "name": "Morning Digest Dispatcher",
+  "description": "At 09:00 AST, deliver quiet-hours outbox items as structured morning digest to Command Center + Discord. Deduplicates, prioritizes, and archives expired items.",
+  "schedule": {
+    "kind": "cron",
+    "expr": "0 9 * * *",
+    "tz": "America/Moncton"
+  },
+  "enabled": true,
+  "sessionTarget": "isolated",
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Run morning digest dispatcher: bash ~/.openclaw/workspace/scripts/morning-digest-dispatcher.sh 2>&1 | tee -a ~/.openclaw/workspace/tracking/digest-dispatch.log",
+    "timeoutSeconds": 120
+  },
+  "delivery": {
+    "mode": "announce",
+    "to": "1476595177190592533",
+    "bestEffort": true
+  }
+}

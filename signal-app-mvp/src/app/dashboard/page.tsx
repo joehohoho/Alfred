@@ -1,0 +1,397 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { TrendingUp, Zap, Settings, ChevronRight } from 'lucide-react';
+import { MetricsCard } from '@/components/MetricsCard';
+import { StrategyCard } from '@/components/StrategyCard';
+import { TradeTable } from '@/components/TradeTable';
+
+type BacktestResult = {
+  symbol: string;
+  strategy: string;
+  days: number;
+  status: string;
+  metrics?: {
+    winRate: string;
+    profitFactor: number;
+    sharpeRatio: number;
+    maxDrawdown: string;
+    totalPnL: string;
+    totalTrades: number;
+  };
+  trades?: any[];
+  message?: string;
+  error?: string;
+};
+
+const QUICK_SYMBOLS = ['BTC', 'ETH', 'AAPL', 'MSFT', 'GOOGL', 'NVDA'];
+
+const STRATEGIES = [
+  {
+    id: 'SMA_RSI_IMPROVED',
+    title: 'SMA + RSI',
+    desc: 'Trend-following with momentum. Best for volatility.',
+    metrics: 'Win: 50-65% | Sharpe: 0.8-1.2',
+  },
+  {
+    id: 'MACD',
+    title: 'MACD',
+    desc: 'Momentum & signal divergence. Great for breakouts.',
+    metrics: 'Win: 55-70% | Sharpe: 0.9-1.4',
+  },
+  {
+    id: 'BOLLINGER',
+    title: 'Bollinger Bands',
+    desc: 'Mean reversion with volatility. Ranging markets.',
+    metrics: 'Win: 60-75% | Sharpe: 1.0-1.5',
+  },
+];
+
+function interpretMetric(name: string, value: number | string): 'positive' | 'negative' | 'neutral' | 'warning' {
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+
+  if (name === 'winRate') {
+    if (numValue >= 55) return 'positive';
+    if (numValue >= 50) return 'neutral';
+    if (numValue >= 45) return 'warning';
+    return 'negative';
+  }
+
+  if (name === 'sharpeRatio') {
+    if (numValue >= 1.0) return 'positive';
+    if (numValue >= 0.5) return 'neutral';
+    if (numValue >= 0) return 'warning';
+    return 'negative';
+  }
+
+  if (name === 'profitFactor') {
+    if (numValue >= 2.0) return 'positive';
+    if (numValue >= 1.5) return 'neutral';
+    if (numValue >= 1.0) return 'warning';
+    return 'negative';
+  }
+
+  if (name === 'maxDrawdown') {
+    if (numValue <= 15) return 'positive';
+    if (numValue <= 25) return 'neutral';
+    if (numValue <= 35) return 'warning';
+    return 'negative';
+  }
+
+  return 'neutral';
+}
+
+export default function DashboardPage() {
+  const [symbol, setSymbol] = useState('BTC');
+  const [strategy, setStrategy] = useState('SMA_RSI_IMPROVED');
+  const [days, setDays] = useState(90);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<BacktestResult | null>(null);
+
+  const handleRunBacktest = async () => {
+    setLoading(true);
+    setResult(null);
+    try {
+      const response = await fetch('/api/backtest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          symbol: symbol.toUpperCase(),
+          strategy,
+          days: parseInt(String(days)),
+        }),
+      });
+      const data = await response.json();
+      setResult(data);
+    } catch (error) {
+      setResult({
+        symbol,
+        strategy,
+        days: parseInt(String(days)),
+        status: 'error',
+        error: String(error),
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+      {/* Background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 -left-40 w-80 h-80 bg-emerald-900/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 -right-40 w-80 h-80 bg-blue-900/20 rounded-full blur-3xl animate-pulse" />
+      </div>
+
+      <div className="relative z-10">
+        {/* Navigation */}
+        <nav className="border-b border-slate-800/50 backdrop-blur-sm sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-6 h-6" />
+              </div>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                Market Signals
+              </h1>
+            </Link>
+            <div className="flex items-center gap-4 text-sm text-slate-400">
+              <span className="px-3 py-1 rounded-full bg-slate-800/50 border border-emerald-500/30">Demo Mode</span>
+            </div>
+          </div>
+        </nav>
+
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left: Test Controls */}
+            <div className="lg:col-span-1">
+              <div className="p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm sticky top-24">
+                <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+                  <Zap className="w-6 h-6 text-amber-400" />
+                  Quick Test
+                </h2>
+
+                {/* Symbol Selection */}
+                <div className="mb-8">
+                  <label className="block text-sm font-semibold text-slate-300 mb-3">Symbol</label>
+                  <div className="grid grid-cols-3 gap-2 mb-4">
+                    {QUICK_SYMBOLS.map((sym) => (
+                      <button
+                        key={sym}
+                        onClick={() => setSymbol(sym)}
+                        className={`py-2 rounded-lg font-semibold text-sm transition-all ${
+                          symbol === sym
+                            ? 'bg-emerald-500 text-white'
+                            : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                        }`}
+                      >
+                        {sym}
+                      </button>
+                    ))}
+                  </div>
+                  <input
+                    type="text"
+                    value={symbol}
+                    onChange={(e) => setSymbol(e.target.value.toUpperCase())}
+                    placeholder="Custom symbol..."
+                    className="w-full px-4 py-2 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none text-xs"
+                  />
+                </div>
+
+                {/* Strategy Selection */}
+                <div className="mb-8">
+                  <label className="block text-sm font-semibold text-slate-300 mb-3">Strategy</label>
+                  <div className="space-y-3">
+                    {STRATEGIES.map((strat) => (
+                      <StrategyCard
+                        key={strat.id}
+                        id={strat.id}
+                        title={strat.title}
+                        description={strat.desc}
+                        metrics={strat.metrics}
+                        selected={strategy === strat.id}
+                        onClick={() => setStrategy(strat.id)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Days Selection */}
+                <div className="mb-8">
+                  <label className="block text-sm font-semibold text-slate-300 mb-3">
+                    Lookback Period: <span className="text-emerald-400">{days} days</span>
+                  </label>
+                  <input
+                    type="range"
+                    min="7"
+                    max="365"
+                    step="1"
+                    value={days}
+                    onChange={(e) => setDays(parseInt(e.target.value))}
+                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div className="flex justify-between text-xs text-slate-500 mt-2">
+                    <span>7 days</span>
+                    <span>365 days</span>
+                  </div>
+                </div>
+
+                {/* Run Button */}
+                <button
+                  onClick={handleRunBacktest}
+                  disabled={loading || !symbol}
+                  className="w-full py-4 px-6 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+                >
+                  {loading ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-r-transparent rounded-full animate-spin" />
+                      Testing...
+                    </>
+                  ) : (
+                    <>
+                      <Zap className="w-5 h-5" />
+                      Run Backtest
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* Right: Results Panel */}
+            <div className="lg:col-span-2 space-y-6">
+              {loading && (
+                <div className="p-12 rounded-xl bg-slate-800/50 border border-slate-700/50 text-center">
+                  <div className="w-12 h-12 border-3 border-emerald-500 border-r-transparent rounded-full animate-spin mx-auto mb-4" />
+                  <p className="text-slate-400">Running backtest on {symbol} ({days} days)...</p>
+                </div>
+              )}
+
+              {result && result.status === 'error' && (
+                <div className="p-6 rounded-xl bg-red-500/10 border border-red-500/30">
+                  <p className="text-red-400 font-semibold">Error</p>
+                  <p className="text-sm text-red-300/80">{result.error || result.message}</p>
+                </div>
+              )}
+
+              {result && result.status === 'success' && result.metrics && (
+                <>
+                  {/* Metrics Header */}
+                  <div className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <div className="text-3xl font-bold">{result.symbol}</div>
+                        <div className="text-sm text-slate-400">
+                          {STRATEGIES.find((s) => s.id === result.strategy)?.title} • {result.days} days
+                        </div>
+                      </div>
+                      <Link
+                        href={`/results/${Date.now()}`}
+                        className="px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/30 text-sm font-medium flex items-center gap-1 transition-colors"
+                      >
+                        View Details
+                        <ChevronRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Metrics Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <MetricsCard
+                      label="Win Rate"
+                      value={result.metrics.winRate}
+                      unit="%"
+                      type={interpretMetric('winRate', parseFloat(result.metrics.winRate))}
+                      explanation="% of winning trades vs total trades"
+                    />
+                    <MetricsCard
+                      label="Sharpe Ratio"
+                      value={result.metrics.sharpeRatio.toFixed(2)}
+                      type={interpretMetric('sharpeRatio', result.metrics.sharpeRatio)}
+                      explanation="Risk-adjusted return (higher=better)"
+                    />
+                    <MetricsCard
+                      label="Profit Factor"
+                      value={result.metrics.profitFactor.toFixed(2)}
+                      type={interpretMetric('profitFactor', result.metrics.profitFactor)}
+                      explanation="Gross profit / gross loss (>1=profitable)"
+                    />
+                    <MetricsCard
+                      label="Max Drawdown"
+                      value={result.metrics.maxDrawdown}
+                      unit="%"
+                      type={interpretMetric('maxDrawdown', parseFloat(result.metrics.maxDrawdown))}
+                      explanation="Worst peak-to-trough decline"
+                    />
+                  </div>
+
+                  {/* Summary Stats */}
+                  <div className="grid grid-cols-2 gap-4 p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
+                    <div>
+                      <div className="text-sm text-slate-400 mb-1">Total Return</div>
+                      <div className="text-2xl font-bold text-emerald-400">{result.metrics.totalPnL}</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-slate-400 mb-1">Total Trades</div>
+                      <div className="text-2xl font-bold text-blue-400">{result.metrics.totalTrades}</div>
+                    </div>
+                  </div>
+
+                  {/* Trade History */}
+                  {result.trades && result.trades.length > 0 && (
+                    <div className="space-y-4">
+                      <div className="text-sm font-semibold text-slate-300">Trade History</div>
+                      <TradeTable trades={result.trades} maxVisible={5} />
+                    </div>
+                  )}
+
+                  {/* Strategy Info */}
+                  <div className="p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 space-y-3">
+                    <h4 className="font-semibold flex items-center gap-2">
+                      <Settings className="w-4 h-4 text-blue-400" />
+                      Strategy Notes
+                    </h4>
+                    <p className="text-sm text-slate-400">
+                      {STRATEGIES.find((s) => s.id === result.strategy)?.desc}
+                    </p>
+                  </div>
+                </>
+              )}
+
+              {!loading && !result && (
+                <div className="p-12 rounded-xl bg-slate-800/30 border-2 border-dashed border-slate-700 text-center">
+                  <Zap className="w-12 h-12 text-slate-600 mx-auto mb-4" />
+                  <p className="text-slate-400 font-medium">Select a symbol and strategy, then click Run Backtest</p>
+                  <p className="text-sm text-slate-500 mt-2">Results will appear here instantly</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Guide */}
+        <div className="max-w-7xl mx-auto px-6 py-12 mt-12 border-t border-slate-800/50">
+          <h3 className="text-2xl font-bold mb-6">How It Works</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { num: '1', title: 'Pick Symbol', desc: 'BTC, ETH, or any stock symbol' },
+              { num: '2', title: 'Choose Strategy', desc: 'SMA+RSI, MACD, or Bollinger Bands' },
+              { num: '3', title: 'Set Period', desc: '7 to 365 days of historical data' },
+              { num: '4', title: 'See Results', desc: 'Metrics and trade history instantly' },
+            ].map((step) => (
+              <div key={step.num} className="p-6 rounded-lg bg-slate-800/30 border border-slate-700/50 text-center">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center font-bold text-emerald-400 mx-auto mb-3">
+                  {step.num}
+                </div>
+                <div className="font-semibold mb-2">{step.title}</div>
+                <div className="text-sm text-slate-400">{step.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer CTA */}
+        <div className="max-w-7xl mx-auto px-6 py-12 border-t border-slate-800/50 text-center">
+          <h3 className="text-xl font-bold mb-4">Ready to Use Signals in Real Trading?</h3>
+          <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+            Integration with the GST app is coming soon. Signals will automatically flow to your trading interface.
+          </p>
+          <Link
+            href="/integration"
+            className="inline-block px-6 py-3 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-800/80 transition-colors font-medium"
+          >
+            See Integration Guide
+          </Link>
+        </div>
+
+        {/* Footer */}
+        <footer className="border-t border-slate-800/50 mt-12">
+          <div className="max-w-7xl mx-auto px-6 py-8 text-center text-sm text-slate-500">
+            <p>Market Signals App • Demo Mode • Educational Purpose</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}

@@ -414,9 +414,11 @@
     "type": "[REMINDER] Mission Control Phase 1: Cron Controls Implementation",
     "title": "Joe confirmed Option #1 (add cron controls to React app). Alfred provided full pros/cons. Ready to implement. Should Alfred proceed with adding cron job management UI to the Command Center dashboard (localhost:3001)?\n\nOptions:\n1. ✅ Yes — proceed, Alfred will implement cron controls in the React app\n2. ⏸️ Not now — leave blocked, revisit later\n3. ❌ Close — scope changed, no longer needed\n\nAlfred recommends Option 1 — Joe already chose this path, just needs implementation go-ahead.",
     "message": "No details provided",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-20T06:02:23.704Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-23T19:59:45.907Z",
+    "userAnswer": "Yes proceed",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774011600529_1822599c",
@@ -494,19 +496,11 @@
     "title": "Which project deserves a dedicated sprint next?",
     "message": "You have CoinUsUp, Signal App, Even Us Up, and consulting. If you picked one for a 2-week sprint, what would move the needle most?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-21T13:00:00.945Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774130468304_d7f0c35b",
-    "type": "--title",
-    "title": "Goal Progress: 5 Review Cards + Unanswered Questions",
-    "message": "--message",
-    "goalId": "**STATUS SUMMARY:**\n\nI reviewed all 9 blocked/review cards. Here's what's actionable:\n\n**NEEDS YOUR APPROVAL (to move Done):**\n1. CoinUsUp Recurring Donations (task_1774062049248_7486f8ba) — code complete, testing evidence posted\n2. Bill Review & Invoice Audit blueprint (task_1774058538023_ae4bf3d2) — full blueprint delivered\n3. Voice-to-SOP Builder plan (task_1774054884299_23d01b3d) — strategy + 14-day brief ready\n4. Niche SaaS weekly updates blueprint (task_1774053050845_93a45189) — execution blueprint done\n\n**NEEDS YOUR INPUT (blockers):**\n5. Mission Control Phase 1 (blocked) — choose: option 1 (integrate into React dashboard) or 2 (separate panel first)?\n6. 14-day trial (review) — confirm when you'll update Stripe prices (12 SKUs × trial_period_days=14)\n7. Even Us Up OCR (review) — need status/next steps\n8. CoinUsUp Nonprofit Content Hub (review) — need status/next steps\n9. CoinUsUp Attendance Tracking (review) — need status/next steps\n\n**UNANSWERED QUESTIONS (from daily-inquiry):**\n- Could Signal App work for stocks/commodities/forex (Mar 20)?\n- Which project deserves a dedicated sprint next (Mar 21)?\n\nWhat would help most right now?",
-    "answered": false,
-    "createdAt": "2026-03-21T22:01:08.304Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-23T20:00:22.906Z",
+    "userAnswer": "CoinUsUp then Signals App",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774132376518_7d29f7f0",
@@ -575,5 +569,53 @@
     "answeredAt": "2026-03-23T19:39:05.676Z",
     "userAnswer": "Feature work if there are valuable items identified and system improvements.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1774295244571_7d624064",
+    "type": "warning",
+    "title": "Session Size Guard",
+    "message": "Main session was .6MB (over 3MB limit). Auto-reset and gateway restarted. Backup: 888a7e15-200d-4f26-b65f-5928f536c1cc.20260323-164721.jsonl",
+    "answered": false,
+    "createdAt": "2026-03-23T19:47:24.571Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774295592577_830b1aba",
+    "type": "alert",
+    "title": "Test Alert: System Check",
+    "message": "Testing the quiet-hours outbox system. This is a high-priority alert to verify dedup, priority grouping, and digest building.",
+    "source": "test-script",
+    "answered": false,
+    "createdAt": "2026-03-23T19:53:12.577Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774295658048_808481df",
+    "type": "update",
+    "title": "Morning Digest — Monday, March 23",
+    "message": "Morning Digest — Monday, March 23, 2026\nTotal items: 5\n\n======================================================================\n🔴 CRITICAL (1 items)\n======================================================================\n\n• Gateway Memory Critical\n  System RAM allocation at 87%. Cron jobs queuing up. Recommend immediate memory cleanup or service restart.\n  [from: health-check]\n\n======================================================================\n📋 NORMAL (4 items)\n======================================================================\n\nQuestions (3):\n  • Passive Income Ideas?\n  • Passive Income Ideas?\n  • Passive Income Ideas?\n\nUpdates (1):\n  • CoinUsUp: Code review completed\n\n======================================================================\nDigest prepared: 2026-03-23T16:54:17.849642\nView full details: Command Center Dashboard",
+    "source": "morning-digest",
+    "answered": false,
+    "createdAt": "2026-03-23T19:54:18.048Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774295674683_d3f62578",
+    "type": "update",
+    "title": "Morning Digest — Monday, March 23",
+    "message": "Morning Digest — Monday, March 23, 2026\nTotal items: 2\n\n======================================================================\n🔴 CRITICAL (1 items)\n======================================================================\n\n• Test Critical Alert\n  System is critical\n  [from: test]\n\n======================================================================\n📋 NORMAL (1 items)\n======================================================================\n\nQuestions (1):\n  • Test Question\n\n======================================================================\nDigest prepared: 2026-03-23T16:54:34.460044\nView full details: Command Center Dashboard",
+    "source": "morning-digest",
+    "answered": false,
+    "createdAt": "2026-03-23T19:54:34.683Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774297108215_85b9f7eb",
+    "type": "system",
+    "title": "Session Auto-Reset",
+    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
+    "answered": false,
+    "createdAt": "2026-03-23T20:18:28.215Z",
+    "answeredAt": null
   }
 ]

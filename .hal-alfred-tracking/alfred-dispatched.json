@@ -1,20 +1,4 @@
 {
-  "task_1774130449066_c34541f7": {
-    "at": 1774136625.364565,
-    "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)"
-  },
-  "task_1774146648749_3fca0508": {
-    "at": 1774149228.730062,
-    "title": "Even Us Up: B2B Expense Mgmt (Teams/Orgs \u2014 Long-Term)"
-  },
-  "task_1773672258312_393a575f": {
-    "at": 1774162229.2251542,
-    "title": "Mission Control Phase 1: Stability & Visibility"
-  },
-  "task_1774171849501_375342e7": {
-    "at": 1774202922.401907,
-    "title": "Atlantic Contractor Client Portal-in-a-Box"
-  },
   "task_1774182651318_79b657e0": {
     "at": 1774214124.651947,
     "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)"
@@ -22,5 +6,13 @@
   "task_1774062049248_7486f8ba": {
     "at": 1774222503.765195,
     "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
+  },
+  "task_1774294539184_badad2f9": {
+    "at": 1774295471.7464142,
+    "title": "Quiet-Hours Outbox + Morning Digest Dispatcher"
+  },
+  "task_1774295529315_b4807ff0": {
+    "at": 1774300126.775984,
+    "title": "Market Signals App \u2013 UI/UX Redesign"
   }
 }

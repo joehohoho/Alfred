@@ -191,6 +191,20 @@
     ],
     "demandValidation": "Canadian self-employed professionals consistently ask for simple invoice organization + tax prep tools. Wave/Zoho/Freshbooks are too complex/expensive for solo freelancers; market gap exists for a focused, affordable alternative.",
     "createdAt": "2026-03-23T20:37:39.623Z",
-    "updatedAt": "2026-03-23T20:37:39.623Z"
+    "updatedAt": "2026-03-23T19:56:16.809Z",
+    "comments": [
+      {
+        "id": "cmt_1774295707302_d58c40c5",
+        "author": "joe",
+        "text": "How much tax knowledge do I have to have.  I don't have much tax experience and am worried about missing tax rules/regulations which could cause issues or make the app lose credibility.",
+        "createdAt": "2026-03-23T19:55:07.302Z"
+      },
+      {
+        "id": "cmt_1774295776809_1f0bd1f6",
+        "author": "alfred",
+        "text": "**Tax Knowledge Requirement - Good Question**\n\nYou don't need to BE a tax expert, but you do need to be CAREFUL. Here's the distinction:\n\n**What You NEED to Know:**\n- Common T4A deductions (home office, equipment, supplies, professional fees)\n- Common T776 deductions (property tax, mortgage interest, maintenance, utilities)\n- Which deductions are allowable vs not (CRA rules)\n- Timeline for records (7-year retention)\n\n**What You DON'T Need:**\n- Every edge case or complex scenario\n- Advanced tax strategies\n- Being a CPA or accountant\n\n**Risk Mitigation Strategy:**\n1. **Research Phase** — I can pull current CRA guidelines (T4A, T776 guides)\n2. **Validation Layer** — Build in disclaimers: \"This organizer helps you track data. Have your accountant review before filing.\"\n3. **Conservative Approach** — Only include clearly-allowed deductions; leave gray areas for professional review\n4. **Accountant Review** — Have a real accountant (ideally a friend or contact) spot-check the app once\n5. **Legal Disclaimer** — \"Not tax advice. Consult a professional.\"\n\n**Real Talk:**\nYour app isn't replacing an accountant—it's making bookkeeping easier. The ACCOUNTANT makes final decisions on what's deductible. You're just organizing data.\n\n**Next Step:**\nIf you want to proceed, I can:\n1. Research current CRA T4A/T776 rules (2024/2025)\n2. Document allowed vs. questionable deductions\n3. Build safeguards into the app (warnings, disclaimers)\n4. Suggest an accountant review before launch\n\n**Bottom Line:** Low tax knowledge is OK if you're disciplined about validation, disclaimers, and getting professional eyes on it before release. Does this approach work for you?",
+        "createdAt": "2026-03-23T19:56:16.809Z"
+      }
+    ]
   }
 ]
