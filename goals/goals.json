@@ -533,7 +533,7 @@
     "title": "SignalLite — Clean Buy/Sell Signal Feed",
     "description": "**What it is:** A lightweight, clean buy/sell signal web app focused on simplicity. Users subscribe to tickers and get clear signal notifications (buy/sell/hold) based on technical indicators — no noise, no chart overload. Natural extension of the existing Market Signal Lab.\n\n**Why Joe:** Reuses the Market Signal Lab engine already built. Minimal new code — mostly a clean consumer-facing UI + subscription layer on top of existing infrastructure.\n\n**Revenue model:** $15–79/mo tiered by number of tickers + alert channels (email, SMS, push). Potential MRR at 100 customers: ~$2,000–4,000.\n\n**Effort:** Low-Medium — core signal engine exists. Need: user auth, subscription billing (Stripe), clean dashboard, alert delivery. 2–4 weeks MVP.\n\n**Maintenance:** Low — Alfred monitors the signal engine. Mostly prompt/threshold tuning.\n\n**Moat:** Simplicity. Most signal tools are overwhelming. SignalLite is for the casual investor who wants a simple answer.\n\n**Target user:** Retail investors who want signals without learning TA. Not traders — investors.\n\n**Risks:** Regulatory grey area for financial advice. Must include disclaimers (signals are educational, not financial advice).\n\n**Alfred rating:** ⭐⭐ Strong second — lowest build effort since engine already exists.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
     "completedAt": null,
     "metadata": {},

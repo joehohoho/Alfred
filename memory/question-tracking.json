@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "description": "Tracks when each inquiry topic was last asked. 30-day cooldown between repeats. permanently_closed=true means NEVER ask again.",
-  "last_updated": 1774177429.939171,
+  "last_updated": 1774270801.400752,
   "topics": {
     "consulting-opportunity": {
       "last_asked": "2026-03-19",
@@ -42,8 +42,8 @@
       "count": 1
     },
     "alfred-optimization": {
-      "last_asked": null,
-      "count": 0
+      "last_asked": "2026-03-23",
+      "count": 1
     },
     "coinusup-vision": {
       "last_asked": null,

@@ -191,9 +191,31 @@ main() {
   # Fetch in_progress cards
   IN_PROG=$(fetch_in_progress)
   if [[ -z "$IN_PROG" ]]; then
-    log "No in_progress cards. Exiting."
-    echo "[ACTION:SKIP] reason=no_in_progress_cards"
-    exit 0
+    # No in_progress cards — check if there are todo cards to pick up
+    log "No in_progress cards. Checking todo..."
+    WAKE_RESULT=$(curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/wake" 2>/dev/null)
+    WAKE_ACTION=$(echo "$WAKE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('action','none'))" 2>/dev/null || echo "none")
+    if [[ "$WAKE_ACTION" == "work-session" ]]; then
+      WAKE_CARD_ID=$(echo "$WAKE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('card',{}).get('id',''))" 2>/dev/null)
+      WAKE_CARD_TITLE=$(echo "$WAKE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('card',{}).get('title','?'))" 2>/dev/null)
+      log "Auto-picked todo card: $WAKE_CARD_TITLE ($WAKE_CARD_ID)"
+      # Move the card to in_progress
+      if [[ -n "$WAKE_CARD_ID" ]]; then
+        MOVE_RESULT=$(curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/$WAKE_CARD_ID/move" \
+          -H "Content-Type: application/json" \
+          -d '{"toColumn":"in_progress"}' 2>/dev/null)
+        MOVE_COL=$(echo "$MOVE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('column','?'))" 2>/dev/null || echo "?")
+        log "  Moved to: $MOVE_COL"
+      fi
+      # Re-fetch in_progress
+      sleep 1
+      IN_PROG=$(fetch_in_progress)
+    fi
+    if [[ -z "$IN_PROG" ]]; then
+      log "No in_progress or todo cards. Exiting."
+      echo "[ACTION:SKIP] reason=no_cards"
+      exit 0
+    fi
   fi
   
   CARD_COUNT=$(echo "$IN_PROG" | wc -l)

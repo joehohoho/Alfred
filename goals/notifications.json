@@ -497,24 +497,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774090825977_82d1c963",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-21T11:00:25.977Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774094248564_b9883cd9",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Refresh OPEN-LOOPS Dashboard: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-21T11:57:28.564Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774098000945_fd438421",
     "type": "question",
     "title": "Which project deserves a dedicated sprint next?",
@@ -544,33 +526,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774146801878_feb3d7b5",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-22T02:33:21.878Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774151006242_cfe8870a",
-    "type": "system",
-    "title": "Cron Auto-Disabled",
-    "message": "Daily Config & Memory Review: 3 consecutive failures — auto-disabled",
-    "answered": false,
-    "createdAt": "2026-03-22T03:43:26.242Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774177227387_7db670fd",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-22T11:00:27.387Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774177429833_45d8ac73",
     "type": "question",
     "title": "Any new app idea you've been researching?",
@@ -578,15 +533,6 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-22T11:03:49.833Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774192687632_ea3a305a",
-    "type": "system",
-    "title": "Session Auto-Reset",
-    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
-    "answered": false,
-    "createdAt": "2026-03-22T15:18:07.632Z",
     "answeredAt": null
   },
   {
@@ -622,6 +568,52 @@
     },
     "answered": false,
     "createdAt": "2026-03-22T21:19:47.751Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774270801271_b805b143",
+    "type": "question",
+    "title": "How should I prioritize overnight work differently?",
+    "message": "Are you happy with how I spend idle hours, or would you prefer I focus differently? More feature work? More research? More system improvements?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-23T13:00:01.271Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774292765345_7f0f0a1e",
+    "type": "-title",
+    "title": "Unblock: Atlantic Contractor Portal - Phase 2 Ready",
+    "message": "-body",
+    "goalId": "Phase 2 (discovery execution) framework is complete and ready to deploy. Waiting on: (1) Approve prospect list with 10 verified leads, (2) Provide 2-3 warm intro names to boost response rate, (3) Confirm ready to proceed Mar 24 with cold outreach. Card: Atlantic Contractor Client Portal-in-a-Box. What's your call?",
+    "taskId": "-options",
+    "source": "approve_phase2,request_changes,defer",
+    "answered": false,
+    "createdAt": "2026-03-23T19:06:05.345Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774292768662_6204d5a1",
+    "type": "-title",
+    "title": "Unblock: Bill Review & Invoice Audit SaaS - Next Steps",
+    "message": "-body",
+    "goalId": "Market validation complete (strong demand confirmed, competitors identified, revenue model viable). Research summary: Stampli/BILL/Coupa exist but miss the Canadian SMB audit-first wedge. Our angle is solid. Ready to proceed with: (1) Discovery calls with 10 Canadian SMB finance leads (Mar 25+), (2) Clickable prototype + explainability demo, (3) 3-slot pilot recruitment. Proceed with discovery calls?",
+    "taskId": "-options",
+    "source": "proceed_discovery,request_revisions,defer",
+    "answered": false,
+    "createdAt": "2026-03-23T19:06:08.662Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774292771576_e21d2fc9",
+    "type": "-title",
+    "title": "[REMINDER] Unblock: 14-day Free Trial - Stripe Setup",
+    "message": "-body",
+    "goalId": "Implementation is code-complete and tested. Remaining: Update Stripe dashboard with trial_period_days=14 on 12 prices (Pro/Business tiers × monthly/annual/per-credit). This is the final step before deployment. Need you to: (1) Log into Stripe, (2) Set trial=14 days on prices, (3) Confirm complete. Time: ~5 min. Ready to do this now?",
+    "taskId": "-options",
+    "source": "ready_to_update,need_more_time,defer",
+    "answered": false,
+    "createdAt": "2026-03-23T19:06:11.576Z",
     "answeredAt": null
   }
 ]

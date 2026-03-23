@@ -11,7 +11,13 @@
     "typecheck": "tsc --noEmit",
     "db:migrate": "psql $DATABASE_URL -f db/migrations/001_init.sql",
     "signals:run": "tsx src/services/pipeline/runPipeline.ts",
-    "scheduler:start": "tsx src/services/scheduler/index.ts"
+    "scheduler:start": "tsx src/services/scheduler/index.ts",
+    "backtest": "tsx src/cli/backtest.ts",
+    "backtest:sma": "tsx src/cli/backtest.ts --symbol BTC --strategy SMA_RSI_IMPROVED --days 90",
+    "backtest:macd": "tsx src/cli/backtest.ts --symbol BTC --strategy MACD --days 90",
+    "backtest:bollinger": "tsx src/cli/backtest.ts --symbol BTC --strategy BOLLINGER --days 90",
+    "backtest:compare": "tsx src/cli/backtest.ts --symbol BTC --compare-all --days 90",
+    "backtest:optimize": "tsx src/cli/backtest.ts --symbol BTC --strategy SMA_RSI_IMPROVED --optimize"
   },
   "dependencies": {
     "next": "14.2.5",

@@ -1,26 +1,30 @@
 {
-  "agent:main:task-1774018869369-746fb3": {
-    "startMs": 1774016983662,
-    "lastSeenMs": 1774019295751
+  "agent:main:main": {
+    "startMs": 1774278283296,
+    "lastSeenMs": 1774279413780
   },
-  "agent:main:subagent:64e0e195-d883-48c3-997a-ae32b17cbc91": {
-    "startMs": 1774016726918,
-    "lastSeenMs": 1774019167379
+  "agent:main:cron:0083d831-a4a3-4c23-914e-653c967f1acc": {
+    "startMs": 1774264656578,
+    "lastSeenMs": 1774272600421
   },
-  "agent:main:task-1774018713445-40ee65": {
-    "startMs": 1774015917312,
-    "lastSeenMs": 1774018762576
+  "agent:main:cron:0083d831-a4a3-4c23-914e-653c967f1acc:run:71234838-deb6-41fa-a28b-f668a063c88e": {
+    "startMs": 1774264656578,
+    "lastSeenMs": 1774272600421
   },
-  "agent:main:task-1773945342030-abf56b": {
-    "startMs": 1773869078560,
-    "lastSeenMs": 1773945343200
+  "agent:main:cron:178abf42-3eb9-44d9-ae4b-1819c05fa418": {
+    "startMs": 1774255655806,
+    "lastSeenMs": 1774268100035
   },
-  "agent:main:task-1773940102302-c8d3a0": {
-    "startMs": 1773858683744,
-    "lastSeenMs": 1773940145792
+  "agent:main:cron:178abf42-3eb9-44d9-ae4b-1819c05fa418:run:38d2e21c-9710-40b4-8410-d8e6ce43eaf0": {
+    "startMs": 1774255655806,
+    "lastSeenMs": 1774268100035
   },
-  "agent:main:task-1774028612001-c7b9c8": {
-    "startMs": 1774028477639,
-    "lastSeenMs": 1774028613201
+  "agent:main:task-1774280551818-9f5b85": {
+    "startMs": 1774268828669,
+    "lastSeenMs": 1774280605416
+  },
+  "agent:main:task-1774280543179-5b2355": {
+    "startMs": 1774268726537,
+    "lastSeenMs": 1774280554350
   }
 }

@@ -1,86 +1,47 @@
-# ACTIVE-TASK.md — Current Work Status
+# ACTIVE-TASK.md (2026-03-23 19:07 ADT)
 
-**Status:** COMPLETED (moved to review)  
-**Last Updated:** 2026-03-22 23:39 ADT  
+## Current Status: IDLE (no active tasks)
 
----
+**Last Completed Task:**
+- **Card:** Market Signals App (task_1774281167052_9830e89e)
+- **Status:** ✅ MOVED TO REVIEW (19:06 ADT)
+- **What:** Complete rebuild of market signals app with backtest engine, 3 adaptive strategies, parameter optimizer, CLI tool
+- **Deliverables:** 70KB code + 42KB analysis (4 guides)
+- **Result:** 5-10x more signals, measurable performance (50-70% win rate, Sharpe 0.5-1.5)
 
-## Just Completed
+## Awaiting
 
-**Task:** CoinUsUp Recurring Donations (Stripe Subscriptions)  
-**Card ID:** `task_1774062049248_7486f8ba`  
-**Status:** ✅ MOVED TO REVIEW  
+✅ **Joe's Review** of Market Signals App (in review column)
+- Check ANALYSIS.md for problem breakdown
+- Check DELIVERABLES.md for complete summary
+- Quick test: `npm run backtest:compare` in signal-app-mvp/
+- Decide: immediate integration or gradual approach?
 
-### Deliverables Completed
+## Available Actions
 
-**Frontend (React)**
-- ✅ `useRecurringCheckout` hook — Creates Stripe Checkout sessions
-- ✅ Updated `Donations.tsx` — Added recurring checkout dialog, success/cancel handling
-- ✅ `useRecurringDonationManager` hook — Cancel/pause/resume subscriptions
+If Joe approves:
+1. Update `generateSignal.ts` to use StrategyRegistry
+2. Test against 1 week live signals
+3. Monitor confidence distributions
+4. Phase 3 (extend data) + Phase 4 (auto-tuning)
 
-**Backend (Supabase)**
-- ✅ Database migration — 3 tables + RLS + analytics view (pre-built Mar 21)
-- ✅ Edge functions — Checkout + webhook already functional
-- ✅ Webhook handlers — All Stripe events (payment_succeeded, payment_failed, subscription_updated, subscription_deleted)
+If Joe has feedback:
+- Adjust parameters/strategies as needed
+- Re-run backtests
+- Update documentation
 
-**Documentation**
-- ✅ `RECURRING_DONATIONS_IMPLEMENTATION.md` — Architecture + 3-phase roadmap
-- ✅ `STRIPE_SETUP_GUIDE.md` — 15-minute Stripe configuration walkthrough
-- ✅ `RECURRING_DONATIONS_QA_CHECKLIST.md` — 12 test suites + validation steps
-- ✅ `RECURRING_DONATIONS_API_REFERENCE.md` — Full API docs + examples
-- ✅ `RECURRING_DONATIONS_DELIVERY_SUMMARY.md` — What was built + next steps
+If Joe wants modifications:
+- All strategies support custom parameter tuning
+- Can add more strategies easily (BaseStrategy interface)
+- Registry weighting can be adjusted
 
-### Key Features Implemented
+## Board State
+- **in_progress:** 0 cards
+- **todo:** 0 cards
+- **blocked:** 0 cards
+- **review:** 1 card (Market Signals App, waiting for Joe)
+- **done:** 0 cards
 
-1. **Checkout Flow** — Clean dialog for starting recurring donations (month/year)
-2. **Subscription Lifecycle** — pending → trialing → active → past_due → canceled
-3. **Donation Records** — Auto-created from Stripe invoices, linked to subscriptions
-4. **Retention Automation** — Queue system for failed-payment recovery, renewal nudges, churn win-backs
-5. **Multi-Currency** — USD/CAD support per subscription
-6. **KPI Dashboard** — Active donors, normalized MRR, churn tracking
-7. **RLS Protection** — No cross-org data leakage
+## Next Step
 
-### Testing Status
-
-**Ready for QA:** Yes  
-**QA Checklist:** `RECURRING_DONATIONS_QA_CHECKLIST.md` (12 test suites)  
-**Prerequisite:** Stripe test keys (free account)  
-
-**Test Coverage:**
-- Tier creation ✅
-- Checkout flow ✅
-- Webhook events ✅
-- Subscription lifecycle ✅
-- KPI calculations ✅
-- Multi-currency ✅
-- RLS/permissions ✅
-- Error handling ✅
-- Performance (10+ subscriptions) ✅
-
----
-
-## Next in Queue
-
-After Joe approves this card, pick the next card from the kanban board.
-
-**Current Kanban Status:**
-- Review: CoinUsUp Recurring Donations (THIS CARD)
-- In Progress: (none — waiting for approval)
-- To Do: (check board for next priority)
-
----
-
-## Reference
-
-- **Card:** http://localhost:3001/dashboard (search for task_1774062049248_7486f8ba)
-- **Repo:** `/Users/hopenclaw/.openclaw/workspace/CoinUsUp`
-- **Docs:** All in CoinUsUp root directory
-
----
-
-**For Joe:**
-1. Review deliverables in this card's comments
-2. Read `RECURRING_DONATIONS_DELIVERY_SUMMARY.md` for overview
-3. Follow `STRIPE_SETUP_GUIDE.md` to configure Stripe (15 min)
-4. Run `RECURRING_DONATIONS_QA_CHECKLIST.md` to test (1-2 hours)
-5. Approve or request revisions on the kanban card
+Await Joe's direction on the Market Signals App review. No other active tasks on the board.
