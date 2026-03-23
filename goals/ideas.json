@@ -169,7 +169,10 @@
       "billing-software-expertise",
       "canada-specific-moat"
     ],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Strong market validation. Joe's billing software background + Canadian-specific focus creates defensible positioning. Freemium model is low-touch maintenance. OCR + PDF export are main complexity; CRA form layer is straightforward. High synergy with existing projects."
+    },
     "promotedToGoalId": null,
     "tags": [
       "saas",
@@ -187,9 +190,14 @@
       {
         "source": "Market analysis (2026-03-23)",
         "finding": "Wave (owned by Stripe), Zoho Books, Freshbooks dominate SMB accounting but are overkill for solo freelancers. Gap: simple, Canada-first, low-cost tool. UI/UX preference in Reddit threads: simplicity over features."
+      },
+      {
+        "source": "Web search (2026-03-23 18:53 ADT)",
+        "finding": "Confirmed: CRA-certified software list exists; Freshbooks/Wave/TaxCycle dominate but are enterprise-focused. Reddit evidence validates demand from solo freelancers seeking simpler, cheaper alternative."
       }
     ],
     "demandValidation": "Canadian self-employed professionals consistently ask for simple invoice organization + tax prep tools. Wave/Zoho/Freshbooks are too complex/expensive for solo freelancers; market gap exists for a focused, affordable alternative.",
+    "status": "evaluated",
     "createdAt": "2026-03-23T20:37:39.623Z",
     "updatedAt": "2026-03-23T19:56:16.809Z",
     "comments": [
