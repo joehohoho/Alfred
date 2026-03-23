@@ -16,7 +16,7 @@ Post: what I decided + brief reason + outcome. Joe wants visibility, not approva
 
 ## Rule
 
-**Whenever you have a question for Joe — about ANY task, cron job, Slack update, goal, or decision — send it to the Command Center notifications system.** Do not leave questions only in Slack messages or logs. The Command Center is Joe's primary inbox for questions that need answers.
+**Whenever you have a question for Joe — about ANY task, cron job, Discord update, goal, or decision — send it to the Command Center notifications system.** Do not leave questions only in Discord messages or logs. The Command Center is Joe's primary inbox for questions that need answers.
 
 ## How to Send a Notification
 
@@ -50,21 +50,21 @@ bash ~/.openclaw/workspace/scripts/send-notification.sh \
 ### ALWAYS send a notification when:
 - You need Joe's approval or decision before proceeding
 - A cron job produces results that need Joe's input
-- You encounter something in Slack that requires Joe's response
+- You encounter something in Discord that requires Joe's response
 - A task is blocked waiting for a human decision
 - You discover a security issue or anomaly
 - Token spend exceeds $5 in a single session
 - An external action is needed (deploy, payment, account change)
 
-### ALSO send notifications for Slack-originated questions:
-- When Joe or someone messages a Slack channel with a question for you
-- When a Slack update contains information that changes a task and Joe needs to weigh in
+### ALSO send notifications for Discord-originated questions:
+- When Joe or someone messages a Discord channel with a question for you
+- When a Discord update contains information that changes a task and Joe needs to weigh in
 - When a code review finding needs Joe's decision
 
 ### DO NOT send notifications for:
-- Routine status updates (use Slack for those)
+- Routine status updates (use Discord for those)
 - Things you can figure out yourself (check SOUL.md — be resourceful first)
-- Confirming you completed a task (use Slack announcements)
+- Confirming you completed a task (use Discord announcements)
 
 ## Notification Quality Standards (MANDATORY)
 
@@ -162,3 +162,21 @@ curl -X POST http://localhost:3001/api/kanban/<cardId>/blocker \
 ### Kanban Blocker API
 - **Add blocker:** `POST http://localhost:3001/api/kanban/:cardId/blocker` with `{ "message": "..." }`
 - **Unblock (Joe):** `POST http://localhost:3001/api/kanban/:cardId/unblock` with `{ "answer": "..." }`
+
+---
+
+## Comment Delivery Delay
+
+Joe's kanban card comments have a 60-second delivery delay to allow editing. Alfred receives the FINAL version after the timer expires. If Joe edits a comment, the timer resets.
+
+---
+
+## Notification Answer Delivery
+
+Notification answers are delivered to Alfred's main session (`agent:main:main`), not isolated sessions.
+
+---
+
+## Daily Inquiry
+
+30-day cooldown on answered topics. Permanently closed topics are blocked. See `scripts/daily-inquiry.sh` for the dedup implementation.

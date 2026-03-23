@@ -1,60 +1,66 @@
-# NOW.md — Session Checkpoint (2026-03-22 21:00 ADT)
+# NOW.md — Session Checkpoint (2026-03-23 02:00 UTC / 2026-03-22 22:00 ADT)
 
-**Status:** Evening routine complete
+**Status:** Evening routine complete, ready for Monday morning
 
 ---
 
 ## Current State
 
-- **ACTIVE-TASK:** Even Us Up quick wins (in review, awaiting Joe approval on implementation approach)
-- **Daily memory:** Updated (memory/2026-03-22.md)
-- **LAST-SESSION bridge:** Updated (comprehensive session bridge for Monday boot)
+- **ACTIVE-TASK:** CoinUsUp Recurring Donations research (findings logged, next: webhook implementation)
+- **Daily memory:** Updated (`memory/2026-03-22.md` with end-of-day summary)
+- **LAST-SESSION bridge:** Comprehensive handoff prepared for Monday boot
+- **Kanban:** Even Us Up in review (awaiting Joe approval on implementation approach)
 - **System Health:** ✅ All systems operational
 
 ---
 
-## Active Blockers
+## Immediate Blockers (Awaiting Joe)
 
-1. **Even Us Up implementation approach** — Joe to choose A (HAL parallel), B (Alfred sequential), or C (hybrid)
-2. **Mission Control Phase 1** — Cron controls decision pending Joe approval
-3. **CoinUsUp 14-day trial** — Stripe dashboard configuration required
-4. **Blueprint approvals** — 4 cards waiting for approval (Niche SaaS, Voice-to-SOP, Bill Review, etc.)
-
----
-
-## Tomorrow Focus (Sunday)
-
-**Option 1:** If Joe sends approval messages overnight:
-- Process approvals immediately
-- Move approved cards to Done
-- Start highest-priority next work item
-
-**Option 2:** If no approvals overnight:
-- Wait for morning triage message
-- Review OPEN-LOOPS dashboard
-- Pursue any unblocked work (5-min tasks like Stripe config)
+1. **Even Us Up implementation approach** — Choose: (A) HAL parallel (fastest), (B) Alfred sequential (safe), (C) Hybrid
+2. **Mission Control Phase 1** — Approve cron controls implementation or defer
+3. **CoinUsUp Webhook Handler** — Start when Joe approves (2-3h work, high-value)
 
 ---
 
-## System Health Check
+## Monday Morning (09:00 AM)
+
+**First Actions:**
+1. Read OPEN-LOOPS dashboard (unified pending-work view)
+2. Check for overnight Joe approvals on blockers above
+3. If approvals present: dispatch work immediately
+4. If no approvals: send Command Center reminder with decision request
+
+**Unblocked Work Available:**
+- CoinUsUp Stripe test dashboard config (5 min — can do anytime)
+- Blueprint card approvals (if Joe sends them)
+
+---
+
+## System Health Check (End of Day)
 
 | Component | Status | Notes |
 |-----------|--------|-------|
-| Gateway | ✅ Running | Codex in recovery (fallback to Haiku working) |
-| Crons | ⏸️ Disabled | Auto-disabled after failures; restart scheduled for 8 AM |
-| Workspace | ✅ Clean | All files indexed, memory current |
-| Token margin | ✅ Excellent | Plenty of capacity for multi-task execution |
-| Kanban | ✅ Current | Cards reflect accurate state |
+| Gateway | ✅ Running | Codex in recovery; fallback to Haiku working |
+| Crons | ⏸️ Disabled | Auto-disabled after failures; restart 8 AM Monday |
+| Workspace | ✅ Clean | All files indexed; memory current and consolidated |
+| Token margin | ✅ Excellent | No overage risk; capacity for multi-task execution |
+| Kanban | ✅ Current | Cards accurately reflect state; no stale tasks |
+| Continuity | ✅ Complete | LAST-SESSION, ACTIVE-TASK, daily memory all updated |
 
 ---
 
-## Monday Morning Priorities
+## Key Insights for Monday
 
-1. **Read OPEN-LOOPS dashboard** — unified pending-work view
-2. **Check for overnight Joe messages** — approvals on Even Us Up, Mission Control, etc.
-3. **If approvals present:** Start highest-impact work
-4. **If no approvals:** Send reminder notification with quick decision request
+**CoinUsUp Discovery:**
+- Foundation is 90% complete (DB schema ✅, checkout endpoint ✅)
+- **Critical gap:** Stripe webhook handler (blocks subscription durability)
+- Path to production: Webhook (2-3h) → UI extension (1-2h) → Simple dunning (1-2h)
+
+**Workflow Status:**
+- Even Us Up: All discovery complete; 3 implementation approaches ready (decision needed)
+- Mission Control: Awaiting approval; design ready to start
+- Infrastructure: No technical blockers; all resource-gated on Joe decisions
 
 ---
 
-**Ready to ship. Awaiting Joe direction.**
+**Ready to execute. Awaiting Joe signal.**

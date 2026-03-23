@@ -84,7 +84,7 @@ Before adding, ask:
 
 ### 6. Save & Notify
 - Write new ideas to goals/ideas.json
-- Post brief summary to Slack (1 line per idea)
+- Post brief summary to Discord (1 line per idea)
 
 ---
 
@@ -101,6 +101,14 @@ Score ideas 1-10 on these factors:
 | Passive potential | 2x | Can it generate income without ongoing effort? |
 
 **Score = weighted average.** Ideas scoring 7+ are candidates for promotion to Goals.
+
+### Auto-Promote
+
+Ideas with evaluation score >= 6 are automatically promoted to todo tasks when the pipeline (todo + in_progress) is empty. This happens via the idle loop's Phase 0.5.
+
+### Generation Caps (IDEAS_SOFT_CAP)
+
+Generation is suppressed when the ideas column reaches 35 cards. Below 20: no cooldown. 20-34: 3-day cooldown. >=35: fully suppressed.
 
 ---
 
@@ -134,7 +142,7 @@ When Joe rejects an idea from the Kanban board, it gets archived with a `rejecte
 ## Sources of Ideas
 
 1. **Alfred weekly generation** — Saturday 2 PM cron job
-2. **Joe submission** — Via Command Center /ideas page or Slack
+2. **Joe submission** — Via Command Center /ideas page or Discord
 3. **Claude Code observations** — Drop file observations that suggest opportunities
 4. **Market signals** — market-signal-lab data suggesting investment strategy products
 5. **Consulting work** — Patterns from automation consulting that suggest productizable solutions

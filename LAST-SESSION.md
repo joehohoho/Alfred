@@ -1,86 +1,103 @@
 # LAST-SESSION.md — Session Bridge
 
-**Session:** Main | **Time:** 2026-03-22 01:00 UTC (21:00 ADT) | **Duration:** Evening routine only
+**Session:** Main | **Time:** 2026-03-22 22:00 ADT / 2026-03-23 02:00 UTC | **Type:** Evening Routine
 
 ---
 
 ## What Happened
 
-### No Active Work Session
-Saturday evening — no new tasks initiated. System in holding pattern awaiting Joe approvals.
+### CoinUsUp Recurring Donations — Phase 1 Research
+- Conducted full infrastructure audit of existing Stripe integration
+- **Finding:** Foundation is solid; critical missing piece is **webhook handler**
+- Database schema ✅ complete (migration deployed, RLS set up)
+- Checkout endpoint ✅ working (create-donor-checkout function proven)
+- **Gap:** No webhook listener for subscription lifecycle events (invoice.payment_succeeded, invoice.payment_failed, subscription.updated, subscription.deleted)
+- **Blocker Impact:** Subscriptions created in Stripe but not durably tracked in Supabase DB without webhook
 
-### Key State
-- **ACTIVE-TASK:** Even Us Up quick wins (in review, awaiting implementation approach)
-- **Pending Joe Decisions:**
-  1. Even Us Up: HAL parallel vs Alfred sequential vs hybrid?
-  2. Mission Control Phase 1: Proceed with cron controls implementation?
-  3. CoinUsUp: Has Stripe dashboard config been completed?
-  4. 4 blueprints in review: Approve or request changes?
+### No New Assignments Started
+- System in holding pattern awaiting Joe approval decisions
+- Even Us Up quick wins (in review) — awaiting implementation approach choice
+- Mission Control phase 1 (pending) — awaiting approval to start cron controls work
 
-### Workspace Health Check ✅
-- Memory logs current (daily files updated)
-- ACTIVE-TASK accurately reflects state
-- No stale cards or lost context
-- OPEN-LOOPS dashboard ready for Monday morning triage
-
----
-
-## Status Summary
-- **Card:** Even Us Up: Quick Wins (task_1774130449066_c34541f7) — in_progress → awaiting approval
-- **Blocker Type:** External (Joe decision, not technical)
-- **System Health:** ✅ Healthy; all infrastructure operational
-- **Token Margin:** Excellent (plenty of capacity for Monday work)
+### System Maintenance
+- Memory logs updated with findings
+- ACTIVE-TASK.md reviewed (accurately reflects CoinUsUp in_progress state)
+- Workspace health check passed (all indices current, no stale cards)
 
 ---
 
-## Next Actions (For Next Session)
+## Decisions Made
 
-### If Joe Approves Even Us Up Implementation:
-1. **HAL parallel approach:** Spawn 3 subagents in parallel for Features 1, 2, 3
-2. **Alfred sequential:** Start Feature 1 (Recurring Expenses UI)
-3. **Hybrid:** Alfred on 1+3, HAL on Feature 2
+1. **CoinUsUp Priority:** Webhook handler is the critical path (blocks all subscription durability)
+   - 2-3 hour implementation, straightforward pattern
+   - Should follow DonationForm UI extension (tier picker + recurring toggle)
 
-### If Joe Approves Mission Control Phase 1:
-1. Read existing cron job specifications
-2. Design React dashboard UI for cron job management
-3. Implement CRUD operations for cron jobs
+2. **Monday Morning Triage:** Read OPEN-LOOPS dashboard first, then check for Joe approvals
+   - Even Us Up approach choice (parallel/sequential/hybrid)
+   - Mission Control phase 1 (yes/no on cron controls)
+   - If no approvals overnight, send reminder via Command Center
 
-### Anytime (No Approval Needed):
-1. CoinUsUp Stripe configuration (5 min, enables deployment)
-2. Review any Discord message updates from Joe
+3. **Token Management:** Excellent margin (no escalation needed)
 
 ---
 
-## Context For Next Session
+## Tasks In Progress
 
-**Priority Queue (from OPEN-LOOPS):**
-1. Even Us Up implementation (blocked on approach)
-2. Mission Control cron UI (blocked on approval)
-3. CoinUsUp Stripe config (unblocked, 5 min)
-4. 4 blueprint notifications waiting (unblocked)
-
-**Key Files:**
-- Even Us Up handoff: `goals/handoffs/task_1774130449066_c34541f7.json`
-- Discovery doc: `memory/2026-03-21-even-us-up-discovery.md`
-- Daily ops summary: `memory/daily-ops-2026-03-22.md`
-
-**Gateway Status:**
-- Codex: In recovery (token expiry, fallback to Haiku)
-- Crons: 0 jobs enabled (auto-disabled due to failures, restart tomorrow 8 AM)
-- General health: ✅ Stable
+| Task | Card ID | Status | Blocker | Est. Work |
+|------|---------|--------|---------|-----------|
+| **CoinUsUp Recurring Donations** | `task_...` | in_progress | **Joe approval** — Stripe webhook work (unblocked on approval) | 2-3h |
+| **Even Us Up Quick Wins** | `task_1774130449066_c34541f7` | in_review | Joe choice: HAL parallel vs Alfred sequential vs hybrid | 3-4 weeks total |
+| **Mission Control Phase 1** | (pending) | pending | Joe approval to start cron controls | 2-3h research |
 
 ---
 
-## Notes
+## Next Steps (Priority Order)
 
-**Why Nothing Shipped Today:**
-- Evening routine checkpoint; no assigned work
-- System waiting on Joe approval for next priority
+### Immediately When Joe Approves (Overnight or Monday AM)
 
-**Ready For Monday:**
-- All blocking decisions documented
-- Handoff contracts prepared
-- Memory consolidated
-- Workspace clean and indexed
+1. **Even Us Up:** Dispatch to Joe's chosen approach (HAL parallel, Alfred sequential, or hybrid)
+2. **CoinUsUp Webhook:** Start 2-3 hour implementation if approval given
+3. **Mission Control:** Begin cron controls design if phase 1 approved
 
-**Status: READY TO SHIP — Awaiting Joe decision to start next phase**
+### If No Approvals by 9 AM Monday
+- Send Command Center notification with decision request
+- Proceed with any unblocked 5-min tasks (e.g., Stripe dashboard config)
+
+### Unblocked Work (Can Start Anytime)
+- CoinUsUp Stripe test dashboard configuration (5 min)
+- Review blueprint approvals if Joe sends them
+
+---
+
+## Key Context for Monday Morning
+
+**OPEN-LOOPS Status:** Dashboard ready for triage  
+**Pending Decisions:** 3 major decisions awaiting Joe (Even Us Up, Mission Control, Stripe webhook timing)  
+**Memory Files:**
+- Daily log: `memory/2026-03-22.md` (research findings + next actions)
+- Discovery doc: `memory/2026-03-21-even-us-up-discovery.md` (implementation approaches)
+- Handoff contract: `goals/handoffs/task_1774130449066_c34541f7.json`
+
+**System Health:**
+- ✅ Gateway operational (Codex recovery stable)
+- ✅ Cron jobs auto-disabled (restarting 8 AM Monday)
+- ✅ Workspace clean and indexed
+- ✅ Token margin excellent
+
+**Kanban Status:**
+- Review: CoinUsUp Recurring Donations (awaiting Joe approval)
+- In Progress: (none — waiting for Even Us Up approach choice)
+- To Do: (check board for next priority after approvals)
+
+---
+
+## Notes for Next Session
+
+- **Why no shipping today:** No assigned work; system waiting on Joe decision gate
+- **Ready status:** All blocking decisions documented; handoff contracts prepared; memory consolidated
+- **Surprise discovery:** CoinUsUp's foundation is nearly complete — webhook handler is the only critical gap
+- **Monday outlook:** Expect Joe approvals; ready to ship immediately on multiple fronts
+
+---
+
+**Status: READY TO SHIP — Awaiting Joe direction. All continuity files updated.**

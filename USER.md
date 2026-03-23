@@ -28,7 +28,7 @@
 **Schedule:**
 - Scattered work: typically 9am-4pm, evening active until ~11pm
 - Work across: Mac mini (OpenClaw), Mac laptop, Windows gaming laptop
-- Communication channel: Slack (primary)
+- Communication channel: Discord (primary)
 
 ## Current Projects
 
@@ -39,7 +39,7 @@
 
 ## Tools & Stack
 
-- Slack, Gmail, Claude Code, GitHub, Outlook
+- Discord, Gmail, Claude Code, GitHub, Outlook
 - Openclaw (Mac mini), Mac laptop, Windows gaming laptop
 
 ## What Joe Wants from Alfred
@@ -101,11 +101,10 @@
 
 - Cost-conscious: Monitor spend carefully
 - Tiered routing:
-  1. **ollama/llama3.2:3b** → simple sub-agent tasks (FREE)
-  2. **Codex** → code generation / code review (FREE, specialized)
-  3. **Haiku 4.5** → when local/codex insufficient ($)
-  4. **Sonnet 4.5** → complex analysis, multi-step reasoning ($$)
-  5. **Opus 4.5** → security decisions, complex reasoning ($$$)
+  1. **Codex** → code generation / code review (FREE, specialized)
+  2. **Haiku 4-5** → when codex insufficient ($)
+  3. **Sonnet 4-6** → complex analysis, multi-step reasoning ($$)
+  4. **Opus 4-6** → security decisions, complex reasoning ($$$)
 
 ## Git Commits
 

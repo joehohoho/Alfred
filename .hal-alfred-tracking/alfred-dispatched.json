@@ -1,12 +1,4 @@
 {
-  "task_1774090851207_60e23900": {
-    "at": 1774097008.866245,
-    "title": "CoinUsUp Nonprofit Content Hub (SEO Growth)"
-  },
-  "task_1774114248437_471a0f9e": {
-    "at": 1774127621.175843,
-    "title": "Even Us Up: Receipt Scanning + OCR (Mobile Differentiator)"
-  },
   "task_1774130449066_c34541f7": {
     "at": 1774136625.364565,
     "title": "Even Us Up: Quick Wins (Recurring Expenses + Bill Rules + Simplify Debts)"
@@ -20,7 +12,15 @@
     "title": "Mission Control Phase 1: Stability & Visibility"
   },
   "task_1774171849501_375342e7": {
-    "at": 1774177685.7762501,
+    "at": 1774202922.401907,
     "title": "Atlantic Contractor Client Portal-in-a-Box"
+  },
+  "task_1774182651318_79b657e0": {
+    "at": 1774214124.651947,
+    "title": "Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)"
+  },
+  "task_1774062049248_7486f8ba": {
+    "at": 1774222503.765195,
+    "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
   }
 }

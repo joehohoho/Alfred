@@ -136,8 +136,12 @@ function attemptConnection() {
         return;
       }
 
-      // Auth failure
-      console.error(`ERROR connecting to HAL (client=${clientId}): ${errMsg || JSON.stringify(msg.error)}`);
+      // Auth failure — include actionable fix for common issues
+      if (errMsg && errMsg.includes('origin not allowed')) {
+        console.error(`ERROR: HAL gateway rejected origin. Fix: run 'openclaw config set gateway.controlUi.allowedOrigins \'["*"]\'' on HAL's PC, then restart gateway.`);
+      } else {
+        console.error(`ERROR connecting to HAL (client=${clientId}): ${errMsg || JSON.stringify(msg.error)}`);
+      }
       ws.close();
       process.exit(1);
       return;

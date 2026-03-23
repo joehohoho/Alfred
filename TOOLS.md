@@ -18,7 +18,7 @@ Full previous version is preserved in **TOOLS-EXTENDED.md** (no data loss).
 
 ### Config
 - Location: Dieppe, NB (`46.0988,-64.6819`)
-- Slack channel: `#weather-alerts` (`C0AHET5GMUY`)
+- Discord channel: `#weather-alerts`
 - wttr.in JSON: `curl -s "wttr.in/Dieppe,NB?format=j1"`
 - Open-Meteo endpoint uses 3-day hourly forecast (temp, apparent temp, snowfall, precip, wind, gusts, direction, weathercode)
 
@@ -31,29 +31,12 @@ Full previous version is preserved in **TOOLS-EXTENDED.md** (no data loss).
 - Wind + gusts + wind chill
 - Compare both sources (Open-Meteo + wttr.in)
 - Include school-cancellation analysis for `>=10cm` snow
-- Slack formatting uses `*bold*` (mrkdwn)
+- Discord formatting uses `**bold**` (markdown)
 
 ### Test
 ```bash
 bash ~/.openclaw/workspace/scripts/weather-alerts.sh
 ```
-
----
-
-## Ollama Guard
-
-Script: `scripts/ollama-guard.sh`
-
-### Common usage
-```bash
-bash scripts/ollama-guard.sh
-source scripts/ollama-guard.sh && ollama_status
-bash scripts/ollama-guard.sh --wait bash my-task.sh
-```
-
-### Rule
-Use guard before LOCAL-model-dependent workloads to avoid timeout cascades.
-Reference: `OLLAMA-GUARD-UNIVERSAL.md`
 
 ---
 
@@ -79,21 +62,7 @@ Use OpenClaw `tts` tool (returns media file path).
 
 ## LaunchAgents / Services
 
-Primary agents in this environment:
-- `com.ollama.keepalive`
-- `com.ollama.ollama`
-- `com.alfred.dashboard-nextjs` (localhost:3001)
-- `com.alfred.job-tracker` (localhost:8000)
-- `com.alfred.market-signal-lab` (localhost:8002)
-- `com.alfred.legal-bill-ai`
-- `com.alfred.session-size-guard`
-- `com.alfred.session-watchdog`
-- `com.alfred.failsafe-ping`
-- `com.alfred.weather-alerts`
-- `com.alfred.daily-inquiry`
-- `com.openclaw.imsg-responder`
-- `com.cloudflare.tunnel`
-- `ai.openclaw.gateway`
+Run `launchctl list | grep -E 'alfred|openclaw'` — there are 20+ active agents. Key ones: gateway, dashboard, work-executor, hal-idle-dispatch, session-cleanup, gateway-watchdog, log-rotation, backup-tier2.
 
 ### Quick management
 ```bash
@@ -145,7 +114,7 @@ cc-continue
 
 ## Model Routing (Compressed)
 
-- **Analysis/testing:** LOCAL first
+- **Analysis/testing:** CODEX first
 - **Code generation/review:** CODEX first
 - Escalate only when needed: Haiku → Sonnet → Opus
 - For full routing tables/tiers: see `AGENTS.md` + `MODEL-POLICY.md`

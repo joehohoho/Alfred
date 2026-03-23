@@ -18,6 +18,9 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Update context bridge for Discord sessions (lightweight, ~100ms)
+bash "$SCRIPT_DIR/update-context-bridge.sh" 2>/dev/null || true
 WORKSPACE="${SCRIPT_DIR%/scripts}"
 TRACK_DIR="$WORKSPACE/.hal-alfred-tracking"
 EXEC_LOG="$TRACK_DIR/alfred-execution.log"

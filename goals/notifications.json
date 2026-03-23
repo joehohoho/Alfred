@@ -588,5 +588,40 @@
     "answered": false,
     "createdAt": "2026-03-22T15:18:07.632Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774214387751_c0c198a3",
+    "type": "kanban-approval",
+    "title": "Approval Needed: Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)",
+    "message": "Card ready for review and approval. Auto-promote eligible: No (high-risk)",
+    "cardId": "task_1774182651318_79b657e0",
+    "taskId": "task_1774182651318_79b657e0",
+    "source": "kanban",
+    "actions": [
+      {
+        "type": "approve",
+        "label": "✅ Approve",
+        "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/approve"
+      },
+      {
+        "type": "reject",
+        "label": "❌ Reject",
+        "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/reject"
+      },
+      {
+        "type": "request-changes",
+        "label": "🔄 Request Changes",
+        "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/request-changes"
+      }
+    ],
+    "slaMetadata": {
+      "cardId": "task_1774182651318_79b657e0",
+      "createdAt": "2026-03-22T21:19:47.751Z",
+      "createdByMs": 1774214387751,
+      "autoPromoteEligible": false
+    },
+    "answered": false,
+    "createdAt": "2026-03-22T21:19:47.751Z",
+    "answeredAt": null
   }
 ]

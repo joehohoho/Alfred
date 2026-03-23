@@ -8,11 +8,11 @@
 
 ## 📊 Monitoring Checklist
 
-**All checks run with LOCAL model (ollama/llama3.2:3b) for $0 cost. Use Haiku fallback if LOCAL unavailable.**
+**All checks run with Codex (free) as primary. Fallbacks: Sonnet, then Haiku.**
 
 ### Check 1: Context Compression Alert ⚠️
 **Run:** Every heartbeat
-**Model:** LOCAL (or Haiku fallback)
+**Model:** Codex (or Haiku fallback)
 **Action:** Call `session_status` and log context usage %
 **Alert threshold:** 
 - **60-65%** → Update ACTIVE-TASK.md + LAST-SESSION.md (lightweight state capture)
@@ -37,7 +37,7 @@ timestamp | context% | model | token_cost | status
 **Action:** Calculate and log efficiency metrics
 **Metrics to track:**
 - Avg tokens per task (recent 5 tasks)
-- Model tier distribution (% LOCAL vs Haiku vs Sonnet vs Opus)
+- Model tier distribution (% Codex vs Haiku vs Sonnet vs Opus)
 - Cost per completed task
 - Trend: increasing/decreasing efficiency
 
@@ -50,7 +50,7 @@ timestamp | context% | model | token_cost | status
   "context_pct": 68,
   "recent_tasks": 5,
   "avg_tokens_per_task": 1850,
-  "model_distribution": { "local": 60, "haiku": 30, "sonnet": 10, "opus": 0 },
+  "model_distribution": { "codex": 60, "haiku": 30, "sonnet": 10, "opus": 0 },
   "cost_per_task_usd": 0.015,
   "trend": "improving"
 }
@@ -77,20 +77,18 @@ timestamp | context% | model | token_cost | status
 
 ### Check 4: System Reliability Audit ⚙️ (NEW - 2026-02-18)
 **Run:** Once per day (morning preferred)
-**Model:** LOCAL
+**Model:** Codex
 **Action:** Verify infrastructure health
 **Checks:**
-- LaunchAgents running: com.ollama.keepalive, com.openclaw.imsg-responder, com.alfred.dashboard-nextjs, com.cloudflare.tunnel, com.alfred.session-watchdog, com.alfred.session-size-guard, com.alfred.failsafe-ping, com.alfred.weather-alerts, com.alfred.market-signal-lab
+- LaunchAgents running: Run `launchctl list | grep -E 'alfred|openclaw'` for the current list. Key agents: gateway, dashboard, work-executor, hal-idle-dispatch, session-cleanup, gateway-watchdog.
   - Command: `launchctl list | grep -E "com\.alfred\.|ai\.openclaw\." | wc -l` (should be 10+)
   - Verify each can restart on failure (check plist for `<key>KeepAlive</key><true/>`)
 - Cron jobs executed in last 24h (check git log, log file)
-- Ollama health (response time <1000ms, models loaded/unloaded properly)
 - Memory usage (if >70% context, alert)
 
 **Alert threshold:**
 - Any LaunchAgent not running → RESTART and log incident
 - Cron job failed/missing → Flag for immediate investigation
-- Ollama slow → Check system load, restart if needed
 - Memory >70% → Emergency checkpoint
 
 **Status:** ✅ Implemented. Replaces old Check 4. Part of "reliability is autonomy" principle.
@@ -98,7 +96,7 @@ timestamp | context% | model | token_cost | status
 ---
 
 ### Check 5: Model Continuity Verification 🔄 (NEW - 2026-02-18)
-**Run:** When switching between model tiers (LOCAL→Haiku→Sonnet→Opus)
+**Run:** When switching between model tiers (Codex→Haiku→Sonnet→Opus)
 **Action:** Verify context handoff is clean
 **Checkpoint format:**
 ```
@@ -129,7 +127,7 @@ Alfred and HAL MUST continue working during quiet hours:
 - Continue all cron jobs and LaunchAgent tasks on their normal schedules
 
 The ONLY restriction during quiet hours:
-- Do NOT send push notifications or direct messages to Joe (iMessage, Slack DM)
+- Do NOT send push notifications or direct messages to Joe (iMessage, Discord DM)
 - Emergency alerts only for critical issues (>80% context, gateway down, rate limit spiral)
 - Joe's notification questions can be deferred until 8:30 AM — but work triggered by those questions should NOT be deferred
 
@@ -139,11 +137,10 @@ The ONLY restriction during quiet hours:
 
 ## 🎯 Implementation Notes
 
-1. **Current runtime:** LOCAL (ollama/llama3.2:3b) for maximum cost efficiency
-   - Cost: $0 (runs locally on your machine)
-   - Speed: Fast (3-second response typical)
-   - Tradeoff: Slightly lower reasoning quality vs Haiku, but excellent for status checks
-   - Fallback: If LOCAL unavailable, use Haiku (still cheap at $0.0001/1K tokens)
+1. **Current runtime:** Codex (gpt-5.3-codex) as primary — free via Max subscription
+   - Cost: $0 (included in subscription)
+   - Fallback chain: Codex → Codex retry → Sonnet → Haiku
+   - Note: Ollama/LOCAL models are disabled on this Intel Mac (GPU only 1.5GB VRAM, causes CPU starvation)
 2. **No external API calls** in heartbeat unless explicitly triggered
 3. **Batch checks:** Run all heartbeat checks together when practical, don't spread them across many separate calls
 4. **Preserve silence:** Don't spam user; only alert on threshold breaches
@@ -172,15 +169,15 @@ Logs stored in:
 
 ## 🔔 Task Completion Notifications
 
-**HAL completions:** Discord webhook (`DISCORD_WEBHOOK_HAL_COMPLETIONS`) — use `scripts/hal-slack-notify.sh`
-*(Updated 2026-02-26: HAL completions moved from Slack C0AEE0PLKB4 → Discord webhook per Joe's directive)*
+**HAL completions:** Discord webhook (`DISCORD_WEBHOOK_HAL_COMPLETIONS`) — use `scripts/hal-discord-notify.sh`
+*(Updated 2026-03-22: Discord is the sole delivery channel. Slack is deprecated.)*
 
-When HAL finishes a task, post via the Discord webhook using `scripts/hal-slack-notify.sh`:
+When HAL finishes a task, post via the Discord webhook using `scripts/hal-discord-notify.sh`:
 ```bash
-bash ~/.openclaw/workspace/scripts/hal-slack-notify.sh "Task Title" "What HAL did and delivered"
+bash ~/.openclaw/workspace/scripts/hal-discord-notify.sh "Task Title" "What HAL did and delivered"
 ```
 
-Format for HAL notifications — see `hal-slack-notify.sh` for template.
+Format for HAL notifications — see `hal-discord-notify.sh` for template.
 
 ---
 
