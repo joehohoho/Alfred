@@ -2,9 +2,10 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-Working on: Current Assignment
-Review: T4A/T776 Invoice & Self-Employment Tax O; Market Signals App; Quiet-Hours Outbox + Morning Digest Disp
-Updated: 20:09 AST
+**Status:** in_progress
+In-progress: CoinUsUp Recurring Donations (Stripe Sub
+Review: Market Signals App; T4A/T776 Invoice & Self-Employment Tax O; Quiet-Hours Outbox + Morning Digest Disp
+Updated: 22:55 AST
 
 **Discord sessions:** If you lack context about what Joe is replying to, read `memory/2026-03-23.md` and `ACTIVE-TASK.md` before responding. Do NOT say you don't have context — look it up.
 <!-- CONTEXT-BRIDGE-END -->

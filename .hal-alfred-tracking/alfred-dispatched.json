@@ -1,6 +1,6 @@
 {
   "task_1774062049248_7486f8ba": {
-    "at": 1774222503.765195,
+    "at": 1774315498.041908,
     "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
   },
   "task_1774294539184_badad2f9": {
@@ -14,5 +14,9 @@
   "task_1774303728777_58be8aec": {
     "at": 1774304661.4395368,
     "title": "T4A/T776 Invoice & Self-Employment Tax Organizer (Canada)"
+  },
+  "task_1774281167052_9830e89e": {
+    "at": 1774315528.7370481,
+    "title": "Market Signals App"
   }
 }
