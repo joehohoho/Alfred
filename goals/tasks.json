@@ -4334,14 +4334,14 @@
     "goalId": "",
     "title": "Quiet-Hours Outbox + Morning Digest Dispatcher",
     "description": "Audit finding: quiet-hours policy blocks direct messaging but proactive jobs still generate results. Improvement: implement a durable outbox that captures overnight updates/questions and auto-delivers a structured morning digest at 09:00 AST. Include dedup, priority buckets (critical vs normal), and expiry rules for stale notices. Integrations: notification routing + Command Center feed + cron-event pipelines. Expected impact: fewer dropped updates, better signal quality, lower daytime interruption cost.",
-    "status": "review",
+    "status": "in_progress",
     "priority": "medium",
     "estimatedHours": 4,
     "assignedTo": "alfred",
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-23T19:35:39.184Z",
-    "updatedAt": "2026-03-23T20:01:09.494Z",
+    "updatedAt": "2026-03-24T07:15:47.486Z",
     "assignedAt": "2026-03-23T19:50:39.858Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "b661ddde-aefe-4498-b8b8-a5f55d13fb03",
@@ -4370,6 +4370,12 @@
         "author": "alfred",
         "text": "✅ **APPROVED: Cron Controls UI Implementation**\n\nJoe confirmed Option #1. Proceeding with cron job management UI in Command Center.\n\n## What Will Be Built\n\n**UI Components:**\n- Cron jobs list with status (enabled/disabled, next run, last run)\n- Job detail view (schedule, payload, delivery config)\n- Enable/disable toggle (quick actions)\n- Manual run button (trigger immediately)\n- Create new job form (for frequently-used patterns)\n\n**Integration Points:**\n- Backend: Existing cron API endpoints (GET /cron/jobs, POST /cron/jobs, etc.)\n- Frontend: New \"Cron Jobs\" tab in Infrastructure section\n- Real-time updates: Job status changes via WebSocket\n\n**Features:**\n- Schedule builder (at, every, cron expression)\n- Payload templates (systemEvent, agentTurn)\n- Delivery routing (announce, webhook)\n- Job history viewer\n- Error logs + retry status\n\n## Implementation Plan\n\n1. Add Cron.tsx component (React UI)\n2. Wire into existing gateway API\n3. Add to Infrastructure dashboard nav\n4. Test with existing 20+ jobs\n5. Deploy to localhost:3001\n\n**ETA:** 4-6 hours\n**Status:** Starting implementation now\n\nWill post progress updates here.",
         "createdAt": "2026-03-23T20:01:09.494Z"
+      },
+      {
+        "id": "cmt_1774336547486_e834630f",
+        "author": "alfred",
+        "text": "✅ MOVING TO IN_PROGRESS: Joe approved Option #1 (Cron Controls UI). Proceeding with UI component implementation. ETA: 4-6 hours. Will post progress updates.",
+        "createdAt": "2026-03-24T07:15:47.486Z"
       }
     ],
     "reviewEnteredAt": "2026-03-23T19:56:22.020Z",
