@@ -4341,7 +4341,7 @@
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-23T19:35:39.184Z",
-    "updatedAt": "2026-03-24T10:32:39.161Z",
+    "updatedAt": "2026-03-24T13:17:42.304Z",
     "assignedAt": "2026-03-23T19:50:39.858Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "b661ddde-aefe-4498-b8b8-a5f55d13fb03",
@@ -4378,7 +4378,7 @@
         "createdAt": "2026-03-24T07:15:47.486Z"
       }
     ],
-    "reviewEnteredAt": "2026-03-24T10:32:39.161Z",
+    "reviewEnteredAt": "2026-03-24T13:17:42.304Z",
     "reviewSla72hReminderSent": false,
     "reviewSla7dAutoPromoteEligible": true
   },
