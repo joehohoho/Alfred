@@ -637,5 +637,29 @@
     "answered": false,
     "createdAt": "2026-03-24T08:01:18.460Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774347383288_6315f99c",
+    "type": "--title",
+    "title": "Ready: T4A/T776 Tax Organizer Research Complete",
+    "message": "--context",
+    "goalId": "Market research complete (50+ Reddit threads, competitor analysis, revenue model validated at Freemium .99/mo). 27,700 words of documentation + landing page created. Canadian CRA compliance rules researched.",
+    "taskId": "--question",
+    "source": "Approve blueprint to move to MVP development planning?",
+    "answered": false,
+    "createdAt": "2026-03-24T10:16:23.288Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774347383289_1da05f56",
+    "type": "--title",
+    "title": "Ready: Atlantic Contractor Portal Phase 2 Deployment",
+    "message": "--context",
+    "goalId": "Phase 2 framework complete (lead mag + landing page + initial email campaign).",
+    "taskId": "--question",
+    "source": "Ready to proceed with discovery outreach?",
+    "answered": false,
+    "createdAt": "2026-03-24T10:16:23.289Z",
+    "answeredAt": null
   }
 ]
