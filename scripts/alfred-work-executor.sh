@@ -115,10 +115,13 @@ dispatch_to_alfred() {
   local title="$2"
   local desc="$3"
   local priority="$4"
+  local from_hal_failure="${5:-false}"  # true if called as fallback from HAL timeout
 
   # Deduplicate: track recently dispatched cards (avoid re-sending every 15 min)
+  # BUT: HAL timeouts should NOT count as "already dispatched to Alfred"
+  # This prevents cards from being stuck when HAL is offline
   local dispatch_tracker="$TRACK_DIR/alfred-dispatched.json"
-  if [[ -f "$dispatch_tracker" ]]; then
+  if [[ "$from_hal_failure" != "true" && -f "$dispatch_tracker" ]]; then
     local already=$(python3 -c "
 import json, time
 try:
@@ -245,7 +248,7 @@ main() {
       hal)
         dispatch_to_hal "$CARD_ID" "$TITLE" "$DESC" "$PRIORITY" || {
           log "  HAL dispatch failed (likely offline). Queuing for Alfred instead."
-          dispatch_to_alfred "$CARD_ID" "$TITLE" "$DESC" "$PRIORITY"
+          dispatch_to_alfred "$CARD_ID" "$TITLE" "$DESC" "$PRIORITY" "true"
         }
         EXECUTED=$((EXECUTED + 1))
         ;;
