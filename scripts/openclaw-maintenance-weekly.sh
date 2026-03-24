@@ -11,7 +11,7 @@ LOG_DIR="$HOME/.openclaw/logs"
 REPORT_DIR="$WORKSPACE/reports"
 NOW_UTC="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 REPORT_FILE="${1:-$REPORT_DIR/maintenance-weekly-$(date +%Y-%m-%d).md}"
-SLACK_CHANNEL="${SLACK_MAINTENANCE_CHANNEL:-C0AEE0PLKB4}"  # #dailyconfig by default
+DISCORD_WEBHOOK="${DISCORD_WEBHOOK_GENERAL}"  # Use Discord webhook for notifications
 
 ISSUES=()
 ACTIONS=()
@@ -19,13 +19,16 @@ STATUS="✅ All systems healthy"
 
 mkdir -p "$REPORT_DIR"
 
-# ── Helper: post to Slack ──────────────────────────────────────────────────────
-post_slack() {
+# ── Helper: post to Discord ─────────────────────────────────────────────────────
+post_discord() {
   local msg="$1"
-  # Use openclaw message tool via gateway if available; fallback to webhook
-  if command -v openclaw >/dev/null 2>&1; then
-    openclaw message send --channel slack --to "$SLACK_CHANNEL" --message "$msg" 2>/dev/null || true
+  if [ -z "$DISCORD_WEBHOOK" ]; then
+    return 0
   fi
+  # Post to Discord webhook
+  curl -s -X POST "$DISCORD_WEBHOOK" \
+    -H 'Content-Type: application/json' \
+    -d "{\"content\":\"$msg\"}" >/dev/null 2>&1 || true
 }
 
 {
@@ -173,4 +176,4 @@ LaunchAgents OK · Logs OK · Git OK · No error spikes
 No action needed."
 fi
 
-post_slack "$SLACK_MSG"
+post_discord "$SLACK_MSG"
