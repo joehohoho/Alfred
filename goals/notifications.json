@@ -617,5 +617,25 @@
     "answered": false,
     "createdAt": "2026-03-23T20:18:28.215Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774337509043_4717565f",
+    "type": "update",
+    "title": "Morning Digest — Tuesday, March 24",
+    "message": "Morning Digest — Tuesday, March 24, 2026\nTotal items: 1\n\n======================================================================\n⚠️  HIGH (1 items)\n======================================================================\n• Integration Test: Morning Digest Ready\n\n======================================================================\nDigest prepared: 2026-03-24T04:31:48.845485\nView full details: Command Center Dashboard",
+    "source": "morning-digest",
+    "answered": false,
+    "createdAt": "2026-03-24T07:31:49.043Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774339278460_41b147da",
+    "type": "question",
+    "title": "What does success look like for CoinUsUp right now?",
+    "message": "Growth, profitability, feature completeness, or something else? One concrete win would help me suggest next steps.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-24T08:01:18.460Z",
+    "answeredAt": null
   }
 ]

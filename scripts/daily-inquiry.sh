@@ -210,8 +210,19 @@ if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
   # Build block list: closed topics + answered within 30 days
   BLOCK_LIST="$CLOSED_TOPICS|$RECENT_ANSWERED_TITLES"
 
-  # Also permanently block these topics based on Joe's explicit feedback
-  PERMANENT_BLOCKS="consulting-opportunity|productize-consulting|passive-income-target|capacity-expectations|consulting-weakness|consulting-pipeline|consulting-automation|consulting-mindset|passive-roi"
+  # Read permanently_closed topics from tracking file (source of truth)
+  PERMANENT_BLOCKS=$(python3 -c "
+import json
+try:
+    with open('$TRACKING_FILE', 'r') as f:
+        data = json.load(f)
+except:
+    data = {}
+
+topics = data.get('topics', {})
+closed = [t for t, v in topics.items() if v.get('permanently_closed', False)]
+print('|'.join(closed) if closed else '')
+" 2>/dev/null || echo "")
 
   PICKED=0
   for entry in "${FALLBACKS[@]}"; do
@@ -301,7 +312,7 @@ if [ -n "$TITLE" ] && [ -n "$BODY" ]; then
   TOPIC="${TOPIC:-llm-generated}"
   echo "{\"date\":\"$TODAY\",\"title\":\"$TITLE\",\"topic\":\"$TOPIC\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
 
-  # Update question tracking file
+  # Update question tracking file + detect permanent closures
   if [ -f "$TRACKING_FILE" ]; then
     python3 -c "
 import json, time
@@ -318,6 +329,27 @@ if topic not in data.get('topics', {}):
 data['topics'][topic]['last_asked'] = '$TODAY'
 data['topics'][topic]['count'] = data['topics'][topic].get('count', 0) + 1
 data['last_updated'] = time.time()
+
+# Detect permanent closure: if count >= 3 and topic is in closed_topics, mark permanently_closed
+closed_signals = [
+    'no', 'none', 'not worth', 'already answered', 'duplicate',
+    'repeat', 'asked before', \"don't keep asking\", 'same question',
+    'there is nothing', \"hasn't been\", \"i've already answered\"
+]
+try:
+    with open('$NOTIFICATIONS', 'r') as f:
+        notifs = json.load(f)
+except:
+    notifs = []
+
+inquiries = [n for n in notifs if n.get('source') == 'daily-inquiry' and n.get('title') == '$(echo \"$TITLE\" | sed 's/\"/\\\\\"/g')']
+if inquiries:
+    last = inquiries[-1]
+    if last.get('answered'):
+        answer = (last.get('userAnswer') or '').strip().lower()
+        if any(sig in answer for sig in closed_signals):
+            data['topics'][topic]['permanently_closed'] = True
+            data['topics'][topic]['closed_reason'] = f'Joe explicitly closed on {\"$TODAY\"}: {answer[:100]}'
 
 with open('$TRACKING_FILE', 'w') as f:
     json.dump(data, f, indent=2)
