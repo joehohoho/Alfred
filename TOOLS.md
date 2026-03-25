@@ -60,6 +60,13 @@ Use OpenClaw `tts` tool (returns media file path).
 
 ---
 
+## Messaging Platforms (Status 2026-03-25)
+
+**Active Channels:**
+- **Discord** ✅ — Primary channel for job deliveries, thread-based work
+- **iMessage** ✅ — Direct messaging with Joe
+- **Slack** ⛔ — Deprecated (disabled 2026-03-25, v2026.3.24)
+
 ## LaunchAgents / Services
 
 Run `launchctl list | grep -E 'alfred|openclaw'` — there are 20+ active agents. Key ones: gateway, dashboard, work-executor, hal-idle-dispatch, session-cleanup, gateway-watchdog, log-rotation, backup-tier2.

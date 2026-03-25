@@ -3,13 +3,22 @@
 import React, { useState } from 'react';
 
 interface Trade {
-  entryPrice: number;
-  exitPrice: number;
-  entryDate: string;
-  exitDate: string;
-  profitLoss: number;
-  profitLossPercent: number;
+  id?: number;
+  entry: number;
+  exit: number;
+  entryTime: string;
+  exitTime: string;
+  pnl: number;
+  pnlPct: number;
   daysHeld: number;
+  fee?: number;
+  // Legacy field names (backward compat)
+  entryPrice?: number;
+  exitPrice?: number;
+  entryDate?: string;
+  exitDate?: string;
+  profitLoss?: number;
+  profitLossPercent?: number;
 }
 
 interface TradeTableProps {
@@ -22,8 +31,8 @@ export function TradeTable({ trades, maxVisible = 10 }: TradeTableProps) {
   const totalPages = Math.ceil(trades.length / maxVisible);
   const visibleTrades = trades.slice(page * maxVisible, (page + 1) * maxVisible);
 
-  const formatPrice = (price: number) => `$${price.toFixed(2)}`;
-  const formatPercent = (pct: number) => `${pct > 0 ? '+' : ''}${pct.toFixed(2)}%`;
+  const formatPrice = (price: number | undefined) => price != null ? `$${price.toFixed(2)}` : '—';
+  const formatPercent = (pct: number | undefined) => pct != null ? `${pct > 0 ? '+' : ''}${pct.toFixed(2)}%` : '—';
 
   return (
     <div className="space-y-4">
@@ -47,18 +56,18 @@ export function TradeTable({ trades, maxVisible = 10 }: TradeTableProps) {
               >
                 <td className="px-4 py-3 text-slate-400">{page * maxVisible + idx + 1}</td>
                 <td className="px-4 py-3">
-                  <div className="text-slate-200">{formatPrice(trade.entryPrice)}</div>
-                  <div className="text-xs text-slate-500">{new Date(trade.entryDate).toLocaleDateString()}</div>
+                  <div className="text-slate-200">{formatPrice(trade.entry ?? trade.entryPrice)}</div>
+                  <div className="text-xs text-slate-500">{new Date(trade.entryTime || trade.entryDate || '').toLocaleDateString()}</div>
                 </td>
                 <td className="px-4 py-3">
-                  <div className="text-slate-200">{formatPrice(trade.exitPrice)}</div>
-                  <div className="text-xs text-slate-500">{new Date(trade.exitDate).toLocaleDateString()}</div>
+                  <div className="text-slate-200">{formatPrice(trade.exit ?? trade.exitPrice)}</div>
+                  <div className="text-xs text-slate-500">{new Date(trade.exitTime || trade.exitDate || '').toLocaleDateString()}</div>
                 </td>
-                <td className={`px-4 py-3 text-right font-semibold ${trade.profitLoss >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {formatPrice(trade.profitLoss)}
+                <td className={`px-4 py-3 text-right font-semibold ${(trade.pnl ?? trade.profitLoss ?? 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  {formatPrice(trade.pnl ?? trade.profitLoss)}
                 </td>
-                <td className={`px-4 py-3 text-right font-semibold ${trade.profitLossPercent >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {formatPercent(trade.profitLossPercent)}
+                <td className={`px-4 py-3 text-right font-semibold ${(trade.pnlPct ?? trade.profitLossPercent ?? 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  {formatPercent(trade.pnlPct ?? trade.profitLossPercent)}
                 </td>
                 <td className="px-4 py-3 text-right text-slate-400">{trade.daysHeld}d</td>
               </tr>

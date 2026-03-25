@@ -2,10 +2,10 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-**Status:** idle (CoinUsUp Phase 4 COMPLETE)
-Review: Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B; Implement 14-day free trial on Basic/Pro
+**Status:** idle
+Review: Scheduler Drift Guard: Cron + LaunchAgen; Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B
 Recent: [idle:goal-progress-check] Unblocked 4 review card | [idle:workspace-check] Analyzed 4 repos (1 dirty, 
-Updated: 15:02 AST
+Updated: 16:04 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
@@ -53,6 +53,13 @@ Updated: 15:02 AST
   - Joe Profile Reflection → C0ADUCZ4AF3 (#commands) ✅
 - Remaining jobs set to `delivery.mode="none"` (silent execution) ✅
 - Status: **RESOLVED** — all cron routing issues fixed
+
+### ℹ️ Slack Channel Deprecation (ARCHIVED 2026-03-25)
+**Status:** Slack is no longer an active communication channel for OpenClaw.
+- Slack config disabled in `channels.slack.enabled = false` (v2026.3.24)
+- All cron job deliveries moved to Discord in past updates
+- Slack plugin remains installed for backward compatibility
+- If Slack needs reactivation, toggle `channels.slack.enabled = true` and restart gateway
 
 ### Daily Inquiry Duplicate Questions (PRIORITY 1)
 **Issue:** Same questions cycle every 4 days without deduplication

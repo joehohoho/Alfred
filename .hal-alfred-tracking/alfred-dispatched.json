@@ -1,22 +1,6 @@
 {
-  "task_1774062049248_7486f8ba": {
-    "at": 1774350144.60905,
-    "title": "CoinUsUp Recurring Donations (Stripe Subscriptions)"
-  },
-  "task_1774294539184_badad2f9": {
-    "at": 1774348251.895971,
-    "title": "Quiet-Hours Outbox + Morning Digest Dispatcher"
-  },
-  "task_1774295529315_b4807ff0": {
-    "at": 1774300126.775984,
-    "title": "Market Signals App \u2013 UI/UX Redesign"
-  },
-  "task_1774303728777_58be8aec": {
-    "at": 1774304661.4395368,
-    "title": "T4A/T776 Invoice & Self-Employment Tax Organizer (Canada)"
-  },
-  "task_1774281167052_9830e89e": {
-    "at": 1774315528.7370481,
-    "title": "Market Signals App"
+  "task_1774461807478_16c27345": {
+    "at": 1774462740.2756119,
+    "title": "Scheduler Drift Guard: Cron + LaunchAgent Dedup Auditor"
   }
 }

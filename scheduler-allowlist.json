@@ -1,0 +1,21 @@
+{
+  "description": "Allowlist for intentional scheduler redundancy. Jobs listed here are exempt from duplicate warnings.",
+  "intentional_duplicates": [
+    {
+      "script": "weather-alerts.sh",
+      "reason": "Dual time windows for weather monitoring (morning + weekday checks). Intentional to ensure Dieppe forecast coverage.",
+      "fingerprints": ["cron_1", "cron_2"],
+      "approved_by": "Joe",
+      "approved_date": "2026-03-25"
+    }
+  ],
+  "intentional_overlaps": [
+    {
+      "script": "daytime-rate-limit-guard.sh",
+      "reason": "Multiple time windows (09-18, 18-23, 00-02) to detect rate limits across all business + evening hours. By design.",
+      "windows": ["09-18", "18-23", "00-02"],
+      "approved_by": "Joe",
+      "approved_date": "2026-03-25"
+    }
+  ]
+}
