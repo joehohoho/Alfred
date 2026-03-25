@@ -1,10 +1,10 @@
 # ACTIVE-TASK.md
 
-**Status:** idle (PHASE B VALIDATION COMPLETE)  
-**Kanban Card:** task_1774062049248_7486f8ba (CoinUsUp Recurring Donations - Stripe Subscriptions)  
-**Last Work:** 2026-03-24 22:00 ADT — Phase B validation complete + documentation + moved to review  
-**Current Block:** Awaiting Stripe API keys from Joe  
-**Next Phase:** C (Automation + Retention Setup) ready when keys arrive  
+**Status:** idle (NO IN_PROGRESS CARDS)  
+**Last Significant Work:** 2026-03-24 — Market Signals rebuild complete + CoinUsUp Recurring Donations Phase B validation  
+**Review Cards:** 5 stalled (Recurring Donations, Market Signals, Quiet-Hours Outbox, 3 product ideas)  
+**Critical Blockers:** Stripe API keys (Joe), HAL handoff loop (infrastructure), product idea clarifications (Joe)  
+**Next Window:** Joe's decisions + Stripe keys will unblock overnight work (7-9h deployment potential)  
 
 ---
 
