@@ -304,3 +304,31 @@ Complete code audit, validate schema, verify edge functions, and prepare deploym
 - `CoinUsUp/RECURRING_DONATIONS_STATUS.md` — Full implementation status
 - `CoinUsUp/RECURRING_DONATIONS_API_REFERENCE.md` — API endpoints
 - Memory: `memory/2026-03-24.md` — Previous work session notes
+
+## Pending Questions
+
+<!-- PENDING-Q-START -->
+- **⚠️ Stale card escalated: "Mission Control Phase 1: Stability & Visibility"** (_question_, Mar 17 06:00)
+  ID: `notif_1773727251618_e604f69d` — Card "Mission Control Phase 1: Stability & Visibility" (task_1773672258312_393a575f) has been in_progress for 7h with no updates. A re-dispatch was at...
+
+- **⚠️ Stale card escalated: "Implement 14-day free trial on Basic/Pro tiers"** (_question_, Mar 18 15:00)
+  ID: `notif_1773846049925_5c244c9d` — Card "Implement 14-day free trial on Basic/Pro tiers" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates. A re-dispatch was att...
+
+- **[REMINDER] Mission Control Phase 1 blocked: choose implementation path** (_question_, Mar 20 21:01)
+  ID: `notif_1774040499423_b6664e1d` — Context: Mission Control Phase 1 is blocked pending your go-ahead after option analysis. You previously leaned to Option #1 (integrate cron controls d...
+
+- **[REMINDER] Stripe action needed to finish 14-day trial card** (_question_, Mar 20 21:01)
+  ID: `notif_1774040506805_f13c1b4b` — Context: The CoinUsUp 14-day trial implementation is complete in code and UI, but production readiness is blocked by Stripe dashboard configuration. E...
+
+- **Approval Needed: Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)** (_kanban-approval_, Mar 22 21:19)
+  ID: `notif_1774214387751_c0c198a3` — Card ready for review and approval. Auto-promote eligible: No (high-risk)
+
+- **What does success look like for CoinUsUp right now?** (_question_, Mar 24 08:01)
+  ID: `notif_1774339278460_41b147da` — Growth, profitability, feature completeness, or something else? One concrete win would help me suggest next steps.
+
+- **CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing** (_question_, Mar 24 10:37)
+  ID: `notif_1774348633358_ebc3c96c` — Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end...
+
+- **What's preventing Even Us Up from growing faster?** (_question_, Mar 25 13:00)
+  ID: `notif_1774443601058_2a90645a` — Marketing, features, user friction, or just low priority? One honest sentence about the blocker helps me identify next steps.
+<!-- PENDING-Q-END -->

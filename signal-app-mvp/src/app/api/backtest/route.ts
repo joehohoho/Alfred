@@ -91,22 +91,45 @@ export async function POST(request: Request) {
         ? p.timestamp.toISOString().split('T')[0]
         : new Date(p.timestamp as unknown as string).toISOString().split('T')[0],
       price: Number(p.close.toFixed(2)),
-      sma9: isNaN(sma9Values[i]) ? null : Number(sma9Values[i].toFixed(2)),
-      sma21: isNaN(sma21Values[i]) ? null : Number(sma21Values[i].toFixed(2)),
+      sma9: isNaN(sma9Values[i]) ? undefined : Number(sma9Values[i].toFixed(2)),
+      sma21: isNaN(sma21Values[i]) ? undefined : Number(sma21Values[i].toFixed(2)),
     }));
 
-    // Generate signal markers for the chart
-    const allSignals = strategyInstance.generateSignals(priceSeries);
+    // Generate signal markers for the chart (non-fatal — backtest results still return if this fails)
+    let allSignals: any[] = [];
+    try {
+      allSignals = strategyInstance.generateSignals(priceSeries);
+    } catch (sigErr) {
+      console.error('Signal generation for chart markers failed:', sigErr);
+    }
     const signalMarkers = allSignals
       .filter((s) => s.type === 'BUY' || s.type === 'SELL')
-      .map((s) => ({
-        date: s.time instanceof Date
-          ? s.time.toISOString().split('T')[0]
-          : new Date(s.time as unknown as string).toISOString().split('T')[0],
-        price: Number(s.price.toFixed(2)),
-        type: s.type as 'BUY' | 'SELL',
-        strength: Number(s.strength.toFixed(2)),
-      }));
+      .map((s) => {
+        let dateStr: string;
+        try {
+          const t = s.time as any;
+          if (t && typeof t.toISOString === 'function') {
+            dateStr = t.toISOString().split('T')[0];
+          } else if (t && typeof t.getTime === 'function') {
+            dateStr = t.toISOString().split('T')[0];
+          } else if (typeof t === 'number') {
+            dateStr = new Date(t).toISOString().split('T')[0];
+          } else if (typeof t === 'string') {
+            dateStr = new Date(t).toISOString().split('T')[0];
+          } else {
+            dateStr = 'unknown';
+          }
+        } catch {
+          dateStr = 'unknown';
+        }
+        return {
+          date: dateStr,
+          price: Number((s.price || 0).toFixed(2)),
+          type: s.type as 'BUY' | 'SELL',
+          strength: Number((s.strength || 0).toFixed(2)),
+        };
+      })
+      .filter((s) => s.date !== 'unknown');
 
     return NextResponse.json({
       symbol: result.symbol,
@@ -118,7 +141,7 @@ export async function POST(request: Request) {
         profitFactor: result.profitFactor,
         sharpeRatio: result.sharpeRatio,
         maxDrawdown: `${result.maxDrawdown}%`,
-        totalPnL: result.totalPnL,
+        totalPnL: `$${result.totalPnL.toFixed(2)}`,
         totalPnLPercent: result.totalPnLPercent,
         totalTrades: result.totalTrades,
         winningTrades: result.winningTrades,

@@ -223,8 +223,12 @@ PY
       echo "[ACTION:DISPATCH_KANBAN] task_id=${TASK_ID} priority=${PRIORITY}"
     } || {
       log "DISPATCH_FAILED: exit=$? output=$DISPATCH_OUT"
-      echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"  # Increment fail counter
-      echo "[ACTION:SKIP] reason=dispatch_failed task_id=${TASK_ID}"
+      echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
+
+      # SAFEGUARD: When HAL can't take a kanban task, wake Alfred to handle it
+      log "HAL dispatch failed for kanban task — waking Alfred as fallback"
+      curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/wake" > /dev/null 2>&1 || true
+      echo "[ACTION:FALLBACK_TO_ALFRED] task_id=${TASK_ID}"
     }
     exit 0
   fi
@@ -309,5 +313,25 @@ PY
 } || {
   log "DISPATCH_FAILED: pool_index=${POOL_INDEX} task=${NEXT_TASK} — exit=$? output=$DISPATCH_OUT"
   echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"  # Increment fail counter
-  echo "[ACTION:SKIP] reason=proactive_dispatch_failed"
+
+  # SAFEGUARD: When HAL is offline, route proactive tasks to Alfred instead of skipping
+  CURRENT_FAILS=$(cat "$FAIL_COUNT_FILE" 2>/dev/null || echo "0")
+  if [[ "$CURRENT_FAILS" -ge 3 ]]; then
+    log "HAL offline (${CURRENT_FAILS} failures) — routing proactive task to Alfred"
+    ALFRED_MSG="[PROACTIVE-TASK-FALLBACK] HAL is offline. Please execute this task:\n\n${PROACTIVE_MSG}"
+    WAKE_RESULT=$(curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/wake" 2>/dev/null)
+    WAKE_ACTION=$(echo "$WAKE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('action','none'))" 2>/dev/null || echo "none")
+    if [[ "$WAKE_ACTION" != "work-session" ]]; then
+      # Board is empty — send proactive task directly to Alfred's main session
+      # Use the gateway to deliver the message
+      curl -s --max-time 10 -X POST "http://localhost:3001/api/chat/send" \
+        -H "Content-Type: application/json" \
+        -d "{\"message\":\"${NEXT_TASK}: Execute this proactive task since HAL is unavailable.\"}" \
+        > /dev/null 2>&1 || true
+      log "  Proactive task sent to Alfred's chat (HAL fallback)"
+    fi
+    echo "[ACTION:FALLBACK_TO_ALFRED] task=${NEXT_TASK}"
+  else
+    echo "[ACTION:SKIP] reason=proactive_dispatch_failed"
+  fi
 }

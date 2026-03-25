@@ -42,5 +42,9 @@
   "agent:main:task-1774292433274-950a7e": {
     "startMs": 1774133213450,
     "lastSeenMs": 1774292637377
+  },
+  "agent:main:task-1774452079263-18ddbc": {
+    "startMs": 1774451942881,
+    "lastSeenMs": 1774452452158
   }
 }

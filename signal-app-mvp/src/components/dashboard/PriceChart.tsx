@@ -9,7 +9,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  ReferenceDot,
 } from 'recharts';
 
 export interface SignalMarker {

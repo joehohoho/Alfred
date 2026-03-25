@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { TrendingUp, Zap, Settings, ChevronRight } from 'lucide-react';
+import { TrendingUp, Zap, Settings, ChevronRight, RefreshCw, ArrowUpCircle, ArrowDownCircle, MinusCircle, BarChart3 } from 'lucide-react';
 import { MetricsCard } from '@/components/MetricsCard';
 import { StrategyCard } from '@/components/StrategyCard';
 import { TradeTable } from '@/components/TradeTable';
+import { PriceChart } from '@/components/dashboard/PriceChart';
+import type { SignalMarker } from '@/components/dashboard/PriceChart';
 
 type BacktestResult = {
   symbol: string;
@@ -21,8 +23,21 @@ type BacktestResult = {
     totalTrades: number;
   };
   trades?: any[];
+  priceData?: Array<{ date: string; price: number; sma9?: number; sma21?: number }>;
+  signals?: SignalMarker[];
   message?: string;
   error?: string;
+};
+
+type CurrentSignal = {
+  symbol: string;
+  assetType: 'crypto' | 'stock';
+  signalType: 'BUY' | 'SELL' | 'HOLD';
+  confidence: number;
+  price: number;
+  rationale: string;
+  generatedAt: string;
+  strategy: string;
 };
 
 const QUICK_SYMBOLS = ['BTC', 'ETH', 'AAPL', 'MSFT', 'GOOGL', 'NVDA'];
@@ -41,7 +56,7 @@ const STRATEGIES = [
     metrics: 'Win: 55-70% | Sharpe: 0.9-1.4',
   },
   {
-    id: 'BOLLINGER',
+    id: 'BOLLINGER_BANDS',
     title: 'Bollinger Bands',
     desc: 'Mean reversion with volatility. Ranging markets.',
     metrics: 'Win: 60-75% | Sharpe: 1.0-1.5',
@@ -80,6 +95,175 @@ function interpretMetric(name: string, value: number | string): 'positive' | 'ne
   }
 
   return 'neutral';
+}
+
+function SignalBadge({ type }: { type: 'BUY' | 'SELL' | 'HOLD' }) {
+  if (type === 'BUY') {
+    return (
+      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+        <ArrowUpCircle className="w-3.5 h-3.5" />
+        BUY
+      </span>
+    );
+  }
+  if (type === 'SELL') {
+    return (
+      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30">
+        <ArrowDownCircle className="w-3.5 h-3.5" />
+        SELL
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-slate-500/20 text-slate-400 border border-slate-500/30">
+      <MinusCircle className="w-3.5 h-3.5" />
+      HOLD
+    </span>
+  );
+}
+
+function ConfidenceBar({ value }: { value: number }) {
+  const pct = Math.round(value * 100);
+  const color = pct >= 70 ? 'bg-emerald-500' : pct >= 50 ? 'bg-amber-500' : 'bg-slate-500';
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex-1 h-1.5 bg-slate-700 rounded-full overflow-hidden">
+        <div className={`h-full ${color} rounded-full transition-all`} style={{ width: `${pct}%` }} />
+      </div>
+      <span className="text-xs text-slate-400 font-mono w-8 text-right">{pct}%</span>
+    </div>
+  );
+}
+
+function CurrentSignalsSection() {
+  const [signals, setSignals] = useState<CurrentSignal[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [lastRefresh, setLastRefresh] = useState<string>('');
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchSignals = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await fetch('/api/signals?grid=true');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setSignals(data.signals || []);
+      setLastRefresh(new Date().toLocaleTimeString());
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchSignals();
+    // Auto-refresh every 5 minutes
+    const interval = setInterval(fetchSignals, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [fetchSignals]);
+
+  const cryptoSignals = signals.filter((s) => s.assetType === 'crypto').slice(0, 5);
+  const stockSignals = signals.filter((s) => s.assetType === 'stock').slice(0, 5);
+
+  return (
+    <div className="mb-10">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <BarChart3 className="w-6 h-6 text-blue-400" />
+          Current Signals
+        </h2>
+        <div className="flex items-center gap-3">
+          {lastRefresh && (
+            <span className="text-xs text-slate-500">Updated {lastRefresh}</span>
+          )}
+          <button
+            onClick={fetchSignals}
+            disabled={loading}
+            className="p-2 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-emerald-500/30 transition-colors disabled:opacity-50"
+            title="Refresh signals"
+          >
+            <RefreshCw className={`w-4 h-4 text-slate-400 ${loading ? 'animate-spin' : ''}`} />
+          </button>
+        </div>
+      </div>
+
+      {error && (
+        <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-sm text-red-400 mb-4">
+          Failed to load signals: {error}
+        </div>
+      )}
+
+      {loading && signals.length === 0 ? (
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="p-4 rounded-lg bg-slate-800/30 border border-slate-700/50 animate-pulse">
+              <div className="h-4 bg-slate-700 rounded w-12 mb-3" />
+              <div className="h-3 bg-slate-700 rounded w-16 mb-2" />
+              <div className="h-6 bg-slate-700 rounded w-20" />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {/* Crypto signals row */}
+          {cryptoSignals.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Crypto</div>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {cryptoSignals.map((sig) => (
+                  <div
+                    key={sig.symbol}
+                    className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 transition-colors group"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-bold text-sm">{sig.symbol}</span>
+                      <SignalBadge type={sig.signalType} />
+                    </div>
+                    <div className="text-lg font-mono font-semibold mb-1">
+                      ${sig.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </div>
+                    <ConfidenceBar value={sig.confidence} />
+                    <p className="text-xs text-slate-500 mt-2 line-clamp-2 group-hover:line-clamp-none transition-all">
+                      {sig.rationale}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Stock signals row */}
+          {stockSignals.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Stocks</div>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {stockSignals.map((sig) => (
+                  <div
+                    key={sig.symbol}
+                    className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 transition-colors group"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-bold text-sm">{sig.symbol}</span>
+                      <SignalBadge type={sig.signalType} />
+                    </div>
+                    <div className="text-lg font-mono font-semibold mb-1">
+                      ${sig.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </div>
+                    <ConfidenceBar value={sig.confidence} />
+                    <p className="text-xs text-slate-500 mt-2 line-clamp-2 group-hover:line-clamp-none transition-all">
+                      {sig.rationale}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function DashboardPage() {
@@ -144,6 +328,9 @@ export default function DashboardPage() {
         </nav>
 
         <div className="max-w-7xl mx-auto px-6 py-12">
+          {/* Current Signals Section (above backtest) */}
+          <CurrentSignalsSection />
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left: Test Controls */}
             <div className="lg:col-span-1">
@@ -263,7 +450,7 @@ export default function DashboardPage() {
                       <div>
                         <div className="text-3xl font-bold">{result.symbol}</div>
                         <div className="text-sm text-slate-400">
-                          {STRATEGIES.find((s) => s.id === result.strategy)?.title} • {result.days} days
+                          {STRATEGIES.find((s) => s.id === result.strategy)?.title || result.strategy} • {result.days} days
                         </div>
                       </div>
                       <Link
@@ -275,6 +462,33 @@ export default function DashboardPage() {
                       </Link>
                     </div>
                   </div>
+
+                  {/* Price Chart with Signal Overlays */}
+                  {result.priceData && result.priceData.length > 0 && (
+                    <div className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
+                      <h3 className="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-blue-400" />
+                        Price Chart with Signals
+                      </h3>
+                      <PriceChart
+                        data={result.priceData}
+                        signals={result.signals}
+                        height={350}
+                      />
+                      {result.signals && result.signals.length > 0 && (
+                        <div className="flex items-center gap-4 mt-3 text-xs text-slate-500">
+                          <span className="flex items-center gap-1">
+                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />
+                            Buy signals ({result.signals.filter((s) => s.type === 'BUY').length})
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
+                            Sell signals ({result.signals.filter((s) => s.type === 'SELL').length})
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {/* Metrics Grid */}
                   <div className="grid grid-cols-2 gap-4">
@@ -333,7 +547,7 @@ export default function DashboardPage() {
                       Strategy Notes
                     </h4>
                     <p className="text-sm text-slate-400">
-                      {STRATEGIES.find((s) => s.id === result.strategy)?.desc}
+                      {STRATEGIES.find((s) => s.id === result.strategy)?.desc || 'Custom strategy configuration.'}
                     </p>
                   </div>
                 </>
@@ -343,7 +557,7 @@ export default function DashboardPage() {
                 <div className="p-12 rounded-xl bg-slate-800/30 border-2 border-dashed border-slate-700 text-center">
                   <Zap className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                   <p className="text-slate-400 font-medium">Select a symbol and strategy, then click Run Backtest</p>
-                  <p className="text-sm text-slate-500 mt-2">Results will appear here instantly</p>
+                  <p className="text-sm text-slate-500 mt-2">Results will appear here with a live price chart</p>
                 </div>
               )}
             </div>
@@ -358,7 +572,7 @@ export default function DashboardPage() {
               { num: '1', title: 'Pick Symbol', desc: 'BTC, ETH, or any stock symbol' },
               { num: '2', title: 'Choose Strategy', desc: 'SMA+RSI, MACD, or Bollinger Bands' },
               { num: '3', title: 'Set Period', desc: '7 to 365 days of historical data' },
-              { num: '4', title: 'See Results', desc: 'Metrics and trade history instantly' },
+              { num: '4', title: 'See Results', desc: 'Charts, signals, and metrics instantly' },
             ].map((step) => (
               <div key={step.num} className="p-6 rounded-lg bg-slate-800/30 border border-slate-700/50 text-center">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center font-bold text-emerald-400 mx-auto mb-3">
