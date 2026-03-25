@@ -59,6 +59,13 @@ export class BacktestEngine {
     const signals = strategy.generateSignals(series);
     const trades: Trade[] = [];
 
+    // Ensure all signal times are proper Date objects (may be strings after serialization)
+    for (const s of signals) {
+      if (!(s.time instanceof Date)) {
+        s.time = new Date(s.time as any);
+      }
+    }
+
     for (const signal of signals) {
       if (signal.type === 'BUY' && !this.position.isLong) {
         this.position.isLong = true;
@@ -96,7 +103,9 @@ export class BacktestEngine {
       const pnl = (exitPrice - this.position.entryPrice) * this.position.quantity - fee;
       const pnlPercent =
         ((exitPrice - this.position.entryPrice) / this.position.entryPrice) * 100 - 0.2;
-      const daysHeld = Math.ceil((lastPoint.timestamp.getTime() - this.position.entryTime.getTime()) / (1000 * 60 * 60 * 24));
+      const lastTs = lastPoint.timestamp instanceof Date ? lastPoint.timestamp : new Date(lastPoint.timestamp as any);
+      const entryTs = this.position.entryTime instanceof Date ? this.position.entryTime : new Date(this.position.entryTime as any);
+      const daysHeld = Math.ceil((lastTs.getTime() - entryTs.getTime()) / (1000 * 60 * 60 * 24));
 
       trades.push({
         entryPrice: this.position.entryPrice,

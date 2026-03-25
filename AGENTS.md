@@ -111,11 +111,39 @@ References:
 8. `LAST-SESSION.md`
 9. If `ACTIVE-TASK.md` status is `in_progress`, read the kanban card's comments
    (`GET http://localhost:3001/api/kanban/<card_id>`) to recover your approach and progress.
-10. If this is a Discord session (not main), check the Context Bridge section at the top of
-    `MEMORY.md` for current work status. If more detail is needed, read `memory/YYYY-MM-DD.md`
-    and `ACTIVE-TASK.md`.
+10. If this is a Discord session (not main):
+    a. Check the Context Bridge section at top of `MEMORY.md` for current work status.
+    b. **CRITICAL — Thread Context Recovery**: If Joe is replying to a message you posted,
+       run `bash scripts/lookup-discord-thread.sh <channel-id>` to find the thread digest.
+       If found, READ the full thread file — it contains everything you originally posted.
+       Also try `bash scripts/lookup-discord-thread.sh --search "<keywords from Joe's message>"`.
+       You MUST recover context before responding. NEVER say "I don't have context" without
+       checking the thread digests first.
+    c. If more detail is needed, read `memory/YYYY-MM-DD.md` and `ACTIVE-TASK.md`.
 
 Do **not** auto-load full history or old tool output.
+
+### Discord Thread Digest Protocol
+
+**When POSTING to Discord** (multi-part or significant messages):
+1. After posting, save a thread digest:
+   ```bash
+   bash scripts/save-discord-thread.sh "<channel-id>" "<topic>" --content "<full content you posted>"
+   ```
+2. For multi-part messages, use `--append` for subsequent parts:
+   ```bash
+   bash scripts/save-discord-thread.sh "<channel-id>" "<topic>" --append "<part 2 content>"
+   ```
+3. For card-related posts, include `--card <cardId>`.
+
+**When RECEIVING a Discord reply from Joe**:
+1. Check thread digests: `bash scripts/lookup-discord-thread.sh <channel-id>`
+2. If no match by ID, search by topic: `bash scripts/lookup-discord-thread.sh --search "<keywords>"`
+3. Read the full thread file if found — it contains your complete original post
+4. Respond WITH full context — do not ask Joe to repeat himself
+
+**Thread files are at**: `discord-threads/<id>.md` — tiny files (~1-5KB), loaded on-demand only.
+**Manifest is at**: `discord-threads/manifest.json` — compact index of all threads.
 
 ---
 

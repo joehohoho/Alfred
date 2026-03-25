@@ -87,6 +87,19 @@ if os.path.exists(mem_file):
     if recent:
         lines.append('Recent: ' + ' | '.join(r[:50] for r in recent))
 
+# 4. Recent Discord thread topics (so sessions know threads exist without loading them)
+manifest_file = os.path.expanduser('$WORKSPACE/discord-threads/manifest.json')
+if os.path.exists(manifest_file):
+    try:
+        import json as j2
+        with open(manifest_file) as mf:
+            manifest = j2.load(mf)
+        recent_threads = sorted(manifest.items(), key=lambda x: x[1].get('updatedAt',''), reverse=True)[:3]
+        if recent_threads:
+            thread_list = ' | '.join(f'{v["topic"][:30]}' for k, v in recent_threads)
+            lines.append(f'Threads: {thread_list}')
+    except: pass
+
 # Timestamp for freshness detection
 lines.append(f'Updated: {now.strftime(\"%H:%M\")} AST')
 
@@ -127,7 +140,11 @@ new_section = f'''{bridge_start}
 ## Current Work (auto-updated every 15 min)
 $CONTEXT
 
-**Discord sessions:** If you lack context about what Joe is replying to, read \`memory/{today}.md\` and \`ACTIVE-TASK.md\` before responding. Do NOT say you don't have context — look it up.
+**Discord sessions — MANDATORY context recovery:**
+1. FIRST: Run \`bash scripts/lookup-discord-thread.sh CHANNEL_ID\` to find the thread you posted. Also try \`--search KEYWORDS\`.
+2. If found, READ the thread file — it has your complete original message.
+3. If not found, check \`memory/{today}.md\` and \`ACTIVE-TASK.md\`.
+4. NEVER say you don't remember. NEVER ask Joe to repeat himself. Look it up.
 {bridge_end}'''
 
 if bridge_start in content:

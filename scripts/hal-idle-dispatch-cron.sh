@@ -118,21 +118,18 @@ if [[ "$FAIL_COUNT" -ge 3 ]]; then
     fi
     log "RETRY: HAL gateway check (attempt after $FAIL_COUNT failures)"
   else
-    # HTTP OK — verify WebSocket is also reachable
-    WS_OK=$(timeout 8 node -e "
-const WebSocket = require('/usr/local/lib/node_modules/openclaw/node_modules/ws');
-const ws = new WebSocket('ws://192.168.2.79:18789');
-ws.on('message', () => { console.log('OK'); ws.close(); process.exit(0); });
-ws.on('error', () => { console.log('FAIL'); process.exit(1); });
-setTimeout(() => { console.log('TIMEOUT'); process.exit(1); }, 5000);
-" 2>/dev/null || echo "FAIL")
-    if [[ "$WS_OK" == "OK" ]]; then
+    # HTTP OK — verify WebSocket upgrade works (curl-based, reliable in LaunchAgent context)
+    WS_STATUS=$(curl -s --max-time 5 -o /dev/null -w "%{http_code}" \
+      -H "Upgrade: websocket" -H "Connection: Upgrade" -H "Sec-WebSocket-Version: 13" -H "Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==" \
+      "http://192.168.2.79:18789/ws" 2>/dev/null || echo "000")
+    if [[ "$WS_STATUS" == "101" ]]; then
       log "RECOVERY: HAL gateway responds to HTTP + WebSocket (was $FAIL_COUNT failures) — resetting backoff"
+      bash "$SCRIPT_DIR/audit-log.sh" success "hal-dispatch" "HAL recovered after $FAIL_COUNT failures" --detail "HTTP+WS healthy, backoff reset"
       FAIL_COUNT=0
       echo "0" > "$FAIL_COUNT_FILE"
     else
-      # HTTP OK but WebSocket broken — still count as failure
-      log "WARNING: HAL HTTP OK but WebSocket unreachable (ws_result=$WS_OK, $FAIL_COUNT consecutive failures)"
+      # HTTP OK but WebSocket upgrade failed — still count as failure
+      log "WARNING: HAL HTTP OK but WebSocket upgrade failed (status=$WS_STATUS, $FAIL_COUNT consecutive failures)"
       if [[ $(( FAIL_COUNT % 4 )) -ne 0 ]]; then
         echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
         echo "[ACTION:SKIP] reason=hal_ws_broken fail_count=${FAIL_COUNT}"
@@ -211,6 +208,7 @@ Handoff: validated (${TASK_ID})."
     # Dispatch directly to HAL via WebSocket (no Alfred LLM needed)
     DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
       log "DISPATCH_OK: $DISPATCH_OUT"
+      bash "$SCRIPT_DIR/audit-log.sh" success "hal-dispatch" "Kanban task dispatched to HAL: $TITLE" --detail "task_id=$TASK_ID priority=$PRIORITY" --agent hal
       echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
       SESSION_KEY=$(echo "$DISPATCH_OUT" | sed -n 's/.*session=\([^ ]*\).*/\1/p')
       write_success_status "$TITLE" "kanban" "$SESSION_KEY"
@@ -223,10 +221,12 @@ PY
       echo "[ACTION:DISPATCH_KANBAN] task_id=${TASK_ID} priority=${PRIORITY}"
     } || {
       log "DISPATCH_FAILED: exit=$? output=$DISPATCH_OUT"
+      bash "$SCRIPT_DIR/audit-log.sh" error "hal-dispatch" "Kanban dispatch failed: $TITLE" --detail "task_id=$TASK_ID output=${DISPATCH_OUT:0:200}"
       echo "$((FAIL_COUNT + 1))" > "$FAIL_COUNT_FILE"
 
       # SAFEGUARD: When HAL can't take a kanban task, wake Alfred to handle it
       log "HAL dispatch failed for kanban task — waking Alfred as fallback"
+      bash "$SCRIPT_DIR/audit-log.sh" warn "hal-dispatch" "Alfred fallback for kanban task" --detail "task_id=$TASK_ID title=$TITLE"
       curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/wake" > /dev/null 2>&1 || true
       echo "[ACTION:FALLBACK_TO_ALFRED] task_id=${TASK_ID}"
     }
@@ -300,6 +300,7 @@ Instructions: Execute this proactive task. Report findings and any actions taken
 PROACTIVE_ID="proactive_$(date +%s)"
 DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
   log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK} — $DISPATCH_OUT"
+  bash "$SCRIPT_DIR/audit-log.sh" success "hal-dispatch" "Proactive task dispatched to HAL: $NEXT_TASK" --detail "pool_index=$POOL_INDEX" --agent hal
   echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
   SESSION_KEY=$(echo "$DISPATCH_OUT" | sed -n 's/.*session=\([^ ]*\).*/\1/p')
   write_success_status "$NEXT_TASK" "proactive" "$SESSION_KEY"
@@ -317,6 +318,7 @@ PY
   # SAFEGUARD: When HAL is offline, route proactive tasks to Alfred instead of skipping
   CURRENT_FAILS=$(cat "$FAIL_COUNT_FILE" 2>/dev/null || echo "0")
   if [[ "$CURRENT_FAILS" -ge 3 ]]; then
+    bash "$SCRIPT_DIR/audit-log.sh" warn "hal-dispatch" "HAL offline — routing proactive to Alfred" --detail "fail_count=$CURRENT_FAILS task=$NEXT_TASK"
     log "HAL offline (${CURRENT_FAILS} failures) — routing proactive task to Alfred"
     ALFRED_MSG="[PROACTIVE-TASK-FALLBACK] HAL is offline. Please execute this task:\n\n${PROACTIVE_MSG}"
     WAKE_RESULT=$(curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/wake" 2>/dev/null)

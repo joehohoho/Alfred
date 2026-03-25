@@ -40,6 +40,7 @@ print(c.get('agents', {}).get('defaults', {}).get('model', {}).get('primary', 'u
 " 2>/dev/null || echo "unknown")
 
   if [[ "$CURRENT_PRIMARY" == "openai-codex/gpt-5.3-codex" ]]; then
+    bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" warn "rate-limit-guard" "Switching to Haiku — $RECENT_COUNT rate-limit errors in 30m" --detail "from=$CURRENT_PRIMARY"
     log "Switching from Codex to Haiku (rate-limit spike detected)"
 
     # Update config: Haiku primary, no fallbacks
@@ -96,6 +97,8 @@ print(s.get('status', 'unknown'))
 
     if [[ "$STATUS" == "active" ]]; then
       log "Rate-limit incident active — will stay on Haiku until 8 AM recovery"
+    else
+      bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" success "rate-limit-guard" "Rate limits stable — no spike detected" --detail "errors=$RECENT_COUNT"
     fi
   fi
 fi

@@ -4476,5 +4476,19 @@
     "reviewEnteredAt": "2026-03-23T22:30:18.811Z",
     "reviewSla72hReminderSent": false,
     "reviewSla7dAutoPromoteEligible": true
+  },
+  {
+    "id": "task_1774461807478_16c27345",
+    "goalId": "",
+    "title": "Scheduler Drift Guard: Cron + LaunchAgent Dedup Auditor",
+    "description": "Infrastructure scan found scheduler drift risk (example: daytime-rate-limit-guard appears twice for 09-18 in crontab, causing duplicate executions and unnecessary token burn). Build a nightly dedup auditor that parses crontab + LaunchAgents, fingerprints equivalent jobs, flags overlap/conflicts, and auto-opens a review card with exact fix patch. Include dry-run mode and allowlist for intentional redundancy.",
+    "status": "todo",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": null,
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-03-25T18:03:27.478Z",
+    "updatedAt": "2026-03-25T18:03:27.478Z"
   }
 ]

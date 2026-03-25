@@ -241,9 +241,11 @@ if [[ -z "$GATEWAY_PID" ]]; then
     NEW_PID=$(pgrep -f "openclaw-gateway" 2>/dev/null | head -1 || true)
     if [[ -n "$NEW_PID" ]]; then
       log "RECOVERED: Gateway restarted after ${CB_COOLDOWN}m cooldown (PID $NEW_PID)"
+      bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" success "gateway-watchdog" "Gateway recovered after ${CB_COOLDOWN}m cooldown" --detail "trip=#${CB_COUNT} PID=$NEW_PID"
       notify "Gateway Recovered" "Gateway restarted after ${CB_COOLDOWN}-minute rate limit cooldown (trip #${CB_COUNT})."
     else
       log "FAILED: Gateway did not restart"
+      bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" error "gateway-watchdog" "Gateway failed to restart after cooldown" --detail "trip=#${CB_COUNT} cooldown=${CB_COOLDOWN}m"
       notify "Gateway Recovery Failed" "Gateway failed to restart after cooldown. Manual intervention needed."
     fi
     exit 0
@@ -251,14 +253,17 @@ if [[ -z "$GATEWAY_PID" ]]; then
 
   # Gateway down unexpectedly (no circuit breaker active)
   log "ALERT: Gateway not running, restarting..."
+  bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" warn "gateway-watchdog" "Gateway down — auto-restarting"
   launchctl kickstart gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
   sleep 5
   NEW_PID=$(pgrep -f "openclaw-gateway" 2>/dev/null | head -1 || true)
   if [[ -n "$NEW_PID" ]]; then
     log "RECOVERED: Gateway restarted (PID $NEW_PID)"
+    bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" success "gateway-watchdog" "Gateway auto-restarted" --detail "PID=$NEW_PID"
     notify "Gateway Auto-Restart" "Gateway was down, auto-restarted successfully."
   else
     log "FAILED: Gateway restart failed"
+    bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" error "gateway-watchdog" "Gateway restart failed — manual intervention needed"
     notify "Gateway Down" "Gateway is down and auto-restart failed. Check manually."
   fi
   exit 0
@@ -313,6 +318,7 @@ if [[ -f "$ERR_LOG" ]]; then
       fi
 
       log "TIER2_KILL: $RECENT_ERRORS rate limit errors — trip #${NEW_COUNT}, cooldown ${NEW_COOLDOWN}m, daily=${CB_DAILY}"
+      bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" error "gateway-watchdog" "Circuit breaker KILL — $RECENT_ERRORS rate limit errors" --detail "trip=#${NEW_COUNT} cooldown=${NEW_COOLDOWN}m daily=${CB_DAILY}"
 
       pkill -f openclaw-gateway 2>/dev/null || true
       write_cb_state "$NOW" "$NEW_COOLDOWN" "$NEW_COUNT" "$NOW" "$CB_DAILY" "$CB_DAILY_RESET" 0
@@ -334,6 +340,7 @@ if [[ -f "$ERR_LOG" ]]; then
         CB_THROTTLED="$NOW"
         write_cb_state "$CB_TRIPPED" "$CB_COOLDOWN" "$CB_COUNT" "$CB_LAST_TRIP" "$CB_DAILY" "$CB_DAILY_RESET" "$CB_THROTTLED"
 
+        bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" warn "gateway-watchdog" "Crons throttled — $RECENT_ERRORS rate limit errors" --detail "disabled=$THROTTLED_COUNT crons, daily=${CB_DAILY}"
         log "TIER1_THROTTLE: $RECENT_ERRORS errors in ${THROTTLE_WINDOW_MIN}m — disabled $THROTTLED_COUNT crons (gateway stays running, daily=${CB_DAILY})"
         notify "Rate Limit — Crons Throttled" "Tier 1: ${RECENT_ERRORS} errors. Disabled $THROTTLED_COUNT crons to reduce load. Gateway stays running."
       else

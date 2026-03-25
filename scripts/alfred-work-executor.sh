@@ -144,6 +144,7 @@ except: print('no')
 
   if [[ "$wake_ok" == "True" ]]; then
     log "  ✓ Dispatched to Alfred via wake: $title (card: $card_id)"
+    bash "$SCRIPT_DIR/audit-log.sh" info "work-executor" "Card dispatched to Alfred: $title" --detail "card_id=$card_id priority=$priority"
     # Track this dispatch to avoid re-sending
     python3 -c "
 import json, time
@@ -202,6 +203,7 @@ main() {
       WAKE_CARD_ID=$(echo "$WAKE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('card',{}).get('id',''))" 2>/dev/null)
       WAKE_CARD_TITLE=$(echo "$WAKE_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('card',{}).get('title','?'))" 2>/dev/null)
       log "Auto-picked todo card: $WAKE_CARD_TITLE ($WAKE_CARD_ID)"
+      bash "$SCRIPT_DIR/audit-log.sh" info "work-executor" "Auto-picked todo card: $WAKE_CARD_TITLE" --detail "card_id=$WAKE_CARD_ID"
       # Move the card to in_progress
       if [[ -n "$WAKE_CARD_ID" ]]; then
         MOVE_RESULT=$(curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/$WAKE_CARD_ID/move" \
@@ -216,6 +218,7 @@ main() {
     fi
     if [[ -z "$IN_PROG" ]]; then
       log "No in_progress or todo cards. Exiting."
+      bash "$SCRIPT_DIR/audit-log.sh" info "work-executor" "No cards found — board empty"
       echo "[ACTION:SKIP] reason=no_cards"
       exit 0
     fi
@@ -248,6 +251,7 @@ main() {
       hal)
         dispatch_to_hal "$CARD_ID" "$TITLE" "$DESC" "$PRIORITY" || {
           log "  HAL dispatch failed (likely offline). Queuing for Alfred instead."
+          bash "$SCRIPT_DIR/audit-log.sh" warn "work-executor" "HAL fallback — routing to Alfred: $TITLE" --detail "card_id=$CARD_ID"
           dispatch_to_alfred "$CARD_ID" "$TITLE" "$DESC" "$PRIORITY" "true"
         }
         EXECUTED=$((EXECUTED + 1))

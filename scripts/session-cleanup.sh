@@ -288,6 +288,12 @@ PY
 
 CLEANUP_OUTPUT=$(tail -5 "$LOG")
 
+# Audit log for bloated session purges (grep the cleanup log for bloated entries)
+if echo "$CLEANUP_OUTPUT" | grep -q "bloated\|CLEANED"; then
+  CLEANED_SUMMARY=$(echo "$CLEANUP_OUTPUT" | grep "CLEANED" | head -1 | sed 's/.*CLEANED: //')
+  bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" info "session-cleanup" "Sessions cleaned: ${CLEANED_SUMMARY:-see log}"
+fi
+
 # Restart gateway if main session was reset (respects circuit breaker)
 if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
   CB_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/rate-limit-circuit-breaker.json"
@@ -301,6 +307,7 @@ if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
     fi
   fi
 
+  bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" warn "session-cleanup" "Main session reset (bloated)" --detail "circuit_breaker=$CB_ACTIVE"
   if [[ "$CB_ACTIVE" == "true" ]]; then
     log "Main session reset but circuit breaker active — skipping restart (cooldown ${CB_COOL}m)"
     notify "Session Auto-Reset" "Main session was at 85%+ context. Reset done, but gateway restart deferred — rate limit cooldown active."
@@ -309,6 +316,7 @@ if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
     launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway 2>/dev/null || true
     sleep 3
     log "Gateway restarted (PID $(pgrep -f openclaw-gateway | head -1 || echo 'unknown'))"
+    bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" info "session-cleanup" "Gateway restarted after main session reset"
     notify "Session Auto-Reset" "Main session was at 85%+ context. Auto-reset and gateway restarted."
   fi
 fi
@@ -328,6 +336,7 @@ if [[ "$HAL_REACHABLE" == "000" ]]; then
 
   if [[ "$SINCE_ALERT" -gt 7200 ]]; then
     log "ALERT: HAL gateway unreachable at $HAL_URL"
+    bash "$HOME/.openclaw/workspace/scripts/audit-log.sh" error "session-cleanup" "HAL gateway unreachable" --detail "url=$HAL_URL" --agent hal
     notify "HAL Gateway Down" "HAL remote gateway at 192.168.2.79:18789 is unreachable. Check if HAL PC is on and gateway is running."
     echo "$NOW_EPOCH" > "$HAL_LAST_ALERT_FILE"
   fi

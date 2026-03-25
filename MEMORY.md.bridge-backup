@@ -2,12 +2,16 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-**Status:** in_progress (PHASE 4: INTEGRATION + TESTING)
-Review: Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B; CoinUsUp Recurring Donations (Stripe Sub
-Recent: [10:03] Re-verified report (existing), all repos c | [idle:goal-progress-check] Reviewed 4 review cards
-Updated: 13:03 AST
+**Status:** idle (CoinUsUp Phase 4 COMPLETE)
+Review: Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B; Implement 14-day free trial on Basic/Pro
+Recent: [idle:goal-progress-check] Unblocked 4 review card | [idle:workspace-check] Analyzed 4 repos (1 dirty, 
+Updated: 15:02 AST
 
-**Discord sessions:** If you lack context about what Joe is replying to, read `memory/2026-03-25.md` and `ACTIVE-TASK.md` before responding. Do NOT say you don't have context — look it up.
+**Discord sessions — MANDATORY context recovery:**
+1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
+2. If found, READ the thread file — it has your complete original message.
+3. If not found, check `memory/2026-03-25.md` and `ACTIVE-TASK.md`.
+4. NEVER say you don't remember. NEVER ask Joe to repeat himself. Look it up.
 <!-- CONTEXT-BRIDGE-END -->
 
 ## Core Philosophy

@@ -213,5 +213,70 @@
         "createdAt": "2026-03-23T19:56:16.809Z"
       }
     ]
+  },
+  {
+    "id": "idea_1774461716328_3622937c",
+    "title": "Scheduler Drift Guard: Cron + LaunchAgent Dedup Auditor",
+    "description": "Infrastructure scan found scheduler drift risk (example: daytime-rate-limit-guard appears twice for 09-18 in crontab, causing duplicate executions and unnecessary token burn). Build a nightly dedup auditor that parses crontab + LaunchAgents, fingerprints equivalent jobs, flags overlap/conflicts, and auto-opens a review card with exact fix patch. Include dry-run mode and allowlist for intentional redundancy.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [
+      "OpenClaw",
+      "infrastructure-reliability"
+    ],
+    "evaluation": {
+      "score": 6.5,
+      "notes": "Confirmed demand (ServerFault, Cronitor evidence). Real operational pain in Joe's stack. Medium effort engineering (crontab/LaunchAgent parsing + fingerprinting). Main constraint: zero passive revenue potential—this is infrastructure cost-avoidance, not a product. Best implemented as internal Alfred system improvement, not pursued as business idea."
+    },
+    "promotedToGoalId": "task_1774461807478_16c27345",
+    "tags": [
+      "infrastructure",
+      "reliability",
+      "automation",
+      "cost-avoidance"
+    ],
+    "createdAt": "2026-03-25T18:01:56.328Z",
+    "updatedAt": "2026-03-25T18:03:27.482Z",
+    "researchEvidence": [
+      {
+        "source": "Brave Search (2026-03-25 15:02 ADT)",
+        "finding": "Duplicate cron detection is confirmed industry pattern. ServerFault Q&A shows real demand; Cronitor, CubeAPM, and UptimeRobot all offer duplicate-detection monitoring features. Demand validated."
+      }
+    ]
+  },
+  {
+    "id": "idea_1774461721047_34b3d736",
+    "title": "Command Center Reliability SLO: Gateway Scope + Probe Recovery",
+    "description": "openclaw status currently reports gateway unreachable (missing scope: operator.read), which blinds health checks/probes and weakens Command Center observability. Add a reliability SLO monitor that verifies required scopes, probe freshness, and gateway reachability every 15 min; on failure, auto-create blocker + remediation checklist (scope fix, restart path, rollback). Prevent silent degraded state.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-25T18:02:01.047Z",
+    "updatedAt": "2026-03-25T18:02:01.047Z"
+  },
+  {
+    "id": "idea_1774461726834_535e990c",
+    "title": "HAL Dispatch ACK + Dead-Letter Queue",
+    "description": "HAL idle dispatch currently gates on health checks but lacks explicit end-to-end delivery receipts and timeout-based dead-letter handling. Add ACK protocol (dispatched, accepted, heartbeat, completed), auto-requeue on timeout, and dead-letter lane with root-cause tags. Outcome: fewer stuck tasks, faster unblock, better audit trail in Command Center.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-25T18:02:06.834Z",
+    "updatedAt": "2026-03-25T18:02:06.834Z"
   }
 ]
