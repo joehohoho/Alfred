@@ -27,7 +27,7 @@
     "id": "notif_1771399480963_55y5cqxco",
     "type": "goal-plan",
     "title": "Discord Integration Plan - Ready for Review",
-    "message": "**DISCORD INTEGRATION GOAL - 5-PHASE IMPLEMENTATION PLAN**\n\nGoal: Setup the ability to use Discord\nPriority: Medium\nGoal ID: goal_1771388761618_3d0vxpecq\n\n---\n\n## PHASE 1: Prerequisites (Estimated: 30 min)\n\n**Objectives:** Set up Discord bot application and credentials\n\n**Tasks:**\n- [ ] Create Discord bot application in Discord Developer Portal (https://discord.com/developers/applications)\n- [ ] Generate and secure bot token (keep confidential)\n- [ ] Configure OAuth2 redirect URIs (for future auth flows)\n- [ ] Set bot permissions:\n  - Send Messages\n  - Read Message History\n  - Manage Messages\n  - Create Threads\n  - Read Channels/See Channels\n- [ ] Create test Discord server (or use existing)\n- [ ] Get Guild ID (server ID) and Channel IDs for configuration\n- [ ] Invite bot to test server using OAuth2 invite link\n\n**Blocker Check:** None anticipated\n\n---\n\n## PHASE 2: OpenClaw Gateway Configuration (Estimated: 45 min)\n\n**Objectives:** Integrate Discord credentials into OpenClaw\n\n**Tasks:**\n- [ ] Check OpenClaw docs: Does Discord plugin/skill exist? (`clawhub search discord` or check installed skills)\n- [ ] If exists: Document how to configure (auth token, channel mapping)\n- [ ] If not exists: Check if OpenClaw has generic webhook/API support for Discord\n- [ ] Add Discord auth profile to OpenClaw config (store bot token securely)\n- [ ] Enable Discord channel plugin in `openclaw.yml` (if available)\n- [ ] Map Discord channels to OpenClaw targets (e.g., #general → broadcast messages here)\n- [ ] Test bot connection (send test message to verify it works)\n\n**Blocker Check:** Depends on OpenClaw Discord support\n\n---\n\n## PHASE 3: Core Features (Estimated: 1.5 hours)\n\n**Objectives:** Implement basic Discord messaging\n\n**Tasks:**\n- [ ] Send messages to Discord channels from OpenClaw\n- [ ] Receive messages from Discord (webhook listener)\n- [ ] React to messages with emoji\n- [ ] Support thread replies (optional)\n- [ ] Message history retrieval\n\n**Implementation:**\n- Use Discord.js library (if not already bundled)\n- Create message handler routes\n- Set up webhook endpoint for inbound Discord events\n\n---\n\n## PHASE 4: Integration with Command Center (Estimated: 2 hours)\n\n**Objectives:** Wire Discord into dashboard and automation\n\n**Tasks:**\n- [ ] Add Discord as notification delivery channel (cron jobs → Discord channels)\n- [ ] Integrate Discord into Chat page (cross-platform messaging)\n- [ ] Show Discord status in Infrastructure page\n- [ ] Add Discord channel selection to cron job delivery options\n- [ ] Support goal/task completion notifications → Discord\n\n**Example:** When a goal completes, automatically notify #goals channel in Discord\n\n---\n\n## PHASE 5: Testing & Optimization (Estimated: 1.5 hours)\n\n**Objectives:** Verify end-to-end functionality\n\n**Tests:**\n- [ ] Send message from OpenClaw → appears in Discord ✅\n- [ ] Send message from Discord → OpenClaw receives it ✅\n- [ ] Cron jobs deliver notifications to Discord channels ✅\n- [ ] Chat page shows Discord messages ✅\n- [ ] Error handling: bot offline, channel not found, permission denied\n- [ ] Rate limiting: test multiple messages per second\n- [ ] Thread support: send reply in thread\n\n---\n\n## TOTAL ESTIMATED EFFORT\n- **Manual Setup:** 30 min (bot creation)\n- **Configuration:** 45 min\n- **Core Features:** 1.5 hours\n- **Dashboard Integration:** 2 hours\n- **Testing:** 1.5 hours\n- **TOTAL:** ~6.5 hours (distributed over several days)\n\n**COST:** ~$0.50-1.00 (if using sub-agent analysis for each phase)\n\n---\n\n## NEXT STEP\n\n**PHASE 1 RESEARCH IN PROGRESS:**\nSub-agent is currently investigating:\n1. Is there an OpenClaw Discord skill/plugin available?\n2. What is the official way to integrate Discord (API library, webhook, etc.)?\n3. Security requirements (token storage, permissions, etc.)\n\n**Will report findings to Notifications when Phase 1 research is complete.**\n\n---\n\n**Plan created:** 2026-02-18 03:18 AST\n**Approval status:** Awaiting your review\n**Next action:** Provide feedback or approve to proceed with Phase 1 implementation",
+    "message": "**DISCORD INTEGRATION GOAL - 5-PHASE IMPLEMENTATION PLAN**\n\nGoal: Setup the ability to use Discord\nPriority: Medium\nGoal ID: goal_1771388761618_3d0vxpecq\n\n---\n\n## PHASE 1: Prerequisites (Estimated: 30 min)\n\n**Objectives:** Set up Discord bot application and credentials\n\n**Tasks:**\n- [ ] Create Discord bot application in Discord Developer Portal (https://discord.com/developers/applications)\n- [ ] Generate and secure bot token (keep confidential)\n- [ ] Configure OAuth2 redirect URIs (for future auth flows)\n- [ ] Set bot permissions:\n  - Send Messages\n  - Read Message History\n  - Manage Messages\n  - Create Threads\n  - Read Channels/See Channels\n- [ ] Create test Discord server (or use existing)\n- [ ] Get Guild ID (server ID) and Channel IDs for configuration\n- [ ] Invite bot to test server using OAuth2 invite link\n\n**Blocker Check:** None anticipated\n\n---\n\n## PHASE 2: OpenClaw Gateway Configuration (Estimated: 45 min)\n\n**Objectives:** Integrate Discord credentials into OpenClaw\n\n**Tasks:**\n- [ ] Check OpenClaw docs: Does Discord plugin/skill exist? (`clawhub search discord` or check installed skills)\n- [ ] If exists: Document how to configure (auth token, channel mapping)\n- [ ] If not exists: Check if OpenClaw has generic webhook/API support for Discord\n- [ ] Add Discord auth profile to OpenClaw config (store bot token securely)\n- [ ] Enable Discord channel plugin in `openclaw.yml` (if available)\n- [ ] Map Discord channels to OpenClaw targets (e.g., #general \u2192 broadcast messages here)\n- [ ] Test bot connection (send test message to verify it works)\n\n**Blocker Check:** Depends on OpenClaw Discord support\n\n---\n\n## PHASE 3: Core Features (Estimated: 1.5 hours)\n\n**Objectives:** Implement basic Discord messaging\n\n**Tasks:**\n- [ ] Send messages to Discord channels from OpenClaw\n- [ ] Receive messages from Discord (webhook listener)\n- [ ] React to messages with emoji\n- [ ] Support thread replies (optional)\n- [ ] Message history retrieval\n\n**Implementation:**\n- Use Discord.js library (if not already bundled)\n- Create message handler routes\n- Set up webhook endpoint for inbound Discord events\n\n---\n\n## PHASE 4: Integration with Command Center (Estimated: 2 hours)\n\n**Objectives:** Wire Discord into dashboard and automation\n\n**Tasks:**\n- [ ] Add Discord as notification delivery channel (cron jobs \u2192 Discord channels)\n- [ ] Integrate Discord into Chat page (cross-platform messaging)\n- [ ] Show Discord status in Infrastructure page\n- [ ] Add Discord channel selection to cron job delivery options\n- [ ] Support goal/task completion notifications \u2192 Discord\n\n**Example:** When a goal completes, automatically notify #goals channel in Discord\n\n---\n\n## PHASE 5: Testing & Optimization (Estimated: 1.5 hours)\n\n**Objectives:** Verify end-to-end functionality\n\n**Tests:**\n- [ ] Send message from OpenClaw \u2192 appears in Discord \u2705\n- [ ] Send message from Discord \u2192 OpenClaw receives it \u2705\n- [ ] Cron jobs deliver notifications to Discord channels \u2705\n- [ ] Chat page shows Discord messages \u2705\n- [ ] Error handling: bot offline, channel not found, permission denied\n- [ ] Rate limiting: test multiple messages per second\n- [ ] Thread support: send reply in thread\n\n---\n\n## TOTAL ESTIMATED EFFORT\n- **Manual Setup:** 30 min (bot creation)\n- **Configuration:** 45 min\n- **Core Features:** 1.5 hours\n- **Dashboard Integration:** 2 hours\n- **Testing:** 1.5 hours\n- **TOTAL:** ~6.5 hours (distributed over several days)\n\n**COST:** ~$0.50-1.00 (if using sub-agent analysis for each phase)\n\n---\n\n## NEXT STEP\n\n**PHASE 1 RESEARCH IN PROGRESS:**\nSub-agent is currently investigating:\n1. Is there an OpenClaw Discord skill/plugin available?\n2. What is the official way to integrate Discord (API library, webhook, etc.)?\n3. Security requirements (token storage, permissions, etc.)\n\n**Will report findings to Notifications when Phase 1 research is complete.**\n\n---\n\n**Plan created:** 2026-02-18 03:18 AST\n**Approval status:** Awaiting your review\n**Next action:** Provide feedback or approve to proceed with Phase 1 implementation",
     "answered": true,
     "createdAt": "2026-02-18T07:24:40.963Z",
     "answeredAt": "2026-02-18T07:33:43.688Z",
@@ -72,7 +72,7 @@
     "id": "notif_1771401025186_u7z72afvw",
     "type": "alert",
     "title": "Dashboard Phase 1 Sub-Agent Timeout",
-    "message": "**BLOCKER:** Dashboard improvements sub-agent failed\n\n**Task:** dashboard-phase1-improvements (Markdown rendering + Chat search + Copy buttons)\n**Runtime:** 15 minutes 21 seconds\n**Status:** LLM request timed out\n**Output:** No results generated\n\n---\n\n**What happened:**\nThe LOCAL model (ollama/llama3.2:3b) request timed out while working on implementing markdown rendering, chat search, and copy-to-clipboard features for the Chat page.\n\n**Why this might have happened:**\n- LOCAL model may be overloaded (other tasks running simultaneously)\n- Complex file edits (Chat.tsx, types.ts, dependencies) took too long\n- Network/system resources constrained\n\n**Other sub-agents still running:**\n✅ discord-integration (Phase 1 research) — running normally\n✅ imessage-phase1-research (Phase 1 analysis) — running normally\n\n---\n\n**Options:**\n1. **Retry with Sonnet** — Use claude-sonnet-4-5 instead (more capable, faster completion)\n2. **Reduce scope** — Split into smaller tasks (e.g., just markdown first, then search separately)\n3. **Retry LOCAL** — Wait for other tasks to finish, then retry with fresh resources\n4. **Skip for now** — Focus on Discord + iMessage, come back to dashboard later\n\n**Recommendation:** Try Sonnet (Option 1) — it will be faster and more reliable for complex frontend changes. Cost: ~$0.15 for this task.\n\n**Decision needed:** Which approach should I take?",
+    "message": "**BLOCKER:** Dashboard improvements sub-agent failed\n\n**Task:** dashboard-phase1-improvements (Markdown rendering + Chat search + Copy buttons)\n**Runtime:** 15 minutes 21 seconds\n**Status:** LLM request timed out\n**Output:** No results generated\n\n---\n\n**What happened:**\nThe LOCAL model (ollama/llama3.2:3b) request timed out while working on implementing markdown rendering, chat search, and copy-to-clipboard features for the Chat page.\n\n**Why this might have happened:**\n- LOCAL model may be overloaded (other tasks running simultaneously)\n- Complex file edits (Chat.tsx, types.ts, dependencies) took too long\n- Network/system resources constrained\n\n**Other sub-agents still running:**\n\u2705 discord-integration (Phase 1 research) \u2014 running normally\n\u2705 imessage-phase1-research (Phase 1 analysis) \u2014 running normally\n\n---\n\n**Options:**\n1. **Retry with Sonnet** \u2014 Use claude-sonnet-4-5 instead (more capable, faster completion)\n2. **Reduce scope** \u2014 Split into smaller tasks (e.g., just markdown first, then search separately)\n3. **Retry LOCAL** \u2014 Wait for other tasks to finish, then retry with fresh resources\n4. **Skip for now** \u2014 Focus on Discord + iMessage, come back to dashboard later\n\n**Recommendation:** Try Sonnet (Option 1) \u2014 it will be faster and more reliable for complex frontend changes. Cost: ~$0.15 for this task.\n\n**Decision needed:** Which approach should I take?",
     "answered": true,
     "createdAt": "2026-02-18T07:50:25.186Z",
     "answeredAt": "2026-02-18T07:53:21.987Z",
@@ -95,8 +95,8 @@
   {
     "id": "notif_1771403277638_discord_phase1",
     "type": "alert",
-    "title": "Discord Integration — Phase 1 Complete",
-    "message": "## Phase 1 Research Complete\n\n### OpenClaw Has Native Discord Support!\n\nNo external libraries needed. Built-in Discord channel plugin (same architecture as working Slack integration).\n\n---\n\n### Key Findings\n\n- Plugin: /usr/local/lib/node_modules/openclaw/extensions/discord/\n- Integration Method: Discord Bot Gateway (WebSocket, real-time)\n- Add Command: openclaw channels add --channel discord --token BOT_TOKEN\n- Config Key: channels.discord (mirrors channels.slack structure)\n\n---\n\n### One Human Step Required (Phase 2)\n\nBot token must be created via Discord Developer Portal (requires browser login).\n\nSteps you need to take:\n1. Go to: https://discord.com/developers/applications\n2. Create New Application → Name it Alfred\n3. Bot tab → Add Bot → Enable Message Content Intent (CRITICAL)\n4. Reset Token → Copy the token\n5. Invite URL: https://discord.com/oauth2/authorize?client_id=YOUR_APP_ID&scope=bot+applications.commands&permissions=277025704960\n6. Get your Guild (Server) ID and Channel ID(s)\n7. Share with me: Bot token + Guild ID + Channel ID(s)\n\n---\n\n### Once You Provide the Token\n\nI complete Phases 3-5 immediately and autonomously:\n- Update openclaw.json with Discord config\n- Enable Discord plugin\n- Restart gateway\n- Send test message to verify\n- Configure channel allowlist + security policies\n\n---\n\n### Full Setup Guide\n\nSaved at: /Users/hopenclaw/.openclaw/workspace/DISCORD-SETUP.md\nIncludes: Config template, bot permissions, security best practices, verification steps.\n\nZero cost to complete once token provided.",
+    "title": "Discord Integration \u2014 Phase 1 Complete",
+    "message": "## Phase 1 Research Complete\n\n### OpenClaw Has Native Discord Support!\n\nNo external libraries needed. Built-in Discord channel plugin (same architecture as working Slack integration).\n\n---\n\n### Key Findings\n\n- Plugin: /usr/local/lib/node_modules/openclaw/extensions/discord/\n- Integration Method: Discord Bot Gateway (WebSocket, real-time)\n- Add Command: openclaw channels add --channel discord --token BOT_TOKEN\n- Config Key: channels.discord (mirrors channels.slack structure)\n\n---\n\n### One Human Step Required (Phase 2)\n\nBot token must be created via Discord Developer Portal (requires browser login).\n\nSteps you need to take:\n1. Go to: https://discord.com/developers/applications\n2. Create New Application \u2192 Name it Alfred\n3. Bot tab \u2192 Add Bot \u2192 Enable Message Content Intent (CRITICAL)\n4. Reset Token \u2192 Copy the token\n5. Invite URL: https://discord.com/oauth2/authorize?client_id=YOUR_APP_ID&scope=bot+applications.commands&permissions=277025704960\n6. Get your Guild (Server) ID and Channel ID(s)\n7. Share with me: Bot token + Guild ID + Channel ID(s)\n\n---\n\n### Once You Provide the Token\n\nI complete Phases 3-5 immediately and autonomously:\n- Update openclaw.json with Discord config\n- Enable Discord plugin\n- Restart gateway\n- Send test message to verify\n- Configure channel allowlist + security policies\n\n---\n\n### Full Setup Guide\n\nSaved at: /Users/hopenclaw/.openclaw/workspace/DISCORD-SETUP.md\nIncludes: Config template, bot permissions, security best practices, verification steps.\n\nZero cost to complete once token provided.",
     "answered": true,
     "createdAt": "2026-02-18T08:27:57.638Z",
     "userAnswer": "It's setup, the invite URL is: https://discord.com/oauth2/authorize?client_id=Y 1473608734772301824&scope=bot+applications.commands&permissions=277025704960\nThe server ID is: 1473610337529102349\ngeneral channel ID is: 1473610338543996982\nupdates channel ID is: 1473611295235510426\n\nAs for the token leave a place for me to enter it in the .env file\n\nIf you need anything else setup or info that is missing let me know.",
@@ -107,7 +107,7 @@
     "id": "notif_1771605868238_53174470",
     "type": "question",
     "title": "What cross-project wins should I explore?",
-    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data → shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
+    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data \u2192 shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
     "answered": true,
     "createdAt": "2026-02-20T16:44:28.238Z",
     "answeredAt": "2026-02-20T18:28:06.231Z",
@@ -129,7 +129,7 @@
   {
     "id": "notif_1771758003622_67a8f632",
     "type": "question",
-    "title": "⚠️ AGENTS.md Size Warning",
+    "title": "\u26a0\ufe0f AGENTS.md Size Warning",
     "message": "AGENTS.md is at 17093/20000 chars (85%). Approaching the 20,000 char limit. New critical info should go in AGENTS-EXTENDED.md. Consider extracting the largest section to a satellite file.",
     "source": "agents-size-guard",
     "answered": true,
@@ -147,14 +147,14 @@
     "answered": true,
     "createdAt": "2026-02-22T14:00:00.191Z",
     "answeredAt": "2026-02-22T15:00:59.872Z",
-    "userAnswer": "I don’t mind questions if it’s information you haven’t received or there are additional questions needed to properly complete a task.  But before asking you should make sure it hasn’t been discussed previously.  If you basically know the answer but just want to confirm then it’s not necessary to ask.  Ask questions if there could be major changes, security risks, missing important information to properly complete a task. The key is that you act as autonomously as possible without having to ask questions for simple questions that could be answered by making some effort to find the answers or questions which you will most likely already know my answer. Though since this topic is hard to clearly set rules on, feel free to ask questions to help clarify this topic better and improve what questions are ask for future task",
+    "userAnswer": "I don\u2019t mind questions if it\u2019s information you haven\u2019t received or there are additional questions needed to properly complete a task.  But before asking you should make sure it hasn\u2019t been discussed previously.  If you basically know the answer but just want to confirm then it\u2019s not necessary to ask.  Ask questions if there could be major changes, security risks, missing important information to properly complete a task. The key is that you act as autonomously as possible without having to ask questions for simple questions that could be answered by making some effort to find the answers or questions which you will most likely already know my answer. Though since this topic is hard to clearly set rules on, feel free to ask questions to help clarify this topic better and improve what questions are ask for future task",
     "deliveryStatus": "sent"
   },
   {
     "id": "notif_1771855200170_57aa55c4",
     "type": "question",
     "title": "What's your actual passive income target?",
-    "message": "You mention building passive income as goal #2 (after family). But I don't know the specifics:\n\n- Revenue target per month? (gives me something to optimize toward)\n- Which app should be the cash cow? (CoinUsUp, Even Us Up, Signal App, or something new?)\n- How much of your week do you want to spend maintaining vs. building new?\n- What's the definition of 'passive' — zero touch, or 5 hrs/week maintenance is fine?\n\nThis would help me make better recommendations about what to build and what to prioritize.",
+    "message": "You mention building passive income as goal #2 (after family). But I don't know the specifics:\n\n- Revenue target per month? (gives me something to optimize toward)\n- Which app should be the cash cow? (CoinUsUp, Even Us Up, Signal App, or something new?)\n- How much of your week do you want to spend maintaining vs. building new?\n- What's the definition of 'passive' \u2014 zero touch, or 5 hrs/week maintenance is fine?\n\nThis would help me make better recommendations about what to build and what to prioritize.",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-02-23T14:00:00.170Z",
@@ -165,8 +165,8 @@
   {
     "id": "notif_1771867896865_1f2f5063",
     "type": "weather-setup-answers",
-    "title": "Weather Alert Job — Joe's Answers to Your Questions",
-    "message": "Joe answered your 4 clarification questions for the weather monitoring job:\n\n**1. Data source:** Use BOTH wttr.in and Open-Meteo (both free). Compare them and determine if there are differences between the two.\n\n**2. Precipitation threshold:** Alert on anything MORE than scattered showers or flurries lasting less than an hour. Don't alert for brief/light precipitation.\n\n**3. After 10pm behavior:** Stop checks after 10pm unless Joe asks for an update in Slack #weather-alerts. On weekdays, if there's anything to notify about, send ONE update at 7am.\n\n**4. Forecast window:** 48 hours ahead. Alert thresholds: >=10mm rain OR >=10cm snow.\n\n**BONUS — School cancellation analysis:** When a reasonable amount of snow is expected, do a quick analysis of the chances of school being cancelled.\n\n**Location:** Dieppe, New Brunswick, Canada\n**Slack channel:** #weather-alerts\n**Timezone:** America/Moncton",
+    "title": "Weather Alert Job \u2014 Joe's Answers to Your Questions",
+    "message": "Joe answered your 4 clarification questions for the weather monitoring job:\n\n**1. Data source:** Use BOTH wttr.in and Open-Meteo (both free). Compare them and determine if there are differences between the two.\n\n**2. Precipitation threshold:** Alert on anything MORE than scattered showers or flurries lasting less than an hour. Don't alert for brief/light precipitation.\n\n**3. After 10pm behavior:** Stop checks after 10pm unless Joe asks for an update in Slack #weather-alerts. On weekdays, if there's anything to notify about, send ONE update at 7am.\n\n**4. Forecast window:** 48 hours ahead. Alert thresholds: >=10mm rain OR >=10cm snow.\n\n**BONUS \u2014 School cancellation analysis:** When a reasonable amount of snow is expected, do a quick analysis of the chances of school being cancelled.\n\n**Location:** Dieppe, New Brunswick, Canada\n**Slack channel:** #weather-alerts\n**Timezone:** America/Moncton",
     "answered": true,
     "createdAt": "2026-02-23T17:31:36.865Z",
     "answeredAt": "2026-02-23T17:42:09.038Z",
@@ -176,8 +176,8 @@
   {
     "id": "notif_1771876150552_dab8f40a",
     "type": "decision",
-    "title": "Signal App Phase 1 — Critical Decision Gate (Feb 24 Deadline)",
-    "message": "Architecture review complete. Real-time data pipeline is the critical path for Feb completion.\n\n**Your decision needed by EOD Monday Feb 24:**\n\n1. **Data Source Priority:**\n   - Option A: Kraken only (existing, free, ~720 candle limit)\n   - Option B: Binance only (new integration, higher liquidity, better for scale)\n   - Option C: Both (redundancy + max coverage, more complexity)\n   → Recommend: Start with Kraken (2-3h), add Binance later (6h) if needed\n\n2. **Paper Trading Behavior:**\n   - Option A: Manual approval (Joe reviews signals in Command Center, approves execution)\n   - Option B: Auto-execute (signals → automatically executed in paper trading account)\n   → Recommend: Auto-execute (safer for dry-run, real data for March UI)\n\n3. **Signal Frequency:**\n   - Option A: Every 5 minutes (highest responsiveness, CPU cost)\n   - Option B: Every 15 minutes (good balance, matches market-maker intervals)\n   - Option C: Every 1 hour (conservative, batch-style)\n   → Recommend: 15 minutes (standard for intraday trading)\n\n4. **Risk Tolerance:**\n   - Option A: Conservative (2% max daily loss, 10% max position size)\n   - Option B: Balanced (3% daily loss, 15% max position)\n   - Option C: Aggressive (5% daily loss, 20% max position)\n   → Recommend: Conservative (beta testing phase)\n\n**Timeline:**\n- Mon 24: Real-time data pipeline (3-6h)\n- Tue 25: Signal generation + dispatch (4-6h)\n- Wed 26: Paper trading UI (3-4h)\n- Thu 27: Risk safety layer (2-3h)\n- Fri 28: Testing + refinement (2-3h)\n\n**Impact if delayed:**\n- No decision by EOD Mon 24 → Slides timeline to Tue 25-Mar 1\n- Each hour delayed costs ~1% of implementation time\n\nSee SIGNAL-APP-PHASE1-PLAN.md for full breakdown + contingencies.\n\nWhat are your preferences?",
+    "title": "Signal App Phase 1 \u2014 Critical Decision Gate (Feb 24 Deadline)",
+    "message": "Architecture review complete. Real-time data pipeline is the critical path for Feb completion.\n\n**Your decision needed by EOD Monday Feb 24:**\n\n1. **Data Source Priority:**\n   - Option A: Kraken only (existing, free, ~720 candle limit)\n   - Option B: Binance only (new integration, higher liquidity, better for scale)\n   - Option C: Both (redundancy + max coverage, more complexity)\n   \u2192 Recommend: Start with Kraken (2-3h), add Binance later (6h) if needed\n\n2. **Paper Trading Behavior:**\n   - Option A: Manual approval (Joe reviews signals in Command Center, approves execution)\n   - Option B: Auto-execute (signals \u2192 automatically executed in paper trading account)\n   \u2192 Recommend: Auto-execute (safer for dry-run, real data for March UI)\n\n3. **Signal Frequency:**\n   - Option A: Every 5 minutes (highest responsiveness, CPU cost)\n   - Option B: Every 15 minutes (good balance, matches market-maker intervals)\n   - Option C: Every 1 hour (conservative, batch-style)\n   \u2192 Recommend: 15 minutes (standard for intraday trading)\n\n4. **Risk Tolerance:**\n   - Option A: Conservative (2% max daily loss, 10% max position size)\n   - Option B: Balanced (3% daily loss, 15% max position)\n   - Option C: Aggressive (5% daily loss, 20% max position)\n   \u2192 Recommend: Conservative (beta testing phase)\n\n**Timeline:**\n- Mon 24: Real-time data pipeline (3-6h)\n- Tue 25: Signal generation + dispatch (4-6h)\n- Wed 26: Paper trading UI (3-4h)\n- Thu 27: Risk safety layer (2-3h)\n- Fri 28: Testing + refinement (2-3h)\n\n**Impact if delayed:**\n- No decision by EOD Mon 24 \u2192 Slides timeline to Tue 25-Mar 1\n- Each hour delayed costs ~1% of implementation time\n\nSee SIGNAL-APP-PHASE1-PLAN.md for full breakdown + contingencies.\n\nWhat are your preferences?",
     "goalId": "task_1771697313875_722f22e4",
     "taskId": "phase1-decision-gate",
     "source": "signal-app-launch",
@@ -191,7 +191,7 @@
     "id": "notif_1771941600146_4213e73d",
     "type": "question",
     "title": "What cross-project wins should I explore?",
-    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data → shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
+    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data \u2192 shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-02-24T14:00:00.146Z",
@@ -227,7 +227,7 @@
     "id": "notif_1772200800167_b867e72e",
     "type": "question",
     "title": "What's your actual passive income target?",
-    "message": "You mention building passive income as goal #2 (after family). But I don't know the specifics:\n\n- Revenue target per month? (gives me something to optimize toward)\n- Which app should be the cash cow? (CoinUsUp, Even Us Up, Signal App, or something new?)\n- How much of your week do you want to spend maintaining vs. building new?\n- What's the definition of 'passive' — zero touch, or 5 hrs/week maintenance is fine?\n\nThis would help me make better recommendations about what to build and what to prioritize.",
+    "message": "You mention building passive income as goal #2 (after family). But I don't know the specifics:\n\n- Revenue target per month? (gives me something to optimize toward)\n- Which app should be the cash cow? (CoinUsUp, Even Us Up, Signal App, or something new?)\n- How much of your week do you want to spend maintaining vs. building new?\n- What's the definition of 'passive' \u2014 zero touch, or 5 hrs/week maintenance is fine?\n\nThis would help me make better recommendations about what to build and what to prioritize.",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-02-27T14:00:00.167Z",
@@ -239,7 +239,7 @@
     "id": "notif_1772287200145_abab422f",
     "type": "question",
     "title": "What cross-project wins should I explore?",
-    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data → shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
+    "message": "I've noticed you're building multiple apps (CoinUsUp, Even Us Up, Signal App, automation consulting work). \n\nI see potential synergies:\n- Both CoinUsUp and Signal App work with financial data \u2192 shared API infrastructure?\n- Job Tracker's intelligence could inform consulting client pitches\n- Command Center monitoring all apps' health and revenue metrics\n\nAre any of these worth exploring? Or is there a different angle you'd want me to investigate about how these projects could work together?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-02-28T14:00:00.145Z",
@@ -251,19 +251,19 @@
     "id": "notif_1772373600214_c683eda7",
     "type": "question",
     "title": "Consulting client: automation idea worth productizing?",
-    "message": "You've been doing automation consulting work. Has any client problem come up repeatedly — something generic enough to turn into a product? Even a 9/mo niche SaaS. Worth investigating?",
+    "message": "You've been doing automation consulting work. Has any client problem come up repeatedly \u2014 something generic enough to turn into a product? Even a 9/mo niche SaaS. Worth investigating?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-01T14:00:00.214Z",
     "answeredAt": "2026-03-01T20:22:07.526Z",
-    "userAnswer": "No it’s not worth investigating. ",
+    "userAnswer": "No it\u2019s not worth investigating. ",
     "deliveryStatus": "sent"
   },
   {
     "id": "notif_1772460000220_a86559b3",
     "type": "question",
     "title": "What's the #1 thing slowing down Signal App right now?",
-    "message": "Not looking for a full status update — just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific technical problem, or something else? Knowing this helps me prioritize overnight work.",
+    "message": "Not looking for a full status update \u2014 just one honest sentence: what's the current bottleneck on Signal App? Is it data quality, time, a specific technical problem, or something else? Knowing this helps me prioritize overnight work.",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-02T14:00:00.220Z",
@@ -286,8 +286,8 @@
   {
     "id": "notif_1772719200252_2f94af8e",
     "type": "question",
-    "title": "Consulting: recurring client problem → product idea?",
-    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "title": "Consulting: recurring client problem \u2192 product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly\u2014something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-05T14:00:00.252Z",
@@ -299,7 +299,7 @@
     "id": "notif_1772805600255_09ade466",
     "type": "question",
     "title": "Signal App: what's the #1 blocker right now?",
-    "message": "Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
+    "message": "Not a full status update\u2014just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-06T14:00:00.255Z",
@@ -310,7 +310,7 @@
   {
     "id": "notif_1773057664673_ba83397c",
     "type": "security-alert",
-    "title": "🔒 Gateway Security Audit: 2 CRITICAL Issues Detected",
+    "title": "\ud83d\udd12 Gateway Security Audit: 2 CRITICAL Issues Detected",
     "message": "**Status:** Monday 9:00 AM security audit found 2 critical config issues requiring your approval.\n\n**CRITICAL #1: Control UI Wildcard Origins**\n- Current: `gateway.controlUi.allowedOrigins` set to `*`\n- Risk: Disables origin allowlisting; any domain can access Control UI\n- Fix: Replace with explicit trusted origins (e.g., `https://control.example.com`)\n\n**CRITICAL #2: Device Auth Disabled**\n- Current: `dangerouslyDisableDeviceAuth=true`\n- Risk: Break-glass debug setting; should only be used temporarily\n- Fix: Disable unless you're actively debugging gateway auth\n\n**WARNINGS (non-blocking):**\n- iMessage groupAllowFrom is empty (group messages silently dropped)\n- Time Machine not running\n- OpenClaw update available (v2026.3.8)\n\n**What This Means:**\nThese are live security gaps in your gateway config. I cannot modify `~/.openclaw/openclaw.json` directly (safety boundary), so this needs your approval and manual fix.\n\n**Your Action Items:**\n1. Decide: Do you want to fix these configs now, or leave the break-glass debug flag on?\n2. If fixing: Update `gateway.controlUi.allowedOrigins` and disable `dangerouslyDisableDeviceAuth`\n3. Optional: Fix iMessage group policy\n\nLet me know how you'd like to proceed.",
     "source": "morning-security-audit",
     "answered": true,
@@ -322,8 +322,8 @@
   {
     "id": "notif_1773061200280_3d53d2ba",
     "type": "question",
-    "title": "Consulting: recurring client problem → product idea?",
-    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "title": "Consulting: recurring client problem \u2192 product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly\u2014something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-09T13:00:00.280Z",
@@ -335,7 +335,7 @@
     "id": "notif_1773147600293_16aa9988",
     "type": "question",
     "title": "Signal App: what's the #1 blocker right now?",
-    "message": "Not a full status update—just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
+    "message": "Not a full status update\u2014just one sentence: what's the current bottleneck on Signal App? Data quality? Time? Technical debt? Knowing helps me prioritize overnight work.",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-10T13:00:00.293Z",
@@ -346,8 +346,8 @@
   {
     "id": "notif_1773727251618_e604f69d",
     "type": "question",
-    "title": "⚠️ Stale card escalated: \"Mission Control Phase 1: Stability & Visibility\"",
-    "message": "Card \"Mission Control Phase 1: Stability & Visibility\" (task_1773672258312_393a575f) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "title": "\u26a0\ufe0f Stale card escalated: \"Mission Control Phase 1: Stability & Visibility\"",
+    "message": "Card \"Mission Control Phase 1: Stability & Visibility\" (task_1773672258312_393a575f) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card \u2014 add new instructions and move back to To Do\n2. Close/reject it \u2014 if it's no longer relevant\n3. Leave in Blocked \u2014 if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
     "source": "stale-card-handler",
     "answered": false,
     "createdAt": "2026-03-17T06:00:51.618Z",
@@ -356,8 +356,8 @@
   {
     "id": "notif_1773775410172_bad50023",
     "type": "question",
-    "title": "Consulting: recurring client problem → product idea?",
-    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "title": "Consulting: recurring client problem \u2192 product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly\u2014something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-17T19:23:30.172Z",
@@ -368,8 +368,8 @@
   {
     "id": "notif_1773846049925_5c244c9d",
     "type": "question",
-    "title": "⚠️ Stale card escalated: \"Implement 14-day free trial on Basic/Pro tiers\"",
-    "message": "Card \"Implement 14-day free trial on Basic/Pro tiers\" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
+    "title": "\u26a0\ufe0f Stale card escalated: \"Implement 14-day free trial on Basic/Pro tiers\"",
+    "message": "Card \"Implement 14-day free trial on Basic/Pro tiers\" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card \u2014 add new instructions and move back to To Do\n2. Close/reject it \u2014 if it's no longer relevant\n3. Leave in Blocked \u2014 if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
     "source": "stale-card-handler",
     "answered": false,
     "createdAt": "2026-03-18T15:00:49.925Z",
@@ -389,8 +389,8 @@
   {
     "id": "notif_1773925200321_6eb416a4",
     "type": "question",
-    "title": "Consulting: recurring client problem → product idea?",
-    "message": "You've been doing automation consulting. Has any client problem come up repeatedly—something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
+    "title": "Consulting: recurring client problem \u2192 product idea?",
+    "message": "You've been doing automation consulting. Has any client problem come up repeatedly\u2014something generic enough to turn into a 9+/mo SaaS? Worth a weekend prototype?",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-19T13:00:00.321Z",
@@ -406,13 +406,13 @@
     "answered": true,
     "createdAt": "2026-03-20T04:17:26.809Z",
     "answeredAt": "2026-03-20T05:10:29.091Z",
-    "userAnswer": "It’s been refreshed a couple days ago, is it still expiring?",
+    "userAnswer": "It\u2019s been refreshed a couple days ago, is it still expiring?",
     "deliveryStatus": "sent"
   },
   {
     "id": "notif_1773986543704_ffb54ea1",
     "type": "[REMINDER] Mission Control Phase 1: Cron Controls Implementation",
-    "title": "Joe confirmed Option #1 (add cron controls to React app). Alfred provided full pros/cons. Ready to implement. Should Alfred proceed with adding cron job management UI to the Command Center dashboard (localhost:3001)?\n\nOptions:\n1. ✅ Yes — proceed, Alfred will implement cron controls in the React app\n2. ⏸️ Not now — leave blocked, revisit later\n3. ❌ Close — scope changed, no longer needed\n\nAlfred recommends Option 1 — Joe already chose this path, just needs implementation go-ahead.",
+    "title": "Joe confirmed Option #1 (add cron controls to React app). Alfred provided full pros/cons. Ready to implement. Should Alfred proceed with adding cron job management UI to the Command Center dashboard (localhost:3001)?\n\nOptions:\n1. \u2705 Yes \u2014 proceed, Alfred will implement cron controls in the React app\n2. \u23f8\ufe0f Not now \u2014 leave blocked, revisit later\n3. \u274c Close \u2014 scope changed, no longer needed\n\nAlfred recommends Option 1 \u2014 Joe already chose this path, just needs implementation go-ahead.",
     "message": "No details provided",
     "answered": true,
     "createdAt": "2026-03-20T06:02:23.704Z",
@@ -424,7 +424,7 @@
     "id": "notif_1774011600529_1822599c",
     "type": "question",
     "title": "Could Signal App be packaged for non-trading uses?",
-    "message": "You built Signal App for crypto. Could the core signal logic work for other markets—stocks, commodities, forex? New verticals = new revenue.",
+    "message": "You built Signal App for crypto. Could the core signal logic work for other markets\u2014stocks, commodities, forex? New verticals = new revenue.",
     "source": "daily-inquiry",
     "answered": true,
     "createdAt": "2026-03-20T13:00:00.529Z",
@@ -436,7 +436,7 @@
     "id": "notif_1774040499423_b6664e1d",
     "type": "question",
     "title": "[REMINDER] Mission Control Phase 1 blocked: choose implementation path",
-    "message": "Context: Mission Control Phase 1 is blocked pending your go-ahead after option analysis. You previously leaned to Option #1 (integrate cron controls directly into the React Command Center at localhost:3001), but final execution approval wasn’t confirmed.\\n\\nQuestion: Should I proceed now with Option #1 implementation?\\n\\nOptions:\\n1) Proceed with Option #1 now (single dashboard, better long-term maintainability).\\n2) Do Option #2 temporary separate cron panel first, then merge later (faster short-term visibility).\\n\\nRecommendation: Option 1 now, because it avoids split-brain UX and reduces long-term maintenance drift.\\n\\nDefault if no response: I will keep the card blocked and re-check in 48h.",
+    "message": "Context: Mission Control Phase 1 is blocked pending your go-ahead after option analysis. You previously leaned to Option #1 (integrate cron controls directly into the React Command Center at localhost:3001), but final execution approval wasn\u2019t confirmed.\\n\\nQuestion: Should I proceed now with Option #1 implementation?\\n\\nOptions:\\n1) Proceed with Option #1 now (single dashboard, better long-term maintainability).\\n2) Do Option #2 temporary separate cron panel first, then merge later (faster short-term visibility).\\n\\nRecommendation: Option 1 now, because it avoids split-brain UX and reduces long-term maintenance drift.\\n\\nDefault if no response: I will keep the card blocked and re-check in 48h.",
     "taskId": "task_1773672258312_393a575f",
     "source": "idle-goal-progress-check",
     "answered": false,
@@ -447,47 +447,11 @@
     "id": "notif_1774040506805_f13c1b4b",
     "type": "question",
     "title": "[REMINDER] Stripe action needed to finish 14-day trial card",
-    "message": "Context: The CoinUsUp 14-day trial implementation is complete in code and UI, but production readiness is blocked by Stripe dashboard configuration. Existing blocker notification is older than 48h and still unanswered.\\n\\nQuestion: Can you confirm when you want me to proceed after Stripe prices are updated?\\n\\nOptions:\\n1) You update the 12 Stripe prices now (Basic/Pro × US/CA × Monthly/Annual set trial_period_days=14), then I immediately run staging verification and push.\\n2) I prepare a step-by-step Stripe checklist walkthrough for you first, then you update and I verify after.\\n\\nRecommendation: Option 1 if you’re ready now; it is the shortest path to launch verification.\\n\\nDefault if no response: Card remains in review with blocker noted, and I will send another reminder after 48h.",
+    "message": "Context: The CoinUsUp 14-day trial implementation is complete in code and UI, but production readiness is blocked by Stripe dashboard configuration. Existing blocker notification is older than 48h and still unanswered.\\n\\nQuestion: Can you confirm when you want me to proceed after Stripe prices are updated?\\n\\nOptions:\\n1) You update the 12 Stripe prices now (Basic/Pro \u00d7 US/CA \u00d7 Monthly/Annual set trial_period_days=14), then I immediately run staging verification and push.\\n2) I prepare a step-by-step Stripe checklist walkthrough for you first, then you update and I verify after.\\n\\nRecommendation: Option 1 if you\u2019re ready now; it is the shortest path to launch verification.\\n\\nDefault if no response: Card remains in review with blocker noted, and I will send another reminder after 48h.",
     "taskId": "task_1773156748695_23b9e471",
     "source": "idle-goal-progress-check",
     "answered": false,
     "createdAt": "2026-03-20T21:01:46.805Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774074714389_b7b2118c",
-    "type": "Review needed: CoinUsUp recurring donations",
-    "title": "Context: Card task_1774062049248_7486f8ba is in review with implementation complete and evidence posted.\\n\\nQuestion: Can you approve this card for Done, or do you want specific revisions?\\n\\nOptions:\\n1) Approve as-is and move to Done\\n2) Request targeted changes (list them)\\n\\nRecommendation: Approve as-is if no blockers are seen, then we can prioritize the next revenue feature.\\n\\nIf no response: Card stays in Review and downstream planning remains delayed.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-21T06:31:54.389Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774074714662_50c1b177",
-    "type": "Review needed: Bill Review & Invoice Audit Automation",
-    "title": "Context: Card task_1774058538023_ae4bf3d2 is in review with full blueprint delivered at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md.\\n\\nQuestion: Approve this blueprint to move to Done, or request adjustments before execution planning?\\n\\nOptions:\\n1) Approve and move to Done\\n2) Request edits to ICP/pricing/MVP scope\\n\\nRecommendation: Approve and use it as baseline so implementation scoping can start.\\n\\nIf no response: Card remains in Review and this idea will not progress to build phase.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-21T06:31:54.662Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774074714935_f1f34381",
-    "type": "Review needed: Voice-to-SOP Builder blueprint",
-    "title": "Context: Card task_1774054884299_23d01b3d is in review with strategy + 14-day execution brief delivered at deliverables/task_1774054884299_23d01b3d-voice-to-sop-plan.md.\\n\\nQuestion: Approve current plan for Done, or request changes before we advance?\\n\\nOptions:\\n1) Approve and move to Done\\n2) Request revisions (pricing, wedge, rollout)\\n\\nRecommendation: Approve baseline now, then iterate with a scoped MVP build card.\\n\\nIf no response: Card remains stalled in Review.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-21T06:31:54.935Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774074715209_df1bee0e",
-    "type": "Review needed: Niche SaaS weekly client updates",
-    "title": "Context: Card task_1774053050845_93a45189 is in review with execution blueprint delivered at ideas/NICHE_SAAS_AUTO_WEEKLY_CLIENT_UPDATES_BLUEPRINT_2026-03-20.md.\\n\\nQuestion: Approve this blueprint to close the card, or request refinements first?\\n\\nOptions:\\n1) Approve and move to Done\\n2) Request revisions to MVP/connectors/pricing\\n\\nRecommendation: Approve as strategic baseline and open a separate implementation card.\\n\\nIf no response: Card remains in Review and implementation prioritization is delayed.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-21T06:31:55.209Z",
     "answeredAt": null
   },
   {
@@ -501,15 +465,6 @@
     "answeredAt": "2026-03-23T20:00:22.906Z",
     "userAnswer": "CoinUsUp then Signals App",
     "deliveryStatus": "sent"
-  },
-  {
-    "id": "notif_1774132376518_7d29f7f0",
-    "type": "Even Us Up: Quick Wins — Discovery Complete, Ready for Approval",
-    "title": "Alfred completed discovery phase for the 3-feature task (recurring expenses, bill rules, debt optimization). All findings documented. Three implementation approaches available — parallel HAL dispatch (fastest), sequential Alfred work, or hybrid. Handoff contract ready. Awaiting your review + direction on which approach you prefer.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-21T22:32:56.518Z",
-    "answeredAt": null
   },
   {
     "id": "notif_1774177429833_45d8ac73",
@@ -534,17 +489,17 @@
     "actions": [
       {
         "type": "approve",
-        "label": "✅ Approve",
+        "label": "\u2705 Approve",
         "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/approve"
       },
       {
         "type": "reject",
-        "label": "❌ Reject",
+        "label": "\u274c Reject",
         "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/reject"
       },
       {
         "type": "request-changes",
-        "label": "🔄 Request Changes",
+        "label": "\ud83d\udd04 Request Changes",
         "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/request-changes"
       }
     ],
@@ -571,64 +526,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1774295244571_7d624064",
-    "type": "warning",
-    "title": "Session Size Guard",
-    "message": "Main session was .6MB (over 3MB limit). Auto-reset and gateway restarted. Backup: 888a7e15-200d-4f26-b65f-5928f536c1cc.20260323-164721.jsonl",
-    "answered": false,
-    "createdAt": "2026-03-23T19:47:24.571Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774295592577_830b1aba",
-    "type": "alert",
-    "title": "Test Alert: System Check",
-    "message": "Testing the quiet-hours outbox system. This is a high-priority alert to verify dedup, priority grouping, and digest building.",
-    "source": "test-script",
-    "answered": false,
-    "createdAt": "2026-03-23T19:53:12.577Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774295658048_808481df",
-    "type": "update",
-    "title": "Morning Digest — Monday, March 23",
-    "message": "Morning Digest — Monday, March 23, 2026\nTotal items: 5\n\n======================================================================\n🔴 CRITICAL (1 items)\n======================================================================\n\n• Gateway Memory Critical\n  System RAM allocation at 87%. Cron jobs queuing up. Recommend immediate memory cleanup or service restart.\n  [from: health-check]\n\n======================================================================\n📋 NORMAL (4 items)\n======================================================================\n\nQuestions (3):\n  • Passive Income Ideas?\n  • Passive Income Ideas?\n  • Passive Income Ideas?\n\nUpdates (1):\n  • CoinUsUp: Code review completed\n\n======================================================================\nDigest prepared: 2026-03-23T16:54:17.849642\nView full details: Command Center Dashboard",
-    "source": "morning-digest",
-    "answered": false,
-    "createdAt": "2026-03-23T19:54:18.048Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774295674683_d3f62578",
-    "type": "update",
-    "title": "Morning Digest — Monday, March 23",
-    "message": "Morning Digest — Monday, March 23, 2026\nTotal items: 2\n\n======================================================================\n🔴 CRITICAL (1 items)\n======================================================================\n\n• Test Critical Alert\n  System is critical\n  [from: test]\n\n======================================================================\n📋 NORMAL (1 items)\n======================================================================\n\nQuestions (1):\n  • Test Question\n\n======================================================================\nDigest prepared: 2026-03-23T16:54:34.460044\nView full details: Command Center Dashboard",
-    "source": "morning-digest",
-    "answered": false,
-    "createdAt": "2026-03-23T19:54:34.683Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774297108215_85b9f7eb",
-    "type": "system",
-    "title": "Session Auto-Reset",
-    "message": "Main session was at 85%+ context. Auto-reset and gateway restarted.",
-    "answered": false,
-    "createdAt": "2026-03-23T20:18:28.215Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774337509043_4717565f",
-    "type": "update",
-    "title": "Morning Digest — Tuesday, March 24",
-    "message": "Morning Digest — Tuesday, March 24, 2026\nTotal items: 1\n\n======================================================================\n⚠️  HIGH (1 items)\n======================================================================\n• Integration Test: Morning Digest Ready\n\n======================================================================\nDigest prepared: 2026-03-24T04:31:48.845485\nView full details: Command Center Dashboard",
-    "source": "morning-digest",
-    "answered": false,
-    "createdAt": "2026-03-24T07:31:49.043Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774339278460_41b147da",
     "type": "question",
     "title": "What does success look like for CoinUsUp right now?",
@@ -639,138 +536,13 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774347383288_6315f99c",
-    "type": "--title",
-    "title": "Ready: T4A/T776 Tax Organizer Research Complete",
-    "message": "--context",
-    "goalId": "Market research complete (50+ Reddit threads, competitor analysis, revenue model validated at Freemium .99/mo). 27,700 words of documentation + landing page created. Canadian CRA compliance rules researched.",
-    "taskId": "--question",
-    "source": "Approve blueprint to move to MVP development planning?",
-    "answered": false,
-    "createdAt": "2026-03-24T10:16:23.288Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774347383289_1da05f56",
-    "type": "--title",
-    "title": "Ready: Atlantic Contractor Portal Phase 2 Deployment",
-    "message": "--context",
-    "goalId": "Phase 2 framework complete (lead mag + landing page + initial email campaign).",
-    "taskId": "--question",
-    "source": "Ready to proceed with discovery outreach?",
-    "answered": false,
-    "createdAt": "2026-03-24T10:16:23.289Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774348296846_87155638",
-    "type": "update",
-    "title": "Morning Digest — Tuesday, March 24",
-    "message": "Morning Digest — Tuesday, March 24, 2026\nTotal items: 1\n\n======================================================================\n⚠️  HIGH (1 items)\n======================================================================\n• Test: Morning Digest System\n\n======================================================================\nDigest prepared: 2026-03-24T07:31:36.654086\nView full details: Command Center Dashboard",
-    "source": "morning-digest",
-    "answered": false,
-    "createdAt": "2026-03-24T10:31:36.846Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774348307353_dd7e3267",
-    "type": "update",
-    "title": "Morning Digest — Tuesday, March 24",
-    "message": "Morning Digest — Tuesday, March 24, 2026\nTotal items: 3\n\n======================================================================\n🔴 CRITICAL (1 items)\n======================================================================\n\n• Critical: Test Alert\n  This is a critical-priority test alert.\n  [from: test]\n\n======================================================================\n⚠️  HIGH (1 items)\n======================================================================\n• Update: CoinUsUp Deployment\n\n======================================================================\n📋 NORMAL (1 items)\n======================================================================\n\nQuestions (1):\n  • Question: System Configuration\n\n======================================================================\nDigest prepared: 2026-03-24T07:31:47.160707\nView full details: Command Center Dashboard",
-    "source": "morning-digest",
-    "answered": false,
-    "createdAt": "2026-03-24T10:31:47.353Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774348633358_ebc3c96c",
     "type": "question",
-    "title": "CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing",
-    "message": "Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end-to-end tests without Stripe API keys.\n\n**What you need to do (15 minutes):**\n1. Go to https://dashboard.stripe.com/\n2. Get test mode API keys (Secret + Publishable)\n3. Add STRIPE_SECRET_KEY to Supabase Settings → Secrets\n4. Message me: 'Stripe keys added'\n\n**What happens next:**\nOnce configured, I'll run 10 comprehensive tests:\n- Checkout session creation ✓\n- Webhook event handling ✓\n- Database synchronization ✓\n- Subscription management (pause/resume/cancel) ✓\n- KPI calculations ✓\n- Error scenarios ✓\n\n**Total testing time:** 30 min\n**ETA to completion:** 1-2 hours from now\n\n**Files created for reference:**\n- CoinUsUp/PHASE_B_TESTING_STATUS.md (detailed status)\n- CoinUsUp/RECURRING_DONATIONS_TESTING.md (test plan)\n\n**Option:** If Stripe keys are sensitive, let me know and I'll wait for you to add them. I won't touch or store them—they go directly in Supabase environment.",
+    "title": "CoinUsUp Recurring Donations \u2014 Stripe Keys Needed to Proceed with Testing",
+    "message": "Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end-to-end tests without Stripe API keys.\n\n**What you need to do (15 minutes):**\n1. Go to https://dashboard.stripe.com/\n2. Get test mode API keys (Secret + Publishable)\n3. Add STRIPE_SECRET_KEY to Supabase Settings \u2192 Secrets\n4. Message me: 'Stripe keys added'\n\n**What happens next:**\nOnce configured, I'll run 10 comprehensive tests:\n- Checkout session creation \u2713\n- Webhook event handling \u2713\n- Database synchronization \u2713\n- Subscription management (pause/resume/cancel) \u2713\n- KPI calculations \u2713\n- Error scenarios \u2713\n\n**Total testing time:** 30 min\n**ETA to completion:** 1-2 hours from now\n\n**Files created for reference:**\n- CoinUsUp/PHASE_B_TESTING_STATUS.md (detailed status)\n- CoinUsUp/RECURRING_DONATIONS_TESTING.md (test plan)\n\n**Option:** If Stripe keys are sensitive, let me know and I'll wait for you to add them. I won't touch or store them\u2014they go directly in Supabase environment.",
     "taskId": "task_1774062049248_7486f8ba",
     "answered": false,
     "createdAt": "2026-03-24T10:37:13.358Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774350022273_ba8de839",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-24T11:00:22.274Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774436422849_51d40ca1",
-    "type": "system",
-    "title": "Partial Recovery",
-    "message": "Codex still down (CODEX_QUOTA). Haiku primary. 0 crons enabled. Retry tomorrow 8 AM.",
-    "answered": false,
-    "createdAt": "2026-03-25T11:00:22.849Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774440230244_c401cb5a",
-    "type": "Codex Rate Limit: 12 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T12:03:50.244Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774441232533_f96c019e",
-    "type": "Codex Rate Limit: 14 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T12:20:32.533Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774441801145_a44698c2",
-    "type": "Codex Rate Limit: 14 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T12:30:01.145Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774441801147_486929bd",
-    "type": "Codex Rate Limit: 14 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T12:30:01.147Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774443033574_436f3c23",
-    "type": "Codex Rate Limit: 15 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T12:50:33.574Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774443600624_304dfbec",
-    "type": "Codex Rate Limit: 15 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T13:00:00.624Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774443600626_7653cbd0",
-    "type": "Codex Rate Limit: 15 errors in 30 min",
-    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
-    "message": "warning",
-    "answered": false,
-    "createdAt": "2026-03-25T13:00:00.626Z",
     "answeredAt": null
   },
   {
@@ -781,6 +553,15 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-25T13:00:01.058Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774450933222_9ae4830c",
+    "type": "question",
+    "title": "Test question",
+    "message": "This should pass the filter",
+    "answered": false,
+    "createdAt": "2026-03-25T15:02:13.222Z",
     "answeredAt": null
   }
 ]
