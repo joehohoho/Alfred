@@ -20,9 +20,10 @@ ts() { date '+%Y-%m-%dT%H:%M:%S'; }
 log() { echo "[$(ts)] DAYTIME-GUARD: $*"; }
 
 # 1. Count Codex rate-limit errors in last 30 minutes
-THRESHOLD_TIME=$(date -u -d '30 minutes ago' '+%Y-%m-%dT%H:%M:%S' 2>/dev/null || date -u -v-30M '+%Y-%m-%dT%H:%M:%S')
-RATE_LIMIT_COUNT=$(grep -c "rate limit reached\|API rate limit\|Provider rate limits\|429\|quota" "$ERR_LOG" 2>/dev/null | grep -oE "[0-9]+" | tail -1 || echo "0")
-RECENT_COUNT=$(awk -v threshold="$THRESHOLD_TIME" '$1 >= threshold && /rate limit reached|API rate limit|Provider rate limits|429|quota/' "$ERR_LOG" 2>/dev/null | wc -l | grep -oE "[0-9]+" || echo "0")
+THRESHOLD_TIME=$(date -u -v-30M '+%Y-%m-%dT%H:%M:%S' 2>/dev/null || date -u -d '30 minutes ago' '+%Y-%m-%dT%H:%M:%S')
+RATE_LIMIT_COUNT=$(grep -cE "rate limit reached|API rate limit|Provider rate limits|429|quota" "$ERR_LOG" 2>/dev/null || echo "0")
+# Count recent errors (tail last 50 lines, filter for rate limits)
+RECENT_COUNT=$(tail -50 "$ERR_LOG" 2>/dev/null | grep -cE "rate limit reached|API rate limit|Provider rate limits|429|quota" || echo "0")
 
 log "Rate-limit check: $RECENT_COUNT errors in last 30 min (total: $RATE_LIMIT_COUNT)"
 
