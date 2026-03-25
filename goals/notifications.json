@@ -709,5 +709,14 @@
     "answered": false,
     "createdAt": "2026-03-25T11:00:22.849Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774440230244_c401cb5a",
+    "type": "Codex Rate Limit: 12 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T12:03:50.244Z",
+    "answeredAt": null
   }
 ]
