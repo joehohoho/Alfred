@@ -718,5 +718,69 @@
     "answered": false,
     "createdAt": "2026-03-25T12:03:50.244Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774441232533_f96c019e",
+    "type": "Codex Rate Limit: 14 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T12:20:32.533Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774441801145_a44698c2",
+    "type": "Codex Rate Limit: 14 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T12:30:01.145Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774441801147_486929bd",
+    "type": "Codex Rate Limit: 14 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T12:30:01.147Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774443033574_436f3c23",
+    "type": "Codex Rate Limit: 15 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T12:50:33.574Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774443600624_304dfbec",
+    "type": "Codex Rate Limit: 15 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T13:00:00.624Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774443600626_7653cbd0",
+    "type": "Codex Rate Limit: 15 errors in 30 min",
+    "title": "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log",
+    "message": "warning",
+    "answered": false,
+    "createdAt": "2026-03-25T13:00:00.626Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774443601058_2a90645a",
+    "type": "question",
+    "title": "What's preventing Even Us Up from growing faster?",
+    "message": "Marketing, features, user friction, or just low priority? One honest sentence about the blocker helps me identify next steps.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-25T13:00:01.058Z",
+    "answeredAt": null
   }
 ]
