@@ -56,12 +56,27 @@ DAILY_ERROR_CRITICAL=30           # 30+ errors → 8h cooldown
 ts() { date '+%Y-%m-%dT%H:%M:%S'; }
 log() { echo "[$(ts)] $*" >> "$LOG"; }
 
+LAST_NOTIFY_FILE="/tmp/watchdog-last-notify.json"
 notify() {
   local title="$1" message="$2"
-  curl -s --max-time 10 -X POST "$NOTIFY_URL" \
-    -H "Content-Type: application/json" \
-    -d "{\"type\":\"system\",\"title\":\"$title\",\"message\":\"$message\"}" \
-    > /dev/null 2>&1 || true
+  # Dedup: don't send the same title within 2 hours
+  local now=$(date +%s)
+  local should_send="yes"
+  if [[ -f "$LAST_NOTIFY_FILE" ]]; then
+    local last_title last_time
+    last_title=$(python3 -c "import json; print(json.load(open('$LAST_NOTIFY_FILE')).get('title',''))" 2>/dev/null || echo "")
+    last_time=$(python3 -c "import json; print(json.load(open('$LAST_NOTIFY_FILE')).get('at',0))" 2>/dev/null || echo "0")
+    if [[ "$last_title" == "$title" && $((now - last_time)) -lt 7200 ]]; then
+      should_send="no"
+    fi
+  fi
+  if [[ "$should_send" == "yes" ]]; then
+    curl -s --max-time 10 -X POST "$NOTIFY_URL" \
+      -H "Content-Type: application/json" \
+      -d "{\"type\":\"system\",\"title\":\"$title\",\"message\":\"$message\"}" \
+      > /dev/null 2>&1 || true
+    python3 -c "import json; json.dump({'title':'$title','at':$now}, open('$LAST_NOTIFY_FILE','w'))" 2>/dev/null || true
+  fi
 }
 
 # ── Circuit breaker state I/O ──

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const EnvSchema = z.object({
-  DATABASE_URL: z.string().min(1),
+  DATABASE_URL: z.string().optional(),
   COINGECKO_BASE_URL: z.string().default('https://api.coingecko.com/api/v3'),
   BINANCE_BASE_URL: z.string().default('https://api.binance.com'),
   ALPHA_VANTAGE_API_KEY: z.string().optional(),

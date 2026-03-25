@@ -1,23 +1,152 @@
 'use client';
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  ReferenceDot,
+} from 'recharts';
 
-interface PriceChartProps {
-  data: Array<{ date: string; price: number; sma9: number; sma21: number }>;
+export interface SignalMarker {
+  date: string;
+  price: number;
+  type: 'BUY' | 'SELL';
+  strength?: number;
 }
 
-export function PriceChart({ data }: PriceChartProps) {
+interface PriceChartProps {
+  data: Array<{ date: string; price: number; sma9?: number; sma21?: number }>;
+  signals?: SignalMarker[];
+  height?: number;
+}
+
+function SignalTooltipContent({ active, payload }: any) {
+  if (!active || !payload?.length) return null;
+  const item = payload[0]?.payload;
+  if (!item) return null;
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <LineChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="price" stroke="#3b82f6" name="Price" />
-        <Line type="monotone" dataKey="sma9" stroke="#10b981" name="SMA 9" strokeDasharray="5 5" />
-        <Line type="monotone" dataKey="sma21" stroke="#f59e0b" name="SMA 21" strokeDasharray="5 5" />
+    <div className="bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-xs shadow-lg">
+      <div className="text-slate-300 font-medium">{item.date}</div>
+      <div className="text-white font-mono">${Number(item.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+      {item.sma9 != null && !isNaN(item.sma9) && (
+        <div className="text-emerald-400">SMA 9: ${Number(item.sma9).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+      )}
+      {item.sma21 != null && !isNaN(item.sma21) && (
+        <div className="text-amber-400">SMA 21: ${Number(item.sma21).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+      )}
+    </div>
+  );
+}
+
+export function PriceChart({ data, signals, height = 400 }: PriceChartProps) {
+  // Merge signal markers into the data by matching dates
+  const signalsByDate = new Map<string, SignalMarker>();
+  if (signals) {
+    for (const sig of signals) {
+      signalsByDate.set(sig.date, sig);
+    }
+  }
+
+  const chartData = data.map((point) => {
+    const signal = signalsByDate.get(point.date);
+    return {
+      ...point,
+      buySignal: signal?.type === 'BUY' ? point.price : undefined,
+      sellSignal: signal?.type === 'SELL' ? point.price : undefined,
+    };
+  });
+
+  // Calculate Y-axis domain with some padding
+  const prices = data.map((d) => d.price).filter((p) => p != null && !isNaN(p));
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+  const padding = (maxPrice - minPrice) * 0.05;
+
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <LineChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+        <XAxis
+          dataKey="date"
+          tick={{ fill: '#94a3b8', fontSize: 11 }}
+          tickLine={{ stroke: '#475569' }}
+          axisLine={{ stroke: '#475569' }}
+          interval="preserveStartEnd"
+        />
+        <YAxis
+          domain={[minPrice - padding, maxPrice + padding]}
+          tick={{ fill: '#94a3b8', fontSize: 11 }}
+          tickLine={{ stroke: '#475569' }}
+          axisLine={{ stroke: '#475569' }}
+          tickFormatter={(v: number) =>
+            v >= 1000 ? `$${(v / 1000).toFixed(1)}k` : `$${v.toFixed(2)}`
+          }
+        />
+        <Tooltip content={<SignalTooltipContent />} />
+        <Legend
+          wrapperStyle={{ color: '#94a3b8', fontSize: 12 }}
+        />
+
+        {/* Price line */}
+        <Line
+          type="monotone"
+          dataKey="price"
+          stroke="#3b82f6"
+          name="Price"
+          dot={false}
+          strokeWidth={2}
+        />
+
+        {/* SMA lines */}
+        <Line
+          type="monotone"
+          dataKey="sma9"
+          stroke="#10b981"
+          name="SMA 9"
+          strokeDasharray="5 5"
+          dot={false}
+          strokeWidth={1}
+          connectNulls={false}
+        />
+        <Line
+          type="monotone"
+          dataKey="sma21"
+          stroke="#f59e0b"
+          name="SMA 21"
+          strokeDasharray="5 5"
+          dot={false}
+          strokeWidth={1}
+          connectNulls={false}
+        />
+
+        {/* Buy signal markers (green dots) */}
+        <Line
+          type="monotone"
+          dataKey="buySignal"
+          stroke="none"
+          name="Buy Signal"
+          dot={{ r: 6, fill: '#22c55e', stroke: '#166534', strokeWidth: 2 }}
+          activeDot={{ r: 8, fill: '#22c55e', stroke: '#fff', strokeWidth: 2 }}
+          connectNulls={false}
+          legendType="circle"
+        />
+
+        {/* Sell signal markers (red dots) */}
+        <Line
+          type="monotone"
+          dataKey="sellSignal"
+          stroke="none"
+          name="Sell Signal"
+          dot={{ r: 6, fill: '#ef4444', stroke: '#991b1b', strokeWidth: 2 }}
+          activeDot={{ r: 8, fill: '#ef4444', stroke: '#fff', strokeWidth: 2 }}
+          connectNulls={false}
+          legendType="circle"
+        />
       </LineChart>
     </ResponsiveContainer>
   );

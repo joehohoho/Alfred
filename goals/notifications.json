@@ -554,14 +554,5 @@
     "answered": false,
     "createdAt": "2026-03-25T13:00:01.058Z",
     "answeredAt": null
-  },
-  {
-    "id": "notif_1774450933222_9ae4830c",
-    "type": "question",
-    "title": "Test question",
-    "message": "This should pass the filter",
-    "answered": false,
-    "createdAt": "2026-03-25T15:02:13.222Z",
-    "answeredAt": null
   }
 ]

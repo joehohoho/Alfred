@@ -79,14 +79,7 @@ with open('$GUARD_STATE', 'w') as f:
       > /dev/null 2>&1 || log "Warning: Could not post notification (Command Center unavailable)"
 
   else
-    log "Already using $CURRENT_PRIMARY — no action needed"
-    
-    # Even if fallback already active, notify Joe about the incident
-    log "Sending notification to Joe about rate-limit detection..."
-    bash ~/.openclaw/workspace/scripts/send-notification.sh \
-      "Codex Rate Limit: $RECENT_COUNT errors in 30 min" \
-      "Fallback to Haiku active. Will auto-recover at 08:00 AST. Check logs: ~/.openclaw/logs/gateway.err.log" \
-      "warning" 2>/dev/null || log "⚠️ Notification send failed (non-critical)"
+    log "Already using $CURRENT_PRIMARY — no action needed (suppressing repeat notification)"
   fi
 
 else

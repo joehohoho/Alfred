@@ -1,10 +1,11 @@
 # ACTIVE-TASK.md
 
-**Status:** idle (NO IN_PROGRESS CARDS)  
-**Last Significant Work:** 2026-03-24 — Market Signals rebuild complete + CoinUsUp Recurring Donations Phase B validation  
-**Review Cards:** 5 stalled (Recurring Donations, Market Signals, Quiet-Hours Outbox, 3 product ideas)  
-**Critical Blockers:** Stripe API keys (Joe), HAL handoff loop (infrastructure), product idea clarifications (Joe)  
-**Next Window:** Joe's decisions + Stripe keys will unblock overnight work (7-9h deployment potential)  
+**Status:** in_progress (PHASE 4: INTEGRATION + TESTING)  
+**Current Card:** CoinUsUp Recurring Donations Phase 4  
+**Work Window:** 2026-03-25 12:26-20:00 ADT  
+**Phase:** 4 of 5 (Integration + Final Testing)  
+**Critical Path:** Test infrastructure scaffolded; execution proceeding 4A→4F  
+**Next Blocker:** Stripe test API keys (needed for live E2E testing)  
 
 ---
 
@@ -23,14 +24,20 @@ Status is now **95% feature complete**, blocked only on Stripe API keys for live
 
 ## Objective
 
-Complete CoinUsUp Recurring Donations feature: Stripe-powered monthly/annual donor tiers with payment recovery and retention automations.
+**Phase 4: Integration + Final Testing** for CoinUsUp Recurring Donations
 
-**Current State:** 50-60% complete
-- ✅ Database schema (production-ready)
-- ✅ Edge functions created (7 functions)
-- ✅ React hooks framework in place
-- ✅ UI components mostly built
-- 🔄 **PHASE B (THIS SESSION):** End-to-end testing + verification
+Complete comprehensive validation before production deployment:
+- ✅ Unit test suite scaffolded (hooks + components)
+- ✅ E2E test suite scaffolded (4 critical workflows)
+- ✅ Production readiness audit checklist created
+- ✅ Cross-browser testing matrix defined
+- ✅ Style review checklist prepared
+- 🔄 **PHASE 4A (NEXT):** Unit test execution (1 hour)
+- 🔄 **PHASE 4B:** E2E test execution (2 hours)
+- 🔄 **PHASE 4C:** Manual style/accessibility review (30 min)
+- 🔄 **PHASE 4D:** Cross-browser testing (2 hours)
+- 🔄 **PHASE 4E:** Production readiness audit (1.5 hours)
+- 🔄 **PHASE 4F:** Final sign-off + documentation (30 min)
 
 ---
 

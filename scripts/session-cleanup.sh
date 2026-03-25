@@ -25,12 +25,25 @@ NOTIFY_URL="http://localhost:3001/api/notifications"
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
 
+LAST_CLEANUP_NOTIFY="/tmp/cleanup-last-notify.json"
 notify() {
   local title="$1" message="$2"
+  # Dedup: same title within 2 hours is suppressed
+  local now=$(date +%s)
+  if [[ -f "$LAST_CLEANUP_NOTIFY" ]]; then
+    local prev_title prev_time
+    prev_title=$(python3 -c "import json; print(json.load(open('$LAST_CLEANUP_NOTIFY')).get('title',''))" 2>/dev/null || echo "")
+    prev_time=$(python3 -c "import json; print(json.load(open('$LAST_CLEANUP_NOTIFY')).get('at',0))" 2>/dev/null || echo "0")
+    if [[ "$prev_title" == "$title" && $((now - prev_time)) -lt 7200 ]]; then
+      log "Notification suppressed (duplicate within 2h): $title"
+      return 0
+    fi
+  fi
   curl -s -X POST "$NOTIFY_URL" \
     -H "Content-Type: application/json" \
     -d "{\"type\":\"system\",\"title\":\"$title\",\"message\":\"$message\"}" \
     > /dev/null 2>&1 || true
+  python3 -c "import json; json.dump({'title':'$title','at':$now}, open('$LAST_CLEANUP_NOTIFY','w'))" 2>/dev/null || true
 }
 
 if [[ ! -f "$SESSIONS_JSON" ]]; then
