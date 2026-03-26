@@ -252,16 +252,35 @@
     "title": "Command Center Reliability SLO: Gateway Scope + Probe Recovery",
     "description": "openclaw status currently reports gateway unreachable (missing scope: operator.read), which blinds health checks/probes and weakens Command Center observability. Add a reliability SLO monitor that verifies required scopes, probe freshness, and gateway reachability every 15 min; on failure, auto-create blocker + remediation checklist (scope fix, restart path, rollback). Prevent silent degraded state.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
+    "synergies": [
+      "Command Center",
+      "gateway-reliability"
+    ],
+    "evaluation": {
+      "score": 3.4,
+      "notes": "Real operational need but this is internal infrastructure improvement, not a business idea. Zero passive revenue; pure cost-avoidance. Recommend implementing as a system task (Kanban card) rather than pursuing as product idea."
+    },
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": [
+      "infrastructure",
+      "observability",
+      "reliability",
+      "internal-tool"
+    ],
     "createdAt": "2026-03-25T18:02:01.047Z",
-    "updatedAt": "2026-03-25T18:02:01.047Z"
+    "updatedAt": "2026-03-26T09:19:00.000Z",
+    "rejectedReason": "Internal infrastructure improvement; zero passive revenue potential. Score 3.4/10. Recommend as Kanban task, not business idea.",
+    "rejectedAt": "2026-03-26T09:19:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Brave Search (2026-03-26 09:19 ADT)",
+        "finding": "SLO monitoring + health check patterns are industry-standard (APISIX, Gloo Gateway, Prometheus). However, this specific idea targets Joe's internal gateway, not an external product. No customer demand evidence; this is internal ops optimization."
+      }
+    ]
   },
   {
     "id": "idea_1774461726834_535e990c",

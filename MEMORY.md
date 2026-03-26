@@ -3,12 +3,13 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 **Status:** idle
-Updated: 22:49 AST
+Review: Scheduler Drift Guard: Cron + LaunchAgen; Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B
+Updated: 09:19 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
 2. If found, READ the thread file — it has your complete original message.
-3. If not found, check `memory/2026-03-25.md` and `ACTIVE-TASK.md`.
+3. If not found, check `memory/2026-03-26.md` and `ACTIVE-TASK.md`.
 4. NEVER say you don't remember. NEVER ask Joe to repeat himself. Look it up.
 <!-- CONTEXT-BRIDGE-END -->
 
