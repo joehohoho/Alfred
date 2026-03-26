@@ -188,7 +188,45 @@ except:
 # ── 8. Main loop: process in_progress cards ──────────────────────────────────
 main() {
   log "=== Alfred Work Executor (Phase 3) ==="
-  
+
+  # Phase 0: Check for timed-out HAL dispatches (no ACK received)
+  check_hal_timeouts() {
+    local pending_file="$TRACK_DIR/pending-acks.json"
+    [[ -f "$pending_file" ]] || return 0
+
+    local NOW=$(date +%s)
+    local TIMED_OUT=$(python3 -c "
+import json, time
+with open('$pending_file') as f:
+    pending = json.load(f)
+now = time.time()
+timed_out = [p for p in pending if p['status'] == 'pending' and now - p['dispatchedAt'] > p.get('timeoutSeconds', 300)]
+for t in timed_out:
+    print(f'{t[\"taskId\"]}|{t[\"title\"]}')" 2>/dev/null)
+
+    if [[ -n "$TIMED_OUT" ]]; then
+      while IFS='|' read -r tid title; do
+        [[ -z "$tid" ]] && continue
+        log "TIMEOUT: HAL task '$title' ($tid) — no ACK after 5 min. Waking Alfred."
+        bash "$SCRIPT_DIR/audit-log.sh" warn "task-ack" "HAL task timed out: $title" --detail "task_id=$tid timeout=300s"
+        # Wake Alfred as fallback
+        curl -s --max-time 10 -X POST "http://localhost:3001/api/kanban/wake" > /dev/null 2>&1 || true
+        # Mark as timed out in pending file
+        python3 -c "
+import json
+with open('$pending_file') as f:
+    pending = json.load(f)
+for p in pending:
+    if p['taskId'] == '$tid':
+        p['status'] = 'timed_out'
+with open('$pending_file', 'w') as f:
+    json.dump(pending, f, indent=2)
+" 2>/dev/null
+      done <<< "$TIMED_OUT"
+    fi
+  }
+  check_hal_timeouts
+
   # Check context first
   check_context_safe || exit 0
   

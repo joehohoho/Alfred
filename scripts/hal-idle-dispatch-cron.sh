@@ -218,6 +218,28 @@ import sys, json
 ts, tid, route, task, dtype = sys.argv[1:6]
 print(json.dumps({"timestamp":ts,"task_id":tid,"route":route,"dispatch_result":"dispatched_to_hal","dispatch_type":dtype,"task":task[:200]},separators=(',',':')))
 PY
+      # Track pending ACK for timeout detection
+      python3 -c "
+import json, time, os
+PENDING_FILE = os.path.expanduser('~/.openclaw/workspace/.hal-alfred-tracking/pending-acks.json')
+try:
+    with open(PENDING_FILE) as f:
+        pending = json.load(f)
+except:
+    pending = []
+pending.append({
+    'taskId': '$TASK_ID',
+    'title': '$TITLE',
+    'agent': 'hal',
+    'dispatchedAt': time.time(),
+    'timeoutSeconds': 300,
+    'status': 'pending'
+})
+# Prune entries older than 24h
+pending = [p for p in pending if time.time() - p.get('dispatchedAt',0) < 86400]
+with open(PENDING_FILE, 'w') as f:
+    json.dump(pending, f, indent=2)
+" 2>/dev/null || true
       echo "[ACTION:DISPATCH_KANBAN] task_id=${TASK_ID} priority=${PRIORITY}"
     } || {
       log "DISPATCH_FAILED: exit=$? output=$DISPATCH_OUT"
@@ -310,6 +332,28 @@ import sys, json
 ts, tid, route, task, dtype = sys.argv[1:6]
 print(json.dumps({"timestamp":ts,"task_id":tid,"route":route,"dispatch_result":"dispatched_proactive","dispatch_type":dtype,"task":task[:200]},separators=(',',':')))
 PY
+  # Track pending ACK for timeout detection
+  python3 -c "
+import json, time, os
+PENDING_FILE = os.path.expanduser('~/.openclaw/workspace/.hal-alfred-tracking/pending-acks.json')
+try:
+    with open(PENDING_FILE) as f:
+        pending = json.load(f)
+except:
+    pending = []
+pending.append({
+    'taskId': '$PROACTIVE_ID',
+    'title': '$NEXT_TASK',
+    'agent': 'hal',
+    'dispatchedAt': time.time(),
+    'timeoutSeconds': 300,
+    'status': 'pending'
+})
+# Prune entries older than 24h
+pending = [p for p in pending if time.time() - p.get('dispatchedAt',0) < 86400]
+with open(PENDING_FILE, 'w') as f:
+    json.dump(pending, f, indent=2)
+" 2>/dev/null || true
   echo "[ACTION:DISPATCH_PROACTIVE] pool_index=${POOL_INDEX} pool_target=${TARGET_LINE}"
 } || {
   log "DISPATCH_FAILED: pool_index=${POOL_INDEX} task=${NEXT_TASK} — exit=$? output=$DISPATCH_OUT"
