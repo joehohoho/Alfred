@@ -270,6 +270,7 @@ export default function DashboardPage() {
   const [symbol, setSymbol] = useState('BTC');
   const [strategy, setStrategy] = useState('SMA_RSI_IMPROVED');
   const [days, setDays] = useState(90);
+  const [investment, setInvestment] = useState(10000);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<BacktestResult | null>(null);
 
@@ -284,6 +285,7 @@ export default function DashboardPage() {
           symbol: symbol.toUpperCase(),
           strategy,
           days: parseInt(String(days)),
+          investment,
         }),
       });
       const data = await response.json();
@@ -405,6 +407,26 @@ export default function DashboardPage() {
                   </div>
                 </div>
 
+                {/* Investment Amount */}
+                <div className="mb-8">
+                  <label className="block text-sm font-semibold text-slate-300 mb-3">
+                    Investment Amount: <span className="text-emerald-400">${investment.toLocaleString()}</span>
+                  </label>
+                  <input
+                    type="range"
+                    min="100"
+                    max="100000"
+                    step="100"
+                    value={investment}
+                    onChange={(e) => setInvestment(parseInt(e.target.value))}
+                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div className="flex justify-between text-xs text-slate-500 mt-2">
+                    <span>$100</span>
+                    <span>$100,000</span>
+                  </div>
+                </div>
+
                 {/* Run Button */}
                 <button
                   onClick={handleRunBacktest}
@@ -454,7 +476,7 @@ export default function DashboardPage() {
                         </div>
                       </div>
                       <Link
-                        href={`/results/${Date.now()}`}
+                        href={`/results?symbol=${result.symbol}&strategy=${result.strategy}&days=${result.days}`}
                         className="px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/30 text-sm font-medium flex items-center gap-1 transition-colors"
                       >
                         View Details

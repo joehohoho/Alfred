@@ -48,12 +48,17 @@ export interface Strategy {
  */
 export class BacktestEngine {
   private readonly feePercent = 0.001; // 0.1% per trade
+  private readonly investmentAmount: number;
   private readonly position = {
     isLong: false,
     entryPrice: 0,
     entryTime: new Date(),
-    quantity: 1 // Assume 1 unit per trade
+    quantity: 1
   };
+
+  constructor(investmentAmount: number = 10000) {
+    this.investmentAmount = investmentAmount;
+  }
 
   backtest(series: PriceSeries, strategy: Strategy): BacktestResult {
     const signals = strategy.generateSignals(series);
@@ -71,9 +76,11 @@ export class BacktestEngine {
         this.position.isLong = true;
         this.position.entryPrice = signal.price;
         this.position.entryTime = signal.time;
+        // Calculate quantity based on investment amount
+        this.position.quantity = this.investmentAmount / signal.price;
       } else if (signal.type === 'SELL' && this.position.isLong) {
         const exitPrice = signal.price;
-        const fee = (signal.price * this.feePercent) * 2; // Entry + exit fee
+        const fee = (this.position.entryPrice * this.position.quantity * this.feePercent) + (exitPrice * this.position.quantity * this.feePercent);
         const pnl = (exitPrice - this.position.entryPrice) * this.position.quantity - fee;
         const pnlPercent =
           ((exitPrice - this.position.entryPrice) / this.position.entryPrice) * 100 - 0.2; // -0.2% for fees

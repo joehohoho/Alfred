@@ -1,71 +1,91 @@
-# NOW.md — Session Checkpoint (2026-03-24 22:00 ADT / 2026-03-25 01:00 UTC)
+# NOW.md — Session Checkpoint (2026-03-25 22:00 ADT / 2026-03-26 01:00 UTC)
 
-**Status:** Evening routine complete, ready for Wed morning
+**Status:** Evening routine complete, ready for Thursday morning
+
+---
+
+## Session Outcomes (Mar 25)
+
+**4 Deliverables Completed:**
+1. ✅ Even Us Up growth audit (2.4K words, recurring automation + referral program)
+2. ✅ Market Signals code review (A- grade, production-ready)
+3. ✅ CoinUsUp Phase 4 complete (all testing, WCAG AA compliant, GO for deployment)
+4. ✅ Scheduler Drift Guard auditor (22-job infrastructure audit tool)
+
+**Key Decision:** CoinUsUp is 95% production-ready. Critical path to launch is 7-9 hours (once Stripe keys arrive).
 
 ---
 
 ## Current State
 
-- **ACTIVE-TASK:** CoinUsUp Recurring Donations Phase B validation complete (moved to review)
-- **Daily memory:** Updated (`memory/2026-03-24.md` with end-of-day summary)
-- **LAST-SESSION bridge:** Comprehensive handoff prepared
-- **Kanban:** 6 review cards awaiting Joe decisions (Mar 21-24)
-- **System Health:** ✅ All systems operational
+- **ACTIVE-TASK:** idle (all work completed, awaiting next assignment or Joe input)
+- **Kanban:** 5 review cards (all awaiting Joe decisions, no design gaps)
+- **System Health:** ✅ All operational (22 jobs, 0 duplicates, git clean)
+- **Memory:** ✅ Updated (daily log + session bridge complete)
+- **Token usage:** 52% (comfortable margin)
 
 ---
 
-## Immediate Blockers (Awaiting Joe)
+## Immediate Action Items (Joe's Decisions)
 
-1. **CoinUsUp Recurring Donations** — Needs Stripe API keys (test SK + PK + webhook secret)
-2. **14-Day Trial Feature** — Needs Joe to configure 12 Stripe prices in dashboard
-3. **3 Review Cards** — Awaiting approval (T4A/T776, Atlantic Contractor, Bill Review)
-
----
-
-## Wednesday Morning (09:00 AM)
-
-**First Actions:**
-1. Check OPEN-LOOPS dashboard for overnight updates
-2. Check for Joe approvals on Stripe key blockers
-3. If keys received: escalate CoinUsUp to Phase C (3-4h automation setup)
-4. If no approvals: send Command Center reminder with decision request
-
-**Unblocked Work Available:**
-- CoinUsUp Stripe test dashboard config (5 min)
-- Review-card deep-dive (if time permits)
-- Idle activities (goal-progress, workspace-check, etc.)
+| Item | Status | Impact |
+|------|--------|--------|
+| Stripe API Keys | Needed ASAP | Unblocks CoinUsUp Phase 5 deployment |
+| Stripe Price Config | Needed ASAP | Unblocks 14-day trial testing |
+| Bill Review Approval | Needed | Enables discovery calls + SMB outreach |
+| Atlantic Portal Approval | Needed | Enables Phase 2 execution + prospect work |
+| Scheduler Drift Approval | Needed | Enables cron integration + nightly audits |
 
 ---
 
-## System Health Check (End of Day)
+## Thursday Morning (09:00 AM) — First Steps
 
-| Component | Status | Notes |
-|-----------|--------|-------|
-| Gateway | ✅ Running | All systems nominal |
-| Crons | ✅ Active | Evening routine completed successfully |
-| Workspace | ✅ Clean | All files indexed, memory current |
-| Token margin | ✅ Excellent | No overage risk |
-| Kanban | ✅ Healthy | 6 review cards accurately documented |
-| Continuity | ✅ Complete | LAST-SESSION, ACTIVE-TASK, daily memory all updated |
+1. **Check OPEN-LOOPS** — See if any overnight Joe input
+2. **Check Stripe keys** — If received, escalate CoinUsUp to Phase 5
+3. **Check kanban approvals** — Move cards forward if decisions made
+4. **Resume work** — Phase 5 deployment if keys present; idle loop otherwise
 
 ---
 
-## Key Insights
+## System Health (End of Day)
 
-**CoinUsUp Status:**
-- Phase B (validation) complete ✅
-- 95% feature complete (7 edge functions, 4 hooks, DB schema, UI all ready)
-- **Critical path to production:** Stripe keys → Phase C (automation, 3-4h) → Live testing (2-3h) → Production (~7-9h total)
-
-**Market Signals App:**
-- UI/UX redesign in review (completed yesterday, awaiting Joe approval)
-- Low production risk, thoroughly tested
-
-**Workflow Status:**
-- Even Us Up: Implementation approach decision pending
-- Mission Control: Design complete, awaiting approval
-- Cost tracking: Gap identified, recommend real-time API integration
+| Component | Status | Details |
+|-----------|--------|---------|
+| Gateway | ✅ Running | All nominal |
+| Crons | ✅ 22 jobs active | 0 duplicates, 2 intentional conflicts (allowed) |
+| Git | ✅ Clean | Workspace current, ready to commit |
+| Workspace | ✅ Indexed | Memory updated, LAST-SESSION prepared, NOW.md current |
+| Token margin | ✅ Excellent | 52% used, no overage risk |
+| Kanban | ⚠️ Stalled | 5 review cards (proper blockers, not design gaps) |
 
 ---
 
-**Ready to execute. Next action: Check for Stripe keys Wed morning.**
+## CoinUsUp Critical Path (If Keys Arrive)
+
+```
+Stripe keys (Joe action)
+  ↓ (5 min)
+Phase 5: Deploy to staging + test (30 min)
+  ↓ (2-3h)
+E2E test with Stripe test mode (2-3h)
+  ↓ (1-2h)
+Production deployment + monitoring (1-2h)
+  ↓ (Total: 7-9h critical path)
+CoinUsUp LIVE with Recurring Donations + 14-Day Trial
+```
+
+**Delivery Window:** Same day (start morning, finish evening)
+
+---
+
+## Key Files Ready for Review
+
+- `ideas/even-us-up-growth-audit-2026-03-25.md` — Growth recommendations
+- `ideas/market-signal-lab-code-review-2026-03-25.md` — Code quality assessment
+- `scripts/scheduler-drift-auditor.sh` — Infrastructure audit tool
+- `CoinUsUp/RECURRING_DONATIONS_PHASE_4F_FINAL_SIGNOFF.md` — Production readiness sign-off
+- `memory/2026-03-25.md` — Complete daily log
+
+---
+
+**Status:** Idle, all blockers externalized, ready to resume. Awaiting Joe input on Stripe + kanban approvals.

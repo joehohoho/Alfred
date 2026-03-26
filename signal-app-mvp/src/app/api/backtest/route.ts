@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { symbol, strategy: strategyName, days = 90, shortPeriod, longPeriod, ...extraParams } = body;
+    const { symbol, strategy: strategyName, days = 90, investment = 10000, shortPeriod, longPeriod, ...extraParams } = body;
 
     if (!symbol || typeof symbol !== 'string') {
       return NextResponse.json({ error: 'Missing required field: symbol' }, { status: 400 });
@@ -75,8 +75,8 @@ export async function POST(request: Request) {
     const dataManager = getDataManager();
     const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
 
-    // Run backtest
-    const engine = new BacktestEngine();
+    // Run backtest with investment amount
+    const engine = new BacktestEngine(Number(investment) || 10000);
     const result = engine.backtest(priceSeries, strategyInstance);
 
     clearTimeout(timeout);
