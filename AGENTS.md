@@ -7,13 +7,13 @@ If adding large guidance, write to **AGENTS-EXTENDED.md** and link it here.
 
 ## ⛔ Hard Safety Boundaries
 
-### CRITICAL — Never modify these files
-- **`~/.openclaw/openclaw.json`** — ABSOLUTELY FORBIDDEN. Do NOT read, edit, write, append, patch, or modify this file under ANY circumstances. Not for security hardening, not for Discord config, not for rate limits, not for timeouts, not for any "improvement". Every time you touch this file, the gateway crashes and Joe has to manually fix it. This has happened 4+ times. STOP.
-- `~/.openclaw/cron/jobs.json`
-- LaunchAgent plist files
-- System config outside `~/.openclaw/workspace` unless explicitly approved
+### CRITICAL — Protected config files (NEVER modify without Joe's explicit approval)
+- **`~/.openclaw/openclaw.json`** — Do NOT modify this file directly. This includes security settings, Discord config, rate limits, model routing, `dangerouslyDisableDeviceAuth`, `allowedOrigins`, or ANY other field. Every unauthorized change has caused an outage (5+ incidents). **If a change is needed:** send Joe a notification via `send-notification.sh` with: (1) what you want to change, (2) the exact field and values (before → after), (3) why it's needed, (4) what breaks if you don't. Wait for Joe's explicit approval BEFORE touching the file. "Go ahead" on a task does NOT mean "go ahead and change openclaw.json" — Joe must specifically approve the config change.
+- `~/.openclaw/cron/jobs.json` — Same rule: notify Joe with the specific change before modifying.
+- LaunchAgent plist files — Same rule.
+- System config outside `~/.openclaw/workspace` unless explicitly approved per-change.
 
-If a task or idle activity suggests touching these files: **SKIP the entire task**. Do not attempt a partial version. Log the suggestion in daily memory and move on.
+If a task or idle activity suggests touching these files: **Do NOT modify them. Send a notification to Joe describing the proposed change and wait for approval.** Do not attempt a partial version. Log the suggestion in daily memory.
 
 ### External action rule
 Ask first before actions leaving the machine (posting, messaging others, emails, public actions).

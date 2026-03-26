@@ -344,16 +344,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773727251618_e604f69d",
-    "type": "question",
-    "title": "⚠️ Stale card escalated: \"Mission Control Phase 1: Stability & Visibility\"",
-    "message": "Card \"Mission Control Phase 1: Stability & Visibility\" (task_1773672258312_393a575f) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
-    "source": "stale-card-handler",
-    "answered": false,
-    "createdAt": "2026-03-17T06:00:51.618Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773775410172_bad50023",
     "type": "question",
     "title": "Consulting: recurring client problem → product idea?",
@@ -433,28 +423,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1774040499423_b6664e1d",
-    "type": "question",
-    "title": "[REMINDER] Mission Control Phase 1 blocked: choose implementation path",
-    "message": "Context: Mission Control Phase 1 is blocked pending your go-ahead after option analysis. You previously leaned to Option #1 (integrate cron controls directly into the React Command Center at localhost:3001), but final execution approval wasn’t confirmed.\\n\\nQuestion: Should I proceed now with Option #1 implementation?\\n\\nOptions:\\n1) Proceed with Option #1 now (single dashboard, better long-term maintainability).\\n2) Do Option #2 temporary separate cron panel first, then merge later (faster short-term visibility).\\n\\nRecommendation: Option 1 now, because it avoids split-brain UX and reduces long-term maintenance drift.\\n\\nDefault if no response: I will keep the card blocked and re-check in 48h.",
-    "taskId": "task_1773672258312_393a575f",
-    "source": "idle-goal-progress-check",
-    "answered": false,
-    "createdAt": "2026-03-20T21:01:39.423Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774040506805_f13c1b4b",
-    "type": "question",
-    "title": "[REMINDER] Stripe action needed to finish 14-day trial card",
-    "message": "Context: The CoinUsUp 14-day trial implementation is complete in code and UI, but production readiness is blocked by Stripe dashboard configuration. Existing blocker notification is older than 48h and still unanswered.\\n\\nQuestion: Can you confirm when you want me to proceed after Stripe prices are updated?\\n\\nOptions:\\n1) You update the 12 Stripe prices now (Basic/Pro × US/CA × Monthly/Annual set trial_period_days=14), then I immediately run staging verification and push.\\n2) I prepare a step-by-step Stripe checklist walkthrough for you first, then you update and I verify after.\\n\\nRecommendation: Option 1 if you’re ready now; it is the shortest path to launch verification.\\n\\nDefault if no response: Card remains in review with blocker noted, and I will send another reminder after 48h.",
-    "taskId": "task_1773156748695_23b9e471",
-    "source": "idle-goal-progress-check",
-    "answered": false,
-    "createdAt": "2026-03-20T21:01:46.805Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774098000945_fd438421",
     "type": "question",
     "title": "Which project deserves a dedicated sprint next?",
@@ -479,41 +447,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1774214387751_c0c198a3",
-    "type": "kanban-approval",
-    "title": "Approval Needed: Review Lane Auto-Approval UX (Approve/Reject Buttons + SLA Escalation)",
-    "message": "Card ready for review and approval. Auto-promote eligible: No (high-risk)",
-    "cardId": "task_1774182651318_79b657e0",
-    "taskId": "task_1774182651318_79b657e0",
-    "source": "kanban",
-    "actions": [
-      {
-        "type": "approve",
-        "label": "✅ Approve",
-        "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/approve"
-      },
-      {
-        "type": "reject",
-        "label": "❌ Reject",
-        "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/reject"
-      },
-      {
-        "type": "request-changes",
-        "label": "🔄 Request Changes",
-        "actionUrl": "/api/kanban/task_1774182651318_79b657e0/actions/request-changes"
-      }
-    ],
-    "slaMetadata": {
-      "cardId": "task_1774182651318_79b657e0",
-      "createdAt": "2026-03-22T21:19:47.751Z",
-      "createdByMs": 1774214387751,
-      "autoPromoteEligible": false
-    },
-    "answered": false,
-    "createdAt": "2026-03-22T21:19:47.751Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774270801271_b805b143",
     "type": "question",
     "title": "How should I prioritize overnight work differently?",
@@ -531,9 +464,11 @@
     "title": "What does success look like for CoinUsUp right now?",
     "message": "Growth, profitability, feature completeness, or something else? One concrete win would help me suggest next steps.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-24T08:01:18.460Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-26T12:30:27.902Z",
+    "userAnswer": "User adoption.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774348633358_ebc3c96c",
@@ -551,9 +486,11 @@
     "title": "What's preventing Even Us Up from growing faster?",
     "message": "Marketing, features, user friction, or just low priority? One honest sentence about the blocker helps me identify next steps.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-25T13:00:01.058Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-26T12:32:41.908Z",
+    "userAnswer": "There's on average between 0-20 visitors per day with no user adoption.",
+    "deliveryStatus": "sent"
   },
   {
     "cardId": "task_1774058538023_ae4bf3d2",

@@ -3,8 +3,8 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 **Status:** idle
-Review: Scheduler Drift Guard: Cron + LaunchAgen; Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B
-Updated: 09:19 AST
+Review: Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B; Implement 14-day free trial on Basic/Pro
+Updated: 09:34 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
@@ -21,10 +21,13 @@ Updated: 09:19 AST
 
 ## Security Rules (CRITICAL)
 
-**NEVER touch `~/.openclaw/openclaw.json`:**
-- Do NOT edit, write, patch, or modify this file for ANY reason
-- Every time I've edited it, the gateway crashed and Joe had to fix it manually (4+ incidents)
-- This rule has NO exceptions. None.
+**`~/.openclaw/openclaw.json` — PROTECTED (5+ outages from unauthorized changes):**
+- Do NOT modify this file without Joe's EXPLICIT per-change approval
+- "Go ahead with the task" does NOT mean "go ahead and change openclaw.json"
+- If a change is needed: send Joe a notification with the exact field, current value, proposed value, and why
+- Wait for Joe to approve the SPECIFIC config change before touching the file
+- Critical fields that cause outages when changed: `dangerouslyDisableDeviceAuth`, `allowedOrigins`, model `primary`/`fallbacks`, `bind`
+- Same rule applies to `cron/jobs.json` and LaunchAgent plists
 
 **API Keys & Tokens:**
 - ONLY store in `.env` files
