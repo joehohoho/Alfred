@@ -1,0 +1,140 @@
+{
+  "portfolio": {
+    "month": "2026-03",
+    "totalRevenue": 0,
+    "totalCost": 0,
+    "totalProfit": 0,
+    "totalBurnRate": {
+      "mtd": 0,
+      "daily": 0,
+      "projectedMonthEnd": 0
+    },
+    "generatedAt": "2026-03-26T17:50:17.698Z"
+  },
+  "projects": [
+    {
+      "project": "CoinUsUp",
+      "month": "2026-03",
+      "inputs": {
+        "hours": 0,
+        "devHourlyRate": 90,
+        "churnMonthlyPct": 6,
+        "grossMarginPct": 85,
+        "newCustomers": 0
+      },
+      "costs": {
+        "devTime": 0,
+        "direct": 0,
+        "directByCategory": {},
+        "sharedAllocated": 0,
+        "total": 0
+      },
+      "revenue": 0,
+      "economics": {
+        "netProfit": 0,
+        "burnRate": {
+          "mtd": 0,
+          "daily": 0,
+          "projectedMonthEnd": 0
+        },
+        "revenuePerHour": 0,
+        "cac": 0,
+        "ltv": 0,
+        "ltvToCac": 0
+      }
+    },
+    {
+      "project": "EvenUsUp",
+      "month": "2026-03",
+      "inputs": {
+        "hours": 0,
+        "devHourlyRate": 90,
+        "churnMonthlyPct": 7,
+        "grossMarginPct": 82,
+        "newCustomers": 0
+      },
+      "costs": {
+        "devTime": 0,
+        "direct": 0,
+        "directByCategory": {},
+        "sharedAllocated": 0,
+        "total": 0
+      },
+      "revenue": 0,
+      "economics": {
+        "netProfit": 0,
+        "burnRate": {
+          "mtd": 0,
+          "daily": 0,
+          "projectedMonthEnd": 0
+        },
+        "revenuePerHour": 0,
+        "cac": 0,
+        "ltv": 0,
+        "ltvToCac": 0
+      }
+    },
+    {
+      "project": "SignalApp",
+      "month": "2026-03",
+      "inputs": {
+        "hours": 0,
+        "devHourlyRate": 90,
+        "churnMonthlyPct": 10,
+        "grossMarginPct": 80,
+        "newCustomers": 0
+      },
+      "costs": {
+        "devTime": 0,
+        "direct": 0,
+        "directByCategory": {},
+        "sharedAllocated": 0,
+        "total": 0
+      },
+      "revenue": 0,
+      "economics": {
+        "netProfit": 0,
+        "burnRate": {
+          "mtd": 0,
+          "daily": 0,
+          "projectedMonthEnd": 0
+        },
+        "revenuePerHour": 0,
+        "cac": 0,
+        "ltv": 0,
+        "ltvToCac": 0
+      }
+    },
+    {
+      "project": "AutomationConsulting",
+      "month": "2026-03",
+      "inputs": {
+        "hours": 0,
+        "devHourlyRate": 110,
+        "churnMonthlyPct": 3,
+        "grossMarginPct": 90,
+        "newCustomers": 0
+      },
+      "costs": {
+        "devTime": 0,
+        "direct": 0,
+        "directByCategory": {},
+        "sharedAllocated": 0,
+        "total": 0
+      },
+      "revenue": 0,
+      "economics": {
+        "netProfit": 0,
+        "burnRate": {
+          "mtd": 0,
+          "daily": 0,
+          "projectedMonthEnd": 0
+        },
+        "revenuePerHour": 0,
+        "cac": 0,
+        "ltv": 0,
+        "ltvToCac": 0
+      }
+    }
+  ]
+}
