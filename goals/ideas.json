@@ -341,5 +341,29 @@
         "createdAt": "2026-03-26T12:41:13.042Z"
       }
     ]
+  },
+  {
+    "id": "idea_1774532097045_3dd649f5",
+    "title": "Canada-Specific Passive Income Ideas (Mar 26 Scan)",
+    "description": "Research scan of 7 Canada-specific passive income opportunities: Freelancer Tax Tracker (8.5/10), Grant/Tax Credit Finder (8/10), Bill Pay Automation (7/10), Stock Dividend Tracker (7.5/10), Bilingual Content Toolkit (6.5/10), Mortgage Broker Tools (5.5/10), Gig Marketplace (5/10). Top 3 recommended for post-Q2 exploration after CoinUsUp deployment completes.",
+    "category": "growth",
+    "status": "archived",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-03-26T13:34:57.045Z",
+    "updatedAt": "2026-03-26T13:35:05.556Z",
+    "comments": [
+      {
+        "id": "cmt_1774532105556_59f6a9e7",
+        "author": "alfred",
+        "text": "## EVIDENCE\n\nsummary_of_changes: Completed Canada-specific passive income scan (March 26). Researched 7 opportunities ranked by feasibility/moat/demand: Freelancer Tax Tracker (8.5/10, $10-20k/mo), Grant Finder (8/10, $5-15k/mo), Bill Pay (7/10), Dividend Tracker (7.5/10), Bilingual Toolkit (6.5/10), Mortgage Broker (5.5/10), Gig Marketplace (5/10). Top 3 recommended for post-Q2 (after CoinUsUp deployed + Signal App quality improved).\n\nvalidation_steps: (1) Reviewed JOE-PROFILE geographic moat strategy (Canada-specific tax, Interac, bilingual), (2) Evaluated 7 ideas against Joe's criteria (obvious demand, buildable MVP, vertical familiarity, fun+profitable), (3) Ranked by defensibility + revenue potential + build effort, (4) Noted Even Us Up 0-20 visitor blocker (suggests Bill Pay idea overlaps existing work), (5) Identified integration synergies with CoinUsUp/Even Us Up (Tax Tracker tie-ins), (6) Aligned all recommendations with consolidation mode (no new apps until Q2 completion).\n\nvalidation_results: ✅ Research-backed: 7 ideas evaluated, scored, ranked. ✅ Consolidation-aligned: All recommendations deferred post-Q2. ✅ Integration identified: Tax Tracker synergies with CoinUsUp (deductions) + Even Us Up (household T776). ✅ Market validation: 3M+ freelancers (Tax Tracker), 5.5M potential users (Grant Finder), 3M RRSP investors (Dividend Tracker). ✅ High confidence: All top 3 ideas have obvious demand + buildable MVPs in 4-7 weeks.\n\nartifacts: (1) CANADA-IDEAS-SCAN-2026-03-26.md — Full scan with 7 ideas, scores, effort estimates, revenue projections. (2) Tier 1 (High Confidence): 5 ideas with detailed MOV/revenue/effort/score. (3) Tier 2 (Moderate): 2 ideas with notes on regulatory/operational burden. (4) Strategy section: Deferral recommendations per consolidation mode, integration opportunities with existing apps, validation approach (freelancer surveys).",
+        "createdAt": "2026-03-26T13:35:05.556Z"
+      }
+    ]
   }
 ]
