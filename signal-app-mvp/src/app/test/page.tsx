@@ -33,7 +33,7 @@ export default function TestPage() {
     setLoading(true);
     setResult(null);
     try {
-      const response = await fetch('/api/backtest', {
+      const response = await fetch('/apps/market-signals/api/backtest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

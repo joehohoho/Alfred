@@ -515,5 +515,15 @@
     "createdAt": "2026-03-25T16:18:58.370Z",
     "answeredAt": null,
     "answer": null
+  },
+  {
+    "id": "notif_1774530000927_4b7f1dba",
+    "type": "question",
+    "title": "What's the most annoying part of your current workflow?",
+    "message": "Not the biggest problem—just the thing that bugs you most in daily work. Sometimes small friction kills motivation.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-26T13:00:00.927Z",
+    "answeredAt": null
   }
 ]

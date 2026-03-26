@@ -145,7 +145,7 @@ function CurrentSignalsSection() {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch('/api/signals?grid=true');
+      const res = await fetch('/apps/market-signals/api/signals?grid=true');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       setSignals(data.signals || []);
@@ -278,7 +278,7 @@ export default function DashboardPage() {
     setLoading(true);
     setResult(null);
     try {
-      const response = await fetch('/api/backtest', {
+      const response = await fetch('/apps/market-signals/api/backtest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

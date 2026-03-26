@@ -85,7 +85,7 @@ export default function ResultsPage() {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await fetch('/api/backtest', {
+        const response = await fetch('/apps/market-signals/api/backtest', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

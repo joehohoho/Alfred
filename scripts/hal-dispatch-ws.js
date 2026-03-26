@@ -29,7 +29,7 @@ const crypto = require('crypto');
 
 // Remote HAL gateway config (HAL's own OpenClaw instance on Windows PC)
 const HAL_GATEWAY_URL = process.env.HAL_GATEWAY_URL || 'ws://192.168.2.79:18789';
-const HAL_GATEWAY_TOKEN = process.env.HAL_GATEWAY_TOKEN || 'ceebc03825b2a3d143b4097f4ebfb1649a874d91db1a2115';
+const HAL_GATEWAY_TOKEN = process.env.HAL_GATEWAY_TOKEN || '60200de64be3d9a2b7ebc716660d33f09501f12d30b2d912';
 // On HAL's gateway, the agent is "main" (not "hal" — that's only on Alfred's local gateway)
 const HAL_AGENT_ID = process.env.HAL_AGENT_ID || 'main';
 

@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "taskId": "proactive_1774529977",
+    "title": "Signal App research",
+    "agent": "hal",
+    "dispatchedAt": 1774529977.420429,
+    "timeoutSeconds": 300,
+    "status": "completed",
+    "ackedAt": 1774529977.535,
+    "result": "Task completed successfully — findings documented"
+  }
+]

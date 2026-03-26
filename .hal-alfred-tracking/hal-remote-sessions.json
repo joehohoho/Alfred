@@ -1,7 +1,7 @@
 {
   "agent:main:main": {
     "startMs": 1774278283296,
-    "lastSeenMs": 1774279413780
+    "lastSeenMs": 1774529383732
   },
   "agent:main:cron:0083d831-a4a3-4c23-914e-653c967f1acc": {
     "startMs": 1774264656578,
@@ -13,7 +13,7 @@
   },
   "agent:main:cron:178abf42-3eb9-44d9-ae4b-1819c05fa418": {
     "startMs": 1774255655806,
-    "lastSeenMs": 1774440900030
+    "lastSeenMs": 1774527300020
   },
   "agent:main:cron:178abf42-3eb9-44d9-ae4b-1819c05fa418:run:38d2e21c-9710-40b4-8410-d8e6ce43eaf0": {
     "startMs": 1774255655806,
@@ -58,5 +58,13 @@
   "agent:main:task-1774459883233-5e404e": {
     "startMs": 1774459021430,
     "lastSeenMs": 1774460371935
+  },
+  "agent:main:cron:178abf42-3eb9-44d9-ae4b-1819c05fa418:run:f9ca4a7a-736a-4172-a68c-e1415d970b32": {
+    "startMs": 1774524642086,
+    "lastSeenMs": 1774527300020
+  },
+  "agent:main:task-1774461768354-be18bb": {
+    "startMs": 1774393807502,
+    "lastSeenMs": 1774461882728
   }
 }
