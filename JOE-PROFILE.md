@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-03-19 (11:03 AST) — full reflection, Phase 1-5 complete
-**Last direct Q&A update:** 2026-03-19 (11:03 AST, Consulting boundary + duplicate question crisis)
-**Reflection count:** 8
-**Profile version:** 1.9
+**Last reflection:** 2026-03-26 (01:01 UTC / 2026-03-25 21:01 AST) — full reflection, Phase 1-5 complete, consolidation mode identified
+**Last direct Q&A update:** 2026-03-23 (19:37-20:00 AST) — Consolidation mode, CoinUsUp priority, Signal App quality gate
+**Reflection count:** 10
+**Profile version:** 2.1
 
 ---
 
@@ -143,16 +143,25 @@ Joe's first-pass filter for any new idea, in order:
 
 ## Current Focus Areas
 
+**🔴 CONSOLIDATION MODE ACTIVE (Mar 23-25 answers)** — Joe is focusing on improving existing 3 apps, not exploring new projects.
+
 Ranked by EXPLICIT SPRINT PRIORITY (Mar 23 answer: "CoinUsUp then Signals App"):
 
-1. **CoinUsUp** — 🔴 PRIORITY #1 SPRINT TARGET (Mar 23). 🟢 READY TO DEPLOY (0 npm vulns, Mar 8). Mobile app track active (Capacitor ready). Freemium strategy (roommate tier $2.99/mo + premium $4.99–9.99/mo, travel mode). 5 strategic growth ideas identified. **Action:** Start deployment sprint ASAP. This is Joe's primary focus.
-2. **Signal App (market-signal-lab)** — 🔴 PRIORITY #2 SPRINT TARGET (Mar 23). 🟡 ACTIVE on collaboration premium model (8-week sprint). HAL delivered strategy synthesis Mar 8: co-editing $50–500/mo/team fastest revenue path. Architecture: Yjs + WebSocket real-time sync. **Action:** Stage after CoinUsUp sprint completes.
-3. **Even Us Up** — 🟡 AUDIT COMPLETE (Mar 8). Freemium roommate tier ($2.99/mo) + travel premium ($4.99–9.99/mo). Sticky recurring revenue, OCR mobile differentiator. **Awaiting:** tier strategy approval + pricing decision.
-4. **OpenClaw/Alfred ecosystem** — 🔴 **BLOCKED on infrastructure reliability.** Gateway down since Mar 8 22:17 UTC (24+ hrs). Codex token expired (HTTP 401). 2 crons disabled Mar 5 (Evening Routine, Nightly Git Commit). Git commits blocked. HAL peer model active but system stability critical blocker.
-5. **Channel Expansion Pilot** — Framework ready (30-day template). **Awaiting:** app selection (CoinUsUp vs Even Us Up vs both), budget ($50–1000+/mo), channel focus (affiliate/partners/content).
-6. **Command Center Dashboard** — Webpack migration complete (HAL, Mar 2-4). Chat page improvements pending (Sonnet rerun).
-7. **Job Tracker** — Maintenance mode.
-8. **Automation Consulting** — Explicitly out of scope (Mar 1).
+1. **CoinUsUp** — 🔴 PRIORITY #1 SPRINT TARGET (Mar 23 — "CoinUsUp then Signals App"). 🟢 READY TO DEPLOY (Phase 4 complete Mar 25, 0 npm vulns, fully tested, WCAG AA compliant). Mobile app track active (Capacitor ready). Freemium strategy (roommate tier $2.99/mo + premium $4.99–9.99/mo, travel mode). 5 strategic growth ideas identified. **Blocker:** Stripe API keys (awaiting Joe). **Action:** Start Phase 5 deployment sprint IMMEDIATELY once Stripe keys added. This is Joe's primary focus.
+
+2. **Signal App (market-signal-lab)** — 🔴 PRIORITY #2 SPRINT TARGET (Mar 23 — "then Signals App"). 🟡 ACTIVE on QUALITY IMPROVEMENT (NOT commercialization). Joe answered "Could Signal App work for other markets?" with "It's just for internal use...signals are not good and quality needs to greatly improve before outside use" (Mar 23). Meaning: Signal App is research/learning first, product second. Current focus: fix algorithm, improve backtest validation, rebuild data infrastructure. Phases 1-2 complete (5 strategies, ensemble voting). **Action:** Focus Phase 3-5 on algorithm quality and validation (not UI or GTM).
+
+3. **Even Us Up** — 🟡 GROWTH AUDIT COMPLETE (Mar 25). Discovery identified: (1) Recurring expense automation (#1 missing feature), (2) Referral program (#1 growth lever), (3) Group invite UX friction (#1 pain point). Freemium roommate tier ($2.99/mo) + travel premium ($4.99–9.99/mo). **Awaiting:** Joe decision on implementation approach (parallel, sequential, or hybrid). **Action:** Await Joe approval on next steps.
+
+4. **OpenClaw/Alfred ecosystem** — 🔴 **INFRASTRUCTURE RELIABILITY CRITICAL.** Crons auto-disabled (Mar 21-22). Codex quota issues. Gateway stability degraded. **Must be fixed before major app scaling.** Infrastructure-first mode (per Feb 24-Mar 16 pattern) = Joe wants Command Center monitoring all apps before growth.
+
+5. **Channel Expansion Pilot** — Framework ready. **Awaiting:** app selection + budget + channel focus (deferred pending CoinUsUp + Signal App completion).
+
+6. **Command Center Dashboard** — Cron management UI approved (Mar 23). Implementation starting. Core feature: monitor all apps health (explicitly requested Feb 24).
+
+7. **Automation Consulting** — Explicitly out of scope (Mar 1, reinforced Mar 9×3, Mar 19×2). **Permanently retired from idea rotation.**
+
+8. **New App Ideas** — Explicitly NOT wanted (Mar 23: "No the current apps need to be improved"). Do NOT surface until consolidation mode ends.
 
 ---
 
@@ -276,27 +285,47 @@ Ranked by EXPLICIT SPRINT PRIORITY (Mar 23 answer: "CoinUsUp then Signals App"):
 
 ## Proactive Opportunity Map
 
-### Identified Opportunities
+### 🔴 CONSOLIDATION MODE: Focus Areas (Mar 23-25)
 
-**🎮 Gaming PC as LLM Offloading Hub (EMERGING)**
-- Joe is actively shopping for a 12GB+ VRAM gaming PC on a strict budget
-- Initial assumption: gaming. But 12GB VRAM + interest in local LLM work + OpenClaw focus suggests this may be for running larger models locally (llama3.1:8b, etc.)
-- Opportunity: Once acquired, could set up as dedicated LLM compute node for all projects
-- Confidence: Medium (needs clarification from Joe)
+**FOR NEXT 4-6 WEEKS — CoinUsUp Deployment + Signal App Quality:**
+
+1. **CoinUsUp Deployment Sprint (P1 CRITICAL):**
+   - **Blocker:** Get Stripe API keys from Joe (15 min action)
+   - **Phase 5:** Deploy to app stores (iOS + Android) — ~7-9h critical path, Phase 4 complete Mar 25
+   - Publish + marketing (setup app store listings)
+   - Monitor early revenue, iterate on pricing based on user feedback
+   - **Success metric:** Live in app stores with first paying users
+   - **Timeline:** Start IMMEDIATELY upon Stripe keys — 2-3 weeks to public launch
+
+2. **Signal App Quality Sprint (P2, parallel):**
+   - **Focus:** Fix algorithm bottleneck (poor signal quality per Mar 23)
+   - Improve backtest validation (currently "doesn't seem to improve")
+   - Leverage Phases 1-2 complete (5 strategies, ensemble voting, 2+ years data)
+   - Test with real trading data (if data quality improves)
+   - **Success metric:** Signals achieve >60% accuracy on backtests OR Joe finds improvement trend
+   - **Timeline:** 3-4 weeks parallel with CoinUsUp
+
+3. **Even Us Up Growth (P3, sequential after CoinUsUp):**
+   - **Awaiting Joe decision:** Implementation approach (parallel, sequential, or hybrid)
+   - Identified features: recurring expense automation, referral program, group invite UX
+   - A/B test freemium funnel ($2.99 roommate tier conversion)
+   - **Success metric:** Measurable growth in active households OR recurring revenue increase
+   - **Timeline:** Weeks 3-6 after CoinUsUp stabilizes
 
 ### Cross-Project Synergies (EXPLICITLY REJECTED)
 - **⚠️ NOTE:** Joe rejected all proposed synergies between Signal App/CoinUsUp, Job Tracker/consulting, and Command Center as universal hub (notif_1771605868238_53174470)
 - Meaning: Joe prefers focused, single-purpose projects over integrated platforms
 - **Learning:** Don't propose speculative synergies; wait for Joe to articulate his own integration ideas
 
-### Portfolio Execution Opportunity (NEW)
-- In Vision daily inquiry, Joe confirmed all major tracks are valid and asked for implementation strategy across them rather than choosing one (`notif_1771682401703_36df658b`).
-- Opportunity: run a parallel roadmap with explicit weekly capacity caps (maintenance 5-10h, build 10-20h), and bias Alfred recommendations toward actions that reduce maintenance load while accelerating Signal App and CoinUsUp outcomes.
-- Confidence: high
-
 ### Shadow Goals to Watch
-- **Infrastructure-first mode:** Current work (Discord, iMessage, Kanban, gateway improvements, Command Center enhancements) suggests Joe is building a robust personal operating system FIRST, before expanding passive income apps to full scale. Joe wants Command Center monitoring "all apps health" (Mar 24 answer). This is patient, strategic work — the foundation before growth. | Source: notif_1771941600146, memory/2026-03-16.md | Confidence: medium
-- **Autonomous Alfred:** The broader pattern is Joe testing whether Alfred can make good implementation decisions independently. Every "go ahead and implement" is gathering data on Alfred's autonomy threshold. Mar 17 activity validates this — 6 autonomous fixes + 3 idea evaluations with zero objections. | Source: memory/2026-03-17.md (05:00, 14:00), AGENTS.md | Confidence: high
+- **Infrastructure as Foundation:** Command Center monitoring "all apps health" (explicitly requested). This infrastructure-first mode precedes growth scaling. Foundation before acceleration. | Source: notif_1771941600146, memory/2026-03-25.md | Confidence: high
+- **Autonomous Alfred System:** Joe testing whether Alfred can make good implementation decisions independently. Current signal: batch autonomous work (6 fixes) accepted without per-item approval. Infrastructure-first investment + cron UI approval validates autonomy trust. | Source: memory/2026-03-17.md, notif_1774296069494 | Confidence: high
+- **Time freedom via passive income:** Every project decision filters through "does this move Joe toward financial independence?" CoinUsUp → Signal App → Even Us Up sequence is designed to build stable passive revenue so Joe can stop trading time for money. | Source: memory/2026-03-25.md, USER.md | Confidence: high
+
+### 🔴 EXPLICIT BOUNDARIES (Do Not Cross — Permanent)
+- **Consulting → Product:** Firmly rejected (Mar 1, 9×3, 19×2, 23×2). OFF the table permanently. Do NOT resurrect. This question was asked 7+ times since Feb 20; Joe has corrected Alfred 3 times explicitly. Immediate action required: RETIRE consulting-opportunity topic from daily inquiry rotation.
+- **New App Ideas:** Explicitly not wanted (Mar 23: "current apps need to be improved"). Do NOT surface until consolidation mode completes. Joe is in consolidation, not exploration.
+- **Signal App Commercialization:** NOT ready. Internal use only until quality improves significantly. Do NOT pursue adjacent markets, integrations, or GTM strategies yet.
 
 ---
 
@@ -331,9 +360,13 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Date | Observation | Source | Distilled? |
 |------|-------------|--------|------------|
+| 2026-03-25 | 🔴 **Consolidation mode reinforced.** Joe answered "Any new app idea you've been researching?" with "No the current apps need to be improved." MEANING: Joe is explicitly NOT in expansion/exploration mode. He's in consolidation + improvement mode on existing 3 apps (CoinUsUp, Even Us Up, Signal App). DO NOT surface new app ideas, market opportunities, or research directions. Focus all energy on CoinUsUp + Signal App improvement + Even Us Up monetization. This is a firm boundary (second explicit signal after Mar 1 consulting boundary). | notif_1774177429833_45d8ac73 | Yes |
+| 2026-03-25 | 🔴 **Signal App INTERNAL ONLY — quality gate.** Joe answered "Could Signal App be packaged for non-trading uses?" with "It's just for internal use at the moment because the signals are not good and the quality needs to greatly improve before outside use." MEANING: Signal App is NOT a revenue driver yet. Quality is the blocking concern, not market fit or GTM. Joe is quality-gated on commercialization. Do NOT suggest expansion into adjacent markets. Current focus: fix signals, improve algorithm, validate backtest. | notif_1774011600529_1822599c | Yes |
+| 2026-03-25 | **Sprint Priority Explicit: CoinUsUp FIRST.** Joe answered "Which project deserves a dedicated sprint next?" with "CoinUsUp then Signals App." Direct sequence: (1) CoinUsUp sprint (finish, test, publish), (2) Signal App sprint (fix quality, improve algorithm). This overrides portfolio-execution approach. ACTION: Start CoinUsUp sprint immediately. This is Joe's stated priority. | notif_1774098000945_fd438421 | Yes |
+| 2026-03-25 | **Idle Work Prioritization Clarified.** Joe answered "How should I prioritize overnight work differently?" with "Feature work if there are valuable items identified and system improvements." MEANING: Alfred's idle hours should focus on: (1) Feature work (only if items are already identified as valuable), (2) System improvements. NOT exploration, NOT research, NOT new ideas. Overnight work = build + maintain, not discover. Aligns with consolidation mode. | notif_1774270801271_b805b143 | Yes |
 | 2026-03-23 | 🔴🔴🔴 **CRITICAL ESCALATION: Duplicate question crisis UNRESOLVED 3 days post-correction.** Joe explicitly told Alfred to stop (Mar 19, 13:32 and 19:23: "don't keep asking the same questions" ×2). Alfred's Mar 19 "fix" did NOT execute. Same topic (consulting-opportunity) sent Mar 20, 21, 22 (4 days AFTER correction). Joe is now silent on new iterations (silence after repeated correction = harshest signal). Root cause: Topic never retired; still cycling in inquiry queue. Impact: Joe will opt out of daily inquiries if continues. Required action: IMMEDIATELY retire consulting-opportunity topic from rotation. Mandatory P0 blocker. | notif_1773925200321, notif_1773775410172, inquiry-log.jsonl (Mar 20-22), memory/2026-03-22.md | Yes |
 | 2026-03-23 | **Infrastructure reliability degrading (Mar 20-22).** Codex token refresh on Mar 19 failed (still expiring Mar 20, Joe confused). Crons auto-disabled (3x failures Mar 21-22). Codex quota exhausted, system downgraded to Haiku-only, 0 crons enabled. Appears to be token/quota/load management issues (not previous channel-routing bug). System is fragile under normal operation. | memory/2026-03-08.md→2026-03-22.md, notif_1773893832593, notif_1773980246809, notif_1774090825977, notif_1774177227387, notif_1774146801878, notif_1774151006242 | Yes |
-| 2026-03-23 | **Even Us Up quick wins discovery COMPLETE.** Alfred finished discovery phase (Mar 22): 3 features identified (recurring expenses, bill rules, debt optimization). Full handoff contract ready (notif_1774132376518). Awaiting Joe decision on implementation approach (parallel, sequential, or hybrid). Shows Alfred executing on Joe's earlier "focus on all 4 items" directive. | notif_1774132376518, memory/2026-03-22.md | No |
+| 2026-03-23 | **Even Us Up quick wins discovery COMPLETE.** Alfred finished discovery phase (Mar 22): 3 features identified (recurring expenses, bill rules, debt optimization). Full handoff contract ready (notif_1774132376518). Awaiting Joe decision on implementation approach (parallel, sequential, or hybrid). Shows Alfred executing on Joe's earlier "focus on all 4 items" directive. | notif_1774132376518, memory/2026-03-22.md | Yes |
 | 2026-03-19 | **Trial feature implementation complete + monetization signal.** 14-day free trial built (4h, 25+ tests, production-ready). Blocked only on Joe's Stripe config (12 prices). Code deployed to app. Mar 18-19 observation: Joe has NOT prioritized Stripe config yet. LEARNING: Trial feature (app monetization acceleration) is NOT a critical path blocker. Feature parity with paid tiers ranks lower than core product quality (Signal App algorithm effectiveness). | memory/2026-03-18.md, memory/2026-03-19.md | Yes |
 | 2026-03-19 | **Idea evaluation discipline improved + consulting boundary FIRM.** Evaluated Client Onboarding Autopilot: scored 6.4/10, archived. Rationale cited Joe's consulting edge BUT held back by high competition + unproven GTM. Mature filtering: applying Joe's stated filter (obvious demand + buildable + vertical familiarity). Additionally: consulting-opportunity question asked 4+ times; each time Joe says "no" / "nothing." Mar 19 explicit: "don't keep asking the same questions." Consulting → product is OFF the table permanently. | memory/2026-03-19.md (idle work), notif_1773925200321 | Yes |
 | 2026-03-19 | **Batch autonomous decision acceptance validated.** Mar 9: Joe approved "fix all issues and make sure critical items taken care of right away" on security audit (notif_1773057664673). Mar 17: Alfred autonomously fixed 6 cron jobs + Codex token. Joe did NOT require individual re-approvals. LEARNING: Single approval covers autonomous batch work when decision is "make it work safely." Joe trusts batch execution without per-item gating. | memory/2026-03-17.md (05:00), notif_1773057664673 | Yes |
@@ -369,13 +402,13 @@ Last 12 observations, newest first. Older observations distill into sections abo
 
 | Metric | Value |
 |--------|-------|
-| Total reflections run | 9 |
-| Last reflection | 2026-03-23 01:01 UTC (2026-03-22 21:01 AST) |
-| New observations added this reflection | 3 |
-| Observations distilled (cumulative) | 44 |
-| Profile version | 2.0 |
-| **CRITICAL issues (P0 blockers)** | 🔴🔴🔴 DUPLICATE QUESTION CRISIS UNRESOLVED (Mar 19 explicit corrections ignored; topic still cycling Mar 20-22). Infrastructure reliability degrading (Codex token/quota failures, crons auto-disabled). |
-| **Autonomy validation** | STRONGLY REINFORCED — Batch autonomous decisions accepted without per-item gating (Mar 17 security fix). Feb 26 directive fully operational. Portfolio work (Even Us Up discovery) executed proactively. |
-| **Key pattern shift** | Consulting → product boundary is FIRM + FINAL (DOUBLE explicit correction Mar 19). Topic must be permanently retired from inquiry rotation immediately. NOT OPTIONAL. |
-| **Infrastructure-first pattern** | CONFIRMED — Joe prioritizing Command Center + app monetization foundation before scaling passive income apps. However, infrastructure fragility is now blocking all other work. |
-| **IMMEDIATE ACTIONS REQUIRED** | (1) RETIRE consulting-opportunity topic from daily-inquiry rotation (prevents Mar 20-22 pattern repeat). (2) Investigate Codex token refresh failure (Mar 19 refresh failed, still expiring Mar 20). (3) Stabilize cron auto-disable pattern (3x failures triggering auto-disables). (4) Respond to Even Us Up handoff (Mar 22 — awaiting decision). These are blockers on system trust + productivity. |
+| Total reflections run | 10 |
+| Last reflection | 2026-03-26 01:01 UTC (2026-03-25 21:01 AST) |
+| New observations added this reflection | 4 |
+| Observations distilled (cumulative) | 48 |
+| Profile version | 2.1 |
+| **CRITICAL issues (P0 blockers)** | 🔴 CONSOLIDATION MODE — Joe is NOT in expansion/exploration. Focus on improving CoinUsUp, Signal App, Even Us Up only. Do NOT surface new app ideas or market opportunities. (2) 🔴 Signal App NOT ready for commercialization — internal only until quality improves. Do NOT suggest market expansion. (3) 🔴 CoinUsUp is sprint priority #1 — all energy there first, then Signal App. Blocking: Stripe API keys + 14-day trial Stripe config. (4) 🔴 Even Us Up growth audit complete, awaiting Joe decision on next steps. |
+| **Autonomy validation** | VALIDATED — Batch autonomous decisions accepted. Overnight work = feature work + system improvements (NOT exploration). Joe trusts Alfred's feature prioritization. |
+| **Key pattern shift** | **CONSOLIDATION MODE (Mar 23 explicit answers).** Joe is in improvement/quality mode on existing 3 apps, NOT expansion mode. Consulting boundary is firm. New app ideas are off-limits. This significantly constrains Alfred's idea generation role. |
+| **Passive income strategy** | LOCKED: CoinUsUp → Signal App → Even Us Up priority order. All other exploration paused. CoinUsUp deployment is immediate next action (Stripe keys are the blocker). |
+| **IMMEDIATE ACTIONS REQUIRED** | (1) START CoinUsUp sprint immediately (Mar 25 ready for Phase 5, needs Stripe keys). (2) Await Joe approval on Even Us Up implementation approach. (3) Focus Signal App work on quality/algorithm (not commercialization). (4) Halt new app idea generation until consolidation mode completes. (5) RETIRE consulting-opportunity topic permanently from inquiry rotation (Mar 19 error not yet fixed). |
