@@ -4,7 +4,8 @@
 ## Current Work (auto-updated every 15 min)
 **Status:** idle
 Review: Bill Review & Invoice Audit Automation (; Atlantic Contractor Client Portal-in-a-B; Implement 14-day free trial on Basic/Pro
-Updated: 10:34 AST
+Recent: [idle:workspace-check] Git clean (command-center c
+Updated: 10:49 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
@@ -44,17 +45,18 @@ Updated: 10:34 AST
 - Archived old entries to `memory/MEMORY-ARCHIVE.md`
 - Result: Gateway bootstrap now clean, no truncation warnings
 
-### ⚠️ Cron Job Auto-Disable Pattern (FIXED 2026-03-23)
-**Issue:** Mar 10, 12, 15 — jobs auto-disabled due to Discord channel routing with invalid IDs
-- Root cause: Invalid Discord channel IDs + `delivery.mode="announce"`
-- **SOLUTION APPLIED (2026-03-23 20:15):**
-  - Migrated 4 jobs to **Slack channels** (proper routing, stable)
-  - Evening Routine → C0AEE0PLKB4 (#notifications) ✅
-  - Daily Config & Memory Review → C0AH1L4BRUG (#daily-config) ✅
-  - Nightly Git Commit → C0AEE0PLKB4 (#notifications) ✅
-  - Joe Profile Reflection → C0ADUCZ4AF3 (#commands) ✅
-- Remaining jobs set to `delivery.mode="none"` (silent execution) ✅
-- Status: **RESOLVED** — all cron routing issues fixed
+### ⚠️ Cron Job Auto-Disable Pattern (FIXED 2026-03-26)
+**Issue:** Mar 10, 12, 15, 19, 22 — 4 jobs auto-disabled due to Slack deprecation + timeout errors
+- Root cause (Original 2026-03-23): Invalid Discord channel IDs
+- Root cause (Regression 2026-03-25): Slack was deprecated but 4 jobs still referenced Slack channels
+- **SOLUTION APPLIED (2026-03-26 10:49):**
+  - Updated 4 jobs to `delivery.mode="none"` (silent execution):
+    - Evening Routine ✅
+    - Nightly Git Commit ✅
+    - Daily Config & Memory Review ✅
+    - Joe Profile Reflection (also has timeout issue — monitor) ✅
+  - These jobs now run silently without attempting Slack/Discord delivery
+  - Status: **RESOLVED** — all cron routing issues fixed
 
 ### ℹ️ Slack Channel Deprecation (ARCHIVED 2026-03-25)
 **Status:** Slack is no longer an active communication channel for OpenClaw.
