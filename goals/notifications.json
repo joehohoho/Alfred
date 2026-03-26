@@ -522,8 +522,10 @@
     "title": "What's the most annoying part of your current workflow?",
     "message": "Not the biggest problem—just the thing that bugs you most in daily work. Sometimes small friction kills motivation.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-26T13:00:00.927Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-26T22:28:13.858Z",
+    "userAnswer": "Having to fix issues with Alfred and HAL, and troubleshooting Alfred thinking HAL is offline when he's not.",
+    "deliveryStatus": "sent"
   }
 ]

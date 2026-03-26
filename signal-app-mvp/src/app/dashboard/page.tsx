@@ -14,6 +14,27 @@ type BacktestResult = {
   strategy: string;
   days: number;
   status: string;
+  optimized?: boolean;
+  usedCachedParams?: boolean;
+  cachedParamsAge?: string;
+  walkForwardValidated?: boolean;
+  optimalParams?: Record<string, number>;
+  optimization?: {
+    totalCombinationsTested: number;
+    topParams: Array<{
+      params: Record<string, number>;
+      metrics: { totalPnlPercent: number; winRate: number; sharpeRatio: number; totalTrades: number };
+      compositeScore: number;
+    }>;
+    optimizedAt: string;
+  };
+  comparison?: {
+    defaultPnL: string;
+    defaultPnLPercent: number;
+    optimizedPnL: string;
+    optimizedPnLPercent: number;
+    improvement: string;
+  };
   metrics?: {
     winRate: string;
     profitFactor: number;
@@ -272,6 +293,7 @@ export default function DashboardPage() {
   const [days, setDays] = useState(90);
   const [investment, setInvestment] = useState(10000);
   const [loading, setLoading] = useState(false);
+  const [optimizeMode, setOptimizeMode] = useState(false);
   const [result, setResult] = useState<BacktestResult | null>(null);
 
   const handleRunBacktest = async () => {
@@ -286,6 +308,7 @@ export default function DashboardPage() {
           strategy,
           days: parseInt(String(days)),
           investment,
+          optimize: optimizeMode,
         }),
       });
       const data = await response.json();
@@ -427,21 +450,52 @@ export default function DashboardPage() {
                   </div>
                 </div>
 
+                {/* Optimize Toggle */}
+                <div className="mb-6">
+                  <button
+                    onClick={() => setOptimizeMode(!optimizeMode)}
+                    className={`w-full py-3 px-4 rounded-lg font-semibold text-sm flex items-center justify-between transition-all border ${
+                      optimizeMode
+                        ? 'bg-amber-500/20 border-amber-500/50 text-amber-300'
+                        : 'bg-slate-700/50 border-slate-600/50 text-slate-400 hover:border-amber-500/30'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Settings className="w-4 h-4" />
+                      Parameter Optimization
+                    </span>
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${
+                      optimizeMode ? 'bg-amber-500/30 text-amber-300' : 'bg-slate-600/50 text-slate-500'
+                    }`}>
+                      {optimizeMode ? 'ON' : 'OFF'}
+                    </span>
+                  </button>
+                  {optimizeMode && (
+                    <p className="text-xs text-amber-400/70 mt-2 px-1">
+                      Grid search + walk-forward validation. Finds best parameters automatically. Takes longer.
+                    </p>
+                  )}
+                </div>
+
                 {/* Run Button */}
                 <button
                   onClick={handleRunBacktest}
                   disabled={loading || !symbol}
-                  className="w-full py-4 px-6 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+                  className={`w-full py-4 px-6 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg ${
+                    optimizeMode
+                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 shadow-amber-500/20 hover:shadow-amber-500/40'
+                      : 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 shadow-emerald-500/20 hover:shadow-emerald-500/40'
+                  }`}
                 >
                   {loading ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-r-transparent rounded-full animate-spin" />
-                      Testing...
+                      {optimizeMode ? 'Finding optimal parameters...' : 'Testing...'}
                     </>
                   ) : (
                     <>
-                      <Zap className="w-5 h-5" />
-                      Run Backtest
+                      {optimizeMode ? <Settings className="w-5 h-5" /> : <Zap className="w-5 h-5" />}
+                      {optimizeMode ? 'Optimize & Test' : 'Run Backtest'}
                     </>
                   )}
                 </button>
@@ -451,9 +505,22 @@ export default function DashboardPage() {
             {/* Right: Results Panel */}
             <div className="lg:col-span-2 space-y-6">
               {loading && (
-                <div className="p-12 rounded-xl bg-slate-800/50 border border-slate-700/50 text-center">
-                  <div className="w-12 h-12 border-3 border-emerald-500 border-r-transparent rounded-full animate-spin mx-auto mb-4" />
-                  <p className="text-slate-400">Running backtest on {symbol} ({days} days)...</p>
+                <div className={`p-12 rounded-xl border text-center ${
+                  optimizeMode
+                    ? 'bg-amber-500/5 border-amber-500/20'
+                    : 'bg-slate-800/50 border-slate-700/50'
+                }`}>
+                  <div className={`w-12 h-12 border-3 border-r-transparent rounded-full animate-spin mx-auto mb-4 ${
+                    optimizeMode ? 'border-amber-500' : 'border-emerald-500'
+                  }`} />
+                  <p className="text-slate-400">
+                    {optimizeMode
+                      ? `Finding optimal parameters for ${symbol}... (grid search + walk-forward validation)`
+                      : `Running backtest on ${symbol} (${days} days)...`}
+                  </p>
+                  {optimizeMode && (
+                    <p className="text-xs text-slate-500 mt-2">This may take 10-30 seconds</p>
+                  )}
                 </div>
               )}
 
@@ -470,7 +537,24 @@ export default function DashboardPage() {
                   <div className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <div className="text-3xl font-bold">{result.symbol}</div>
+                        <div className="text-3xl font-bold flex items-center gap-3">
+                          {result.symbol}
+                          {result.optimized && (
+                            <span className="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-medium">
+                              Optimized
+                            </span>
+                          )}
+                          {result.usedCachedParams && (
+                            <span className="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-medium">
+                              Cached params ({result.cachedParamsAge})
+                            </span>
+                          )}
+                          {result.walkForwardValidated && (
+                            <span className="text-xs px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-medium">
+                              Walk-forward validated
+                            </span>
+                          )}
+                        </div>
                         <div className="text-sm text-slate-400">
                           {STRATEGIES.find((s) => s.id === result.strategy)?.title || result.strategy} • {result.days} days
                         </div>
@@ -484,6 +568,93 @@ export default function DashboardPage() {
                       </Link>
                     </div>
                   </div>
+
+                  {/* Optimization Results */}
+                  {result.optimized && result.comparison && (
+                    <div className="p-6 rounded-xl bg-amber-500/5 border border-amber-500/20">
+                      <h3 className="text-sm font-semibold text-amber-400 mb-4 flex items-center gap-2">
+                        <Settings className="w-4 h-4" />
+                        Optimization Results
+                        {result.optimization && (
+                          <span className="text-xs text-slate-500 font-normal">
+                            ({result.optimization.totalCombinationsTested} combinations tested)
+                          </span>
+                        )}
+                      </h3>
+
+                      {/* Comparison bar */}
+                      <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                          <div className="text-xs text-slate-500 mb-1">Default Parameters</div>
+                          <div className={`text-xl font-bold font-mono ${
+                            result.comparison.defaultPnLPercent >= 0 ? 'text-emerald-400' : 'text-red-400'
+                          }`}>
+                            {result.comparison.defaultPnL}
+                          </div>
+                          <div className="text-xs text-slate-500">
+                            {result.comparison.defaultPnLPercent >= 0 ? '+' : ''}{result.comparison.defaultPnLPercent.toFixed(2)}%
+                          </div>
+                        </div>
+                        <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30">
+                          <div className="text-xs text-amber-400/70 mb-1">Optimized Parameters</div>
+                          <div className={`text-xl font-bold font-mono ${
+                            result.comparison.optimizedPnLPercent >= 0 ? 'text-emerald-400' : 'text-red-400'
+                          }`}>
+                            {result.comparison.optimizedPnL}
+                          </div>
+                          <div className="text-xs text-amber-400/70">
+                            {result.comparison.optimizedPnLPercent >= 0 ? '+' : ''}{result.comparison.optimizedPnLPercent.toFixed(2)}%
+                            <span className="ml-2 text-emerald-400">
+                              ({parseFloat(result.comparison.improvement) >= 0 ? '+' : ''}{result.comparison.improvement} improvement)
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Optimal params */}
+                      {result.optimalParams && (
+                        <div className="mt-3">
+                          <div className="text-xs text-slate-500 mb-2">Best Parameters Found:</div>
+                          <div className="flex flex-wrap gap-2">
+                            {Object.entries(result.optimalParams).map(([key, val]) => (
+                              <span key={key} className="px-2 py-1 rounded bg-slate-800/50 border border-slate-700/50 text-xs font-mono">
+                                <span className="text-slate-500">{key}:</span>{' '}
+                                <span className="text-amber-300">{val}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Top 5 candidates */}
+                      {result.optimization && result.optimization.topParams.length > 1 && (
+                        <details className="mt-4">
+                          <summary className="text-xs text-slate-500 cursor-pointer hover:text-slate-400">
+                            Show top {result.optimization.topParams.length} parameter sets
+                          </summary>
+                          <div className="mt-2 space-y-2">
+                            {result.optimization.topParams.map((tp, idx) => (
+                              <div key={idx} className="flex items-center gap-3 p-2 rounded bg-slate-800/30 text-xs">
+                                <span className="text-slate-600 font-mono w-4">#{idx + 1}</span>
+                                <span className="font-mono text-slate-400 flex-1">
+                                  {Object.entries(tp.params).map(([k, v]) => `${k}=${v}`).join(', ')}
+                                </span>
+                                <span className={`font-mono ${tp.metrics.totalPnlPercent >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                  {tp.metrics.totalPnlPercent >= 0 ? '+' : ''}{tp.metrics.totalPnlPercent.toFixed(2)}%
+                                </span>
+                                <span className="text-slate-500">
+                                  W:{tp.metrics.winRate.toFixed(0)}%
+                                </span>
+                                <span className="text-slate-600">
+                                  score:{tp.compositeScore.toFixed(3)}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </details>
+                      )}
+                    </div>
+                  )}
 
                   {/* Price Chart with Signal Overlays */}
                   {result.priceData && result.priceData.length > 0 && (

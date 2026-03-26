@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import * as fs from 'fs';
+import * as path from 'path';
 import { getDataManager } from '@/services/data/DataManager';
 import { BacktestEngine } from '@/services/backtest/engine';
 import type { Strategy } from '@/services/backtest/engine';
@@ -8,6 +10,8 @@ import { BollingerStrategy } from '@/services/strategies/bollingerStrategy';
 import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
 import { StrategyRegistry as EnsembleRegistry } from '@/services/strategies/registry';
+import { optimizeStrategy } from '@/services/backtest/ParameterOptimizer';
+import { trackPerformance } from '@/services/backtest/performanceTracker';
 
 /** Simple SMA calculator for chart overlay */
 function calculateSMAArray(values: number[], period: number): number[] {
@@ -42,24 +46,83 @@ const STRATEGY_MAP: Record<string, (params?: Record<string, number>) => Strategy
   ENSEMBLE: () => new EnsembleRegistry(),
 };
 
+// --- Optimal params cache ---
+
+const DATA_DIR = path.join(process.cwd(), 'data');
+const OPTIMAL_PARAMS_FILE = path.join(DATA_DIR, 'optimal-params.json');
+const CACHE_TTL_DAYS = 7;
+
+interface CachedOptimalParams {
+  params: Record<string, number>;
+  compositeScore: number;
+  optimizedAt: string;
+  metrics: {
+    totalPnlPercent: number;
+    winRate: number;
+    sharpeRatio: number;
+    totalTrades: number;
+  };
+}
+
+function readOptimalParamsCache(): Record<string, CachedOptimalParams> {
+  try {
+    if (fs.existsSync(OPTIMAL_PARAMS_FILE)) {
+      return JSON.parse(fs.readFileSync(OPTIMAL_PARAMS_FILE, 'utf-8'));
+    }
+  } catch {
+    // corrupted
+  }
+  return {};
+}
+
+function writeOptimalParamsCache(cache: Record<string, CachedOptimalParams>) {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+  fs.writeFileSync(OPTIMAL_PARAMS_FILE, JSON.stringify(cache, null, 2), 'utf-8');
+}
+
+function getCachedParams(symbol: string, stratKey: string): CachedOptimalParams | null {
+  const cache = readOptimalParamsCache();
+  const key = `${symbol}:${stratKey}`;
+  const entry = cache[key];
+  if (!entry) return null;
+
+  // Check TTL
+  const age = Date.now() - new Date(entry.optimizedAt).getTime();
+  const ttlMs = CACHE_TTL_DAYS * 24 * 60 * 60 * 1000;
+  if (age > ttlMs) return null;
+
+  return entry;
+}
+
+function setCachedParams(symbol: string, stratKey: string, entry: CachedOptimalParams) {
+  const cache = readOptimalParamsCache();
+  cache[`${symbol}:${stratKey}`] = entry;
+  writeOptimalParamsCache(cache);
+}
+
 export async function POST(request: Request) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30_000);
+  const timeout = setTimeout(() => controller.abort(), 60_000); // 60s for optimization
 
   try {
     const body = await request.json();
-    const { symbol, strategy: strategyName, days = 90, investment = 10000, shortPeriod, longPeriod, ...extraParams } = body;
+    const {
+      symbol,
+      strategy: strategyName,
+      days = 90,
+      investment = 10000,
+      optimize = false,
+      shortPeriod,
+      longPeriod,
+      ...extraParams
+    } = body;
 
     if (!symbol || typeof symbol !== 'string') {
       return NextResponse.json({ error: 'Missing required field: symbol' }, { status: 400 });
     }
 
-    // Build strategy params from body
-    const params: Record<string, number> = { ...extraParams };
-    if (shortPeriod != null) params.shortPeriod = Number(shortPeriod);
-    if (longPeriod != null) params.longPeriod = Number(longPeriod);
-
-    // Resolve strategy
     const stratKey = (strategyName || 'ENSEMBLE').toUpperCase().replace(/[\s-]/g, '_');
     const strategyFactory = STRATEGY_MAP[stratKey];
     if (!strategyFactory) {
@@ -67,6 +130,155 @@ export async function POST(request: Request) {
         { error: `Unknown strategy: ${strategyName}. Available: ${Object.keys(STRATEGY_MAP).join(', ')}` },
         { status: 400 }
       );
+    }
+
+    // --- Optimization path ---
+    if (optimize && stratKey !== 'ENSEMBLE') {
+      try {
+        const optResult = await optimizeStrategy(symbol.toUpperCase(), stratKey, Number(days) || 90, Number(investment) || 10000);
+
+        if (optResult.topParams.length === 0) {
+          return NextResponse.json({
+            symbol: symbol.toUpperCase(),
+            strategy: stratKey,
+            days: Number(days) || 90,
+            status: 'success',
+            optimized: true,
+            message: 'No profitable parameter combinations found',
+            totalCombinationsTested: optResult.totalCombinationsTested,
+          });
+        }
+
+        const best = optResult.topParams[0];
+
+        // Cache the optimal params
+        setCachedParams(symbol.toUpperCase(), stratKey, {
+          params: best.params,
+          compositeScore: best.compositeScore,
+          optimizedAt: optResult.optimizedAt,
+          metrics: {
+            totalPnlPercent: best.metrics.totalPnlPercent,
+            winRate: best.metrics.winRate,
+            sharpeRatio: best.metrics.sharpeRatio,
+            totalTrades: best.metrics.totalTrades,
+          },
+        });
+
+        // Now run the full backtest with optimal params for display
+        const dataManager = getDataManager();
+        const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
+        const engine = new BacktestEngine(Number(investment) || 10000);
+        const optimizedStrategy = strategyFactory(best.params);
+        const optimizedResult = engine.backtest(priceSeries, optimizedStrategy);
+
+        // Also run with default params for comparison
+        const defaultStrategy = strategyFactory(undefined);
+        const defaultEngine = new BacktestEngine(Number(investment) || 10000);
+        const defaultResult = defaultEngine.backtest(priceSeries, defaultStrategy);
+
+        // Track performance
+        trackPerformance({
+          symbol: symbol.toUpperCase(),
+          strategy: stratKey,
+          params: best.params,
+          days: Number(days) || 90,
+          pnlPercent: optimizedResult.totalPnLPercent,
+          winRate: optimizedResult.winRate,
+          sharpe: optimizedResult.sharpeRatio,
+          trades: optimizedResult.totalTrades,
+        });
+
+        clearTimeout(timeout);
+
+        // Build chart data
+        const closes = priceSeries.points.map((p) => p.close);
+        const sma9Values = calculateSMAArray(closes, 9);
+        const sma21Values = calculateSMAArray(closes, 21);
+        const priceData = priceSeries.points.map((p, i) => ({
+          date: p.timestamp instanceof Date
+            ? p.timestamp.toISOString().split('T')[0]
+            : new Date(p.timestamp as unknown as string).toISOString().split('T')[0],
+          price: Number(p.close.toFixed(2)),
+          sma9: isNaN(sma9Values[i]) ? undefined : Number(sma9Values[i].toFixed(2)),
+          sma21: isNaN(sma21Values[i]) ? undefined : Number(sma21Values[i].toFixed(2)),
+        }));
+
+        let allSignals: any[] = [];
+        try {
+          allSignals = optimizedStrategy.generateSignals(priceSeries);
+        } catch { /* non-fatal */ }
+        const signalMarkers = buildSignalMarkers(allSignals);
+
+        return NextResponse.json({
+          symbol: optimizedResult.symbol,
+          strategy: optimizedResult.strategyName,
+          days: Number(days) || 90,
+          status: 'success',
+          optimized: true,
+          walkForwardValidated: optResult.walkForwardValidated,
+          optimalParams: best.params,
+          optimization: {
+            totalCombinationsTested: optResult.totalCombinationsTested,
+            topParams: optResult.topParams,
+            optimizedAt: optResult.optimizedAt,
+          },
+          comparison: {
+            defaultPnL: `$${defaultResult.totalPnL.toFixed(2)}`,
+            defaultPnLPercent: defaultResult.totalPnLPercent,
+            optimizedPnL: `$${optimizedResult.totalPnL.toFixed(2)}`,
+            optimizedPnLPercent: optimizedResult.totalPnLPercent,
+            improvement: `$${(optimizedResult.totalPnL - defaultResult.totalPnL).toFixed(2)}`,
+          },
+          metrics: {
+            winRate: `${optimizedResult.winRate}%`,
+            profitFactor: optimizedResult.profitFactor,
+            sharpeRatio: optimizedResult.sharpeRatio,
+            maxDrawdown: `${optimizedResult.maxDrawdown}%`,
+            totalPnL: `$${optimizedResult.totalPnL.toFixed(2)}`,
+            totalPnLPercent: optimizedResult.totalPnLPercent,
+            totalTrades: optimizedResult.totalTrades,
+            winningTrades: optimizedResult.winningTrades,
+            losingTrades: optimizedResult.losingTrades,
+            avgWin: optimizedResult.avgWin,
+            avgLoss: optimizedResult.avgLoss,
+          },
+          trades: optimizedResult.trades.map((t, i) => ({
+            id: i + 1,
+            entry: t.entryPrice,
+            entryTime: t.entryTime,
+            exit: t.exitPrice,
+            exitTime: t.exitTime,
+            pnl: t.pnl,
+            pnlPct: t.pnlPercent,
+            daysHeld: t.daysHeld,
+            fee: t.fee,
+          })),
+          priceData,
+          signals: signalMarkers,
+        });
+      } catch (optError) {
+        clearTimeout(timeout);
+        const msg = optError instanceof Error ? optError.message : String(optError);
+        return NextResponse.json({ error: `Optimization failed: ${msg}` }, { status: 500 });
+      }
+    }
+
+    // --- Normal backtest path ---
+
+    // Build strategy params from body
+    const params: Record<string, number> = { ...extraParams };
+    if (shortPeriod != null) params.shortPeriod = Number(shortPeriod);
+    if (longPeriod != null) params.longPeriod = Number(longPeriod);
+
+    // Check for cached optimal params if no custom params provided and strategy is not ENSEMBLE
+    let usedCachedParams = false;
+    let cachedParamData: CachedOptimalParams | null = null;
+    if (Object.keys(params).length === 0 && stratKey !== 'ENSEMBLE') {
+      cachedParamData = getCachedParams(symbol.toUpperCase(), stratKey);
+      if (cachedParamData) {
+        Object.assign(params, cachedParamData.params);
+        usedCachedParams = true;
+      }
     }
 
     const strategyInstance = strategyFactory(Object.keys(params).length > 0 ? params : undefined);
@@ -78,6 +290,18 @@ export async function POST(request: Request) {
     // Run backtest with investment amount
     const engine = new BacktestEngine(Number(investment) || 10000);
     const result = engine.backtest(priceSeries, strategyInstance);
+
+    // Track performance
+    trackPerformance({
+      symbol: symbol.toUpperCase(),
+      strategy: stratKey,
+      params: Object.keys(params).length > 0 ? params : {},
+      days: Number(days) || 90,
+      pnlPercent: result.totalPnLPercent,
+      winRate: result.winRate,
+      sharpe: result.sharpeRatio,
+      trades: result.totalTrades,
+    });
 
     clearTimeout(timeout);
 
@@ -95,47 +319,26 @@ export async function POST(request: Request) {
       sma21: isNaN(sma21Values[i]) ? undefined : Number(sma21Values[i].toFixed(2)),
     }));
 
-    // Generate signal markers for the chart (non-fatal — backtest results still return if this fails)
+    // Generate signal markers for the chart (non-fatal)
     let allSignals: any[] = [];
     try {
       allSignals = strategyInstance.generateSignals(priceSeries);
     } catch (sigErr) {
       console.error('Signal generation for chart markers failed:', sigErr);
     }
-    const signalMarkers = allSignals
-      .filter((s) => s.type === 'BUY' || s.type === 'SELL')
-      .map((s) => {
-        let dateStr: string;
-        try {
-          const t = s.time as any;
-          if (t && typeof t.toISOString === 'function') {
-            dateStr = t.toISOString().split('T')[0];
-          } else if (t && typeof t.getTime === 'function') {
-            dateStr = t.toISOString().split('T')[0];
-          } else if (typeof t === 'number') {
-            dateStr = new Date(t).toISOString().split('T')[0];
-          } else if (typeof t === 'string') {
-            dateStr = new Date(t).toISOString().split('T')[0];
-          } else {
-            dateStr = 'unknown';
-          }
-        } catch {
-          dateStr = 'unknown';
-        }
-        return {
-          date: dateStr,
-          price: Number((s.price || 0).toFixed(2)),
-          type: s.type as 'BUY' | 'SELL',
-          strength: Number((s.strength || 0).toFixed(2)),
-        };
-      })
-      .filter((s) => s.date !== 'unknown');
+    const signalMarkers = buildSignalMarkers(allSignals);
 
     return NextResponse.json({
       symbol: result.symbol,
       strategy: result.strategyName,
       days: Number(days) || 90,
       status: 'success',
+      optimized: false,
+      usedCachedParams,
+      ...(usedCachedParams && cachedParamData ? {
+        optimalParams: cachedParamData.params,
+        cachedParamsAge: `${Math.round((Date.now() - new Date(cachedParamData.optimizedAt).getTime()) / (1000 * 60 * 60 * 24))}d`,
+      } : {}),
       metrics: {
         winRate: `${result.winRate}%`,
         profitFactor: result.profitFactor,
@@ -168,9 +371,42 @@ export async function POST(request: Request) {
     const message = error instanceof Error ? error.message : String(error);
 
     if (message.includes('aborted') || message.includes('abort')) {
-      return NextResponse.json({ error: 'Backtest timed out after 30 seconds' }, { status: 504 });
+      return NextResponse.json({ error: 'Backtest timed out after 60 seconds' }, { status: 504 });
     }
 
     return NextResponse.json({ error: message }, { status: 500 });
   }
+}
+
+// --- Helper: Build signal markers for chart ---
+
+function buildSignalMarkers(allSignals: any[]) {
+  return allSignals
+    .filter((s) => s.type === 'BUY' || s.type === 'SELL')
+    .map((s) => {
+      let dateStr: string;
+      try {
+        const t = s.time as any;
+        if (t && typeof t.toISOString === 'function') {
+          dateStr = t.toISOString().split('T')[0];
+        } else if (t && typeof t.getTime === 'function') {
+          dateStr = t.toISOString().split('T')[0];
+        } else if (typeof t === 'number') {
+          dateStr = new Date(t).toISOString().split('T')[0];
+        } else if (typeof t === 'string') {
+          dateStr = new Date(t).toISOString().split('T')[0];
+        } else {
+          dateStr = 'unknown';
+        }
+      } catch {
+        dateStr = 'unknown';
+      }
+      return {
+        date: dateStr,
+        price: Number((s.price || 0).toFixed(2)),
+        type: s.type as 'BUY' | 'SELL',
+        strength: Number((s.strength || 0).toFixed(2)),
+      };
+    })
+    .filter((s) => s.date !== 'unknown');
 }
