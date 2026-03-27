@@ -82,3 +82,34 @@ No in_progress cards. System is idle, waiting on Joe decisions.
 2. If Stripe keys received → escalate Phase 5 to highest priority
 3. If approvals received → move cards to in_progress
 4. Otherwise → continue idle activities + system improvement
+
+## Pending Questions
+
+<!-- PENDING-Q-START -->
+- **⚠️ Stale card escalated: "Implement 14-day free trial on Basic/Pro tiers"** (_question_, Mar 18 15:00)
+  ID: `notif_1773846049925_5c244c9d` — Card "Implement 14-day free trial on Basic/Pro tiers" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates. A re-dispatch was att...
+
+- **CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing** (_question_, Mar 24 10:37)
+  ID: `notif_1774348633358_ebc3c96c` — Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end...
+
+- **Untitled** (_unknown_, Mar 25 16:18)
+  ID: `?` — 
+
+- **Untitled** (_unknown_, Mar 25 16:18)
+  ID: `?` — 
+
+- **Untitled** (_unknown_, Mar 25 16:18)
+  ID: `?` — 
+
+- **Card: task_1774058538023_ae4bf3d2\n\nMarket validation complete (3.4B→8.9B market, 14.3% CAGR). Competitor analysis done (Stampli, BILL). Customer interview blueprint ready.\n\nQuestion: Can I proceed with 10 SMB discovery calls starting Mar 27 to validate market demand?\n\nOriginal request: Mar 25 (2 days ago) — no response yet.\n\nThis is blocking the Review card from moving forward.** (_[REMINDER] Bill Review & Invoice Audit SaaS - 10 SMB Discovery Calls Ready to Launch_, Mar 27 03:35)
+  ID: `notif_1774582548839_2f035bb3` — No details provided
+
+- **Card: task_1773156748695_23b9e471\n\nFrontend code: ✅ Complete\nEdge Functions: ✅ Complete\nUI integration: ✅ Complete\nStripe webhook handling: ✅ Complete\nDatabase schema: ✅ Complete\n\nBlocked on: Stripe dashboard configuration\n- Update 12 product prices (Basic/Pro tiers)\n- Add trial_period_days=14 to each\n- Estimated effort: 15 minutes\n\nOnce configured: 30-minute testing, then Phase 5 deployment ready.\n\nOriginal request: Mar 24 (3 days ago) — no response yet.\n\nThis is blocking the Review card from moving forward.** (_[REMINDER] 14-Day Free Trial Implementation — Stripe Dashboard Configuration_, Mar 27 03:35)
+  ID: `notif_1774582554369_f8548cc3` — No details provided
+
+- **Card: task_1774171849501_375342e7\n\nPhase 2 framework complete. 10-prospect cold outreach list ready for review. Customer interview templates prepared.\n\nQuestion: Can you:\n1. Approve the prospect list for cold outreach?\n2. Provide 2-3 warm intro names in Atlantic construction industry?\n\nOriginal request: Mar 25 (2 days ago) — no response yet.\n\nUrgency: MEDIUM — Need decision by Mar 31 for launch target.\n\nThis is blocking the Review card from moving forward.** (_[REMINDER] Atlantic Contractor Client Portal — Prospect Approval + Warm Intros Needed_, Mar 27 03:35)
+  ID: `notif_1774582554370_44da2772` — No details provided
+
+- **CoinUsUp Free Trial Stripe Config** (_question_, Mar 27 06:36)
+  ID: `notif_1774593380697_576ed633` — The 14-day free trial feature is code-complete and deployed (Mar 18). It's been waiting on Stripe configuration for 9 days.\n\n**What's needed:**\nYou...
+<!-- PENDING-Q-END -->
