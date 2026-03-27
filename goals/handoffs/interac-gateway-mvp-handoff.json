@@ -1,0 +1,266 @@
+{
+  "handoff_id": "hal-interac-gateway-mvp-001",
+  "card_id": "task_1774645727467_321632ca",
+  "title": "Even Us Up: Interac e-Transfer Settlement Gateway — MVP Phase 1",
+  "created_at": "2026-03-27T21:30:00Z",
+  "status": "ready_for_dispatch",
+  "priority": "high",
+  "timeline_weeks": 4,
+  "estimated_hours": 80,
+  
+  "objective": "Build MVP for Interac e-Transfer settlement integration in Even Us Up. Users register Interac Direct email, request settlement, generate reference #, manually confirm via their bank app, and view settlement history.",
+  
+  "scope": {
+    "included": [
+      "KYC verification schema (email-only verification for MVP)",
+      "Settlement method registration (Interac Direct email/phone)",
+      "Settlement request creation API + DB",
+      "Manual confirmation flow (user enters transaction reference)",
+      "Settlement history view + receipts",
+      "Webhook receiver (stub for VoPay Phase 2)",
+      "Compliance events logging (FINTRAC-ready)",
+      "Frontend components: KYC form, settlement modal, history view",
+      "E2E testing: settlement flow with mock data",
+      "User documentation: Interac Direct setup guide"
+    ],
+    "explicitly_excluded": [
+      "VoPay API integration (Phase 2)",
+      "Auto-send settlements (Phase 2)",
+      "Premium billing/subscription (Phase 3)",
+      "FINTRAC reporting automation (Phase 4)",
+      "Multi-currency support",
+      "Cash/bank transfer tracking (Phase 3)"
+    ]
+  },
+  
+  "deliverables": [
+    {
+      "name": "Database Schema (Migrations)",
+      "description": "settlement_methods, settlement_requests, user_kyc, compliance_events tables with RLS policies",
+      "acceptance_criteria": [
+        "All tables created with correct field types + constraints",
+        "RLS policies restrict user access to own data only",
+        "Indexes on household_id, member_id, status for query performance",
+        "Encryption schema for PII (full_name, phone, address, email, dob)"
+      ],
+      "owner": "HAL",
+      "estimated_hours": 12
+    },
+    {
+      "name": "Backend API Routes",
+      "description": "Supabase functions or Express routes for KYC, settlement creation, confirmation, history",
+      "endpoints": [
+        "POST /api/settlement-methods/interac-direct (register)",
+        "GET /api/settlement-methods (list)",
+        "DELETE /api/settlement-methods/:methodId",
+        "POST /api/settlements/create",
+        "POST /api/settlements/:id/confirm (manual)",
+        "GET /api/settlements/:id",
+        "GET /api/settlements/history",
+        "POST /api/webhooks/vopay (stub)",
+        "POST /api/kyc/start",
+        "POST /api/kyc/verify",
+        "GET /api/kyc/status"
+      ],
+      "acceptance_criteria": [
+        "All endpoints return correct status codes (200, 400, 401, 422)",
+        "Error messages clear + helpful (no generic 500s)",
+        "Rate limiting on KYC (max 5 attempts/hour)",
+        "Transaction IDs/references generated correctly",
+        "No PII in logs or error responses"
+      ],
+      "owner": "HAL",
+      "estimated_hours": 28
+    },
+    {
+      "name": "Frontend Components",
+      "description": "React components for KYC, settlement modal, history, status indicators",
+      "components": [
+        "InteracDirectSetup.tsx (email/phone input, consent, KYC trigger)",
+        "KYCForm.tsx (form with email verification flow)",
+        "SettlementModal.tsx (initiate settlement, method selector, amount)",
+        "ManualConfirmation.tsx (enter transaction reference, confirm)",
+        "SettlementHistory.tsx (table, filters, receipt view)",
+        "SettlementStatus.tsx (dashboard indicator, pending count)"
+      ],
+      "acceptance_criteria": [
+        "Components match Figma designs (if available) or use consistent styling",
+        "Form validation prevents invalid submissions",
+        "Email verification flow works end-to-end",
+        "Mobile responsive (tested on 375px width)",
+        "Loading states + error messages visible to user",
+        "No hardcoded data (all from API)"
+      ],
+      "owner": "HAL",
+      "estimated_hours": 24
+    },
+    {
+      "name": "State Management",
+      "description": "Zustand store extensions for settlement flow (kyc, requests, methods)",
+      "acceptance_criteria": [
+        "Store actions: submitKYC, registerSettlementMethod, createSettlement, confirmSettlement",
+        "Loading/error states properly managed",
+        "Persist settlement history locally (optional, for offline support)",
+        "No race conditions (concurrent API calls handled)"
+      ],
+      "owner": "HAL",
+      "estimated_hours": 8
+    },
+    {
+      "name": "Testing Suite",
+      "description": "Jest + React Testing Library + E2E tests (Cypress)",
+      "test_coverage": [
+        "Unit: Settlement calculation, KYC validation",
+        "Integration: API → DB → Frontend",
+        "E2E: Full settlement flow (register → request → confirm)"
+      ],
+      "acceptance_criteria": [
+        "Unit test coverage >80% for critical paths",
+        "E2E test passes: user registers → creates settlement → confirms",
+        "Mock VoPay API for testing (no real API calls)",
+        "All tests pass in CI (GitHub Actions or similar)"
+      ],
+      "owner": "HAL",
+      "estimated_hours": 16
+    },
+    {
+      "name": "Documentation",
+      "description": "User guide, API docs, setup runbook for Joe",
+      "files": [
+        "docs/INTERAC_SETUP_GUIDE.md (user-facing: how to enable Interac Direct)",
+        "docs/SETTLEMENT_FLOW.md (technical: architecture + flow diagrams)",
+        "docs/API_REFERENCE.md (API endpoints + examples)",
+        "docs/KYC_COMPLIANCE.md (regulatory requirements + what we collect)",
+        "DEPLOYMENT.md (how to deploy Phase 1 to production)"
+      ],
+      "acceptance_criteria": [
+        "User guide is <5 min read, includes screenshots",
+        "API reference has curl examples for each endpoint",
+        "Deployment guide includes rollback procedure",
+        "No typos or broken links"
+      ],
+      "owner": "HAL",
+      "estimated_hours": 8
+    },
+    {
+      "name": "Security Review Checklist",
+      "description": "Confirm no PII leaks, encryption working, RLS enforced",
+      "checklist": [
+        "[ ] All PII fields (email, phone, DOB, address) encrypted at rest",
+        "[ ] No PII in API error messages or logs",
+        "[ ] RLS policies tested (user cannot query other users' KYC)",
+        "[ ] HTTPS enforced (no http: URLs)",
+        "[ ] Passwords/secrets not in code (use .env)",
+        "[ ] Rate limiting on sensitive endpoints (KYC, settlement creation)",
+        "[ ] CORS configured correctly (no overly permissive)",
+        "[ ] SQL injection prevented (parameterized queries)"
+      ],
+      "owner": "Alfred (review) + HAL (implementation)",
+      "estimated_hours": 4 (review only)
+    }
+  ],
+  
+  "success_criteria": {
+    "functional": [
+      "Users can complete KYC email verification in <2 minutes",
+      "Settlement request creation works (test with 5+ scenarios)",
+      "Manual confirmation updates status correctly",
+      "Settlement history shows past 50 requests without performance issues",
+      "All error cases handled gracefully (network down, invalid input, etc.)",
+      "No crashes or 500 errors in production logs"
+    ],
+    "quality": [
+      "Code is linted (ESLint + Prettier pass)",
+      "TypeScript strict mode enforced (no `any`)",
+      "Test coverage >80% on critical paths",
+      "Accessibility: WCAG 2.1 AA (focus states, labels, keyboard nav)",
+      "Performance: Settlement history loads in <1s (50 items)"
+    ],
+    "compliance": [
+      "KYC data encrypted (Supabase encryption or libsodium)",
+      "No PII in logs",
+      "Compliance events table populated correctly",
+      "Privacy policy reviewed by legal (Joe)"
+    ],
+    "documentation": [
+      "User guide written + reviewed",
+      "API reference complete + examples tested",
+      "Deployment guide includes rollback steps",
+      "Known limitations documented"
+    ]
+  },
+  
+  "validation_commands": {
+    "api_test": "npm run test:api -- --testPathPattern=settlement",
+    "frontend_test": "npm run test:ui -- --testPathPattern=Settlement",
+    "e2e_test": "npm run test:e2e -- cypress/e2e/settlement.cy.ts",
+    "lint": "npm run lint && npm run type-check",
+    "security_check": "npm audit && ./scripts/check-pii-in-logs.sh"
+  },
+  
+  "blockers_and_dependencies": [
+    {
+      "blocker": "Supabase schema not finalized",
+      "mitigation": "Use SQL migrations; easy to iterate",
+      "dependency": "None (can parallelize)"
+    },
+    {
+      "blocker": "VoPay sandbox credentials needed for Phase 2",
+      "mitigation": "Phase 1 uses mock API; Phase 2 integration separate",
+      "dependency": "Joe obtains VoPay sandbox creds (Week 4-5)"
+    },
+    {
+      "blocker": "Legal review of KYC/PIPEDA compliance",
+      "mitigation": "Can launch MVP with basic email verification (low risk); formal review in Phase 3",
+      "dependency": "Joe reviews privacy policy changes"
+    }
+  ],
+  
+  "communication_plan": {
+    "progress_updates": "Daily standup in Discord (summary of what was built + blockers)",
+    "checkpoint": "End of Week 2 (KYC + settlement creation API done)",
+    "final_review": "End of Week 4 (all deliverables complete, ready for QA)",
+    "handoff_format": "GitHub PR with detailed description + test results"
+  },
+  
+  "post_completion_handoff": {
+    "to": "Alfred (QA) + Joe (product review)",
+    "qa_checklist": [
+      "[ ] Deploy to staging environment",
+      "[ ] Run full test suite (unit + E2E)",
+      "[ ] Manual testing: KYC flow works end-to-end",
+      "[ ] Security audit: no PII leaks in logs",
+      "[ ] Performance: settlement history loads in <1s",
+      "[ ] Browser compatibility: Chrome, Safari, Firefox",
+      "[ ] Mobile testing: iOS + Android (if app version)"
+    ],
+    "joe_review": [
+      "[ ] User experience: is flow intuitive?",
+      "[ ] Compliance: does KYC meet PIPEDA requirements?",
+      "[ ] Documentation: is user guide clear?",
+      "[ ] Ready for Phase 2? (VoPay integration)"
+    ]
+  },
+  
+  "phase_2_prerequisites": {
+    "required_before_phase_2": [
+      "Phase 1 MVP fully deployed to production",
+      "KYC email verification working reliably",
+      "Manual settlement confirmation tested with 50+ users",
+      "VoPay sandbox credentials obtained by Joe",
+      "VoPay MSA draft reviewed by legal"
+    ],
+    "phase_2_scope": "Auto-send settlements via VoPay API; webhook-based status updates"
+  },
+  
+  "notes": {
+    "architecture": "Settlement flow is intentionally simple for MVP: register → request → manual confirm. VoPay API integration comes Phase 2. This reduces complexity + launches faster.",
+    "compliance_note": "KYC email-only verification is intentionally minimal for MVP. Phase 2 will add full KYC (DOB, address, etc.). Personal use exemption from FINTRAC likely applies for household groups.",
+    "monetization": "Premium tier (Phase 3) will be separate feature flag. MVP is free to establish user base + gather feedback.",
+    "fallback_strategy": "If VoPay integration stalls in Phase 2, manual confirmation remains viable. Settlement still happens; just requires extra step."
+  },
+  
+  "approval_status": "Ready for HAL dispatch upon Joe approval",
+  "created_by": "Alfred",
+  "date_created": "2026-03-27T21:30:00Z"
+}
