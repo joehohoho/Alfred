@@ -112,4 +112,52 @@ No in_progress cards. System is idle, waiting on Joe decisions.
 
 - **CoinUsUp Free Trial Stripe Config** (_question_, Mar 27 06:36)
   ID: `notif_1774593380697_576ed633` — The 14-day free trial feature is code-complete and deployed (Mar 18). It's been waiting on Stripe configuration for 9 days.\n\n**What's needed:**\nYou...
+
+- ****STATUS: 3 critical cards stuck in review (2-3 days waiting).**
+
+---
+
+**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**
+- Status: Review
+- Blocker: Approval to proceed with 10 SMB discovery calls
+- Started: Mar 25 (2 days ago)
+- Next step: You approve → I launch cold outreach + schedule interviews
+- Impact if delayed: Timeline slips to mid-April
+
+---
+
+**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**
+- Status: Review
+- Blocker: (1) Approve 10-prospect cold outreach list, (2) Provide 2-3 warm intro names
+- Started: Mar 25 (2 days ago)
+- Next step: You provide names → I deploy cold emails + start calls
+- Impact if delayed: Mar 31 launch target at risk
+
+---
+
+**CARD 3: CoinUsUp 14-Day Free Trial (task_1773156748695_23b9e471)**
+- Status: Review
+- Blocker: Update 12 prices in Stripe dashboard (trial_period_days=14)
+- Started: Mar 24 (3 days ago)
+- Next step: You config Stripe (5 min) → I test + deploy
+- Impact if delayed: Trial feature can't launch
+
+---
+
+**What I need from you:**
+1. **Card 1:** "Yes, proceed with discovery calls" or "Skip this project"
+2. **Card 2:** "Approved" on prospect list + 2-3 names, or "revise list first"
+3. **Card 3:** Update Stripe dashboard prices (I can guide the 5 steps) or "deprioritize"
+
+**All blocked due to decisions only you can make.** Once you respond, I move immediately.
+
+---
+
+**Options:**
+- Reply here to all three
+- Update one, I unblock the others later
+- "Defer all" — I'll move to Blocked with blocker notes
+
+Ready when you are.** (_[REMINDER] 3 Review Cards Blocked on Your Decisions_, Mar 27 09:35)
+  ID: `notif_1774604156182_fba5b3f6` — --options
 <!-- PENDING-Q-END -->
