@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-03-27T22:41:25.869Z",
+  "agents": {
+    "ai.openclaw.gateway": {
+      "status": "running",
+      "pid": 30191,
+      "critical": true
+    },
+    "ai.openclaw.gateway.watchdog": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "ai.openclaw.log-rotation": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "ai.openclaw.session-cleanup": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.alfred-work-executor": {
+      "status": "disabled",
+      "pid": null,
+      "critical": true
+    },
+    "com.alfred.alfred-commandline": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.hal-idle-dispatch": {
+      "status": "disabled",
+      "pid": null,
+      "critical": true
+    },
+    "com.alfred.hal-backup": {
+      "status": "disabled",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.nightly-git-commit": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.evening-routine": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.daily-config-memory-review": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.joe-profile-reflection": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.workspace-idle-activities": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.kanban-auto-promote": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.dashboard-nextjs": {
+      "status": "running",
+      "pid": 94370,
+      "critical": false
+    },
+    "com.alfred.command-center-api": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.weather-alerts": {
+      "status": "disabled",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.weather-monitor": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.backup-tier1": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.backup-tier2": {
+      "status": "disabled",
+      "pid": null,
+      "critical": false
+    },
+    "com.alfred.backup-tier3": {
+      "status": "error",
+      "pid": null,
+      "critical": false
+    }
+  },
+  "hal": {
+    "status": "offline",
+    "error": "EHOSTUNREACH",
+    "latency": null
+  },
+  "gateway": "7:08PM",
+  "resources": {
+    "memory": "Pages active:                           3751495.",
+    "disk": "38%"
+  },
+  "summary": {
+    "totalAgents": 21,
+    "running": 2,
+    "down": 5,
+    "criticalDown": 2,
+    "halStatus": "offline",
+    "healthScore": "CRITICAL"
+  }
+}
