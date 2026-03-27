@@ -527,5 +527,32 @@
     "answeredAt": "2026-03-26T22:28:13.858Z",
     "userAnswer": "Having to fix issues with Alfred and HAL, and troubleshooting Alfred thinking HAL is offline when he's not.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1774582548839_2f035bb3",
+    "type": "[REMINDER] Bill Review & Invoice Audit SaaS - 10 SMB Discovery Calls Ready to Launch",
+    "title": "Card: task_1774058538023_ae4bf3d2\\n\\nMarket validation complete (3.4B→8.9B market, 14.3% CAGR). Competitor analysis done (Stampli, BILL). Customer interview blueprint ready.\\n\\nQuestion: Can I proceed with 10 SMB discovery calls starting Mar 27 to validate market demand?\\n\\nOriginal request: Mar 25 (2 days ago) — no response yet.\\n\\nThis is blocking the Review card from moving forward.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-27T03:35:48.839Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774582554369_f8548cc3",
+    "type": "[REMINDER] 14-Day Free Trial Implementation — Stripe Dashboard Configuration",
+    "title": "Card: task_1773156748695_23b9e471\\n\\nFrontend code: ✅ Complete\\nEdge Functions: ✅ Complete\\nUI integration: ✅ Complete\\nStripe webhook handling: ✅ Complete\\nDatabase schema: ✅ Complete\\n\\nBlocked on: Stripe dashboard configuration\\n- Update 12 product prices (Basic/Pro tiers)\\n- Add trial_period_days=14 to each\\n- Estimated effort: 15 minutes\\n\\nOnce configured: 30-minute testing, then Phase 5 deployment ready.\\n\\nOriginal request: Mar 24 (3 days ago) — no response yet.\\n\\nThis is blocking the Review card from moving forward.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-27T03:35:54.369Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1774582554370_44da2772",
+    "type": "[REMINDER] Atlantic Contractor Client Portal — Prospect Approval + Warm Intros Needed",
+    "title": "Card: task_1774171849501_375342e7\\n\\nPhase 2 framework complete. 10-prospect cold outreach list ready for review. Customer interview templates prepared.\\n\\nQuestion: Can you:\\n1. Approve the prospect list for cold outreach?\\n2. Provide 2-3 warm intro names in Atlantic construction industry?\\n\\nOriginal request: Mar 25 (2 days ago) — no response yet.\\n\\nUrgency: MEDIUM — Need decision by Mar 31 for launch target.\\n\\nThis is blocking the Review card from moving forward.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-27T03:35:54.370Z",
+    "answeredAt": null
   }
 ]

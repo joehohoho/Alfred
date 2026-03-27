@@ -58,3 +58,6 @@
 {"ts": 1774450800, "iso": "2026-03-25T12:00:00-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
 {"ts": 1774450800, "iso": "2026-03-25T12:00:00-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
 {"ts": 1774530000, "iso": "2026-03-26T10:00:00-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1774582548, "iso": "2026-03-27T00:35:48-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1774582554, "iso": "2026-03-27T00:35:54-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1774582554, "iso": "2026-03-27T00:35:54-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
