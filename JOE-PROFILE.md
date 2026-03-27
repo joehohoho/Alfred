@@ -250,18 +250,24 @@ When asked "Growth, profitability, feature completeness, or something else?" Joe
 
 ### Observed Frustrations (Ranked by Urgency)
 
-**🔴 CRITICAL: Infrastructure Troubleshooting Burden (Mar 26 DIRECT ANSWER)**
+**🔴 CRITICAL #1: Infrastructure Troubleshooting Burden (Mar 26 DIRECT ANSWER — HIGHEST FRICTION)**
 - **Explicitly stated complaint (notif_1774533888321, Mar 26 19:28 ADT):** "Having to fix issues with Alfred and HAL, and troubleshooting Alfred thinking HAL is offline when he's not."
-- **Nature of frustration:** NOT productivity friction (missing features, slow workflows). It's OPERATIONAL FRICTION — Joe has to debug and troubleshoot the infrastructure he built to be autonomous. This defeats the purpose.
+- **Confidence:** HIGHEST — Direct, specific, frustration tone. This is the #1 thing bugging Joe about his workflow.
+- **Nature of frustration:** NOT productivity friction (missing features, slow workflows). It's OPERATIONAL FRICTION — Joe has to debug and troubleshoot the infrastructure he built to be autonomous. This defeats the purpose. Joe wants passive income; he's instead spending time troubleshooting systems.
 - **Root causes identified:**
   1. HAL WebSocket disconnection (33+ consecutive failures since Mar 25 22:00, still ongoing at report time) — false positive "HAL offline" signals even when HAL gateway is actually responding
   2. Cron auto-disable pattern (recurring throughout Mar, latest Mar 22-26 with latest incident from log analysis suggesting >30 failures)
   3. Alfred reliability issues (gateway down 24+ hrs Mar 8, Codex token expiration, channel routing failures)
-- **Impact:** Joe's time/attention consumed by infrastructure triage instead of building apps. Passive income goal stalled when systems require constant fixes.
-- **Why this matters:** Joe explicitly wants "to stop working" (passive income north star). If he has to troubleshoot Alfred/HAL instead of building features, the autonomous system is FAILING its core purpose. Every hour Joe spends debugging is an hour NOT on CoinUsUp sprint.
-- **Pattern observation:** This is NOT Joe complaining about Alfred's intelligence or capability. It's infrastructure RELIABILITY friction. The system is *occasionally* working, but not reliably enough to trust. Joe still needs to check on it.
-- **Required fix:** (1) Stabilize HAL gateway reconnection (WebSocket upgrade protocol, circuit-breaker logic), (2) Fix cron auto-disable root cause (Discord routing, rate limits, channel config), (3) Add robust health checks that distinguish "slow" from "offline", (4) Reduce operational overhead for Joe (better self-healing, fewer alerts that turn out to be false positives)
-- **Action item (URGENT P0):** This is the highest-priority bug to fix. Unresolved, Joe will start disabling/ignoring Alfred because troubleshooting becomes more work than the system saves. | Source: notif_1774533888321 (Mar 26 19:28 ADT) | Confidence: VERY HIGH
+- **Impact:** Joe's time/attention consumed by infrastructure triage instead of building apps. Passive income goal stalled when systems require constant fixes. CoinUsUp sprint blocked by operational friction.
+- **Why this matters:** Joe explicitly wants "to stop working" (passive income north star). If he has to troubleshoot Alfred/HAL instead of building features, the autonomous system is FAILING its core purpose. Every hour Joe spends debugging is an hour NOT on CoinUsUp sprint, NOT on Signal App quality, NOT on passive income.
+- **Pattern observation:** This is NOT Joe complaining about Alfred's intelligence or capability. It's infrastructure RELIABILITY friction. The system is *occasionally* working, but not reliably enough to trust. Joe still needs to check on it. That's not autonomy — that's a system that requires babysitting.
+- **Required fix (URGENT P0):** 
+  1. Stabilize HAL gateway reconnection (WebSocket upgrade protocol, circuit-breaker logic) — eliminate false "offline" signals
+  2. Fix cron auto-disable root cause (Discord routing, rate limits, channel config) — zero auto-disables this month
+  3. Add robust health checks that distinguish "slow" from "offline" — reduce noise in system alerts
+  4. Reduce operational overhead for Joe (better self-healing, fewer manual interventions, only alert on real failures)
+- **Career-limiting blocker:** If unresolved, Joe will disable/deprioritize Alfred because troubleshooting becomes more work than the system saves. This is the highest-impact bug to fix — higher priority than any feature work. Infrastructure reliability is the foundation; without it, nothing else matters.
+- **Action item (URGENT P0):** Fix infrastructure stability THIS WEEK. This is blocking passive income sprint and Joe's trust in autonomous systems. | Source: notif_1774533888321 (Mar 26 19:28 ADT) | Confidence: VERY HIGH
 
 **🔴 CRITICAL: Duplicate Question Crisis (Mar 19, UNRESOLVED)**
 - **Explicitly stated complaint:** "this question is asked twice already in the notifications page and has been asked before, don't keep asking the same questions" (notif_1773925200321, Mar 19 13:32). Tone: frustrated, directive.
