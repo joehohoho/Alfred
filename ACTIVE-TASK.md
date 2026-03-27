@@ -160,4 +160,7 @@ No in_progress cards. System is idle, waiting on Joe decisions.
 
 Ready when you are.** (_[REMINDER] 3 Review Cards Blocked on Your Decisions_, Mar 27 09:35)
   ID: `notif_1774604156182_fba5b3f6` — --options
+
+- **CoinUsUp: organic growth or paid marketing?** (_question_, Mar 27 13:00)
+  ID: `notif_1774616400961_029cb69a` — Is CoinUsUp scaling naturally through word-of-mouth, or does it need ad spend? Do you have a growth budget in mind?
 <!-- PENDING-Q-END -->

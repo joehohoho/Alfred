@@ -575,5 +575,15 @@
     "answered": false,
     "createdAt": "2026-03-27T09:35:56.182Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774616400961_029cb69a",
+    "type": "question",
+    "title": "CoinUsUp: organic growth or paid marketing?",
+    "message": "Is CoinUsUp scaling naturally through word-of-mouth, or does it need ad spend? Do you have a growth budget in mind?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-27T13:00:00.961Z",
+    "answeredAt": null
   }
 ]

@@ -4,3 +4,4 @@
 {"ts": 1774270800, "iso": "2026-03-23T10:00:00-0300", "dedupKey": "daily-inquiry:2026-03-23:How should I prioritize overnight work differently?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
 {"ts": 1774443600, "iso": "2026-03-25T10:00:00-0300", "dedupKey": "daily-inquiry:2026-03-25:What's preventing Even Us Up from growing faster?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
 {"ts": 1774530000, "iso": "2026-03-26T10:00:00-0300", "dedupKey": "daily-inquiry:2026-03-26:What's the most annoying part of your current workflow?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
+{"ts": 1774616400, "iso": "2026-03-27T10:00:00-0300", "dedupKey": "daily-inquiry:2026-03-27:CoinUsUp: organic growth or paid marketing?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
