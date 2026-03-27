@@ -1,0 +1,8 @@
+{
+  "timestamp": 1774637764.3014069,
+  "health_status": "HEALTHY",
+  "consecutive_failures": 0,
+  "backoff_level": 0,
+  "last_check": "2026-03-27T15:56:04-0300",
+  "next_check_minutes": 1
+}

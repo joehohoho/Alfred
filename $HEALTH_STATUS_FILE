@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-03-27T18:56:09.962842Z",
+  "critical_agents": [
+    {
+      "agent": "com.alfred.gateway",
+      "status": "not_installed",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.work-executor",
+      "status": "not_installed",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.session-cleanup",
+      "status": "unknown",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.gateway-watchdog",
+      "status": "unknown",
+      "critical": true
+    }
+  ],
+  "all_agents": [
+    {
+      "agent": "com.alfred.gateway",
+      "status": "not_installed",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.dashboard-nextjs",
+      "status": "unknown",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.work-executor",
+      "status": "not_installed",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.hal-idle-dispatch",
+      "status": "unknown",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.session-cleanup",
+      "status": "unknown",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.gateway-watchdog",
+      "status": "unknown",
+      "critical": true
+    },
+    {
+      "agent": "com.alfred.log-rotation",
+      "status": "unknown",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.memory-auto-archive",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.evening-routine",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.nightly-git-commit",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.daily-config-review",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.joe-profile-reflection",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.weather-alerts",
+      "status": "unknown",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.health-check",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.kanban-sync",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.heartbeat",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.daily-briefing",
+      "status": "not_installed",
+      "critical": false
+    },
+    {
+      "agent": "com.alfred.backup-tier2",
+      "status": "unknown",
+      "critical": false
+    }
+  ],
+  "summary": {
+    "total_agents": 18,
+    "running": 0,
+    "stopped": 0,
+    "not_installed": 11,
+    "unknown": 7,
+    "issues": 18
+  }
+}
