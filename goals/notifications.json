@@ -554,5 +554,16 @@
     "answered": false,
     "createdAt": "2026-03-27T03:35:54.370Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774593380697_576ed633",
+    "type": "question",
+    "title": "CoinUsUp Free Trial Stripe Config",
+    "message": "The 14-day free trial feature is code-complete and deployed (Mar 18). It's been waiting on Stripe configuration for 9 days.\\n\\n**What's needed:**\\nYou need to update 12 prices in Stripe dashboard (Basic & Pro, US/CA, Monthly/Annual):\\n- Set trial_period_days: 14 on each\\n\\nOnce done, I'll verify in staging and move to production.\\n\\n**Options:**\\n1. Update Stripe now (5 min task) — we launch this week\\n2. Skip for now — deprioritize trial feature\\n\\n**Recommendation:** Option 1. The code is ready, trial solves a key conversion blocker (no CC required for 14 days). Stripe config is a quick manual step.\\n\\n**Default:** If no response by Mar 30, I'll move card to blocked (holding until you're ready).",
+    "goalId": "task_1773156748695_23b9e471",
+    "source": "idle-progress-check",
+    "answered": false,
+    "createdAt": "2026-03-27T06:36:20.697Z",
+    "answeredAt": null
   }
 ]
