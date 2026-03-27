@@ -10,6 +10,7 @@ export interface Trade {
   pnlPercent: number;
   daysHeld: number;
   fee: number;
+  exitReason?: string;
 }
 
 export interface BacktestResult {
@@ -46,85 +47,167 @@ export interface Strategy {
  * Backtests a strategy against historical price data
  * Simulates trades based on generated signals with realistic fees
  */
+export interface RiskManagement {
+  stopLossPercent?: number;      // e.g., 5 = exit if price drops 5% below entry
+  trailingStopPercent?: number;  // e.g., 3 = exit if price drops 3% from highest since entry
+  takeProfitPercent?: number;    // e.g., 10 = exit if price rises 10% above entry
+  maxHoldDays?: number;          // e.g., 30 = force exit after 30 days
+  minSignalStrength?: number;    // e.g., 0.3 = skip signals with strength < 0.3
+}
+
+const DEFAULT_RISK: RiskManagement = {
+  stopLossPercent: 8,
+  trailingStopPercent: 5,
+  takeProfitPercent: 15,
+  maxHoldDays: 30,
+  minSignalStrength: 0,
+};
+
 export class BacktestEngine {
   private readonly feePercent = 0.001; // 0.1% per trade
   private readonly investmentAmount: number;
+  private readonly risk: RiskManagement;
   private readonly position = {
     isLong: false,
     entryPrice: 0,
     entryTime: new Date(),
-    quantity: 1
+    quantity: 1,
+    highestPrice: 0,
   };
 
-  constructor(investmentAmount: number = 10000) {
+  constructor(investmentAmount: number = 10000, risk: RiskManagement = {}) {
     this.investmentAmount = investmentAmount;
+    this.risk = { ...DEFAULT_RISK, ...risk };
+  }
+
+  private closeTrade(exitPrice: number, exitTime: Date, reason: string, trades: Trade[]) {
+    const fee = (this.position.entryPrice * this.position.quantity * this.feePercent)
+      + (exitPrice * this.position.quantity * this.feePercent);
+    const pnl = (exitPrice - this.position.entryPrice) * this.position.quantity - fee;
+    const pnlPercent = ((exitPrice - this.position.entryPrice) / this.position.entryPrice) * 100 - 0.2;
+    const daysHeld = Math.ceil((exitTime.getTime() - this.position.entryTime.getTime()) / (1000 * 60 * 60 * 24));
+
+    trades.push({
+      entryPrice: this.position.entryPrice,
+      entryTime: this.position.entryTime,
+      exitPrice,
+      exitTime,
+      quantity: this.position.quantity,
+      pnl,
+      pnlPercent,
+      daysHeld: Math.max(1, daysHeld),
+      fee,
+      exitReason: reason,
+    });
+
+    this.position.isLong = false;
+    this.position.entryPrice = 0;
+    this.position.highestPrice = 0;
   }
 
   backtest(series: PriceSeries, strategy: Strategy): BacktestResult {
     const signals = strategy.generateSignals(series);
     const trades: Trade[] = [];
 
-    // Ensure all signal times are proper Date objects (may be strings after serialization)
+    // Ensure all signal times are proper Date objects
     for (const s of signals) {
       if (!(s.time instanceof Date)) {
         s.time = new Date(s.time as any);
       }
     }
 
-    for (const signal of signals) {
-      if (signal.type === 'BUY' && !this.position.isLong) {
-        this.position.isLong = true;
-        this.position.entryPrice = signal.price;
-        this.position.entryTime = signal.time;
-        // Calculate quantity based on investment amount
-        this.position.quantity = this.investmentAmount / signal.price;
-      } else if (signal.type === 'SELL' && this.position.isLong) {
-        const exitPrice = signal.price;
-        const fee = (this.position.entryPrice * this.position.quantity * this.feePercent) + (exitPrice * this.position.quantity * this.feePercent);
-        const pnl = (exitPrice - this.position.entryPrice) * this.position.quantity - fee;
-        const pnlPercent =
-          ((exitPrice - this.position.entryPrice) / this.position.entryPrice) * 100 - 0.2; // -0.2% for fees
-        const daysHeld = Math.ceil((signal.time.getTime() - this.position.entryTime.getTime()) / (1000 * 60 * 60 * 24));
+    // Build a price map by date for intraday risk checks
+    const priceByDate = new Map<string, { high: number; low: number; close: number; timestamp: Date }>();
+    for (const p of series.points) {
+      const ts = p.timestamp instanceof Date ? p.timestamp : new Date(p.timestamp as any);
+      const dateKey = ts.toISOString().split('T')[0];
+      priceByDate.set(dateKey, {
+        high: p.high || p.close,
+        low: p.low || p.close,
+        close: p.close,
+        timestamp: ts,
+      });
+    }
 
-        trades.push({
-          entryPrice: this.position.entryPrice,
-          entryTime: this.position.entryTime,
-          exitPrice,
-          exitTime: signal.time,
-          quantity: this.position.quantity,
-          pnl,
-          pnlPercent,
-          daysHeld: Math.max(1, daysHeld),
-          fee
-        });
+    // Process signals with risk management
+    let signalIndex = 0;
+    const sortedDates = Array.from(priceByDate.keys()).sort();
 
-        this.position.isLong = false;
+    for (const dateKey of sortedDates) {
+      const dayData = priceByDate.get(dateKey)!;
+
+      // Check risk management exits FIRST (before processing new signals)
+      if (this.position.isLong) {
+        // Update highest price for trailing stop
+        if (dayData.high > this.position.highestPrice) {
+          this.position.highestPrice = dayData.high;
+        }
+
+        const entryPrice = this.position.entryPrice;
+        const daysSinceEntry = Math.ceil(
+          (dayData.timestamp.getTime() - this.position.entryTime.getTime()) / (1000 * 60 * 60 * 24)
+        );
+
+        // Stop-loss check
+        if (this.risk.stopLossPercent && dayData.low <= entryPrice * (1 - this.risk.stopLossPercent / 100)) {
+          const stopPrice = entryPrice * (1 - this.risk.stopLossPercent / 100);
+          this.closeTrade(stopPrice, dayData.timestamp, `stop-loss (${this.risk.stopLossPercent}%)`, trades);
+          continue;
+        }
+
+        // Trailing stop check
+        if (this.risk.trailingStopPercent && this.position.highestPrice > 0) {
+          const trailPrice = this.position.highestPrice * (1 - this.risk.trailingStopPercent / 100);
+          if (dayData.low <= trailPrice) {
+            this.closeTrade(trailPrice, dayData.timestamp, `trailing-stop (${this.risk.trailingStopPercent}%)`, trades);
+            continue;
+          }
+        }
+
+        // Take-profit check
+        if (this.risk.takeProfitPercent && dayData.high >= entryPrice * (1 + this.risk.takeProfitPercent / 100)) {
+          const tpPrice = entryPrice * (1 + this.risk.takeProfitPercent / 100);
+          this.closeTrade(tpPrice, dayData.timestamp, `take-profit (${this.risk.takeProfitPercent}%)`, trades);
+          continue;
+        }
+
+        // Max hold days check
+        if (this.risk.maxHoldDays && daysSinceEntry >= this.risk.maxHoldDays) {
+          this.closeTrade(dayData.close, dayData.timestamp, `max-hold (${this.risk.maxHoldDays}d)`, trades);
+          continue;
+        }
+      }
+
+      // Process signals for this date
+      while (signalIndex < signals.length) {
+        const signal = signals[signalIndex];
+        const signalDate = signal.time.toISOString().split('T')[0];
+        if (signalDate > dateKey) break;
+        signalIndex++;
+        if (signalDate < dateKey) continue;
+
+        // Min signal strength filter
+        if (this.risk.minSignalStrength && signal.strength < this.risk.minSignalStrength) {
+          continue;
+        }
+
+        if (signal.type === 'BUY' && !this.position.isLong) {
+          this.position.isLong = true;
+          this.position.entryPrice = signal.price;
+          this.position.entryTime = signal.time;
+          this.position.quantity = this.investmentAmount / signal.price;
+          this.position.highestPrice = signal.price;
+        } else if (signal.type === 'SELL' && this.position.isLong) {
+          this.closeTrade(signal.price, signal.time, 'signal', trades);
+        }
       }
     }
 
     // Close any open position at last price
     if (this.position.isLong && series.points.length > 0) {
       const lastPoint = series.points[series.points.length - 1];
-      const exitPrice = lastPoint.close;
-      const fee = (exitPrice * this.feePercent) * 2;
-      const pnl = (exitPrice - this.position.entryPrice) * this.position.quantity - fee;
-      const pnlPercent =
-        ((exitPrice - this.position.entryPrice) / this.position.entryPrice) * 100 - 0.2;
       const lastTs = lastPoint.timestamp instanceof Date ? lastPoint.timestamp : new Date(lastPoint.timestamp as any);
-      const entryTs = this.position.entryTime instanceof Date ? this.position.entryTime : new Date(this.position.entryTime as any);
-      const daysHeld = Math.ceil((lastTs.getTime() - entryTs.getTime()) / (1000 * 60 * 60 * 24));
-
-      trades.push({
-        entryPrice: this.position.entryPrice,
-        entryTime: this.position.entryTime,
-        exitPrice,
-        exitTime: lastPoint.timestamp,
-        quantity: this.position.quantity,
-        pnl,
-        pnlPercent,
-        daysHeld: Math.max(1, daysHeld),
-        fee
-      });
+      this.closeTrade(lastPoint.close, lastTs, 'end-of-data', trades);
     }
 
     return this.calculateMetrics(series.symbol, strategy.name, trades);

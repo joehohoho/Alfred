@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import * as fs from 'fs';
 import * as path from 'path';
 import { getDataManager } from '@/services/data/DataManager';
-import { BacktestEngine } from '@/services/backtest/engine';
+import { BacktestEngine, type RiskManagement } from '@/services/backtest/engine';
 import type { Strategy } from '@/services/backtest/engine';
 import { SMARSIImprovedStrategy } from '@/services/strategies/smaRsiImproved';
 import { MACDStrategy } from '@/services/strategies/macdStrategy';
@@ -54,6 +54,7 @@ const CACHE_TTL_DAYS = 7;
 
 interface CachedOptimalParams {
   params: Record<string, number>;
+  risk?: Record<string, number>;
   compositeScore: number;
   optimizedAt: string;
   metrics: {
@@ -113,6 +114,10 @@ export async function POST(request: Request) {
       strategy: strategyName,
       days = 90,
       investment = 10000,
+      stopLoss = 8,
+      trailingStop = 5,
+      takeProfit = 15,
+      maxHoldDays = 30,
       optimize = false,
       shortPeriod,
       longPeriod,
@@ -154,6 +159,7 @@ export async function POST(request: Request) {
         // Cache the optimal params
         setCachedParams(symbol.toUpperCase(), stratKey, {
           params: best.params,
+          risk: best.risk as any,
           compositeScore: best.compositeScore,
           optimizedAt: optResult.optimizedAt,
           metrics: {
@@ -167,13 +173,13 @@ export async function POST(request: Request) {
         // Now run the full backtest with optimal params for display
         const dataManager = getDataManager();
         const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
-        const engine = new BacktestEngine(Number(investment) || 10000);
+        const engine = new BacktestEngine(Number(investment) || 10000, { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 });
         const optimizedStrategy = strategyFactory(best.params);
         const optimizedResult = engine.backtest(priceSeries, optimizedStrategy);
 
         // Also run with default params for comparison
         const defaultStrategy = strategyFactory(undefined);
-        const defaultEngine = new BacktestEngine(Number(investment) || 10000);
+        const defaultEngine = new BacktestEngine(Number(investment) || 10000, { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 });
         const defaultResult = defaultEngine.backtest(priceSeries, defaultStrategy);
 
         // Track performance
@@ -252,6 +258,7 @@ export async function POST(request: Request) {
             pnlPct: t.pnlPercent,
             daysHeld: t.daysHeld,
             fee: t.fee,
+            exitReason: (t as any).exitReason,
           })),
           priceData,
           signals: signalMarkers,
@@ -279,6 +286,10 @@ export async function POST(request: Request) {
         Object.assign(params, cachedParamData.params);
         usedCachedParams = true;
       }
+      // Apply cached risk params too
+      if (cachedParamData?.risk) {
+        Object.assign(extraParams, cachedParamData.risk);
+      }
     }
 
     const strategyInstance = strategyFactory(Object.keys(params).length > 0 ? params : undefined);
@@ -288,7 +299,7 @@ export async function POST(request: Request) {
     const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
 
     // Run backtest with investment amount
-    const engine = new BacktestEngine(Number(investment) || 10000);
+    const engine = new BacktestEngine(Number(investment) || 10000, { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 });
     const result = engine.backtest(priceSeries, strategyInstance);
 
     // Track performance
@@ -362,6 +373,7 @@ export async function POST(request: Request) {
         pnlPct: t.pnlPercent,
         daysHeld: t.daysHeld,
         fee: t.fee,
+            exitReason: (t as any).exitReason,
       })),
       priceData,
       signals: signalMarkers,
