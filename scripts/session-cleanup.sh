@@ -17,6 +17,21 @@
 
 set -euo pipefail
 
+# LOCKFILE GUARD: Prevent parallel execution (race condition on sessions.json)
+LOCKFILE="/tmp/session-cleanup.lock"
+MAX_LOCK_AGE=300  # 5 minutes
+
+if [[ -f "$LOCKFILE" ]]; then
+  LOCK_AGE=$(( $(date +%s) - $(stat -f%m "$LOCKFILE" 2>/dev/null || echo 0) ))
+  if [[ "$LOCK_AGE" -lt "$MAX_LOCK_AGE" ]]; then
+    echo "Another cleanup is running (lock age: ${LOCK_AGE}s). Exiting." >> /dev/null
+    exit 0
+  fi
+  # Lock is stale, proceed with cleanup
+fi
+touch "$LOCKFILE"
+trap "rm -f $LOCKFILE" EXIT
+
 SESSIONS_DIR="$HOME/.openclaw/agents/main/sessions"
 SESSIONS_JSON="$SESSIONS_DIR/sessions.json"
 LOG="$HOME/.openclaw/logs/session-cleanup.log"
@@ -52,7 +67,8 @@ if [[ ! -f "$SESSIONS_JSON" ]]; then
 fi
 
 # Run cleanup in Python for safe JSON manipulation
-python3 << 'PY'
+# Redirect stdout to log to avoid duplicate output
+python3 >> "$LOG" 2>&1 << 'PY'
 import json, os, time, sys, shutil, glob
 from pathlib import Path
 from datetime import datetime
@@ -70,9 +86,7 @@ MAIN_SESSION_MAX_KB = 500        # Reset main session if JSONL > 500KB
 
 def log(msg):
     line = f"[{datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}] {msg}"
-    print(line)
-    with open(LOG_PATH, "a") as f:
-        f.write(line + "\n")
+    print(line)  # Print to stdout; shell redirect handles file writing
 
 def get_age_h(entry, sessions_dir):
     """Get session age in hours from updatedAt or file mtime."""
