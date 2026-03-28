@@ -216,4 +216,33 @@ Ready when you are.** (_[REMINDER] 3 Review Cards Blocked on Your Decisions_, Ma
 
 - **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
   ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
+
+- **
+
+**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**
+- Status: Review for 3 days
+- Blocker: Approval to proceed with 10 SMB discovery calls
+- Your decision: Yes/No
+
+**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**  
+- Status: Review for 3 days
+- Blocker: Prospect list approval + 2-3 warm intro names
+- Your decision: Names or revise list
+
+**CARD 3: CoinUsUp 14-Day Trial (task_1773156748695_23b9e471)**
+- Status: Review for 9 days
+- Blocker: Stripe dashboard config (12 prices, add trial_period_days=14)
+- Your task: 15-minute manual update, or deprioritize
+- I can guide the exact 5 steps if needed
+
+**Options:**
+1. Respond to all three today
+2. Handle one now, defer others
+3. "Defer all" — I'll move to blocked
+
+Recommendations: Card 3 is quickest (5 min). Cards 1+2 are strategic—your call.
+
+**Impact if delayed:** 14-day trial launch blocked; discovery calls + portal outreach stall.
+** (_**[URGENT] 3 Review Cards Blocked — Decisions Needed Today**_, Mar 28 12:12)
+  ID: `notif_1774699959474_6617d372` — No details provided
 <!-- PENDING-Q-END -->

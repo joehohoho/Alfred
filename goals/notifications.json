@@ -594,5 +594,14 @@
     "answered": false,
     "createdAt": "2026-03-28T09:12:07.989Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774699959474_6617d372",
+    "type": "**[URGENT] 3 Review Cards Blocked — Decisions Needed Today**",
+    "title": "\n\n**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**\n- Status: Review for 3 days\n- Blocker: Approval to proceed with 10 SMB discovery calls\n- Your decision: Yes/No\n\n**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**  \n- Status: Review for 3 days\n- Blocker: Prospect list approval + 2-3 warm intro names\n- Your decision: Names or revise list\n\n**CARD 3: CoinUsUp 14-Day Trial (task_1773156748695_23b9e471)**\n- Status: Review for 9 days\n- Blocker: Stripe dashboard config (12 prices, add trial_period_days=14)\n- Your task: 15-minute manual update, or deprioritize\n- I can guide the exact 5 steps if needed\n\n**Options:**\n1. Respond to all three today\n2. Handle one now, defer others\n3. \"Defer all\" — I'll move to blocked\n\nRecommendations: Card 3 is quickest (5 min). Cards 1+2 are strategic—your call.\n\n**Impact if delayed:** 14-day trial launch blocked; discovery calls + portal outreach stall.\n",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-28T12:12:39.474Z",
+    "answeredAt": null
   }
 ]
