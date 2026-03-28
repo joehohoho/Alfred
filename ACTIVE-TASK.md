@@ -213,4 +213,7 @@ Ready when you are.** (_[REMINDER] 3 Review Cards Blocked on Your Decisions_, Ma
 
 - **CoinUsUp: organic growth or paid marketing?** (_question_, Mar 27 13:00)
   ID: `notif_1774616400961_029cb69a` — Is CoinUsUp scaling naturally through word-of-mouth, or does it need ad spend? Do you have a growth budget in mind?
+
+- **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
+  ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
 <!-- PENDING-Q-END -->
