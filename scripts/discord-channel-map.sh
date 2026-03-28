@@ -43,8 +43,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
         resolve_discord_channel "$2"
     elif [[ "$action" == "list" ]]; then
         echo "Discord Channel Mapping:"
-        echo "$CHANNEL_MAP" | jq -r 'to_entries[] | "  \(.key | length as $len | @text) → \(.value)"' | \
-            awk '{printf "  %-20s %s\n", $1, $2}'
+        echo "$CHANNEL_MAP" | jq -r 'to_entries[] | "  \(.key) → \(.value)"'
     else
         echo "Usage: $0 {resolve|list} [channel_name]"
         exit 1
