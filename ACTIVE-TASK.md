@@ -1,7 +1,7 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Updated:** 2026-03-27 23:50 ADT  
-**Status:** `review` (Workflow Efficiency Roadmap Week 1 complete)
+**Updated:** 2026-03-28 17:15 ADT  
+**Status:** `idle` (Week 1 complete; 3 review cards blocked on Joe decisions)
 
 ---
 
