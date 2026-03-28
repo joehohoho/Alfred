@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-28T07:26:47+0000",
+  "timestamp": "2026-03-28T08:11:34+0000",
   "agents": [
-    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "33364"},
+    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "42683"},
     {"name": "application.com.apple.ActivityMonitor.1152921500311906413.1152921500311906418", "status": "RUNNING", "exit_code": "396"},
     {"name": "application.com.apple.Family.1152921500312071725.1152921500312071734", "status": "RUNNING", "exit_code": "44827"},
     {"name": "application.com.apple.MobileSMS.1152921500311887877.1152921500311887946", "status": "RUNNING", "exit_code": "397"},
@@ -19,7 +19,7 @@
     {"name": "com.alfred.health-server", "status": "RUNNING", "exit_code": "36627"},
     {"name": "com.alfred.job-tracker", "status": "RUNNING", "exit_code": "612"},
     {"name": "com.alfred.kanban-stale-scan", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "36596"},
+    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "44765"},
     {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "22066"},
     {"name": "com.alfred.log-rotation", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.maintenance-weekly", "status": "DOWN", "exit_code": "-"},
@@ -284,7 +284,7 @@
     {"name": "com.apple.hiservices-xpcservice", "status": "RUNNING", "exit_code": "379"},
     {"name": "com.apple.homed", "status": "RUNNING", "exit_code": "503"},
     {"name": "com.apple.homeenergyd", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.apple.iCloudHelper", "status": "RUNNING", "exit_code": "35069"},
+    {"name": "com.apple.iCloudHelper", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.iCloudNotificationAgent", "status": "RUNNING", "exit_code": "548"},
     {"name": "com.apple.iCloudUserNotificationsd", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.icdd", "status": "RUNNING", "exit_code": "597"},
