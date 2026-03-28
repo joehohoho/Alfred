@@ -245,4 +245,7 @@ Recommendations: Card 3 is quickest (5 min). Cards 1+2 are strategic—your call
 **Impact if delayed:** 14-day trial launch blocked; discovery calls + portal outreach stall.
 ** (_**[URGENT] 3 Review Cards Blocked — Decisions Needed Today**_, Mar 28 12:12)
   ID: `notif_1774699959474_6617d372` — No details provided
+
+- **What's one feature users keep asking for?** (_question_, Mar 28 13:00)
+  ID: `notif_1774702801107_390b0450` — Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.
 <!-- PENDING-Q-END -->

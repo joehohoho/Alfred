@@ -603,5 +603,15 @@
     "answered": false,
     "createdAt": "2026-03-28T12:12:39.474Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774702801107_390b0450",
+    "type": "question",
+    "title": "What's one feature users keep asking for?",
+    "message": "Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-28T13:00:01.107Z",
+    "answeredAt": null
   }
 ]
