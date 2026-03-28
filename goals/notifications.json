@@ -585,5 +585,14 @@
     "answered": false,
     "createdAt": "2026-03-27T13:00:00.961Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774689127989_0317ff88",
+    "type": "question",
+    "title": "[URGENT] 3 Review Cards Blocked — Need Your Decisions",
+    "message": "**STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).\n\n---\n\n**CARD 1: Bill Review & Invoice Audit Automation (task_1774058538023_ae4bf3d2)**\n- Status: Review (since Mar 23, 5 days)\n- What's ready: Complete market validation, MVP blueprint, 6-week execution plan\n- Blocker: Approval to proceed with 10 SMB discovery calls\n- Your task: Reply \"proceed\" or \"skip\"\n- Impact: Delays go-to-market by 1 week per day\n\n---\n\n**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**\n- Status: Review (since Mar 24, 4 days)\n- What's ready: Phase 2 outreach framework, interview templates\n- Blocker: (1) Approve 10-prospect cold outreach list, (2) Provide 2-3 warm intro names\n- Your task: Reply with names or \"revise list first\"\n- Impact: Mar 31 launch target at risk if delayed further\n\n---\n\n**CARD 3: CoinUsUp 14-Day Free Trial (task_1773156748695_23b9e471)**\n- Status: Review (since Mar 18, 10 days)\n- What's ready: Code complete, deployed, 25+ tests pass, frontend live\n- Blocker: Update 12 Stripe prices (Basic/Pro, US/CA, Monthly/Annual) with trial_period_days=14\n- Your task: Update Stripe dashboard (5-min manual task) or deprioritize\n- Impact: Trial feature can't launch; blocks key conversion blocker\n\n---\n\n**OPTIONS:**\n1. **Proceed on all 3** — I launch immediately on Card 1+2, you update Stripe for Card 3\n2. **Defer all** — I move to Blocked; re-engage when ready\n3. **Selective** — Handle one or two now, defer others\n\n**RECOMMENDATION:** Proceed on all 3. Market timing is favorable (2026 passive income surge + contractor demand), code is ready, and trial is a quick Stripe config away. Small time investment now = revenue opportunity.\n\n**DEFAULT:** If no response by 9 AM Mar 31, I move all to Blocked and shift focus to other work.",
+    "answered": false,
+    "createdAt": "2026-03-28T09:12:07.989Z",
+    "answeredAt": null
   }
 ]
