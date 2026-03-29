@@ -1,6 +1,6 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Updated:** 2026-03-28 22:00 ADT  
+**Updated:** 2026-03-29 00:57 ADT  
 **Status:** `idle` (Week 1 complete; 3 review cards blocked on Joe decisions; HAL offline)
 
 ---

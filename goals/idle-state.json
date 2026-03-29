@@ -1,23 +1,7 @@
 {
-  "lastActivityAt": "2026-03-28T23:42:01.853Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-03-29T03:57:12.900Z",
+  "lastActivityType": "review-memory",
   "recentActivities": [
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-03-27T17:06:31.560Z"
-    },
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-03-27T18:06:34.040Z"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-03-27T19:23:10.713Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-03-27T19:38:11.310Z"
-    },
     {
       "type": "review-memory",
       "dispatchedAt": "2026-03-27T19:53:11.990Z"
@@ -201,8 +185,24 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-03-28T23:42:01.853Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-03-29T03:12:10.796Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-03-29T03:27:11.439Z"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-03-29T03:42:12.142Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-03-29T03:57:12.900Z"
     }
   ],
-  "totalIdleDispatches": 442,
+  "totalIdleDispatches": 446,
   "cooldownMinutes": 15
 }
