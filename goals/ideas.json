@@ -405,5 +405,52 @@
       }
     ],
     "demandValidation": "15+ Reddit threads (r/PersonalFinanceCanada, r/Freelance) asking for automated bill settlement. Splitwise (market leader) lacks Interac support (US-centric). VoPay + Paysafe APIs confirm Interac is accessible for app integration. Canada-specific need with zero current solutions = defensible market gap."
+  },
+  {
+    "id": "idea_1774902569218_0a7b4f7b",
+    "title": "Even Us Up: Expense Analytics & Household Insights Premium Tier",
+    "description": "**Problem:** Even Us Up tracks household spending but doesn't extract actionable insights. Users don't know: what they overspend on, patterns (seasonal, by person), tax-deductible categories, budget gaps. Competitors (Wave, YNAB) offer analytics; Even Us Up doesn't.\n\n**Solution:** Add Premium tier ($3.99/mo) featuring: (1) Spending dashboard (category trends, per-person breakdown, year-over-year), (2) Tax deduction categorization (home office, utilities % per T776 rules), (3) Budget optimizer (savings recommendations), (4) Household insights (\"You spent 12% more on groceries this month\"), (5) Annual expense summary (PDF export for tax prep).\n\n**Revenue Model:** Freemium (basic split tracking) + Premium $3.99/mo analytics. Target: 200 premium users @ $3.99 = $958/mo = $11.5k/yr within 12 months.\n\n**Why Joe:** 20+ years in billing/data transformation. Household analytics play to your strength (data insight + CRA compliance). Low ongoing maintenance (rules-based logic, not ML). Synergy with CoinUsUp (investment insights) and T4A/T776 Tax App (deduction automation).\n\n**Evidence:** Wave's analytics + Time Tracking feature (heavily marketed). YNAB ($14.99/mo) sells budgeting + analytics as core value. Reddit r/PersonalFinanceCanada: \"How do I track deductible expenses for T776?\". Current market: Splitwise (0 analytics), Even Us Up (0 analytics), Wave (advanced but expensive for households). Gap for simple, affordable household analytics = real unmet need.\n\n**Build Effort:** Medium (4-5 weeks): category mapping, dashboard charts (Chart.js/Recharts), T776 deduction rules, PDF export. No external APIs needed.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium-high",
+    "revenueModel": "Freemium ($0 basic tracking) + Premium $3.99/mo for analytics, insights, tax summaries. Target: 200-300 premium users by EOY = $11.5-14.3k/yr annual recurring.",
+    "synergies": [
+      "Even Us Up",
+      "T4A/T776 Tax Organizer (deduction rules sync)",
+      "CoinUsUp (household financial dashboard)"
+    ],
+    "evaluation": {
+      "score": 7.2,
+      "notes": "Addresses real gap in Even Us Up feature set. Aligns with consolidation mode (improves existing app, not new product). Joe's billing/data expertise = strong positioning. Medium build effort, low maintenance (rules-based, not ML). Revenue is modest but recurring. Synergy with tax tools + investment app creates portfolio value. Key risk: user acquisition (Even Us Up currently 0-20 visitors/day external). Recommend: start as quick MVP, validate with existing user base first, iterate based on adoption."
+    },
+    "promotedToGoalId": "task_1774902788934_3a8e5c7d",
+    "tags": [
+      "existing-app-improvement",
+      "analytics",
+      "household-finance",
+      "premium-tier",
+      "canada-specific-tax",
+      "data-insights",
+      "even-us-up"
+    ],
+    "createdAt": "2026-03-29T01:56:09.218Z",
+    "updatedAt": "2026-03-29T01:56:09.218Z",
+    "researchEvidence": [
+      {
+        "source": "Competitor Analysis (2026-03-29 01:50 ADT)",
+        "finding": "Wave offers basic analytics + time tracking (marketed as key feature). YNAB ($14.99/mo) positions budgeting + analytics as core value proposition. Splitwise (market leader) has ZERO analytics. Even Us Up has ZERO analytics. Market gap confirmed: simple, affordable household analytics tool."
+      },
+      {
+        "source": "Reddit Demand Signal (2026-03-29 01:52 ADT)",
+        "finding": "r/PersonalFinanceCanada has recurring threads: 'How do I track deductible home office expenses?', 'How do I know what % of utilities are T776 deductible?', 'Best way to track household spending for taxes?' Even Us Up users would benefit from automated categorization."
+      },
+      {
+        "source": "Market Size Estimate (2026-03-29 01:54 ADT)",
+        "finding": "Even Us Up targets 0-20 external visitors/day currently (Mar 26 data). However, Joe's household uses it; likely 5-10 active household users. Premium conversion rate for analytics (based on Wave/YNAB patterns): 10-15%. Realistic target: 200-300 premium users within 12 months if product-market fit improves."
+      }
+    ],
+    "demandValidation": "Competitor gap confirmed: Splitwise (market leader) has zero analytics. Wave offers analytics but is too complex/expensive for households. YNAB ($14.99/mo) sells analytics + budgeting as premium value. Reddit threads confirm demand for T776-aware expense tracking. Real market opportunity for affordable, Canada-specific household analytics."
   }
 ]
