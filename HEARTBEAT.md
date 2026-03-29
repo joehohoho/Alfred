@@ -93,6 +93,8 @@ timestamp | context% | model | token_cost | status
 
 **Status:** ✅ Implemented. Replaces old Check 4. Part of "reliability is autonomy" principle.
 
+**Note (2026-03-29):** Sentinel system now handles continuous monitoring (every 5 min). Heartbeat checks can defer to sentinel for: gateway health, session bloat, config integrity, model failures. Focus heartbeat on: context compression alerts, token efficiency trends, file size monitoring.
+
 ---
 
 ### Check 5: Model Continuity Verification 🔄 (NEW - 2026-02-18)
@@ -126,12 +128,17 @@ Alfred and HAL MUST continue working during quiet hours:
 - Continue evaluating ideas, reviewing memory, running code reviews
 - Continue all cron jobs and LaunchAgent tasks on their normal schedules
 
-The ONLY restriction during quiet hours:
-- Do NOT send push notifications or direct messages to Joe (iMessage, Discord DM)
-- Emergency alerts only for critical issues (>80% context, gateway down, rate limit spiral)
-- Joe's notification questions can be deferred until 8:30 AM — but work triggered by those questions should NOT be deferred
+**iMessage Protocol During Quiet Hours:**
+- ✅ **DO respond** if Joe sends a message during quiet hours (respond to his direct question/request)
+- ❌ **DON'T initiate** — Do not send iMessages during quiet hours about other items, updates, or proactive work
+- ❌ **DON'T send notifications** — No push notifications or Discord DMs during quiet hours
+- ⚠️ **Emergency only** — Exception: Critical alerts only (>80% context, gateway down, rate limit spiral, security issues)
 
-**In short: keep working, keep posting to Discord/dashboard, just don't ping Joe directly.**
+**In short:** If Joe messages you during quiet hours, respond to what he asks. Otherwise, keep working internally (Discord posts, dashboard updates, crons, monitoring) but don't ping Joe directly.
+
+---
+
+**Note (Added 2026-03-29 17:02):** Joe clarified that if he messages during quiet hours, he expects a response to his question, but aside from that, Alfred should not initiate messages during 11 PM - 9 AM window.
 
 ---
 
