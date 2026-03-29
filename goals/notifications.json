@@ -613,5 +613,14 @@
     "answered": false,
     "createdAt": "2026-03-28T13:00:01.107Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774787287305_3001fc2e",
+    "type": "[REMINDER] CoinUsUp 14-day Trial — Stripe Config (5 min)",
+    "title": "\n**Card:** Implement 14-day free trial on Basic/Pro tiers (task_1773156748695_23b9e471)\n**Status:** Review for 11 days (since Mar 18)\n**Blocker:** Stripe dashboard config — 12 prices (Basic/Pro × US/CA × Monthly/Annual) with trial_period_days=14\n\n**Context:**\n- Code implementation: ✅ DONE (Mar 18)\n- Frontend: ✅ DONE\n- Deployment ready: ✅ YES\n- Only blocker: Manual Stripe configuration (15 min max)\n\n**HAL's Assessment (09:41 ADT):**\nThis is an organizational blocker, not a technical one. 11-day stall on a 5-minute task suggests an execution/decision bottleneck. This blocks trial launch which can generate $500-2k/month.\n\n**Decision Needed:**\n1. **Approve to proceed:** I can guide the exact 5 Stripe steps if you don't want to do it yourself\n2. **Prioritize this week:** Add to today's todo? Takes 15 min\n3. **Deprioritize:** Move to blocked/backlog\n\n**Recommendation:** This should launch THIS WEEK. It's the fastest path to product revenue in the next 90 days.\n\nWhat's your call? Should I guide the Stripe config, or would you prefer to handle it yourself?\n",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-03-29T12:28:07.305Z",
+    "answeredAt": null
   }
 ]
