@@ -1,7 +1,7 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Updated:** 2026-03-29 00:57 ADT  
-**Status:** `idle` (Week 1 complete; 3 review cards blocked on Joe decisions; HAL offline)
+**Updated:** 2026-03-29 17:12 ADT  
+**Status:** `idle` (Week 1 complete + code review done; 3 review cards blocked on Joe decisions; HAL offline)
 
 ---
 
@@ -211,9 +211,6 @@ logs/health-monitor.log (auto-generated)
 Ready when you are.** (_[REMINDER] 3 Review Cards Blocked on Your Decisions_, Mar 27 09:35)
   ID: `notif_1774604156182_fba5b3f6` — --options
 
-- **CoinUsUp: organic growth or paid marketing?** (_question_, Mar 27 13:00)
-  ID: `notif_1774616400961_029cb69a` — Is CoinUsUp scaling naturally through word-of-mouth, or does it need ad spend? Do you have a growth budget in mind?
-
 - **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
   ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
 
@@ -274,3 +271,74 @@ What's your call? Should I guide the Stripe config, or would you prefer to handl
 ** (_[REMINDER] CoinUsUp 14-day Trial — Stripe Config (5 min)_, Mar 29 12:28)
   ID: `notif_1774787287305_3001fc2e` — No details provided
 <!-- PENDING-Q-END -->
+
+---
+
+## ✅ COMPLETED: Market Signal Lab Code Review (Proactive)
+
+**Date:** 2026-03-29 17:10 ADT  
+**Status:** Idle activity (HAL unavailable; Code review requested by Command Center)  
+**Deliverable:** `signal-app-mvp/CODE-REVIEW-2026-03-29.md` (19.4 KB)
+
+### What Was Done
+
+**Comprehensive code review covering:**
+1. Architecture & design patterns
+2. Code quality (TypeScript, error handling, performance)
+3. Feature analysis (implemented vs missing)
+4. Technical debt assessment
+5. Security audit
+6. Performance optimization opportunities
+7. 9-item action roadmap with effort estimates
+
+### Key Findings
+
+**Overall Assessment:** ⭐⭐⭐⭐ (4/5) — Production-capable architecture
+
+**Strengths:**
+- ✅ Clean layered architecture (UI → API → Logic → Data)
+- ✅ Proper TypeScript typing (strict mode, no `any`)
+- ✅ Comprehensive backtest engine (realistic fees, proper metrics)
+- ✅ 5 production-ready strategies with adaptive weighting
+- ✅ Smart caching (memory <1ms, disk <50ms)
+- ✅ Extensible data adapters (4 sources with fallback logic)
+
+**Critical Gaps (Must-Have for Production):**
+1. ❌ Position ledger (portfolio tracking) — 8-12h
+2. ❌ Alert/threshold system (automation) — 6-10h
+3. ❌ Real-time data (WebSocket) — 12-16h
+4. ❌ Unit tests — 10-15h
+5. ❌ User authentication — 4-6h
+
+**Top 5 Technical Debt (Priority Order):**
+1. Position ledger (8-12h) — Foundation for portfolio features
+2. Alert system (6-10h) — Foundation for automation
+3. Real-time data (12-16h) — For live monitoring
+4. Unit tests (10-15h) — For refactoring confidence
+5. Compliance & audit (12-16h) — For regulated deployment
+
+### Recommendation
+
+**Next Sprint (Immediate):**
+- Priority 1: Position ledger (enables multi-symbol trading, portfolio metrics)
+- Priority 2: Unit tests (confidence for future changes)
+
+**Follow-up (2-4 weeks):**
+- Priority 3: Alert system (enables automated monitoring)
+- Priority 4: User authentication (for multi-user deployment)
+
+**Long-term (1-3 months):**
+- Priority 5: Real-time data (live signal generation)
+- Priority 6: Signal outcome tracking (feedback loop)
+
+### Impact
+
+This code review identifies **two major architectural gaps** (position ledger + alerts) that block advanced features. Fixing these would enable:
+- Portfolio-level analysis
+- Multi-symbol trading
+- Automated monitoring + alerts
+- Learning feedback loop (signal accuracy tracking)
+
+**Status:** ✅ Complete  
+**Commit:** 5faea15 (CODE-REVIEW-2026-03-29.md)  
+**Memory updated:** 2026-03-29 17:12 ADT
