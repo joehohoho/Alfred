@@ -12,6 +12,12 @@ import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStra
 import { StrategyRegistry as EnsembleRegistry } from '@/services/strategies/registry';
 import { optimizeStrategy } from '@/services/backtest/ParameterOptimizer';
 import { trackPerformance } from '@/services/backtest/performanceTracker';
+import {
+  analyzeTrades as analyzeTradePatterns,
+  getLearnedPatterns,
+  mergePatterns,
+  savePatterns,
+} from '@/services/learning/tradeAnalyzer';
 
 /** Simple SMA calculator for chart overlay */
 function calculateSMAArray(values: number[], period: number): number[] {
@@ -119,6 +125,7 @@ export async function POST(request: Request) {
       takeProfit = 15,
       maxHoldDays = 30,
       optimize = false,
+      skipLearnedFilter = false,
       shortPeriod,
       longPeriod,
       ...extraParams
@@ -156,47 +163,68 @@ export async function POST(request: Request) {
 
         const best = optResult.topParams[0];
 
-        // Cache the optimal params
-        setCachedParams(symbol.toUpperCase(), stratKey, {
-          params: best.params,
-          risk: best.risk as any,
-          compositeScore: best.compositeScore,
-          optimizedAt: optResult.optimizedAt,
-          metrics: {
-            totalPnlPercent: best.metrics.totalPnlPercent,
-            winRate: best.metrics.winRate,
-            sharpeRatio: best.metrics.sharpeRatio,
-            totalTrades: best.metrics.totalTrades,
-          },
-        });
-
-        // Now run the full backtest with optimal params for display
+        // Run full backtest with BOTH optimized and default params on the FULL dataset
         const dataManager = getDataManager();
         const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
-        const engine = new BacktestEngine(Number(investment) || 10000, { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 });
+        const riskSettings = best.risk || { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 };
+
         const optimizedStrategy = strategyFactory(best.params);
+        const engine = new BacktestEngine(Number(investment) || 10000, riskSettings);
         const optimizedResult = engine.backtest(priceSeries, optimizedStrategy);
 
-        // Also run with default params for comparison
         const defaultStrategy = strategyFactory(undefined);
-        const defaultEngine = new BacktestEngine(Number(investment) || 10000, { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 });
+        const defaultRisk = { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 };
+        const defaultEngine = new BacktestEngine(Number(investment) || 10000, defaultRisk);
         const defaultResult = defaultEngine.backtest(priceSeries, defaultStrategy);
 
-        // Track performance
+        // CRITICAL: Only use optimized params if they ACTUALLY beat defaults on the full dataset
+        // If defaults are better, return defaults as the "winner" and don't cache bad params
+        const useOptimized = optimizedResult.totalPnL > defaultResult.totalPnL;
+        const winnerResult = useOptimized ? optimizedResult : defaultResult;
+        const winnerStrategy = useOptimized ? optimizedStrategy : defaultStrategy;
+        const winnerParams = useOptimized ? best.params : undefined;
+
+        // Only cache if optimized actually wins
+        if (useOptimized) {
+          setCachedParams(symbol.toUpperCase(), stratKey, {
+            params: best.params,
+            risk: best.risk as any,
+            compositeScore: best.compositeScore,
+            optimizedAt: optResult.optimizedAt,
+            metrics: {
+              totalPnlPercent: optimizedResult.totalPnLPercent,
+              winRate: optimizedResult.winRate,
+              sharpeRatio: optimizedResult.sharpeRatio,
+              totalTrades: optimizedResult.totalTrades,
+            },
+          });
+        }
+
+        // Track the WINNER's performance
         trackPerformance({
           symbol: symbol.toUpperCase(),
           strategy: stratKey,
-          params: best.params,
+          params: useOptimized ? best.params : {},
           days: Number(days) || 90,
-          pnlPercent: optimizedResult.totalPnLPercent,
-          winRate: optimizedResult.winRate,
-          sharpe: optimizedResult.sharpeRatio,
-          trades: optimizedResult.totalTrades,
+          pnlPercent: winnerResult.totalPnLPercent,
+          winRate: winnerResult.winRate,
+          sharpe: winnerResult.sharpeRatio,
+          trades: winnerResult.totalTrades,
         });
+
+        // Learn from this backtest's trades
+        try {
+          const newPatterns = analyzeTradePatterns(symbol.toUpperCase(), winnerResult.trades, priceSeries);
+          const existingPatterns = getLearnedPatterns(symbol.toUpperCase());
+          const merged = existingPatterns ? mergePatterns(existingPatterns, newPatterns) : newPatterns;
+          savePatterns(symbol.toUpperCase(), merged);
+        } catch (learnErr) {
+          console.error('[Backtest] Trade pattern learning failed (non-fatal):', learnErr);
+        }
 
         clearTimeout(timeout);
 
-        // Build chart data
+        // Build chart data using the winner
         const closes = priceSeries.points.map((p) => p.close);
         const sma9Values = calculateSMAArray(closes, 9);
         const sma21Values = calculateSMAArray(closes, 21);
@@ -211,18 +239,20 @@ export async function POST(request: Request) {
 
         let allSignals: any[] = [];
         try {
-          allSignals = optimizedStrategy.generateSignals(priceSeries);
+          allSignals = winnerStrategy.generateSignals(priceSeries);
         } catch { /* non-fatal */ }
         const signalMarkers = buildSignalMarkers(allSignals);
 
         return NextResponse.json({
-          symbol: optimizedResult.symbol,
-          strategy: optimizedResult.strategyName,
+          symbol: winnerResult.symbol,
+          strategy: winnerResult.strategyName,
           days: Number(days) || 90,
           status: 'success',
           optimized: true,
+          usedOptimizedParams: useOptimized,
+          winner: useOptimized ? 'optimized' : 'defaults',
           walkForwardValidated: optResult.walkForwardValidated,
-          optimalParams: best.params,
+          optimalParams: useOptimized ? best.params : undefined,
           optimization: {
             totalCombinationsTested: optResult.totalCombinationsTested,
             topParams: optResult.topParams,
@@ -234,21 +264,24 @@ export async function POST(request: Request) {
             optimizedPnL: `$${optimizedResult.totalPnL.toFixed(2)}`,
             optimizedPnLPercent: optimizedResult.totalPnLPercent,
             improvement: `$${(optimizedResult.totalPnL - defaultResult.totalPnL).toFixed(2)}`,
+            winnerNote: useOptimized
+              ? 'Optimized params beat defaults — using optimized'
+              : 'Default params performed better — using defaults (not caching worse params)',
           },
           metrics: {
-            winRate: `${optimizedResult.winRate}%`,
-            profitFactor: optimizedResult.profitFactor,
-            sharpeRatio: optimizedResult.sharpeRatio,
-            maxDrawdown: `${optimizedResult.maxDrawdown}%`,
-            totalPnL: `$${optimizedResult.totalPnL.toFixed(2)}`,
-            totalPnLPercent: optimizedResult.totalPnLPercent,
-            totalTrades: optimizedResult.totalTrades,
-            winningTrades: optimizedResult.winningTrades,
-            losingTrades: optimizedResult.losingTrades,
-            avgWin: optimizedResult.avgWin,
-            avgLoss: optimizedResult.avgLoss,
+            winRate: `${winnerResult.winRate}%`,
+            profitFactor: winnerResult.profitFactor,
+            sharpeRatio: winnerResult.sharpeRatio,
+            maxDrawdown: `${winnerResult.maxDrawdown}%`,
+            totalPnL: `$${winnerResult.totalPnL.toFixed(2)}`,
+            totalPnLPercent: winnerResult.totalPnLPercent,
+            totalTrades: winnerResult.totalTrades,
+            winningTrades: winnerResult.winningTrades,
+            losingTrades: winnerResult.losingTrades,
+            avgWin: winnerResult.avgWin,
+            avgLoss: winnerResult.avgLoss,
           },
-          trades: optimizedResult.trades.map((t, i) => ({
+          trades: winnerResult.trades.map((t, i) => ({
             id: i + 1,
             entry: t.entryPrice,
             entryTime: t.entryTime,
@@ -313,6 +346,16 @@ export async function POST(request: Request) {
       sharpe: result.sharpeRatio,
       trades: result.totalTrades,
     });
+
+    // Learn from this backtest's trades
+    try {
+      const newPatterns = analyzeTradePatterns(symbol.toUpperCase(), result.trades, priceSeries);
+      const existingPatterns = getLearnedPatterns(symbol.toUpperCase());
+      const merged = existingPatterns ? mergePatterns(existingPatterns, newPatterns) : newPatterns;
+      savePatterns(symbol.toUpperCase(), merged);
+    } catch (learnErr) {
+      console.error('[Backtest] Trade pattern learning failed (non-fatal):', learnErr);
+    }
 
     clearTimeout(timeout);
 

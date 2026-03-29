@@ -14,6 +14,18 @@ STALE_WORK_HOURS=12  # Cards in_progress with no update for this long get moved 
 echo "=== Stale Work Check (>${STALE_WORK_HOURS}h in_progress) ==="
 
 BOARD=$(curl -s --max-time 10 http://localhost:3001/api/kanban 2>/dev/null)
+
+# Health check: verify board is valid JSON
+if [ -z "$BOARD" ]; then
+  echo "  ⚠ ERROR: Failed to fetch kanban board (empty response). Skipping scan."
+  exit 1
+fi
+
+if ! echo "$BOARD" | jq . >/dev/null 2>&1; then
+  echo "  ⚠ ERROR: Kanban board response is not valid JSON. Skipping scan."
+  exit 1
+fi
+
 if [ -n "$BOARD" ]; then
   MOVED=$(echo "$BOARD" | python3 -c "
 import json, sys, subprocess, re

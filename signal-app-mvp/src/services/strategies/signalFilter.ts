@@ -1,5 +1,10 @@
 import type { PriceSeries } from '@/models/PriceData';
 import type { SignalWithStrength } from '@/services/backtest/engine';
+import {
+  getActionableLosingPatterns,
+  getActionableWinningPatterns,
+  detectCurrentConditions,
+} from '@/services/learning/tradeAnalyzer';
 
 export interface FilterOptions {
   /** Enable trend filter (price vs 50-SMA). Default: true */
@@ -32,22 +37,32 @@ export interface FilterOptions {
   atrPeriod?: number;
   /** ATR multiplier for stop-loss distance. Default: 2 */
   atrMultiplier?: number;
+
+  /** Enable learned-pattern adaptive filter. Default: true */
+  learnedFilter?: boolean;
+  /** Skip the learned filter entirely (API bypass). Default: false */
+  skipLearnedFilter?: boolean;
+  /** Symbol for pattern lookup (needed for multi-symbol runs). */
+  symbol?: string;
 }
 
 const DEFAULT_OPTIONS: Required<FilterOptions> = {
   trendFilter: true,
-  trendSmaPeriod: 50,
-  volumeFilter: true,
+  trendSmaPeriod: 20,       // Changed from 50 to 20 — more responsive in volatile markets
+  volumeFilter: false,       // Disabled by default — too many crypto signals happen on low volume
   volumeSmaPeriod: 20,
   momentumFilter: true,
   rsiPeriod: 14,
-  rsiOverbought: 75,
-  rsiOversold: 25,
+  rsiOverbought: 80,         // Relaxed from 75 — only block extreme overbought
+  rsiOversold: 20,           // Relaxed from 25 — only block extreme oversold
   consecutiveFilter: true,
-  consecutiveDays: 3,
+  consecutiveDays: 2,         // Reduced from 3 to 2 — allow faster re-entry
   atrStops: true,
   atrPeriod: 14,
   atrMultiplier: 2,
+  learnedFilter: true,
+  skipLearnedFilter: false,
+  symbol: '',
 };
 
 // ---- Indicator helpers (self-contained, no external deps) ----
@@ -181,6 +196,9 @@ export function filterSignals(
 
   if (signals.length === 0 || series.points.length === 0) return signals;
 
+  // Resolve symbol for learned-pattern lookup (prefer explicit option, fall back to series)
+  const resolvedSymbol = opts.symbol || series.symbol || '';
+
   // Pre-compute indicators across the full price series
   const closes = series.points.map((p) => p.close);
   const highs = series.points.map((p) => p.high ?? p.close);
@@ -216,28 +234,50 @@ export function filterSignals(
 
     const idx = day.index;
 
-    // --- 1. Trend filter ---
+    // --- Scoring-based filter (replaces hard blocks) ---
+    // Each filter contributes a penalty score. Signal is blocked only if total penalty is too high.
+    // This prevents over-filtering in volatile markets where individual conditions often flip.
+    let penaltyScore = 0;
+    const BLOCK_THRESHOLD = 3; // Need 3+ penalty points to block a signal
+
+    // --- 1. Trend filter (penalty, not hard block) ---
     if (opts.trendFilter && !isNaN(trendSma[idx])) {
-      if (signal.type === 'BUY' && day.close < trendSma[idx]) continue;
-      if (signal.type === 'SELL' && day.close > trendSma[idx]) continue;
+      if (signal.type === 'BUY' && day.close < trendSma[idx]) {
+        // How far below? Deeper = more penalty
+        const pctBelow = (trendSma[idx] - day.close) / trendSma[idx] * 100;
+        if (pctBelow > 5) penaltyScore += 2;       // Significantly below trend
+        else if (pctBelow > 2) penaltyScore += 1;  // Slightly below — mild concern
+        // Within 2% of SMA = no penalty (normal oscillation)
+      }
+      if (signal.type === 'SELL' && day.close > trendSma[idx]) {
+        const pctAbove = (day.close - trendSma[idx]) / trendSma[idx] * 100;
+        if (pctAbove > 5) penaltyScore += 2;
+        else if (pctAbove > 2) penaltyScore += 1;
+      }
     }
 
-    // --- 2. Volume confirmation ---
-    if (opts.volumeFilter && day.volume != null && !isNaN(volumeSma[idx])) {
-      if (day.volume < volumeSma[idx]) continue;
+    // --- 2. Volume confirmation (penalty if enabled) ---
+    if (opts.volumeFilter && day.volume != null && !isNaN(volumeSma[idx]) && volumeSma[idx] > 0) {
+      if (day.volume < volumeSma[idx] * 0.5) penaltyScore += 1; // Only penalize very low volume
     }
 
-    // --- 3. Momentum (RSI) confirmation ---
+    // --- 3. Momentum (RSI) — hard block only for extreme values ---
     if (opts.momentumFilter && !isNaN(rsi[idx])) {
-      if (signal.type === 'BUY' && rsi[idx] > opts.rsiOverbought) continue;
-      if (signal.type === 'SELL' && rsi[idx] < opts.rsiOversold) continue;
+      if (signal.type === 'BUY' && rsi[idx] > opts.rsiOverbought) penaltyScore += 2; // Extreme overbought
+      if (signal.type === 'SELL' && rsi[idx] < opts.rsiOversold) penaltyScore += 2;  // Extreme oversold
+      // Mild overbought/oversold gets a lighter penalty
+      if (signal.type === 'BUY' && rsi[idx] > 70 && rsi[idx] <= opts.rsiOverbought) penaltyScore += 1;
+      if (signal.type === 'SELL' && rsi[idx] < 30 && rsi[idx] >= opts.rsiOversold) penaltyScore += 1;
     }
 
-    // --- 4. Consecutive signal filter ---
+    // --- 4. Consecutive signal filter (still hard block — prevents rapid re-entry after stop-loss) ---
     if (opts.consecutiveFilter && lastSignalType === signal.type) {
       const daysBetween = (signalTime.getTime() - lastSignalTime) / (1000 * 60 * 60 * 24);
-      if (daysBetween <= opts.consecutiveDays) continue;
+      if (daysBetween <= opts.consecutiveDays) continue; // Hard block — always skip rapid re-entry
     }
+
+    // Block if penalty score exceeds threshold
+    if (penaltyScore >= BLOCK_THRESHOLD) continue;
 
     // --- 5. ATR-based dynamic stop enrichment ---
     // We attach the computed stop to a slightly extended copy so the engine can
@@ -250,6 +290,54 @@ export function filterSignals(
         // Store ATR stop as dynamic stop-loss suggestion
         // BacktestEngine can read this via (signal as any).atrStop
         ...({ atrStop: stopPrice, atrValue: atr[idx] } as Record<string, number>),
+      };
+    }
+
+    // --- 6. Learned-pattern adaptive filter ---
+    // Uses patterns discovered from previous backtests / paper trades.
+    // Only applies to BUY signals — we want to avoid entering in conditions
+    // that historically led to losses.
+    let learnedFilterApplied = false;
+
+    if (
+      opts.learnedFilter &&
+      !opts.skipLearnedFilter &&
+      signal.type === 'BUY' &&
+      resolvedSymbol
+    ) {
+      const losingPatterns = getActionableLosingPatterns(resolvedSymbol);
+      const winningPatterns = getActionableWinningPatterns(resolvedSymbol);
+
+      if (losingPatterns.length > 0) {
+        const currentConditions = detectCurrentConditions(series, idx);
+        const matchedLosing = losingPatterns.filter((p) =>
+          currentConditions.includes(p.condition),
+        );
+        const matchedWinning = winningPatterns.filter((p) =>
+          currentConditions.includes(p.condition),
+        );
+
+        // If 2+ high-confidence losing patterns match AND no winning pattern
+        // also matches, block the signal.
+        if (matchedLosing.length >= 2 && matchedWinning.length === 0) {
+          learnedFilterApplied = true;
+          continue; // BLOCK — too risky
+        }
+
+        // If 1 losing pattern matches but a winning pattern also matches,
+        // let it through (conflicting signals).
+        // If 0 losing patterns match, let it through.
+        if (matchedLosing.length > 0) {
+          learnedFilterApplied = true;
+        }
+      }
+    }
+
+    // Tag the signal with learned-filter metadata
+    if (learnedFilterApplied) {
+      enrichedSignal = {
+        ...enrichedSignal,
+        ...({ learnedFilterApplied: true } as Record<string, boolean>),
       };
     }
 

@@ -9,6 +9,13 @@ import { BollingerStrategy } from '@/services/strategies/bollingerStrategy';
 import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
 import { filterSignals } from '@/services/strategies/signalFilter';
+import {
+  analyzeTrades as analyzeTradePatterns,
+  getLearnedPatterns,
+  mergePatterns,
+  savePatterns,
+} from '@/services/learning/tradeAnalyzer';
+import type { Trade as BacktestTrade } from '@/services/backtest/engine';
 
 // ---- Types ----
 
@@ -95,6 +102,41 @@ function recalcSummary(session: PaperSession) {
     session.investment > 0 ? (session.totalPnl / session.investment) * 100 : 0;
   session.totalPnl = Number(session.totalPnl.toFixed(2));
   session.totalPnlPercent = Number(session.totalPnlPercent.toFixed(2));
+}
+
+/** Convert PaperTrade[] to BacktestTrade[] for the trade analyzer. */
+function toBacktestTrades(trades: PaperTrade[]): BacktestTrade[] {
+  return trades.map((t) => ({
+    entryPrice: t.entry,
+    entryTime: new Date(t.entryTime),
+    exitPrice: t.exit,
+    exitTime: new Date(t.exitTime),
+    quantity: 0, // not needed for pattern analysis
+    pnl: t.pnl,
+    pnlPercent: t.pnlPercent,
+    daysHeld: Math.max(1, Math.ceil(
+      (new Date(t.exitTime).getTime() - new Date(t.entryTime).getTime()) / (1000 * 60 * 60 * 24),
+    )),
+    fee: 0,
+    exitReason: t.reason,
+  }));
+}
+
+/** Learn from paper trades — weighted 2x compared to backtest outcomes. */
+async function learnFromPaperTrades(symbol: string, trades: PaperTrade[]): Promise<void> {
+  if (trades.length === 0) return;
+  try {
+    const dataManager = getDataManager();
+    const priceSeries = await dataManager.fetch(symbol, 180); // wider window for context
+    const btTrades = toBacktestTrades(trades);
+    const newPatterns = analyzeTradePatterns(symbol, btTrades, priceSeries);
+    const existing = getLearnedPatterns(symbol);
+    // Weight = 2 for paper trades (real-time signals are more valuable)
+    const merged = existing ? mergePatterns(existing, newPatterns, 2) : newPatterns;
+    savePatterns(symbol, merged);
+  } catch (err) {
+    console.error('[PaperTrade] Trade pattern learning failed (non-fatal):', err);
+  }
 }
 
 function closePosition(
@@ -335,6 +377,11 @@ async function handleTick(body: Record<string, unknown>) {
 
   writeSessions(sessions);
 
+  // If new trades were completed this tick, learn from them (paper trades weighted 2x)
+  if (newTrades.length > 0) {
+    await learnFromPaperTrades(session.symbol, newTrades);
+  }
+
   return NextResponse.json({
     session,
     currentPrice: Number(currentPrice.toFixed(2)),
@@ -373,6 +420,10 @@ async function handleStop(body: Record<string, unknown>) {
   }
 
   session.status = 'stopped';
+
+  // Learn from all trades in this session (paper trades weighted 2x)
+  await learnFromPaperTrades(session.symbol, session.trades);
+
   writeSessions(sessions);
 
   return NextResponse.json(session);
