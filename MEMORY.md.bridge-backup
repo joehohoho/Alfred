@@ -4,8 +4,8 @@
 ## Current Work (auto-updated every 15 min)
 **Status:** `idle` (Week 1 complete; 3 review cards blocked on Joe decisions; HA
 Review: Atlantic Contractor Client Portal-in-a-B; Bill Review & Invoice Audit Automation (; Implement 14-day free trial on Basic/Pro
-Recent: [idle:goal-progress-check] 09:27 ADT — Reviewed 3  | [idle:generate-ideas] 09:57 ADT — **SKIPPED** (con
-Updated: 10:12 AST
+Recent: [idle:generate-ideas] 09:57 ADT — **SKIPPED** (con | [idle:review-memory] 10:12 ADT — FINAL MEMORY REVI
+Updated: 10:27 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
