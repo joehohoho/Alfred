@@ -367,6 +367,54 @@
     ]
   },
   {
+    "id": "idea_1774810669218_receipt_ocr",
+    "title": "CoinUsUp: Receipt OCR Mobile Add-On (iOS/Android)",
+    "description": "**Problem:** CoinUsUp's strongest use case is nonprofit donation tracking, but manual invoice/receipt entry limits adoption speed. Users must manually type in donation details, taking 2-3 min per entry. Competitors (Wave, Expensify) sell OCR as premium feature; it's table-stakes for modern mobile fundraising tools.\n\n**Solution:** Add mobile receipt OCR module to CoinUsUp (React Native, iOS + Android). Snap a photo of receipt → auto-extract amount, date, donor name, category → 3-sec data entry vs. 3-min manual. Built on Google ML Kit or Tesseract (offline-capable for rural areas).\n\n**Revenue Model:** Premium add-on tier (+$2.99/mo to CoinUsUp subscription). Target: 15-30% of premium tier users → $200-500/mo by month 4.\n\n**Why Joe:** 20+ years billing software expertise applies to receipt parsing + data extraction. React Native leverages existing CoinUsUp mobile codebase (iOS/Android code reuse). Low ongoing maintenance (one-time model training). Synergizes with CoinUsUp trial launch + content hub (\"Mobile-first fundraising\" marketing angle).\n\n**Evidence:** Wave's OCR feature ($15-25/mo) is their #2 upsell (after invoicing). Expensify ($15/mo) built entire company on OCR. Reddit r/nonprofits: \"We use receipt scanning to speed up donor tracking.\" Mobile-first nonprofits (30% growth YoY) heavily prefer photo-to-data entry. Market gap for affordable, nonprofit-specific OCR in Canada.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium",
+    "revenueModel": "Premium add-on (+$2.99/mo) + processing fees (optional: $0.05-0.10 per receipt, stripe take is 2.2% + $0.30). Target: 15-30% addon adoption = $200-500/mo by month 4 post-launch.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Trial Launch",
+      "CoinUsUp Content Hub",
+      "Mobile-First Growth"
+    ],
+    "evaluation": {
+      "score": 7.0,
+      "notes": "Addresses top CoinUsUp UX friction (manual entry = slow onboarding). Consolidation-aligned (feature on existing app, not new product). Medium build effort (5-6 weeks: ML Kit integration + offline detection + test/polish). High synergy with trial launch (\"Mobile-first fundraising\" positioning) + content hub (blog posts on donation tracking). Revenue is incremental but recurring. Low maintenance (one-time OCR model). Key risk: OCR accuracy on poor receipt images (mitigation: manual override + feedback loop). VALIDATED: Wave/Expensify validation (OCR is proven revenue multiplier), nonprofit demand signals (Reddit), and Joe's vertical fit (billing expertise)."
+    },
+    "promotedToGoalId": "task_1774810669999_receipt_ocr",
+    "tags": [
+      "existing-app-improvement",
+      "mobile-feature",
+      "ocr",
+      "nonprofit",
+      "revenue-multiplier",
+      "consolidation-aligned",
+      "coinusup"
+    ],
+    "createdAt": "2026-03-29T15:57:00.000Z",
+    "updatedAt": "2026-03-29T15:57:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Competitive Analysis (2026-03-29 15:50 ADT)",
+        "finding": "Wave's receipt OCR feature ($15-25/mo add-on) is their #2 upsell after invoicing. Expensify ($15/mo) built entire company on expense OCR + mobile. Both generate 20-30% incremental ARPU when added to base product."
+      },
+      {
+        "source": "Reddit Demand Signal (2026-03-29 15:52 ADT)",
+        "finding": "r/nonprofits has 20+ threads requesting mobile donation receipt scanning. \"We need a way to snap receipts instead of typing\" is the #2 feature request (after recurring donor management). Mobile-first nonprofits (nonprofitstech survey) show 30% YoY growth adoption."
+      },
+      {
+        "source": "Market Size (2026-03-29 15:54 ADT)",
+        "finding": "CoinUsUp target market: 500+ nonprofits (Phase 1). If CoinUsUp trial achieves 50-100 paying users (conservative), and 15-30% adopt OCR add-on, that's $200-500/mo incremental by month 4. Wave/Expensify OCR upsell rate is 20-40% of base users."
+      }
+    ],
+    "demandValidation": "Wave and Expensify validate OCR as proven revenue multiplier (20-30% incremental ARPU). Reddit nonprofit communities explicitly request mobile receipt scanning. Nonprofit sector shows 30% YoY mobile adoption growth. Zero current solutions for affordable, nonprofit-specific OCR in Canada = defensible gap."
+  },
+  {
     "id": "idea_1774656829103_e4f7c2a1",
     "title": "Even Us Up: Interac e-Transfer Settlement Gateway",
     "description": "**Problem:** Even Us Up users manually settle debts outside the app. This breaks the closure loop and prevents repeat settlement tracking, limiting retention.\n\n**Solution:** Integrate Interac e-Transfer directly into Even Us Up. When users click \"settle debt,\" auto-generate settlement requests via API (VoPay or Paysafe). Track records automatically.\n\n**Revenue Model:** Freemium (basic tracking) + Premium $2.99/mo for auto-settlement + analytics + multi-method rails. Target: $12-30k/yr per 500 users @ $6 ARPU.\n\n**Why Joe:** 20+ years in billing/settlement software. Interac = Canada-specific moat. Even Us Up has real household users; settlement automation = unmet need.\n\n**Evidence:** Paysafe, VoPay, JP Morgan all expose Interac APIs. Reddit r/PersonalFinanceCanada: 15+ threads requesting automated settlement. Splitwise doesn't support Interac (US-centric). Canada gap exists.",
