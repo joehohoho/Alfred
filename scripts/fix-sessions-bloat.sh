@@ -1,117 +1,69 @@
 #!/bin/bash
-# fix-sessions-bloat.sh — Permanent fix for sessions component degradation
-#
-# Root cause: Session JSONL files (especially current session) exceed 500KB threshold.
-# Sentinel's "run-cleanup" fix fails because:
-#   1. Lock file may be stale (from crashed cleanup process)
-#   2. Current session file (834605ec-...) is locked while in use
-#   3. Backup files (.bak-*) accumulate and aren't cleaned up
-#
-# Solution:
-#   1. Remove stale lock files (>5 min old)
-#   2. Archive old backup files (keep only last 5)
-#   3. Compress bloated JSONL files (if >200KB and not current)
-#   4. Force session-cleanup with timeout (kill if hangs)
-#   5. Monitor for recurrence (if >3 bloated sessions, implement rolling compaction)
-#
-# This fix is permanent because it:
-#   - Removes lock file race conditions
-#   - Prevents backup file accumulation
-#   - Implements size limits
 
-set -euo pipefail
+# Fix: Sessions bloat cleanup
+# Problem: ~/.openclaw/agents/main/sessions/sessions.json has grown to 352KB
+# Root cause: JSONL file accumulates all session entries without pruning old ones
+# Solution: Archive old entries (>30 days) and keep recent sessions only
 
-SESSIONS_DIR="$HOME/.openclaw/agents/main/sessions"
-LOCKFILE="/tmp/session-cleanup.lock"
-LOG="$HOME/.openclaw/logs/session-cleanup.log"
-CLEANUP_SCRIPT="$HOME/.openclaw/workspace/scripts/session-cleanup.sh"
+SESSION_FILE="$HOME/.openclaw/agents/main/sessions/sessions.json"
+ARCHIVE_DIR="$HOME/.openclaw/agents/main/sessions/archive"
+CURRENT_TIME=$(date +%s)
+THIRTY_DAYS_AGO=$((CURRENT_TIME - 2592000))  # 30 days in seconds
 
-echo "[$(date '+%Y-%m-%dT%H:%M:%S%z')] PERMANENT FIX: Sessions bloat" | tee -a "$LOG"
+echo "[$(date)] Starting sessions bloat fix..."
+echo "Input file: $SESSION_FILE"
+echo "Size before: $(du -h "$SESSION_FILE" | cut -f1)"
 
-# --- Step 1: Remove stale lock files ---
-echo "Step 1: Cleaning stale lock files..."
-if [[ -f "$LOCKFILE" ]]; then
-  LOCK_AGE=$(( $(date +%s) - $(stat -f%m "$LOCKFILE" 2>/dev/null || echo 0) ))
-  if [[ "$LOCK_AGE" -gt 300 ]]; then
-    echo "  Removing stale lock (age: ${LOCK_AGE}s)" | tee -a "$LOG"
-    rm -f "$LOCKFILE"
-  fi
-fi
+# Create archive directory if needed
+mkdir -p "$ARCHIVE_DIR"
 
-# --- Step 2: Archive old backup files ---
-echo "Step 2: Archiving old backup files..."
-if [[ -d "$SESSIONS_DIR" ]]; then
-  BACKUP_COUNT=$(find "$SESSIONS_DIR" -name "*.bak-*" -type f 2>/dev/null | wc -l)
-  if [[ "$BACKUP_COUNT" -gt 5 ]]; then
-    echo "  Found $BACKUP_COUNT backup files; keeping only 5 newest" | tee -a "$LOG"
-    find "$SESSIONS_DIR" -name "*.bak-*" -type f -printf '%T@ %p\n' 2>/dev/null | \
-      sort -rn | tail -n +6 | awk '{print $2}' | xargs -r rm -f
-    echo "  Cleaned up $(( BACKUP_COUNT - 5 )) old backups" | tee -a "$LOG"
-  fi
-fi
+# Backup original
+cp "$SESSION_FILE" "$ARCHIVE_DIR/sessions-backup-$(date +%s).json"
+echo "Backup created: sessions-backup-*.json"
 
-# --- Step 3: Compress bloated non-current JSONL files ---
-echo "Step 3: Compressing bloated JSONL files..."
-COMPRESSED_COUNT=0
-if [[ -d "$SESSIONS_DIR" ]]; then
-  for jsonl_file in "$SESSIONS_DIR"/*.jsonl; do
-    if [[ -f "$jsonl_file" && ! "$jsonl_file" == *".bak-"* && ! "$jsonl_file" == *".lock"* ]]; then
-      FILE_SIZE=$(stat -f%z "$jsonl_file" 2>/dev/null || echo 0)
-      
-      # If file > 200KB and not currently locked, compress it
-      if [[ "$FILE_SIZE" -gt 204800 ]] && [[ ! -f "${jsonl_file}.lock" ]]; then
-        echo "  Compressing $(basename "$jsonl_file") ($((FILE_SIZE / 1024))KB)" | tee -a "$LOG"
-        # Gzip the file in-place (creates .gz, keeps original for safety)
-        gzip -9 -k "$jsonl_file" 2>/dev/null || true
-        (( COMPRESSED_COUNT++ ))
-      fi
+# Process the JSONL file: keep recent (<30 days), archive old (>30 days)
+if [ -f "$SESSION_FILE" ]; then
+  # Create temp files
+  RECENT=$(mktemp)
+  ARCHIVED=$(mktemp)
+  
+  while IFS= read -r line; do
+    if [ -z "$line" ]; then
+      continue  # Skip empty lines
     fi
-  done
-fi
-echo "  Compressed $COMPRESSED_COUNT files" | tee -a "$LOG"
-
-# --- Step 4: Force run session-cleanup with timeout ---
-echo "Step 4: Running session-cleanup with timeout..."
-if [[ -f "$CLEANUP_SCRIPT" ]]; then
-  # Run with 30-second timeout to prevent hangs
-  timeout 30 bash "$CLEANUP_SCRIPT" 2>&1 | tee -a "$LOG" || {
-    EXIT_CODE=$?
-    if [[ $EXIT_CODE -eq 124 ]]; then
-      echo "  WARNING: session-cleanup timed out (killed after 30s)" | tee -a "$LOG"
+    
+    # Parse the line as JSON and extract timestamp if available
+    timestamp=$(echo "$line" | jq -r '.updatedAt // .createdAt // .timestamp // "0"' 2>/dev/null)
+    
+    # Convert ISO timestamp to unix time if present
+    if [[ "$timestamp" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2} ]]; then
+      entry_time=$(date -jf "%Y-%m-%dT%H:%M:%S" "${timestamp:0:19}" "+%s" 2>/dev/null || echo 0)
     else
-      echo "  session-cleanup exited with code $EXIT_CODE" | tee -a "$LOG"
+      entry_time=0
     fi
-  }
-else
-  echo "  ERROR: session-cleanup.sh not found at $CLEANUP_SCRIPT" | tee -a "$LOG"
-  exit 1
-fi
-
-# --- Step 5: Verify fix ---
-echo "Step 5: Verifying fix..."
-MAX_SIZE=0
-BLOATED_COUNT=0
-if [[ -d "$SESSIONS_DIR" ]]; then
-  for jsonl_file in "$SESSIONS_DIR"/*.jsonl; do
-    if [[ -f "$jsonl_file" && ! "$jsonl_file" == *".bak-"* && ! "$jsonl_file" == *".lock"* ]]; then
-      FILE_SIZE=$(stat -f%z "$jsonl_file" 2>/dev/null || echo 0)
-      if [[ "$FILE_SIZE" -gt "$MAX_SIZE" ]]; then
-        MAX_SIZE=$FILE_SIZE
-      fi
-      if [[ "$FILE_SIZE" -gt 500000 ]]; then
-        (( BLOATED_COUNT++ ))
-      fi
+    
+    # Keep recent entries, archive old ones
+    if [ "$entry_time" -gt "$THIRTY_DAYS_AGO" ] || [ "$entry_time" -eq 0 ]; then
+      echo "$line" >> "$RECENT"
+    else
+      echo "$line" >> "$ARCHIVED"
     fi
-  done
-fi
-
-echo "  Largest session: $((MAX_SIZE / 1024))KB" | tee -a "$LOG"
-echo "  Bloated sessions (>500KB): $BLOATED_COUNT" | tee -a "$LOG"
-
-if [[ "$MAX_SIZE" -le 500000 && "$BLOATED_COUNT" -eq 0 ]]; then
-  echo "[$(date '+%Y-%m-%dT%H:%M:%S%z')] FIX SUCCESSFUL: Sessions component should return to healthy" | tee -a "$LOG"
-  exit 0
+  done < "$SESSION_FILE"
+  
+  # Replace sessions file with recent entries only
+  mv "$RECENT" "$SESSION_FILE"
+  
+  # Gzip archive for storage
+  if [ -s "$ARCHIVED" ]; then
+    gzip -c "$ARCHIVED" > "$ARCHIVE_DIR/sessions-archive-$(date +%Y-%m-%d).jsonl.gz"
+    echo "Archived $(wc -l < "$ARCHIVED") old entries to: sessions-archive-*.jsonl.gz"
+  fi
+  
+  rm -f "$ARCHIVED"
+  
+  echo "Size after: $(du -h "$SESSION_FILE" | cut -f1)"
+  echo "[$(date)] Sessions bloat fix complete"
 else
-  echo "[$(date '+%Y-%m-%dT%H:%M:%S%z')] FIX INCOMPLETE: Bloated sessions remain; may need deeper investigation" | tee -a "$LOG"
+  echo "ERROR: Session file not found at $SESSION_FILE"
   exit 1
 fi
