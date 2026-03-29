@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-29T07:12:32+0000",
+  "timestamp": "2026-03-29T09:12:50+0000",
   "agents": [
-    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "98502"},
+    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "21905"},
     {"name": "application.com.apple.ActivityMonitor.1152921500311906413.1152921500311906418", "status": "RUNNING", "exit_code": "396"},
     {"name": "application.com.apple.Family.1152921500312071725.1152921500312071734", "status": "RUNNING", "exit_code": "44827"},
     {"name": "application.com.apple.MobileSMS.1152921500311887877.1152921500311887946", "status": "RUNNING", "exit_code": "397"},
@@ -19,7 +19,7 @@
     {"name": "com.alfred.health-server", "status": "RUNNING", "exit_code": "36627"},
     {"name": "com.alfred.job-tracker", "status": "RUNNING", "exit_code": "612"},
     {"name": "com.alfred.kanban-stale-scan", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "3648"},
+    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "25482"},
     {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "22066"},
     {"name": "com.alfred.log-rotation", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.maintenance-weekly", "status": "DOWN", "exit_code": "-"},
@@ -332,6 +332,7 @@
     {"name": "com.apple.mdmclient.agent", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.mail", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.shared", "status": "DOWN", "exit_code": "-"},
+    {"name": "com.apple.mdworker.shared.07000000-0200-0000-0000-000000000000", "status": "RUNNING", "exit_code": "25455"},
     {"name": "com.apple.mdworker.single.arm64", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.single.x86_64", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.sizing", "status": "RUNNING", "exit_code": "1365"},
@@ -506,7 +507,7 @@
     {"name": "homebrew.mxcl.postgresql@16", "status": "RUNNING", "exit_code": "605"}
   ],
   "summary": {
-    "total_agents":      503,
+    "total_agents":      504,
     "healthy": 0,
     "failed": 0,
     "critical_down": 0
