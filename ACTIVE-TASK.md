@@ -248,4 +248,29 @@ Recommendations: Card 3 is quickest (5 min). Cards 1+2 are strategic—your call
 
 - **What's one feature users keep asking for?** (_question_, Mar 28 13:00)
   ID: `notif_1774702801107_390b0450` — Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.
+
+- **
+**Card:** Implement 14-day free trial on Basic/Pro tiers (task_1773156748695_23b9e471)
+**Status:** Review for 11 days (since Mar 18)
+**Blocker:** Stripe dashboard config — 12 prices (Basic/Pro × US/CA × Monthly/Annual) with trial_period_days=14
+
+**Context:**
+- Code implementation: ✅ DONE (Mar 18)
+- Frontend: ✅ DONE
+- Deployment ready: ✅ YES
+- Only blocker: Manual Stripe configuration (15 min max)
+
+**HAL's Assessment (09:41 ADT):**
+This is an organizational blocker, not a technical one. 11-day stall on a 5-minute task suggests an execution/decision bottleneck. This blocks trial launch which can generate $500-2k/month.
+
+**Decision Needed:**
+1. **Approve to proceed:** I can guide the exact 5 Stripe steps if you don't want to do it yourself
+2. **Prioritize this week:** Add to today's todo? Takes 15 min
+3. **Deprioritize:** Move to blocked/backlog
+
+**Recommendation:** This should launch THIS WEEK. It's the fastest path to product revenue in the next 90 days.
+
+What's your call? Should I guide the Stripe config, or would you prefer to handle it yourself?
+** (_[REMINDER] CoinUsUp 14-day Trial — Stripe Config (5 min)_, Mar 29 12:28)
+  ID: `notif_1774787287305_3001fc2e` — No details provided
 <!-- PENDING-Q-END -->
