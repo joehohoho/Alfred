@@ -20,12 +20,18 @@
 
 ## Dependency Security
 
-### Dependencies Checked
-- `package.json` scanned for known vulnerable packages
-- npm audit running (full results pending completion)
-- Key packages: Next.js 14, TypeScript, Zod, React Query, TradingView Lightweight Charts
+### npm Audit Results
+**Before:** 1 critical + 8 high + 3 moderate (12 total)  
+**After:** 1 high (0 critical, 0 moderate)  
+**Fix applied:** `npm audit fix --force` ✅
 
-**Status:** Codex library stack (React, Next, Zod) routinely maintained. No obviously outdated major versions detected.
+- Next.js upgraded: **14.2.5 → 14.2.35** (patched critical cache poisoning, DoS, auth bypass)
+- Critical CVE (GHSA-gp8f-8m3g-qvj9): ✅ FIXED
+- Remaining vulnerability: Image Optimizer DoS (requires Next.js 16+, breaking change)
+
+**Recommendation:**
+- ✅ **Merge immediately:** 14.2.35 fixes all critical/high issues except one
+- Future: Plan upgrade to Next.js 16 in Q2 2026 (major version bump, requires testing)
 
 ---
 
