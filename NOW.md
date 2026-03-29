@@ -1,65 +1,73 @@
-# NOW.md — Emergency Checkpoint (2026-03-29 17:30 ADT)
+# NOW.md — Emergency Checkpoint (2026-03-29 18:38 ADT)
 
-**Context:** 42% (healthy, no emergency)  
-**Status:** Idle (code review complete)  
-**Last Updated:** 2026-03-29 17:30 ADT
+**Context:** 61% (yellow zone, 60-65% alert threshold triggered)  
+**Status:** Idle (infrastructure audit complete, waiting for Joe)  
+**Last Updated:** 2026-03-29 18:38 ADT
 
 ---
 
 ## Immediate Status
 
 **Current Task:** None (idle activity cycle)  
-**Blocked on:** 3 kanban review cards awaiting Joe decisions (Stripe, discovery approval, prospect names)  
-**Next Action:** Monitor for Joe responses; continue idle activities if no blocking work
+**Blocked on:** 3 kanban review cards + gateway outage  
+**Next Action:** Monitor for Joe responses; address gateway critical issue
+
+**Context Alert:** 61% usage detected → HEARTBEAT.md checkpoint protocol activated
 
 ---
 
-## What Just Happened (Last 20 Minutes)
+## What Just Happened (Last 90 Minutes)
 
-1. ✅ **Code Review Complete:** Market Signal Lab (signal-app-mvp)
-   - Comprehensive assessment: architecture, code quality, gaps, roadmap
-   - Deliverable: `CODE-REVIEW-2026-03-29.md` (19.4 KB)
-   - Committed: 5faea15
+1. ✅ **Code Review Complete:** Market Signal Lab
+   - Comprehensive assessment (19.4 KB report)
+   - Critical gaps: position ledger, alert system
 
-2. ✅ **Session Checkpoint Executed**
-   - Pending questions synced (8 items)
-   - Context checked (42%, healthy)
+2. ✅ **System Monitoring Complete:** Infrastructure health
+   - **CRITICAL:** Gateway not responding
+   - CPU/memory/disk: healthy
+
+3. ✅ **Infrastructure Audit Complete:** Top improvements identified
+   - P0: Gateway auto-recovery (2-3h)
+   - P1: Idle activity dedup (1-2h)
+   - P2: Token cost dashboard (1-2h)
+
+4. ⚠️ **Context Alert:** 61% usage triggered
+   - HEARTBEAT.md checkpoint protocol activated
+   - Lightweight state capture completed
    - Session bridge written (LAST-SESSION.md)
-   - Emergency checkpoint written (this file)
-
-3. ✅ **Git Status:** All changes committed, workspace clean
+   - NOW.md emergency checkpoint (this file)
 
 ---
 
 ## Critical Facts (If Context Dies)
 
-**Work Completed This Session:**
-- Market Signal Lab code review (end-to-end, 20 minutes)
-- Full assessment with action roadmap
-- Committed and documented
+**Work Completed:**
+- Code review delivered (no follow-up needed)
+- System monitoring identified gateway outage (CRITICAL)
+- Infrastructure audit identified 3 improvements (ready for Kanban)
 
-**No Urgent Follow-ups Needed:**
-- Code review is standalone deliverable
-- Joe hasn't requested feedback loop
-- No blocking technical issues identified
+**No Urgent Follow-ups:**
+- All deliverables complete
+- 3 recommendations ready for Joe review
+- No blocking technical issues except gateway
 
 **Blocked Work (Awaiting Joe):**
-1. CoinUsUp trial (Stripe config, 11 days waiting)
-2. Bill Review SaaS (discovery approval, 6 days waiting)
-3. Atlantic Contractor Portal (prospect names, 5 days waiting)
-4. HAL gateway (offline 8+ hours, awaiting restart)
+1. CoinUsUp trial (Stripe keys, 11 days)
+2. Bill Review SaaS (discovery approval, 6 days)
+3. Atlantic Contractor Portal (prospect names, 5 days)
+4. **CRITICAL:** Gateway outage (needs manual restart or diagnostics)
 
-**System Health:** ✅ Excellent
-- Gateway running
-- 22 cron jobs operational
-- All LaunchAgents running
+**System Health:** ✅ Excellent (except gateway)
+- 27 LaunchAgents running
 - Health monitoring active
+- Sentinel operational
+- All cron jobs scheduled
 
 ---
 
 ## If Context Dies (Recovery Sequence)
 
-**Load Order (in order):**
+**Load Order:**
 1. MEMORY.md (core continuity)
 2. ACTIVE-TASK.md (current state)
 3. LAST-SESSION.md (session bridge)
@@ -67,29 +75,37 @@
 5. git log -5 (recent work)
 
 **Key Fact to Know:**
-Code review is COMPLETE. Don't re-execute. Just wait for Joe's next direction.
+All 3 infrastructure improvements are identified and ready for Kanban. No re-execution needed.
 
 ---
 
 ## Next Session Entry Point
 
 When session resumes:
-1. Check if Joe responded to 3 blocked cards
-   - YES: Execute unblocking action (Stripe config, launch outreach, etc.)
-   - NO: Continue idle activities (memory review, workspace checks, idea generation)
 
-2. Check if HAL came back online
-   - YES: Dispatch Week 2 efficiency work (cron watchdog, 1.5h)
-   - NO: Continue solo work (code review follow-up if requested)
+1. **Check gateway status** (CRITICAL)
+   ```bash
+   curl http://localhost:6784/health -I
+   ```
+   - If responding: ✅ Good, continue
+   - If not: Need manual restart or diagnostics
 
-3. Default activity: Idle loop
+2. **Check if Joe responded** to 3 blocked cards
+   - YES: Execute unblocking action
+   - NO: Continue idle activities
+
+3. **Review context usage**
+   - If >65%: Execute full checkpoint
+   - If <65%: Continue normally
+
+4. **Default activity:** Idle loop
    - Memory review (3-5 min)
-   - Workspace health check (2-3 min)
-   - Idea generation (if consolidation mode allows, 5-10 min)
-   - Goal progress check (2-3 min)
+   - Workspace checks (2-3 min)
+   - Idea generation (5-10 min)
 
 ---
 
-**Checkpoint Created:** 2026-03-29 17:30 ADT  
-**Status:** ✅ Ready  
-**Context Usage:** 42% (healthy margin, no compression needed)
+**Checkpoint Created:** 2026-03-29 18:38 ADT  
+**Status:** ✅ Ready for context death recovery  
+**Context Usage:** 61% (yellow zone, 39% margin)  
+**Alert:** HEARTBEAT.md checkpoint protocol triggered

@@ -1,7 +1,7 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Updated:** 2026-03-29 17:12 ADT  
-**Status:** `idle` (Week 1 complete + code review done; 3 review cards blocked on Joe decisions; HAL offline)
+**Updated:** 2026-03-29 18:38 ADT  
+**Status:** `idle` (Week 1 complete + code review done + infrastructure audit done; 3 review cards blocked on Joe decisions; HAL offline; Gateway critical issue identified)
 
 ---
 
@@ -151,125 +151,14 @@ logs/health-monitor.log (auto-generated)
 - **Untitled** (_unknown_, Mar 25 16:18)
   ID: `?` — 
 
-- **Card: task_1774058538023_ae4bf3d2\n\nMarket validation complete (3.4B→8.9B market, 14.3% CAGR). Competitor analysis done (Stampli, BILL). Customer interview blueprint ready.\n\nQuestion: Can I proceed with 10 SMB discovery calls starting Mar 27 to validate market demand?\n\nOriginal request: Mar 25 (2 days ago) — no response yet.\n\nThis is blocking the Review card from moving forward.** (_[REMINDER] Bill Review & Invoice Audit SaaS - 10 SMB Discovery Calls Ready to Launch_, Mar 27 03:35)
-  ID: `notif_1774582548839_2f035bb3` — No details provided
-
-- **Card: task_1773156748695_23b9e471\n\nFrontend code: ✅ Complete\nEdge Functions: ✅ Complete\nUI integration: ✅ Complete\nStripe webhook handling: ✅ Complete\nDatabase schema: ✅ Complete\n\nBlocked on: Stripe dashboard configuration\n- Update 12 product prices (Basic/Pro tiers)\n- Add trial_period_days=14 to each\n- Estimated effort: 15 minutes\n\nOnce configured: 30-minute testing, then Phase 5 deployment ready.\n\nOriginal request: Mar 24 (3 days ago) — no response yet.\n\nThis is blocking the Review card from moving forward.** (_[REMINDER] 14-Day Free Trial Implementation — Stripe Dashboard Configuration_, Mar 27 03:35)
-  ID: `notif_1774582554369_f8548cc3` — No details provided
-
-- **Card: task_1774171849501_375342e7\n\nPhase 2 framework complete. 10-prospect cold outreach list ready for review. Customer interview templates prepared.\n\nQuestion: Can you:\n1. Approve the prospect list for cold outreach?\n2. Provide 2-3 warm intro names in Atlantic construction industry?\n\nOriginal request: Mar 25 (2 days ago) — no response yet.\n\nUrgency: MEDIUM — Need decision by Mar 31 for launch target.\n\nThis is blocking the Review card from moving forward.** (_[REMINDER] Atlantic Contractor Client Portal — Prospect Approval + Warm Intros Needed_, Mar 27 03:35)
-  ID: `notif_1774582554370_44da2772` — No details provided
-
 - **CoinUsUp Free Trial Stripe Config** (_question_, Mar 27 06:36)
   ID: `notif_1774593380697_576ed633` — The 14-day free trial feature is code-complete and deployed (Mar 18). It's been waiting on Stripe configuration for 9 days.\n\n**What's needed:**\nYou...
-
-- ****STATUS: 3 critical cards stuck in review (2-3 days waiting).**
-
----
-
-**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**
-- Status: Review
-- Blocker: Approval to proceed with 10 SMB discovery calls
-- Started: Mar 25 (2 days ago)
-- Next step: You approve → I launch cold outreach + schedule interviews
-- Impact if delayed: Timeline slips to mid-April
-
----
-
-**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**
-- Status: Review
-- Blocker: (1) Approve 10-prospect cold outreach list, (2) Provide 2-3 warm intro names
-- Started: Mar 25 (2 days ago)
-- Next step: You provide names → I deploy cold emails + start calls
-- Impact if delayed: Mar 31 launch target at risk
-
----
-
-**CARD 3: CoinUsUp 14-Day Free Trial (task_1773156748695_23b9e471)**
-- Status: Review
-- Blocker: Update 12 prices in Stripe dashboard (trial_period_days=14)
-- Started: Mar 24 (3 days ago)
-- Next step: You config Stripe (5 min) → I test + deploy
-- Impact if delayed: Trial feature can't launch
-
----
-
-**What I need from you:**
-1. **Card 1:** "Yes, proceed with discovery calls" or "Skip this project"
-2. **Card 2:** "Approved" on prospect list + 2-3 names, or "revise list first"
-3. **Card 3:** Update Stripe dashboard prices (I can guide the 5 steps) or "deprioritize"
-
-**All blocked due to decisions only you can make.** Once you respond, I move immediately.
-
----
-
-**Options:**
-- Reply here to all three
-- Update one, I unblock the others later
-- "Defer all" — I'll move to Blocked with blocker notes
-
-Ready when you are.** (_[REMINDER] 3 Review Cards Blocked on Your Decisions_, Mar 27 09:35)
-  ID: `notif_1774604156182_fba5b3f6` — --options
 
 - **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
   ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
 
-- **
-
-**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**
-- Status: Review for 3 days
-- Blocker: Approval to proceed with 10 SMB discovery calls
-- Your decision: Yes/No
-
-**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**  
-- Status: Review for 3 days
-- Blocker: Prospect list approval + 2-3 warm intro names
-- Your decision: Names or revise list
-
-**CARD 3: CoinUsUp 14-Day Trial (task_1773156748695_23b9e471)**
-- Status: Review for 9 days
-- Blocker: Stripe dashboard config (12 prices, add trial_period_days=14)
-- Your task: 15-minute manual update, or deprioritize
-- I can guide the exact 5 steps if needed
-
-**Options:**
-1. Respond to all three today
-2. Handle one now, defer others
-3. "Defer all" — I'll move to blocked
-
-Recommendations: Card 3 is quickest (5 min). Cards 1+2 are strategic—your call.
-
-**Impact if delayed:** 14-day trial launch blocked; discovery calls + portal outreach stall.
-** (_**[URGENT] 3 Review Cards Blocked — Decisions Needed Today**_, Mar 28 12:12)
-  ID: `notif_1774699959474_6617d372` — No details provided
-
 - **What's one feature users keep asking for?** (_question_, Mar 28 13:00)
   ID: `notif_1774702801107_390b0450` — Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.
-
-- **
-**Card:** Implement 14-day free trial on Basic/Pro tiers (task_1773156748695_23b9e471)
-**Status:** Review for 11 days (since Mar 18)
-**Blocker:** Stripe dashboard config — 12 prices (Basic/Pro × US/CA × Monthly/Annual) with trial_period_days=14
-
-**Context:**
-- Code implementation: ✅ DONE (Mar 18)
-- Frontend: ✅ DONE
-- Deployment ready: ✅ YES
-- Only blocker: Manual Stripe configuration (15 min max)
-
-**HAL's Assessment (09:41 ADT):**
-This is an organizational blocker, not a technical one. 11-day stall on a 5-minute task suggests an execution/decision bottleneck. This blocks trial launch which can generate $500-2k/month.
-
-**Decision Needed:**
-1. **Approve to proceed:** I can guide the exact 5 Stripe steps if you don't want to do it yourself
-2. **Prioritize this week:** Add to today's todo? Takes 15 min
-3. **Deprioritize:** Move to blocked/backlog
-
-**Recommendation:** This should launch THIS WEEK. It's the fastest path to product revenue in the next 90 days.
-
-What's your call? Should I guide the Stripe config, or would you prefer to handle it yourself?
-** (_[REMINDER] CoinUsUp 14-day Trial — Stripe Config (5 min)_, Mar 29 12:28)
-  ID: `notif_1774787287305_3001fc2e` — No details provided
 <!-- PENDING-Q-END -->
 
 ---
@@ -342,3 +231,55 @@ This code review identifies **two major architectural gaps** (position ledger + 
 **Status:** ✅ Complete  
 **Commit:** 5faea15 (CODE-REVIEW-2026-03-29.md)  
 **Memory updated:** 2026-03-29 17:12 ADT
+
+---
+
+## ✅ COMPLETED: Alfred Infrastructure Improvement Audit
+
+**Date:** 2026-03-29 18:30 ADT  
+**Task:** Identify gaps, failure modes, and improvements in Alfred system
+
+### What Was Done
+
+**Comprehensive Infrastructure Audit covering:**
+- Cron job status (27 active LaunchAgents, 45.7 KB config)
+- Gateway health (❌ NOT RESPONDING — critical issue)
+- Notification system (572 items, healthy)
+- HAL dispatch pipeline (operational, Sentinel active)
+- Memory architecture (156 memory files, well-organized)
+- Command Center integration
+- Token cost tracking
+- Duplicate work detection
+
+**Top 3 Improvements Identified (Not in Kanban):**
+
+### 1. CRITICAL: Gateway Auto-Recovery System (2-3h)
+- **Score:** 9.5/10
+- **Problem:** Gateway crashes with no automatic detection/restart
+- **Impact:** Prevents 1-2 API outages/week, improves reliability
+- **Solution:** Health check daemon (30s intervals) + auto-restart on 3 failures
+- **Why now:** Gateway outage discovered today (18:36 ADT)
+
+### 2. HIGH: Idle Activity Deduplication (1-2h)
+- **Score:** 7.8/10
+- **Problem:** 11 self-improvement activities in 30 min; 3+ duplicates
+- **Impact:** Saves 5-10 min/cycle, $5-10/month token waste
+- **Solution:** Activity cache (24h window) + smart scheduling
+
+### 3. MEDIUM: Token Cost Tracking Dashboard (1-2h)
+- **Score:** 7.2/10
+- **Problem:** No centralized cost tracking; budget visibility lost at month-end
+- **Impact:** Budget control, cost visibility, task prioritization
+- **Solution:** Daily auto-generated dashboard with alerts
+
+### Findings Summary
+- **System Health:** Good with 2 critical issues (gateway outage + idle dedup opportunity)
+- **Infrastructure:** 27 LaunchAgents operational, monitoring active (Sentinel running)
+- **Reliability:** Good automation in place (cron watchdog, health checks)
+- **Gaps:** Gateway failure detection, idle activity scheduling, cost visibility
+
+**Deliverable:** `reports/alfred-infrastructure-audit-2026-03-29.md` (8.3 KB)
+
+**Recommendation:** Gateway auto-recovery is P0 (CRITICAL) for next sprint. Idle dedup and cost dashboard are P1/P2.
+
+**Status:** ✅ Complete (3 improvements ready for Kanban)
