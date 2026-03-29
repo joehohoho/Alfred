@@ -287,6 +287,14 @@ function CurrentSignalsSection() {
   );
 }
 
+
+// Safe number formatting — handles string, number, null, undefined
+function safeFixed(val: any, digits: number = 2): string {
+  if (val == null) return '0.' + '0'.repeat(digits);
+  const num = typeof val === 'string' ? parseFloat(val) : Number(val);
+  return isNaN(num) ? '0.' + '0'.repeat(digits) : num.toFixed(digits);
+}
+
 export default function DashboardPage() {
   const [symbol, setSymbol] = useState('BTC');
   const [strategy, setStrategy] = useState('SMA_RSI_IMPROVED');
@@ -347,6 +355,12 @@ export default function DashboardPage() {
               </h1>
             </Link>
             <div className="flex items-center gap-4 text-sm text-slate-400">
+              <Link
+                href="/paper-trade"
+                className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 transition-colors font-medium"
+              >
+                Paper Trade
+              </Link>
               <span className="px-3 py-1 rounded-full bg-slate-800/50 border border-emerald-500/30">Demo Mode</span>
             </div>
           </div>
@@ -587,23 +601,23 @@ export default function DashboardPage() {
                         <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50">
                           <div className="text-xs text-slate-500 mb-1">Default Parameters</div>
                           <div className={`text-xl font-bold font-mono ${
-                            result.comparison.defaultPnLPercent >= 0 ? 'text-emerald-400' : 'text-red-400'
+                            Number(result.comparison.defaultPnLPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'
                           }`}>
                             {result.comparison.defaultPnL}
                           </div>
                           <div className="text-xs text-slate-500">
-                            {result.comparison.defaultPnLPercent >= 0 ? '+' : ''}{result.comparison.defaultPnLPercent.toFixed(2)}%
+                            {Number(result.comparison.defaultPnLPercent) >= 0 ? '+' : ''}{safeFixed(result.comparison.defaultPnLPercent, 2)}%
                           </div>
                         </div>
                         <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30">
                           <div className="text-xs text-amber-400/70 mb-1">Optimized Parameters</div>
                           <div className={`text-xl font-bold font-mono ${
-                            result.comparison.optimizedPnLPercent >= 0 ? 'text-emerald-400' : 'text-red-400'
+                            Number(result.comparison.optimizedPnLPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'
                           }`}>
                             {result.comparison.optimizedPnL}
                           </div>
                           <div className="text-xs text-amber-400/70">
-                            {result.comparison.optimizedPnLPercent >= 0 ? '+' : ''}{result.comparison.optimizedPnLPercent.toFixed(2)}%
+                            {Number(result.comparison.optimizedPnLPercent) >= 0 ? '+' : ''}{safeFixed(result.comparison.optimizedPnLPercent, 2)}%
                             <span className="ml-2 text-emerald-400">
                               ({parseFloat(result.comparison.improvement) >= 0 ? '+' : ''}{result.comparison.improvement} improvement)
                             </span>
@@ -639,14 +653,14 @@ export default function DashboardPage() {
                                 <span className="font-mono text-slate-400 flex-1">
                                   {Object.entries(tp.params).map(([k, v]) => `${k}=${v}`).join(', ')}
                                 </span>
-                                <span className={`font-mono ${tp.metrics.totalPnlPercent >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                                  {tp.metrics.totalPnlPercent >= 0 ? '+' : ''}{tp.metrics.totalPnlPercent.toFixed(2)}%
+                                <span className={`font-mono ${Number(tp.metrics.totalPnlPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                  {Number(tp.metrics.totalPnlPercent) >= 0 ? '+' : ''}{safeFixed(tp.metrics.totalPnlPercent, 2)}%
                                 </span>
                                 <span className="text-slate-500">
-                                  W:{tp.metrics.winRate.toFixed(0)}%
+                                  W:{safeFixed(tp.metrics.winRate, 0)}%
                                 </span>
                                 <span className="text-slate-600">
-                                  score:{tp.compositeScore.toFixed(3)}
+                                  score:{safeFixed(tp.compositeScore, 3)}
                                 </span>
                               </div>
                             ))}
@@ -694,13 +708,13 @@ export default function DashboardPage() {
                     />
                     <MetricsCard
                       label="Sharpe Ratio"
-                      value={result.metrics.sharpeRatio.toFixed(2)}
+                      value={safeFixed(result.metrics.sharpeRatio, 2)}
                       type={interpretMetric('sharpeRatio', result.metrics.sharpeRatio)}
                       explanation="Risk-adjusted return (higher=better)"
                     />
                     <MetricsCard
                       label="Profit Factor"
-                      value={result.metrics.profitFactor.toFixed(2)}
+                      value={safeFixed(result.metrics.profitFactor, 2)}
                       type={interpretMetric('profitFactor', result.metrics.profitFactor)}
                       explanation="Gross profit / gross loss (>1=profitable)"
                     />

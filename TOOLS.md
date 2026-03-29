@@ -128,6 +128,16 @@ cc-continue
 
 ---
 
+## Sentinel & Monitoring Scripts
+
+- `sentinel.sh` — unified health monitor (5 min, LaunchAgent `com.alfred.sentinel`)
+- `sentinel-diagnose.sh` — dispatches diagnostic tasks when auto-fix fails
+- `sentinel-playbook-update.sh` — teaches sentinel new fixes
+- `audit-log.sh` — centralized event logging (`~/.openclaw/logs/audit.jsonl`)
+- `hal-task-ack.sh` / `hal-task-ack.js` — HAL completion reporting
+
+---
+
 ## Size Guardrail
 
 Keep `TOOLS.md` as quick-ref only. Put long docs/examples in `TOOLS-EXTENDED.md` or dedicated runbooks.

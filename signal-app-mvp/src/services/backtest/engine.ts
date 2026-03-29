@@ -1,4 +1,5 @@
 import type { PriceSeries } from '@/models/PriceData';
+import { filterSignals } from '@/services/strategies/signalFilter';
 
 export interface Trade {
   entryPrice: number;
@@ -106,7 +107,8 @@ export class BacktestEngine {
   }
 
   backtest(series: PriceSeries, strategy: Strategy): BacktestResult {
-    const signals = strategy.generateSignals(series);
+    const rawSignals = strategy.generateSignals(series);
+    const signals = filterSignals(series, rawSignals);
     const trades: Trade[] = [];
 
     // Ensure all signal times are proper Date objects

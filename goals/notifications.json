@@ -529,33 +529,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1774582548839_2f035bb3",
-    "type": "[REMINDER] Bill Review & Invoice Audit SaaS - 10 SMB Discovery Calls Ready to Launch",
-    "title": "Card: task_1774058538023_ae4bf3d2\\n\\nMarket validation complete (3.4B→8.9B market, 14.3% CAGR). Competitor analysis done (Stampli, BILL). Customer interview blueprint ready.\\n\\nQuestion: Can I proceed with 10 SMB discovery calls starting Mar 27 to validate market demand?\\n\\nOriginal request: Mar 25 (2 days ago) — no response yet.\\n\\nThis is blocking the Review card from moving forward.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-27T03:35:48.839Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774582554369_f8548cc3",
-    "type": "[REMINDER] 14-Day Free Trial Implementation — Stripe Dashboard Configuration",
-    "title": "Card: task_1773156748695_23b9e471\\n\\nFrontend code: ✅ Complete\\nEdge Functions: ✅ Complete\\nUI integration: ✅ Complete\\nStripe webhook handling: ✅ Complete\\nDatabase schema: ✅ Complete\\n\\nBlocked on: Stripe dashboard configuration\\n- Update 12 product prices (Basic/Pro tiers)\\n- Add trial_period_days=14 to each\\n- Estimated effort: 15 minutes\\n\\nOnce configured: 30-minute testing, then Phase 5 deployment ready.\\n\\nOriginal request: Mar 24 (3 days ago) — no response yet.\\n\\nThis is blocking the Review card from moving forward.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-27T03:35:54.369Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774582554370_44da2772",
-    "type": "[REMINDER] Atlantic Contractor Client Portal — Prospect Approval + Warm Intros Needed",
-    "title": "Card: task_1774171849501_375342e7\\n\\nPhase 2 framework complete. 10-prospect cold outreach list ready for review. Customer interview templates prepared.\\n\\nQuestion: Can you:\\n1. Approve the prospect list for cold outreach?\\n2. Provide 2-3 warm intro names in Atlantic construction industry?\\n\\nOriginal request: Mar 25 (2 days ago) — no response yet.\\n\\nUrgency: MEDIUM — Need decision by Mar 31 for launch target.\\n\\nThis is blocking the Review card from moving forward.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-27T03:35:54.370Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774593380697_576ed633",
     "type": "question",
     "title": "CoinUsUp Free Trial Stripe Config",
@@ -567,24 +540,16 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774604156182_fba5b3f6",
-    "type": "[REMINDER] 3 Review Cards Blocked on Your Decisions",
-    "title": "**STATUS: 3 critical cards stuck in review (2-3 days waiting).**\n\n---\n\n**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**\n- Status: Review\n- Blocker: Approval to proceed with 10 SMB discovery calls\n- Started: Mar 25 (2 days ago)\n- Next step: You approve → I launch cold outreach + schedule interviews\n- Impact if delayed: Timeline slips to mid-April\n\n---\n\n**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**\n- Status: Review\n- Blocker: (1) Approve 10-prospect cold outreach list, (2) Provide 2-3 warm intro names\n- Started: Mar 25 (2 days ago)\n- Next step: You provide names → I deploy cold emails + start calls\n- Impact if delayed: Mar 31 launch target at risk\n\n---\n\n**CARD 3: CoinUsUp 14-Day Free Trial (task_1773156748695_23b9e471)**\n- Status: Review\n- Blocker: Update 12 prices in Stripe dashboard (trial_period_days=14)\n- Started: Mar 24 (3 days ago)\n- Next step: You config Stripe (5 min) → I test + deploy\n- Impact if delayed: Trial feature can't launch\n\n---\n\n**What I need from you:**\n1. **Card 1:** \"Yes, proceed with discovery calls\" or \"Skip this project\"\n2. **Card 2:** \"Approved\" on prospect list + 2-3 names, or \"revise list first\"\n3. **Card 3:** Update Stripe dashboard prices (I can guide the 5 steps) or \"deprioritize\"\n\n**All blocked due to decisions only you can make.** Once you respond, I move immediately.\n\n---\n\n**Options:**\n- Reply here to all three\n- Update one, I unblock the others later\n- \"Defer all\" — I'll move to Blocked with blocker notes\n\nReady when you are.",
-    "message": "--options",
-    "goalId": "Proceed on all 3,Defer all,Contact me with questions",
-    "answered": false,
-    "createdAt": "2026-03-27T09:35:56.182Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774616400961_029cb69a",
     "type": "question",
     "title": "CoinUsUp: organic growth or paid marketing?",
     "message": "Is CoinUsUp scaling naturally through word-of-mouth, or does it need ad spend? Do you have a growth budget in mind?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-27T13:00:00.961Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-29T19:33:37.568Z",
+    "userAnswer": "It's organically at the moment, there isn't a budget for marketing.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774689127989_0317ff88",
@@ -596,15 +561,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1774699959474_6617d372",
-    "type": "**[URGENT] 3 Review Cards Blocked — Decisions Needed Today**",
-    "title": "\n\n**CARD 1: Bill Review & Invoice Audit (task_1774058538023_ae4bf3d2)**\n- Status: Review for 3 days\n- Blocker: Approval to proceed with 10 SMB discovery calls\n- Your decision: Yes/No\n\n**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**  \n- Status: Review for 3 days\n- Blocker: Prospect list approval + 2-3 warm intro names\n- Your decision: Names or revise list\n\n**CARD 3: CoinUsUp 14-Day Trial (task_1773156748695_23b9e471)**\n- Status: Review for 9 days\n- Blocker: Stripe dashboard config (12 prices, add trial_period_days=14)\n- Your task: 15-minute manual update, or deprioritize\n- I can guide the exact 5 steps if needed\n\n**Options:**\n1. Respond to all three today\n2. Handle one now, defer others\n3. \"Defer all\" — I'll move to blocked\n\nRecommendations: Card 3 is quickest (5 min). Cards 1+2 are strategic—your call.\n\n**Impact if delayed:** 14-day trial launch blocked; discovery calls + portal outreach stall.\n",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-28T12:12:39.474Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774702801107_390b0450",
     "type": "question",
     "title": "What's one feature users keep asking for?",
@@ -612,15 +568,6 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-28T13:00:01.107Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774787287305_3001fc2e",
-    "type": "[REMINDER] CoinUsUp 14-day Trial — Stripe Config (5 min)",
-    "title": "\n**Card:** Implement 14-day free trial on Basic/Pro tiers (task_1773156748695_23b9e471)\n**Status:** Review for 11 days (since Mar 18)\n**Blocker:** Stripe dashboard config — 12 prices (Basic/Pro × US/CA × Monthly/Annual) with trial_period_days=14\n\n**Context:**\n- Code implementation: ✅ DONE (Mar 18)\n- Frontend: ✅ DONE\n- Deployment ready: ✅ YES\n- Only blocker: Manual Stripe configuration (15 min max)\n\n**HAL's Assessment (09:41 ADT):**\nThis is an organizational blocker, not a technical one. 11-day stall on a 5-minute task suggests an execution/decision bottleneck. This blocks trial launch which can generate $500-2k/month.\n\n**Decision Needed:**\n1. **Approve to proceed:** I can guide the exact 5 Stripe steps if you don't want to do it yourself\n2. **Prioritize this week:** Add to today's todo? Takes 15 min\n3. **Deprioritize:** Move to blocked/backlog\n\n**Recommendation:** This should launch THIS WEEK. It's the fastest path to product revenue in the next 90 days.\n\nWhat's your call? Should I guide the Stripe config, or would you prefer to handle it yourself?\n",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-03-29T12:28:07.305Z",
     "answeredAt": null
   }
 ]

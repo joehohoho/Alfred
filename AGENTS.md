@@ -317,6 +317,31 @@ LaunchAgent `com.alfred.hal-idle-dispatch` (every 15 min). HAL runs on a REMOTE 
 `ws://192.168.2.79:18789` (Windows PC, local Qwen model). Dispatch includes a WebSocket health
 check before attempting. Zero API cost.
 
+### Sentinel Self-Healing System
+- `scripts/sentinel.sh` runs every 5 min via LaunchAgent `com.alfred.sentinel`
+- Monitors 9 components: gateway, CC, HAL, idle loop, sessions, config, models, dispatch pipeline, disk
+- Auto-fixes: restarts services, resets counters, restores tampered config, runs cleanup
+- State tracked in `.hal-alfred-tracking/sentinel-state.json`
+- **When sentinel dispatches a diagnostic to you**: You'll receive a `[SENTINEL-DIAGNOSTIC]` message. This means auto-fix failed. Your job: investigate the root cause, implement a permanent fix, then run:
+  ```
+  bash scripts/sentinel-playbook-update.sh "<component>" "<description of what you fixed>" "<fix-script-name if you created one>"
+  ```
+  This teaches the sentinel to apply your fix automatically next time.
+- Playbook: `.hal-alfred-tracking/sentinel-playbook.json` — grows as you fix more issues
+- Discord alerts go to the Alerts channel on state transitions (down/recovered)
+
+### Audit Log
+- `scripts/audit-log.sh` — call this to log significant events: `bash scripts/audit-log.sh <level> <source> <message> [--detail "..."]`
+- Levels: error, warn, info, success
+- All sentinel actions, dispatch events, and system changes are logged to `~/.openclaw/logs/audit.jsonl`
+- Viewable on Command Center at `/audit`
+
+### Task ACK Protocol
+- When HAL completes a task you dispatched, he sends an ACK via `POST /api/task-ack`
+- Pending ACKs tracked in `.hal-alfred-tracking/pending-acks.json`
+- If no ACK within 5 min, the work executor auto-falls back to you
+- HAL uses `scripts/hal-task-ack.sh` or `scripts/hal-task-ack.js` to report completion
+
 ---
 
 ## Memory System (Compact)

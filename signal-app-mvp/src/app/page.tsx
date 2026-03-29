@@ -53,10 +53,10 @@ export default function HomePage() {
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/integration"
-              className="px-8 py-4 border border-slate-700 hover:border-slate-600 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+              href="/paper-trade"
+              className="px-8 py-4 border border-amber-500/50 hover:border-amber-400 text-amber-400 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
             >
-              Integration Guide
+              Paper Trading
             </Link>
           </div>
 

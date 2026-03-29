@@ -1,0 +1,81 @@
+{
+  "gateway": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:08:59Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "cc": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:08:59Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "hal": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:09:04Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "idle_loop": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:09:04Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "sessions": {
+    "status": "healthy",
+    "fixAttempts": [
+      {
+        "fix": "run-cleanup",
+        "success": false,
+        "at": 1774812322.0846279
+      },
+      {
+        "fix": "run-cleanup",
+        "success": false,
+        "at": 1774812604.8830101
+      },
+      {
+        "fix": "run-cleanup",
+        "success": false,
+        "at": 1774812641.188073
+      }
+    ],
+    "lastCheck": "2026-03-29T20:09:04Z",
+    "lastNotified": 0,
+    "lastFixTime": 1774812641.188073
+  },
+  "config": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:09:05Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "disk": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:09:05Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "models": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:09:05Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  },
+  "dispatch": {
+    "status": "healthy",
+    "fixAttempts": [],
+    "lastCheck": "2026-03-29T20:09:05Z",
+    "lastNotified": 0,
+    "lastFixTime": 0
+  }
+}

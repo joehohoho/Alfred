@@ -2,10 +2,10 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-**Status:** `idle` (Week 1 complete; 3 review cards blocked on Joe decisions; HA
+**Status:** `idle` (Week 1 complete + code review done; 3 review cards blocked o
 Review: Atlantic Contractor Client Portal-in-a-B; Bill Review & Invoice Audit Automation (; Implement 14-day free trial on Basic/Pro
-Recent: [idle:workspace-check] All repos clean; 3 blocking | [idle:goal-progress-check] 15:27 ADT — **FINAL CHE
-Updated: 15:57 AST
+Recent: [idle:even-us-up-growth-audit] 16:30 ADT — **PROAC | [notification-answer:coinusup-growth] 16:33 ADT — 
+Updated: 17:12 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
@@ -34,6 +34,16 @@ Updated: 15:57 AST
 - ONLY store in `.env` files
 - NEVER commit `.env` to git
 - NEVER hardcode credentials anywhere
+
+---
+
+## Sentinel System (active since 2026-03-29)
+- Runs every 5 min, monitors all infrastructure, auto-heals known issues
+- When it can't fix something, it dispatches `[SENTINEL-DIAGNOSTIC]` to you
+- After fixing a diagnostic, ALWAYS run `sentinel-playbook-update.sh` to teach it
+- Playbook at `.hal-alfred-tracking/sentinel-playbook.json` — check it before troubleshooting (fix may already be known)
+- Audit log at `~/.openclaw/logs/audit.jsonl` — use `audit-log.sh` for significant events
+- State at `.hal-alfred-tracking/sentinel-state.json` — shows health of all 9 components
 
 ---
 
