@@ -3,10 +3,12 @@
 # Purpose: Continuously deepen JOE-PROFILE understanding
 # Runs: Daily at 10 AM AST via cron
 #
-# SIMPLE STRATEGY (2026-03-30 rewrite):
-# - Skip broken LLM generation path
-# - Use a rotating evergreen fallback pool
+# STRATEGY:
+# - Rotate through evergreen fallback pool (12 questions)
 # - Enforce 30-day cooldown per topic
+# - Skip permanently closed topics
+# - Detect and skip duplicate exact titles
+# - Update tracking file with last_asked date
 
 set -e
 
@@ -31,7 +33,7 @@ if [ "$LAST_DATE" = "$TODAY" ] && [[ "$LAST_TITLE" != "BLOCKED:"* ]] && [[ "$LAS
   exit 0
 fi
 
-# Evergreen question pool (rotated daily)
+# Evergreen question pool (12 rotating questions)
 FALLBACKS=(
   "What's the one thing that would unlock the next growth phase for CoinUsUp?|Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?|coinusup-unlock"
   "Is there a metric you watch daily on any of your apps?|What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?|app-metrics"
@@ -47,35 +49,7 @@ FALLBACKS=(
   "Would you rather build something new or polish something existing for the next month?|Momentum vs. depth. What does your gut say?|build-vs-polish"
 )
 
-# Get answered topics from past 30 days (cooldown list)
-THIRTY_DAYS_AGO=$(python3 -c "
-from datetime import datetime, timedelta
-cutoff = (datetime.now() - timedelta(days=30)).isoformat()
-print(cutoff)
-" 2>/dev/null || date -v-30d +%Y-%m-%dT 2>/dev/null || date --date="-30 days" +%Y-%m-%dT)
-
-RECENT_TOPICS=$(python3 << 'PYSCRIPT'
-import json
-try:
-    with open("/Users/hopenclaw/.openclaw/workspace/goals/notifications.json", "r") as f:
-        notifs = json.load(f)
-except:
-    notifs = []
-
-inquiries = [n for n in notifs if n.get("source") == "daily-inquiry" and n.get("answered")]
-cutoff = "THIRTY_DAYS_AGO"
-recent_topics = set()
-for n in inquiries:
-    if (n.get("answeredAt") or "") >= cutoff:
-        topic = n.get("title", "").split("|")[-1].strip() if "|" in n.get("title", "") else ""
-        if topic:
-            recent_topics.add(topic)
-
-print("|".join(recent_topics) if recent_topics else "")
-PYSCRIPT
- 2>/dev/null || echo "")
-
-# Get permanently closed topics
+# Get permanently closed topics from tracking file
 PERMANENT_BLOCKS=$(python3 << 'PYSCRIPT'
 import json
 try:
@@ -90,12 +64,43 @@ print("|".join(closed) if closed else "")
 PYSCRIPT
  2>/dev/null || echo "")
 
+# Get topics asked in past 30 days (cooldown enforcement)
+RECENT_TOPICS=$(python3 << 'PYSCRIPT'
+import json
+from datetime import datetime, timedelta
+
+try:
+    with open("/Users/hopenclaw/.openclaw/workspace/memory/question-tracking.json", "r") as f:
+        data = json.load(f)
+except:
+    data = {}
+
+topics_dict = data.get("topics", {})
+today = datetime.now().date()
+thirty_days_ago = today - timedelta(days=30)
+
+recent = []
+for topic, info in topics_dict.items():
+    last_asked_str = info.get("last_asked")
+    if last_asked_str:
+        try:
+            last_asked = datetime.strptime(last_asked_str, "%Y-%m-%d").date()
+            if last_asked >= thirty_days_ago:
+                recent.append(topic)
+        except:
+            pass
+
+print("|".join(recent) if recent else "")
+PYSCRIPT
+ 2>/dev/null || echo "")
+
 # Pick a question from fallback pool (daily rotation based on line count)
-CYCLE_NUM=$(( ($(wc -l < "$INQUIRY_LOG") % ${#FALLBACKS[@]}) ))
+CYCLE_NUM=$(( ($(wc -l < "$INQUIRY_LOG" 2>/dev/null || echo 0) % ${#FALLBACKS[@]}) ))
 ENTRY="${FALLBACKS[$CYCLE_NUM]}"
 
 TITLE="${ENTRY%%|*}"
-BODY="${ENTRY#*|}"; BODY="${BODY%%|*}"
+REST="${ENTRY#*|}"
+BODY="${REST%%|*}"
 TOPIC="${ENTRY##*|}"
 
 # Check if this topic is in the permanent block list
@@ -104,27 +109,32 @@ if [[ "|$PERMANENT_BLOCKS|" == *"|$TOPIC|"* ]]; then
   exit 0
 fi
 
-# Check if this topic was answered in last 30 days
+# Check if this topic was answered in last 30 days (cooldown)
 if [[ "|$RECENT_TOPICS|" == *"|$TOPIC|"* ]]; then
   echo "{\"date\":\"$TODAY\",\"title\":\"SKIPPED\",\"topic\":\"$TOPIC\",\"reason\":\"30-day-cooldown\"}" >> "$INQUIRY_LOG"
   exit 0
 fi
 
-# Check if exact title was asked recently (duplicate check)
-DUPLICATE_CHECK=$(python3 << 'PYSCRIPT'
+# Check if exact title was asked recently (duplicate title check)
+DUPLICATE_CHECK=$(python3 << PYSCRIPT
 import json
+title_check = """$TITLE"""
+
 try:
     with open("/Users/hopenclaw/.openclaw/workspace/goals/notifications.json", "r") as f:
         notifs = json.load(f)
 except:
     notifs = []
 
-title = "TITLE_PLACEHOLDER"
 inquiries = [n for n in notifs if n.get("source") == "daily-inquiry"]
+found = False
 for n in inquiries:
-    if n.get("title", "").strip() == title.strip():
-        print("DUPLICATE")
+    if n.get("title", "").strip() == title_check.strip():
+        found = True
         break
+
+if found:
+    print("DUPLICATE")
 else:
     print("OK")
 PYSCRIPT
@@ -143,11 +153,10 @@ bash "$SCRIPT_DIR/send-notification.sh" "question" "$TITLE" "$BODY" "" "" "daily
 # Log success
 echo "{\"date\":\"$TODAY\",\"title\":\"$TITLE\",\"topic\":\"$TOPIC\",\"cycle\":$CYCLE_NUM}" >> "$INQUIRY_LOG"
 
-# Update tracking file
-python3 << 'PYSCRIPT'
+# Update tracking file with last_asked date
+python3 << PYSCRIPT
 import json
 import time
-from datetime import datetime
 
 try:
     with open("/Users/hopenclaw/.openclaw/workspace/memory/question-tracking.json", "r") as f:
@@ -155,30 +164,15 @@ try:
 except:
     data = {"schema_version": "1.0", "topics": {}, "last_updated": 0}
 
-topic = "TOPIC_PLACEHOLDER"
+topic = """$TOPIC"""
+today = """$TODAY"""
+
 if topic not in data.get("topics", {}):
     data.setdefault("topics", {})[topic] = {"last_asked": None, "count": 0}
 
-data["topics"][topic]["last_asked"] = "TODAY_PLACEHOLDER"
+data["topics"][topic]["last_asked"] = today
 data["topics"][topic]["count"] = data["topics"][topic].get("count", 0) + 1
 data["last_updated"] = time.time()
-
-try:
-    with open("/Users/hopenclaw/.openclaw/workspace/goals/notifications.json", "r") as f:
-        notifs = json.load(f)
-except:
-    notifs = []
-
-# Check if Joe explicitly closed this topic
-closed_signals = ["no", "none", "not worth", "already answered", "duplicate", "repeat", "asked before", "don't keep asking", "same question", "there is nothing", "hasn't been", "i've already answered"]
-inquiries = [n for n in notifs if n.get("source") == "daily-inquiry" and n.get("title") == "TITLE_PLACEHOLDER"]
-if inquiries:
-    last = inquiries[-1]
-    if last.get("answered"):
-        answer = (last.get("userAnswer") or "").strip().lower()
-        if any(sig in answer for sig in closed_signals):
-            data["topics"][topic]["permanently_closed"] = True
-            data["topics"][topic]["closed_reason"] = f"Joe explicitly closed on TODAY_PLACEHOLDER: {answer[:100]}"
 
 with open("/Users/hopenclaw/.openclaw/workspace/memory/question-tracking.json", "w") as f:
     json.dump(data, f, indent=2)
