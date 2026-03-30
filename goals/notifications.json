@@ -579,5 +579,15 @@
     "answered": false,
     "createdAt": "2026-03-30T13:02:40.406Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774880952042_81412c34",
+    "type": "--title",
+    "title": "3 Review Cards Status — Actions Needed",
+    "message": "--message",
+    "goalId": "**Card 1: Atlantic Contractor Client Portal**\n- Status: Awaiting warm intro names\n- What you need to do: Provide 2-3 contractor names you know personally (to boost outreach response rate)\n- Impact: Once provided, Phase 2 outreach launches immediately (Mar 31 first calls)\n\n**Card 2: Bill Review & Invoice Audit Automation**\n- Status: Complete blueprint delivered (BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md)\n- What you need to do: Review blueprint and confirm 'go' or provide feedback\n- Impact: Ready to move to in_progress and validate market assumptions\n\n**Card 3: 14-day Free Trial Implementation**\n- Status: Code + frontend complete; waiting on Stripe dashboard config\n- What you need to do: Create 12 prices in Stripe (Basic/Pro × US/CA × Monthly/Annual), set trial_period_days=14\n- Impact: Once config done, deployment is immediate\n\n**Recommendation:** Start with Card 1 (contractor intros — highest ROI). Then review Card 2 blueprint. Card 3 can proceed in parallel once you update Stripe dashboard.",
+    "answered": false,
+    "createdAt": "2026-03-30T14:29:12.042Z",
+    "answeredAt": null
   }
 ]
