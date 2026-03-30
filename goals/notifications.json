@@ -569,5 +569,15 @@
     "answered": false,
     "createdAt": "2026-03-28T13:00:01.107Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774875760406_d6bef027",
+    "type": "question",
+    "title": "Would you rather build something new or polish something existing for the next month?",
+    "message": "Momentum vs. depth. What does your gut say?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-30T13:02:40.406Z",
+    "answeredAt": null
   }
 ]

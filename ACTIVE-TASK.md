@@ -241,6 +241,9 @@ logs/health-monitor.log (auto-generated)
 
 - **What's one feature users keep asking for?** (_question_, Mar 28 13:00)
   ID: `notif_1774702801107_390b0450` — Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.
+
+- **Would you rather build something new or polish something existing for the next month?** (_question_, Mar 30 13:02)
+  ID: `notif_1774875760406_d6bef027` — Momentum vs. depth. What does your gut say?
 <!-- PENDING-Q-END -->
 
 ---
