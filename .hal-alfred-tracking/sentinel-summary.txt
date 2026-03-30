@@ -1,1 +1,1 @@
-DEGRADED: sessions
+ALL HEALTHY

@@ -24,6 +24,7 @@ THRESHOLD_TIME=$(date -u -v-30M '+%Y-%m-%dT%H:%M:%S' 2>/dev/null || date -u -d '
 RATE_LIMIT_COUNT=$(grep -cE "rate limit reached|API rate limit|Provider rate limits|429|quota" "$ERR_LOG" 2>/dev/null || echo "0")
 # Count recent errors (tail last 50 lines, filter for rate limits)
 RECENT_COUNT=$(tail -50 "$ERR_LOG" 2>/dev/null | grep -cE "rate limit reached|API rate limit|Provider rate limits|429|quota" || echo "0")
+RECENT_COUNT=$(echo "$RECENT_COUNT" | tr -d ' \n')
 
 log "Rate-limit check: $RECENT_COUNT errors in last 30 min (total: $RATE_LIMIT_COUNT)"
 
