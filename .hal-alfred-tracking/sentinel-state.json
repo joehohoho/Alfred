@@ -2,28 +2,28 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:13Z",
+    "lastCheck": "2026-03-30T10:58:52Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:13Z",
+    "lastCheck": "2026-03-30T10:58:52Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:18Z",
+    "lastCheck": "2026-03-30T10:58:57Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:19Z",
+    "lastCheck": "2026-03-30T10:58:57Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
@@ -46,35 +46,35 @@
         "at": 1774861289.741079
       }
     ],
-    "lastCheck": "2026-03-30T10:28:19Z",
+    "lastCheck": "2026-03-30T10:58:57Z",
     "lastNotified": 0,
     "lastFixTime": 1774861289.74108
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:19Z",
+    "lastCheck": "2026-03-30T10:58:57Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:19Z",
+    "lastCheck": "2026-03-30T10:58:58Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:19Z",
+    "lastCheck": "2026-03-30T10:58:57Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T10:28:19Z",
+    "lastCheck": "2026-03-30T10:58:58Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }

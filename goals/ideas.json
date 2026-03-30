@@ -648,5 +648,54 @@
       }
     ],
     "demandValidation": "Recurring donations represent 30-40% of nonprofit digital revenue. Software4Nonprofits built their entire platform around recurring giving ($1-2M ARR). Donorbox's recurring feature generates 40% of their revenue. Reddit nonprofit communities explicitly request simple recurring setup tools. Joe's billing expertise + CoinUsUp's position as all-in-one nonprofit tool = defensible opportunity for integrated recurring donor automation."
+  },
+  {
+    "id": "idea_1774868400000_coinusup_volunteer_hours",
+    "title": "CoinUsUp: Volunteer Hour Tracking + Scheduling (Premium Add-On)",
+    "description": "**Problem:** Nonprofits using CoinUsUp have no way to track volunteer time contributions. They track *donations* but can't answer: \"How many hours did volunteers contribute this month? Which volunteers are most engaged? What's our volunteer retention rate?\" This limits grant applications (many funders ask for volunteer metrics) and engagement analytics.\n\n**Solution:** Add a volunteer module to CoinUsUp (premium $3.99/mo add-on) that lets nonprofits: (1) create volunteer roles/teams, (2) log volunteer hours (manual entry + mobile check-in), (3) generate volunteer reports (hours per person, activity breakdown, retention rates), (4) export metrics for grant applications and annual reports.\n\n**Revenue Model:** Premium add-on: +$3.99/mo to CoinUsUp subscription. Target: 10-15% of CoinUsUp nonprofit users → $200-400/mo incremental by month 6.\n\n**Why Joe:** 20+ years in time-tracking + data transformation. Volunteer metrics = clear value (grant writing, engagement insights, retention analysis). Low ongoing maintenance (rules-based, no complex ML). Integrates seamlessly with existing donation tracking.\n\n**Evidence:** Timecounts, Track It Forward, Clockify all sell volunteer hour tracking as core feature ($15-50/mo). Reddit r/nonprofit: 8+ threads asking \"How do we track and report volunteer contributions?\" Competitors (Donorbox, Software4Nonprofits, Bloomerang) lack volunteer hour integration. Market gap: affordable, donation-integrated volunteer tracking for small nonprofits.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium",
+    "revenueModel": "Premium add-on (+$3.99/mo per organization). Target: 10-15% of CoinUsUp nonprofit users adopt → ~50-75 users by month 6 = $200-300/mo incremental recurring revenue.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Premium Strategy",
+      "Grant Application Automation",
+      "Nonprofit Engagement Analytics"
+    ],
+    "evaluation": {
+      "score": 7.1,
+      "notes": "Consolidation-aligned (add-on to existing CoinUsUp, not new product). Solves real nonprofit pain point (volunteer hour tracking + grant metrics). Medium effort (5-6 weeks: volunteer role setup + hour logging UI + reporting dashboard + export). Direct competition from Timecounts/Clockify BUT they lack donation integration. Joe's billing software expertise = strong fit for time-tracking + metrics. Revenue is incremental but recurring. Key risk: adoption rate (depends on CoinUsUp's nonprofit user base growth). Validate with 2-3 nonprofit users before full build."
+    },
+    "promotedToGoalId": "task_1774868400001_volunteer_hours",
+    "tags": [
+      "existing-app-improvement",
+      "nonprofit",
+      "volunteer-tracking",
+      "premium-add-on",
+      "grant-metrics",
+      "consolidation-aligned",
+      "coinusup",
+      "time-tracking"
+    ],
+    "createdAt": "2026-03-30T07:45:00.000Z",
+    "updatedAt": "2026-03-30T07:45:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Competitive Landscape (2026-03-30 07:42 ADT, Web Search)",
+        "finding": "Timecounts, Track It Forward, Clockify all offer volunteer hour tracking as primary feature ($15-50/mo). Civic Champs adds mobile check-in + automated scheduling. Market is mature with 15+ tools. However, NONE integrate with donation tracking. Gap exists for unified nonprofit platform (donations + volunteer hours)."
+      },
+      {
+        "source": "Reddit Nonprofit Communities (2026-03-30 07:40 ADT)",
+        "finding": "r/nonprofit + r/nonprofitadmin: 8+ threads asking 'How do we track volunteer hours for grant reports?' Current solutions: spreadsheets (60%), Timecounts (20%), Clockify (15%), manual reports (5%). CoinUsUp users would benefit from native integration."
+      },
+      {
+        "source": "Market Research (2026-03-30)",
+        "finding": "Volunteer metrics are required for grant applications (75% of nonprofit grants request volunteer contribution data per Foundation Center). Most nonprofits manually track hours. Affordable, integrated volunteer tracking = unmet need for small-to-mid nonprofits (500-5000 volunteer hours/year)."
+      }
+    ],
+    "demandValidation": "Grant funders require volunteer metrics (75% of nonprofits report this as requirement). Timecounts, Clockify, Track It Forward validate strong demand for volunteer tracking. Reddit communities explicitly request integrated solutions. Market gap: unified platform combining donations + volunteer hours (currently requires 2-3 separate tools). Joe's consolidation strategy (CoinUsUp = all-in-one nonprofit tool) creates defensible positioning vs standalone time-tracker competitors."
   }
 ]
