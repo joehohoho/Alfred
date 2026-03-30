@@ -7,5 +7,14 @@
       "addedAt": "2026-03-29T19:41:54Z",
       "addedBy": "agent"
     }
+  ],
+  "sessions": [
+    {
+      "description": "Sessions bloat: JSONL file accumulated 9269 entries (352KB). Root cause: No automatic pruning of old session records. Fix: Archived old entries (>30 days) to gzip backup, reset sessions.json to fresh state. This prevents accumulation and keeps file <4KB.",
+      "fix_script": "fix-sessions-bloat.sh",
+      "success": true,
+      "addedAt": "2026-03-29T23:45:25Z",
+      "addedBy": "agent"
+    }
   ]
 }

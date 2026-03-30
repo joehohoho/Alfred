@@ -1,117 +1,113 @@
-# LAST-SESSION.md — Session Bridge (2026-03-29 19:30 ADT)
+# LAST-SESSION.md — Session Bridge
 
-**Session:** Cron-event trigger (19:00-19:30 ADT)  
-**Status:** `idle` (proactive work completed)  
-**Context:** 36% (72k/200k, healthy margin)
+**Session Date:** 2026-03-29 (Sunday evening, quiet hours)  
+**Status:** `idle` (Week 1 workflow roadmap complete; 3 review cards pending Joe decisions)  
+**Context Usage:** 17% (32k/200k) ✅ Healthy
 
 ---
 
 ## What Happened This Session
 
-1. **Session Checkpoint (19:00)** ✅
-   - Synced 8 pending questions to ACTIVE-TASK.md
-   - Context checked: 56% (healthy at that time)
-   - Continuity files verified
-   - Result: All work captured, recovery-ready
+1. **Heartbeat Check (20:45 ADT)** ✅
+   - Sessions bloat fix completed (352K → 31K)
+   - Sentinel + session-cleanup healthy
+   - Context 16%, all systems normal
 
-2. **Idle Loop & Proactive Check (19:01)** ✅
-   - Kanban idle loop: No active cards to pick up
-   - All 3 review cards blocked on Joe decisions only
-   - Proactive check: Cooldown active (30 min since last run, 90 min required)
-   - Result: System operating normally
+2. **Workflow Efficiency Week 1 — COMPLETE** ✅
+   - Health monitoring system deployed (health-monitor.js, health-server.js)
+   - HAL gateway outage diagnosed (WebSocket timeout at 192.168.2.79:18789)
+   - Dashboard operational at http://localhost:3099/health/dashboard
+   - Card moved to REVIEW (task_1774651057709_a8f43699)
+   - Awaiting Joe to restart HAL gateway
 
-3. **Webhook Notification Check (19:05)** ✅
-   - Checked for answered notifications
-   - Result: No new answers to blocking questions
-   - Same 3 blockers remain: CoinUsUp Stripe, Bill Review approval, Atlantic Portal prospects
-   - No state changes, no action triggered
+3. **Code Review — Market Signal Lab (Proactive)** ✅
+   - Comprehensive review delivered (CODE-REVIEW-2026-03-29.md)
+   - Assessment: 4/5 stars, production-ready architecture
+   - Critical gaps identified: position ledger, alert system, real-time data
+   - Recommendation: Prioritize position ledger (8-12h) for portfolio features
 
-4. **Memory Size Monitor (19:06)** ✅
-   - AGENTS.md: 17.7 KB (CRITICAL, >95% of target)
-   - Action: Extracted Kanban Protocol to satellite file
-   - Result: AGENTS.md reduced to 13.8 KB (under target)
-   - Commit: 542a94e
-
-5. **Dead Code & Cleanup Sweep (19:10-19:30)** ✅
-   - Removed 4 dead files (backups, empty files)
-   - Archived 26 stale docs (50% root clutter reduction)
-   - Created 3-tier archive structure (coinusup-setup, migrations, old-planning)
-   - Deliverable: `reports/dead-code-cleanup-2026-03-29.md`
-   - Commit: 2117371
-   - All files recoverable via git or `.archived-docs/`
+4. **Infrastructure Audit (Proactive)** ✅
+   - Identified 3 improvement opportunities
+   - P0: Gateway auto-recovery system (2-3h) — CRITICAL
+   - P1: Idle activity deduplication (1-2h)
+   - P2: Token cost tracking dashboard (1-2h)
 
 ---
 
-## Current Task State
+## Decisions Made
 
-**Status:** `idle` (no active cards assigned)
-
-**Completed Today:**
-1. ✅ Workflow Efficiency Roadmap — Week 1 (health monitoring deployed)
-2. ✅ Market Signal Lab Code Review (19.4 KB report)
-3. ✅ Alfred Infrastructure Audit (8.3 KB report, 3 improvements identified)
-4. ✅ AGENTS.md Size Reduction (Kanban Protocol extraction)
-5. ✅ Dead Code Cleanup (30 files cleaned)
-
-**In Progress:**
-- None (all tasks awaiting Joe decisions or completed)
-
-**Blocked (Awaiting Joe):**
-1. CoinUsUp 14-day Trial — Stripe config (5-min task, 11 days old)
-2. Bill Review & Invoice Audit — Discovery approval (6 days old)
-3. Atlantic Contractor Portal — Prospect list approval + intros (5 days old)
+- Week 1 health monitoring deployment → approved & moved to REVIEW
+- Market Signal Lab positioning: defer major features pending position ledger
+- Infrastructure priorities: gateway auto-recovery first
 
 ---
 
-## Pending Questions (Active Blockers)
+## Work in Progress
 
-**All synced to ACTIVE-TASK.md:**
-- CoinUsUp Free Trial Stripe Config (Mar 27)
-- Bill Review & Invoice Audit approval (Mar 28)
-- Atlantic Contractor Portal prospects (Mar 28)
-- Plus 5 inquiry-style questions (growth strategy, user feedback)
+### Blocked (Pending Joe Decisions)
 
-**Total:** 8 unanswered notifications, all documented in ACTIVE-TASK.md
+1. **[URGENT] 3 Review Cards** (Mar 28 09:12)
+   - Bill Review & Invoice Audit Automation (task_177xx)
+   - Atlantic Contractor Client Portal-in-a-Box (task_177xx)
+   - CoinUsUp Recurring Donations (task_177xx)
+   - **Blocker:** All awaiting Joe approval/decision
+
+2. **CoinUsUp Free Trial Stripe Config** (Mar 27 06:36)
+   - Feature code-complete (9 days waiting)
+   - **Blocker:** Need Stripe keys for testing
+
+3. **14-Day Free Trial Escalation** (Mar 18)
+   - Card stale 7+ hours
+   - **Blocker:** Needs re-dispatch or decision
+
+### Ready to Start (Week 2 Roadmap)
+
+- **Cron watchdog system** (1.5h) — auto-detect + restart critical jobs
+- **Question deduplication** (1.5h) — prevent repeat notifications
+- **Approval buttons** (3h) — add action buttons to notification UI
+
+---
+
+## Pending Questions (8 Active)
+
+<!-- Synced 2026-03-29 21:00 -->
+1. Stale card escalated: "14-day free trial on Basic/Pro" (Mar 18)
+2. CoinUsUp Recurring Donations — Stripe keys needed (Mar 24)
+3. CoinUsUp Free Trial Stripe Config (Mar 27)
+4. 3 Review Cards Blocked — decisions needed (Mar 28)
+5. What's one feature users keep asking for? (Mar 28)
+6-8. 3 untitled questions (Mar 25)
+
+**Action:** Review ACTIVE-TASK.md for full pending questions list.
+
+---
+
+## Key Context
+
+- **HAL Status:** Offline (gateway handshake timeout)
+- **Sentinel:** ✅ Running (monitoring 9 components)
+- **Gateway:** Needs manual restart (Joe's action)
+- **Quiet Hours:** In effect (9 PM - 9 AM AST); continue working internally, no direct Joe pings
 
 ---
 
 ## Next Steps
 
-1. **Immediate:** Await Joe's answers on 3 blocking review cards
-2. **Proactive:** When cooldown expires (~22:13 UTC / 18:13 ADT), idle loop will resume
-3. **Monitoring:** Context at 36%, no checkpoint compression needed yet
-4. **Work continues:** Idle activities scheduled per 30-min cycle
+### Immediate (for Joe)
+- Restart HAL gateway (192.168.2.79:18789)
+- Review/approve 3 review cards
+- Provide Stripe keys for CoinUsUp testing
+
+### For Alfred (Autonomous)
+1. Once HAL restarts: dispatch cron watchdog task
+2. Monitor pending questions (nudge at 7-day mark)
+3. Continue idle activities (if HAL unavailable, focus on code review/infrastructure)
+
+### Week 2 Preparation
+- Gateway auto-recovery system (if not dispatched)
+- Cron watchdog (if HAL available)
 
 ---
 
-## Key Decisions Made This Session
-
-- **Extract large sections:** Kanban Protocol moved to satellite file (improves AGENTS.md modularity)
-- **Archive, don't delete:** Stale docs moved to `.archived-docs/` (preserves recovery, keeps workspace clean)
-- **Execution autonomy:** Dead code cleanup executed proactively (HAL offline, no Joe approval needed)
-
----
-
-## Continuity Files
-
-- **ACTIVE-TASK.md:** Updated with latest task state + 8 pending questions
-- **NOW.md:** Emergency checkpoint exists (created during prior session)
-- **memory/2026-03-29.md:** Session log current (20+ entries, extensive documentation)
-- **LAST-SESSION.md:** This file (updated 19:30 ADT)
-
----
-
-## System Health
-
-- ✅ Context: 36% (healthy margin)
-- ✅ Git: Clean, 3 commits this session (size reduction, cleanup)
-- ✅ Workspace: Organized (dead code removed, stale docs archived)
-- ✅ Notifications: 8 pending questions tracked in ACTIVE-TASK.md
-- ⚠️ HAL: Offline (WebSocket timeout), awaiting Joe restart
-- ⚠️ Gateway: Not responding on :6784 (flagged in infrastructure audit)
-
----
-
-**Session Ready for Close.**  
-All work captured, recovery-ready, continuity established.  
-Next session will boot via ACTIVE-TASK.md + memory/2026-03-29.md.
+**Updated:** 2026-03-29 21:00 ADT  
+**Ready for next session load.**
