@@ -244,6 +244,12 @@ logs/health-monitor.log (auto-generated)
 
 - **Would you rather build something new or polish something existing for the next month?** (_question_, Mar 30 13:02)
   ID: `notif_1774875760406_d6bef027` — Momentum vs. depth. What does your gut say?
+
+- **3 Review Cards Status — Actions Needed** (_--title_, Mar 30 14:29)
+  ID: `notif_1774880952042_81412c34` — --message
+
+- **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Mar 30 15:46)
+  ID: `notif_1774885564648_78462f3c` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
 <!-- PENDING-Q-END -->
 
 ---

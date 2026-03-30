@@ -589,5 +589,15 @@
     "answered": false,
     "createdAt": "2026-03-30T14:29:12.042Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774885564648_78462f3c",
+    "type": "question",
+    "title": "What's the one thing that would unlock the next growth phase for CoinUsUp?",
+    "message": "Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-30T15:46:04.648Z",
+    "answeredAt": null
   }
 ]

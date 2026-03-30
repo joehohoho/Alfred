@@ -1,87 +1,14 @@
 {
   "schema_version": "1.0",
-  "description": "Tracks when each inquiry topic was last asked. 30-day cooldown between repeats. permanently_closed=true means NEVER ask again.",
-  "last_updated": 1774875760.512597,
   "topics": {
-    "consulting-opportunity": {
-      "last_asked": "2026-03-19",
-      "count": 7,
-      "note": "Asked Feb 27, Feb 28, Mar 07, Mar 09 (FLAGGED: too frequent)",
-      "permanently_closed": true,
-      "closed_reason": "Joe said NO 3+ times (Mar 1, 5, 9, 17, 19). Topic permanently closed."
-    },
-    "signal-blocker": {
-      "last_asked": "2026-03-10",
-      "count": 3,
-      "note": "Asked Mar 06, Mar 08",
-      "permanently_closed": true,
-      "closed_reason": "Joe answered on Mar 2 and Mar 10, said stop asking. Closed."
-    },
-    "even-us-up-strategy": {
-      "last_asked": "2026-03-03",
+    "test-topic": {
+      "last_asked": "2026-03-30",
       "count": 1
     },
-    "automation-friction": {
-      "last_asked": "2026-03-04",
-      "count": 1
-    },
-    "consulting-weakness": {
-      "last_asked": null,
-      "count": 0
-    },
-    "signal-expansion": {
-      "last_asked": "2026-03-20",
-      "count": 1
-    },
-    "project-priority": {
-      "last_asked": "2026-03-21",
-      "count": 1
-    },
-    "new-idea-pipeline": {
-      "last_asked": "2026-03-22",
-      "count": 1
-    },
-    "alfred-optimization": {
-      "last_asked": "2026-03-23",
-      "count": 1
-    },
-    "coinusup-vision": {
-      "last_asked": "2026-03-24",
-      "count": 1
-    },
-    "productize-consulting": {
-      "last_asked": null,
-      "count": 0
-    },
-    "even-us-up-blocker": {
-      "last_asked": null,
-      "count": 0
-    },
-    "passive-income-target": {
-      "last_asked": null,
-      "count": 0,
-      "permanently_closed": true,
-      "closed_reason": "Joe answered definitively on Feb 23 ($5-10k/month). Closed."
-    },
-    "passive-income-bet": {
-      "last_asked": null,
-      "count": 0
-    },
-    "capacity-expectations": {
-      "last_asked": null,
-      "count": 0
-    },
-    "workflow-friction": {
-      "last_asked": null,
-      "count": 0
-    },
-    "coinusup-growth": {
-      "last_asked": "2026-03-27",
-      "count": 1
-    },
-    "TOPIC_PLACEHOLDER": {
-      "last_asked": "TODAY_PLACEHOLDER",
+    "coinusup-unlock": {
+      "last_asked": "2026-03-30",
       "count": 1
     }
-  }
+  },
+  "last_updated": 1774885564.754613
 }

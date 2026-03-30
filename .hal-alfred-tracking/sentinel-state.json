@@ -2,28 +2,28 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:20Z",
+    "lastCheck": "2026-03-30T16:10:30Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:20Z",
+    "lastCheck": "2026-03-30T16:10:31Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:25Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:26Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
@@ -34,37 +34,47 @@
         "fix": "run-cleanup",
         "success": false,
         "at": 1774872325.579093
+      },
+      {
+        "fix": "run-cleanup",
+        "success": false,
+        "at": 1774883358.21087
+      },
+      {
+        "fix": "run-cleanup",
+        "success": false,
+        "at": 1774883665.165458
       }
     ],
-    "lastCheck": "2026-03-30T14:28:26Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
-    "lastFixTime": 1774872325.579094
+    "lastFixTime": 1774883665.165459
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:26Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:26Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:26Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-03-30T14:28:26Z",
+    "lastCheck": "2026-03-30T16:10:36Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }
