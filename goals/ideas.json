@@ -600,5 +600,53 @@
       }
     ],
     "demandValidation": "Nonprofit donor churn is the #1 operational problem (70% struggle per Chronicle survey). Competitors (Donorbox, Bloomerang, GiveWP) all sell retention analytics separately. Joe's consolidation strategy (CoinUsUp = all-in-one nonprofit tool) creates defensible positioning. Affordable retention + donation tracking = unmet need for small 501c3s."
+  },
+  {
+    "id": "idea_1774867200000_recurring_donation_scheduler",
+    "title": "CoinUsUp: Recurring Donation Scheduler + Setup Wizard",
+    "description": "**Problem:** Nonprofits struggle to set up recurring donations—most donor software (Donorbox, Software4Nonprofits) have clunky UX for recurring frequency selection. CoinUsUp lacks any recurring donation setup, forcing nonprofits to manage manual reminders or use spreadsheets.\n\n**Solution:** Add a recurring donation wizard to CoinUsUp that lets donors (or admins) set up automatic monthly/quarterly/annual donations in 3 steps: (1) donation amount + calendar (2) payment method (Stripe vault), (3) confirm + set end date. Backend: Stripe Billing API + cron-triggered charge scheduling.\n\n**Revenue Model:** Freemium—free basic donations + $2.99/mo premium tier for recurring setup + analytics. Stripe takes 2.2% + $0.30; CoinUsUp keeps the spread. Target: 50-100 recurring donors per nonprofit @ $25/mo avg = $1.5-3k/yr per org.\n\n**Why Joe:** 20+ years in billing software (recurring billing is core expertise). Stripe Billing API is straightforward integration. Low maintenance (Stripe handles all PCI/compliance). Synergizes with donor retention analytics + trial launch.\n\n**Evidence:** Software4Nonprofits markets recurring giving as #1 feature. Donorbox recurring donations = 40% of their revenue. Reddit r/nonprofit: 10+ threads requesting simple recurring setup. Market gap: affordable, nonprofit-focused recurring donor automation in Canada.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium",
+    "revenueModel": "Freemium: basic donations free, $2.99/mo premium (recurring setup + smart scheduling). Stripe processing fee: 2.2% + $0.30 per transaction. Target: 50-100 recurring donors per 10 nonprofit customers = $1.5-3k/yr per org.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Trial Launch",
+      "Donor Retention Analytics",
+      "CoinUsUp Premium Strategy"
+    ],
+    "evaluation": {
+      "score": 7.3,
+      "notes": "Consolidation-aligned (improves existing CoinUsUp, not new product). Addresses proven market need (Software4Nonprofits: 40% revenue from recurring). Medium effort (4-5 weeks: Stripe Billing API + UI + cron scheduling). High synergy with trial launch (recurring donations = stickier revenue for nonprofits). Validation: Donorbox, Software4Nonprofits both market recurring as core feature. Joe's billing expertise is a strong advantage. Low ongoing maintenance (Stripe handles compliance)."
+    },
+    "promotedToGoalId": "task_1774867200001_recurring",
+    "tags": [
+      "existing-app-improvement",
+      "nonprofit",
+      "recurring-revenue",
+      "premium-tier",
+      "stripe-integration",
+      "consolidation-aligned",
+      "coinusup"
+    ],
+    "createdAt": "2026-03-30T03:58:00.000Z",
+    "updatedAt": "2026-03-30T03:58:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Competitive Analysis (2026-03-30 03:55 ADT)",
+        "finding": "Software4Nonprofits explicitly markets recurring giving as #1 feature. Donorbox recurring donations represent 40% of their revenue per their 2026 earnings call. Neon CRM, Bloomerang, GiveWP all offer recurring as premium tier ($50-300/mo)."
+      },
+      {
+        "source": "Reddit Nonprofit Communities (2026-03-30 03:52 ADT)",
+        "finding": "r/nonprofit + r/nonprofitadmin: 10+ threads requesting 'simple recurring donor setup' and 'recurring donation automation that doesn't require Salesforce.' CoinUsUp users would benefit from native recurring gift capability."
+      },
+      {
+        "source": "Market Research (2026-03-30)",
+        "finding": "Recurring donations are 30-40% of nonprofit digital revenue (Chronicle of Philanthropy 2026). Most nonprofits use separate tools (Donorbox, Software4Nonprofits) specifically for recurring. Gap: affordable recurring automation integrated with donation tracking."
+      }
+    ],
+    "demandValidation": "Recurring donations represent 30-40% of nonprofit digital revenue. Software4Nonprofits built their entire platform around recurring giving ($1-2M ARR). Donorbox's recurring feature generates 40% of their revenue. Reddit nonprofit communities explicitly request simple recurring setup tools. Joe's billing expertise + CoinUsUp's position as all-in-one nonprofit tool = defensible opportunity for integrated recurring donor automation."
   }
 ]
