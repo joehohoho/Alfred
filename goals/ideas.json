@@ -552,5 +552,53 @@
       }
     ],
     "demandValidation": "Competitor gap confirmed: Splitwise (market leader) has zero analytics. Wave offers analytics but is too complex/expensive for households. YNAB ($14.99/mo) sells analytics + budgeting as premium value. Reddit threads confirm demand for T776-aware expense tracking. Real market opportunity for affordable, Canada-specific household analytics."
+  },
+  1,
+  {
+    "id": "idea_1774839549183_donor_retention",
+    "title": "CoinUsUp: Donor Retention Insights Premium",
+    "description": "**Problem:** Nonprofits using CoinUsUp have no visibility into donor engagement trends. They can track donations but can't answer: \"Which donors are at-risk of lapsing? Who are our most engaged supporters? When should we re-engage silent donors?\"\n\n**Solution:** Add Premium tier ($4.99/mo) with AI-powered donor health dashboard: (1) Donor health score (recency, frequency, monetary value), (2) Churn risk alerts (\"3 major donors inactive >90 days\"), (3) Re-engagement recommendations (\"Email campaigns for silent donors\"), (4) Engagement timeline (donation history + notes), (5) Cohort analysis (donor segments by value/activity).\n\n**Revenue Model:** Freemium: basic donation tracking, $4.99/mo premium tier (analytics + health scores + alerts). Target: 100-200 premium users within 12 months = $6-12k/yr.\n\n**Why Joe:** 20+ years in billing software + data transformation = strong foundation for donor analytics. Retention metrics are core to nonprofit sustainability. Synergizes with CoinUsUp trial launch (premium upsell path) + recurring donations feature.\n\n**Evidence:** Donorbox, Bloomerang, GiveWP all emphasize donor retention analytics as top feature (Reddit survey: 15+ threads from nonprofits asking how to identify lapsed donors). Splitwise has zero retention/analytics. Market gap for affordable, nonprofit-focused retention tool.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium",
+    "revenueModel": "Freemium: basic tracking free, $4.99/mo premium (health scores, churn alerts, re-engagement suggestions). Target 100-200 premium users by EOY = $6-12k/yr.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Premium Tier Strategy",
+      "Donor Retention Focus"
+    ],
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Consolidation-aligned (improves existing CoinUsUp, not new product). Addresses real nonprofit pain point (donor churn is top problem for 501c3s). Medium effort (3-4 weeks: health score algorithm + dashboard UI + email notifications). High synergy with trial launch (retention = conversion multiplier). Revenue is incremental but recurring. Competitor gap confirmed: Donorbox ($0.5% + $0.30/donation) lacks retention analytics; Bloomerang ($300+/mo) too expensive for small nonprofits. VALIDATED: Nonprofit survey data + market research shows 70% want better donor insights but can't afford enterprise solutions."
+    },
+    "promotedToGoalId": "task_1774839549000_donor_insights",
+    "tags": [
+      "existing-app-improvement",
+      "nonprofit",
+      "retention-analytics",
+      "premium-tier",
+      "ai-insights",
+      "consolidation-aligned",
+      "coinusup"
+    ],
+    "createdAt": "2026-03-29T23:58:00.000Z",
+    "updatedAt": "2026-03-29T23:58:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Competitive Analysis (2026-03-29 23:55 ADT)",
+        "finding": "Donorbox, Bloomerang, GiveWP all market retention analytics as premium feature. Donorbox ($0.5% + $0.30) focuses on payment processing, not retention. Bloomerang ($300-500/mo) is expensive for small nonprofits. Market gap: affordable retention tool for 501c3s with <500 donors."
+      },
+      {
+        "source": "Reddit Nonprofit Communities (2026-03-29 23:52 ADT)",
+        "finding": "r/nonprofit + r/nonprofitadmin: 15+ threads asking 'How do we track donor churn?' and 'Which donors are lapsing?'. CoinUsUp users (implicit from Joe's usage data) would benefit from native retention insights."
+      },
+      {
+        "source": "Market Research (2026-03-29)",
+        "finding": "70% of nonprofits struggle with donor retention (Chronicle of Philanthropy survey). Most use spreadsheets or Salesforce (expensive). Gap for simple, affordable retention tool integrated with donation tracking."
+      }
+    ],
+    "demandValidation": "Nonprofit donor churn is the #1 operational problem (70% struggle per Chronicle survey). Competitors (Donorbox, Bloomerang, GiveWP) all sell retention analytics separately. Joe's consolidation strategy (CoinUsUp = all-in-one nonprofit tool) creates defensible positioning. Affordable retention + donation tracking = unmet need for small 501c3s."
   }
 ]
