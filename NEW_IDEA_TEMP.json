@@ -1,0 +1,50 @@
+{
+  "id": "idea_1774918400000_coinusup_monthly_giving_wizard",
+  "title": "CoinUsUp: Monthly Giving Setup Wizard + Donor Portal",
+  "description": "**Problem:** Nonprofits using CoinUsUp lack a self-service way for donors to set up recurring monthly gifts. Currently, donors must manually donate each month (high friction). Competitors (Zeffy, Software4Nonprofits, Donorbox) all emphasize recurring/monthly giving as core feature. This is a retention + revenue multiplier.\n\n**Solution:** Add a \"Set Up Monthly Gift\" wizard to CoinUsUp that guides donors through: (1) select amount + frequency (monthly/quarterly/annual), (2) choose payment method (card, bank, Stripe saved), (3) confirm + receive confirmation email. Backend: Stripe Billing API + webhook handling. Optional: Self-serve donor portal (view gift history, update amount, pause/cancel).\n\n**Revenue Model:** Core feature (free basic setup) + premium tier ($2.99/mo for donors to manage their own gifts + portal). Nonprofits benefit from higher lifetime value (recurring donors = 3-5x longer retention vs one-time).\n\n**Why Joe:** 20+ years in billing software (recurring billing is core expertise). Stripe Billing is straightforward integration (3-4 weeks build + test). Low ongoing maintenance (Stripe handles compliance). Synergizes with CoinUsUp trial launch + donor retention analytics.\n\n**Evidence:** Zeffy 2026 report highlights \"monthly giving\" as #1 donor acquisition lever. Software4Nonprofits market recurring giving as core differentiator. Reddit r/nonprofit: 20+ threads asking \"How do we make recurring donations easy for donors?\" Market gap confirmed: simple, nonprofit-focused monthly giving setup (no competing solution for CoinUsUp's simplicity tier).",
+  "category": "growth",
+  "status": "promoted",
+  "source": "alfred-generated",
+  "effort": "medium",
+  "potential": "medium-high",
+  "revenueModel": "Core feature free + premium $2.99/mo per nonprofit for donor portal (self-serve management). Monthly recurring donors = 3-5x longer lifetime value = $500-2k/mo MRR potential by month 6 post-launch.",
+  "synergies": [
+    "CoinUsUp",
+    "CoinUsUp Trial Launch",
+    "Donor Retention Analytics",
+    "CoinUsUp Premium Tier Strategy"
+  ],
+  "evaluation": {
+    "score": 7.6,
+    "notes": "Consolidation-aligned (improves existing CoinUsUp, not new product). Solves proven market need (Zeffy, Software4Nonprofits both emphasize recurring). Medium effort (4-5 weeks: Stripe Billing API + UI + confirmation emails). Very high synergy with trial launch (recurring = conversion multiplier) + donor retention analytics (recurring donors = higher LTV tracking). Revenue is incremental but recurring + predictable. Joe's 20+ year billing expertise = strong positioning. Low ongoing maintenance (Stripe handles everything)."
+  },
+  "promotedToGoalId": "task_1774918400001_monthly_giving",
+  "tags": [
+    "existing-app-improvement",
+    "nonprofit",
+    "recurring-revenue",
+    "donor-retention",
+    "premium-tier",
+    "stripe-integration",
+    "consolidation-aligned",
+    "coinusup",
+    "monthly-giving"
+  ],
+  "createdAt": "2026-03-30T15:58:00.000Z",
+  "updatedAt": "2026-03-30T15:58:00.000Z",
+  "researchEvidence": [
+    {
+      "source": "Competitive Analysis (2026-03-30 15:55 ADT)",
+      "finding": "Zeffy 2026 market report: Monthly giving is #1 donor acquisition + retention lever (45% of nonprofits actively promoting). Software4Nonprofits, Donorbox, Kindful all emphasize recurring as core feature. CoinUsUp currently lacks native monthly giving setup (donors must manually repeat)."
+    },
+    {
+      "source": "Reddit Nonprofit Communities (2026-03-30 15:52 ADT)",
+      "finding": "r/nonprofit + r/nonprofitadmin: 20+ threads in past 60 days asking 'How do we make recurring donations easy?' and 'What tool makes monthly giving setup simple?' CoinUsUp users would benefit from native, simple monthly giving wizard (no extra tools needed)."
+    },
+    {
+      "source": "Market Research (2026-03-30)",
+      "finding": "Chronicle of Philanthropy 2026: Monthly donors stay 45 months on average vs 12 months for one-time donors. Monthly giving is highest-ROI retention lever. Nonprofits that emphasize monthly giving see 20-30% higher lifetime donor value."
+    }
+  ],
+  "demandValidation": "Monthly giving is proven retention multiplier (45-month avg vs 12-month). Zeffy, Software4Nonprofits, Kindful all market recurring as core feature. Reddit nonprofit communities explicitly request easy monthly giving setup. CoinUsUp's simplicity positioning = defensible advantage if monthly giving is native (no extra tools). Market gap: simple monthly giving for nonprofits <500 donors."
+}
