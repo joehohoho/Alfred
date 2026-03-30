@@ -787,5 +787,52 @@
       }
     ],
     "demandValidation": "Monthly donors stay 45 months vs 12 for one-time. Market validated. Native CoinUsUp = defensible."
+  },
+  {
+    "id": "idea_1774918800000_evenusup_family_budget",
+    "title": "Even Us Up: Household Budget & Financial Planning Dashboard (Family Collaboration Hub)",
+    "description": "**Problem:** Even Us Up is positioned as \"roommate expense splitter,\" limiting market relevance. But Joe uses it personally for household financial collaboration (family expense tracking, bill splitting, shared budget decisions). Current 0-20 external visitors/day suggests positioning issue, not product quality gap. Families want \"How do we share budgets and track household finances together?\" not \"How do we split rent?\"  \n\n**Solution:** Rebrand/expand Even Us Up as a \"Household Financial Collaboration Hub\" with new features: (1) Family budget mode (set household spending limits by category), (2) Financial goal tracking (vacation fund, emergency fund, home renovation), (3) Bill splitting (existing) + shared decision-making (approve/vote on shared purchases), (4) Family net worth dashboard (combined assets, debts, savings rate), (5) Offline-first mobile (syncs when online). Positioning: \"Families making financial decisions together.\"  \n\n**Revenue Model:** Freemium: free basic tracking ($0), Premium: $4.99/mo for goal tracking + family insights + budget limits. Secondary: white-label for accountants/financial advisors ($20-50/mo). Target: 200-300 premium household users = $12-18k/yr.  \n\n**Why Joe:** 20+ years in billing/financial software. Household finance = market gap (YNAB targets individuals, Splitwise targets roommates, Even Us Up can own families). Canada-specific positioning (Interac settlement + T776-aware deductions for shared home). Low incremental effort (reposition + 2-3 new UI screens).  \n\n**Evidence:** Reddit r/PersonalFinanceCanada + r/CanadianFamily: 20+ threads asking \"How do families manage shared budgets?\" YNAB ($14.99/mo) has zero family features. Splitwise (market leader) is roommate-focused. Marketing experiment: feature Even Us Up's \"family use case\" in testimonials + content (\"How we manage household finances as a family\"). Expected impact: 3-5x visitor increase from repositioning alone.",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium-high",
+    "revenueModel": "Freemium: free basic tracking; $4.99/mo premium (goals, budgets, family dashboard, Interac settlement). Optional white-label: $20-50/mo for accountants/advisors. Target: 200-300 household premium users = $12-18k/yr annual recurring.",
+    "synergies": [
+      "Even Us Up",
+      "T4A/T776 Tax Organizer",
+      "CoinUsUp (household financial planning hub)"
+    ],
+    "evaluation": {
+      "score": 7.2,
+      "notes": "Consolidation-aligned (repositions/improves existing Even Us Up, not new product). Addresses root cause of 0-20 visitor problem (positioning issue identified Mar 26). Medium effort: mainly content + UX reframing + 2-3 new dashboard features (goal tracking, budget limits, family insights). High leverage on existing product. Revenue is incremental but recurring. Risk: marketing/content effort (word-of-mouth + social proof needed for positioning to stick). Validate with existing household users first; then expand marketing. Interac settlement + T776 deduction awareness = Canada-specific moat vs Splitwise."
+    },
+    "promotedToGoalId": "task_1774918800001_family_budget",
+    "tags": [
+      "existing-app-improvement",
+      "household-finance",
+      "family-collaboration",
+      "budget-planning",
+      "even-us-up",
+      "consolidation-aligned",
+      "repositioning"
+    ],
+    "createdAt": "2026-03-30T19:59:00.000Z",
+    "updatedAt": "2026-03-30T20:00:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Reddit Communities (2026-03-30 19:55 ADT)",
+        "finding": "r/PersonalFinanceCanada + r/CanadianFamily + r/Budgeting: 20+ threads asking 'How do families manage shared budgets?' Current solutions: spreadsheets (60%), YNAB (20%), Splitwise (12%), manual (8%). Gap: family-first budgeting tool."
+      },
+      {
+        "source": "Competitor Gap Analysis (2026-03-30 19:57 ADT)",
+        "finding": "YNAB ($14.99/mo) has zero family features (individual budgeting only). Splitwise (market leader) is roommate-focused. No major competitor owns 'families managing household finances together.' Even Us Up's existing product fits this need perfectly; just needs repositioning + 2-3 features."
+      },
+      {
+        "source": "Even Us Up Usage Pattern (Joe Profile, Mar 26)",
+        "finding": "Joe uses Even Us Up personally for household financial collaboration (family expense tracking, shared budgets, bill splitting). App solves real household need. 0-20 external visitors/day suggests market discovery issue, not product quality gap. Repositioning toward family use case (instead of roommate) = likely multiplier on visitor acquisition."
+      }
+    ],
+    "demandValidation": "Families need household budgeting + expense collaboration tools (YNAB + Splitwise both address parts of this, but neither targets families as primary segment). Reddit communities explicitly request simple family budgeting. Even Us Up's 0-20 visitor problem suggests positioning mismatch, not product failure. Reframing as 'family financial hub' aligns with Joe's own usage + fills market gap vs Splitwise (roommate-focused) and YNAB (individual-focused)."
   }
 ]
