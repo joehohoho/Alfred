@@ -1,113 +1,123 @@
 # LAST-SESSION.md — Session Bridge
 
-**Session Date:** 2026-03-29 (Sunday evening, quiet hours)  
-**Status:** `idle` (Week 1 workflow roadmap complete; 3 review cards pending Joe decisions)  
-**Context Usage:** 17% (32k/200k) ✅ Healthy
+**Session Date:** 2026-03-29 (Sunday evening)  
+**Time Range:** 19:10 - 22:00 ADT  
+**Status:** `idle` (Evening routine complete; 8 reports generated; 3 review cards blocked on Joe decisions)  
+**Context Usage:** 61% (yellow zone) → checkpoint triggered
 
 ---
 
 ## What Happened This Session
 
-1. **Heartbeat Check (20:45 ADT)** ✅
-   - Sessions bloat fix completed (352K → 31K)
-   - Sentinel + session-cleanup healthy
-   - Context 16%, all systems normal
+### Evening Routine (19:10 - 22:00 ADT)
 
-2. **Workflow Efficiency Week 1 — COMPLETE** ✅
-   - Health monitoring system deployed (health-monitor.js, health-server.js)
-   - HAL gateway outage diagnosed (WebSocket timeout at 192.168.2.79:18789)
-   - Dashboard operational at http://localhost:3099/health/dashboard
-   - Card moved to REVIEW (task_1774651057709_a8f43699)
-   - Awaiting Joe to restart HAL gateway
+**Context Alert:** Yellow zone (61%) triggered full checkpoint protocol at 18:38 ADT.
 
-3. **Code Review — Market Signal Lab (Proactive)** ✅
-   - Comprehensive review delivered (CODE-REVIEW-2026-03-29.md)
-   - Assessment: 4/5 stars, production-ready architecture
-   - Critical gaps identified: position ledger, alert system, real-time data
-   - Recommendation: Prioritize position ledger (8-12h) for portfolio features
+**Major Work Completed:**
+1. ✅ Code review: Market Signal Lab (4/5 assessment, 19.4 KB report)
+2. ✅ Infrastructure audit: Alfred system (3 improvements, 8.3 KB report)
+3. ✅ Monetization strategy: Signal App freemium model (8.9 KB report)
+4. ✅ Strategic discussion: Alfred ↔ HAL on Signal App path (6.9 KB)
+5. ✅ Security posture: 10-point audit, 3 hardening recommendations (9.2 KB)
+6. ✅ Code review: CoinUsUp (4/5 production-ready, 11.8 KB)
+7. ✅ Market research: Signal App opportunity sizing (19.6 KB, GO recommendation)
+8. ✅ Infrastructure fix: Sentinel sessions bloat (permanent fix registered)
 
-4. **Infrastructure Audit (Proactive)** ✅
-   - Identified 3 improvement opportunities
-   - P0: Gateway auto-recovery system (2-3h) — CRITICAL
-   - P1: Idle activity deduplication (1-2h)
-   - P2: Token cost tracking dashboard (1-2h)
+**Reports Generated:** 7 total, 107 KB combined
 
----
+### Decisions Made
 
-## Decisions Made
+| Decision | Status | Impact |
+|----------|--------|--------|
+| Signal App monetization model | **Freemium** ($9.99 Pro, $24.99 Premium) | Clear path, realistic Y1: $10-15k |
+| Signal App feature priority | Position tracking + alerts are load-bearing | Focus on credibility (backtests), not feature count |
+| CoinUsUp next steps | Position tracking + recurring donations | 6-8 week timeline to revenue |
+| Infrastructure P0 | Gateway auto-recovery system (2-3h) | Prevents 1-2h/week downtime |
+| Security hardening | Dependency scanning before production | npm audit + Dependabot for all projects |
 
-- Week 1 health monitoring deployment → approved & moved to REVIEW
-- Market Signal Lab positioning: defer major features pending position ledger
-- Infrastructure priorities: gateway auto-recovery first
+### Blockers (No Change)
 
----
-
-## Work in Progress
-
-### Blocked (Pending Joe Decisions)
-
-1. **[URGENT] 3 Review Cards** (Mar 28 09:12)
-   - Bill Review & Invoice Audit Automation (task_177xx)
-   - Atlantic Contractor Client Portal-in-a-Box (task_177xx)
-   - CoinUsUp Recurring Donations (task_177xx)
-   - **Blocker:** All awaiting Joe approval/decision
-
-2. **CoinUsUp Free Trial Stripe Config** (Mar 27 06:36)
-   - Feature code-complete (9 days waiting)
-   - **Blocker:** Need Stripe keys for testing
-
-3. **14-Day Free Trial Escalation** (Mar 18)
-   - Card stale 7+ hours
-   - **Blocker:** Needs re-dispatch or decision
-
-### Ready to Start (Week 2 Roadmap)
-
-- **Cron watchdog system** (1.5h) — auto-detect + restart critical jobs
-- **Question deduplication** (1.5h) — prevent repeat notifications
-- **Approval buttons** (3h) — add action buttons to notification UI
+1. **CoinUsUp Trial Stripe Config** (11 days) — Code complete, 5-min config blocking $500-2k/mo revenue
+2. **Bill Review SaaS** (6 days) — Discovery approval awaiting
+3. **Atlantic Portal** (5 days) — Prospect names + approval awaiting
+4. **HAL Gateway** (offline) — WebSocket timeout at 192.168.2.79:18789
+5. **Gateway Service** (not responding) — Port 6784 unresponsive (infrastructure issue)
 
 ---
 
-## Pending Questions (8 Active)
+## Key Context for Next Session
 
-<!-- Synced 2026-03-29 21:00 -->
-1. Stale card escalated: "14-day free trial on Basic/Pro" (Mar 18)
-2. CoinUsUp Recurring Donations — Stripe keys needed (Mar 24)
-3. CoinUsUp Free Trial Stripe Config (Mar 27)
-4. 3 Review Cards Blocked — decisions needed (Mar 28)
-5. What's one feature users keep asking for? (Mar 28)
-6-8. 3 untitled questions (Mar 25)
+### What's Pending for Joe
 
-**Action:** Review ACTIVE-TASK.md for full pending questions list.
+| Item | Days Blocked | Blocker | Action |
+|------|--------------|---------|--------|
+| CoinUsUp Trial launch | 11 | Stripe dashboard: 12 prices + trial_period_days=14 | 5-min unblock, $500-2k/mo upside |
+| Bill Review SaaS | 6 | Discovery call approval | Go/no-go decision |
+| Atlantic Contractor Portal | 5 | Prospect list + 2-3 warm intros | Approval + names |
+| HAL infrastructure | ∞ | Gateway restart + WebSocket test | Manual restart needed |
 
----
+### Ready to Start (No Blocker)
 
-## Key Context
+1. **Week 2 Workflow Roadmap** — Cron watchdog system (1.5h) — auto-detect + restart critical jobs
+2. **Gateway Auto-Recovery System** (P0) — 2-3h, prevents infrastructure downtime
+3. **Position Ledger for Signal App** — 8-12h, enables portfolio features
+4. **CoinUsUp Position Tracking** — 2-3 weeks, enables monetization
 
-- **HAL Status:** Offline (gateway handshake timeout)
-- **Sentinel:** ✅ Running (monitoring 9 components)
-- **Gateway:** Needs manual restart (Joe's action)
-- **Quiet Hours:** In effect (9 PM - 9 AM AST); continue working internally, no direct Joe pings
+### Strategic Insights
 
----
+**CoinUsUp:** Position tracking (not onboarding wizard) is the growth lever. ROI visibility drives trial→paid conversion. Stripe config is the immediate unblock.
 
-## Next Steps
+**Signal App:** Credibility > features. Live performance dashboard + public backtests matter more than advanced indicators. Position tracking enables monetization (ROI visibility + settlement tracking).
 
-### Immediate (for Joe)
-- Restart HAL gateway (192.168.2.79:18789)
-- Review/approve 3 review cards
-- Provide Stripe keys for CoinUsUp testing
+**Even Us Up:** Gap is positioning (why switch from Splitwise?), not settlement UX. Recommend market testing before building settlement integration.
 
-### For Alfred (Autonomous)
-1. Once HAL restarts: dispatch cron watchdog task
-2. Monitor pending questions (nudge at 7-day mark)
-3. Continue idle activities (if HAL unavailable, focus on code review/infrastructure)
-
-### Week 2 Preparation
-- Gateway auto-recovery system (if not dispatched)
-- Cron watchdog (if HAL available)
+**Infrastructure:** Gateway reliability is non-negotiable. Auto-recovery system (2-3h) prevents recurring outages.
 
 ---
 
-**Updated:** 2026-03-29 21:00 ADT  
+## Next Steps for Alfred
+
+### Immediate (for Joe approval)
+- Review 3 infrastructure improvements (prioritize gateway auto-recovery)
+- Approve/decide on 3 blocked review cards
+
+### Autonomous (ready to dispatch)
+1. **Week 2 Roadmap:** Cron watchdog (1.5h)
+2. **Gateway auto-recovery:** 2-3h implementation
+3. **Dependency scanning:** 1h setup + cron integration
+4. **Position tracking:** Feature design for Signal App + CoinUsUp
+
+### Quiet Hours Protocol (In Effect)
+- Continue work 24/7; no direct Joe pings between 11 PM - 9 AM AST
+- Post updates to Discord #evening-routine, #updates
+- Persist all work to disk (ACTIVE-TASK.md, memory files)
+
+---
+
+## File Status
+
+✅ **Updated This Session:**
+- memory/2026-03-29.md (evening summary appended)
+- ACTIVE-TASK.md (infrastructure findings + blockers synced)
+- LAST-SESSION.md (this file, session bridge)
+- NOW.md (emergency checkpoint)
+
+✅ **Committed:**
+- 6 git commits (code reviews, infrastructure audit, security, cleanup, discussion, market research)
+
+---
+
+## Session Boot Checklist (for Next Session)
+
+1. ✅ Load SOUL.md (identity + boundaries)
+2. ✅ Load USER.md + IDENTITY.md (context)
+3. ✅ Load ACTIVE-TASK.md (current work)
+4. ✅ Load LAST-SESSION.md (this file, session bridge)
+5. ✅ Load memory/2026-03-29.md (daily log)
+6. Check for answered notifications (webhook listener)
+7. Sync pending questions if needed
+
+---
+
+**Updated:** 2026-03-29 22:00 ADT  
 **Ready for next session load.**
