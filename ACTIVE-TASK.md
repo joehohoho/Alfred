@@ -268,6 +268,15 @@ logs/health-monitor.log (auto-generated)
 
 - **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Mar 30 15:46)
   ID: `notif_1774885564648_78462f3c` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
+
+- **[UNBLOCK] Atlantic Contractor Portal — 3 Actions Needed** (_--title_, Mar 31 02:29)
+  ID: `notif_1774924179233_80a704a1` — --message
+
+- **[DEMAND VALIDATION] Bill Review & Invoice Audit SaaS — Market Research** (_--title_, Mar 31 02:29)
+  ID: `notif_1774924179235_ce048748` — --message
+
+- **[UNBLOCK] CoinUsUp 14-day Trial — Stripe Spec Confirmation** (_--title_, Mar 31 02:29)
+  ID: `notif_1774924185652_0049d16f` — --message
 <!-- PENDING-Q-END -->
 
 ---
