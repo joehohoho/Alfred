@@ -236,9 +236,6 @@ logs/health-monitor.log (auto-generated)
 ## Pending Questions (Active Blockers)
 
 <!-- PENDING-Q-START -->
-- **⚠️ Stale card escalated: "Implement 14-day free trial on Basic/Pro tiers"** (_question_, Mar 18 15:00)
-  ID: `notif_1773846049925_5c244c9d` — Card "Implement 14-day free trial on Basic/Pro tiers" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates. A re-dispatch was att...
-
 - **CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing** (_question_, Mar 24 10:37)
   ID: `notif_1774348633358_ebc3c96c` — Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end...
 
@@ -256,12 +253,6 @@ logs/health-monitor.log (auto-generated)
 
 - **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
   ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
-
-- **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Mar 30 15:46)
-  ID: `notif_1774885564648_78462f3c` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
-
-- **Is there a metric you watch daily on any of your apps?** (_question_, Mar 31 03:44)
-  ID: `notif_1774928692867_ce92db69` — What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?
 <!-- PENDING-Q-END -->
 
 ---

@@ -5,7 +5,67 @@
 
 ---
 
-## Call #1
+## Call #1 ✅ (EXAMPLE - Reference Only)
+- **Date:** Apr 1, 2026
+- **Time:** 2:30 PM AST (45 min)
+- **Prospect:** Michael Clarke | Clarke Heating & Cooling | HVAC | Halifax, NS
+- **Duration:** 45 min
+- **Status:** ✅ SIGNED FOR PILOT
+
+### Pain Discovery
+- **Current approval process:** Email quotes + multiple back-and-forths (avg 3-5 per quote); spreadsheet tracking
+- **Pain level (1-10):** 8
+- **Monthly volume:** 15-20 summer, 5-10 winter (avg ~12/month)
+- **Key pain points:**
+  - Slow approvals (3-5 days) cause lost jobs (~10% loss)
+  - Version confusion ("which is the final quote?")
+  - Approval disputes ("I never got the email")
+  - Annual revenue loss from approval delays: $6-9K (10% of quotes)
+- **Estimated revenue impact:** 10% quote loss = $30-40K annual customer base impact
+- **Current tool:** Email, Word/Excel, spreadsheets
+
+### Solution Exploration
+- **Product-market fit (1-10):** 8
+- **Most valuable feature:** Approval audit trail ("who approved, when, proof")
+- **Integration needs:** None critical (QuickBooks sync would be nice, not essential)
+- **Willingness to try:** ✅ YES — very interested, sees clear value
+- **Price sensitivity:** Not objected; mentioned typical implementations cost $2-5K, so $75-150/month is reasonable
+- **Barriers to adoption:** None identified; enthusiastic about workflow improvement
+
+### Design-Partner Interest
+- **Interested in pilot?** ✅ YES — SIGNED
+- **Why:** Free implementation (normally $2-5K), built to his workflow, clear ROI, simple to try
+- **Timeline feasibility:** ✅ YES — "we've got jobs lined up for testing"
+- **Team involvement needed:** Michael (owner) + office manager (optional); Michael is primary contact
+- **Commitment:** Weekly 30-min feedback calls on Wednesdays, Apr 1 - Jun 30
+
+### Referrals
+- **Referral #1:** Tom Arsenault | Arsenault Snow & Grounds | Snow removal/landscaping | Dieppe, NB | (506) 854-XXXX | "always complaining about approvals" | ✅ Permission to use Michael's name
+- **Referral #2:** [Name TBD] | Renovation crew (chamber contact) | Renovations | Saint John, NB | ✅ Permission to use Michael's name | (Contact info TBD)
+
+### Validation Score
+- **Hits 70% validation threshold?** ✅ YES — 100% pass
+  - Pain ≥7? ✅ YES (8/10)
+  - Product-fit ≥7? ✅ YES (8/10)
+  - Design-partner possibility? ✅ YES (SIGNED)
+
+### Key Quote (Marketing Copy Candidate)
+> "We lose maybe 10% of quotes just because the back-and-forth takes too long, and the customer gets tired of dealing with us. If approval came in 24 hours instead of 5 days, that would change our business."
+
+### Surprising Insight
+Michael doesn't use any project management tool (just spreadsheets), confirming the market is severely underserved. Customer approval disputes are a specific pain point (differentiator: audit trail).
+
+### Follow-up Needed
+- Confirm Apr 1 kick-off date + send pilot agreement
+- Schedule first feedback call (Wed Apr 8 or Apr 15)
+- Request 3-5 sample real-world quotes for testing
+
+### Confidence in Data
+**HIGH** — Michael was candid, specific with numbers ($30-40K impact), volunteered pain without prompting, immediate enthusiasm for pilot
+
+---
+
+## Call #2 (REAL — Awaiting)
 - **Date:** [TBD]
 - **Time:** [TBD]
 - **Prospect:** [Name] | [Company] | [Service Type] | [Location]
