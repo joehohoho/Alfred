@@ -629,5 +629,15 @@
     "answered": false,
     "createdAt": "2026-03-31T02:29:45.652Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1774928692867_ce92db69",
+    "type": "question",
+    "title": "Is there a metric you watch daily on any of your apps?",
+    "message": "What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-03-31T03:44:52.867Z",
+    "answeredAt": null
   }
 ]

@@ -33,20 +33,16 @@ if [ "$LAST_DATE" = "$TODAY" ] && [[ "$LAST_TITLE" != "BLOCKED:"* ]] && [[ "$LAS
   exit 0
 fi
 
-# Evergreen question pool (12 rotating questions)
+# Evergreen question pool (7 rotating questions - sized to prevent 7-day repeat)
+# Rotation: 7 days per full cycle. With 7-day cooldown, questions never repeat <8 days.
 FALLBACKS=(
   "What's the one thing that would unlock the next growth phase for CoinUsUp?|Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?|coinusup-unlock"
   "Is there a metric you watch daily on any of your apps?|What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?|app-metrics"
   "Should any of your apps become more opinionated or simpler?|Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?|product-strategy"
   "What would stop you from building something new right now?|Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?|blocker-to-new"
-  "CoinUsUp: is the core value prop working, or does it need repositioning?|Adoption stalled? Adoption accelerating? Feature creep? Competition? What's the real story?|coinusup-narrative"
   "For Even Us Up, what's the smallest win that would feel like real progress?|Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?|even-us-up-win"
   "What would make your consulting work more systematic or scalable?|Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?|consulting-scaling"
-  "If you had to cut one app, which would be hardest to let go of?|Emotional investment, revenue, upside potential? What does that tell you about priority?|app-priority-gut"
-  "What's a tool or service you pay for that you wish you didn't need?|Integration problem you hate? Feature you wish was built differently? Could be an idea seed.|pain-point-seed"
   "How much of your time should passive income get vs. client work right now?|Current split works? Skewed the wrong way? What's the ideal?|time-allocation"
-  "What's one assumption about your users that you've never validated?|Things you think users want but haven't actually asked for? Risky bets worth testing?|user-assumptions"
-  "Would you rather build something new or polish something existing for the next month?|Momentum vs. depth. What does your gut say?|build-vs-polish"
 )
 
 # Get permanently closed topics from tracking file
@@ -64,7 +60,8 @@ print("|".join(closed) if closed else "")
 PYSCRIPT
  2>/dev/null || echo "")
 
-# Get topics asked in past 30 days (cooldown enforcement)
+# Get topics asked in past 7 days (cooldown enforcement)
+# 7-day cooldown + 7-question pool = no repeats within 8 days
 RECENT_TOPICS=$(python3 << 'PYSCRIPT'
 import json
 from datetime import datetime, timedelta
@@ -77,7 +74,7 @@ except:
 
 topics_dict = data.get("topics", {})
 today = datetime.now().date()
-thirty_days_ago = today - timedelta(days=30)
+seven_days_ago = today - timedelta(days=7)
 
 recent = []
 for topic, info in topics_dict.items():
@@ -85,7 +82,7 @@ for topic, info in topics_dict.items():
     if last_asked_str:
         try:
             last_asked = datetime.strptime(last_asked_str, "%Y-%m-%d").date()
-            if last_asked >= thirty_days_ago:
+            if last_asked >= seven_days_ago:
                 recent.append(topic)
         except:
             pass
