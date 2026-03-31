@@ -356,16 +356,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1773846049925_5c244c9d",
-    "type": "question",
-    "title": "⚠️ Stale card escalated: \"Implement 14-day free trial on Basic/Pro tiers\"",
-    "message": "Card \"Implement 14-day free trial on Basic/Pro tiers\" (task_1773156748695_23b9e471) has been in_progress for 7h with no updates.\nA re-dispatch was attempted but the card is still stale.\n\n**Options:**\n1. Re-assign or re-scope the card — add new instructions and move back to To Do\n2. Close/reject it — if it's no longer relevant\n3. Leave in Blocked — if waiting on an external dependency (please add a blocker note)\n\n**Alfred's recommendation:** Review the card description and either re-scope or close it.",
-    "source": "stale-card-handler",
-    "answered": false,
-    "createdAt": "2026-03-18T15:00:49.925Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1773893832593_5f9c93fa",
     "type": "system",
     "title": "Codex Token Expiring",
@@ -590,9 +580,11 @@
     "title": "What's the one thing that would unlock the next growth phase for CoinUsUp?",
     "message": "Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-30T15:46:04.648Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-31T14:59:11.269Z",
+    "userAnswer": "Marketing and UI",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774928692867_ce92db69",
@@ -600,8 +592,10 @@
     "title": "Is there a metric you watch daily on any of your apps?",
     "message": "What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-31T03:44:52.867Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-31T14:59:29.517Z",
+    "userAnswer": "User adoption for CoinUsUp",
+    "deliveryStatus": "sent"
   }
 ]

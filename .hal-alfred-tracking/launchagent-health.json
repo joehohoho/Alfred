@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-31T14:30:04+0000",
+  "timestamp": "2026-03-31T15:03:18+0000",
   "agents": [
     {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "67720"},
     {"name": "application.com.apple.ActivityMonitor.1152921500311906413.1152921500311906418", "status": "RUNNING", "exit_code": "396"},
@@ -19,12 +19,12 @@
     {"name": "com.alfred.health-server", "status": "RUNNING", "exit_code": "36627"},
     {"name": "com.alfred.job-tracker", "status": "RUNNING", "exit_code": "612"},
     {"name": "com.alfred.kanban-stale-scan", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "70173"},
-    {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "69643"},
+    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "78044"},
+    {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "77079"},
     {"name": "com.alfred.log-rotation", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.maintenance-weekly", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.market-signal-lab", "status": "RUNNING", "exit_code": "589"},
-    {"name": "com.alfred.market-signals-app", "status": "RUNNING", "exit_code": "69628"},
+    {"name": "com.alfred.market-signals-app", "status": "RUNNING", "exit_code": "77065"},
     {"name": "com.alfred.overnight-scheduler", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.paper-trade-runner", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.rate-limit-recovery", "status": "DOWN", "exit_code": "-"},

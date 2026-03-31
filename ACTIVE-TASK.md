@@ -257,12 +257,6 @@ logs/health-monitor.log (auto-generated)
 - **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
   ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
 
-- **What's one feature users keep asking for?** (_question_, Mar 28 13:00)
-  ID: `notif_1774702801107_390b0450` — Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.
-
-- **Would you rather build something new or polish something existing for the next month?** (_question_, Mar 30 13:02)
-  ID: `notif_1774875760406_d6bef027` — Momentum vs. depth. What does your gut say?
-
 - **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Mar 30 15:46)
   ID: `notif_1774885564648_78462f3c` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
 

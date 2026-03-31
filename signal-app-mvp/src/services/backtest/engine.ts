@@ -127,6 +127,14 @@ export class BacktestEngine {
   backtest(series: PriceSeries, strategy: Strategy): BacktestResult {
     const rawSignals = strategy.generateSignals(series);
     const signals = filterSignals(series, rawSignals);
+
+    // Debug: track signal counts for diagnostics
+    (this as any)._debug = {
+      rawBuys: rawSignals.filter(s => s.type === 'BUY').length,
+      rawSells: rawSignals.filter(s => s.type === 'SELL').length,
+      filteredBuys: signals.filter(s => s.type === 'BUY').length,
+      filteredSells: signals.filter(s => s.type === 'SELL').length,
+    };
     const trades: Trade[] = [];
     const allowShorts = this.risk.allowShorts !== false; // default true
 
@@ -173,29 +181,26 @@ export class BacktestEngine {
         if (this.risk.stopLossPercent && dayData.low <= entryPrice * (1 - this.risk.stopLossPercent / 100)) {
           const stopPrice = entryPrice * (1 - this.risk.stopLossPercent / 100);
           this.closeTrade(stopPrice, dayData.timestamp, `stop-loss (${this.risk.stopLossPercent}%)`, trades);
-          continue;
+          // Don't continue — let signals process so we can enter opposite direction
         }
 
         // Trailing stop check
-        if (this.risk.trailingStopPercent && this.position.highestPrice > 0) {
+        else if (this.risk.trailingStopPercent && this.position.highestPrice > 0) {
           const trailPrice = this.position.highestPrice * (1 - this.risk.trailingStopPercent / 100);
           if (dayData.low <= trailPrice) {
             this.closeTrade(trailPrice, dayData.timestamp, `trailing-stop (${this.risk.trailingStopPercent}%)`, trades);
-            continue;
           }
         }
 
         // Take-profit check
-        if (this.risk.takeProfitPercent && dayData.high >= entryPrice * (1 + this.risk.takeProfitPercent / 100)) {
+        else if (this.risk.takeProfitPercent && dayData.high >= entryPrice * (1 + this.risk.takeProfitPercent / 100)) {
           const tpPrice = entryPrice * (1 + this.risk.takeProfitPercent / 100);
           this.closeTrade(tpPrice, dayData.timestamp, `take-profit (${this.risk.takeProfitPercent}%)`, trades);
-          continue;
         }
 
         // Max hold days check
-        if (this.risk.maxHoldDays && daysSinceEntry >= this.risk.maxHoldDays) {
+        else if (this.risk.maxHoldDays && daysSinceEntry >= this.risk.maxHoldDays) {
           this.closeTrade(dayData.close, dayData.timestamp, `max-hold (${this.risk.maxHoldDays}d)`, trades);
-          continue;
         }
       } else if (this.position.direction === 'short') {
         // Update lowest price for short trailing stop
@@ -212,52 +217,60 @@ export class BacktestEngine {
         if (this.risk.stopLossPercent && dayData.high >= entryPrice * (1 + this.risk.stopLossPercent / 100)) {
           const stopPrice = entryPrice * (1 + this.risk.stopLossPercent / 100);
           this.closeTrade(stopPrice, dayData.timestamp, `stop-loss (${this.risk.stopLossPercent}%)`, trades);
-          continue;
         }
 
         // Trailing stop for short: price rises from lowest
-        if (this.risk.trailingStopPercent && this.position.lowestPrice < Infinity) {
+        else if (this.risk.trailingStopPercent && this.position.lowestPrice < Infinity) {
           const trailPrice = this.position.lowestPrice * (1 + this.risk.trailingStopPercent / 100);
           if (dayData.high >= trailPrice) {
             this.closeTrade(trailPrice, dayData.timestamp, `trailing-stop (${this.risk.trailingStopPercent}%)`, trades);
-            continue;
           }
         }
 
         // Take-profit for short: price drops below entry - takeProfitPercent
-        if (this.risk.takeProfitPercent && dayData.low <= entryPrice * (1 - this.risk.takeProfitPercent / 100)) {
+        else if (this.risk.takeProfitPercent && dayData.low <= entryPrice * (1 - this.risk.takeProfitPercent / 100)) {
           const tpPrice = entryPrice * (1 - this.risk.takeProfitPercent / 100);
           this.closeTrade(tpPrice, dayData.timestamp, `take-profit (${this.risk.takeProfitPercent}%)`, trades);
-          continue;
         }
 
         // Max hold days check
-        if (this.risk.maxHoldDays && daysSinceEntry >= this.risk.maxHoldDays) {
+        else if (this.risk.maxHoldDays && daysSinceEntry >= this.risk.maxHoldDays) {
           this.closeTrade(dayData.close, dayData.timestamp, `max-hold (${this.risk.maxHoldDays}d)`, trades);
-          continue;
         }
       }
 
-      // Process signals for this date
+      // Collect all signals for this date, then use the STRONGEST one only
+      // This prevents BUY/SELL whipsawing on the same day
+      const todaySignals: typeof signals = [];
       while (signalIndex < signals.length) {
         const signal = signals[signalIndex];
         const signalDate = signal.time.toISOString().split('T')[0];
         if (signalDate > dateKey) break;
         signalIndex++;
         if (signalDate < dateKey) continue;
+        todaySignals.push(signal);
+      }
+
+      // Pick the strongest signal for today (highest strength wins)
+      if (todaySignals.length > 0) {
+        const signal = todaySignals.reduce((best, s) =>
+          s.strength > best.strength ? s : best
+        , todaySignals[0]);
 
         // Min signal strength filter
-        if (this.risk.minSignalStrength && signal.strength < this.risk.minSignalStrength) {
-          continue;
-        }
+        const passesStrength = !this.risk.minSignalStrength || signal.strength >= this.risk.minSignalStrength;
+        if (passesStrength) {
 
         if (signal.type === 'BUY') {
           if (this.position.direction === 'short') {
-            // Cover short position
+            // Cover short and immediately go long
             this.closeTrade(signal.price, signal.time, 'signal-cover', trades);
-          }
-          if (this.position.direction === 'none') {
-            // Enter long position
+            this.position.direction = 'long';
+            this.position.entryPrice = signal.price;
+            this.position.entryTime = signal.time;
+            this.position.quantity = this.investmentAmount / signal.price;
+            this.position.highestPrice = signal.price;
+          } else if (this.position.direction === 'none') {
             this.position.direction = 'long';
             this.position.entryPrice = signal.price;
             this.position.entryTime = signal.time;
@@ -266,11 +279,16 @@ export class BacktestEngine {
           }
         } else if (signal.type === 'SELL') {
           if (this.position.direction === 'long') {
-            // Close long position
             this.closeTrade(signal.price, signal.time, 'signal', trades);
-          }
-          if (this.position.direction === 'none' && allowShorts) {
-            // Enter short position
+            // After closing long, immediately enter short on the same signal
+            if (allowShorts) {
+              this.position.direction = 'short';
+              this.position.entryPrice = signal.price;
+              this.position.entryTime = signal.time;
+              this.position.quantity = this.investmentAmount / signal.price;
+              this.position.lowestPrice = signal.price;
+            }
+          } else if (this.position.direction === 'none' && allowShorts) {
             this.position.direction = 'short';
             this.position.entryPrice = signal.price;
             this.position.entryTime = signal.time;
@@ -278,8 +296,9 @@ export class BacktestEngine {
             this.position.lowestPrice = signal.price;
           }
         }
-      }
-    }
+        } // passesStrength
+      } // todaySignals
+    } // date loop
 
     // Close any open position at last price
     if (this.position.direction !== 'none' && series.points.length > 0) {

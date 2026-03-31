@@ -240,19 +240,21 @@ export function filterSignals(
     let penaltyScore = 0;
     const BLOCK_THRESHOLD = 3; // Need 3+ penalty points to block a signal
 
-    // --- 1. Trend filter (penalty, not hard block) ---
+    // --- 1. Trend filter (penalty for counter-trend entries, not hard block) ---
+    // Only penalize extreme counter-trend entries. Normal oscillation around SMA is fine.
     if (opts.trendFilter && !isNaN(trendSma[idx])) {
       if (signal.type === 'BUY' && day.close < trendSma[idx]) {
-        // How far below? Deeper = more penalty
         const pctBelow = (trendSma[idx] - day.close) / trendSma[idx] * 100;
-        if (pctBelow > 5) penaltyScore += 2;       // Significantly below trend
-        else if (pctBelow > 2) penaltyScore += 1;  // Slightly below — mild concern
-        // Within 2% of SMA = no penalty (normal oscillation)
+        if (pctBelow > 8) penaltyScore += 2;       // Way below trend — risky long
+        else if (pctBelow > 5) penaltyScore += 1;  // Moderately below
+        // Within 5% = no penalty (buying the dip near support is valid)
       }
-      if (signal.type === 'SELL' && day.close > trendSma[idx]) {
-        const pctAbove = (day.close - trendSma[idx]) / trendSma[idx] * 100;
-        if (pctAbove > 5) penaltyScore += 2;
-        else if (pctAbove > 2) penaltyScore += 1;
+      // For SELL/short signals: penalize shorting into deeply oversold conditions
+      if (signal.type === 'SELL' && day.close < trendSma[idx]) {
+        const pctBelow = (trendSma[idx] - day.close) / trendSma[idx] * 100;
+        if (pctBelow > 8) penaltyScore += 2;       // Don't short into a crash (bounce coming)
+        else if (pctBelow > 5) penaltyScore += 1;
+        // Shorting near or above SMA = no penalty (that's the ideal short entry)
       }
     }
 
@@ -276,8 +278,12 @@ export function filterSignals(
       if (daysBetween <= opts.consecutiveDays) continue; // Hard block — always skip rapid re-entry
     }
 
-    // Block if penalty score exceeds threshold
-    if (penaltyScore >= BLOCK_THRESHOLD) continue;
+    // Block BUY signals if penalty is too high
+    // SELL signals are NEVER blocked by the scoring filter — they're essential for:
+    // 1. Closing losing long positions (risk management)
+    // 2. Entering short positions (profit in bearish markets)
+    // The engine's risk management (stop-loss, trailing stop) handles bad short entries
+    if (signal.type === 'BUY' && penaltyScore >= BLOCK_THRESHOLD) continue;
 
     // --- 5. ATR-based dynamic stop enrichment ---
     // We attach the computed stop to a slightly extended copy so the engine can
