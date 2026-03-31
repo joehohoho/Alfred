@@ -183,6 +183,8 @@ export async function POST(request: Request) {
         return handleTick(body);
       case 'stop':
         return handleStop(body);
+      case 'delete':
+        return handleDelete(body);
       default:
         return NextResponse.json({ error: `Unknown action: ${action}` }, { status: 400 });
     }
@@ -427,4 +429,26 @@ async function handleStop(body: Record<string, unknown>) {
   writeSessions(sessions);
 
   return NextResponse.json(session);
+}
+
+function handleDelete(body: Record<string, unknown>) {
+  const { sessionId } = body;
+  if (!sessionId || typeof sessionId !== 'string') {
+    return NextResponse.json({ error: 'Missing required field: sessionId' }, { status: 400 });
+  }
+
+  const sessions = readSessions();
+  const session = findSession(sessions, sessionId);
+  if (!session) {
+    return NextResponse.json({ error: 'Session not found' }, { status: 404 });
+  }
+  if (session.status === 'active') {
+    return NextResponse.json({ error: 'Cannot delete an active session. Stop it first.' }, { status: 400 });
+  }
+
+  const idx = sessions.indexOf(session);
+  sessions.splice(idx, 1);
+  writeSessions(sessions);
+
+  return NextResponse.json({ ok: true, deleted: sessionId });
 }

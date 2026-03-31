@@ -473,8 +473,28 @@ export default function PaperTradePage() {
                         >
                           {s.totalPnl >= 0 ? '+' : ''}${s.totalPnl.toFixed(2)} ({s.totalPnlPercent.toFixed(2)}%)
                         </div>
-                        <div className="text-slate-600 mt-1">
-                          {s.tradesCount} trades | ${s.investment.toLocaleString()}
+                        <div className="flex items-center justify-between mt-1">
+                          <span className="text-slate-600">{s.tradesCount} trades | ${s.investment.toLocaleString()}</span>
+                          {s.status === 'stopped' && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (confirm('Delete this session? This cannot be undone.')) {
+                                  fetch('/apps/market-signals/api/paper-trade', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ action: 'delete', sessionId: s.id }),
+                                  }).then(() => {
+                                    setSessions((prev) => prev.filter((p) => p.id !== s.id));
+                                    if (activeSession?.id === s.id) setActiveSession(null);
+                                  });
+                                }
+                              }}
+                              className="px-2 py-0.5 text-[10px] rounded bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors"
+                            >
+                              Delete
+                            </button>
+                          )}
                         </div>
                       </button>
                     ))}

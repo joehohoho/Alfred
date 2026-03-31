@@ -566,9 +566,11 @@
     "title": "What's one feature users keep asking for?",
     "message": "Any recurring feedback on your apps that you've been ignoring? Could be quick win or real insight into what's missing.",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-28T13:00:01.107Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-31T14:04:01.176Z",
+    "userAnswer": "There's no significant user adoption yet.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774875760406_d6bef027",
@@ -576,19 +578,11 @@
     "title": "Would you rather build something new or polish something existing for the next month?",
     "message": "Momentum vs. depth. What does your gut say?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-03-30T13:02:40.406Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774880952042_81412c34",
-    "type": "--title",
-    "title": "3 Review Cards Status — Actions Needed",
-    "message": "--message",
-    "goalId": "**Card 1: Atlantic Contractor Client Portal**\n- Status: Awaiting warm intro names\n- What you need to do: Provide 2-3 contractor names you know personally (to boost outreach response rate)\n- Impact: Once provided, Phase 2 outreach launches immediately (Mar 31 first calls)\n\n**Card 2: Bill Review & Invoice Audit Automation**\n- Status: Complete blueprint delivered (BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md)\n- What you need to do: Review blueprint and confirm 'go' or provide feedback\n- Impact: Ready to move to in_progress and validate market assumptions\n\n**Card 3: 14-day Free Trial Implementation**\n- Status: Code + frontend complete; waiting on Stripe dashboard config\n- What you need to do: Create 12 prices in Stripe (Basic/Pro × US/CA × Monthly/Annual), set trial_period_days=14\n- Impact: Once config done, deployment is immediate\n\n**Recommendation:** Start with Card 1 (contractor intros — highest ROI). Then review Card 2 blueprint. Card 3 can proceed in parallel once you update Stripe dashboard.",
-    "answered": false,
-    "createdAt": "2026-03-30T14:29:12.042Z",
-    "answeredAt": null
+    "answeredAt": "2026-03-31T14:03:15.806Z",
+    "userAnswer": "Something new but with low maintenance once setup.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1774885564648_78462f3c",
@@ -598,36 +592,6 @@
     "source": "daily-inquiry",
     "answered": false,
     "createdAt": "2026-03-30T15:46:04.648Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774924179233_80a704a1",
-    "type": "--title",
-    "title": "[UNBLOCK] Atlantic Contractor Portal — 3 Actions Needed",
-    "message": "--message",
-    "goalId": "**Card:** Atlantic Contractor Portal (task_1774171849501_375342e7)\n\n**Status:** Phase 2 outreach framework complete (7 delivery docs). Awaiting your decisions to launch this week.\n\n**What I need from you:**\n\n1. **Warm intro names** (2-3 contractors) — boost outreach response rate\n2. **Timeline approval** — 10 calls + 3 pilots by Apr 11, decision by Apr 15\n3. **Weekly sync confirmation** — 15-min Fridays (weeks of Mar 31, Apr 7, Apr 14)\n\n**Once you provide these, I launch outreach tomorrow (Mar 31) with cold emails + calendar setup. First discovery calls begin Mar 31.**\n\nType: **Quick decision** (3-5 min total)  \nImpact: Unblocks 3-week validation cycle for new -500k/year revenue opportunity",
-    "answered": false,
-    "createdAt": "2026-03-31T02:29:39.233Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774924179235_ce048748",
-    "type": "--title",
-    "title": "[DEMAND VALIDATION] Bill Review & Invoice Audit SaaS — Market Research",
-    "message": "--message",
-    "goalId": "**Card:** Bill Review & Invoice Audit Automation (task_1774058538023_ae4bf3d2)\n\n**Your question (Mar 22):** Is there demand? Are other companies doing this? Can money be made?\n\n**RESEARCH COMPLETE:**\n\n### ✅ Demand VALIDATED\n- **Market:** B+ invoice/payment automation (Stampli, BILL.com, Enveyo, Gira Software all publicly funded)\n- **Joe's wedge:** Canadian SMB niche (1,500-3,000 SMBs + accounting teams, severely underserved by enterprise tools)\n- **Pain point:** Manual invoice review for duplicates/overcharges/contract variance (universal SMB problem)\n- **Price tolerance:** -50/month freemium = proven in competitor pricing\n\n### ✅ Competition Landscape\n- **Global players:** Stampli (M Series B), BILL.com (B+ private), Enveyo (angel-funded)\n- **All enterprise-first:** Serve 100+ headcount companies, start at -500k/year\n- **Joe's gap:** Lightweight, SMB-first (5-50 staff), -50/month, no implementation service needed\n- **Canadian advantage:** Domestic support, bilingual support, local compliance knowledge\n\n### ✅ Revenue Viable\n- **Freemium model:** 5-10% conversion rate (industry standard)\n- **Unit economics:** -50 ARPU × 100-200 customers = .5-10k MRR (Year 1 realistic)\n- **Path to profitability:** Profitable by Month 6-8 (SaaS unit economics)\n- **Comparable exits:** Similar niche fintech tools acquired for -20M\n\n**RECOMMENDATION:** GO AHEAD. Market exists, differentiation clear, revenue plausible, timeline realistic (6-week MVP → pilot → launch).\n\n**Next action:** I can start MVP scoping + 8-week build plan if you approve.",
-    "answered": false,
-    "createdAt": "2026-03-31T02:29:39.235Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1774924185652_0049d16f",
-    "type": "--title",
-    "title": "[UNBLOCK] CoinUsUp 14-day Trial — Stripe Spec Confirmation",
-    "message": "--message",
-    "goalId": "**Card:** Implement 14-day free trial on Basic/Pro tiers (task_1773156748695_23b9e471)\n\n**Status:** Feature 100% code-complete (deployed Mar 18). Waiting on your Stripe config approval (9 days stale).\n\n**What you confirmed:**\n✅ CoinUsUp only (not Even Us Up)\n\n**What I need to confirm:**\n\n1. **trial_ends_at field structure** — I'll use ISO8601 timestamp. Correct?\n2. **Stripe API approach** — Add trial_period_days on Stripe subscription creation? Or manage locally with trial_ends_at?\n3. **Existing customer migration** — Current customers get trial? Or trials only for new signups?\n4. **Trial end behavior** — Auto-charge after trial ends? Show payment prompt? Send reminder email?\n\n**Effort:** 5 min to confirm; then I execute 30-min Stripe config + 1h testing.\n\n**Timeline:** Once I have answers, trial launches within 48 hours.\n\n**Impact:** Unblocks trial launch (critical for user acquisition validation)",
-    "answered": false,
-    "createdAt": "2026-03-31T02:29:45.652Z",
     "answeredAt": null
   },
   {

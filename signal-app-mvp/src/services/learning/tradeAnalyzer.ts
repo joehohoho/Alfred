@@ -35,7 +35,7 @@ export interface AllTradePatterns {
 }
 
 // Minimum trades before a pattern is eligible for filtering
-const MIN_TRADES_FOR_PATTERN = 5;
+const MIN_TRADES_FOR_PATTERN = 8;
 // Max patterns stored per symbol (prune lowest confidence)
 const MAX_PATTERNS_PER_SYMBOL = 20;
 // Age (ms) after which patterns get 50% weight reduction
@@ -222,11 +222,10 @@ function detectConditions(
     else if (r < 35) conditions.push('rsi_below_35');
   }
 
-  // Volume vs 20-day average
+  // Volume vs 20-day average (only track low volume — high volume is generally good for entries)
   const vol = volumes[idx];
   if (vol != null && !isNaN(volumeSma20[idx]) && volumeSma20[idx] > 0) {
     if (vol < volumeSma20[idx] * 0.8) conditions.push('low_volume');
-    else if (vol > volumeSma20[idx] * 1.5) conditions.push('high_volume');
   }
 
   // Price momentum: rising or falling over last 5 days
@@ -341,10 +340,7 @@ export function analyzeTrades(
       sma20, sma50, sma200, rsi14, atr14, volumeSma20,
     );
 
-    // Add day of week
-    const dayOfWeek = entryTime.getDay();
-    const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    ctx.conditions.push(`day_${dayNames[dayOfWeek]}`);
+    // Day-of-week patterns removed — they are noise, not signal
 
     for (const cond of ctx.conditions) {
       addStat(cond, isWin, pnlPct);
@@ -518,12 +514,26 @@ export function savePatterns(symbol: string, patterns: TradePatterns): void {
 // Query helpers (used by learning-stats endpoint & signal filter)
 // ---------------------------------------------------------------------------
 
+// Single-factor patterns that are too noisy to use for filtering
+const NOISY_SINGLE_PATTERNS = new Set([
+  'price_below_20sma', 'price_above_20sma',
+  'price_below_50sma', 'price_above_50sma',
+  'price_below_200sma', 'price_above_200sma',
+  'rsi_above_70', 'rsi_above_65', 'rsi_below_30', 'rsi_below_35',
+  'low_volume',
+  'declining_momentum', 'rising_momentum',
+  'high_volatility', 'low_volatility',
+]);
+
 /** Patterns that have enough data to be used for filtering. */
 export function getActionableLosingPatterns(symbol: string): PatternCondition[] {
   const patterns = getLearnedPatterns(symbol);
   if (!patterns) return [];
   return patterns.losingPatterns.filter(
-    (p) => (p.lossCount + p.winCount) >= MIN_TRADES_FOR_PATTERN && p.confidence > 0.65,
+    (p) =>
+      (p.lossCount + p.winCount) >= MIN_TRADES_FOR_PATTERN &&
+      p.confidence > 0.75 &&
+      !NOISY_SINGLE_PATTERNS.has(p.condition), // Only multi-factor combined patterns
   );
 }
 
@@ -531,7 +541,10 @@ export function getActionableWinningPatterns(symbol: string): PatternCondition[]
   const patterns = getLearnedPatterns(symbol);
   if (!patterns) return [];
   return patterns.winningPatterns.filter(
-    (p) => (p.lossCount + p.winCount) >= MIN_TRADES_FOR_PATTERN && p.confidence > 0.65,
+    (p) =>
+      (p.lossCount + p.winCount) >= MIN_TRADES_FOR_PATTERN &&
+      p.confidence > 0.75 &&
+      !NOISY_SINGLE_PATTERNS.has(p.condition), // Only multi-factor combined patterns
   );
 }
 

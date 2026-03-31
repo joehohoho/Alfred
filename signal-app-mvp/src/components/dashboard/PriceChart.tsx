@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import {
   LineChart,
   Line,
@@ -9,6 +10,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Brush,
 } from 'recharts';
 
 export interface SignalMarker {
@@ -66,9 +68,15 @@ export function PriceChart({ data, signals, height = 400 }: PriceChartProps) {
   const maxPrice = Math.max(...prices);
   const padding = (maxPrice - minPrice) * 0.05;
 
+  // Default brush start: show last 30 days if dataset has 90+ points
+  const defaultBrushStart = useMemo(
+    () => (chartData.length >= 90 ? chartData.length - 30 : 0),
+    [chartData.length],
+  );
+
   return (
     <ResponsiveContainer width="100%" height={height}>
-      <LineChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+      <LineChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 30 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
         <XAxis
           dataKey="date"
@@ -145,6 +153,17 @@ export function PriceChart({ data, signals, height = 400 }: PriceChartProps) {
           activeDot={{ r: 8, fill: '#ef4444', stroke: '#fff', strokeWidth: 2 }}
           connectNulls={false}
           legendType="circle"
+        />
+        {/* Zoom / pan brush */}
+        <Brush
+          dataKey="date"
+          height={24}
+          stroke="#10b981"
+          fill="#1e293b"
+          travellerWidth={10}
+          startIndex={defaultBrushStart}
+          endIndex={chartData.length - 1}
+          tickFormatter={() => ''}
         />
       </LineChart>
     </ResponsiveContainer>

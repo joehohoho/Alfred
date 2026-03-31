@@ -263,20 +263,8 @@ logs/health-monitor.log (auto-generated)
 - **Would you rather build something new or polish something existing for the next month?** (_question_, Mar 30 13:02)
   ID: `notif_1774875760406_d6bef027` — Momentum vs. depth. What does your gut say?
 
-- **3 Review Cards Status — Actions Needed** (_--title_, Mar 30 14:29)
-  ID: `notif_1774880952042_81412c34` — --message
-
 - **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Mar 30 15:46)
   ID: `notif_1774885564648_78462f3c` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
-
-- **[UNBLOCK] Atlantic Contractor Portal — 3 Actions Needed** (_--title_, Mar 31 02:29)
-  ID: `notif_1774924179233_80a704a1` — --message
-
-- **[DEMAND VALIDATION] Bill Review & Invoice Audit SaaS — Market Research** (_--title_, Mar 31 02:29)
-  ID: `notif_1774924179235_ce048748` — --message
-
-- **[UNBLOCK] CoinUsUp 14-day Trial — Stripe Spec Confirmation** (_--title_, Mar 31 02:29)
-  ID: `notif_1774924185652_0049d16f` — --message
 
 - **Is there a metric you watch daily on any of your apps?** (_question_, Mar 31 03:44)
   ID: `notif_1774928692867_ce92db69` — What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?

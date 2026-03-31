@@ -49,7 +49,7 @@ TRACK_DIR="$HOME/.openclaw/workspace/.hal-alfred-tracking"
 [ -f "$HOME/.openclaw/logs/session-cleanup.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/session-cleanup.log")
 [ -f "$HOME/.openclaw/logs/hal-idle-dispatch.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/hal-idle-dispatch.log")
 [ -f "$HOME/.openclaw/logs/sentinel.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/sentinel.log")
-[ -f "$HOME/.openclaw/logs/failsafe.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/failsafe.log")
+[ -f "$HOME/.openclaw/logs/paper-trade-runner.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/paper-trade-runner.log")[ -f "$HOME/.openclaw/logs/failsafe.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/failsafe.log")
 [ -f "$HOME/.openclaw/logs/alfred-work-executor.log" ] && LOG_FILES+=("$HOME/.openclaw/logs/alfred-work-executor.log")
 
 # Execution tracking logs (can grow large)
