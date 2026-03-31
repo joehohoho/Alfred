@@ -467,3 +467,33 @@ This code review identifies **two major architectural gaps** (position ledger + 
 
 **Status:** ✅ Complete. System ready for next proactive task.
 
+
+---
+
+## 📋 Kanban Ideas — Top Passive Income Opportunities (2026-03-31)
+
+**Source:** Alfred proactive scan (09:02-09:15 ADT)
+
+### ⭐ STRONG GO: Invoice & Expense Auditor (Even Us Up Integration)
+- **Estimated MRR:** $9.5-97.9K Year 1
+- **Build Time:** 2-3 weeks (lowest effort, fastest revenue)
+- **Complexity:** 2.5/5 (Claude Vision OCR + split optimization)
+- **Risk:** LOW (existing Even Us Up user base, sticky product)
+- **Rationale:** Even Us Up users are captive market; minimal external competition; Claude Vision is best-in-class for receipt parsing; integrates naturally with existing platform
+
+### ⭐ GO: Canadian SMB Compliance Copilot
+- **Estimated MRR:** $4.9-29.9K Year 1 (conservative)
+- **Build Time:** 4-6 weeks (60-80h)
+- **Complexity:** 3/5 (Supabase + Claude API + Next.js)
+- **Risk:** LOW (sticky revenue, clear TAM, Joe's expertise)
+- **Rationale:** 20+ years law firm consulting = deep pain point knowledge; Canadian-specific + AI angle = first-mover advantage; compliance is recurring revenue lock-in
+
+### EXPLORE: Law Firm Billing Accuracy Auditor
+- **Estimated MRR:** $9.9-49.9K Year 1
+- **Build Time:** 6-8 weeks (100-120h)
+- **Complexity:** 3.5/5 (Clio/Everlaw API integrations)
+- **Risk:** MEDIUM (Clio partnership is gating factor)
+- **Rationale:** High ROI ($250K-750K recovery per firm), but requires Clio partnership exploration; backlog for Q2
+
+**Next Step:** Joe review + prioritization. Recommend: Invoice Auditor (Week 1-2, parallel) → Compliance Copilot (Week 3-6).
+
