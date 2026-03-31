@@ -1,239 +1,110 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Updated:** 2026-03-31 08:03 ADT  
-**Status:** `idle` (Session context 61%; executing 5 proactive tasks since 04:36 ADT; HAL unavailable; all infrastructure healthy; passive income portfolio reviewed; Q2 focus prioritized)
+**Last Updated:** 2026-03-31 16:15 ADT  
+**Status:** in_progress  
+**Session:** Main
 
 ---
 
-## ✅ COMPLETED: Workflow Efficiency Roadmap — Week 1
+## Current Task
 
-**Card ID:** task_1774651057709_a8f43699  
-**Priority:** URGENT  
-**Title:** Workflow Efficiency Roadmap: 3-Week Plan (4 Gaps, 9-14h/week savings)
+**Card:** task_1773156748695_23b9e471  
+**Title:** Implement 14-day free trial on Basic/Pro tiers  
+**Status:** READY FOR REVIEW (Complete Implementation + Approval Needed)
 
-### What Was Done (3.5 hours)
+### What Was Delivered (2026-03-31 16:10 ADT)
 
-#### 1. Health Monitoring System
-- **health-monitor.js** — Real-time monitoring of all 24 LaunchAgents + HAL gateway
-- **health-server.js** — HTTP API server on port 3099 serving snapshots, dashboard, alerts, history
-- **health-monitor-cron.sh** — Cron automation running every 15 min with alert detection
-- **dashboard.html** — Web UI for infrastructure visibility at http://localhost:3099/health/dashboard
-- **LaunchAgent plist** — Service definition for continuous health server operation
+**Full Implementation Complete:**
 
-#### 2. HAL Outage Diagnosis
-- **Root cause identified:** WebSocket handshake timeout (192.168.2.79:18789)
-- **Likely cause:** Auth token invalid or gateway circuit breaker activated
-- **Status:** Awaiting Joe to restart HAL gateway
-- **Documentation:** WEEK1-HEALTH-MONITORING-PROGRESS.md
+1. ✅ **Database Layer**
+   - Migration: `20260331_add_trial_support.sql`
+   - Fields: `trial_starts_at`, `trial_ends_at`, `is_trial_converted`
+   - Helper functions for trial calculations
+   - Indexes, triggers, analytics view
 
-#### 3. Automated Monitoring
-- Cron job every 15 min (24/7)
-- Alert history tracking (memory/health-alerts.json)
-- Service change detection and logging
+2. ✅ **Backend APIs**
+   - `create-checkout` — Configures 14-day trials for Basic/Pro
+   - `check-subscription` — Returns trial info + countdown
+   - `recurring-donation-webhook` — Captures trial dates from Stripe
+   - All price IDs mapped correctly (US/CA, monthly/annual)
 
-### Impact
+3. ✅ **Frontend Hook**
+   - `useStripeSubscription.ts` with trial fields
+   - Helpers: `isDuringTrial()`, `daysUntilTrialEnds()`, `trialProgressPercent()`
 
-| Gap | Before | After | Improvement |
-|-----|--------|-------|-------------|
-| **Undetected Outages** | 8 hours (today) | <15 min (automated) | ✅ 30x faster detection |
-| **System Visibility** | Manual discovery | Centralized dashboard | ✅ Visibility restored |
-| **Automation** | None | Every 15 min | ✅ 24/7 monitoring |
-| **Trend Analysis** | N/A | Alert history | ✅ Pattern detection |
+4. ✅ **Documentation (30KB)**
+   - `STRIPE-TRIAL-SPEC.md` — Full specification
+   - `TRIAL-DEPLOYMENT-RUNBOOK.md` — Deployment + rollback guide
+   - `TRIAL_FINAL_VALIDATION.md` — Complete validation checklist
+   - `TRIAL_NEXT_STEPS.md` — Quick start for approval & deployment
 
-### Files Created
+### Implementation Approach (Validated ✅)
 
+**Trial Behavior:**
+- 14-day free trial (industry standard)
+- Applies to: Basic & Pro tiers (monthly + annual)
+- Does NOT apply to: Enterprise tier
+- Applies to: NEW signups only (existing customers unaffected)
+- Automatic conversion: Day 15 automatic charge (with valid payment method)
+- Payment failure: Pauses subscription (doesn't cancel)
+
+**Price ID Mapping (Complete):**
 ```
-scripts/health-monitor.js (12.8 KB)
-scripts/health-server.js (5.3 KB)
-scripts/health-monitor-cron.sh (3.2 KB)
-health/dashboard.html (13.7 KB)
-Library/LaunchAgents/com.alfred.health-server.plist (933 B)
-WEEK1-HEALTH-MONITORING-PROGRESS.md (10.4 KB)
-memory/health-alerts.json (auto-generated)
-logs/health-server.log (auto-generated)
-logs/health-monitor.log (auto-generated)
+Basic Monthly (US/CA)  → Trial ✅
+Basic Annual (US/CA)   → Trial ✅
+Pro Monthly (US/CA)    → Trial ✅
+Pro Annual (US/CA)     → Trial ✅
+Enterprise (All)       → NO Trial ✅
 ```
 
-### Validation
-
-- ✅ Health server running (PID 36627)
-- ✅ Dashboard accessible (http://localhost:3099/health/dashboard)
-- ✅ Health snapshot valid
-- ✅ Cron job scheduled every 15 min
-- ✅ Alert history operational
-- ✅ All 21 LaunchAgents enumerated
-- ✅ Scripts execute without errors
-- ✅ Evidence gate passed for review
+**Security:**
+- Webhook signature validation ✅
+- No card data stored by CoinUsUp ✅
+- Fraud prevention via payment requirement ✅
+- RLS policies preserved ✅
 
 ---
 
-## 📋 Next Actions
+## Approval Gate (NOW)
 
-### Immediate (Joe's Action)
-**Fix HAL Gateway (critical for Week 2)**
-- Windows PC check: Is 192.168.2.79 running?
-- Gateway logs: Any auth failures?
-- Restart HAL's gateway service
-- Test: curl http://192.168.2.79:18789/health
+### What Joe Needs to Do (5-10 min)
+1. Read `/CoinUsUp/docs/STRIPE-TRIAL-SPEC.md` (pages 1-3, Stripe Configuration)
+2. Confirm 3 decisions:
+   - ✓ 14-day duration is correct
+   - ✓ Basic & Pro only (not Enterprise)
+   - ✓ New signups only (not existing customers)
+3. Post kanban comment: "✅ Approved. Proceed to staging."
 
-### Week 2: Cron Watchdog (1.5 hours)
-- Auto-detect when critical crons disable
-- Send one-click restart alerts
-- Estimated effort: 1.5 hours
-- ROI: Saves 1.5-2 hours/week
+### What Alfred Will Do (After Approval)
+- **Stage 1 (1-2 hrs):** Staging deployment + integration testing
+- **Stage 2 (30 min):** Production deployment
+- **Stage 3 (7 days):** Monitoring + success validation
 
-### Week 3: Approval Buttons + Question Dedup (3 hours)
-- Add approve/reject actions to notification UI
-- Implement question dedup with timestamps
-- Estimated effort: 3 hours
-- ROI: Saves 5-7 hours/week
+**Total to production:** ~4-5 hours active work + 7 days monitoring
 
 ---
 
-## 📊 Kanban Card Status
+## Implementation Files
 
-**Card:** task_1774651057709_a8f43699  
-**Current Column:** ✅ **REVIEW** (moved 23:50 ADT)  
-**Status:** Week 1 complete, awaiting Joe approval for Week 2
+**Modified (7 files):**
+- `supabase/migrations/20260331_add_trial_support.sql` ✅
+- `supabase/functions/create-checkout/index.ts` ✅
+- `supabase/functions/check-subscription/index.ts` ✅
+- `supabase/functions/recurring-donation-webhook/index.ts` ✅
+- `src/hooks/useStripeSubscription.ts` ✅
+- `docs/STRIPE-TRIAL-SPEC.md` ✅
+- `docs/TRIAL-DEPLOYMENT-RUNBOOK.md` ✅
 
-**Completion Summary:**
-- ✅ Health monitoring deployed
-- ✅ HAL diagnostics complete
-- ✅ Cron automation active
-- ✅ Dashboard operational
-- ⏳ HAL gateway restart (Joe's action)
-- ⏳ Week 2 cron watchdog (after HAL fixed)
-- ⏳ Week 3 approval buttons (after Week 2)
+**Total:** ~800 lines backend, ~200 lines frontend, ~30KB docs
 
 ---
 
-## 🎯 3-Week Roadmap Progress
+## Next Step
 
-| Week | Task | Effort | Status | Impact |
-|------|------|--------|--------|--------|
-| **1** | Fix HAL + Health monitoring | 3.5h (of 3-5h) | ✅ COMPLETE | 1-2h/week (outage detection) |
-| **2** | Cron watchdog | 1.5h | ⏳ Ready to start | 1.5-2h/week (auto-restart) |
-| **3** | Approval buttons + dedup | 3h | ⏳ Ready to start | 5-7h/week (streamlined approval) |
-| **TOTAL** | **3-Week Efficiency Plan** | **7.5-9.5h** | ✅ Week 1 DONE | **9-14h/week savings** |
+**Waiting for:** Joe approval comment on kanban card
+**Then:** Move to staging deployment (will take 3-4 hours total)
 
----
-
-## 💾 Memory Bridge
-
-**Last session:** 2026-03-27 Evening (Workflow efficiency analysis)  
-**Current session:** 2026-03-27 Evening (Week 1 implementation)  
-**Next session:** Ready for Week 2 (cron watchdog)
-
-**Pending for Joe:**
-- HAL gateway restart
-- Week 2 timeline confirmation
-- Week 3 timeline confirmation
-
----
-
-**Card ready for review. Awaiting Joe's approval to proceed with Week 2.**
-
----
-
-## Evening Checkpoint (2026-03-30 22:00 ADT)
-
-**Status Update:** Week 1 complete, idle mode. Day's proactive work summarized:
-- ✅ Workflow efficiency roadmap reviewed (3-week plan, 9-14h/week savings)
-- ✅ Infrastructure audit delivered (P0 gateway auto-recovery identified)
-- ✅ CoinUsUp/Signal App code reviews (both production-capable)
-- ✅ Even Us Up strategy synthesized (vertical wedge differentiation)
-- ✅ Passive income portfolio consolidated (3 external blockers identified)
-
-**Active Blockers (Joe Decision Needed):**
-1. CoinUsUp Stripe config (5 min, 11 days waiting, unblocks trial launch)
-2. Even Us Up strategy (30 min, growth vs. harvest decision)
-3. HAL restart (5 min, WebSocket offline)
-
-**Next Session:** Start with LAST-SESSION.md + OPEN-LOOPS.md, then unblock CoinUsUp Stripe or execute approved strategy.
-
----
-
-## ✅ COMPLETED: Evening Routine & Infrastructure Analysis
-
-**Date:** 2026-03-29 22:00 ADT  
-**Status:** Idle activity (context 61%, checkpoint triggered)  
-**Deliverables:** 7 reports, 107 KB
-
-### What Was Done
-
-**Evening work session (19:10-22:00 ADT, 2h 50min):**
-
-1. **Code Review: Market Signal Lab** (19.4 KB)
-   - Assessment: ⭐⭐⭐⭐ (4/5) production-capable
-   - Strengths: Clean architecture, proper TypeScript, solid backtest engine
-   - Critical gaps: Position ledger (8-12h), alert system (6-10h), real-time data
-   - Recommendation: Position ledger is critical next step (enables portfolio analysis)
-
-2. **Infrastructure Audit: Alfred System** (8.3 KB)
-   - Analyzed cron jobs (27 active), gateway health, HAL dispatch, notification system
-   - **CRITICAL ISSUE:** Gateway not responding on port 6784
-   - **3 Improvements Identified:**
-     - P0: Gateway auto-recovery system (2-3h, prevents 1-2h/week downtime, score 9.5/10)
-     - P1: Idle activity deduplication (1-2h, saves 5-10 min/cycle, score 7.8/10)
-     - P2: Token cost tracking dashboard (1-2h, budget control, score 7.2/10)
-
-3. **Signal App Monetization Strategy** (8.9 KB)
-   - Recommendation: **Freemium model** ($9.99 Pro, $24.99 Premium)
-   - Year 1 revenue: $1-2k MRR ramp / ~$10-15k annual
-   - Implementation phases: Week 1-2 (Stripe), Week 3-4 (launch), Week 5-12 (growth)
-
-4. **Alfred ↔ HAL Strategic Discussion: Signal App** (6.9 KB)
-   - Key insight: Position tracking + alerts are load-bearing (not nice-to-haves)
-   - Recommendation: Days 1-3 auth + position, Days 4-5 alerts, Week 2+ community
-   - First paying user expected Week 8
-   - Don't over-build; ship minimum, measure publicly, iterate
-
-5. **Security Posture Check** (9.2 KB)
-   - Overall: GOOD with targeted gaps
-   - Strengths: No exposed credentials, proper auth/RLS, comprehensive logging
-   - Gaps: Gateway reliability, cron validation, dependency scanning, Signal App auth
-   - P0 recommendation: Gateway auto-recovery (same as infrastructure P0)
-
-6. **Code Review: CoinUsUp** (11.8 KB)
-   - Assessment: ⭐⭐⭐⭐ (4/5) production-capable (3.5/5 without position tracking)
-   - Strengths: Clean React/TypeScript, Supabase integration, responsive UI
-   - Critical blockers: Position tracking (ROI visibility), recurring donations, payment integration
-   - Timeline to revenue: 6-8 weeks (position tracking + recurring + Stripe)
-
-7. **Signal App Market Research** (19.6 KB)
-   - Market: $54B (2026) → $200B+ (2035, 14% CAGR)
-   - Joe's differentiation: Transparent backtests + community trust
-   - Go-to-market: 12-week MVP → beta → public launch
-   - Recommendation: **GO** (market + fit + timeline all feasible)
-
-### Key Decisions
-
-1. **Signal App:** Freemium model + position tracking + alerts (critical path to revenue)
-2. **CoinUsUp:** Position tracking + recurring donations next (6-8 week timeline)
-3. **Infrastructure:** Gateway auto-recovery is P0 for next sprint
-4. **Security:** Dependency scanning before production launches
-
-### Infrastructure Issues Identified
-
-**CRITICAL (P0):**
-- Gateway service not responding on port 6784 (flagged 18:36 ADT)
-- HAL gateway offline (WebSocket timeout at 192.168.2.79:18789)
-- **Action:** Gateway auto-recovery system (2-3h) — registers in Week 2 roadmap
-
-**HIGH (P1):**
-- Cron job configuration validation needed (prevent auto-disable pattern)
-- Dependency vulnerability scanning (npm audit for all projects)
-
-### Files Updated
-
-✅ memory/2026-03-29.md (evening summary appended)  
-✅ LAST-SESSION.md (session bridge created)  
-✅ NOW.md (emergency checkpoint)  
-✅ ACTIVE-TASK.md (this file, evening summary added)  
-
----
-
-## Pending Questions (Active Blockers)
+## Pending Questions
 
 <!-- PENDING-Q-START -->
 - **CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing** (_question_, Mar 24 10:37)
@@ -253,220 +124,20 @@ logs/health-monitor.log (auto-generated)
 
 - **[URGENT] 3 Review Cards Blocked — Need Your Decisions** (_question_, Mar 28 09:12)
   ID: `notif_1774689127989_0317ff88` — **STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).  ---  **CARD 1: Bill Review & Invoice Audit Automation (task_...
+
+- **Bill Review & Invoice Audit card (task_1774058538023_ae4bf3d2) is in review, blocked on clarification:
+
+**Question:** In early March, you marked new product ideas off-limits to focus on improving existing apps (CoinUsUp, Even Us Up, Signal App). Your recent comment on this card suggests you may want to reconsider.
+
+**Before I proceed with an MVP**, I need clarity on 3 points:
+
+1. **Does this change the consulting→product boundary?** (It was explicitly off-limits Mar 1, 9, and 19)
+2. **Priority:** Should this be prioritized over CoinUsUp Phase 5 work or Signal App quality improvements?
+3. **Scope:** Is this a personal tool for your own invoice audits, or an external product?
+
+**If yes to 1+3:** I can scope and build the MVP this week. 
+**If it's deprioritized:** I'll move the card to Archived and focus on active product work.
+
+Waiting on your decision.** (_Bill Review MVP — Priority Clarification Needed_, Mar 31 18:31)
+  ID: `notif_1774981870236_bbfcb7a1` — Please decide on the 3 clarification points above so I can unblock this card.
 <!-- PENDING-Q-END -->
-
----
-
-## ✅ COMPLETED: Market Signal Lab Code Review (Proactive)
-
-**Date:** 2026-03-29 17:10 ADT  
-**Status:** Idle activity (HAL unavailable; Code review requested by Command Center)  
-**Deliverable:** `signal-app-mvp/CODE-REVIEW-2026-03-29.md` (19.4 KB)
-
-### What Was Done
-
-**Comprehensive code review covering:**
-1. Architecture & design patterns
-2. Code quality (TypeScript, error handling, performance)
-3. Feature analysis (implemented vs missing)
-4. Technical debt assessment
-5. Security audit
-6. Performance optimization opportunities
-7. 9-item action roadmap with effort estimates
-
-### Key Findings
-
-**Overall Assessment:** ⭐⭐⭐⭐ (4/5) — Production-capable architecture
-
-**Strengths:**
-- ✅ Clean layered architecture (UI → API → Logic → Data)
-- ✅ Proper TypeScript typing (strict mode, no `any`)
-- ✅ Comprehensive backtest engine (realistic fees, proper metrics)
-- ✅ 5 production-ready strategies with adaptive weighting
-- ✅ Smart caching (memory <1ms, disk <50ms)
-- ✅ Extensible data adapters (4 sources with fallback logic)
-
-**Critical Gaps (Must-Have for Production):**
-1. ❌ Position ledger (portfolio tracking) — 8-12h
-2. ❌ Alert/threshold system (automation) — 6-10h
-3. ❌ Real-time data (WebSocket) — 12-16h
-4. ❌ Unit tests — 10-15h
-5. ❌ User authentication — 4-6h
-
-**Top 5 Technical Debt (Priority Order):**
-1. Position ledger (8-12h) — Foundation for portfolio features
-2. Alert system (6-10h) — Foundation for automation
-3. Real-time data (12-16h) — For live monitoring
-4. Unit tests (10-15h) — For refactoring confidence
-5. Compliance & audit (12-16h) — For regulated deployment
-
-### Recommendation
-
-**Next Sprint (Immediate):**
-- Priority 1: Position ledger (enables multi-symbol trading, portfolio metrics)
-- Priority 2: Unit tests (confidence for future changes)
-
-**Follow-up (2-4 weeks):**
-- Priority 3: Alert system (enables automated monitoring)
-- Priority 4: User authentication (for multi-user deployment)
-
-**Long-term (1-3 months):**
-- Priority 5: Real-time data (live signal generation)
-- Priority 6: Signal outcome tracking (feedback loop)
-
-### Impact
-
-This code review identifies **two major architectural gaps** (position ledger + alerts) that block advanced features. Fixing these would enable:
-- Portfolio-level analysis
-- Multi-symbol trading
-- Automated monitoring + alerts
-- Learning feedback loop (signal accuracy tracking)
-
-**Status:** ✅ Complete  
-**Commit:** 5faea15 (CODE-REVIEW-2026-03-29.md)  
-**Memory updated:** 2026-03-29 17:12 ADT
-
----
-
-## ✅ COMPLETED: Alfred Infrastructure Improvement Audit
-
-**Date:** 2026-03-29 18:30 ADT  
-**Task:** Identify gaps, failure modes, and improvements in Alfred system
-
-### What Was Done
-
-**Comprehensive Infrastructure Audit covering:**
-- Cron job status (27 active LaunchAgents, 45.7 KB config)
-- Gateway health (❌ NOT RESPONDING — critical issue)
-- Notification system (572 items, healthy)
-- HAL dispatch pipeline (operational, Sentinel active)
-- Memory architecture (156 memory files, well-organized)
-- Command Center integration
-- Token cost tracking
-- Duplicate work detection
-
-**Top 3 Improvements Identified (Not in Kanban):**
-
-### 1. CRITICAL: Gateway Auto-Recovery System (2-3h)
-- **Score:** 9.5/10
-- **Problem:** Gateway crashes with no automatic detection/restart
-- **Impact:** Prevents 1-2 API outages/week, improves reliability
-- **Solution:** Health check daemon (30s intervals) + auto-restart on 3 failures
-- **Why now:** Gateway outage discovered today (18:36 ADT)
-
-### 2. HIGH: Idle Activity Deduplication (1-2h)
-- **Score:** 7.8/10
-- **Problem:** 11 self-improvement activities in 30 min; 3+ duplicates
-- **Impact:** Saves 5-10 min/cycle, $5-10/month token waste
-- **Solution:** Activity cache (24h window) + smart scheduling
-
-### 3. MEDIUM: Token Cost Tracking Dashboard (1-2h)
-- **Score:** 7.2/10
-- **Problem:** No centralized cost tracking; budget visibility lost at month-end
-- **Impact:** Budget control, cost visibility, task prioritization
-- **Solution:** Daily auto-generated dashboard with alerts
-
-### Findings Summary
-- **System Health:** Good with 2 critical issues (gateway outage + idle dedup opportunity)
-- **Infrastructure:** 27 LaunchAgents operational, monitoring active (Sentinel running)
-- **Reliability:** Good automation in place (cron watchdog, health checks)
-- **Gaps:** Gateway failure detection, idle activity scheduling, cost visibility
-
-**Deliverable:** `reports/alfred-infrastructure-audit-2026-03-29.md` (8.3 KB)
-
-**Recommendation:** Gateway auto-recovery is P0 (CRITICAL) for next sprint. Idle dedup and cost dashboard are P1/P2.
-
-**Status:** ✅ Complete (3 improvements ready for Kanban)
-
----
-
-## ✅ COMPLETED: Dead Code & Cleanup Sweep
-
-**Date:** 2026-03-31 08:12 ADT  
-**Status:** Autonomous proactive task (HAL unavailable)  
-**Deliverable:** `reports/CLEANUP-SWEEP-2026-03-31.md` (8.2 KB)
-
-### What Was Done
-
-**Comprehensive workspace cleanup:**
-
-1. ✅ **Duplicate Reports Removed:** 17 files (~170 KB)
-   - portfolio-health (2026-03-09, 2026-03-12)
-   - system-monitoring (2026-03-29-23-47, 2026-03-29)
-   - workspace-health (2026-03-20 through 2026-03-30: 11 files)
-   - workflow-efficiency-scan (2026-03-29)
-   - signal-app-research (2026-03-30)
-
-2. ✅ **Stale Backups Removed:** 1 file (~10 KB)
-   - MEMORY.md.bridge-backup (orphaned backup from 2026-03-15)
-
-3. ✅ **Memory Logs Assessment:** HEALTHY
-   - 158 active logs, all within retention (2-45 days old)
-   - No archival needed
-
-4. ✅ **Code Quality Audit:** EXCELLENT
-   - 171 scripts total (all active)
-   - 0 stale/unused scripts (>90 days)
-   - No dead code in production
-
-5. ⚠️ **Inactive Project Identified (Not Deleted):**
-   - `projects/msp-backup-reporter/` (127 MB)
-   - Last modified: 2026-03-20
-   - Status: Old MSP reporting tool
-   - Recommendation: Archive or delete (requires Joe decision)
-
-### Metrics
-
-| Metric | Before | After | Change |
-|---|---|---|---|
-| **Report Count** | 95 files | 78 files | -17 (19% reduction) |
-| **Reports/ Size** | 1.1 MB | 932 KB | -170 KB |
-| **Stale Files** | 18 | 0 | ✅ Cleaned |
-
-### System Impact
-
-✅ Disk space freed: 170 KB  
-✅ Report clutter reduced: 19%  
-✅ System fully operational  
-✅ No critical files affected  
-✅ Memory system healthy (158 logs)  
-✅ Scripts audit: all lean/active  
-
-### Recommendations for Next Cycle
-
-1. **Quarterly Archive:** Move memory logs >60 days to `memory/archive/` when needed
-2. **Project Cleanup:** Confirm disposition of `projects/msp-backup-reporter/` (archive vs delete)
-3. **Automation:** No dead code detected; scripts folder is healthy
-
-**Status:** ✅ Complete. System ready for next proactive task.
-
-
----
-
-## 📋 Kanban Ideas — Top Passive Income Opportunities (2026-03-31)
-
-**Source:** Alfred proactive scan (09:02-09:15 ADT)
-
-### ⭐ STRONG GO: Invoice & Expense Auditor (Even Us Up Integration)
-- **Estimated MRR:** $9.5-97.9K Year 1
-- **Build Time:** 2-3 weeks (lowest effort, fastest revenue)
-- **Complexity:** 2.5/5 (Claude Vision OCR + split optimization)
-- **Risk:** LOW (existing Even Us Up user base, sticky product)
-- **Rationale:** Even Us Up users are captive market; minimal external competition; Claude Vision is best-in-class for receipt parsing; integrates naturally with existing platform
-
-### ⭐ GO: Canadian SMB Compliance Copilot
-- **Estimated MRR:** $4.9-29.9K Year 1 (conservative)
-- **Build Time:** 4-6 weeks (60-80h)
-- **Complexity:** 3/5 (Supabase + Claude API + Next.js)
-- **Risk:** LOW (sticky revenue, clear TAM, Joe's expertise)
-- **Rationale:** 20+ years law firm consulting = deep pain point knowledge; Canadian-specific + AI angle = first-mover advantage; compliance is recurring revenue lock-in
-
-### EXPLORE: Law Firm Billing Accuracy Auditor
-- **Estimated MRR:** $9.9-49.9K Year 1
-- **Build Time:** 6-8 weeks (100-120h)
-- **Complexity:** 3.5/5 (Clio/Everlaw API integrations)
-- **Risk:** MEDIUM (Clio partnership is gating factor)
-- **Rationale:** High ROI ($250K-750K recovery per firm), but requires Clio partnership exploration; backlog for Q2
-
-**Next Step:** Joe review + prioritization. Recommend: Invoice Auditor (Week 1-2, parallel) → Compliance Copilot (Week 3-6).
-

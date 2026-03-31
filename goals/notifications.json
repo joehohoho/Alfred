@@ -597,5 +597,14 @@
     "answeredAt": "2026-03-31T14:59:29.517Z",
     "userAnswer": "User adoption for CoinUsUp",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1774981870236_bbfcb7a1",
+    "type": "Bill Review MVP — Priority Clarification Needed",
+    "title": "Bill Review & Invoice Audit card (task_1774058538023_ae4bf3d2) is in review, blocked on clarification:\n\n**Question:** In early March, you marked new product ideas off-limits to focus on improving existing apps (CoinUsUp, Even Us Up, Signal App). Your recent comment on this card suggests you may want to reconsider.\n\n**Before I proceed with an MVP**, I need clarity on 3 points:\n\n1. **Does this change the consulting→product boundary?** (It was explicitly off-limits Mar 1, 9, and 19)\n2. **Priority:** Should this be prioritized over CoinUsUp Phase 5 work or Signal App quality improvements?\n3. **Scope:** Is this a personal tool for your own invoice audits, or an external product?\n\n**If yes to 1+3:** I can scope and build the MVP this week. \n**If it's deprioritized:** I'll move the card to Archived and focus on active product work.\n\nWaiting on your decision.",
+    "message": "Please decide on the 3 clarification points above so I can unblock this card.",
+    "answered": false,
+    "createdAt": "2026-03-31T18:31:10.236Z",
+    "answeredAt": null
   }
 ]

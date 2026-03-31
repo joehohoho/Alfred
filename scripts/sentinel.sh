@@ -310,11 +310,11 @@ check_hal() {
     [[ -z "$ws" ]] && ws="000"
 
     if [[ "$ws" == "101" ]]; then
-      # Fully healthy — reset fail counter if it's high
+      # Fully healthy — ALWAYS reset fail counter so dispatches aren't blocked
       local fail_count=$(cat "$WORKSPACE/.hal-alfred-tracking/hal-dispatch-fail-count.txt" 2>/dev/null || echo "0")
-      if [[ "$fail_count" -gt 5 ]]; then
+      if [[ "$fail_count" -gt 0 ]]; then
         echo "0" > "$WORKSPACE/.hal-alfred-tracking/hal-dispatch-fail-count.txt"
-        log "FIX $component: Reset fail counter from $fail_count to 0 (HAL is healthy)"
+        log "FIX $component: Reset fail counter from $fail_count to 0 (HAL healthy via HTTP+WS)"
         bash "$AUDIT" info "sentinel" "HAL healthy — reset fail counter from $fail_count"
       fi
 

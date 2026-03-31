@@ -1,12 +1,10 @@
 [
   {
-    "taskId": "proactive_1774529977",
-    "title": "Signal App research",
+    "taskId": "proactive_1774982161",
+    "title": "Code review: CoinUsUp",
     "agent": "hal",
-    "dispatchedAt": 1774529977.420429,
+    "dispatchedAt": 1774982162.052495,
     "timeoutSeconds": 300,
-    "status": "completed",
-    "ackedAt": 1774529977.535,
-    "result": "Task completed successfully — findings documented"
+    "status": "timed_out"
   }
 ]

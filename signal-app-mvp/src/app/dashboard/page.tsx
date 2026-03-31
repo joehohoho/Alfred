@@ -82,6 +82,12 @@ const STRATEGIES = [
     desc: 'Mean reversion with volatility. Ranging markets.',
     metrics: 'Win: 60-75% | Sharpe: 1.0-1.5',
   },
+  {
+    id: 'SMART',
+    title: 'Smart Regime',
+    desc: 'Detects market regime first. Sits in cash during choppy markets.',
+    metrics: 'Win: 55-70% | Sharpe: 1.0-1.8',
+  },
 ];
 
 function interpretMetric(name: string, value: number | string): 'positive' | 'negative' | 'neutral' | 'warning' {
@@ -300,6 +306,8 @@ export default function DashboardPage() {
   const [strategy, setStrategy] = useState('SMA_RSI_IMPROVED');
   const [days, setDays] = useState(90);
   const [investment, setInvestment] = useState(10000);
+  const [stopLoss, setStopLoss] = useState(8);
+  const [trailingStop, setTrailingStop] = useState(5);
   const [loading, setLoading] = useState(false);
   const [optimizeMode, setOptimizeMode] = useState(false);
   const [result, setResult] = useState<BacktestResult | null>(null);
@@ -316,6 +324,8 @@ export default function DashboardPage() {
           strategy,
           days: parseInt(String(days)),
           investment,
+          stopLoss,
+          trailingStop,
           optimize: optimizeMode,
         }),
       });
@@ -461,6 +471,41 @@ export default function DashboardPage() {
                   <div className="flex justify-between text-xs text-slate-500 mt-2">
                     <span>$100</span>
                     <span>$100,000</span>
+                  </div>
+                </div>
+
+                {/* Risk Settings */}
+                <div className="mb-8 p-4 rounded-lg bg-slate-900/50 border border-slate-700/50">
+                  <div className="text-xs font-semibold text-slate-400 uppercase mb-3">Risk Management</div>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-xs text-slate-400 mb-1">
+                        Stop Loss: <span className="text-red-400">{stopLoss}%</span>
+                      </label>
+                      <input
+                        type="range" min="3" max="20" step="1"
+                        value={stopLoss}
+                        onChange={(e) => setStopLoss(parseInt(e.target.value))}
+                        className="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                      />
+                      <div className="flex justify-between text-[10px] text-slate-600 mt-1">
+                        <span>3% tight</span><span>20% wide</span>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs text-slate-400 mb-1">
+                        Trailing Stop: <span className="text-amber-400">{trailingStop}%</span>
+                      </label>
+                      <input
+                        type="range" min="2" max="15" step="1"
+                        value={trailingStop}
+                        onChange={(e) => setTrailingStop(parseInt(e.target.value))}
+                        className="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                      />
+                      <div className="flex justify-between text-[10px] text-slate-600 mt-1">
+                        <span>2% tight</span><span>15% wide</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

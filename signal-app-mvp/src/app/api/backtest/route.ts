@@ -9,6 +9,7 @@ import { MACDStrategy } from '@/services/strategies/macdStrategy';
 import { BollingerStrategy } from '@/services/strategies/bollingerStrategy';
 import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
+import { SmartStrategy } from '@/services/strategies/smartStrategy';
 import { StrategyRegistry as EnsembleRegistry } from '@/services/strategies/registry';
 import { optimizeStrategy } from '@/services/backtest/ParameterOptimizer';
 import { trackPerformance } from '@/services/backtest/performanceTracker';
@@ -48,6 +49,9 @@ const STRATEGY_MAP: Record<string, (params?: Record<string, number>) => Strategy
   ),
   TREND_FOLLOWING: (params) => new TrendFollowingStrategy(
     params ?? { hmaPeriod: 20, adxPeriod: 14, adxThreshold: 25 }
+  ),
+  SMART: (params) => new SmartStrategy(
+    params ?? { trendSma: 50, pullbackSma: 20, adxThreshold: 20 }
   ),
   ENSEMBLE: () => new EnsembleRegistry(),
 };
@@ -166,7 +170,14 @@ export async function POST(request: Request) {
         // Run full backtest with BOTH optimized and default params on the FULL dataset
         const dataManager = getDataManager();
         const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
-        const riskSettings = best.risk || { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 };
+        // Use the user's risk settings — optimizer finds strategy params, not risk overrides
+        // The user's stop-loss and trailing-stop should always be respected
+        const riskSettings = {
+          stopLossPercent: Number(stopLoss) || 8,
+          trailingStopPercent: Number(trailingStop) || 5,
+          takeProfitPercent: Number(takeProfit) || 15,
+          maxHoldDays: Number(maxHoldDays) || 30,
+        };
 
         const optimizedStrategy = strategyFactory(best.params);
         const engine = new BacktestEngine(Number(investment) || 10000, riskSettings);

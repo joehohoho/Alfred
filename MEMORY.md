@@ -2,10 +2,10 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-**Status:** `idle` (Session context 61%; executing 5 proactive tasks since 04:36
-Review: Atlantic Contractor Client Portal-in-a-B; Bill Review & Invoice Audit Automation (; Implement 14-day free trial on Basic/Pro
-Recent: [idle:review-memory] 2026-03-31 13:15 — Read 5 rec
-Updated: 15:00 AST
+**Status:** in_progress
+Review: Implement 14-day free trial on Basic/Pro; Bill Review & Invoice Audit Automation (
+Recent: [idle:review-memory] 2026-03-31 13:15 — Read 5 rec | [idle:workspace-check] All repos clean. No stale n
+Updated: 17:16 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.

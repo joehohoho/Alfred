@@ -5,6 +5,7 @@ import { MACDStrategy } from '@/services/strategies/macdStrategy';
 import { BollingerStrategy } from '@/services/strategies/bollingerStrategy';
 import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
+import { SmartStrategy } from '@/services/strategies/smartStrategy';
 import { getDataManager } from '@/services/data/DataManager';
 
 // --- Types ---
@@ -67,6 +68,11 @@ const STRATEGY_RANGES: Record<string, Record<string, ParameterRange>> = {
     adxPeriod: { min: 10, max: 20, step: 3 },
     adxThreshold: { min: 20, max: 35, step: 5 },
   },
+  SMART: {
+    trendSma: { min: 30, max: 60, step: 10 },
+    pullbackSma: { min: 10, max: 30, step: 5 },
+    adxThreshold: { min: 15, max: 30, step: 5 },
+  },
 };
 
 // --- Risk management parameter ranges ---
@@ -89,6 +95,7 @@ function createStrategy(stratKey: string, params: Record<string, number>): Strat
     case 'BOLLINGER_BANDS': return new BollingerStrategy(params);
     case 'RSI_EXTREME': return new RSIExtremeStrategy(params);
     case 'TREND_FOLLOWING': return new TrendFollowingStrategy(params);
+    case 'SMART': return new SmartStrategy(params);
     default: throw new Error(`Unknown strategy: ${stratKey}`);
   }
 }
