@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { TrendingUp, Zap, Settings, ChevronRight, RefreshCw, ArrowUpCircle, ArrowDownCircle, MinusCircle, BarChart3 } from 'lucide-react';
+import { TrendingUp, Zap, Settings, ChevronRight, RefreshCw, ArrowUpCircle, ArrowDownCircle, MinusCircle, BarChart3, HelpCircle } from 'lucide-react';
 import { MetricsCard } from '@/components/MetricsCard';
 import { StrategyCard } from '@/components/StrategyCard';
 import { TradeTable } from '@/components/TradeTable';
@@ -479,8 +479,14 @@ export default function DashboardPage() {
                   <div className="text-xs font-semibold text-slate-400 uppercase mb-3">Risk Management</div>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs text-slate-400 mb-1">
+                      <label className="block text-xs text-slate-400 mb-1 flex items-center gap-1">
                         Stop Loss: <span className="text-red-400">{stopLoss}%</span>
+                        <span className="relative group">
+                          <HelpCircle className="w-3.5 h-3.5 text-slate-500 cursor-help" />
+                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 w-52 p-2 rounded bg-slate-800 border border-slate-600 text-[11px] text-slate-300 leading-tight opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity z-50 shadow-lg">
+                            Automatically sells your position if the price drops this percentage from your entry price. Limits your maximum loss per trade.
+                          </span>
+                        </span>
                       </label>
                       <input
                         type="range" min="3" max="20" step="1"
@@ -493,8 +499,14 @@ export default function DashboardPage() {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-xs text-slate-400 mb-1">
+                      <label className="block text-xs text-slate-400 mb-1 flex items-center gap-1">
                         Trailing Stop: <span className="text-amber-400">{trailingStop}%</span>
+                        <span className="relative group">
+                          <HelpCircle className="w-3.5 h-3.5 text-slate-500 cursor-help" />
+                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 w-52 p-2 rounded bg-slate-800 border border-slate-600 text-[11px] text-slate-300 leading-tight opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity z-50 shadow-lg">
+                            Moves your stop-loss upward as the price rises, locking in profits. If the price drops this percentage from its highest point after entry, the position is sold.
+                          </span>
+                        </span>
                       </label>
                       <input
                         type="range" min="2" max="15" step="1"

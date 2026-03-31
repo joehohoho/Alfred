@@ -112,6 +112,7 @@ function toBacktestTrades(trades: PaperTrade[]): BacktestTrade[] {
     exitPrice: t.exit,
     exitTime: new Date(t.exitTime),
     quantity: 0, // not needed for pattern analysis
+    direction: (t.pnl >= 0 ? 'long' : 'long') as 'long' | 'short', // paper trades are long-only for now
     pnl: t.pnl,
     pnlPercent: t.pnlPercent,
     daysHeld: Math.max(1, Math.ceil(

@@ -19,6 +19,8 @@ import {
   mergePatterns,
   savePatterns,
 } from '@/services/learning/tradeAnalyzer';
+import { filterSignals, enhanceSignalsAsync } from '@/services/strategies/signalFilter';
+import { enhanceSignals as enhanceSignalsMTF } from '@/services/strategies/signalEnhancer';
 
 /** Simple SMA calculator for chart overlay */
 function calculateSMAArray(values: number[], period: number): number[] {
@@ -180,13 +182,33 @@ export async function POST(request: Request) {
         };
 
         const optimizedStrategy = strategyFactory(best.params);
+        // Async enhancement for optimized strategy signals
+        let optEnhancedSignals: import('@/services/backtest/engine').SignalWithStrength[] | undefined;
+        try {
+          const optRaw = optimizedStrategy.generateSignals(priceSeries);
+          const optFiltered = filterSignals(priceSeries, optRaw, { symbol: symbol.toUpperCase(), skipLearnedFilter });
+          const optSentiment = await enhanceSignalsAsync(priceSeries, optFiltered, symbol.toUpperCase());
+          optEnhancedSignals = await enhanceSignalsMTF(priceSeries, optSentiment, symbol.toUpperCase());
+        } catch (e) {
+          console.warn('[Backtest] Optimization signal enhancement failed (non-fatal):', e);
+        }
         const engine = new BacktestEngine(Number(investment) || 10000, riskSettings);
-        const optimizedResult = engine.backtest(priceSeries, optimizedStrategy);
+        const optimizedResult = engine.backtest(priceSeries, optimizedStrategy, optEnhancedSignals);
 
         const defaultStrategy = strategyFactory(undefined);
+        // Async enhancement for default strategy signals
+        let defEnhancedSignals: import('@/services/backtest/engine').SignalWithStrength[] | undefined;
+        try {
+          const defRaw = defaultStrategy.generateSignals(priceSeries);
+          const defFiltered = filterSignals(priceSeries, defRaw, { symbol: symbol.toUpperCase(), skipLearnedFilter });
+          const defSentiment = await enhanceSignalsAsync(priceSeries, defFiltered, symbol.toUpperCase());
+          defEnhancedSignals = await enhanceSignalsMTF(priceSeries, defSentiment, symbol.toUpperCase());
+        } catch (e) {
+          console.warn('[Backtest] Default signal enhancement failed (non-fatal):', e);
+        }
         const defaultRisk = { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 };
         const defaultEngine = new BacktestEngine(Number(investment) || 10000, defaultRisk);
-        const defaultResult = defaultEngine.backtest(priceSeries, defaultStrategy);
+        const defaultResult = defaultEngine.backtest(priceSeries, defaultStrategy, defEnhancedSignals);
 
         // CRITICAL: Only use optimized params if they ACTUALLY beat defaults on the full dataset
         // If defaults are better, return defaults as the "winner" and don't cache bad params
@@ -344,8 +366,18 @@ export async function POST(request: Request) {
     const priceSeries = await dataManager.fetch(symbol.toUpperCase(), Number(days) || 90);
 
     // Run backtest with investment amount
+    // Step 7+8: Apply async signal enhancements (sentiment + derivatives) before the engine
+    let enhancedSignals: import('@/services/backtest/engine').SignalWithStrength[] | undefined;
+    try {
+      const rawSignals = strategyInstance.generateSignals(priceSeries);
+      const filtered = filterSignals(priceSeries, rawSignals, { symbol: symbol.toUpperCase(), skipLearnedFilter });
+      const sentimentSignals = await enhanceSignalsAsync(priceSeries, filtered, symbol.toUpperCase());
+      enhancedSignals = await enhanceSignalsMTF(priceSeries, sentimentSignals, symbol.toUpperCase());
+    } catch (enhanceErr) {
+      console.warn('[Backtest] Signal enhancement failed (non-fatal), using sync-only filter:', enhanceErr);
+    }
     const engine = new BacktestEngine(Number(investment) || 10000, { stopLossPercent: Number(stopLoss) || 8, trailingStopPercent: Number(trailingStop) || 5, takeProfitPercent: Number(takeProfit) || 15, maxHoldDays: Number(maxHoldDays) || 30 });
-    const result = engine.backtest(priceSeries, strategyInstance);
+    const result = engine.backtest(priceSeries, strategyInstance, enhancedSignals);
 
     // Track performance
     trackPerformance({

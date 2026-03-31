@@ -13,7 +13,7 @@ AUDIT="$HOME/.openclaw/workspace/scripts/audit-log.sh"
 APP_URL="http://localhost:3000/apps/market-signals/api"
 
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
-log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
+log() { echo "[$(ts)] $*"; }
 
 # Check if the app is running
 APP_STATUS=$(curl -s --max-time 5 -o /dev/null -w "%{http_code}" "$APP_URL/health" 2>/dev/null || echo "000")

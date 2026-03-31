@@ -152,8 +152,8 @@ export class SmartStrategy extends BaseStrategy {
   generateSignals(series: PriceSeries): SignalWithStrength[] {
     const points = series.points;
     const closes = points.map((p) => p.close);
-    const highs = points.map((p) => p.high);
-    const lows = points.map((p) => p.low);
+    const highs = points.map((p) => p.high ?? p.close);
+    const lows = points.map((p) => p.low ?? p.close);
     const len = closes.length;
 
     // Need at least trendSma + 10 lookback for regime slope check

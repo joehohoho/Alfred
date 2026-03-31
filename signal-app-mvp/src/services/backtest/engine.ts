@@ -124,9 +124,9 @@ export class BacktestEngine {
     this.position.lowestPrice = Infinity;
   }
 
-  backtest(series: PriceSeries, strategy: Strategy): BacktestResult {
-    const rawSignals = strategy.generateSignals(series);
-    const signals = filterSignals(series, rawSignals);
+  backtest(series: PriceSeries, strategy: Strategy, preEnhancedSignals?: SignalWithStrength[]): BacktestResult {
+    const rawSignals = preEnhancedSignals ?? strategy.generateSignals(series);
+    const signals = preEnhancedSignals ? rawSignals : filterSignals(series, rawSignals);
 
     // Debug: track signal counts for diagnostics
     (this as any)._debug = {
@@ -317,22 +317,24 @@ export class BacktestEngine {
     const winRate = totalTrades > 0 ? (winningTrades / totalTrades) * 100 : 0;
 
     const totalPnL = trades.reduce((sum, t) => sum + t.pnl, 0);
-    const totalPnLPercent = trades.reduce((sum, t) => sum + t.pnlPercent, 0) / Math.max(1, totalTrades);
+    const totalPnLPercent = (totalPnL / this.investmentAmount) * 100;
 
     const avgWin = winningTrades > 0 ? trades.filter((t) => t.pnl > 0).reduce((sum, t) => sum + t.pnl, 0) / winningTrades : 0;
     const avgLoss = losingTrades > 0 ? trades.filter((t) => t.pnl < 0).reduce((sum, t) => sum + Math.abs(t.pnl), 0) / losingTrades : 0;
     const profitFactor = avgLoss > 0 ? avgWin / avgLoss : avgWin > 0 ? Infinity : 0;
 
-    // Calculate max drawdown
+    // Calculate max drawdown as % of peak capital (industry standard)
     let maxDrawdown = 0;
-    let peakValue = 0;
-    let runningValue = 0;
+    let peakCapital = this.investmentAmount;
+    let currentCapital = this.investmentAmount;
     for (const trade of trades) {
-      runningValue += trade.pnl;
-      if (runningValue > peakValue) {
-        peakValue = runningValue;
+      currentCapital += trade.pnl;
+      if (currentCapital > peakCapital) {
+        peakCapital = currentCapital;
       }
-      const drawdown = ((peakValue - runningValue) / Math.max(peakValue, 1)) * 100;
+      const drawdown = peakCapital > 0
+        ? ((peakCapital - currentCapital) / peakCapital) * 100
+        : 0;
       maxDrawdown = Math.max(maxDrawdown, drawdown);
     }
 

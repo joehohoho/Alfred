@@ -248,7 +248,7 @@ function detectConditions(
   // but we don't have timestamp here, so skip day-of-week in conditions
   // (handled in analyzeTrades where we have access to entry time)
 
-  // Combined conditions
+  // Combined conditions — these are the most useful for filtering
   if (conditions.includes('price_above_50sma') && conditions.includes('rising_momentum')) {
     conditions.push('price_above_50sma_and_rising');
   }
@@ -257,6 +257,24 @@ function detectConditions(
   }
   if (conditions.includes('rsi_above_70') && conditions.includes('high_volatility')) {
     conditions.push('overbought_and_volatile');
+  }
+  if (conditions.includes('rsi_below_30') && conditions.includes('declining_momentum')) {
+    conditions.push('rsi_below_30_and_declining');
+  }
+  if (conditions.includes('rsi_above_70') && conditions.includes('rising_momentum')) {
+    conditions.push('rsi_above_70_and_rising');
+  }
+  if (conditions.includes('high_volatility') && conditions.includes('price_below_20sma')) {
+    conditions.push('high_volatility_and_below_20sma');
+  }
+  if (conditions.includes('high_volatility') && conditions.includes('price_above_20sma')) {
+    conditions.push('high_volatility_and_above_20sma');
+  }
+  if (conditions.includes('low_volume') && conditions.includes('declining_momentum')) {
+    conditions.push('low_volume_and_declining');
+  }
+  if (conditions.includes('low_volume') && conditions.includes('rising_momentum')) {
+    conditions.push('low_volume_and_rising');
   }
 
   return { conditions };
@@ -514,38 +532,40 @@ export function savePatterns(symbol: string, patterns: TradePatterns): void {
 // Query helpers (used by learning-stats endpoint & signal filter)
 // ---------------------------------------------------------------------------
 
-// Single-factor patterns that are too noisy to use for filtering
-const NOISY_SINGLE_PATTERNS = new Set([
-  'price_below_20sma', 'price_above_20sma',
-  'price_below_50sma', 'price_above_50sma',
-  'price_below_200sma', 'price_above_200sma',
-  'rsi_above_70', 'rsi_above_65', 'rsi_below_30', 'rsi_below_35',
-  'low_volume',
-  'declining_momentum', 'rising_momentum',
-  'high_volatility', 'low_volatility',
+// Combined conditions are always preferred. Single-factor conditions are allowed
+// only when they have very high confidence (>0.85) AND enough samples.
+const COMBINED_PATTERNS = new Set([
+  'price_above_50sma_and_rising', 'price_below_50sma_and_declining',
+  'overbought_and_volatile',
+  'rsi_below_30_and_declining', 'rsi_above_70_and_rising',
+  'high_volatility_and_below_20sma', 'high_volatility_and_above_20sma',
+  'low_volume_and_declining', 'low_volume_and_rising',
 ]);
+
+function isActionable(p: PatternCondition, minTrades: number): boolean {
+  const totalTrades = p.lossCount + p.winCount;
+  if (totalTrades < minTrades) return false;
+
+  // Combined patterns: lower confidence threshold (0.65)
+  if (COMBINED_PATTERNS.has(p.condition)) {
+    return p.confidence > 0.65;
+  }
+
+  // Single-factor patterns: require higher confidence (0.80) and more samples (12+)
+  return p.confidence > 0.80 && totalTrades >= 12;
+}
 
 /** Patterns that have enough data to be used for filtering. */
 export function getActionableLosingPatterns(symbol: string): PatternCondition[] {
   const patterns = getLearnedPatterns(symbol);
   if (!patterns) return [];
-  return patterns.losingPatterns.filter(
-    (p) =>
-      (p.lossCount + p.winCount) >= MIN_TRADES_FOR_PATTERN &&
-      p.confidence > 0.75 &&
-      !NOISY_SINGLE_PATTERNS.has(p.condition), // Only multi-factor combined patterns
-  );
+  return patterns.losingPatterns.filter((p) => isActionable(p, MIN_TRADES_FOR_PATTERN));
 }
 
 export function getActionableWinningPatterns(symbol: string): PatternCondition[] {
   const patterns = getLearnedPatterns(symbol);
   if (!patterns) return [];
-  return patterns.winningPatterns.filter(
-    (p) =>
-      (p.lossCount + p.winCount) >= MIN_TRADES_FOR_PATTERN &&
-      p.confidence > 0.75 &&
-      !NOISY_SINGLE_PATTERNS.has(p.condition), // Only multi-factor combined patterns
-  );
+  return patterns.winningPatterns.filter((p) => isActionable(p, MIN_TRADES_FOR_PATTERN));
 }
 
 // ---------------------------------------------------------------------------

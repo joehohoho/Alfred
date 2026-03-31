@@ -5,6 +5,9 @@ import {
   getActionableWinningPatterns,
   detectCurrentConditions,
 } from '@/services/learning/tradeAnalyzer';
+import { getFearGreedIndex } from '@/services/data/sentimentClient';
+import { applySentimentModifier } from '@/services/strategies/sentimentFilter';
+import { applyDerivativesModifier } from '@/services/strategies/derivativesFilter';
 
 export interface FilterOptions {
   /** Enable trend filter (price vs 50-SMA). Default: true */
@@ -357,4 +360,44 @@ export function filterSignals(
   }
 
   return filtered;
+}
+
+// ---- Async enhancement: sentiment + derivatives (Step 7 & 8) ----
+
+/**
+ * Applies async signal enhancements that require external API calls:
+ *   Step 7 — Fear & Greed Index sentiment modifier
+ *   Step 8 — Derivatives (funding rate, OI, long/short ratio) modifier
+ *
+ * Designed to run AFTER the synchronous `filterSignals()`. Each step is
+ * independently wrapped in try/catch so a single API failure never blocks
+ * the pipeline — signals pass through unmodified on error.
+ */
+export async function enhanceSignalsAsync(
+  _series: PriceSeries,
+  signals: SignalWithStrength[],
+  symbol: string,
+): Promise<SignalWithStrength[]> {
+  if (signals.length === 0) return signals;
+
+  let enhanced = [...signals];
+
+  // --- Step 7: Sentiment filter (Fear & Greed Index) ---
+  try {
+    const fgi = await getFearGreedIndex();
+    enhanced = enhanced.map((s) => applySentimentModifier(s, fgi.value));
+  } catch (err) {
+    console.warn('[SignalFilter] Sentiment enhancement failed (non-fatal):', err);
+  }
+
+  // --- Step 8: Derivatives filter (funding rate, OI, long/short) ---
+  try {
+    enhanced = await Promise.all(
+      enhanced.map((s) => applyDerivativesModifier(s, symbol)),
+    );
+  } catch (err) {
+    console.warn('[SignalFilter] Derivatives enhancement failed (non-fatal):', err);
+  }
+
+  return enhanced;
 }
