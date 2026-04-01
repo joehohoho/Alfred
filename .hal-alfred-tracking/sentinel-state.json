@@ -2,33 +2,33 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:46Z",
+    "lastCheck": "2026-04-01T03:44:02Z",
     "lastNotified": 1774966862.427883,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:46Z",
+    "lastCheck": "2026-04-01T03:44:02Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:52Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:52Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "sessions": {
-    "status": "degraded",
+    "status": "healthy",
     "fixAttempts": [
       {
         "fix": "run-cleanup",
@@ -46,35 +46,35 @@
         "at": 1775007019.5793889
       }
     ],
-    "lastCheck": "2026-04-01T01:56:52Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 1775007019.57939
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:52Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:53Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:52Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-01T01:56:52Z",
+    "lastCheck": "2026-04-01T03:44:08Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }
