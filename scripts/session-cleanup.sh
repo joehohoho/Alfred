@@ -36,6 +36,7 @@ SESSIONS_DIR="$HOME/.openclaw/agents/main/sessions"
 SESSIONS_JSON="$SESSIONS_DIR/sessions.json"
 LOG="$HOME/.openclaw/logs/session-cleanup.log"
 NOTIFY_URL="http://localhost:3001/api/notifications"
+HAL_LAST_ALERT_FILE="/tmp/session-cleanup-alerts"
 
 ts() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
