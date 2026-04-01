@@ -140,4 +140,7 @@ Enterprise (All)       → NO Trial ✅
 
 Waiting on your decision.** (_Bill Review MVP — Priority Clarification Needed_, Mar 31 18:31)
   ID: `notif_1774981870236_bbfcb7a1` — Please decide on the 3 clarification points above so I can unblock this card.
+
+- **Should any of your apps become more opinionated or simpler?** (_question_, Apr 01 13:00)
+  ID: `notif_1775048400684_f1ea860c` — Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?
 <!-- PENDING-Q-END -->

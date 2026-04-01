@@ -606,5 +606,15 @@
     "answered": false,
     "createdAt": "2026-03-31T18:31:10.236Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775048400684_f1ea860c",
+    "type": "question",
+    "title": "Should any of your apps become more opinionated or simpler?",
+    "message": "Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-01T13:00:00.684Z",
+    "answeredAt": null
   }
 ]
