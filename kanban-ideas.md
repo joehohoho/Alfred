@@ -58,3 +58,83 @@
 **Full Report:** reports/signal-app-monetization-2026-04-01.md (10.6 KB)
 
 ---
+
+## Workflow Efficiency Improvements (Apr 1, 02:01 ADT)
+
+**Top 3 Inefficiencies Identified + Improvement Proposals:**
+
+### 1. Kanban Card Approval Gate Friction (Priority 1)
+**Issue:** Joe manually reads 12 KB specs, posts approval comment. Cycle time: 4-8 hours
+**Solution:** Auto-generate 3-line approval request (decision needed + recommendation + implications). Detect approval via webhook, auto-trigger deployment
+**Time Savings:** 8-10 min per approval (3-5/month = 30-50 min/month)
+**Effort:** 4-6 hours | **Impact:** Unblocks CoinUsUp Trial (12 days delayed, $500-2K/mo revenue)
+
+### 2. Duplicate Growth/Synergy Questions (Priority 2)
+**Issue:** Same question asked every 4-7 days (CoinUsUp/Even Us Up synergies, growth priorities)
+**Solution:** Add `last_asked_date` to pending questions + decision cache in `decisions/INDEX.md`. Auto-skip questions <7 days old
+**Time Savings:** 5-10 min per duplicate prevented (2-4/week = 60-120 min/month)
+**Effort:** 3-4 hours | **Impact:** Reduce notification fatigue, save Joe 1-2 hours/week
+
+### 3. Stripe Configuration Bottleneck (Priority 3)
+**Issue:** 3 features blocked on manual Stripe setup (trial, invoicing, API). Joe spends 60+ min per product on dashboard work
+**Solution:** Create `scripts/stripe-create-prices.sh` for automated price creation via API. Joe reviews + approves output. Auto-configure webhooks
+**Time Savings:** 40-60 min per product (3 blocked = 150+ min; 4-5/month ongoing = 200+ min/month)
+**Effort:** 6-8 hours | **Impact:** Unblock Bill Review invoicing + Signal App monetization
+
+**Total Potential:** 250-335 min/month (4-5.5 hours) savings from 18-26 hours implementation (ROI breakeven: 4-6 months)
+
+**Secondary Opportunities:** Discord thread auto-save (5 min/week), context checkpoint alignment (2 min/day), kanban auto-archive (5 min/week)
+
+**Full Report:** reports/workflow-efficiency-scan-2026-04-01.md (12 KB)
+
+---
+
+## Passive Income Portfolio Review (Apr 1, 03:31 ADT)
+
+**Portfolio Health Snapshot:**
+
+| Project | Status | Current MRR | Potential MRR | Bottleneck | Priority |
+|---------|--------|-------------|---------------|-----------|----------|
+| **CoinUsUp** | Live + Growing | $500-800 | $3-5K | Trial blocked (Stripe) | 🔴 CRITICAL |
+| **Even Us Up** | Live + Stagnant | $200-300 | $1-2K | UX friction | 🟡 HIGH |
+| **Signal App** | Pre-launch | $0 | $5-15K | Development | 🟢 MEDIUM |
+| **Consulting** | Ongoing | $500-1K | $2-3K | Productization | 🟡 MEDIUM |
+
+**Portfolio Totals:**
+- **Current:** $1.2-2.1K MRR (~$14-25K annually)
+- **Potential:** $11-25K MRR (~$132-300K annually)
+- **Growth Multiplier:** 6-12x upside in 12 months
+
+**Top 3 Actions (Ranked by Impact):**
+
+1. **🔴 CRITICAL: Unblock CoinUsUp Trial** (1-2 hours)
+   - Impact: +$500-2K/month revenue
+   - Action: Create 12 Stripe prices (or API automation) + deploy Trial feature
+   - Timeline: ASAP (code ready, just needs Stripe config)
+
+2. **🟡 HIGH: Even Us Up UX Overhaul** (3-4 weeks)
+   - Impact: +$300-500/month revenue + -2% churn
+   - Action: Redesign expense entry (8 steps → 3 steps)
+   - Timeline: Week 1-4
+
+3. **🟢 MEDIUM: Start Signal App Development** (6-8 weeks)
+   - Impact: +$5-15K upside (Year 1 potential)
+   - Action: Begin MVP build (strategy finalized Mar 31)
+   - Timeline: Start Week 2-3, MVP launch by end-Q3
+
+**Secondary Actions:**
+- Even Us Up Bill Review upsell (4-6 weeks, +$200-300 MRR)
+- Automation Consulting productization (2-4 weeks, +$300-750 MRR)
+- CoinUsUp App Store Optimization (3-4 weeks, +$100-200 MRR organic growth)
+
+**12-Month Financial Roadmap:**
+- Q2: $1.3-4.5K MRR (Trial launch, UX fix, Signal dev starts)
+- Q3: $3.2-7.5K MRR (Signal MVP, Bill Review, Consulting retainer)
+- Q4: $5.5-13.5K MRR (Scaling phase, ASO, viral growth)
+- **Year-end:** $11-25K MRR ($132-300K annually)
+
+**Key Insight:** CoinUsUp Trial feature unblock is the single highest-impact action (1-2 hours work = $500-2K/month). All other projects depend on CoinUsUp momentum.
+
+**Full Report:** reports/passive-income-portfolio-2026-04-01.md (12.9 KB)
+
+---
