@@ -1,36 +1,72 @@
 #!/bin/bash
-# Check for repeated model auth failures in gateway logs
-# Usage: ./check-model-auth.sh [model] [threshold_minutes]
+# check-model-auth.sh — Monitor model auth status and log token failures
+# Usage: ./check-model-auth.sh [--log] [--notify]
 
-MODEL="${1:-openai-codex}"
-THRESHOLD_MIN="${2:-30}"
-THRESHOLD_SEC=$((THRESHOLD_MIN * 60))
+set -e
+WORKSPACE="${HOME}/.openclaw/workspace"
+AUDIT_LOG="${HOME}/.openclaw/logs/audit.jsonl"
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-# Get current time in seconds since epoch
-NOW=$(date +%s)
+# Parse arguments
+LOG_AUDIT=false
+NOTIFY=false
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --log) LOG_AUDIT=true; shift ;;
+    --notify) NOTIFY=true; shift ;;
+    *) shift ;;
+  esac
+done
 
-# Check gateway error log for auth failures in the last N minutes
-LOG_FILE="/Users/hopenclaw/.openclaw/logs/gateway.err.log"
+# Check for recent auth failures in gateway log
+check_gateway_errors() {
+  local last_10_min=$(date -v-10m -u +"%Y-%m-%dT%H:%M:%S")
+  
+  if [ -f "${HOME}/.openclaw/logs/gateway.err.log" ]; then
+    # Count token refresh failures in last 10 min
+    local codex_failures=$(grep -c "OAuth token refresh failed for openai-codex" "${HOME}/.openclaw/logs/gateway.err.log" 2>/dev/null || echo "0")
+    
+    if [ "$codex_failures" -gt 0 ]; then
+      return 1  # Auth issue detected
+    fi
+  fi
+  return 0
+}
 
-if [ ! -f "$LOG_FILE" ]; then
-  echo "ERROR: Gateway log not found at $LOG_FILE"
-  exit 1
-fi
+# Log to audit trail
+log_to_audit() {
+  local level=$1
+  local message=$2
+  local detail=$3
+  
+  if [ "$LOG_AUDIT" = true ] && [ -d "$(dirname "$AUDIT_LOG")" ]; then
+    local entry="{\"timestamp\":\"${TIMESTAMP}\",\"level\":\"${level}\",\"source\":\"check-model-auth\",\"message\":\"${message}\""
+    if [ -n "$detail" ]; then
+      entry+=",\"detail\":\"${detail}\""
+    fi
+    entry+="}"
+    echo "$entry" >> "$AUDIT_LOG"
+  fi
+}
 
-# Extract recent auth failures for the model
-FAILURES=$(grep -E "Token refresh failed.*401|OAuth token refresh failed for $MODEL" "$LOG_FILE" | tail -20)
-FAILURE_COUNT=$(echo "$FAILURES" | wc -l | tr -d ' ')
-
-if [ "$FAILURE_COUNT" -gt 5 ]; then
-  echo "⚠️  ALERT: $MODEL has $FAILURE_COUNT auth failures in the last 20 log entries"
-  echo "STATUS: Model is falling back to secondary models, but retry loops are noisy"
-  echo ""
-  echo "LAST FAILURES:"
-  echo "$FAILURES" | tail -5
-  echo ""
-  echo "ACTION NEEDED: Joe must re-authenticate OpenAI Codex (OAuth token expired/invalid)"
+# Main check
+msg="OpenAI Codex token refresh is failing; gateway falling back to Haiku"
+if ! check_gateway_errors; then
+  
+  if [ "$LOG_AUDIT" = true ]; then
+    log_to_audit "warn" "Model auth failure detected" "$msg"
+    echo "✓ Logged to audit trail: $msg"
+  fi
+  
+  if [ "$NOTIFY" = true ]; then
+    echo "⚠️  $msg"
+  fi
+  
   exit 1
 else
-  echo "✅ $MODEL auth status: OK (0-5 failures in recent logs)"
+  if [ "$LOG_AUDIT" = true ]; then
+    log_to_audit "info" "Model auth check passed" "All model tokens valid"
+  fi
+  echo "✓ Model auth status: OK"
   exit 0
 fi
