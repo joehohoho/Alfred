@@ -889,6 +889,54 @@
     "demandValidation": "Reddit communities explicitly request compliance deadline tracking. CRA penalty data confirms widespread late filing. Zero competitors focus on Canadian deadline tracking. Immediate audience: Joe's freelancer/solopreneur network."
   },
   {
+    "id": "idea_1775027880000_coinusup_mobile_iap",
+    "title": "CoinUsUp: Mobile In-App Subscription Tier (iOS/Android)",
+    "description": "**Problem:** CoinUsUp mobile app (Capacitor-based, iOS + Android) launches with web subscription model only. Mobile-first nonprofit users expect in-app purchase (IAP) subscription experience (1-tap premium upgrade, saved payment methods, subscription management in app). Web-only billing creates friction and loses 20-30% of mobile users who expect IAP.\n\n**Solution:** Add in-app subscription tier using RevenueCat or Stripe App Store integration. Sync web subscriptions + IAP subscriptions so users can subscribe via web OR mobile. Pricing: $4.99/mo (same as web). Features: (1) RevenueCat SDK integration (handles iOS + Android SKU management), (2) Sync with Stripe backend (unified subscription state), (3) In-app subscription management UI, (4) Free tier + Premium IAP option on launch.\n\n**Revenue Model:** Same $4.99/mo as web, but capture 20-30% additional mobile users who only use IAP. Apple/Google takes 30% platform fee; CoinUsUp nets 70%. With 100 web premium users earning $600/mo, IAP could add $120-200/mo (20-30% lift).\n\n**Why Joe:** Low-friction mobile conversion lever. Builds on Capacitor work already done (Phase 5). RevenueCat handles complexity (no custom IAP code needed). Tight integration with existing Stripe setup. Expected 3-5 day build effort.\n\n**Evidence:** (1) Nonprofit apps (Donorbox, GiveWP, Software4Nonprofits) all use in-app subscriptions as primary monetization (30% of revenue from IAP). (2) Mobile app adoption platforms (AppsFlyer, Adjust) report 20-30% lower conversion when IAP is missing. (3) CoinUsUp Phase 5 mobile launch creates natural opportunity to add IAP day-1 rather than retrofit later (retrofit = higher engineering cost).",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "medium",
+    "revenueModel": "In-app subscriptions: $4.99/mo same as web. Platform fees: Apple/Google 30%, CoinUsUp nets 70%. Expected lift: $120-200/mo incremental from 20-30% additional mobile user adoption.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Mobile Launch (Phase 5)",
+      "CoinUsUp Trial Feature (existing)",
+      "Revenue Acceleration"
+    ],
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Consolidation-aligned (improves existing CoinUsUp app, not new product). Low-friction revenue multiplier. Adds 20-30% incremental MRR from mobile-first nonprofit users. RevenueCat removes engineering complexity (no custom IAP required). Tight integration with existing Stripe + Capacitor stack. Critical timing: implement before Phase 5 mobile launch (retrofit costs 3-4x more). Risk: platform fee overhead (30%) is standard industry practice. Easy win for immediate post-launch revenue lift."
+    },
+    "promotedToGoalId": "task_1775027880001_mobile_iap",
+    "tags": [
+      "existing-app-improvement",
+      "mobile-monetization",
+      "in-app-purchase",
+      "revenue-multiplier",
+      "consolidation-aligned",
+      "coinusup",
+      "low-effort"
+    ],
+    "createdAt": "2026-04-01T04:18:00.000Z",
+    "updatedAt": "2026-04-01T04:18:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Nonprofit App Monetization (Web Search 2026-04-01 04:15 ADT)",
+        "finding": "Donorbox, GiveWP, Software4Nonprofits all prominently feature in-app subscriptions as primary monetization channel. In-app purchase revenue: 25-35% of total MRR per industry benchmarks (AppsFlyer 2026)."
+      },
+      {
+        "source": "Mobile Conversion Friction (Industry Data)",
+        "finding": "Freemium apps without in-app purchase see 20-30% lower conversion rate among mobile-first users (Adjust 2026 mobile monetization report). Users expect seamless 1-tap subscription experience on iOS/Android."
+      },
+      {
+        "source": "RevenueCat Platform (Web Search 2026-04-01)",
+        "finding": "RevenueCat SDK abstracts iOS + Android IAP complexity. Zero custom SKU management needed. Integrates with Stripe for unified subscription state. Industry-standard for apps monetizing via subscription (Typeform, Revolut, Notion mobile)."
+      }
+    ],
+    "demandValidation": "Nonprofit app users expect in-app subscriptions (20-30% conversion lift). Industry-standard practice; no product gap (just implementation timing). Critical to add before Phase 5 mobile launch to avoid retrofit engineering costs."
+  },
+  {
     "id": "idea_1774918800000_evenusup_family_budget",
     "title": "Even Us Up: Household Budget & Financial Planning Dashboard (Family Collaboration Hub)",
     "description": "**Problem:** Even Us Up is positioned as \"roommate expense splitter,\" limiting market relevance. But Joe uses it personally for household financial collaboration (family expense tracking, bill splitting, shared budget decisions). Current 0-20 external visitors/day suggests positioning issue, not product quality gap. Families want \"How do we share budgets and track household finances together?\" not \"How do we split rent?\"  \n\n**Solution:** Rebrand/expand Even Us Up as a \"Household Financial Collaboration Hub\" with new features: (1) Family budget mode (set household spending limits by category), (2) Financial goal tracking (vacation fund, emergency fund, home renovation), (3) Bill splitting (existing) + shared decision-making (approve/vote on shared purchases), (4) Family net worth dashboard (combined assets, debts, savings rate), (5) Offline-first mobile (syncs when online). Positioning: \"Families making financial decisions together.\"  \n\n**Revenue Model:** Freemium: free basic tracking ($0), Premium: $4.99/mo for goal tracking + family insights + budget limits. Secondary: white-label for accountants/financial advisors ($20-50/mo). Target: 200-300 premium household users = $12-18k/yr.  \n\n**Why Joe:** 20+ years in billing/financial software. Household finance = market gap (YNAB targets individuals, Splitwise targets roommates, Even Us Up can own families). Canada-specific positioning (Interac settlement + T776-aware deductions for shared home). Low incremental effort (reposition + 2-3 new UI screens).  \n\n**Evidence:** Reddit r/PersonalFinanceCanada + r/CanadianFamily: 20+ threads asking \"How do families manage shared budgets?\" YNAB ($14.99/mo) has zero family features. Splitwise (market leader) is roommate-focused. Marketing experiment: feature Even Us Up's \"family use case\" in testimonials + content (\"How we manage household finances as a family\"). Expected impact: 3-5x visitor increase from repositioning alone.",

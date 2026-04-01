@@ -56,13 +56,13 @@ async function fetchPriceData(symbol: string, days: number) {
 
   try {
     if (symbol.toUpperCase() === 'BTC' || symbol.toUpperCase() === 'BTCUSDT') {
-      console.log(`Fetching ${symbol} data from Binance...`);
-      return await fetchBinanceKlines('BTCUSDT', Math.ceil(days / 4)); // 4h candles
+      console.log(`Fetching ${symbol} data from Binance (${days}d of 1h candles)...`);
+      return await fetchBinanceKlines('BTCUSDT', days, '1h');
     } else if (symbol.toUpperCase() === 'ETH' || symbol.toUpperCase() === 'ETHUSDT') {
-      console.log(`Fetching ${symbol} data from Binance...`);
-      return await fetchBinanceKlines('ETHUSDT', Math.ceil(days / 4));
+      console.log(`Fetching ${symbol} data from Binance (${days}d of 1h candles)...`);
+      return await fetchBinanceKlines('ETHUSDT', days, '1h');
     } else if (isCrypto) {
-      console.log(`Fetching ${symbol} data from CoinGecko...`);
+      console.log(`Fetching ${symbol} data from CoinGecko (${days}d daily)...`);
       return await fetchCryptoPrices(symbol.toLowerCase(), days);
     } else {
       console.log(`Fetching ${symbol} data from Alpha Vantage...`);
