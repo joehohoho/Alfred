@@ -5,6 +5,7 @@ import { MACDStrategy } from './macdStrategy';
 import { BollingerStrategy } from './bollingerStrategy';
 import { RSIExtremeStrategy } from './rsiExtremeStrategy';
 import { TrendFollowingStrategy } from './trendFollowingStrategy';
+import { EnsembleStrategy } from './ensembleStrategy';
 
 export interface StrategyConfig {
   name: string;
@@ -76,6 +77,13 @@ export class StrategyRegistry {
       'TREND_FOLLOWING',
       new TrendFollowingStrategy(),
       { hmaPeriod: 20, adxPeriod: 14, adxThreshold: 25, rsiPeriod: 14 },
+      1.0
+    );
+
+    this.registerStrategy(
+      'ENSEMBLE',
+      new EnsembleStrategy(),
+      { lookbackBars: 30, threshold: 50, conflictMargin: 15 },
       1.0
     );
   }

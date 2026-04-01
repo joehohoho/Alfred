@@ -10,7 +10,7 @@ import { BollingerStrategy } from '@/services/strategies/bollingerStrategy';
 import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
 import { SmartStrategy } from '@/services/strategies/smartStrategy';
-import { StrategyRegistry as EnsembleRegistry } from '@/services/strategies/registry';
+import { EnsembleStrategy } from '@/services/strategies/ensembleStrategy';
 import { optimizeStrategy } from '@/services/backtest/ParameterOptimizer';
 import { trackPerformance } from '@/services/backtest/performanceTracker';
 import {
@@ -19,6 +19,7 @@ import {
   mergePatterns,
   savePatterns,
 } from '@/services/learning/tradeAnalyzer';
+import { SignalClassifier, buildTrainingSamples } from '@/services/learning/signalClassifier';
 import { filterSignals, enhanceSignalsAsync } from '@/services/strategies/signalFilter';
 import { enhanceSignals as enhanceSignalsMTF } from '@/services/strategies/signalEnhancer';
 
@@ -55,7 +56,7 @@ const STRATEGY_MAP: Record<string, (params?: Record<string, number>) => Strategy
   SMART: (params) => new SmartStrategy(
     params ?? { trendSma: 50, pullbackSma: 20, adxThreshold: 20 }
   ),
-  ENSEMBLE: () => new EnsembleRegistry(),
+  ENSEMBLE: (params) => new EnsembleStrategy(params),
 };
 
 // --- Optimal params cache ---
@@ -255,6 +256,24 @@ export async function POST(request: Request) {
           console.error('[Backtest] Trade pattern learning failed (non-fatal):', learnErr);
         }
 
+        // Train ML classifier
+        try {
+          if (winnerResult.trades.length >= 5) {
+            const samples = buildTrainingSamples(winnerResult.trades, priceSeries);
+            if (samples.length >= 5) {
+              const classifier = new SignalClassifier(symbol.toUpperCase());
+              if (classifier.load()) {
+                classifier.updateOnline(samples);
+              } else {
+                classifier.train(samples);
+              }
+              classifier.save();
+            }
+          }
+        } catch (mlErr) {
+          console.error('[Backtest] ML classifier training failed (non-fatal):', mlErr);
+        }
+
         clearTimeout(timeout);
 
         // Build chart data using the winner
@@ -399,6 +418,24 @@ export async function POST(request: Request) {
       savePatterns(symbol.toUpperCase(), merged);
     } catch (learnErr) {
       console.error('[Backtest] Trade pattern learning failed (non-fatal):', learnErr);
+    }
+
+    // Train ML classifier on completed trades
+    try {
+      if (result.trades.length >= 5) {
+        const samples = buildTrainingSamples(result.trades, priceSeries);
+        if (samples.length >= 5) {
+          const classifier = new SignalClassifier(symbol.toUpperCase());
+          if (classifier.load()) {
+            classifier.updateOnline(samples);
+          } else {
+            classifier.train(samples);
+          }
+          classifier.save();
+        }
+      }
+    } catch (mlErr) {
+      console.error('[Backtest] ML classifier training failed (non-fatal):', mlErr);
     }
 
     clearTimeout(timeout);

@@ -6,6 +6,7 @@ import { BollingerStrategy } from '@/services/strategies/bollingerStrategy';
 import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
 import { SmartStrategy } from '@/services/strategies/smartStrategy';
+import { EnsembleStrategy } from '@/services/strategies/ensembleStrategy';
 import { getDataManager } from '@/services/data/DataManager';
 
 // --- Types ---
@@ -43,7 +44,7 @@ export interface OptimizationResult {
 
 // --- Strategy parameter ranges (coarse grid) ---
 
-const STRATEGY_RANGES: Record<string, Record<string, ParameterRange>> = {
+export const STRATEGY_RANGES: Record<string, Record<string, ParameterRange>> = {
   SMA_RSI_IMPROVED: {
     shortPeriod: { min: 5, max: 20, step: 3 },
     longPeriod: { min: 15, max: 50, step: 5 },
@@ -73,12 +74,17 @@ const STRATEGY_RANGES: Record<string, Record<string, ParameterRange>> = {
     pullbackSma: { min: 10, max: 30, step: 5 },
     adxThreshold: { min: 15, max: 30, step: 5 },
   },
+  ENSEMBLE: {
+    lookbackBars: { min: 15, max: 60, step: 15 },
+    threshold: { min: 30, max: 70, step: 10 },
+    conflictMargin: { min: 10, max: 25, step: 5 },
+  },
 };
 
 // --- Risk management parameter ranges ---
 
 // Risk combos are pre-defined profiles instead of grid search (much faster)
-const RISK_PROFILES: RiskManagement[] = [
+export const RISK_PROFILES: RiskManagement[] = [
   { stopLossPercent: 5, trailingStopPercent: 3, takeProfitPercent: 10, maxHoldDays: 14 },  // Tight
   { stopLossPercent: 8, trailingStopPercent: 5, takeProfitPercent: 15, maxHoldDays: 21 },  // Moderate
   { stopLossPercent: 12, trailingStopPercent: 7, takeProfitPercent: 20, maxHoldDays: 30 }, // Wide
@@ -88,7 +94,7 @@ const RISK_PROFILES: RiskManagement[] = [
 
 // --- Strategy factory ---
 
-function createStrategy(stratKey: string, params: Record<string, number>): Strategy {
+export function createStrategy(stratKey: string, params: Record<string, number>): Strategy {
   switch (stratKey) {
     case 'SMA_RSI_IMPROVED': return new SMARSIImprovedStrategy(params);
     case 'MACD': return new MACDStrategy(params);
@@ -96,6 +102,11 @@ function createStrategy(stratKey: string, params: Record<string, number>): Strat
     case 'RSI_EXTREME': return new RSIExtremeStrategy(params);
     case 'TREND_FOLLOWING': return new TrendFollowingStrategy(params);
     case 'SMART': return new SmartStrategy(params);
+    case 'ENSEMBLE': return new EnsembleStrategy({
+      lookbackBars: params.lookbackBars,
+      threshold: (params.threshold ?? 50) / 100,
+      conflictMargin: (params.conflictMargin ?? 15) / 100,
+    });
     default: throw new Error(`Unknown strategy: ${stratKey}`);
   }
 }
@@ -110,7 +121,7 @@ function generateRange(range: ParameterRange): number[] {
   return values;
 }
 
-function generateCombinations(ranges: Record<string, ParameterRange>): Record<string, number>[] {
+export function generateCombinations(ranges: Record<string, ParameterRange>): Record<string, number>[] {
   const keys = Object.keys(ranges);
   const valueArrays = keys.map((k) => generateRange(ranges[k]));
   const combos: Record<string, number>[] = [];
@@ -125,7 +136,7 @@ function generateCombinations(ranges: Record<string, ParameterRange>): Record<st
   return combos;
 }
 
-function isValidCombo(stratKey: string, params: Record<string, number>): boolean {
+export function isValidCombo(stratKey: string, params: Record<string, number>): boolean {
   if (stratKey === 'SMA_RSI_IMPROVED' && params.shortPeriod >= params.longPeriod) return false;
   if (stratKey === 'MACD' && params.fastPeriod >= params.slowPeriod) return false;
   if (stratKey === 'RSI_EXTREME' && params.buyThreshold >= params.sellThreshold) return false;
@@ -134,7 +145,7 @@ function isValidCombo(stratKey: string, params: Record<string, number>): boolean
 
 // --- Composite score (heavily penalizes losses, rewards consistency) ---
 
-function compositeScore(result: BacktestResult): number {
+export function compositeScore(result: BacktestResult): number {
   if (result.totalTrades < 2) return -999;
   const pnlScore = result.totalPnLPercent / 100;
   const winScore = result.winRate / 100;

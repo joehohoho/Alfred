@@ -1,5 +1,7 @@
 import type { PriceSeries } from '@/models/PriceData';
 import { filterSignals } from '@/services/strategies/signalFilter';
+import { PositionSizer } from '@/services/backtest/positionSizing';
+import { applySlippage, CRYPTO_SLIPPAGE, STOCK_SLIPPAGE, type SlippageConfig } from '@/services/backtest/slippage';
 
 export interface Trade {
   entryPrice: number;
@@ -71,6 +73,8 @@ export class BacktestEngine {
   private readonly feePercent = 0.001; // 0.1% per trade
   private readonly investmentAmount: number;
   private readonly risk: RiskManagement;
+  private readonly positionSizer: PositionSizer;
+  private readonly slippageConfig: SlippageConfig;
   private readonly position = {
     direction: 'none' as 'none' | 'long' | 'short',
     entryPrice: 0,
@@ -80,9 +84,11 @@ export class BacktestEngine {
     lowestPrice: Infinity, // for short trailing stop
   };
 
-  constructor(investmentAmount: number = 10000, risk: RiskManagement = {}) {
+  constructor(investmentAmount: number = 10000, risk: RiskManagement = {}, isCrypto: boolean = true) {
     this.investmentAmount = investmentAmount;
     this.risk = { ...DEFAULT_RISK, ...risk };
+    this.positionSizer = new PositionSizer(investmentAmount);
+    this.slippageConfig = isCrypto ? CRYPTO_SLIPPAGE : STOCK_SLIPPAGE;
   }
 
   private closeTrade(exitPrice: number, exitTime: Date, reason: string, trades: Trade[]) {
@@ -118,6 +124,9 @@ export class BacktestEngine {
       direction: this.position.direction as 'long' | 'short',
     });
 
+    // Feed the position sizer so it can adapt future sizing
+    this.positionSizer.recordTrade(pnl);
+
     this.position.direction = 'none';
     this.position.entryPrice = 0;
     this.position.highestPrice = 0;
@@ -145,9 +154,16 @@ export class BacktestEngine {
       }
     }
 
+    // Pre-compute ATR for position sizing & slippage
+    const closes = series.points.map((p) => p.close);
+    const highs = series.points.map((p) => p.high ?? p.close);
+    const lows = series.points.map((p) => p.low ?? p.close);
+    const atrValues = this.computeATR(highs, lows, closes, 14);
+
     // Build a price map by date for intraday risk checks
-    const priceByDate = new Map<string, { high: number; low: number; close: number; timestamp: Date }>();
-    for (const p of series.points) {
+    const priceByDate = new Map<string, { high: number; low: number; close: number; timestamp: Date; idx: number }>();
+    for (let i = 0; i < series.points.length; i++) {
+      const p = series.points[i];
       const ts = p.timestamp instanceof Date ? p.timestamp : new Date(p.timestamp as any);
       const dateKey = ts.toISOString().split('T')[0];
       priceByDate.set(dateKey, {
@@ -155,6 +171,7 @@ export class BacktestEngine {
         low: p.low || p.close,
         close: p.close,
         timestamp: ts,
+        idx: i,
       });
     }
 
@@ -261,39 +278,55 @@ export class BacktestEngine {
         const passesStrength = !this.risk.minSignalStrength || signal.strength >= this.risk.minSignalStrength;
         if (passesStrength) {
 
+        // Compute ATR% for position sizing & slippage
+        const dayIdx = dayData.idx;
+        const atrPct = (!isNaN(atrValues[dayIdx]) && dayData.close > 0)
+          ? (atrValues[dayIdx] / dayData.close) * 100
+          : 2; // default 2% if ATR unavailable
+
         if (signal.type === 'BUY') {
           if (this.position.direction === 'short') {
-            // Cover short and immediately go long
-            this.closeTrade(signal.price, signal.time, 'signal-cover', trades);
+            // Cover short with slippage and immediately go long
+            const { executionPrice: coverPrice } = applySlippage(signal.price, 'BUY', atrPct, this.slippageConfig);
+            this.closeTrade(coverPrice, signal.time, 'signal-cover', trades);
+            const { executionPrice: entryPrice } = applySlippage(signal.price, 'BUY', atrPct, this.slippageConfig);
+            const { dollars: sizing } = this.positionSizer.sizeInDollars(atrPct);
             this.position.direction = 'long';
-            this.position.entryPrice = signal.price;
+            this.position.entryPrice = entryPrice;
             this.position.entryTime = signal.time;
-            this.position.quantity = this.investmentAmount / signal.price;
-            this.position.highestPrice = signal.price;
+            this.position.quantity = sizing / entryPrice;
+            this.position.highestPrice = entryPrice;
           } else if (this.position.direction === 'none') {
+            const { executionPrice: entryPrice } = applySlippage(signal.price, 'BUY', atrPct, this.slippageConfig);
+            const { dollars: sizing } = this.positionSizer.sizeInDollars(atrPct);
             this.position.direction = 'long';
-            this.position.entryPrice = signal.price;
+            this.position.entryPrice = entryPrice;
             this.position.entryTime = signal.time;
-            this.position.quantity = this.investmentAmount / signal.price;
-            this.position.highestPrice = signal.price;
+            this.position.quantity = sizing / entryPrice;
+            this.position.highestPrice = entryPrice;
           }
         } else if (signal.type === 'SELL') {
           if (this.position.direction === 'long') {
-            this.closeTrade(signal.price, signal.time, 'signal', trades);
+            const { executionPrice: exitPrice } = applySlippage(signal.price, 'SELL', atrPct, this.slippageConfig);
+            this.closeTrade(exitPrice, signal.time, 'signal', trades);
             // After closing long, immediately enter short on the same signal
             if (allowShorts) {
+              const { executionPrice: shortEntry } = applySlippage(signal.price, 'SELL', atrPct, this.slippageConfig);
+              const { dollars: sizing } = this.positionSizer.sizeInDollars(atrPct);
               this.position.direction = 'short';
-              this.position.entryPrice = signal.price;
+              this.position.entryPrice = shortEntry;
               this.position.entryTime = signal.time;
-              this.position.quantity = this.investmentAmount / signal.price;
-              this.position.lowestPrice = signal.price;
+              this.position.quantity = sizing / shortEntry;
+              this.position.lowestPrice = shortEntry;
             }
           } else if (this.position.direction === 'none' && allowShorts) {
+            const { executionPrice: shortEntry } = applySlippage(signal.price, 'SELL', atrPct, this.slippageConfig);
+            const { dollars: sizing } = this.positionSizer.sizeInDollars(atrPct);
             this.position.direction = 'short';
-            this.position.entryPrice = signal.price;
+            this.position.entryPrice = shortEntry;
             this.position.entryTime = signal.time;
-            this.position.quantity = this.investmentAmount / signal.price;
-            this.position.lowestPrice = signal.price;
+            this.position.quantity = sizing / shortEntry;
+            this.position.lowestPrice = shortEntry;
           }
         }
         } // passesStrength
@@ -308,6 +341,24 @@ export class BacktestEngine {
     }
 
     return this.calculateMetrics(series.symbol, strategy.name, trades);
+  }
+
+  private computeATR(highs: number[], lows: number[], closes: number[], period: number): number[] {
+    const length = closes.length;
+    const tr: number[] = new Array(length).fill(NaN);
+    for (let i = 0; i < length; i++) {
+      if (i === 0) { tr[i] = highs[i] - lows[i]; }
+      else { tr[i] = Math.max(highs[i] - lows[i], Math.abs(highs[i] - closes[i - 1]), Math.abs(lows[i] - closes[i - 1])); }
+    }
+    const atr: number[] = new Array(length).fill(NaN);
+    if (length < period) return atr;
+    let sum = 0;
+    for (let i = 0; i < period; i++) sum += tr[i];
+    atr[period - 1] = sum / period;
+    for (let i = period; i < length; i++) {
+      atr[i] = (atr[i - 1] * (period - 1) + tr[i]) / period;
+    }
+    return atr;
   }
 
   private calculateMetrics(symbol: string, strategyName: string, trades: Trade[]): BacktestResult {

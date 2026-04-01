@@ -88,6 +88,12 @@ const STRATEGIES = [
     desc: 'Detects market regime first. Sits in cash during choppy markets.',
     metrics: 'Win: 55-70% | Sharpe: 1.0-1.8',
   },
+  {
+    id: 'ENSEMBLE',
+    title: 'Dynamic Ensemble',
+    desc: 'Runs all strategies and dynamically weights by recent performance.',
+    metrics: 'Win: 55-75% | Sharpe: 1.0-2.0',
+  },
 ];
 
 function interpretMetric(name: string, value: number | string): 'positive' | 'negative' | 'neutral' | 'warning' {
@@ -293,6 +299,269 @@ function CurrentSignalsSection() {
   );
 }
 
+
+// --- Signal Quality Tracker ---
+
+type QualitySnapshot = {
+  date: string;
+  avgPnl: number;
+  avgWinRate: number;
+  profitableRuns: number;
+  totalRuns: number;
+  profitablePercent: number;
+  patternsLearned: number;
+  actionablePatterns: number;
+  tradesAnalyzed: number;
+  bestStrategy: string;
+  bestPnl: number;
+};
+
+type SignalQualityData = {
+  symbol: string;
+  trend: 'improving' | 'declining' | 'stable' | 'insufficient_data';
+  snapshots: QualitySnapshot[];
+  current: {
+    avgPnl: number;
+    avgWinRate: number;
+    profitablePercent: number;
+    bestStrategy: string;
+    bestPnl: number;
+  } | null;
+  learning: {
+    patternsLearned: number;
+    actionablePatterns: number;
+    tradesAnalyzed: number;
+    lastUpdated: string | null;
+  };
+  summary: {
+    totalSnapshots: number;
+    overallAvgPnl: number;
+    overallProfitablePercent: number;
+  };
+};
+
+function TrendBadge({ trend }: { trend: string }) {
+  const config: Record<string, { label: string; color: string; icon: string }> = {
+    improving: { label: 'Improving', color: 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30', icon: '↑' },
+    declining: { label: 'Declining', color: 'text-red-400 bg-red-500/15 border-red-500/30', icon: '↓' },
+    stable: { label: 'Stable', color: 'text-amber-400 bg-amber-500/15 border-amber-500/30', icon: '→' },
+    insufficient_data: { label: 'Building...', color: 'text-slate-400 bg-slate-500/15 border-slate-500/30', icon: '◌' },
+  };
+  const c = config[trend] || config.insufficient_data;
+  return (
+    <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold border ${c.color}`}>
+      {c.icon} {c.label}
+    </span>
+  );
+}
+
+function MiniBar({ value, max, color }: { value: number; max: number; color: string }) {
+  const pct = Math.min(100, Math.max(0, (value / max) * 100));
+  return (
+    <div className="w-full h-1.5 bg-slate-700/50 rounded-full overflow-hidden">
+      <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+    </div>
+  );
+}
+
+function SignalQualityPanel({ symbol }: { symbol: string }) {
+  const [data, setData] = useState<SignalQualityData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        setLoading(true);
+        const res = await fetch(`/apps/market-signals/api/signal-quality?symbol=${symbol}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json();
+        if (!cancelled) setData(json);
+      } catch {
+        // silent — panel just won't render
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => { cancelled = true; };
+  }, [symbol]);
+
+  if (loading || !data) return null;
+
+  const snapshots = data.snapshots;
+  const hasHistory = snapshots.length >= 2;
+
+  // Compute sparkline bar data (last 10 snapshots)
+  const spark = snapshots.slice(-10);
+  const maxPnl = Math.max(...spark.map((s) => Math.abs(s.avgPnl)), 1);
+
+  // Change since first snapshot
+  const firstPnl = snapshots.length > 0 ? snapshots[0].avgPnl : 0;
+  const latestPnl = snapshots.length > 0 ? snapshots[snapshots.length - 1].avgPnl : 0;
+  const pnlChange = latestPnl - firstPnl;
+
+  return (
+    <div className="mb-10">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <TrendingUp className="w-5 h-5 text-cyan-400" />
+          Signal Quality
+        </h2>
+        <TrendBadge trend={data.trend} />
+      </div>
+
+      <div className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm space-y-5">
+        {/* Top stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="p-3 rounded-lg bg-slate-900/50">
+            <div className="text-[10px] uppercase tracking-wider text-slate-500 mb-1">Avg PnL</div>
+            <div className={`text-lg font-bold font-mono ${latestPnl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+              {latestPnl >= 0 ? '+' : ''}{safeFixed(latestPnl)}%
+            </div>
+            {hasHistory && (
+              <div className={`text-[10px] mt-0.5 ${pnlChange >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                {pnlChange >= 0 ? '↑' : '↓'} {Math.abs(pnlChange).toFixed(1)}% since start
+              </div>
+            )}
+          </div>
+
+          <div className="p-3 rounded-lg bg-slate-900/50">
+            <div className="text-[10px] uppercase tracking-wider text-slate-500 mb-1">Profitable Runs</div>
+            <div className="text-lg font-bold font-mono text-amber-400">
+              {safeFixed(data.current?.profitablePercent ?? 0, 0)}%
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              of backtest runs
+            </div>
+          </div>
+
+          <div className="p-3 rounded-lg bg-slate-900/50">
+            <div className="text-[10px] uppercase tracking-wider text-slate-500 mb-1">Patterns Learned</div>
+            <div className="text-lg font-bold font-mono text-cyan-400">
+              {data.learning.patternsLearned}
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              {data.learning.actionablePatterns} actionable
+            </div>
+          </div>
+
+          <div className="p-3 rounded-lg bg-slate-900/50">
+            <div className="text-[10px] uppercase tracking-wider text-slate-500 mb-1">Trades Analyzed</div>
+            <div className="text-lg font-bold font-mono text-blue-400">
+              {data.learning.tradesAnalyzed}
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              training the filter
+            </div>
+          </div>
+        </div>
+
+        {/* PnL trend sparkline */}
+        {spark.length >= 2 && (
+          <div>
+            <div className="text-[10px] uppercase tracking-wider text-slate-500 mb-2">PnL Trend (by date)</div>
+            <div className="flex items-end gap-1 h-12">
+              {spark.map((s, i) => {
+                const h = Math.max(4, (Math.abs(s.avgPnl) / maxPnl) * 48);
+                const color = s.avgPnl >= 0 ? 'bg-emerald-500' : 'bg-red-500';
+                return (
+                  <div key={i} className="flex-1 flex flex-col items-center justify-end group relative">
+                    <div
+                      className={`w-full rounded-t ${color} transition-all opacity-70 group-hover:opacity-100`}
+                      style={{ height: `${h}px` }}
+                    />
+                    <div className="absolute bottom-full mb-1 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10">
+                      <div className="px-2 py-1 rounded bg-slate-800 border border-slate-600 text-[10px] text-slate-300 whitespace-nowrap shadow-lg">
+                        {s.date}: {s.avgPnl >= 0 ? '+' : ''}{s.avgPnl.toFixed(1)}% ({s.profitableRuns}/{s.totalRuns} profitable)
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex justify-between text-[9px] text-slate-600 mt-1">
+              <span>{spark[0].date}</span>
+              <span>{spark[spark.length - 1].date}</span>
+            </div>
+          </div>
+        )}
+
+        {/* Learning progress bar */}
+        <div>
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-[10px] uppercase tracking-wider text-slate-500">Learning Progress</span>
+            <span className="text-[10px] text-slate-500">
+              {data.learning.actionablePatterns} / {data.learning.patternsLearned} patterns actionable
+            </span>
+          </div>
+          <MiniBar
+            value={data.learning.actionablePatterns}
+            max={Math.max(data.learning.patternsLearned, 1)}
+            color="bg-gradient-to-r from-cyan-500 to-emerald-500"
+          />
+          <div className="text-[10px] text-slate-500 mt-1">
+            Actionable patterns actively filter out bad signals. More training = better filtering.
+          </div>
+        </div>
+
+        {/* Expandable details */}
+        {snapshots.length > 0 && (
+          <div>
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="text-xs text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
+            >
+              <ChevronRight className={`w-3.5 h-3.5 transition-transform ${expanded ? 'rotate-90' : ''}`} />
+              {expanded ? 'Hide' : 'Show'} daily breakdown
+            </button>
+
+            {expanded && (
+              <div className="mt-3 overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="text-slate-500 border-b border-slate-700/50">
+                      <th className="text-left py-1.5 pr-3">Date</th>
+                      <th className="text-right py-1.5 px-2">Avg PnL</th>
+                      <th className="text-right py-1.5 px-2">Win Rate</th>
+                      <th className="text-right py-1.5 px-2">Profitable</th>
+                      <th className="text-right py-1.5 px-2">Runs</th>
+                      <th className="text-right py-1.5 px-2">Patterns</th>
+                      <th className="text-left py-1.5 pl-2">Best Strategy</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {snapshots.map((s, i) => (
+                      <tr key={i} className="border-b border-slate-800/30 hover:bg-slate-800/30">
+                        <td className="py-1.5 pr-3 text-slate-300 font-mono">{s.date}</td>
+                        <td className={`py-1.5 px-2 text-right font-mono ${s.avgPnl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                          {s.avgPnl >= 0 ? '+' : ''}{s.avgPnl.toFixed(2)}%
+                        </td>
+                        <td className="py-1.5 px-2 text-right font-mono text-slate-300">{s.avgWinRate.toFixed(0)}%</td>
+                        <td className="py-1.5 px-2 text-right font-mono text-amber-400">{s.profitablePercent.toFixed(0)}%</td>
+                        <td className="py-1.5 px-2 text-right font-mono text-slate-400">{s.totalRuns}</td>
+                        <td className="py-1.5 px-2 text-right font-mono text-cyan-400">{s.patternsLearned}</td>
+                        <td className="py-1.5 pl-2 text-slate-400">{s.bestStrategy} ({s.bestPnl > 0 ? '+' : ''}{s.bestPnl.toFixed(1)}%)</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Last updated */}
+        {data.learning.lastUpdated && (
+          <div className="text-[10px] text-slate-600 text-right">
+            Last training: {new Date(data.learning.lastUpdated).toLocaleString()}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 // Safe number formatting — handles string, number, null, undefined
 function safeFixed(val: any, digits: number = 2): string {
@@ -826,6 +1095,11 @@ export default function DashboardPage() {
               )}
             </div>
           </div>
+        </div>
+
+        {/* Signal Quality Tracker */}
+        <div className="max-w-7xl mx-auto px-6 pt-4">
+          <SignalQualityPanel symbol={symbol} />
         </div>
 
         {/* Quick Guide */}
