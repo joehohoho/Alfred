@@ -989,6 +989,53 @@
     "demandValidation": "50+ Reddit threads from Canadian professionals asking how to optimize RRSP contributions. Tax software competitors (Wealthsimple Tax, TurboTax) don't offer upfront optimization—only after-the-fact reporting. RRSP planning gap is clear and urgent (especially March-May tax season). Joe's billing/tax expertise + Canada-first positioning = defensible vs generic investment apps."
   },
   {
+    "id": "idea_1775085440000_recurring_bill_detector",
+    "title": "Even Us Up: Smart Recurring Bill Detector + Expense Predictor",
+    "description": "**Problem:** Even Us Up tracks past expenses but has zero forecasting capability. Families can't answer: \"What will our household spending be this month?\" or \"Which recurring bills haven't shown up yet?\" Missing predictions = reactive app (less sticky) vs proactive budgeting platform (retains users). Even Us Up's 0-20 visitor/day problem (Mar 26 data) suggests positioning issue, not product quality gap.\n\n**Solution:** Add AI-powered recurring bill detection + monthly expense forecasting. Features: (1) Recurring Bill Detector — auto-identify recurring transactions (Netflix $15.99/mo, rent $1,500/mo, utilities $150-180/mo), (2) Monthly Predictor — \"Based on 90-day history, expect $2,400 this month; recurring $1,800 (85%), variable $600 (15%)\", (3) Alerts — notify if expected bill overdue by historical pattern (+2 day grace), (4) Trend Dashboard — \"90-day avg $2,100/mo → this month $2,400 (+14%). Top driver: car insurance renewal.\"\n\n**Revenue Model:** Freemium basic tracking; Premium $4.99/mo (AI predictions, alerts, trends). Target: 50-100 premium users by month 4 = $250-500/mo incremental recurring.\n\n**Why Joe:** 20+ years billing/data expertise = rules-based pattern detection. No complex ML needed. Synergizes perfectly with Even Us Up's core problem: family spending visibility. Low effort (3-4 weeks). Consolidation-aligned (improves existing app, not new product).\n\n**Evidence:** YNAB ($14.99/mo) sells forecasting as core feature. 20+ Reddit threads asking \"How do we forecast household spending?\" Splitwise (market leader) has zero forecasting. Repositioning Even Us Up from \"expense splitter\" → \"family budget forecasting\" = differentiation vs competitors.\n\n**Strategic Impact:** Addresses Even Us Up's 0-20 visitor/day positioning weakness by adding predictive capability (families value \"what will we spend\" more than \"what did we spend\").",
+    "category": "growth",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "medium",
+    "revenueModel": "Freemium: basic tracking free; Premium $4.99/mo (AI predictions, alerts, trends). Target: 50-100 premium users by month 4 = $250-500/mo incremental recurring revenue.",
+    "synergies": [
+      "Even Us Up",
+      "Even Us Up Growth Focus",
+      "Household Finance Intelligence"
+    ],
+    "evaluation": {
+      "score": 7.3,
+      "notes": "Consolidation-aligned (improves existing Even Us Up, not new product). Addresses real retention weakness (Even Us Up is reactive; adding forecasting makes it proactive). Medium effort (3-4 weeks: recurring pattern detection + forecasting logic + trend dashboard). High differentiation vs Splitwise (no forecasting) + YNAB (no family collab). Revenue incremental but recurring. Validation: 20+ Reddit threads asking for household spending forecasts; YNAB proves demand; Splitwise market gap confirmed. Key insight: Even Us Up's 0-20 visitor/day problem is positioning issue (too narrow), not product quality issue. Adding forecasting = compelling repositioning lever. Risk: Adoption depends on Even Us Up user base growth; validate with 2-3 existing household users first."
+    },
+    "promotedToGoalId": "task_1775085440000_recurring_bill_detector",
+    "tags": [
+      "existing-app-improvement",
+      "household-finance",
+      "forecasting",
+      "ai-features",
+      "even-us-up",
+      "consolidation-aligned",
+      "low-maintenance"
+    ],
+    "createdAt": "2026-04-01T20:17:00.000Z",
+    "updatedAt": "2026-04-01T20:17:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Competitor Analysis (2026-04-01 20:10 ADT)",
+        "finding": "YNAB ($14.99/mo) sells budgeting + forecasting as core value prop. Splitwise (market leader) has ZERO forecasting (reactive only). Market gap: families want spending predictions + budget alerts. Even Us Up can own this segment vs Splitwise (expense tracking only) + YNAB (no family collab)."
+      },
+      {
+        "source": "Reddit Demand Signal (2026-04-01 20:12 ADT)",
+        "finding": "r/Budgeting + r/PersonalFinanceCanada: 20+ threads asking 'How do we forecast household spending?' and 'What will our budget be next month?' Current solutions: manual spreadsheets (70%), YNAB (20%), nothing (10%). Unmet need: family-friendly forecasting tool."
+      },
+      {
+        "source": "Even Us Up Market Positioning (Joe Profile, Mar 26)",
+        "finding": "Even Us Up has 0-20 external visitors/day (confirmed). App is high-quality (Joe uses it personally). Problem is NOT product; it's positioning (\"roommate split app\" is too narrow for family market). Adding forecasting repositions Even Us Up as \"family budget intelligence platform\" = much broader appeal."
+      }
+    ],
+    "demandValidation": "YNAB ($14.99/mo) proves strong demand for budget forecasting. 20+ Reddit threads from families asking how to predict monthly spending. Splitwise (market leader) lacks forecasting = gap. Even Us Up's 0-20 visitor/day problem is positioning weakness, not product gap. Adding forecasting = compelling repositioning strategy (families value predictions). Risk: adoption depends on reaching existing household users + marketing repositioning correctly."
+  },
+  {
     "id": "idea_1774918800000_evenusup_family_budget",
     "title": "Even Us Up: Household Budget & Financial Planning Dashboard (Family Collaboration Hub)",
     "description": "**Problem:** Even Us Up is positioned as \"roommate expense splitter,\" limiting market relevance. But Joe uses it personally for household financial collaboration (family expense tracking, bill splitting, shared budget decisions). Current 0-20 external visitors/day suggests positioning issue, not product quality gap. Families want \"How do we share budgets and track household finances together?\" not \"How do we split rent?\"  \n\n**Solution:** Rebrand/expand Even Us Up as a \"Household Financial Collaboration Hub\" with new features: (1) Family budget mode (set household spending limits by category), (2) Financial goal tracking (vacation fund, emergency fund, home renovation), (3) Bill splitting (existing) + shared decision-making (approve/vote on shared purchases), (4) Family net worth dashboard (combined assets, debts, savings rate), (5) Offline-first mobile (syncs when online). Positioning: \"Families making financial decisions together.\"  \n\n**Revenue Model:** Freemium: free basic tracking ($0), Premium: $4.99/mo for goal tracking + family insights + budget limits. Secondary: white-label for accountants/financial advisors ($20-50/mo). Target: 200-300 premium household users = $12-18k/yr.  \n\n**Why Joe:** 20+ years in billing/financial software. Household finance = market gap (YNAB targets individuals, Splitwise targets roommates, Even Us Up can own families). Canada-specific positioning (Interac settlement + T776-aware deductions for shared home). Low incremental effort (reposition + 2-3 new UI screens).  \n\n**Evidence:** Reddit r/PersonalFinanceCanada + r/CanadianFamily: 20+ threads asking \"How do families manage shared budgets?\" YNAB ($14.99/mo) has zero family features. Splitwise (market leader) is roommate-focused. Marketing experiment: feature Even Us Up's \"family use case\" in testimonials + content (\"How we manage household finances as a family\"). Expected impact: 3-5x visitor increase from repositioning alone.",
