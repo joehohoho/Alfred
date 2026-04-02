@@ -7,6 +7,11 @@ import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
 import { SmartStrategy } from '@/services/strategies/smartStrategy';
 import { EnsembleStrategy } from '@/services/strategies/ensembleStrategy';
+import { MeanReversionStrategy } from '@/services/strategies/meanReversionStrategy';
+import { BreakoutStrategy } from '@/services/strategies/breakoutStrategy';
+import { FundingRateStrategy } from '@/services/strategies/fundingRateStrategy';
+import { BayesianStrategy } from '@/services/strategies/bayesianScorer';
+import { ThompsonStrategy } from '@/services/strategies/thompsonStrategy';
 import { getDataManager } from '@/services/data/DataManager';
 
 // --- Types ---
@@ -79,6 +84,36 @@ export const STRATEGY_RANGES: Record<string, Record<string, ParameterRange>> = {
     threshold: { min: 30, max: 70, step: 10 },
     conflictMargin: { min: 10, max: 25, step: 5 },
   },
+  MEAN_REVERSION: {
+    lookbackPeriod: { min: 14, max: 30, step: 4 },
+    entryZScore: { min: 1.5, max: 3.0, step: 0.5 },
+    rsiPeriod: { min: 10, max: 20, step: 3 },
+    maxAtrPct: { min: 4, max: 8, step: 2 },
+  },
+  BREAKOUT: {
+    consolidationPeriod: { min: 14, max: 30, step: 4 },
+    rangeThresholdPct: { min: 4, max: 12, step: 2 },
+    volumeMultiplier: { min: 1.2, max: 2.0, step: 0.2 },
+    adxThreshold: { min: 15, max: 30, step: 5 },
+  },
+  FUNDING_RATE: {
+    shortRocPeriod: { min: 3, max: 8, step: 1 },
+    mediumRocPeriod: { min: 14, max: 30, step: 4 },
+    rsiPeriod: { min: 10, max: 20, step: 3 },
+    bbPeriod: { min: 15, max: 30, step: 5 },
+  },
+  BAYESIAN: {
+    smaPeriod: { min: 30, max: 60, step: 10 },
+    rocPeriod: { min: 14, max: 30, step: 4 },
+    rsiPeriod: { min: 10, max: 20, step: 3 },
+    atrPeriod: { min: 10, max: 20, step: 3 },
+    threshold: { min: 60, max: 80, step: 5 },
+  },
+  THOMPSON: {
+    evaluationWindow: { min: 3, max: 10, step: 1 },
+    decayInterval: { min: 20, max: 50, step: 10 },
+    decayFactor: { min: 80, max: 95, step: 5 },
+  },
 };
 
 // --- Risk management parameter ranges ---
@@ -107,6 +142,11 @@ export function createStrategy(stratKey: string, params: Record<string, number>)
       threshold: (params.threshold ?? 50) / 100,
       conflictMargin: (params.conflictMargin ?? 15) / 100,
     });
+    case 'MEAN_REVERSION': return new MeanReversionStrategy(params);
+    case 'BREAKOUT': return new BreakoutStrategy(params);
+    case 'FUNDING_RATE': return new FundingRateStrategy(params);
+    case 'BAYESIAN': return new BayesianStrategy(params);
+    case 'THOMPSON': return new ThompsonStrategy(params);
     default: throw new Error(`Unknown strategy: ${stratKey}`);
   }
 }

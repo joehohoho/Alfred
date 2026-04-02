@@ -94,6 +94,36 @@ const STRATEGIES = [
     desc: 'Runs all strategies and dynamically weights by recent performance.',
     metrics: 'Win: 55-75% | Sharpe: 1.0-2.0',
   },
+  {
+    id: 'MEAN_REVERSION',
+    title: 'Mean Reversion',
+    desc: 'Buys oversold bounces and sells overbought pullbacks. Exploits mean reversion.',
+    metrics: 'Win: 50-65% | Sharpe: 0.8-1.5',
+  },
+  {
+    id: 'BREAKOUT',
+    title: 'Breakout',
+    desc: 'Detects consolidation ranges and trades confirmed breakouts with volume.',
+    metrics: 'Win: 45-60% | Sharpe: 0.8-1.6',
+  },
+  {
+    id: 'FUNDING_RATE',
+    title: 'Funding Rate',
+    desc: 'Trades extreme funding rate imbalances. Leading indicator for corrections and squeezes.',
+    metrics: 'Win: 45-60% | Sharpe: 0.7-1.4',
+  },
+  {
+    id: 'BAYESIAN',
+    title: 'Bayesian Scorer',
+    desc: 'Probabilistic scoring using Bayesian inference. Only trades when probability exceeds 70%.',
+    metrics: 'Win: 50-65% | Sharpe: 0.9-1.6',
+  },
+  {
+    id: 'THOMPSON',
+    title: 'Thompson Sampling',
+    desc: 'Adaptive strategy rotation. Automatically discovers the best strategy for current conditions.',
+    metrics: 'Win: 50-70% | Sharpe: 0.9-1.8',
+  },
 ];
 
 function interpretMetric(name: string, value: number | string): 'positive' | 'negative' | 'neutral' | 'warning' {

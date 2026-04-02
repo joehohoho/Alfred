@@ -11,6 +11,11 @@ import { RSIExtremeStrategy } from '@/services/strategies/rsiExtremeStrategy';
 import { TrendFollowingStrategy } from '@/services/strategies/trendFollowingStrategy';
 import { SmartStrategy } from '@/services/strategies/smartStrategy';
 import { EnsembleStrategy } from '@/services/strategies/ensembleStrategy';
+import { MeanReversionStrategy } from '@/services/strategies/meanReversionStrategy';
+import { BreakoutStrategy } from '@/services/strategies/breakoutStrategy';
+import { FundingRateStrategy } from '@/services/strategies/fundingRateStrategy';
+import { BayesianStrategy } from '@/services/strategies/bayesianScorer';
+import { ThompsonStrategy } from '@/services/strategies/thompsonStrategy';
 import { optimizeStrategy } from '@/services/backtest/ParameterOptimizer';
 import { trackPerformance } from '@/services/backtest/performanceTracker';
 import {
@@ -57,6 +62,21 @@ const STRATEGY_MAP: Record<string, (params?: Record<string, number>) => Strategy
     params ?? { trendSma: 50, pullbackSma: 20, adxThreshold: 20 }
   ),
   ENSEMBLE: (params) => new EnsembleStrategy(params),
+  MEAN_REVERSION: (params) => new MeanReversionStrategy(
+    params ?? { lookbackPeriod: 20, entryZScore: 2.0, rsiPeriod: 14, requireRsiTurn: 1, volumeConfirm: 1, maxAtrPct: 6 }
+  ),
+  BREAKOUT: (params) => new BreakoutStrategy(
+    params ?? { consolidationPeriod: 20, rangeThresholdPct: 8, volumeMultiplier: 1.5, adxPeriod: 14, adxThreshold: 20, rsiPeriod: 14 }
+  ),
+  FUNDING_RATE: (params) => new FundingRateStrategy(
+    params ?? { shortRocPeriod: 5, mediumRocPeriod: 20, rsiPeriod: 14, bbPeriod: 20, bbStdDev: 2 }
+  ),
+  BAYESIAN: (params) => new BayesianStrategy(
+    params ?? { smaPeriod: 50, rocPeriod: 20, rsiPeriod: 14, atrPeriod: 14, threshold: 70 }
+  ),
+  THOMPSON: (params) => new ThompsonStrategy(
+    params ?? { evaluationWindow: 5, decayInterval: 30, decayFactor: 90 }
+  ),
 };
 
 // --- Optimal params cache ---
