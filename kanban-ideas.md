@@ -168,3 +168,30 @@
 ---
 **Full audit:** ALFRED-INFRASTRUCTURE-AUDIT-2026-04-02.md (4-section deep dive)
 **Review:** Awaiting Joe approval for prioritization
+
+## Signal App Monetization Strategy (2026-04-02)
+
+**Status:** Research complete, ready for Joe review
+
+**Recommendation:** Freemium + Tiered Subscription Model
+- **Tier 1 (Free):** 5-10 signals/week, 48h delayed, 1 watchlist → drive acquisition
+- **Tier 2 (Pro):** $19.99/mo, real-time signals, 5 watchlists, performance analytics → primary revenue
+- **Tier 3 (Professional):** $49.99/mo, API access, custom filters, webhooks → Month 3 launch (after Pro conversion >5%)
+
+**Secondary streams (Month 4+):** Copy-trading, add-ons, community workshops
+
+**Market opportunity:** $12.4B → $18B by 2028; freemium is industry standard (TradingView, CoinGecko, Benzinga)
+
+**Revenue projection:**
+- Year 1: $100k-150k (Pro tier)
+- Year 2: $400k-600k (Pro + Professional + add-ons)
+
+**Success metrics:** 5-8% free→Pro conversion, <5% monthly churn, >70% signal accuracy required
+
+**Differentiation:** Transparent accuracy reporting (no hype claims like competitors), free tier shows full signal feed (just delayed)
+
+**Risk mitigation:** Gate monetization on >70% signal accuracy; don't launch until Phase 3 complete
+
+**Next steps:** Joe approval → Design pricing page → Build Stripe integration → Launch
+
+See: SIGNAL-APP-MONETIZATION-STRATEGY-2026-04-02.md (10KB, full analysis + competitor benchmarking)
