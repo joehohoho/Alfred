@@ -3,10 +3,10 @@
 **Purpose:** Deep, evolving model of how Joe thinks, decides, and works. Goes beyond USER.md facts to capture patterns, preferences, and unspoken drivers.
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
-**Last reflection:** 2026-03-26 (01:01 UTC / 2026-03-25 21:01 AST) — full reflection, Phase 1-5 complete, consolidation mode identified
-**Last direct Q&A update:** 2026-03-23 (19:37-20:00 AST) — Consolidation mode, CoinUsUp priority, Signal App quality gate
-**Reflection count:** 10
-**Profile version:** 2.1
+**Last reflection:** 2026-04-01 (23:08 UTC / 2026-04-01 19:08 AST) — Phase 1-5 complete, infrastructure reliability as critical P0 blocker
+**Last direct Q&A update:** 2026-03-31 (14:59-14:03 ADT) — CoinUsUp growth unlocks (marketing + UI), adoption metric, build preference (low-maintenance new), Even Us Up adoption gap
+**Reflection count:** 11
+**Profile version:** 2.2
 
 ---
 
@@ -201,30 +201,26 @@ When asked "Growth, profitability, feature completeness, or something else?" Joe
 
 **Pattern:** Joe's focus on adoption (not revenue or features) is consistent with his consolidated app strategy: prove market fit through adoption, then monetize. Revenue is secondary until adoption velocity is proven.
 
-### CoinUsUp Growth Unlock Priorities (DIRECT ANSWER — 2026-03-31) ⭐ HIGH CONFIDENCE
+### CoinUsUp Growth Unlock Priorities (DIRECT ANSWER — 2026-03-31) ⭐ VERY HIGH CONFIDENCE
 **Question:** "What one thing would unlock the next growth phase?"  
 **Answer:** "Marketing and UI"
 
-**Meaning:** Joe sees TWO specific unlocks for CoinUsUp's next growth phase:
-1. **Marketing** — User acquisition is the bottleneck, not product quality. Need effective marketing to drive adoption.
-2. **UI** — User experience needs improvement to convert adoption into retention/engagement.
+**Exact Meaning:**
+1. **Marketing** = User acquisition bottleneck (not product quality). Can't convert users if they don't know about the product.
+2. **UI** = User experience polish required to convert adoption into retention. First experience must be compelling.
 
-**Implication:** Post-deployment focus should be:
-- Phase 5 (Current): Ship to app stores (deployment readiness 🟢)
-- Phase 6 (Next): Marketing + UI polish as primary growth drivers
-- NOT: New features, advanced monetization, or algorithm changes at this stage
+**This Contradicts Typical Founder Instinct:** Joe is NOT saying "add more features." User acquisition + retention > features.
 
-**Why This Matters:** This is Joe explicitly saying "don't build more features; focus on marketing and UX." Contradicts typical founder instinct (add more features). Joe's pragmatism: user acquisition + good experience > feature completeness. This aligns with his earlier answer that user adoption (not revenue/features) is the north star.
+**Subordinate Ranking:** Marketing > UI. Awareness precedes experience quality.
 
-**Subordinate Ranking (implied):** Marketing > UI in priority. Joe mentioned marketing first, and it's the "awareness" lever that precedes UI/experience quality. Can't convert users if they don't know about the product.
+**Phase Sequencing:**
+- Phase 5 (NOW): Ship to app stores (code ready 🟢)
+- Phase 6 (NEXT 2-4w): Marketing sprint (organic, partnerships, ASO) + UI polish
+- Phase 7 (Weeks 5+): Monitor adoption, iterate on retention, THEN add features
 
-**Action Items (Phase 6 Plan):**
-1. Marketing strategy (organic + partnerships)
-2. UI/UX review + polish (make first experience compelling)
-3. Monitor adoption metrics post-launch
-4. Hold off on new features until marketing + UI are optimized
+**Action:** Post-launch, focus resources on user acquisition + UX. Monitor adoption metric daily. Hold features until metrics prove they're the bottleneck.
 
-| Source: notif_1774767600321 (2026-03-31 11:59 ADT) | Confidence: VERY HIGH
+| Source: notif_1774885564648 (2026-03-31 14:59 ADT) | Confidence: VERY HIGH
 
 ### Incident Response Protocol (DIRECT ANSWER — 2026-02-26) ⭐ HIGH CONFIDENCE
 **Bugs / Outages:**
@@ -240,19 +236,23 @@ When asked "Growth, profitability, feature completeness, or something else?" Joe
 - **Key reason:** Joe may not be available to react in time. Alfred is the last line of defense on cost. Act first, explain second.
 - **Threshold:** Any cost spike that could materially escalate = treat as emergency. Don't wait for a "is this serious enough?" answer.
 
-### Build vs. Maintain Preference (DIRECT ANSWER — Mar 31, 11:03 ADT) ⭐
+### Build vs. Maintain Preference (DIRECT ANSWER — Mar 31, 14:03 ADT) ⭐
 **Question:** "Momentum vs. depth. What does your gut say?"  
 **Answer:** "Something new but with low maintenance once setup."
 
-**Meaning:** Joe prefers building NEW features/products over maintaining/polishing existing ones, BUT with a critical constraint: the new thing must be designed for LOW MAINTENANCE from day one. He doesn't want to choose between innovation and stability; he wants innovation that *becomes* stable quickly.
+**Meaning:** Joe wants NEW innovation but ONLY if designed for low maintenance from day one. He won't trade autonomy for feature velocity.
 
-**Implication for Alfred:**
-- CoinUsUp, Signal App, Even Us Up feature work should optimize for "low maintenance by design" — build it right once, not "build fast, maintain forever"
-- Future new products should include maintenance architecture upfront (docs, automation, monitoring)
-- Don't recommend long-term maintenance-heavy features; prefer "set it and forget it" approaches
-- This explains passive income strategy: Joe wants products that generate revenue with minimal ongoing effort
+**Strategic implication for all work:**
+- **Every feature:** "Build once, maintain never" (automation, docs, monitoring, alerts)
+- **Products:** Revenue should come with minimal ongoing effort ("set it and forget it")
+- **Infrastructure (Alfred/HAL):** Reliability > features. Joe's infrastructure complaint is that it violates this principle (requires constant babysitting, not low-touch)
+- **System improvements:** Low-maintenance architecture is a design requirement, not afterthought
 
-**Pattern:** Consolidation mode (improve 3 apps) is about building low-maintenance foundations, NOT adding high-touch features. | Confidence: high
+**Pattern:** Consolidation mode is fundamentally about building stable, low-touch foundations. Complexity/maintenance burden = disqualifier.
+
+**Connected insight:** Joe's frustration with infrastructure debugging is really a complaint that the system violates this principle. It's not "set it and forget it"; it's "debug and babysit." This reframes infrastructure fixes as blocking passive income work.
+
+| Source: notif_1774875760406 (Mar 31 14:03 ADT) | Confidence: high
 
 ---
 
@@ -302,24 +302,19 @@ When asked "Growth, profitability, feature completeness, or something else?" Joe
 
 ### Observed Frustrations (Ranked by Urgency)
 
-**🔴 CRITICAL #1: Infrastructure Troubleshooting Burden (Mar 26 DIRECT ANSWER — HIGHEST FRICTION)**
+**🔴 CRITICAL #1: Infrastructure Debugging is Consuming Passive Income Time (Mar 26 DIRECT ANSWER — HIGHEST FRICTION)**
 - **Explicitly stated complaint (notif_1774533888321, Mar 26 19:28 ADT):** "Having to fix issues with Alfred and HAL, and troubleshooting Alfred thinking HAL is offline when he's not."
-- **Confidence:** HIGHEST — Direct, specific, frustration tone. This is the #1 thing bugging Joe about his workflow.
-- **Nature of frustration:** NOT productivity friction (missing features, slow workflows). It's OPERATIONAL FRICTION — Joe has to debug and troubleshoot the infrastructure he built to be autonomous. This defeats the purpose. Joe wants passive income; he's instead spending time troubleshooting systems.
-- **Root causes identified:**
-  1. HAL WebSocket disconnection (33+ consecutive failures since Mar 25 22:00, still ongoing at report time) — false positive "HAL offline" signals even when HAL gateway is actually responding
-  2. Cron auto-disable pattern (recurring throughout Mar, latest Mar 22-26 with latest incident from log analysis suggesting >30 failures)
-  3. Alfred reliability issues (gateway down 24+ hrs Mar 8, Codex token expiration, channel routing failures)
-- **Impact:** Joe's time/attention consumed by infrastructure triage instead of building apps. Passive income goal stalled when systems require constant fixes. CoinUsUp sprint blocked by operational friction.
-- **Why this matters:** Joe explicitly wants "to stop working" (passive income north star). If he has to troubleshoot Alfred/HAL instead of building features, the autonomous system is FAILING its core purpose. Every hour Joe spends debugging is an hour NOT on CoinUsUp sprint, NOT on Signal App quality, NOT on passive income.
-- **Pattern observation:** This is NOT Joe complaining about Alfred's intelligence or capability. It's infrastructure RELIABILITY friction. The system is *occasionally* working, but not reliably enough to trust. Joe still needs to check on it. That's not autonomy — that's a system that requires babysitting.
-- **Required fix (URGENT P0):** 
-  1. Stabilize HAL gateway reconnection (WebSocket upgrade protocol, circuit-breaker logic) — eliminate false "offline" signals
-  2. Fix cron auto-disable root cause (Discord routing, rate limits, channel config) — zero auto-disables this month
-  3. Add robust health checks that distinguish "slow" from "offline" — reduce noise in system alerts
-  4. Reduce operational overhead for Joe (better self-healing, fewer manual interventions, only alert on real failures)
-- **Career-limiting blocker:** If unresolved, Joe will disable/deprioritize Alfred because troubleshooting becomes more work than the system saves. This is the highest-impact bug to fix — higher priority than any feature work. Infrastructure reliability is the foundation; without it, nothing else matters.
-- **Action item (URGENT P0):** Fix infrastructure stability THIS WEEK. This is blocking passive income sprint and Joe's trust in autonomous systems. | Source: notif_1774533888321 (Mar 26 19:28 ADT) | Confidence: VERY HIGH
+- **Confidence:** HIGHEST (explicit, frustrated, direct impact on core goals)
+- **Root issue:** Joe built autonomous infrastructure to free time for passive income work. Instead, he's spending time debugging the infrastructure. System is ~90% reliable, but that 10% unreliability consumes all the time savings.
+- **Why this is P0 blocker:** Every hour Joe spends troubleshooting = 1 hour NOT on CoinUsUp sprint, NOT on Signal App quality, NOT on passive income. Infrastructure reliability is the FOUNDATION of autonomous systems. Without it, nothing else works.
+- **Manifestations (Mar-Apr 2026):**
+  1. HAL WebSocket: False "offline" alerts when HAL is actually fine (33+ failures Feb 25 → Mar 26, sporadic recurring)
+  2. Cron jobs: Auto-disable pattern (Feb 28-Mar 22, sporadic failures, random timing)
+  3. Codex auth: Token expiration + rate limiting (Mar 8, Mar 19, Mar 20)
+  4. Discord routing: Channel ID mismatches causing delivery failures (Mar 25)
+- **Strategic implication:** If unresolved, Joe will disable Alfred/HAL entirely because "debugging system > passive income work." This is the highest-impact bug to fix, higher priority than any feature work.
+- **Connection to build preference:** This also violates Joe's stated preference: "Something new but with low maintenance once setup." Alfred/HAL have high maintenance burden (requires babysitting), which contradicts his autonomy goal.
+- **Action item (URGENT P0):** Prioritize infrastructure reliability fixes above all feature work. This is the blocker to passive income goal. Fix must eliminate: (1) false "offline" alerts, (2) cron auto-disables, (3) Codex token failures, (4) Discord routing. | Source: notif_1774533888321 (Mar 26 19:28 ADT) | Confidence: VERY HIGH
 
 **🔴 CRITICAL: Duplicate Question Crisis (Mar 19, UNRESOLVED)**
 - **Explicitly stated complaint:** "this question is asked twice already in the notifications page and has been asked before, don't keep asking the same questions" (notif_1773925200321, Mar 19 13:32). Tone: frustrated, directive.
@@ -491,7 +486,7 @@ Last 12 observations, newest first. Older observations distill into sections abo
 | **Autonomy validation** | VALIDATED — Batch autonomous decisions accepted. Overnight work = feature work + system improvements (NOT exploration). Joe trusts Alfred's feature prioritization. |
 | **Key pattern shift** | **CONSOLIDATION MODE (Mar 23 explicit answers).** Joe is in improvement/quality mode on existing 3 apps, NOT expansion mode. Consulting boundary is firm. New app ideas are off-limits. This significantly constrains Alfred's idea generation role. |
 | **Passive income strategy** | LOCKED: CoinUsUp → Signal App → Even Us Up priority order. All other exploration paused. CoinUsUp deployment is immediate next action (Stripe keys are the blocker). |
-| **IMMEDIATE ACTIONS REQUIRED** | (1) START CoinUsUp sprint immediately (Mar 25 ready for Phase 5, needs Stripe keys). (2) Await Joe approval on Even Us Up implementation approach. (3) Focus Signal App work on quality/algorithm (not commercialization). (4) Halt new app idea generation until consolidation mode completes. (5) RETIRE consulting-opportunity topic permanently from inquiry rotation (Mar 19 error not yet fixed). |
+| **IMMEDIATE ACTIONS REQUIRED** | (1) 🔴 FIX INFRASTRUCTURE RELIABILITY — This is P0 blocker to passive income goal. Every debug hour = hour NOT on CoinUsUp/Signal App. Fix HAL WebSocket, cron auto-disables, Codex auth, Discord routing. (2) START CoinUsUp Phase 5 deployment sprint. (3) Signal App quality focus (not commercialization). (4) Post-CoinUsUp launch: marketing + UI sprint (Phase 6), NOT features. (5) Even Us Up: diagnose adoption gap (0-20 visitors/day = acquisition problem, not features). |
 
 | 2026-03-31 | **CoinUsUp Growth Unlock: Marketing + UI (NOT Features).** Question: "What one thing would unlock the next growth phase?" Answer: "Marketing and UI." MEANING: Joe sees user acquisition (marketing) + UX quality (UI) as the growth bottlenecks, NOT product features or monetization. This explicitly contradicts the typical founder trap of "more features = more growth." Implication: Phase 6 should focus on marketing strategy + UI polish as PRIMARY drivers. Feature work should be secondary until these are optimized. Timing: Post-Phase-5 deployment. | notif_1774767600321 (11:59 ADT) | No |
 
