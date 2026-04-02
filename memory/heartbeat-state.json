@@ -1,38 +1,31 @@
 {
-  "timestamp": "2026-03-29T09:42:00-0300",
-  "session_time": "09:42 ADT",
-  "context_pct": 27,
-  "launchagents_running": 26,
-  "launchagents_threshold": 10,
-  "status": "OK",
-  "checks": {
-    "context_compression": "✅ 27% (safe, below 60% threshold)",
-    "launchagents": "✅ 26 running (well above 10+ threshold)",
-    "cron_jobs": "✅ Recent activity: 6 commits in last 24h (Evening Routine, Idle checks)",
-    "file_size": "✅ AGENTS.md at 80% (safe, below 95% critical)"
+  "timestamp": "2026-04-02T15:18:00Z",
+  "checks_run": ["context_compression", "file_size_monitoring", "system_reliability"],
+  "check_1_context": {
+    "usage_pct": 35,
+    "threshold": 60,
+    "status": "OK"
   },
-  "alerts": "NONE",
-  "next_check": "10:12 ADT (30 min heartbeat)"
+  "check_3_file_size": {
+    "agents_md_pct": 68,
+    "threshold": 85,
+    "status": "OK"
+  },
+  "check_4_system_reliability": {
+    "launchagents_running": 29,
+    "launchagents_threshold": 10,
+    "status": "OK",
+    "cron_jobs_healthy": 29,
+    "cron_jobs_with_errors": 1,
+    "error_jobs": ["Evening Routine (2 errors)"]
+  },
+  "alerts": [
+    {
+      "level": "warning",
+      "component": "cron_jobs",
+      "message": "Evening Routine has 2 consecutive errors — identified in infrastructure audit as P0 fix (unblocks session continuity)",
+      "action": "Fix targeted in infrastructure improvement plan"
+    }
+  ],
+  "overall_status": "HEALTHY_WITH_KNOWN_ISSUE"
 }
-{
-  "timestamp": "2026-03-29T20:15:00Z",
-  "context_pct": 39,
-  "model": "haiku-4-5",
-  "launchagents_running": 26,
-  "cron_health": "healthy",
-  "recent_commits_24h": 21,
-  "status": "OK"
-}
-{"timestamp":"2026-03-31T08:58:00","context_pct":31,"status":"HEALTHY","agents_running":27,"agents_md_capacity":68}
-{"timestamp":"2026-03-31T09:31:00","context_pct":48,"status":"HEALTHY","agents_running":27,"agents_md_capacity":68,"cache_hit":100}
-{"timestamp":"2026-03-31T10:01:00","context_pct":57,"status":"HEALTHY","agents_running":27,"agents_md_capacity":68,"cache_hit":100}
-{"timestamp":"2026-03-31T10:31:00","context_pct":59,"status":"HEALTHY","agents_running":27,"agents_md_capacity":68,"cache_hit":100}
-{
-  "timestamp": "2026-03-31T18:53:00Z",
-  "context_usage_percent": 54,
-  "model": "anthropic/claude-haiku-4-5",
-  "cache_hit_percent": 99,
-  "status": "OK",
-  "session": "agent:main:card:task_1773156748695_23b9e471"
-}
-{"timestamp":"2026-04-01T12:02:00-0300","context_pct":26,"model":"haiku-4-5","status":"OK","cache_hit":99,"tokens_in":59,"tokens_out":8300}

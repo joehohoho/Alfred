@@ -4,8 +4,8 @@
 ## Current Work (auto-updated every 15 min)
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)
 Review: Implement 14-day free trial on Basic/Pro
-Recent: [idle:improve-self] Created kill-stuck-sessions.sh | [idle:workspace-check] All git repos clean; notifi
-Updated: 11:33 AST
+Recent: [idle:workspace-check] All git repos clean; notifi | [idle:goal-progress-check] Reviewed 2 blocked/revi
+Updated: 12:18 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.

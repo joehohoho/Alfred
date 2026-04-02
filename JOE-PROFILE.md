@@ -102,14 +102,14 @@ Activity patterns and productivity windows.
 - Being asked to review things without sufficient context
 - Verbose reports when brief updates suffice
 
-### Idea Evaluation Filter (DIRECT ANSWER — 2026-02-26) ⭐ HIGH CONFIDENCE
+### Idea Evaluation Filter (DIRECT ANSWER — 2026-02-26, UPDATED 2026-04-02) ⭐ HIGH CONFIDENCE
 Joe's first-pass filter for any new idea, in order:
 1. **Obvious demand?** — Is there a real, visible market for this? Don't pitch ideas that require creating demand from scratch.
 2. **Buildable without excessive effort?** — Can it be shipped without a massive build? MVP should be achievable in weeks, not months.
-3. **Familiarity with the vertical?** — Joe needs domain familiarity. Ideas in completely new verticals with lots of competition = harder AND unfamiliar. Prefer verticals where Joe has experience or natural edge.
+3. **Familiarity with the vertical?** — Joe needs domain familiarity. Ideas in completely new verticals with lots of competition = harder AND unfamiliar. Prefer verticals where Joe has experience or natural edge. **NEW (Apr 2): Joe explicitly prioritizes industry knowledge as gating factor.** When asked "What would stop you from building something new?" Joe answered "Depending on complexity, knowledge of the industry." Meaning: Joe won't build in markets where he lacks domain expertise, regardless of demand or buildability. Industry knowledge is a hard gate, not a soft preference.
 4. **Fun + profitable?** — Has to have both. Pure revenue grind without interest isn't motivating. Pure fun without income doesn't serve the north star.
 
-**Implication for Alfred:** Before surfacing any idea, run it through this filter. If it fails #1 or #3, don't surface it. Lead with demand signals and effort estimate — that's what Joe evaluates first.
+**Implication for Alfred:** Before surfacing any idea, run it through this filter. If it fails #1, #2, or #3, don't surface it. Lead with demand signals and effort estimate — that's what Joe evaluates first. **NEW: Strongly weight industry fit** — ideas in Joe's known verticals (billing, data transformation, expense-sharing, trading signals, Canadian SMB compliance) rank higher than adjacent markets. Ideas in new markets only if they have extreme demand or Joe initiates interest first.
 
 ### Vertical Exclusions (do not suggest ideas in these spaces)
 - **Legal software / law firm tools** — not interested, will advise if this changes (2026-02-26)
@@ -118,6 +118,68 @@ Joe's first-pass filter for any new idea, in order:
 ---
 
 ## Technical Identity
+
+### Product Philosophy (DIRECT ANSWER — 2026-04-02) ⭐ HIGH CONFIDENCE
+**Question:** "Should any of your apps become more opinionated or simpler? Where are you on that spectrum?"  
+**Answer:** "One thing really well."
+
+**Meaning:**
+- Joe's product philosophy is **specialized, not generalist**
+- Prefers "best-in-class single feature" over "mediocre multi-feature SaaS sprawl"
+- Each app should own ONE problem domain and solve it exceptionally well
+- Opposite of "be everything to everyone"
+
+**Implication for current apps:**
+- **CoinUsUp:** Own expense-sharing + settlement, don't expand to invoicing/accounting
+- **Signal App:** Own trade signal quality, don't expand to portfolio management/tax planning
+- **Even Us Up:** Own shared household expenses, don't expand to investment tracking
+
+**Implication for features:**
+- Build features that deepen the core value proposition, NOT breadth features
+- When evaluating new features: "Does this make us better at [core problem]?" — if no, deprioritize
+- CoinUsUp categories/analytics = depth (better expense understanding). Invoicing = breadth (reject).
+- Signal App quality improvements = depth. Adjacent markets = breadth (reject until signal quality proven).
+
+**Implication for product strategy:**
+- Easier to maintain (focused scope = predictable complexity)
+- Easier to market (clear positioning: "the best at X")
+- Easier to achieve market-fit (dominate one niche vs. fight in multiple niches)
+- Aligns with passive income goal (lower maintenance once "one thing" is mature)
+
+**Pattern:** Joe rejected multi-market expansion ideas (Signal App for stocks/forex) and consulting-to-product synergies explicitly. This "one thing really well" philosophy explains why — Joe wants focused, maintainable, defensible products.
+
+**Current state validation:**
+- CoinUsUp: ✅ Expense-sharing + settlement (owned niche)
+- Signal App: ⚠️ Trading signals but NOT commercialized yet (quality gate = focus on core)
+- Even Us Up: ⚠️ Started as roommate focus, but has "travel" mode (scope creep?); May need to decide: roommate-only or travel-inclusive
+
+| Source: notif_1774782800321_qa-answer (Apr 2, 11:36 ADT) | Confidence: HIGH
+
+### New Product Blockers (DIRECT ANSWER — 2026-04-02) ⭐ HIGH CONFIDENCE
+**Question:** "What would stop you from building something new right now? Not time or money—what's the actual blocker?"  
+**Answer:** "Depending on complexity, knowledge of the industry."
+
+**Meaning:**
+- New product viability is **contingent on TWO gates:**
+  1. **Technical complexity** — Can it be built without excessive effort?
+  2. **Industry knowledge** — Does Joe (or team) understand the domain well enough to build something valuable?
+- Time + money are NOT blockers (Joe has both)
+- Knowledge gap + complexity are the TRUE gates
+
+**Implication for idea screening:**
+- Before proposing new products, assess: "Is this an industry Joe understands? Is the MVP technical complexity acceptable?"
+- Ideas that fail gates = high risk of wasted effort
+- Example: Bill Review MVP — needs to assess: (1) Is invoice/billing industry domain familiar to Joe? (2) Is MVP build realistic (3–5 days)?
+- Example: Stock Signal App — passed both gates (Joe knows trading, complexity is algorithmic ML work Joe is comfortable with)
+
+**Implication for autonomous decision-making:**
+- When evaluating new ideas: check industry knowledge first (can Joe do this?), THEN technical complexity (should Joe do this?)
+- If blocked on industry knowledge, flag for Joe clarification (don't assume)
+- If clear on both, propose MVP + expected effort
+
+**Pattern:** This explains why CoinUsUp, Signal App, Even Us Up all have industry tailoring — Joe built them in domains he understands (expense-sharing, trading signals, shared expenses). New ideas should follow the same pattern.
+
+| Source: notif_1774782800351_qa-answer (Apr 2, 11:36 ADT) | Confidence: HIGH
 
 ### Preferred Stack
 - **Frontend:** React + TypeScript
@@ -133,6 +195,7 @@ Joe's first-pass filter for any new idea, in order:
 - Tiered model strategy (cheap first, escalate only when needed)
 - Automation via cron jobs and LaunchAgents
 - Pragmatic: "vibe coding" — build through AI-assisted development
+- **Product scope:** One thing really well (specialization over generalization)
 
 ### 20+ Years Background
 - Consultant: billing software, data transformation for law firms

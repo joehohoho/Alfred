@@ -138,3 +138,33 @@
 **Full Report:** reports/passive-income-portfolio-2026-04-01.md (12.9 KB)
 
 ---
+
+## Alfred Infrastructure Improvements (2026-04-02)
+
+### #1: Fix Evening Routine Consecutive Errors (P0)
+**Effort:** 30 min | **Impact:** High (unblocks session bridge)
+- Evening Routine cron failing silently (2 consecutive errors)
+- Root cause: likely Discord routing or timeout
+- Solution: Debug, add error handler, implement retry + fallback
+- Blocks: Session state persistence (ACTIVE-TASK.md, LAST-SESSION.md bridge)
+- See: ALFRED-INFRASTRUCTURE-AUDIT-2026-04-02.md
+
+### #2: Consolidate Memory Architecture (P1)
+**Effort:** 3–4 days | **Impact:** Medium (efficiency + continuity)
+- Current: 180+ fragmented memory files (daily logs + task-specific notes)
+- Problem: Expensive context (7+ file loads per boot), poor discoverability
+- Solution: Unified append-only log (structured.jsonl) + daily rotation
+- Benefit: Save $2–5/week on context tokens + better continuity
+- See: ALFRED-INFRASTRUCTURE-AUDIT-2026-04-02.md
+
+### #3: Add HAL-Dispatch Health Checks (P1)
+**Effort:** 1 day | **Impact:** Medium (visibility + reliability)
+- Current: HAL dispatch runs autonomously but no visible health metrics
+- Problem: Don't know queue depth, success rate, or turnaround time
+- Solution: Extend heartbeat with HAL health check (queue, ACK lag, success rate)
+- Benefit: Auto-recovery on task timeout, eliminate silent failures
+- See: ALFRED-INFRASTRUCTURE-AUDIT-2026-04-02.md
+
+---
+**Full audit:** ALFRED-INFRASTRUCTURE-AUDIT-2026-04-02.md (4-section deep dive)
+**Review:** Awaiting Joe approval for prioritization

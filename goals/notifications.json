@@ -613,9 +613,11 @@
     "title": "Should any of your apps become more opinionated or simpler?",
     "message": "Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-01T13:00:00.684Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-02T14:36:06.919Z",
+    "userAnswer": "One thing really well.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1775134800789_735b7cbf",
@@ -623,8 +625,10 @@
     "title": "What would stop you from building something new right now?",
     "message": "Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-02T13:00:00.789Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-02T14:35:49.456Z",
+    "userAnswer": "Depending on complexity, knowledge of the industry.",
+    "deliveryStatus": "sent"
   }
 ]
