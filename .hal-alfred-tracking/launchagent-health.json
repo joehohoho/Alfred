@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-02T20:18:50+0000",
+  "timestamp": "2026-04-02T21:49:16+0000",
   "agents": [
     {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "80073"},
     {"name": "application.com.apple.ActivityMonitor.1152921500311906413.1152921500311906418", "status": "RUNNING", "exit_code": "396"},
@@ -18,7 +18,7 @@
     {"name": "com.alfred.health-server", "status": "RUNNING", "exit_code": "36627"},
     {"name": "com.alfred.job-tracker", "status": "RUNNING", "exit_code": "612"},
     {"name": "com.alfred.kanban-stale-scan", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "72078"},
+    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "91294"},
     {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "56383"},
     {"name": "com.alfred.log-rotation", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.maintenance-weekly", "status": "DOWN", "exit_code": "-"},
@@ -195,7 +195,7 @@
     {"name": "com.apple.backgroundassets.user", "status": "RUNNING", "exit_code": "2754"},
     {"name": "com.apple.backgroundtaskmanagement.agent", "status": "RUNNING", "exit_code": "427"},
     {"name": "com.apple.betaenrollmentagent", "status": "RUNNING", "exit_code": "2568"},
-    {"name": "com.apple.biomesyncd", "status": "RUNNING", "exit_code": "71829"},
+    {"name": "com.apple.biomesyncd", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.bird", "status": "RUNNING", "exit_code": "414"},
     {"name": "com.apple.bluetoothUIServer", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.bluetoothuserd", "status": "RUNNING", "exit_code": "515"},
@@ -286,7 +286,7 @@
     {"name": "com.apple.hiservices-xpcservice", "status": "RUNNING", "exit_code": "379"},
     {"name": "com.apple.homed", "status": "RUNNING", "exit_code": "503"},
     {"name": "com.apple.homeenergyd", "status": "RUNNING", "exit_code": "88774"},
-    {"name": "com.apple.iCloudHelper", "status": "RUNNING", "exit_code": "71839"},
+    {"name": "com.apple.iCloudHelper", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.iCloudNotificationAgent", "status": "RUNNING", "exit_code": "548"},
     {"name": "com.apple.iCloudUserNotificationsd", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.icdd", "status": "RUNNING", "exit_code": "597"},
@@ -334,8 +334,7 @@
     {"name": "com.apple.mdmclient.agent", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.mail", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.shared", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.apple.mdworker.shared.04000000-0200-0000-0000-000000000000", "status": "RUNNING", "exit_code": "71826"},
-    {"name": "com.apple.mdworker.shared.09000000-0600-0000-0000-000000000000", "status": "RUNNING", "exit_code": "71738"},
+    {"name": "com.apple.mdworker.shared.09000000-0200-0000-0000-000000000000", "status": "RUNNING", "exit_code": "91163"},
     {"name": "com.apple.mdworker.single.arm64", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.single.x86_64", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.sizing", "status": "RUNNING", "exit_code": "1365"},
@@ -510,7 +509,7 @@
     {"name": "homebrew.mxcl.postgresql@16", "status": "RUNNING", "exit_code": "605"}
   ],
   "summary": {
-    "total_agents":      507,
+    "total_agents":      506,
     "healthy": 0,
     "failed": 0,
     "critical_down": 0
