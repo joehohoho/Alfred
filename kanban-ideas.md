@@ -195,3 +195,38 @@
 **Next steps:** Joe approval → Design pricing page → Build Stripe integration → Launch
 
 See: SIGNAL-APP-MONETIZATION-STRATEGY-2026-04-02.md (10KB, full analysis + competitor benchmarking)
+
+## Workflow Efficiency Improvements (2026-04-02)
+
+**Status:** Research complete, ready for implementation
+
+**Top 3 Improvements Identified:**
+
+### #1: Consolidate Stripe Configuration (P0 — Unblocks 2 Projects)
+**Issue:** Stripe keys needed for CoinUsUp Phase 5 + Signal App monetization (waiting 9 days)
+**Solution:** Create 15-min "Stripe Configuration Runbook" for Joe (exact steps + validation)
+**Impact:** Unblock $100k+ revenue potential, reduce back-and-forth by 5+ messages
+**Effort:** 30 min to create runbook
+
+### #2: Auto-Archive Old Notifications (P1 — Improves Performance)
+**Issue:** 200+ notifications in queue (5 months old), no cleanup policy; dashboard slow
+**Solution:** Daily archival cron (keep 7 days, archive rest to searchable history)
+**Impact:** Dashboard loads 10-15% faster, session startup faster, cleaner data
+**Effort:** 2 hours to implement
+
+### #3: Decision Cache — Stop Repeating Questions (P1 — Reduces Notification Fatigue)
+**Issue:** Repeat questions asked 4+ times (Joe called out duplicate inquiry system Mar 1, 9)
+**Solution:** Cache answered decisions for 30 days; skip repeat questions until expiration
+**Impact:** Reduce daily notification noise 60%, clearer signal on true blockers, improve trust
+**Effort:** 4 hours to implement
+
+**Secondary Improvements:**
+- Gap A: Cron Job Error Recovery (Evening Routine, 30 min P0 fix)
+- Gap B: Signal App Monetization Pipeline (6 hours, after Stripe keys)
+- Gap C: Memory Archival (1 hour)
+
+**Total time:** 6.5 hours to implement all 3 + secondary fixes; all autonomous (no Joe interaction needed)
+
+**Expected Savings:** 4-6 hours/week (200-300 hours/year) + massive mental overhead reduction
+
+See: WORKFLOW-EFFICIENCY-IMPROVEMENTS-2026-04-02.md (full analysis + implementation plan)
