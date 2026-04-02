@@ -1,55 +1,6 @@
 [
   {
-    "id": "idea_1771538400003_automation_templates",
-    "title": "Automation Templates Marketplace",
-    "description": "Package Joe's automation consulting knowledge into reusable templates and workflows sold as digital products. Could include: LaunchAgent templates, cron job configurations, data transformation scripts, Slack bot setups, monitoring dashboards. Low effort per unit ($10-50 each), infinite scalability. Use Gumroad or Lemon Squeezy for distribution. Each consulting engagement could generate a template as a byproduct.",
-    "category": "passive-income",
-    "status": "new",
-    "source": "claude-code",
-    "effort": "low",
-    "potential": "medium",
-    "revenueModel": "Digital products ($10-50/template), bundle packs ($99-199)",
-    "synergies": [
-      "automation-consulting",
-      "OpenClaw"
-    ],
-    "evaluation": null,
-    "promotedToGoalId": null,
-    "tags": [
-      "digital-products",
-      "templates",
-      "low-effort",
-      "consulting-byproduct"
-    ],
-    "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
-  },
-  {
-    "id": "idea_1771538400004_evenusup_b2b",
-    "title": "Even Us Up: B2B Expense Splitting for Small Teams",
-    "description": "Pivot Even Us Up from consumer expense sharing to also target small businesses \u2014 co-working spaces, consulting teams, shared offices, roommate houses with shared utilities. Premium features: receipt OCR scanning, tax categorization, QuickBooks/Wave integration, recurring splits, PDF export for accountants. B2B customers pay more and churn less than consumer users.",
-    "category": "growth",
-    "status": "evaluated",
-    "source": "claude-code",
-    "effort": "medium",
-    "potential": "medium",
-    "revenueModel": "Freemium: free for personal, $4.99/mo per team for business features",
-    "synergies": [
-      "Even Us Up"
-    ],
-    "evaluation": null,
-    "promotedToGoalId": null,
-    "tags": [
-      "b2b",
-      "existing-app",
-      "premium-features",
-      "expansion"
-    ],
-    "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-20T18:26:01.453Z"
-  },
-  {
-    "id": "idea_1771538400005_alfred_platform",
+    "id": "idea_1771538400003_alfred_platform",
     "title": "Personal AI OS Platform (Alfred-as-a-Service)",
     "description": "Joe is building a sophisticated personal AI operating system (OpenClaw + Command Center + cron + notifications + multi-channel). This stack could be productized for other solopreneurs, consultants, and small business owners who want their own 'Alfred'. Sell the pickaxes during the gold rush. Could start as a self-hosted open-source project with paid managed hosting, or a SaaS with customizable AI agent templates.",
     "category": "passive-income",
@@ -94,7 +45,7 @@
   {
     "id": "idea_1771697586945_82c18088",
     "title": "Client Automation Ideas Pipeline",
-    "description": "Extract automation pain points from consulting engagements and turn them into product ideas or consulting upsells. Build a structured pipeline: observation \u2192 research \u2192 prototype \u2192 pitch.",
+    "description": "Extract automation pain points from consulting engagements and turn them into product ideas or consulting upsells. Build a structured pipeline: observation → research → prototype → pitch.",
     "category": "consulting",
     "status": "new",
     "source": "joe-submitted",
@@ -360,7 +311,7 @@
   {
     "id": "idea_1775161508000_coinusup_academy",
     "title": "CoinUsUp Academy: Nonprofit Best Practices Course Library",
-    "description": "**Problem:** CoinUsUp trials convert poorly (5-10% est.) because new users don't understand best practices.\n\n**Solution:** In-app \"CoinUsUp Academy\" \u2014 5-module course (Onboarding, Fundraising 101, Analytics, Compliance, Growth Playbook). Delivered via in-app + email during trial.\n\n**Revenue:** Included in trial/premium (no charge). Expected: 30-40% conversion lift = $500-2k/mo incremental. Optional: $2.99/mo for advanced modules.\n\n**Why Joe:** Consolidation-aligned. Addresses trial conversion gap. Uses nonprofit expertise. Low maintenance (quarterly updates).\n\n**Evidence:** Donorbox/GiveWP emphasize in-app education as core engagement. SaaS benchmarks: 15-25% trial-to-paid improvement. Reddit r/nonprofit: 15+ threads asking for nonprofit best practices.",
+    "description": "**Problem:** CoinUsUp trials convert poorly (5-10% est.) because new users don't understand best practices.\n\n**Solution:** In-app \"CoinUsUp Academy\" — 5-module course (Onboarding, Fundraising 101, Analytics, Compliance, Growth Playbook). Delivered via in-app + email during trial.\n\n**Revenue:** Included in trial/premium (no charge). Expected: 30-40% conversion lift = $500-2k/mo incremental. Optional: $2.99/mo for advanced modules.\n\n**Why Joe:** Consolidation-aligned. Addresses trial conversion gap. Uses nonprofit expertise. Low maintenance (quarterly updates).\n\n**Evidence:** Donorbox/GiveWP emphasize in-app education as core engagement. SaaS benchmarks: 15-25% trial-to-paid improvement. Reddit r/nonprofit: 15+ threads asking for nonprofit best practices.",
     "category": "growth",
     "status": "promoted",
     "source": "alfred-generated",
@@ -374,7 +325,7 @@
     ],
     "evaluation": {
       "score": 7.5,
-      "notes": "Consolidation-aligned. Addresses conversion bottleneck. 6-8w effort. High leverage: 5%\u21927% conversion = $300-600/mo. VALIDATED: SaaS benchmarks + competitors."
+      "notes": "Consolidation-aligned. Addresses conversion bottleneck. 6-8w effort. High leverage: 5%→7% conversion = $300-600/mo. VALIDATED: SaaS benchmarks + competitors."
     },
     "promotedToGoalId": "task_1775161508001_coinusup_academy",
     "tags": [
@@ -402,5 +353,52 @@
       }
     ],
     "demandValidation": "SaaS benchmarks validate in-app learning. Trial conversion low (5-10%); education expected 30-40% improvement. Competitors feature education. Reddit requests nonprofit best practices."
+  },
+  {
+    "id": "idea_1775194680000_evenusup_roommate_setup_coach",
+    "title": "Even Us Up: Guided Roommate Setup Coach (Onboarding Flow)",
+    "description": "**Problem:** Even Us Up has 0-20 visitors/day with zero external adoption. Root issue: users sign up but don't see immediate value. Cold signup experience lacks guidance on setting up shared expenses.\n\n**Solution:** Interactive onboarding flow (\"Roommate Setup Coach\"): (1) Split type selector (equal, weighted, custom), (2) Smart expense template library (utilities, groceries, household, streaming), (3) Invite + settlement walkthrough, (4) One-tap demo data (show 3-month settlement example).\n\n**Revenue:** Low-friction onboarding expected to improve post-signup activation 20-30% → unlock paid tier trials. Even at 0-20 daily visitors, better retention = faster growth momentum.\n\n**Why Joe:** Consolidation-aligned (Even Us Up improvement). Addresses ACTUAL adoption gap Joe identified (\"no user adoption\"). Low maintenance template library. Reusable onboarding pattern for future Joe products.\n\n**Evidence:** SaaS benchmarks: interactive onboarding improves trial-to-paid 15-25%. Reddit r/roommate (from search): users asking how to split fairly = demand for guidance. Competitors (Splitwise, Venmo) offer templated splits.",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "Improves Even Us Up activation + trial retention. Expected: 20-30% activation improvement on current 0-20 daily visitors = faster growth trajectory to paid tier.",
+    "synergies": [
+      "Even Us Up",
+      "Even Us Up Growth Audit",
+      "User Adoption Improvement"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "onboarding",
+      "user-activation",
+      "evenusup",
+      "consolidation-mode",
+      "adoption-gap"
+    ],
+    "createdAt": "2026-04-02T20:18:00.000Z",
+    "updatedAt": "2026-04-02T20:18:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "SaaS Benchmarks (2025)",
+        "finding": "Interactive onboarding improves trial-to-paid activation 15-25%."
+      },
+      {
+        "source": "Reddit r/roommate + r/Frugal",
+        "finding": "Users explicitly asking how to split expenses fairly, what approach to use. Demand for guidance + templates."
+      },
+      {
+        "source": "Competitors (Splitwise, Venmo)",
+        "finding": "Offer templated expense categories, smart split suggestions. Validation that templates reduce friction."
+      },
+      {
+        "source": "Joe's Mar 26 diagnosis",
+        "finding": "Even Us Up has 0-20 visitors/day with NO external user adoption. Onboarding/activation is the bottleneck, not features."
+      }
+    ],
+    "demandValidation": "SaaS benchmarks validate onboarding impact. Reddit users actively seeking guidance. Competitors use templates. Joe confirmed zero adoption = activation problem (not marketing). This directly addresses the stated blocker."
   }
 ]

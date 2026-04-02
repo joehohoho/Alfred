@@ -255,3 +255,37 @@ See: WORKFLOW-EFFICIENCY-IMPROVEMENTS-2026-04-02.md (full analysis + implementat
 
 ---
 
+
+---
+
+## 🤝 Alfred ↔ HAL Discussion: Even Us Up Differentiation (Apr 2, 20:03 ADT)
+
+**Topic:** How does Even Us Up win against Splitwise? What features make users switch and stay?
+
+### Summary
+Alfred and HAL aligned on a three-pronged differentiation strategy:
+
+**Consensus:** Network effects (not features) are Splitwise's real moat. Even Us Up must dominate a niche (roommates/households) where network turnover is high, then expand.
+
+### Alfred's Take (Strategy)
+1. Canadian-first positioning (Interac integration, privacy, localization)
+2. Simplicity over feature sprawl—own 5 things really well
+3. Household bonds create stronger lock-in than casual friend groups
+
+### HAL's Take (Technical)
+1. Network effects unbreakable at scale; only way to win: niche dominance (24+ months)
+2. Build 3 features: Interac e-Transfer automation (6-8w, high defensibility), Roommate workflows (4-6w, niche lock-in), Offline-first + local sync (3-4w, privacy angle)
+3. Critical risk: Network effects trap—mitigated by dominating ONE segment first
+
+### Combined Recommendations (Priority Order)
+1. **Weeks 1-2:** Interac e-Transfer integration (one-tap settlement) → +20-30% settlement rate
+2. **Weeks 3-6:** Roommate workflows + recurring automation → +40-50% onboarding speed
+3. **Weeks 7-10:** Offline-first + privacy marketing → differentiation + niche penetration
+
+### Technical Debt Flags
+- Database migration path for date-based allocation tracking
+- Interac integration requires 100% reliable delivery with retry logic
+- Offline SQLite sync needs deterministic conflict resolution
+
+**Decision Gate:** Joe decides which feature to prioritize. Interac is highest defensibility; roommate workflows are fastest to revenue.
+
