@@ -616,5 +616,15 @@
     "answered": false,
     "createdAt": "2026-04-01T13:00:00.684Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775134800789_735b7cbf",
+    "type": "question",
+    "title": "What would stop you from building something new right now?",
+    "message": "Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-02T13:00:00.789Z",
+    "answeredAt": null
   }
 ]

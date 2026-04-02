@@ -144,4 +144,7 @@ Waiting on your decision.** (_Bill Review MVP — Priority Clarification Needed_
 
 - **Should any of your apps become more opinionated or simpler?** (_question_, Apr 01 13:00)
   ID: `notif_1775048400684_f1ea860c` — Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?
+
+- **What would stop you from building something new right now?** (_question_, Apr 02 13:00)
+  ID: `notif_1775134800789_735b7cbf` — Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?
 <!-- PENDING-Q-END -->
