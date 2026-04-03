@@ -141,4 +141,10 @@ Enterprise (All)       → NO Trial ✅
 
 Waiting on your decision.** (_Bill Review MVP — Priority Clarification Needed_, Mar 31 18:31)
   ID: `notif_1774981870236_bbfcb7a1` — Please decide on the 3 clarification points above so I can unblock this card.
+
+- **[REMINDER] Bill Review SaaS - Scope Clarification Needed (8 days pending)** (_--title_, Apr 03 02:34)
+  ID: `notif_1775183653207_fe303fa4` — --question
+
+- **[REMINDER] Stripe Trial Config - 12 prices need trial_period_days=14 (8 days pending)** (_--title_, Apr 03 02:34)
+  ID: `notif_1775183656506_4f242a43` — --question
 <!-- PENDING-Q-END -->

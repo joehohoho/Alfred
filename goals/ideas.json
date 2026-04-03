@@ -400,5 +400,54 @@
       }
     ],
     "demandValidation": "SaaS benchmarks validate onboarding impact. Reddit users actively seeking guidance. Competitors use templates. Joe confirmed zero adoption = activation problem (not marketing). This directly addresses the stated blocker."
+  },
+  {
+    "id": "idea_1775272280000_coinusup_nonprofit_growth_launch",
+    "title": "CoinUsUp Nonprofit Growth Launch Template",
+    "description": "**Problem:** CoinUsUp's immediate growth bottleneck (per Joe 3/31) is marketing + UI. Nonprofit teams onboarding to CoinUsUp lack a clear setup workflow or deployment playbook.\n\n**Solution:** Pre-built launch toolkit for nonprofits: (1) 30-day deployment checklist (roles, integrations, team setup), (2) Email sequence for staff + stakeholders (5 emails: intro, setup guide, best practices, success story, month-1 review), (3) Nonprofit-specific copy + case studies (for CoinUsUp marketing site).\n\n**Revenue:** Included in CoinUsUp Pro tier (no additional charge). Expected impact: 15-25% improvement in nonprofit team activation (from CoinUsUp Academy + templates). Drives higher tier adoption.\n\n**Why Joe:** Consolidation-aligned (CoinUsUp improvement). Directly addresses stated growth bottleneck (marketing + onboarding clarity). Reusable: template approach ports to Signal App, Even Us Up later. Low maintenance: quarterly template refresh.\n\n**Evidence:** JOE-PROFILE research: SaaS benchmarks validate onboarding improves trial-to-paid 15-25%. Competitors (Donorbox/GiveWP) emphasize nonprofit-specific workflows. CoinUsUp Academy (7.5 score) validates nonprofit market receptiveness.",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "medium",
+    "revenueModel": "Included in CoinUsUp Pro tier (drives tier upgrade adoption). Expected: 15-25% activation improvement + $200-500/mo tier-upgrade incremental.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Academy",
+      "CoinUsUp Growth Unlock",
+      "Trial-to-Paid Conversion"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "nonprofit",
+      "marketing",
+      "onboarding-templates",
+      "coinusup",
+      "consolidation-mode",
+      "growth-bottleneck"
+    ],
+    "createdAt": "2026-04-03T03:18:00.000Z",
+    "updatedAt": "2026-04-03T03:18:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "SaaS Benchmarks (Apptio 2025, cited JOE-PROFILE)",
+        "finding": "Nonprofit-specific onboarding improves trial-to-paid activation 15-25%."
+      },
+      {
+        "source": "Joe's Mar 31 Growth Unlock Answer",
+        "finding": "CoinUsUp growth bottleneck: 'Marketing and UI'. This template addresses both."
+      },
+      {
+        "source": "CoinUsUp Academy (Promoted Idea, 7.5 score)",
+        "finding": "Nonprofit market validates in-app education as adoption lever. Templates extend this."
+      },
+      {
+        "source": "Consolidation Mode Directive (Mar 23)",
+        "finding": "Joe explicitly focuses on improving existing 3 apps, not new products. This is app improvement."
+      }
+    ],
+    "demandValidation": "SaaS benchmarks validate nonprofit-specific workflows improve adoption. CoinUsUp Academy (7.5 score, promoted) validates nonprofit market. Joe's stated bottleneck is marketing + onboarding clarity. This directly fills the gap at low effort (template library, quarterly refresh)."
   }
 ]
