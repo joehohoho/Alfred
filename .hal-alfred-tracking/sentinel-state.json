@@ -2,28 +2,28 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:37Z",
+    "lastCheck": "2026-04-03T00:59:35Z",
     "lastNotified": 1774966862.427883,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:38Z",
+    "lastCheck": "2026-04-03T00:59:35Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:43Z",
+    "lastCheck": "2026-04-03T00:59:40Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:43Z",
+    "lastCheck": "2026-04-03T00:59:40Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
@@ -33,48 +33,48 @@
       {
         "fix": "run-cleanup",
         "success": false,
-        "at": 1775158628.212057
+        "at": 1775175830.8431349
       },
       {
         "fix": "run-cleanup",
         "success": false,
-        "at": 1775158935.199658
+        "at": 1775176137.795878
       },
       {
         "fix": "run-cleanup",
         "success": false,
-        "at": 1775159242.07248
+        "at": 1775176448.505716
       }
     ],
-    "lastCheck": "2026-04-03T00:18:43Z",
+    "lastCheck": "2026-04-03T00:59:40Z",
     "lastNotified": 0,
-    "lastFixTime": 1775159242.072481
+    "lastFixTime": 1775176448.505718
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:43Z",
+    "lastCheck": "2026-04-03T00:59:41Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:44Z",
+    "lastCheck": "2026-04-03T00:59:41Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:44Z",
+    "lastCheck": "2026-04-03T00:59:41Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-03T00:18:44Z",
+    "lastCheck": "2026-04-03T00:59:41Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }
