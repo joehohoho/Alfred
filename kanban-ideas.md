@@ -1,8 +1,44 @@
 
+## Workflow Efficiency Improvements (Apr 3, 15:05 ADT — Proactive Scan)
+
+### TOP PRIORITY: Decision Gate Repetition (P1)
+**Priority:** 1 (This Week) | **Effort:** 3 hours | **Impact:** Unblock 2 features (+$500-2K/mo immediately)
+**Problem:** Joe gets same decision question 3-4 times (Bill Review scope, Trial Stripe config). No response tracking = repeats every 5-7 days. Blocks passive income features 8-16 days.
+**Solution:** Build decision-memory.json with `last_asked_date` + escalation logic:
+   - If question asked <7 days ago: skip (don't re-send)
+   - If >48h with no response: escalate with 24h deadline
+   - If >72h: auto-move card to Blocked column
+**Implementation:** Add to notification router before sending decision questions. Validation: Zero duplicate questions within 7 days.
+**Blockers:** None
+**Output:** Unblock Bill Review scope + Trial launch this week
+
+### TOP PRIORITY: Stripe Manual Configuration Automation (P1)
+**Priority:** 1 (This Week) | **Effort:** 6 hours | **Impact:** 60 min → 2 min setup; immediate trial deploy
+**Problem:** Trial feature 100% code-complete (Mar 18) but blocked on manual Stripe price updates (12 prices × 5 min each = 60 min). Joe must navigate dashboard, update trial_period_days, test. High context-switching cost.
+**Solution:** Create `scripts/stripe-config-sync.sh` that:
+   - Reads desired config from JSON (stripe-config.json)
+   - Updates all 12 prices via Stripe API (v1/products/{id}/prices)
+   - Pre-deployment validation gate (confirms all prices updated before deploy)
+   - Logs all changes (audit trail)
+**Implementation:** Ship with trial deploy. One command: `bash scripts/stripe-config-sync.sh deploy` (vs. 60 manual clicks).
+**Output:** Trial feature live this week; Stripe setup becomes 2 min (not 60 min)
+
+### Repetitive Technical Review (P2)
+**Priority:** 2 (Next Week) | **Effort:** 4 hours | **Impact:** 4-8h approval cycle → <30 min
+**Problem:** Alfred generates 30 KB specs (STRIPE-TRIAL-SPEC.md, TRIAL-DEPLOYMENT-RUNBOOK.md). Joe reads + approves. 4-8h turnaround. Scales poorly as features increase.
+**Solution:** 
+   1. Auto-approval gate for low-risk deployments (no payment flow changes, 100% test pass, no new 3rd-party deps)
+   2. Executive summary template (1 page instead of 30 KB)
+   3. Post auto-approved summary to Discord (no Joe review needed unless he overrides)
+**Implementation:** Add criteria to CI/CD. Deploy low-risk features to staging automatically, notify Joe.
+**Output:** Joe approval becomes async (scan notification vs. blocking review)
+
+---
+
 ## Infrastructure Improvements (Mar 31, 23:01 ADT)
 
 ### 1. Unified Cron Health Check
-**Priority:** 1 (Week 1) | **Effort:** 2-3 hours | **Impact:** $3-5/month savings
+**Priority:** 3 (Week 2) | **Effort:** 2-3 hours | **Impact:** $3-5/month savings
 **Description:** Add pre-flight gateway health check to kanban-idle-loop.sh. Ping OpenAI Codex before executing jobs. If dead: skip jobs this cycle. Prevents wasted tokens on failed auth attempts.
 **Blockers:** None
 **Related:** GAP 1.1 (no pre-execution health check)
@@ -14,7 +50,7 @@
 **Related:** GAP 2.1, GAP 2.2, GAP 4.1
 
 ### 3. Notification Deduplication + Priority Queue
-**Priority:** 3 (Week 2) | **Effort:** 2-3 hours | **Impact:** Reduce Discord noise, ensure critical alerts visible
+**Priority:** 4 (Week 3) | **Effort:** 2-3 hours | **Impact:** Reduce Discord noise, ensure critical alerts visible
 **Description:** Add notification fingerprinting (hash-based duplicate detection). Implement priority levels (CRITICAL → STANDARD → OPTIONAL). Enforce quiet hours in router.
 **Blockers:** None
 **Related:** GAP 3.1, GAP 3.2

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-04-03T16:04:00Z",
-  "session_time": "1:04 PM AST",
-  "context_pct": 22,
-  "context_tokens": "45k/200k",
+  "timestamp": "2026-04-03T17:04:00Z",
+  "session_time": "2:04 PM AST",
+  "context_pct": 29,
+  "context_tokens": "57k/200k",
   "cache_hit_pct": 99,
   "compactions": 0,
   "model": "haiku-4-5",
