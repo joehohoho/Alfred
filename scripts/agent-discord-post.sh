@@ -47,7 +47,11 @@ fi
 echo "[agent] Posting to Discord channel: $CHANNEL_ID"
 echo "Message: $MESSAGE"
 
-# Call the message tool (available in OpenClaw agent context)
-message action=send channel=discord target="$CHANNEL_ID" message="$MESSAGE"
+# Note: This script is deprecated for cron jobs
+# Cron jobs should use delivery.mode="announce" + delivery.to="<channel_id>" instead
+# For interactive agents, use the OpenClaw message tool directly (not via bash)
 
-echo "[agent] ✅ Discord post complete"
+echo "[agent] ℹ️  Channel resolved to: $CHANNEL_ID"
+echo "[agent] Message: $MESSAGE"
+echo "[agent] ⚠️  For cron jobs, use cron delivery config instead of this script"
+echo "[agent] For agents, use: sessions_spawn with streamTo or message tool within agent context"
