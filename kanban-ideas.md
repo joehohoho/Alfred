@@ -1,4 +1,50 @@
 
+## Passive Income Portfolio Health (Apr 3, 17:05 ADT — Portfolio Review)
+
+### Current State
+- **Total MRR:** $2.7–4.6K (combined across 4 projects)
+- **Potential:** $12–27K/mo (with all blockers unblocked)
+- **Bottleneck Status:** 2 projects blocked on Joe decisions; 2 ready to scale
+
+### Portfolio Snapshot
+
+| Project | Status | Current MRR | Potential | Blocker | Action |
+|---------|--------|-------------|-----------|---------|--------|
+| **CoinUsUp** | Live+Growing | $500–800 | $3–5K | Trial Stripe config (5 min) | 🔴 UNBLOCK NOW |
+| **Even Us Up** | Live+Stagnant | $200–300 | $1–2K | UX redesign needed (4 weeks) | 🟡 SCHEDULE |
+| **Signal App** | Pre-launch | $0 | $5–15K | Scope decision A/B (2 min) | 🟢 DECIDE THIS WEEK |
+| **Automation Consulting** | Retainer | $2–3.5K | $3–5K | Productization (2–3 weeks) | 🟢 NICE-TO-HAVE |
+
+### Top 3 Unblock Actions
+
+**🔴 #1: CoinUsUp Trial (IMMEDIATE)**
+- What: Approve Stripe config + deploy trial
+- ROI: +$500–2K/mo, <2 hours execution
+- Timeline: This hour (if Joe approves)
+- Blocked: 16 days
+
+**🟢 #2: Signal App Scope (THIS WEEK)**
+- What: Joe decides "personal tool (A)" or "external SaaS (B)"
+- ROI: Unlocks $2–3K/mo by month 12
+- Timeline: 2 minutes for decision, 6–8 weeks dev
+- Blocked: 9 days
+
+**🟡 #3: Even Us Up UX Sprint (NEXT MONTH)**
+- What: Redesign onboarding (40% drop-off fix) + mobile optimization
+- ROI: +$100–500/mo, increases retention
+- Timeline: 4–6 weeks
+- Status: Not yet started
+
+### Q2 2026 Target
+- **If all blockers unblocked:** $7–10K/mo by end of June
+- **Current trajectory:** $2.7–4.6K/mo (flat without action)
+
+**Key insight:** CoinUsUp Trial alone = $500–2K/mo. This single 5-minute decision has highest ROI in portfolio. Second highest is Signal App scope decision (2 min, unlocks $2–3K/mo potential).
+
+**Full analysis:** See `memory/passive-income-portfolio-review-2026-04-03.md`
+
+---
+
 ## Workflow Efficiency Improvements (Apr 3, 15:05 ADT — Proactive Scan)
 
 ### TOP PRIORITY: Decision Gate Repetition (P1)
