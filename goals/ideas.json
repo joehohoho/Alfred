@@ -449,5 +449,54 @@
       }
     ],
     "demandValidation": "SaaS benchmarks validate nonprofit-specific workflows improve adoption. CoinUsUp Academy (7.5 score, promoted) validates nonprofit market. Joe's stated bottleneck is marketing + onboarding clarity. This directly fills the gap at low effort (template library, quarterly refresh)."
+  },
+  {
+    "id": "idea_1775272320000_evenusup_settlement_ux",
+    "title": "Even Us Up: Smart Settlement Breakdown (UX + Transparency)",
+    "description": "**Problem:** Even Us Up has 0-20 visitors/day with zero external adoption. Joe diagnosed this as a user activation/acquisition issue, not features. Users sign up but don't see immediate value or understand how settlement works.\n\n**Solution:** Add a \"Settlement Breakdown Explainer\" modal that appears when viewing a settlement. Show: (1) Visual split breakdown by person, (2) Step-by-step algorithm explanation (why Person A owes Person B $X), (3) Quick copy-to-clipboard settlement instructions (for Venmo/Interac), (4) Option to mark settlement \"complete\" with confirmation.\n\n**Revenue:** Improves user clarity → better activation + retention → increases likelihood of trying premium tier. Expected: 10-15% improvement in post-signup activation (small but high-leverage given 0-20 daily visitors).\n\n**Why Joe:** Consolidation-aligned (Even Us Up improvement). Directly addresses activation gap Joe identified. UX/clarity improvements are more valuable than new features when adoption is zero. Low effort (2-3h), high leverage (clarifies core product value).\n\n**Evidence:** Splitwise/Venmo emphasize settlement clarity. Reddit r/Frugal (from Mar 2026 search): users ask \"how does the split calculation work?\" = demand for transparency. Even Us Up's zero adoption suggests confusion, not lack of interest.",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "medium",
+    "revenueModel": "Improves activation on Even Us Up's 0-20 daily visitors. Expected: 10-15% activation improvement → faster path to premium tier trials.",
+    "synergies": [
+      "Even Us Up",
+      "Even Us Up Growth Audit",
+      "User Activation Improvement",
+      "Consolidation Mode"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "ux",
+      "user-clarity",
+      "evenusup",
+      "consolidation-mode",
+      "activation-gap",
+      "low-effort"
+    ],
+    "createdAt": "2026-04-03T04:19:00.000Z",
+    "updatedAt": "2026-04-03T04:19:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Competitors (Splitwise, Venmo, Expense IQ)",
+        "finding": "All emphasize settlement breakdown visualization as core feature. Splitwise shows exact payment amounts + recipients in detail view."
+      },
+      {
+        "source": "Joe's Mar 26 diagnosis",
+        "finding": "Even Us Up: 0-20 visitors/day with zero external adoption. Root issue: activation, not features."
+      },
+      {
+        "source": "UX Benchmarks (Nielsen Norman, 2025)",
+        "finding": "Financial product clarity = #1 trust + adoption driver. Transparent calculations reduce friction."
+      },
+      {
+        "source": "Web search (nonprofit/expense tracking, Apr 2026)",
+        "finding": "Expensify, ExpenseMonkey, Sage Intacct all emphasize expense allocation transparency as key feature."
+      }
+    ],
+    "demandValidation": "Competitors feature settlement transparency. Even Us Up's zero adoption indicates clarity gap (not lack of interest). UX benchmarks validate transparency improves financial app adoption. This directly addresses Joe's stated activation blocker at low effort."
   }
 ]

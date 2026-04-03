@@ -147,4 +147,64 @@ Waiting on your decision.** (_Bill Review MVP — Priority Clarification Needed_
 
 - **[REMINDER] Stripe Trial Config - 12 prices need trial_period_days=14 (8 days pending)** (_--title_, Apr 03 02:34)
   ID: `notif_1775183656506_4f242a43` — --question
+
+- **
+## Blueprint Complete — Waiting on ONE Clarification
+
+**Card:** Bill Review & Invoice Audit Automation (task_1774058538023_ae4bf3d2)
+**Status:** Blocked 11 days in Review
+**What's ready:** Complete market validation, MVP blueprint, 6-week execution plan (in ideas/ folder)
+
+## Your Decision (2 options)
+
+**Option A: Personal Tool**
+- Use it to audit your own invoices, consulting contract costs
+- Not a product, just for your operations
+- I build a simple, lightweight version (weekend work)
+
+**Option B: External SaaS Product**  
+- Sell to Canadian SMBs, law firms, construction companies
+- 6-week MVP build + customer validation
+- Fits passive income goals (-10k/mo target)
+
+## What I Need
+**Just reply:** "A" or "B" (in Discord, kanban comment, or notification reply)
+
+## Impact
+- If A: Move to Blocked, focus on CoinUsUp/Signal App
+- If B: Start building immediately (timeline slips to April 7 if delayed further)
+
+No other info needed. Just the scope direction.** (_[UNBLOCK NEEDED] Bill Review SaaS - Scope Decision (11 days pending)_, Apr 03 06:34)
+  ID: `notif_1775198053495_07a0bf06` — No details provided
+
+- **
+## Implementation 100% Complete — Last Step: Stripe Dashboard Config
+
+**Card:** Implement 14-day free trial (task_1773156748695_23b9e471)
+**Status:** Review, 16 days pending
+**Code status:** ✅ Backend + Frontend COMPLETE. All tests passing. Ready to deploy.
+
+## What's Blocking (5-minute manual task)
+
+Update 12 product prices in Stripe dashboard with trial configuration:
+- **Basic Monthly (US/CA)** — set trial_period_days: 14
+- **Basic Annual (US/CA)** — set trial_period_days: 14
+- **Pro Monthly (US/CA)** — set trial_period_days: 14
+- **Pro Annual (US/CA)** — set trial_period_days: 14
+
+Steps:
+1. Go to https://dashboard.stripe.com/products
+2. For each Basic/Pro price (US/CA), edit settings → Set trial_period_days: 14
+3. Reply "Stripe config done" in kanban or here
+
+(Enterprise tier: NO trial, leave as-is)
+
+## If You Don't Want Trials
+No problem — just reply "skip trial for now" and I'll close the card.
+
+## Timeline  
+Once config complete: 4 hours to staging test + deploy to production (same day).
+
+What's the call?** (_[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step (16 days pending)_, Apr 03 06:34)
+  ID: `notif_1775198053496_cd4a5e2e` — No details provided
 <!-- PENDING-Q-END -->

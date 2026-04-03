@@ -654,5 +654,23 @@
     "answered": false,
     "createdAt": "2026-04-03T02:34:16.506Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775198053495_07a0bf06",
+    "type": "[UNBLOCK NEEDED] Bill Review SaaS - Scope Decision (11 days pending)",
+    "title": "\n## Blueprint Complete — Waiting on ONE Clarification\n\n**Card:** Bill Review & Invoice Audit Automation (task_1774058538023_ae4bf3d2)\n**Status:** Blocked 11 days in Review\n**What's ready:** Complete market validation, MVP blueprint, 6-week execution plan (in ideas/ folder)\n\n## Your Decision (2 options)\n\n**Option A: Personal Tool**\n- Use it to audit your own invoices, consulting contract costs\n- Not a product, just for your operations\n- I build a simple, lightweight version (weekend work)\n\n**Option B: External SaaS Product**  \n- Sell to Canadian SMBs, law firms, construction companies\n- 6-week MVP build + customer validation\n- Fits passive income goals (-10k/mo target)\n\n## What I Need\n**Just reply:** \"A\" or \"B\" (in Discord, kanban comment, or notification reply)\n\n## Impact\n- If A: Move to Blocked, focus on CoinUsUp/Signal App\n- If B: Start building immediately (timeline slips to April 7 if delayed further)\n\nNo other info needed. Just the scope direction.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-03T06:34:13.495Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775198053496_cd4a5e2e",
+    "type": "[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step (16 days pending)",
+    "title": "\n## Implementation 100% Complete — Last Step: Stripe Dashboard Config\n\n**Card:** Implement 14-day free trial (task_1773156748695_23b9e471)\n**Status:** Review, 16 days pending\n**Code status:** ✅ Backend + Frontend COMPLETE. All tests passing. Ready to deploy.\n\n## What's Blocking (5-minute manual task)\n\nUpdate 12 product prices in Stripe dashboard with trial configuration:\n- **Basic Monthly (US/CA)** — set trial_period_days: 14\n- **Basic Annual (US/CA)** — set trial_period_days: 14\n- **Pro Monthly (US/CA)** — set trial_period_days: 14\n- **Pro Annual (US/CA)** — set trial_period_days: 14\n\nSteps:\n1. Go to https://dashboard.stripe.com/products\n2. For each Basic/Pro price (US/CA), edit settings → Set trial_period_days: 14\n3. Reply \"Stripe config done\" in kanban or here\n\n(Enterprise tier: NO trial, leave as-is)\n\n## If You Don't Want Trials\nNo problem — just reply \"skip trial for now\" and I'll close the card.\n\n## Timeline  \nOnce config complete: 4 hours to staging test + deploy to production (same day).\n\nWhat's the call?",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-03T06:34:13.496Z",
+    "answeredAt": null
   }
 ]
