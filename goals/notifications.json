@@ -630,5 +630,29 @@
     "answeredAt": "2026-04-02T14:35:49.456Z",
     "userAnswer": "Depending on complexity, knowledge of the industry.",
     "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1775183653207_fe303fa4",
+    "type": "--title",
+    "title": "[REMINDER] Bill Review SaaS - Scope Clarification Needed (8 days pending)",
+    "message": "--question",
+    "goalId": "Is the invoice audit tool a **personal tool for your own use**, or an **external SaaS product**? This blocks MVP build and prioritization.",
+    "taskId": "--context",
+    "source": "Blueprint + market validation complete. Last decision blocked by scope clarification (personal vs external product). Once you clarify, I can unblock immediately and start building.",
+    "answered": false,
+    "createdAt": "2026-04-03T02:34:13.207Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775183656506_4f242a43",
+    "type": "--title",
+    "title": "[REMINDER] Stripe Trial Config - 12 prices need trial_period_days=14 (8 days pending)",
+    "message": "--question",
+    "goalId": "Can you update these 12 product prices on Stripe dashboard? Set trial_period_days=14: Basic Monthly (US/CA), Basic Annual (US/CA), Pro Monthly (US/CA), Pro Annual (US/CA). This unblocks staging testing.",
+    "taskId": "--context",
+    "source": "Code implementation 100% complete (backend + frontend + tests). Ready to test and deploy. Only blocker: Stripe dashboard pricing configuration for the 12 Basic/Pro prices.",
+    "answered": false,
+    "createdAt": "2026-04-03T02:34:16.506Z",
+    "answeredAt": null
   }
 ]
