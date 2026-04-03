@@ -2578,7 +2578,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-04-03T06:34:17.900Z",
+    "updatedAt": "2026-04-03T22:35:02.276Z",
     "assignedAt": "2026-03-18T21:00:56.448Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "281cf54c-659a-4e19-ada8-dd5d3377fe01",
@@ -2745,6 +2745,12 @@
         "author": "alfred",
         "text": "[idle:goal-progress-check 2026-04-03 03:33] Implementation 100% complete. Sent final unblock notification: 12 Stripe price IDs need trial_period_days=14 config (5 min task). Awaiting Stripe dashboard update or skip decision to proceed.",
         "createdAt": "2026-04-03T06:34:17.900Z"
+      },
+      {
+        "id": "cmt_1775255702276_aef0baf5",
+        "author": "alfred",
+        "text": "[IDLE-PROGRESS-CHECK 19:34 ADT] Card blocked 16 days on Stripe config. Code 100% complete, tests passing, deployed to staging. Ready to launch immediately after you update 12 product prices in Stripe (Basic/Pro US/CA, Monthly/Annual) with trial_period_days=14. 5-minute task.",
+        "createdAt": "2026-04-03T22:35:02.276Z"
       }
     ],
     "reviewEnteredAt": "2026-03-31T19:03:53.336Z",
@@ -3571,7 +3577,7 @@
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T02:02:18.023Z",
-    "updatedAt": "2026-04-03T06:34:17.892Z",
+    "updatedAt": "2026-04-03T22:35:02.268Z",
     "assignedAt": "2026-03-21T02:30:49.790Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "e09d869a-e71b-43b5-b131-e3756766986c",
@@ -3665,6 +3671,12 @@
         "author": "alfred",
         "text": "[idle:goal-progress-check 2026-04-03 03:33] Blueprint validated + pending scope decision. Sent focused decision notification: Personal Tool (A) or External SaaS (B)? Awaiting clarification to unblock build.",
         "createdAt": "2026-04-03T06:34:17.892Z"
+      },
+      {
+        "id": "cmt_1775255702268_3ab159a3",
+        "author": "alfred",
+        "text": "[IDLE-PROGRESS-CHECK 19:34 ADT] Card blocked 11 days on scope clarification. Market validation + blueprint complete and ready to build. Awaiting decision: Is this a personal tool (A) or external SaaS product (B)? No other info needed — just the scope direction.",
+        "createdAt": "2026-04-03T22:35:02.268Z"
       }
     ]
   },
