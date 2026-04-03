@@ -1,11 +1,7 @@
 {
-  "lastActivityAt": "2026-04-03T22:04:38.288Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-04-03T22:19:38.912Z",
+  "lastActivityType": "surprise-delight",
   "recentActivities": [
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-04-02T06:32:57.440Z"
-    },
     {
       "type": "generate-ideas",
       "dispatchedAt": "2026-04-02T07:17:59.451Z"
@@ -201,8 +197,12 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-04-03T22:04:38.288Z"
+    },
+    {
+      "type": "surprise-delight",
+      "dispatchedAt": "2026-04-03T22:19:38.912Z"
     }
   ],
-  "totalIdleDispatches": 622,
+  "totalIdleDispatches": 623,
   "cooldownMinutes": 15
 }
