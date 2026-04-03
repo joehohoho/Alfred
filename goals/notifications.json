@@ -672,5 +672,15 @@
     "answered": false,
     "createdAt": "2026-04-03T06:34:13.496Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775221200747_412b67e8",
+    "type": "question",
+    "title": "For Even Us Up, what's the smallest win that would feel like real progress?",
+    "message": "Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-03T13:00:00.747Z",
+    "answeredAt": null
   }
 ]

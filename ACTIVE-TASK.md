@@ -207,4 +207,7 @@ Once config complete: 4 hours to staging test + deploy to production (same day).
 
 What's the call?** (_[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step (16 days pending)_, Apr 03 06:34)
   ID: `notif_1775198053496_cd4a5e2e` — No details provided
+
+- **For Even Us Up, what's the smallest win that would feel like real progress?** (_question_, Apr 03 13:00)
+  ID: `notif_1775221200747_412b67e8` — Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?
 <!-- PENDING-Q-END -->
