@@ -289,3 +289,70 @@ Alfred and HAL aligned on a three-pronged differentiation strategy:
 
 **Decision Gate:** Joe decides which feature to prioritize. Interac is highest defensibility; roommate workflows are fastest to revenue.
 
+
+---
+
+## Passive Income Idea Scan — April 2, 2026 (21:03 ADT)
+
+**Score (Top Idea - Compliance Calendar):** 8.2/10 — Fast launch, largest TAM, accountant channel
+
+### 3 Ideas Generated
+
+**#1 — Canadian SMB Compliance Calendar (RECOMMENDED START)**
+- **MRR:** $5k–15k/mo (conservative: $8k–9k/mo with accountant channel)
+- **Timeline:** 2–4 weeks to MVP
+- **Tech Complexity:** 2/5 (mostly data entry + CRA rule logic)
+- **Why Joe:** 20+ years compliance knowledge, accountant relationships, regulatory expertise
+- **Revenue Model:** Freemium (5 alerts/year) + Pro ($14.99/mo) + Accountant Reseller ($99/mo)
+- **Validation:** 1.5M+ Canadian SMBs; CRA penalties validate urgency (20–50% for missed filings)
+- **Risk Level:** LOW (fastest launch, lowest tech risk, largest TAM)
+- **Action:** Research CRA + provincial deadlines, build calendar logic, soft-launch with accountants
+
+**#2 — AI-Powered Contract Review (4–6 WEEK TIMELINE)**
+- **MRR:** $4k–12k/mo
+- **Tech Complexity:** 2/5 (Claude API integration + document parsing)
+- **Why Joe:** Legal background + law firm expertise + AI credibility
+- **Revenue Model:** Freemium (1 review/mo) + Pro ($19.99/mo) + Enterprise ($99/mo)
+- **TAM:** 60k+ (lawyers, founders, in-house counsel in Canada)
+- **Risk Level:** MEDIUM (legal liability mitigation needed; adoption risk on AI trust)
+- **Action:** Build MVP, partner with 2–3 lawyers for credibility, launch freemium
+
+**#3 — Retainer Management + Billing Automation (3–4 MONTH TIMELINE)**
+- **MRR:** $3k–8k/mo
+- **Tech Complexity:** 3/5 (accounting logic + provincial compliance)
+- **Why Joe:** Elite billing software background, 20+ year law firm expertise, underserved niche
+- **Revenue Model:** Freemium (1 retainer) + Pro ($29.99/mo) + Usage ($0.99/invoice)
+- **TAM:** 2,000–3,000 solo lawyers + small firms in Canada
+- **Risk Level:** MEDIUM (slow lawyer adoption, complex compliance per province)
+- **Action:** Validate with 3–5 Ontario/BC lawyers, research trust account regulations, build MVP if strong feedback
+
+### Comparison Matrix
+
+| Idea | MRR | Complexity | Timeline | Competition | Joe's Edge |
+|------|-----|-----------|----------|------------|-----------|
+| **Compliance Calendar** | $5–15k | 2/5 | 2–4w | LOW | Regulatory expertise |
+| **Contract Review** | $4–12k | 2/5 | 4–6w | MEDIUM | Legal background |
+| **Retainer Management** | $3–8k | 3/5 | 8–12w | HIGH | Billing expertise |
+
+### Why These Align with Joe's Philosophy
+
+✅ **"One thing really well"** — Each tool owns ONE specific problem (calendar/contracts/retainers)
+✅ **Low maintenance** — Passive income model: auto-updating rules, async reviews, self-service tracking
+✅ **Industry knowledge gate** — All require 20+ year background (Joe has this; competitors don't)
+✅ **Canadian moat** — All are Canada-specific; Clio, Wave, Ironclad ignore this market gap
+✅ **Solo dev feasible** — MVP in 40–80 hours; Joe can build alone
+
+### Recommended Sequencing
+
+**Risk-Averse Path (Safest):**
+1. Start Compliance Calendar (fastest, 2–4w)
+2. Move to Contract Review (4–6w, leverage initial traction)
+3. Later: Retainer Management (when cash flow supports longer build)
+
+**Revenue-Focused Path (Aggressive):**
+1. Start Compliance Calendar (2–4w, build accountant channel)
+2. Parallel: Research Retainer Management (partner validation)
+3. Launch Contract Review next (4–6w, compound revenue)
+
+**Decision Gate:** Joe prioritizes which to start. Compliance Calendar is lowest risk; Retainer Management is highest upside.
+
