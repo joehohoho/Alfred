@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-04-03T15:49:42Z",
+  "error_type": "read_without_path",
+  "count_last_100_lines": 18,
+  "last_error_time": "2026-04-03T11:34:37.217-03:00 [agent/embedded]",
+  "sample": "2026-04-03T11:34:37.217-03:00 [agent/embedded] read tool called without path: toolCallId=toolu_01WL8Zc371eJBpR2M61Pvoo5 argsType=object"
+}
+{
+  "timestamp": "2026-04-03T15:49:44Z",
+  "error_type": "read_without_path",
+  "count_last_100_lines": 18,
+  "last_error_time": "2026-04-03T11:34:37.217-03:00 [agent/embedded]",
+  "sample": "2026-04-03T11:34:37.217-03:00 [agent/embedded] read tool called without path: toolCallId=toolu_01WL8Zc371eJBpR2M61Pvoo5 argsType=object"
+}
