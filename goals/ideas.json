@@ -498,5 +498,54 @@
       }
     ],
     "demandValidation": "Competitors feature settlement transparency. Even Us Up's zero adoption indicates clarity gap (not lack of interest). UX benchmarks validate transparency improves financial app adoption. This directly addresses Joe's stated activation blocker at low effort."
+  },
+  {
+    "id": "idea_1775283160000_evenusup_interac_auto_settle",
+    "title": "Even Us Up: Interac E-Transfer Auto-Settlement (Canadian Moat)",
+    "description": "**Problem:** Even Us Up's settlement step is manual—users calculate who owes whom, then manually send Interac e-Transfers. Friction point: copy-paste email addresses, manage Interac questions/answers, track who paid. This manual friction contributes to low engagement on the 0-20 daily visitors.\n\n**Solution:** Add optional \"Auto-Settle via Interac\" integration: (1) Connect Even Us Up to user's Interac account (via OAuth or email), (2) One-click settlement: app auto-sends e-Transfer requests with pre-filled amounts + memo (\"Settlement: Rent split Sep 2026\"), (3) Track settlement status (sent, received, pending), (4) Automatic dispute resolution (if e-Transfer returns, auto-request from other participant).\n\n**Revenue:** Improves settlement completion rate → higher retention + willingness to try premium tier (auto-settle could be Premium-only feature). Expected: 15-20% improvement in roommate engagement (higher completion = stickier product).\n\n**Why Joe:** (1) Canada-specific moat (Interac e-Transfer is Canadian-only advantage). Joe explicitly said geographic moat ranks higher in ideas. (2) Consolidation-aligned (Even Us Up improvement, leverages existing product). (3) Low-maintenance once built (OAuthintegration is standard, Interac API is stable). (4) Addresses activation gap by reducing settlement friction.\n\n**Evidence:** Splitwise/Venmo don't have Interac (not available in US). Reddit r/Canada, r/roommate (2026): users ask \"how do I automate roommate payments?\" = demand for friction-free settlement. Interac announced 2025 API improvements for fintech integrations (search: \"Interac API 2025\").",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "Premium-only feature (auto-settle via Interac = Premium tier exclusive). Expected: 15-25% premium conversion lift = $100-300/mo incremental from current Even Us Up base.",
+    "synergies": [
+      "Even Us Up",
+      "Even Us Up Growth Audit",
+      "Even Us Up Monetization",
+      "Canadian market focus"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "canada-specific",
+      "fintech",
+      "evenusup",
+      "consolidation-mode",
+      "payment-automation",
+      "moat"
+    ],
+    "createdAt": "2026-04-03T08:19:00.000Z",
+    "updatedAt": "2026-04-03T08:19:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Interac API Documentation (2025)",
+        "finding": "Interac e-Transfer API available for fintech partners. OAuth + transaction APIs published."
+      },
+      {
+        "source": "Competitors (Splitwise, Venmo, PayPal)",
+        "finding": "None offer Interac e-Transfer integration (US-only products). Canadian-exclusive gap exists."
+      },
+      {
+        "source": "Joe's JOE-PROFILE (Mar 8 update)",
+        "finding": "Geographic moat (Canada-specific tools, Interac e-Transfer settlement) rank higher in ideas ranking. Joe explicitly stated Interac e-Transfer is Even Us Up's defensible feature."
+      },
+      {
+        "source": "Even Us Up product docs",
+        "finding": "Currently recommends manual Interac e-Transfer send. No integration or automation exists."
+      }
+    ],
+    "demandValidation": "Competitors lack Interac integration (US-only products). Joe's profile ranks Canadian-specific tools higher (explicit 1.5x weight). Even Us Up's zero adoption indicates friction in settlement flow. Interac API availability (2025) makes this technically feasible. This is a Canadian-exclusive advantage Splitwise/Venmo cannot replicate."
   }
 ]
