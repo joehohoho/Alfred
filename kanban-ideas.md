@@ -23,31 +23,49 @@
 
 **Full Audit Report:** reports/alfred-infrastructure-audit-2026-03-31.md
 
-## Signal App Monetization Strategy (Apr 1, 00:31 ADT)
+## Signal App Monetization Strategy (UPDATED Apr 3, 13:15 ADT)
 
-**Recommendation:** Freemium + Premium Subscription ($9.99-14.99/month)
+**REVISED RECOMMENDATION:** Hybrid Model — Freemium + Premium Subscription + B2B/API Licensing
 
-**Tier Structure:**
-- **Free:** 5 signals/day, basic analysis, email delivery, 30-day history
-- **Premium:** Unlimited signals, advanced analysis, push notifications, unlimited history, watchlist integration
+### Updated Tier Structure (vs. Apr 1 version):
+- **Free:** 5 signals/week, 2-hour delayed delivery, web-only (changed from 5/day)
+- **Pro ($29/mo):** 15+ signals/week, real-time delivery, mobile push, portfolio tracker
+- **VIP ($99/mo):** Unlimited signals, custom alerts, API for personal bots, priority support
 
-**Pricing Rationale:** 
-- $9.99-14.99 chosen for low friction (coffee budget, psychological threshold)
-- Crypto traders expect $10-20/month signal services
-- TradingView benchmark: Pro tier at $14.95/month (we're competitive)
+**KEY CHANGE:** Shifted from $9.99-14.99 to $29-99 tier structure based on market analysis of 5+ competitors (TradingView, Trasignal, Coinrule, crypto signal specialists). This pricing is aligned with actual market rates:
+- Lite signal apps start at $29/mo (conservative benchmarks)
+- Premium crypto signals: $69-198/mo depending on features
+- Joe's audience (vibe coders, automation enthusiasts) has higher willingness-to-pay than general traders
 
-**Revenue Projections:**
-- Conservative: $2.4K Year 1 (20 premium users)
-- Mid-range: $10K Year 1 (80 premium users, 4% conversion)
-- Optimistic + B2B: $15.6K-26.4K Year 1
+**Real-time delivery as premium differentiator:**
+- Free: delayed signals → drives conversions
+- Pro/VIP: real-time delivery, proven conversion driver in competitor products
+- Lower latency = higher signal quality perception, justifies $29-99 pricing
 
-**B2B API (Future - Month 6+):** $499+/month for institutional customers
+### Revised Revenue Projections (Joe's automation/vibe coding network):
+- **Month 1:** 100 beta users, 3 paid → $87 MRR
+- **Month 6:** 1,000 free users, 30 paid → $870 MRR
+- **Month 12:** 3,000 free users, 80 paid + 0-2 B2B contracts → $2.3-5.3K MRR
+- **Month 18:** 5,000 free + 150 paid + 3 B2B contracts @ $1-3K/mo → ~$88K annual run rate
 
-**Implementation:**
-1. Phase 1 (Month 1-2): MVP freemium + $9.99 tier, Stripe integration
-2. Phase 2 (Month 3-4): Push notifications, advanced analysis
-3. Phase 3 (Month 5-6): B2B API exploration
-4. Phase 4 (Month 7-12): Scaling (referral program, community)
+**B2B API Licensing (New in 2026 analysis):**
+- Target: Broker partnerships, fintech platforms, hedge funds
+- Pricing: $1-3K/mo per broker (white-label), $0.01-0.05 per API call
+- Timeline: Start pilots month 6+, contracts by month 12-18
+- Expected impact: 2-3 contracts by month 18 = +$3-9K MRR
+
+### Implementation Timeline (Refined):
+1. **Phase 1 (Month 1-2):** MVP freemium (5 signals/week delayed) + $29 Pro tier, Stripe + mobile alerts
+2. **Phase 2 (Month 2-3):** Real-time delivery feature (unlock for $99 VIP tier first, test conversion)
+3. **Phase 3 (Month 4-6):** Portfolio tracker, advanced analytics, API documentation (prepare for B2B)
+4. **Phase 4 (Month 6+):** B2B sales outreach, pilot with 1-2 broker partners
+5. **Phase 5 (Month 9-12):** Scale paid user base, onboard 2-3 B2B contracts
+
+**Critical Success Factors (per market research):**
+- Signal quality drives retention more than pricing
+- Freemium trust-building (free tier must work well)
+- Transparency on win rates / success metrics (competitive advantage)
+- Real-time delivery justifies premium tier (2-hour delay → real-time is the conversion lever)
 
 **Next Steps:**
 1. Survey 10-20 crypto traders on $9.99/month willingness

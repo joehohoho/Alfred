@@ -1,38 +1,11 @@
 {
-  "timestamp": "2026-04-02T15:18:00Z",
-  "checks_run": ["context_compression", "file_size_monitoring", "system_reliability"],
-  "check_1_context": {
-    "usage_pct": 35,
-    "threshold": 60,
-    "status": "OK"
-  },
-  "check_3_file_size": {
-    "agents_md_pct": 68,
-    "threshold": 85,
-    "status": "OK"
-  },
-  "check_4_system_reliability": {
-    "launchagents_running": 29,
-    "launchagents_threshold": 10,
-    "status": "OK",
-    "cron_jobs_healthy": 29,
-    "cron_jobs_with_errors": 1,
-    "error_jobs": ["Evening Routine (2 errors)"]
-  },
-  "alerts": [
-    {
-      "level": "warning",
-      "component": "cron_jobs",
-      "message": "Evening Routine has 2 consecutive errors — identified in infrastructure audit as P0 fix (unblocks session continuity)",
-      "action": "Fix targeted in infrastructure improvement plan"
-    }
-  ],
-  "overall_status": "HEALTHY_WITH_KNOWN_ISSUE"
-}
-{
-  "timestamp": "2026-04-02T22:49:48Z",
-  "check": "heartbeat-context",
-  "context_pct": 19,
+  "timestamp": "2026-04-03T16:04:00Z",
+  "session_time": "1:04 PM AST",
+  "context_pct": 22,
+  "context_tokens": "45k/200k",
+  "cache_hit_pct": 99,
+  "compactions": 0,
   "model": "haiku-4-5",
-  "status": "OK"
+  "status": "OK",
+  "alerts": []
 }
