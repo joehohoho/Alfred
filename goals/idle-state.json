@@ -1,11 +1,7 @@
 {
-  "lastActivityAt": "2026-04-04T15:50:23.424Z",
-  "lastActivityType": "improve-self",
+  "lastActivityAt": "2026-04-04T16:20:24.712Z",
+  "lastActivityType": "review-memory",
   "recentActivities": [
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-04-03T00:18:42.532Z"
-    },
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-04-03T02:03:47.517Z"
@@ -201,8 +197,12 @@
     {
       "type": "improve-self",
       "dispatchedAt": "2026-04-04T15:50:23.424Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-04-04T16:20:24.712Z"
     }
   ],
-  "totalIdleDispatches": 645,
+  "totalIdleDispatches": 646,
   "cooldownMinutes": 15
 }
