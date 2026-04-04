@@ -267,3 +267,4 @@
 {"ts": 1775280600, "iso": "2026-04-04T02:30:00-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
 {"ts": 1775282401, "iso": "2026-04-04T03:00:01-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
 {"ts": 1775284200, "iso": "2026-04-04T03:30:00-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
+{"ts": 1775286001, "iso": "2026-04-04T04:00:01-0300", "script": "send-notification.sh", "action": "notify", "policyVersion": "2026-03-19.v1"}
