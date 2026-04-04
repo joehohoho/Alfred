@@ -210,4 +210,7 @@ What's the call?** (_[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step
 
 - **For Even Us Up, what's the smallest win that would feel like real progress?** (_question_, Apr 03 13:00)
   ID: `notif_1775221200747_412b67e8` — Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?
+
+- **What would make your consulting work more systematic or scalable?** (_question_, Apr 04 13:00)
+  ID: `notif_1775307600684_5b6e25a2` — Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?
 <!-- PENDING-Q-END -->
