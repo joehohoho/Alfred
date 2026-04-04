@@ -59,6 +59,23 @@ If you want the cron job OUTPUT posted to Discord (recommended approach):
 
 See `channel-ids.sh` for shell-friendly exports.
 
+## Validation & Auto-Fix
+To validate or auto-fix Discord channel references in your code:
+
+```bash
+# Source the validator
+source ~/.openclaw/workspace/scripts/discord-validate-and-fix.sh
+
+# Validate and convert a friendly name to ID
+id=$(validate_discord_reference "dailyconfig")
+echo "Resolved to: $id"
+
+# Validate a message tool call parameter
+validated=$(validate_message_call "$SOME_CHANNEL_VAR")
+# Now use: message(action=send, channel=discord, to="$validated", message="...")
+```
+
 ## Related Scripts
+- `discord-validate-and-fix.sh` — Validates and fixes channel references (NEW 2026-04-04)
 - `cron-preflight-validator.sh` — Validates cron job delivery configs
 - `fix-cron-delivery-routing.sh` — Checks for and reports issues
