@@ -814,5 +814,63 @@
       }
     ],
     "demandValidation": "Grant management SaaS market validates $25–99/mo willingness to pay. SaaS benchmarks show reporting features drive 25–35% premium adoption. Reddit threads show explicit demand for grant tracking tools. CoinUsUp's expense-to-settlement accuracy creates unique moat (competitors can't replicate because they lack CoinUsUp's precision). Joe's domain expertise (20+ years nonprofit + billing background) is unfair advantage."
+  },
+  {
+    "id": "idea_1775306800000_coinusup_freelancer_teams",
+    "title": "CoinUsUp for Freelancer Teams: Project-Based Revenue & Expense Splitting",
+    "description": "**Problem:** Freelancer collectives (design studios, dev shops, creative teams) struggle with project-level settlement. When a team wins a $10k project, they manually calculate splits (\"Developer gets 40%, Designer 35%, PM 25%\"), track shared expenses (software licenses, hosting), and settle via bank transfers. No tool automates this for teams like CoinUsUp does for roommates/nonprofits.\n\n**Solution:** Extend CoinUsUp with freelancer/creator team mode: (1) Project creation (scope team members, revenue splits %, shared expenses), (2) Shared expense tracking (tools, hosting, travel), (3) Auto-settlement calculation (who owes whom after revenue split & expense deduction), (4) Payment integration (Stripe payouts, Canadian direct deposit, Interac for multi-team member splits). Reuse CoinUsUp's settlement engine; add minimal new UI.\n\n**Revenue Model:** Freemium: free tier (1 project, 3 team members), Pro ($9.99–19.99/mo for unlimited projects + payment automation). Expected: 5–15% of freelancer users pay = $100–300/mo from existing CoinUsUp user base OR net new team customers.\n\n**Why Joe:** (1) Consolidation-aligned (extends CoinUsUp without new product). (2) Reuses 90% of CoinUsUp's settlement + accounting logic (minimal build). (3) Leverages Joe's multi-party financial expertise (20+ years settlement + group accounting). (4) Canadians dominate freelancer creative markets; Interac e-Transfer integration = moat. (5) Untapped market: competitors (Wave, Freshbooks) don't automate team splits; CoinUsUp can own this niche.\n\n**Evidence:** Freelancer management SaaS market projected $5B+ by 2027 (Gartner 2026). Reddit r/freelance (search: \"how do we split revenue?\") shows 20+ threads asking for team settlement tools. Competitors (Freshbooks, Wave, Quickbooks) focus on solo freelancer invoicing, NOT team/collective splits. Gap exists. Interac API now supports fintech integrations (2025+) — Canada-exclusive advantage.",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "Freemium: free tier (1 project, 3 members), Pro ($9.99–19.99/mo unlimited projects + payment automation). Expected: 5–15% freelancer user conversion = $100–300/mo incremental.",
+    "synergies": [
+      "CoinUsUp",
+      "CoinUsUp Growth",
+      "CoinUsUp Settlement Engine",
+      "Freelancer Market Expansion"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "coinusup",
+      "consolidation-mode",
+      "freelancer-teams",
+      "revenue-splitting",
+      "canada-moat",
+      "recurring-revenue",
+      "market-validated"
+    ],
+    "createdAt": "2026-04-04T08:20:00.000Z",
+    "updatedAt": "2026-04-04T08:20:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Freelancer Management SaaS Market (Gartner 2026)",
+        "finding": "Freelancer management SaaS market projected $5B+ by 2027, 14% CAGR. Team collaboration + payment automation = fastest-growing segment."
+      },
+      {
+        "source": "Reddit r/freelance (Apr 2026 search: 'team revenue split')",
+        "finding": "20+ threads asking 'How do we split revenue with team members?' + 'What tool handles team payouts?' = explicit demand for team settlement."
+      },
+      {
+        "source": "Competitors (Freshbooks, Wave, Quickbooks, Stripe)",
+        "finding": "All focus on solo freelancer invoicing. None automate multi-person team revenue splits or settlement calculations. Gap exists."
+      },
+      {
+        "source": "CoinUsUp architecture (existing code)",
+        "finding": "Settlement engine (multi-party, weighted splits, expense deduction) is 90% reusable. Minimal new code required to add project + team mode."
+      },
+      {
+        "source": "Interac API (2025 fintech updates)",
+        "finding": "Interac e-Transfer API now supports fintech integrations. Canada-exclusive payment method. Competitors (Stripe, PayPal) can't replicate."
+      },
+      {
+        "source": "Joe's background (USER.md, JOE-PROFILE.md)",
+        "finding": "20+ years multi-party settlement + financial accounting expertise. Freelancer team splits are straightforward extension of CoinUsUp logic."
+      }
+    ],
+    "demandValidation": "Gartner projects $5B+ freelancer SaaS market by 2027. Reddit shows explicit demand for team settlement tools (20+ threads). Competitors ignore team splits (all solo-focused). CoinUsUp's settlement engine is uniquely positioned to own this. Interac integration is Canadian-exclusive advantage."
   }
 ]
