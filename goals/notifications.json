@@ -692,5 +692,33 @@
     "answered": false,
     "createdAt": "2026-04-04T13:00:00.684Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775394000860_0fff217c",
+    "type": "question",
+    "title": "How much of your time should passive income get vs. client work right now?",
+    "message": "Current split works? Skewed the wrong way? What's the ideal?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-05T13:00:00.860Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775673610599_579cf698",
+    "type": "[REMINDER] CoinUsUp trial: 12 Stripe price updates still needed",
+    "title": "Context: 14-day free trial implementation for CoinUsUp is code-complete and reviewed. Specific question: Can you update the 12 Basic/Pro Stripe prices (US/CA × monthly/annual) to set trial_period_days=14, or reply 'skip trial for now'? Options: (1) Update Stripe now, 5-minute task, and I will immediately run staging verification; (2) Skip/defer the trial feature and I will close or park the card. Recommendation: Option 1, because the implementation is already done and this is the only remaining manual unblock. If no response, the card stays blocked and deployment cannot proceed.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-08T18:40:10.599Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775673610915_bdf31aa7",
+    "type": "[REMINDER] Bill Review MVP: choose A or B",
+    "title": "Context: Market validation and MVP blueprint are complete for the Bill Review & Invoice Audit app. Specific question: Should I build this as (A) a personal internal invoice-audit tool for your own use, or (B) an external SaaS MVP? Options: A = simpler internal tool with lower maintenance; B = revenue product path with a fuller MVP. Recommendation: A if you want a quick useful tool soon, B if this is meant to become a passive-income product. If no response, the card remains blocked because I can't confidently scope or prioritize the build direction.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-08T18:40:10.915Z",
+    "answeredAt": null
   }
 ]

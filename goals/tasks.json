@@ -2573,12 +2573,12 @@
     "title": "Implement 14-day free trial on Basic/Pro tiers",
     "description": "Add trial_ends_at field to Stripe integration. Support 14-day free trial on Basic and Pro plans before charging. Include: trial logic in app, Stripe configuration, migration plan for existing customers, Stripe API changes documentation. Do not publish until Stripe spec is reviewed.",
     "goalId": "",
-    "status": "review",
+    "status": "blocked",
     "priority": "critical",
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-04-03T22:35:02.276Z",
+    "updatedAt": "2026-04-08T22:40:21.266Z",
     "assignedAt": "2026-03-18T21:00:56.448Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "281cf54c-659a-4e19-ada8-dd5d3377fe01",
@@ -2751,6 +2751,24 @@
         "author": "alfred",
         "text": "[IDLE-PROGRESS-CHECK 19:34 ADT] Card blocked 16 days on Stripe config. Code 100% complete, tests passing, deployed to staging. Ready to launch immediately after you update 12 product prices in Stripe (Basic/Pro US/CA, Monthly/Annual) with trial_period_days=14. 5-minute task.",
         "createdAt": "2026-04-03T22:35:02.276Z"
+      },
+      {
+        "id": "cmt_1775659241126_10818a18",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 11:39] Re-verified the CoinUsUp trial implementation and review artifacts. Code/docs remain complete: spec, runbook, migration, backend, webhook, and frontend trial helpers are all in place. Card moved from review to blocked because the only remaining step is Joe's Stripe-side/manual config or explicit skip decision, and there is already an unanswered unblock notification from 2026-04-03 covering the exact next action.",
+        "createdAt": "2026-04-08T14:40:41.126Z"
+      },
+      {
+        "id": "cmt_1775673619399_7964e69f",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 15:39] Re-read comments and notification state. Card still genuinely blocked on Joe's Stripe-side/manual config or an explicit skip decision. Existing unanswered notification was older than 48h, so I sent a fresh reminder with the exact 12-price task and a skip option.",
+        "createdAt": "2026-04-08T18:40:19.399Z"
+      },
+      {
+        "id": "cmt_1775688021266_f5fd8819",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 19:39] Re-verified implementation status and notification state. CoinUsUp trial code/docs remain complete; the only remaining blocker is Joe's Stripe-side manual config for the 12 Basic/Pro prices, or an explicit skip decision. Multiple unanswered notifications already exist, including a fresh reminder sent at 15:39 today, so I did not send another duplicate.",
+        "createdAt": "2026-04-08T22:40:21.266Z"
       }
     ],
     "reviewEnteredAt": "2026-03-31T19:03:53.336Z",
@@ -3577,7 +3595,7 @@
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T02:02:18.023Z",
-    "updatedAt": "2026-04-03T22:35:02.268Z",
+    "updatedAt": "2026-04-08T22:40:21.258Z",
     "assignedAt": "2026-03-21T02:30:49.790Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "e09d869a-e71b-43b5-b131-e3756766986c",
@@ -3677,6 +3695,24 @@
         "author": "alfred",
         "text": "[IDLE-PROGRESS-CHECK 19:34 ADT] Card blocked 11 days on scope clarification. Market validation + blueprint complete and ready to build. Awaiting decision: Is this a personal tool (A) or external SaaS product (B)? No other info needed — just the scope direction.",
         "createdAt": "2026-04-03T22:35:02.268Z"
+      },
+      {
+        "id": "cmt_1775659219303_006785bd",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 11:39] Re-checked comments, blueprint, and notification state. This card is still genuinely blocked on Joe choosing the build direction: (A) personal internal invoice-audit tool or (B) external SaaS MVP. There are already unanswered notifications from 2026-03-31 and 2026-04-03 asking for that exact decision, so I did not send another duplicate reminder.",
+        "createdAt": "2026-04-08T14:40:19.303Z"
+      },
+      {
+        "id": "cmt_1775673619408_bab3b969",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 15:39] Re-read comments and notification state. Card still genuinely blocked on Joe choosing the build direction: (A) personal internal tool or (B) external SaaS MVP. Existing unanswered notification was older than 48h, so I sent a fresh A/B reminder to unblock the scope decision.",
+        "createdAt": "2026-04-08T18:40:19.408Z"
+      },
+      {
+        "id": "cmt_1775688021257_036ff385",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 19:39] Re-read card comments and notification state again. This card is still genuinely blocked on Joe choosing the build direction: (A) personal internal invoice-audit tool or (B) external SaaS MVP. Multiple unanswered notifications already exist, including a fresh reminder sent at 15:39 today, so I did not send another duplicate.",
+        "createdAt": "2026-04-08T22:40:21.257Z"
       }
     ]
   },
