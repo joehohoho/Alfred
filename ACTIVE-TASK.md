@@ -1,6 +1,6 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Last Updated:** 2026-04-08 13:24 ADT  
+**Last Updated:** 2026-04-08 17:30 ADT  
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)  
 **Session:** Main | Context: healthy (idle memory review)  
 **Current Session Duration:** idle activity refresh
@@ -105,6 +105,8 @@ Enterprise (All)       → NO Trial ✅
 **Waiting for:** Joe action on blocked review items
 - CoinUsUp trial: Stripe dashboard config, or explicit skip
 - Bill Review: scope decision, option A or B
+
+**Current reality (Apr 8 memory review):** no stale in-progress execution work was found. The active state is review-and-wait, with continuity refreshed and today’s daily ops summary written.
 
 **Then:** Either proceed to staging deployment for CoinUsUp, or re-route focus based on Joe's decisions
 
@@ -219,4 +221,10 @@ What's the call?** (_[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step
 
 - **How much of your time should passive income get vs. client work right now?** (_question_, Apr 05 13:00)
   ID: `notif_1775394000860_0fff217c` — Current split works? Skewed the wrong way? What's the ideal?
+
+- **Context: 14-day free trial implementation for CoinUsUp is code-complete and reviewed. Specific question: Can you update the 12 Basic/Pro Stripe prices (US/CA × monthly/annual) to set trial_period_days=14, or reply 'skip trial for now'? Options: (1) Update Stripe now, 5-minute task, and I will immediately run staging verification; (2) Skip/defer the trial feature and I will close or park the card. Recommendation: Option 1, because the implementation is already done and this is the only remaining manual unblock. If no response, the card stays blocked and deployment cannot proceed.** (_[REMINDER] CoinUsUp trial: 12 Stripe price updates still needed_, Apr 08 18:40)
+  ID: `notif_1775673610599_579cf698` — No details provided
+
+- **Context: Market validation and MVP blueprint are complete for the Bill Review & Invoice Audit app. Specific question: Should I build this as (A) a personal internal invoice-audit tool for your own use, or (B) an external SaaS MVP? Options: A = simpler internal tool with lower maintenance; B = revenue product path with a fuller MVP. Recommendation: A if you want a quick useful tool soon, B if this is meant to become a passive-income product. If no response, the card remains blocked because I can't confidently scope or prioritize the build direction.** (_[REMINDER] Bill Review MVP: choose A or B_, Apr 08 18:40)
+  ID: `notif_1775673610915_bdf31aa7` — No details provided
 <!-- PENDING-Q-END -->
