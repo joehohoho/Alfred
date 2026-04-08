@@ -1,5 +1,36 @@
 [
   {
+    "id": "idea_1775662413000_portfolio_health_snapshot",
+    "title": "Portfolio Health Snapshot — 2026-04-08",
+    "description": "**One-page portfolio snapshot**\n\n**1. CoinUsUp**\n- **Current status:** Best near-term passive-income candidate. Core app improvements are active, and the 14-day free-trial implementation is code-complete but blocked on Stripe dashboard configuration/approval. Several validated growth ideas already exist: Smart Onboarding, CoinUsUp Academy, nonprofit launch templates, and compliance reporting add-ons.\n- **Estimated current MRR:** Unknown from current workspace evidence.\n- **Estimated potential MRR (next meaningful milestone):** $500-2k/mo incremental from conversion/growth improvements already researched, with further upside from compliance add-ons.\n- **Biggest bottleneck:** Not engineering, but activation + a tiny manual deployment blocker. Marketing/UI clarity and trial launch completion are the current choke points.\n\n**2. Even Us Up**\n- **Current status:** Product exists but external adoption is weak. Workspace evidence repeatedly cites ~0-20 visitors/day and zero meaningful external traction so far. Several solid ideas exist, especially onboarding, settlement transparency, and Interac automation.\n- **Estimated current MRR:** Effectively $0/mo or negligible.\n- **Estimated potential MRR (next meaningful milestone):** Roughly $100-300/mo from an early premium/interac wedge if activation improves first.\n- **Biggest bottleneck:** User activation, not feature count. People are not getting to the aha moment fast enough.\n\n**3. Signal App / Market Signal Lab**\n- **Current status:** High upside, but still internal-quality stage. Workspace notes are consistent: market exists, but signal quality is not yet strong enough for outside use. Best immediate leverage is automated quality scoring/backtest diagnostics, not marketing.\n- **Estimated current MRR:** $0/mo.\n- **Estimated potential MRR (next meaningful milestone):** Could become meaningful later, but near-term commercialization is gated by quality. A reasonable first external milestone looks more like proof-of-quality than revenue.\n- **Biggest bottleneck:** Signal quality and validation. This is a product-readiness problem, not an audience problem.\n\n**4. Automation Consulting**\n- **Current status:** Stable active revenue source and domain knowledge engine, but not the primary passive-income frontier. Previous board/memory guidance says consulting-to-productization is generally off-limits unless explicitly reopened.\n- **Estimated current MRR:** Active but not quantified in current workspace context.\n- **Estimated potential MRR (next meaningful milestone):** Stable baseline cashflow rather than passive upside. Upside comes indirectly by funding product bets and revealing workflow pain points.\n- **Biggest bottleneck:** Scalability and repeatability. Consulting remains bespoke, which limits leverage.\n\n**Portfolio health read**\n- **Best near-term ROI:** CoinUsUp. It is the closest to turning existing work into revenue with the least additional build.\n- **Best medium-term upside:** Signal App, if quality crosses the commercialization threshold.\n- **Best turnaround candidate:** Even Us Up, but only if activation is fixed before adding more monetization ideas.\n- **Role of consulting:** Keep it as revenue ballast, not the main passive-income bet.\n\n**Recommendation**\n1. Unblock CoinUsUp trial launch and focus next on onboarding/conversion work.\n2. Treat Even Us Up as an activation problem and test one low-effort UX improvement before bigger builds.\n3. Keep Signal App in quality-improvement mode until objective metrics say it is ready.\n4. Use consulting to stabilize cash, not to distract from product leverage.",
+    "category": "portfolio",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "high",
+    "revenueModel": "Portfolio review artifact, not a direct product. Intended to improve capital/time allocation across current projects.",
+    "synergies": [
+      "CoinUsUp",
+      "Even Us Up",
+      "Signal App",
+      "Automation Consulting"
+    ],
+    "evaluation": {
+      "score": 8.0,
+      "notes": "High decision value because it clarifies where near-term leverage actually is: CoinUsUp first, Signal App second, Even Us Up activation before monetization, consulting as ballast."
+    },
+    "promotedToGoalId": null,
+    "tags": [
+      "portfolio",
+      "health-check",
+      "prioritization",
+      "passive-income",
+      "allocation"
+    ],
+    "createdAt": "2026-04-08T18:33:33.000Z",
+    "updatedAt": "2026-04-08T18:33:33.000Z"
+  },
+  {
     "id": "idea_1771538400003_alfred_platform",
     "title": "Personal AI OS Platform (Alfred-as-a-Service)",
     "description": "Joe is building a sophisticated personal AI operating system (OpenClaw + Command Center + cron + notifications + multi-channel). This stack could be productized for other solopreneurs, consultants, and small business owners who want their own 'Alfred'. Sell the pickaxes during the gold rush. Could start as a self-hosted open-source project with paid managed hosting, or a SaaS with customizable AI agent templates.",
