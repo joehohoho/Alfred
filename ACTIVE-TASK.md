@@ -1,9 +1,9 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Last Updated:** 2026-04-04 05:20 ADT  
+**Last Updated:** 2026-04-08 13:24 ADT  
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)  
-**Session:** Main | Context: 15% (healthy margin, morning idle session)  
-**Current Session Duration:** ~2 min (2026-04-04 05:18-05:20 ADT idle:review-memory)
+**Session:** Main | Context: healthy (idle memory review)  
+**Current Session Duration:** idle activity refresh
 
 ---
 
@@ -102,8 +102,11 @@ Enterprise (All)       → NO Trial ✅
 
 ## Next Step
 
-**Waiting for:** Joe approval comment on kanban card
-**Then:** Move to staging deployment (will take 3-4 hours total)
+**Waiting for:** Joe action on blocked review items
+- CoinUsUp trial: Stripe dashboard config, or explicit skip
+- Bill Review: scope decision, option A or B
+
+**Then:** Either proceed to staging deployment for CoinUsUp, or re-route focus based on Joe's decisions
 
 ## Pending Questions
 
@@ -213,4 +216,7 @@ What's the call?** (_[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step
 
 - **What would make your consulting work more systematic or scalable?** (_question_, Apr 04 13:00)
   ID: `notif_1775307600684_5b6e25a2` — Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?
+
+- **How much of your time should passive income get vs. client work right now?** (_question_, Apr 05 13:00)
+  ID: `notif_1775394000860_0fff217c` — Current split works? Skewed the wrong way? What's the ideal?
 <!-- PENDING-Q-END -->
