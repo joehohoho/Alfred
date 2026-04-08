@@ -1067,5 +1067,54 @@
     ],
     "createdAt": "2026-04-08T16:24:00.000Z",
     "updatedAt": "2026-04-08T16:24:00.000Z"
+  },
+  {
+    "id": "idea_1775690760000_coinusup_vendor_invoice_checker",
+    "title": "CoinUsUp: Vendor Invoice Checker for Duplicate Charges and Overbilling",
+    "description": "**Problem:** Small teams and nonprofits often pay vendor invoices with limited review, which creates duplicate payments, overbilling, and messy reconciliation. Existing AP tools talk about duplicate invoices as a common, costly problem, but most small organizations still rely on manual checking.\n\n**Solution:** Add a focused CoinUsUp invoice review tool that flags likely duplicate invoices, repeated line items, unusual amount jumps, and vendor billing anomalies before approval. Keep it simple: upload or forward an invoice, compare against prior records, and show a short exception report.\n\n**Revenue Model:** Premium CoinUsUp add-on, around $9.99–29.99/mo for teams that review vendor invoices regularly. Could also support a higher nonprofit/admin tier.\n\n**Why Joe:** This fits Joe's billing and data-transformation background, stays tightly scoped, and is the kind of low-maintenance operational product he can ship with Node/React/TypeScript or Python. It also complements CoinUsUp's finance workflow instead of creating a brand-new app.\n\n**Evidence:** NetSuite, Ramp, and ThirdLine all describe duplicate invoices and duplicate payments as common AP problems that cause overpayments and reconciliation pain, and vendors are actively selling software to solve it.",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "Premium CoinUsUp add-on or admin tier feature, roughly $9.99–29.99/mo per organization.",
+    "researchEvidence": [
+      {
+        "source": "NetSuite",
+        "finding": "Says duplicate payments frequently occur when AP teams lack strong recordkeeping and oversight. https://www.netsuite.com/portal/resource/articles/accounting/prevent-duplicate-payments.shtml"
+      },
+      {
+        "source": "Ramp",
+        "finding": "States duplicate invoices are common even in well-managed finance teams and lead to overpayments, reconciliation headaches, and reporting errors. https://ramp.com/blog/accounts-payable/duplicate-invoices"
+      },
+      {
+        "source": "ThirdLine",
+        "finding": "Markets duplicate invoice and payment prevention as a direct cost-recovery and AP-efficiency problem. https://www.thirdline.io/solution/duplicate-invoices-payments"
+      },
+      {
+        "source": "Protovo Solutions",
+        "finding": "Offers an AI vendor invoice auditor focused on duplicate charges and overbilling, validating competitor demand. https://www.protovosolutions.com/AI-Vendor-Invoice-Auditor"
+      }
+    ],
+    "demandValidation": "Demand is validated by multiple accounting and AP vendors explicitly describing duplicate invoices and duplicate payments as common, costly problems, plus active commercial tools already selling invoice-audit solutions. This is a real pain point with clear willingness to pay.",
+    "synergies": [
+      "CoinUsUp",
+      "Joe's billing expertise",
+      "Nonprofit Monetization",
+      "Finance workflow"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "coinusup",
+      "invoice-audit",
+      "billing",
+      "finance-ops",
+      "recurring-revenue",
+      "consolidation-mode"
+    ],
+    "createdAt": "2026-04-08T23:26:00.000Z",
+    "updatedAt": "2026-04-08T23:26:00.000Z"
   }
 ]
