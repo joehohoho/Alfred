@@ -25,7 +25,14 @@ IN_PROGRESS=$(fetch_data "/api/kanban?column=in_progress")
 BLOCKED=$(fetch_data "/api/kanban?column=blocked")
 TO_DO=$(fetch_data "/api/kanban?column=to_do")
 CALENDAR=$(fetch_data "/api/calendar?days=7")
-NOTIFICATIONS=$(fetch_data "/api/notifications?answered=false")
+
+# Notifications source of truth is the local file. API field names have drifted before,
+# so read the JSON directly and normalize it here for stable reporting.
+if [[ -f "$WORKSPACE/goals/notifications.json" ]]; then
+  NOTIFICATIONS=$(cat "$WORKSPACE/goals/notifications.json")
+else
+  NOTIFICATIONS="[]"
+fi
 
 # Generate markdown table for Active Kanban Cards
 generate_active_cards() {
@@ -70,15 +77,46 @@ generate_deadlines() {
 }
 
 # Generate pending notifications summary
+# Supports both legacy/local notifications.json shape and API-ish variants.
 generate_pending_notifs() {
-  local notif_count=$(echo "$NOTIFICATIONS" | jq 'length' 2>/dev/null || echo 0)
+  local notif_count=$(echo "$NOTIFICATIONS" | jq '[.[] | select((.answered // false) != true)] | length' 2>/dev/null || echo 0)
   
   if [[ $notif_count -eq 0 ]]; then
     echo "| — | — | No pending notifications ✅ | — | — |"
     return
   fi
   
-  echo "$NOTIFICATIONS" | jq -r '.[] | "| \(.title) | \(.created_at // "unknown") | \(.assigned_to // "alfred") | \(.status) | \(.next_action // "review") |"' 2>/dev/null || true
+  echo "$NOTIFICATIONS" | jq -r '
+    def clean: gsub("[\r\n]+"; " ") | gsub("\\|"; "/") | gsub("  +"; " ") | sub("^ "; "") | sub(" $"; "");
+    [.[] | select((.answered // false) != true)]
+    | sort_by(.createdAt // .created_at // "")
+    | reverse
+    | .[]
+    | (
+        .message // ""
+      ) as $msg
+    | (
+        if (.waitingOn // "") != "" then .waitingOn
+        elif ($msg | test("(?i)waiting on you|you need to do|please reply|decision needed|what you need to do|can you|could you|approve|provide|update|share with me|message me")) then "joe"
+        elif (.assigned_to // "") != "" then .assigned_to
+        else "alfred"
+        end
+      ) as $owner
+    | (
+        if (.status // "") != "" then .status
+        elif (.answered // false) == true then "answered"
+        else "awaiting-answer"
+        end
+      ) as $status
+    | (
+        if (.next_action // "") != "" then .next_action
+        elif $owner == "joe" then "review / respond"
+        else "follow up"
+        end
+      ) as $next
+    | ((.title // .message // "(untitled)") | clean) as $title
+    | "| \($title) | \((.createdAt // .created_at // "unknown") | clean) | \(($owner|tostring) | clean) | \(($status|tostring) | clean) | \(($next|tostring) | clean) |"
+  ' 2>/dev/null || true
 }
 
 # Read current file and preserve manual sections
