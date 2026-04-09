@@ -6,5 +6,21 @@
     "dispatchedAt": 1775665894.2910342,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775741860",
+    "title": "Code review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775741860.842106,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775741971",
+    "title": "Dependency audit: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775741971.913413,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

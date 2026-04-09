@@ -91,6 +91,7 @@ function attemptConnection() {
   }
 
   ws.on('open', () => {
+    console.error(`[debug] WS open to ${gatewayUrl} as ${clientId}`);
     // Wait for connect.challenge event before sending anything
   });
 
@@ -206,6 +207,10 @@ function attemptConnection() {
       console.error('WebSocket error:', err.message);
       process.exit(1);
     }
+  });
+
+  ws.on('error', (err) => {
+    console.error(`[debug] WS error: ${err.message}`);
   });
 
   ws.on('close', (code, reason) => {

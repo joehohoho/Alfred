@@ -4993,7 +4993,7 @@
     "completedAt": "2026-04-09T10:40:42.883Z",
     "generatedBy": "sub-agent",
     "createdAt": "2026-04-09T07:55:13.400Z",
-    "updatedAt": "2026-04-09T10:40:42.883Z",
+    "updatedAt": "2026-04-09T13:01:38.309Z",
     "comments": [
       {
         "id": "cmt_1775721786959_4b0d01a1",
@@ -5006,6 +5006,12 @@
         "author": "alfred",
         "text": "[idle:goal-progress-check 2026-04-09 07:40] Re-reviewed the portfolio snapshot artifact and supporting evidence. The deliverable is complete, grounded in current workspace evidence, and no unanswered question remains on this card. Moving it from review to done.",
         "createdAt": "2026-04-09T10:40:42.717Z"
+      },
+      {
+        "id": "cmt_1775739698309_738f3382",
+        "author": "alfred",
+        "text": "[idle:proactive-check 2026-04-09 10:02 ADT] Re-ran the scheduled passive-income portfolio review trigger. No new contradictory workspace evidence found since the Apr 8 snapshot. Current read still holds: CoinUsUp remains the best near-term revenue unlock once the Stripe trial blocker is cleared, Even Us Up remains an activation problem, Signal App remains quality-gated, and consulting remains revenue ballast rather than passive-income leverage. Skipped creating a duplicate Ideas card because the snapshot already exists and is still current.",
+        "createdAt": "2026-04-09T13:01:38.309Z"
       }
     ],
     "reviewEnteredAt": "2026-04-09T08:03:13.596Z",
