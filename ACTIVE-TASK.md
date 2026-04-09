@@ -123,5 +123,11 @@ Enterprise (All)       → NO Trial ✅
   ID: `?` — 
 
 - **Untitled** (_unknown_, Mar 25 16:18)
-  ID: `?` —
+  ID: `?` — 
+
+- **CoinUsUp trial implementation is production-ready (code + frontend 100% complete, all tests passing).\n\n**BLOCKER:** Stripe dashboard manual config needed.\n\n**Action:** Create 12 price IDs in Stripe:\n- Basic Monthly US, Basic Monthly CA\n- Basic Annual US, Basic Annual CA\n- Pro Monthly US, Pro Monthly CA\n- Pro Annual US, Pro Annual CA\n- Plus 2 Enterprise prices\n\nFor each, set **trial_period_days = 14**.\n\n**Help:** See CoinUsUp repo stripe-prices.ts for exact product/price IDs to create.\n\n**Timeline:** 30 min work, then trial launches immediately.** (_[REMINDER - 14-Day Trial] Stripe config awaiting_, Apr 09 18:41)
+  ID: `notif_1775760070628_22478b25` — No details provided
+
+- **Market validation complete. Blueprint ready at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md.\n\n**DECISION NEEDED:** Should I build this as:\n\n**Option A: Personal Tool**\nJust for your own SMB billing audits. ~2-3 day MVP. Test internally first, then expand.\n\n**Option B: Commercial SaaS**\nBuilt for resale to other SMBs. Full MVP with onboarding/support/pricing. ~1-2 week build.\n\n**Recommend:** Start with A (personal tool). If it works for you, expand to B later.\n\n**What you do:** Choose A or B. I build immediately.\n\n**Timeline:** A = 2-3 days. B = 1-2 weeks.** (_[REMINDER - Bill Review MVP] Scope decision needed_, Apr 09 18:41)
+  ID: `notif_1775760070634_61acb260` — No details provided
 <!-- PENDING-Q-END -->

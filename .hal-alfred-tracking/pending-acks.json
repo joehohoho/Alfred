@@ -166,5 +166,61 @@
     "dispatchedAt": 1775759264.612225,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775760165",
+    "title": "Test coverage review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775760165.728551,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775761066",
+    "title": "Performance profiling: Command Center",
+    "agent": "hal",
+    "dispatchedAt": 1775761066.748951,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775761967",
+    "title": "Dead code & cleanup sweep",
+    "agent": "hal",
+    "dispatchedAt": 1775761967.911076,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775762868",
+    "title": "Git hygiene",
+    "agent": "hal",
+    "dispatchedAt": 1775762868.940268,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775763769",
+    "title": "Log analysis & anomaly detection",
+    "agent": "hal",
+    "dispatchedAt": 1775763770.089547,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775764670",
+    "title": "Security posture check",
+    "agent": "hal",
+    "dispatchedAt": 1775764671.1203609,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775765571",
+    "title": "Code review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775765572.291636,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]
