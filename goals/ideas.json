@@ -4,7 +4,7 @@
     "title": "Portfolio Health Snapshot \u2014 2026-04-08",
     "description": "**One-page portfolio snapshot**\n\n**1. CoinUsUp**\n- **Current status:** Best near-term passive-income candidate. Core app improvements are active, and the 14-day free-trial implementation is code-complete but blocked on Stripe dashboard configuration/approval. Several validated growth ideas already exist: Smart Onboarding, CoinUsUp Academy, nonprofit launch templates, and compliance reporting add-ons.\n- **Estimated current MRR:** Unknown from current workspace evidence.\n- **Estimated potential MRR (next meaningful milestone):** $500-2k/mo incremental from conversion/growth improvements already researched, with further upside from compliance add-ons.\n- **Biggest bottleneck:** Not engineering, but activation + a tiny manual deployment blocker. Marketing/UI clarity and trial launch completion are the current choke points.\n\n**2. Even Us Up**\n- **Current status:** Product exists but external adoption is weak. Workspace evidence repeatedly cites ~0-20 visitors/day and zero meaningful external traction so far. Several solid ideas exist, especially onboarding, settlement transparency, and Interac automation.\n- **Estimated current MRR:** Effectively $0/mo or negligible.\n- **Estimated potential MRR (next meaningful milestone):** Roughly $100-300/mo from an early premium/interac wedge if activation improves first.\n- **Biggest bottleneck:** User activation, not feature count. People are not getting to the aha moment fast enough.\n\n**3. Signal App / Market Signal Lab**\n- **Current status:** High upside, but still internal-quality stage. Workspace notes are consistent: market exists, but signal quality is not yet strong enough for outside use. Best immediate leverage is automated quality scoring/backtest diagnostics, not marketing.\n- **Estimated current MRR:** $0/mo.\n- **Estimated potential MRR (next meaningful milestone):** Could become meaningful later, but near-term commercialization is gated by quality. A reasonable first external milestone looks more like proof-of-quality than revenue.\n- **Biggest bottleneck:** Signal quality and validation. This is a product-readiness problem, not an audience problem.\n\n**4. Automation Consulting**\n- **Current status:** Stable active revenue source and domain knowledge engine, but not the primary passive-income frontier. Previous board/memory guidance says consulting-to-productization is generally off-limits unless explicitly reopened.\n- **Estimated current MRR:** Active but not quantified in current workspace context.\n- **Estimated potential MRR (next meaningful milestone):** Stable baseline cashflow rather than passive upside. Upside comes indirectly by funding product bets and revealing workflow pain points.\n- **Biggest bottleneck:** Scalability and repeatability. Consulting remains bespoke, which limits leverage.\n\n**Portfolio health read**\n- **Best near-term ROI:** CoinUsUp. It is the closest to turning existing work into revenue with the least additional build.\n- **Best medium-term upside:** Signal App, if quality crosses the commercialization threshold.\n- **Best turnaround candidate:** Even Us Up, but only if activation is fixed before adding more monetization ideas.\n- **Role of consulting:** Keep it as revenue ballast, not the main passive-income bet.\n\n**Recommendation**\n1. Unblock CoinUsUp trial launch and focus next on onboarding/conversion work.\n2. Treat Even Us Up as an activation problem and test one low-effort UX improvement before bigger builds.\n3. Keep Signal App in quality-improvement mode until objective metrics say it is ready.\n4. Use consulting to stabilize cash, not to distract from product leverage.",
     "category": "portfolio",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "alfred-generated",
     "effort": "low",
     "potential": "high",
@@ -16,10 +16,10 @@
       "Automation Consulting"
     ],
     "evaluation": {
-      "score": 8.0,
+      "score": 8,
       "notes": "Strong internal leverage. It does not create revenue by itself, but it sharpens time allocation across Joe's real revenue paths: CoinUsUp near-term, Signal App medium-term, Even Us Up as an activation fix, consulting as ballast."
     },
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1775721313400_1a4f9853",
     "tags": [
       "portfolio",
       "health-check",
@@ -28,7 +28,7 @@
       "allocation"
     ],
     "createdAt": "2026-04-08T18:33:33.000Z",
-    "updatedAt": "2026-04-08T18:33:33.000Z",
+    "updatedAt": "2026-04-09T07:55:13.404Z",
     "researchEvidence": [
       {
         "source": "Indie Hackers (2025)",
@@ -48,9 +48,9 @@
   {
     "id": "idea_1771538400003_alfred_platform",
     "title": "Personal AI OS Platform (Alfred-as-a-Service)",
-    "description": "Joe is building a sophisticated personal AI operating system (OpenClaw + Command Center + cron + notifications + multi-channel). This stack could be productized for other solopreneurs, consultants, and small business owners who want their own 'Alfred'. Sell the pickaxes during the gold rush. Could start as a self-hosted open-source project with paid managed hosting, or a SaaS with customizable AI agent templates.",
+    "description": "**Problem:** Solopreneurs and small teams want an AI chief-of-staff that can manage tasks, reminders, channels, and workflows without stitching together a pile of brittle tools themselves. Most current options are either narrow assistants or open-source experiments that still need significant setup.\n\n**Solution:** Productize Joe's Alfred stack into a personal AI OS platform, starting with self-hosted/open-source core plus paid managed hosting or premium templates. Offer opinionated agent workflows, cron/notifications, multi-channel messaging, dashboards, and customizable automations for founder operations.\n\n**Revenue Model:** SaaS at roughly $29-99/mo, or managed hosting/support around $49-199/mo per instance.\n\n**Why Joe:** Joe already has a working prototype stack, deep automation experience, and firsthand knowledge of what founder/operator workflows actually need. This is a classic sell-the-pickaxes angle built from infrastructure he is actively using.\n\n**Evidence:** Personal AI markets an \"AI chief of staff\" for small businesses, YC is funding AI assistant/chief-of-staff startups such as Bond, OpenDAN positions itself as an open-source \"Personal AI OS,\" and founder communities on Reddit are actively building and requesting AI assistants for planning and prioritization.",
     "category": "passive-income",
-    "status": "new",
+    "status": "evaluated",
     "source": "claude-code",
     "effort": "high",
     "potential": "high",
@@ -60,7 +60,10 @@
       "Command Center",
       "automation-consulting"
     ],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.5,
+      "notes": "Validated market with real competitors and strong conceptual fit for Joe. Big upside and strong synergy with Alfred/OpenClaw, but effort is high and differentiation will need to be sharper than \"general AI assistant\" to win."
+    },
     "promotedToGoalId": null,
     "tags": [
       "platform",
@@ -70,7 +73,26 @@
       "high-upside"
     ],
     "createdAt": "2026-02-19T16:00:00.000Z",
-    "updatedAt": "2026-02-19T16:00:00.000Z"
+    "updatedAt": "2026-04-09T06:40:00-03:00",
+    "researchEvidence": [
+      {
+        "source": "Personal AI",
+        "finding": "Markets a \"virtual chief of staff\" for small businesses, validating buyer framing for AI operator assistants. https://www.personal.ai/pi-ai/personal-ai-your-virtual-chief-of-staff-for-small-businesses"
+      },
+      {
+        "source": "Y Combinator AI assistant companies (2026)",
+        "finding": "YC lists startups like Bond, an AI chief of staff for CEOs, showing active venture-backed demand in this category. https://www.ycombinator.com/companies/industry/ai-assistant"
+      },
+      {
+        "source": "OpenDAN",
+        "finding": "Open-source project explicitly branded as a \"Personal AI OS,\" confirming category existence and builder interest. https://github.com/fiatrete/OpenDAN-Personal-AI-OS"
+      },
+      {
+        "source": "Reddit r/SaaS",
+        "finding": "Founders are actively discussing and seeking feedback on AI assistants for planning and prioritization, indicating grassroots demand. https://www.reddit.com/r/SaaS/comments/1kyu1n5/building_an_ai_assistant_that_helps_solo_founders/"
+      }
+    ],
+    "demandValidation": "Demand is real because both funded startups and open-source projects are already targeting the AI chief-of-staff/personal AI OS space, and founder communities are discussing these tools as an active need. The opportunity is validated, but the space is increasingly crowded, so differentiation and packaging matter."
   },
   {
     "id": "idea_1771697586352_aead226b",
