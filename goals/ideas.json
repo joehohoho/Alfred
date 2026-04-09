@@ -1116,5 +1116,55 @@
     ],
     "createdAt": "2026-04-08T23:26:00.000Z",
     "updatedAt": "2026-04-08T23:26:00.000Z"
+  },
+  {
+    "id": "idea_1775705400000_coinusup_duplicate_payment_guard",
+    "title": "CoinUsUp: Duplicate Payment Guard for Small Nonprofits",
+    "description": "**Problem:** Small nonprofits and lean teams still catch duplicate invoices and overbilling manually, which leads to double payments, reconciliation mess, and avoidable cash leakage. The problem is common enough that AP vendors actively market duplicate detection as a core feature.\n\n**Solution:** Add a lightweight CoinUsUp review layer that flags likely duplicate vendor bills, suspicious amount jumps, and line-item mismatches before payment approval. Keep it narrow: upload or forward an invoice, compare against prior records, and show a short exception summary.\n\n**Revenue Model:** Premium CoinUsUp add-on, likely $9.99-19.99/mo for organizations that want invoice checks and approval confidence.\n\n**Why Joe:** This fits Joe's billing and data-transformation background, stays inside CoinUsUp instead of creating another product, and matches his preference for focused, low-maintenance software that does one thing well.\n\n**Evidence:** Ramp says duplicate invoices are common and cause overpayments and reconciliation headaches (https://ramp.com/blog/accounts-payable/duplicate-invoices). Tipalti markets nonprofit AP automation partly around avoiding duplicate payments (https://tipalti.com/blog/nonprofit-accounts-payable-automation/). Stripe documents duplicate payments as a real business risk in vendor invoicing and reimbursements (https://stripe.com/resources/more/duplicate-payments). Brex, Precoro, and Rossum also market duplicate-payment detection as a core AP automation benefit.",
+    "category": "growth",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "high",
+    "revenueModel": "Premium CoinUsUp add-on, roughly $9.99-19.99/mo per organization.",
+    "researchEvidence": [
+      {
+        "source": "Ramp",
+        "finding": "Duplicate invoices are common and create overpayments, reconciliation headaches, and reporting errors. https://ramp.com/blog/accounts-payable/duplicate-invoices"
+      },
+      {
+        "source": "Tipalti",
+        "finding": "Its nonprofit AP automation positioning explicitly includes avoiding fraudulent and duplicate supplier payments. https://tipalti.com/blog/nonprofit-accounts-payable-automation/"
+      },
+      {
+        "source": "Stripe",
+        "finding": "Documents duplicate payments as a real business problem across vendor invoices, reimbursements, and customer charges. https://stripe.com/resources/more/duplicate-payments"
+      },
+      {
+        "source": "Brex / Precoro / Rossum",
+        "finding": "All market duplicate detection and AP automation as active buyer pain points, validating competition and demand in this workflow. https://www.brex.com/spend-trends/accounting/prevent-duplicate-payments-in-accounts-payable | https://precoro.com/blog/what-are-duplicate-invoices/ | https://rossum.ai/blog/how-to-identify-a-duplicate-invoice/"
+      }
+    ],
+    "demandValidation": "Demand is real because multiple AP vendors actively compete on duplicate-invoice and duplicate-payment prevention, including nonprofit-facing AP automation. This is a recurring finance pain point with obvious revenue impact and clear willingness to pay.",
+    "synergies": [
+      "CoinUsUp",
+      "Joe's billing expertise",
+      "Nonprofit Monetization",
+      "Finance workflow"
+    ],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [
+      "existing-app-improvement",
+      "coinusup",
+      "duplicate-payments",
+      "invoice-review",
+      "nonprofit",
+      "finance-ops",
+      "recurring-revenue",
+      "consolidation-mode"
+    ],
+    "createdAt": "2026-04-09T03:30:00.000Z",
+    "updatedAt": "2026-04-09T03:30:00.000Z"
   }
 ]
