@@ -456,3 +456,175 @@ Alfred and HAL aligned on a three-pronged differentiation strategy:
 
 **Decision Gate:** Joe prioritizes which to start. Compliance Calendar is lowest risk; Retainer Management is highest upside.
 
+
+
+## Canada-Specific Passive Income Scan (Apr 8, 21:31 ADT — Atlantic Canada / NB SMB)
+
+### Summary
+Atlantic Canada and New Brunswick have a few unusually durable small-market software gaps: bilingual English/French workflows, CRA/HST/payroll deadline complexity for tiny SMBs, contractor-heavy field businesses, and rural connectivity friction. Bigger vendors serve Canada broadly, but often do not go deep on NB-specific operational pain because the market looks too small to them. That creates room for focused, practical software with a local moat.
+
+### 1. Bilingual CRA + HST Deadline Copilot for NB SMBs
+**Problem:** Small businesses and solo operators juggle GST/HST filing, payroll remittance schedules, CRA deadlines, and owner reminders across email, paper, and accountant calls. In NB, bilingual communication adds friction for customer-facing admin and documentation.
+
+**Why this is a local moat:**
+- Most national products stop at generic bookkeeping and tax reminders.
+- A focused NB/Atlantic product can ship bilingual templates, local terminology, HST-specific workflows, and deadline guidance tuned to tiny businesses, not full finance teams.
+- Joe already has strong fit with compliance-ish workflow tooling and data transformation.
+
+**What the product could do:**
+- CRA/HST/payroll deadline calendar with proactive reminders
+- Auto-generated bilingual invoice/payment/tax reminder templates
+- "What do I owe / what is due next" dashboard for owner-operators
+- Accountant handoff pack with exportable records and exception flags
+
+**Monetization:** $19 to $49 per month per business, plus accountant/bookkeeper partner referrals.
+
+### 2. Offline-First Trades and Contractor Job Admin App
+**Problem:** Atlantic trades, service contractors, and rural crews often quote, invoice, log materials, and chase payments from phones in weak-signal environments. Generic field-service apps are often bloated, expensive, or assume strong connectivity.
+
+**Why this is a local moat:**
+- Rural connectivity remains a real East Coast operational pain point.
+- Competitors usually optimize for larger urban fleets, not 1 to 20 person shops in patchy coverage areas.
+- A narrow "works offline, syncs later, dead simple" promise is easy to understand and defend.
+
+**What the product could do:**
+- Offline quote, work order, timesheet, and invoice capture
+- HST-aware invoicing for NB and Atlantic provinces
+- Photo receipts, job notes, and signature capture without signal
+- Lightweight owner dashboard for overdue invoices and crew status
+
+**Monetization:** $29 to $79 per crew per month, possibly with SMS payment reminders as an add-on.
+
+### 3. Payroll + Contractor Compliance Tracker for Small Canadian Teams
+**Problem:** Small employers bounce between payroll systems, contractors paid outside payroll, CRA remittance rules, and ad hoc spreadsheets. There is room between full payroll suites and messy manual tracking, especially for mixed employee plus contractor businesses.
+
+**Why this is a local moat:**
+- Dayforce/Ceridian-class tools are too heavy for many small teams, while lighter tools often do not help with the surrounding compliance workflow.
+- The pain is not just running payroll, it is knowing what is due, who is paid how, and what records are missing.
+- This fits Atlantic SMBs where admin is usually done by the owner or one office manager.
+
+**What the product could do:**
+- Single dashboard for payroll dates, source deduction remittances, contractor payment records, and missing tax docs
+- Alerts for filing gaps and payroll cadence changes
+- Simple export package for accountant or bookkeeper
+- Bilingual employee/contractor document requests and reminders
+
+**Monetization:** $24 to $69 per month, with accountant channel partnerships or white-label variants.
+
+### Best Bet
+**Best immediate fit:** Bilingual CRA + HST Deadline Copilot.
+
+Why:
+- Strong match to Joe's background in billing/data workflow problems
+- Clear recurring pain with compliance anxiety
+- Easier MVP than full payroll or full field-service software
+- Can expand later into invoicing, contractor tracking, and accountant collaboration
+
+### Validation Plan
+1. Interview 10 NB or Atlantic small businesses in trades, consulting, and services.
+2. Ask what they currently use for HST, payroll dates, and invoice/admin reminders.
+3. Validate whether bilingual templates and due-date certainty are worth paying for.
+4. If yes, build the smallest useful version around reminders, dashboard, and exports first.
+
+
+## Even Us Up Growth Audit (Apr 9, 02:02 ADT — Proactive Audit Refresh)
+
+### Positioning Summary
+Even Us Up should **not** try to beat Splitwise by feature parity. The strongest angle is: **Canada-first, Interac-native, household/roommate-focused expense sharing with clearer settlement UX than Splitwise.**
+
+### Top 3 UX Friction Points
+
+**1. Settlement clarity is still the biggest conversion leak**  
+**Priority:** P1 | **Effort:** 1-2 weeks  
+**Problem:** Users do not immediately understand who owes whom, what to do next, or why Interac is an advantage instead of a limitation. Settlement is too reactive and hidden.  
+**Why it matters:** Splitwise feels simpler because its core action is more obvious. Even Us Up has a local advantage, but the product is not surfacing it clearly enough.  
+**Fix:** Add a proactive dashboard settlement card, clearer "You owe / You are owed" language, prefilled Interac instructions, and a faster settlement confirmation flow.
+
+**2. First-run onboarding is too blank-slate**  
+**Priority:** P1 | **Effort:** 1-2 weeks  
+**Problem:** New users are dropped into an empty product without strong guidance for roommate, travel, or household setups.  
+**Why it matters:** Splitwise already owns the default mental model. If setup is ambiguous, users bounce before seeing value.  
+**Fix:** Ship a 3-step onboarding wizard with scenario presets (roommates, couples, trip), smart defaults, and optional sample data.
+
+**3. Mobile experience likely feels "usable" but not delightful**  
+**Priority:** P2 | **Effort:** 2-4 weeks  
+**Problem:** Expense-sharing is a phone-first behavior, but current experience appears web-first. Settlement, entry, and reminders need thumb-friendly mobile flow.  
+**Why it matters:** Splitwise benefits from native-mobile expectations. If Even Us Up feels slower on phones, users will assume it is the weaker product.  
+**Fix:** Do a mobile-first pass on expense entry and settlement, reduce scroll, simplify actions, and prepare Capacitor/PWA packaging if distribution is a priority.
+
+### Top 3 Missing Features
+
+**1. Notifications and nudges**  
+**Priority:** P1 | **Effort:** 2-3 weeks  
+**Gap:** No strong reminder loop for unpaid balances, inactive groups, or recurring expense events.  
+**Why it matters:** Splitwise stays sticky by repeatedly bringing users back to settle. Without reminders, Even Us Up leaks retention.  
+**Differentiation angle:** Add smart Interac-oriented nudges and group-specific reminders rather than generic push spam.
+
+**2. Household mode / recurring shared-life workflows**  
+**Priority:** P1-P2 | **Effort:** 3-5 weeks  
+**Gap:** The app has room to be much better than Splitwise for couples, roommates, and recurring household operations, but that positioning is not fully productized.  
+**Why it matters:** This is one of the clearest moats. Splitwise is broad. Even Us Up can be specific.  
+**Differentiation angle:** Recurring bills, household rhythms, soft accountability, and simple monthly closeout views.
+
+**3. Insights / fairness analytics**  
+**Priority:** P2 | **Effort:** 1-2 weeks  
+**Gap:** Users need quick answers to questions like who paid most, what changed this month, and whether the group is drifting off-balance.  
+**Why it matters:** This creates value beyond ledger storage.  
+**Differentiation angle:** Lightweight fairness and spending-trend cards for households and roommates, not just raw balances.
+
+### Top 3 Growth Levers
+
+**1. Own the Canada-first Interac positioning**  
+**Priority:** P1 | **Effort:** 1 week for messaging, 2-3 weeks with UX polish  
+**Why this matters:** Splitwise is generic. Even Us Up can feel local, practical, and immediately trustworthy for Canadian users.  
+**Actions:** Rewrite landing page, onboarding copy, app store copy, and settlement UI around "built for Canada" and "Interac-native".
+
+**2. Fix activation before adding more surface area**  
+**Priority:** P1 | **Effort:** 2-4 weeks  
+**Why this matters:** Traffic is not the main issue if the first session does not convert into a real group with a real expense and a clear settlement path.  
+**Actions:** Prioritize onboarding + settlement + reminders before lower-ROI feature expansion.
+
+**3. Build a referral loop around real group use cases**  
+**Priority:** P2 | **Effort:** 1-2 weeks  
+**Why this matters:** Expense apps naturally spread group-by-group. A roommate or couple app can grow through direct invitation mechanics better than broad paid acquisition early on.  
+**Actions:** Add invite incentives, simple share prompts after successful settlement, and use-case pages for roommates, couples, and trips.
+
+### Recommended Priority Order
+1. **Settlement clarity redesign** — highest immediate ROI, strongest defense against Splitwise comparison  
+2. **Onboarding wizard with scenario presets** — improves activation and clarifies target use cases  
+3. **Notifications/reminders** — lifts retention and settlement completion  
+4. **Household mode positioning + recurring workflows** — strongest differentiation moat  
+5. **Mobile-first polish** — important, but after core activation flow is clearer
+
+### Bottom Line
+Even Us Up already has enough foundation to matter. The issue is not "missing lots of features," it is that the **core story and first-run experience are not sharp enough yet**. The winning move is to become the **best Canadian household/roommate settlement app**, not a thinner Splitwise clone.
+
+
+## Alfred Infrastructure Improvement Scan (Apr 9, 03:31 ADT — Proactive Audit Refresh)
+
+### Top 3 Improvements Not Already Captured in Kanban
+
+**1. Build a notification answer-ingest + auto-resolve pipeline**  
+**Priority:** P1 | **Effort:** 1-2 days | **Impact:** High reliability + lower duplicate asks  
+**Gap:** Alfred keeps syncing pending questions, but the current "answered notifications via webhook listener" flow is mostly opaque and passive. This creates a real risk that Joe answers in one surface, but the originating pending item stays open and keeps reappearing.  
+**Failure mode:** Duplicate prompts, stale blockers, and wasted token spend on repeated reminder generation.  
+**Improvement:** Create a single reconciliation job that: (a) detects replies across Discord/Command Center/kanban comments, (b) maps them to notification IDs/cards, (c) marks the original ask resolved, and (d) updates ACTIVE-TASK.md + OPEN-LOOPS automatically.  
+**Why it matters:** This is a cleaner fix than just syncing pending questions more often. It removes the root cause of repeated decision-gate noise.
+
+**2. Add cron-event deduping with action fingerprints**  
+**Priority:** P1 | **Effort:** 4-6 hours | **Impact:** Medium-high token savings  
+**Gap:** The system receives many recurring reminders that trigger nearly identical shell actions every 6, 15, or 30 minutes. Most are cheap, but together they still create cumulative token and process overhead.  
+**Failure mode:** Alfred repeatedly re-runs the same low-value checks when nothing materially changed, especially for session checkpoints, memory-size checks, and answered-notification polling.  
+**Improvement:** Add a fingerprint cache per cron event, keyed by reminder type + recent result + timestamp bucket. If the same action already succeeded recently and no watched file/state changed, short-circuit the rerun and log "unchanged, skipped".  
+**Why it matters:** This reduces unnecessary shell churn and context growth without losing safety.
+
+**3. Create a single machine-readable operations status file for all schedulers**  
+**Priority:** P2 | **Effort:** 1 day | **Impact:** High observability, simpler automation  
+**Gap:** Current status is split across ACTIVE-TASK.md, NOW.md, LAST-SESSION.md, audit logs, pending ack files, and ad hoc script outputs. Humans can piece it together, but automation has to scrape many places.  
+**Failure mode:** Cron jobs and watchdogs make decisions using partial state, which leads to duplicated checks, weak handoffs, and brittle logic spread across scripts.  
+**Improvement:** Maintain one `ops-status.json` snapshot updated by the main flows, containing current task, review blockers, pending questions count, HAL queue health, last proactive run, last checkpoint, and last successful cron family run. Let cron jobs, sentinel, Command Center, and dashboard consume that same file.  
+**Why it matters:** This is the missing shared state layer. It would simplify routing logic, reduce script sprawl, and make failures easier to detect early.
+
+### Bottom Line
+The biggest remaining infrastructure opportunity is **state coherence**. The system already has lots of automation, but too much of it still relies on repeated polling, scattered files, and inferred status. A stronger shared-state + auto-resolution layer would cut duplicate effort and reduce token waste more than adding yet another standalone script.
+

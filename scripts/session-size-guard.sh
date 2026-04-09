@@ -16,7 +16,7 @@ BACKUP_DIR="$SESSIONS_DIR/backups"
 # 500KB threshold (~50k tokens). Lower threshold prevents rate limit exhaustion —
 # an 841KB session was burning through Haiku's TPM limits on 2026-03-02.
 # Old 3MB threshold only caught context overflow, not rate limit strain.
-MAX_SIZE_BYTES=$((500 * 1024))
+MAX_SIZE_BYTES=$((300 * 1024))  # 300KB (~75K tokens) — within Codex 266K context
 
 NOTIFICATION_URL="http://localhost:3001/api/notifications"
 VERBOSE=${SESSION_SIZE_GUARD_VERBOSE:-0}

@@ -295,3 +295,75 @@ Historical workflow efficiency scans from 2026-03-06 through 2026-03-21 have bee
 1. Delivery target resolver + preflight validation (eliminates immediate send failures)
 2. Proactive publish gate to force Kanban artifact creation (turns insight into execution)
 3. Null-ID suppression + anomaly fingerprinting in idle loop (stabilizes board truth)
+
+## Workflow Efficiency Scan — 2026-04-08
+
+### Top repetitive patterns and concrete improvements
+
+1. **Joe-facing decision loops are repeating without triage or expiry (attention drag)**
+   - **Pattern:** `OPEN-LOOPS.md`, `ACTIVE-TASK.md`, and `goals/notifications.json` all show the same blocked items resurfacing: CoinUsUp Stripe config, Bill Review scope, and several daily-inquiry questions. Some malformed records (`type: --title`, question fields in `goalId`/`taskId`) also leak into the active queue.
+   - **Impact:** Important blockers get buried, Alfred keeps re-syncing noisy pending lists, and Joe sees repeat asks instead of a clean “top decisions only” stack.
+   - **Improvement proposal:** Add a pending-question triage layer before sync:
+     - normalize malformed notification schema into canonical fields
+     - collapse duplicates by topic/card id into one active item with `first_asked_at`, `last_asked_at`, `times_asked`
+     - surface only top 3 current blockers in `ACTIVE-TASK.md`, archive the rest to a backlog file
+   - **Success metric:** active pending questions shown in working files reduced to ≤3, with zero duplicate asks on the same topic inside 7 days.
+
+2. **Kanban/source-of-truth drift is still creating board hygiene overhead (data integrity tax)**
+   - **Pattern:** `OPEN-LOOPS.md` shows multiple active cards as `null | null`, while idle-loop output still runs stale-card cleanup every cycle. That means upstream kanban extraction is still emitting invalid rows that later require cleanup.
+   - **Impact:** Board state is less trustworthy, proactive routing can make poor assumptions, and idle-loop time is wasted on recurring hygiene.
+   - **Improvement proposal:** add schema validation at kanban ingest, not just during cleanup:
+     - reject rows missing id/title before they enter `OPEN-LOOPS.md`
+     - write invalid payloads once per day to an anomalies log with source metadata
+     - fail the refresh script “softly” with counts, rather than publishing `null` cards into the main dashboard
+   - **Success metric:** 0 `null` active-card rows in `OPEN-LOOPS.md` for 7 consecutive days.
+
+3. **Proactive work quality is decent, but closure into action remains inconsistent (execution leak)**
+   - **Pattern:** the proactive pool explicitly says outputs should go to Kanban Ideas or a relevant card comment, but many scans live only in memory/task files. Historical scans repeatedly rediscover the same fixes: dedupe, null-card suppression, publish gates, checkpoint hardening.
+   - **Impact:** Good analysis compounds more slowly than it should, and Alfred spends cycles rediscovering ideas instead of graduating them into implementation.
+   - **Improvement proposal:** make proactive completion require one explicit landing artifact:
+     - either append a vetted recommendation to `goals/ideas.json`, or post/update a linked card comment
+     - include `problem`, `recommended fix`, `owner`, `trigger to act`, and `expected benefit`
+     - if a scan repeats an existing recommendation, update its prior artifact instead of creating a fresh write-up
+   - **Success metric:** ≥90% of proactive scans create or update one trackable artifact in the same run.
+
+### Recommended implementation order (highest ROI first)
+1. Pending-question triage + dedupe layer
+2. Kanban ingest schema validation to block `null` rows upstream
+3. Mandatory proactive artifact landing/update rule
+
+## Workflow Efficiency Scan — 2026-04-09
+
+### Top repetitive patterns and concrete improvements
+
+1. **Reminder duplication is still consuming attention and trust (notification fatigue)**
+   - **Pattern:** `ACTIVE-TASK.md` and `goals/notifications.json` currently contain multiple parallel reminders for the same two blockers: CoinUsUp Stripe trial config and Bill Review scope. The same topic appears as original question, reminder, unblock-needed reminder, and another reminder again on Apr 8-9.
+   - **Impact:** Joe sees repeated asks instead of a single evolving decision packet, and Alfred's working context gets padded with duplicates that are not adding new information.
+   - **Improvement proposal:** add a reminder coalescer before notification creation:
+     - group by `cardId` or semantic topic hash
+     - update the existing open notification instead of creating a new one when the ask is unchanged
+     - escalate only when there is genuinely new context, a deadline change, or a stronger recommendation
+   - **Success metric:** one active notification per blocker/topic, with zero near-duplicate reminders inside a 7-day window.
+
+2. **Malformed kanban/notification records are leaking into primary dashboards (source-of-truth corruption)**
+   - **Pattern:** `OPEN-LOOPS.md` still shows active cards as `null | null`, and `goals/notifications.json` includes malformed entries where `type` is `--title` and the actual question/context has spilled into `goalId`, `taskId`, or `source` fields.
+   - **Impact:** Cleanup is happening too late. By the time Alfred sees the data, the working dashboard is already noisy and less trustworthy.
+   - **Improvement proposal:** validate and normalize records at write time, not at read time:
+     - reject or quarantine kanban rows with missing `id/title`
+     - add schema repair for notifications so malformed reminder payloads are rewritten into canonical `{type,title,message,context,cardId}` form
+     - publish anomaly counts separately instead of injecting broken rows into `OPEN-LOOPS.md`
+   - **Success metric:** 0 `null` rows in `OPEN-LOOPS.md` and 0 malformed reminder records in `goals/notifications.json` for 7 consecutive days.
+
+3. **Proactive scans still land in notes more reliably than in execution systems (follow-through gap)**
+   - **Pattern:** today’s proactive task again required a manual choice of where to write findings, and the easiest path was appending to `ALFRED-PROACTIVE-TASKS.md`. That preserves thinking, but it does not by itself create an owned implementation path.
+   - **Impact:** Good recommendations accumulate, but they compete with older scans and are easier to rediscover than to execute.
+   - **Improvement proposal:** add a publish gate for proactive work:
+     - require each proactive run to either create/update a Kanban idea artifact or append to an existing tracked recommendation with status
+     - include `problem`, `proposed fix`, `expected benefit`, `owner`, and `next trigger`
+     - if the recommendation already exists, update the prior artifact rather than creating another scan section
+   - **Success metric:** 100% of proactive runs produce or update one trackable artifact beyond the scan log itself.
+
+### Recommended implementation order (highest ROI first)
+1. Reminder coalescer for blocker notifications
+2. Write-time schema validation/repair for kanban + notifications
+3. Proactive publish gate tied to a trackable artifact

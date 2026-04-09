@@ -83,7 +83,7 @@ ONE_SHOT_MAX_AGE_H = 2           # Remove one-shot sessions after 2h
 CHANNEL_MAX_AGE_H = 48           # Remove channel sessions after 48h idle
 CRON_BASE_MAX_AGE_H = 24         # Remove cron base sessions after 24h
 MAX_TOTAL_SESSIONS = 40          # Hard cap on session count
-MAIN_SESSION_MAX_KB = 500        # Reset main session if JSONL > 500KB
+MAIN_SESSION_MAX_KB = 300        # Reset main session if JSONL > 300KB (~75K tokens, well within Codex 266K)
 
 def log(msg):
     line = f"[{datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}] {msg}"
@@ -156,7 +156,7 @@ for key in list(data.keys()):
 # --- 3. Remove bloated sessions (file size > 200KB) ---
 # Any session with a JSONL file over 200KB is consuming too much context
 # This catches Discord/Slack channels that accumulate unbounded chat history
-BLOAT_MAX_KB = 200
+BLOAT_MAX_KB = 150  # ~37K tokens — keeps well within Codex 266K context
 
 for key in list(data.keys()):
     if key in to_remove:

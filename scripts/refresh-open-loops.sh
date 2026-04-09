@@ -88,34 +88,26 @@ generate_pending_notifs() {
   
   echo "$NOTIFICATIONS" | jq -r '
     def clean: gsub("[\r\n]+"; " ") | gsub("\\|"; "/") | gsub("  +"; " ") | sub("^ "; "") | sub(" $"; "");
+    def classify_owner($msg):
+      ((.source // .sourceTag // "") | tostring) as $src
+      | (((.title // "") + " " + $msg + " " + $src) | ascii_downcase) as $text
+      | if (.waitingOn // "") != "" then .waitingOn
+        elif ($text | test("waiting on you|you need to do|please reply|decision needed|what you need to do|what is the call|can you|could you|would you|should i|approve|provide|update|share with me|message me|reply with|just reply|your decision|need your decision|need your decisions|need your approval|scope clarification|clarification needed|what do you want|which option|a or b|stripe|dashboard|manual task|unblocks testing|only blocker|reply 'stripe config done'|reply 'skip trial for now'")) then "joe"
+        elif ($src | test("(?i)^daily-inquiry$|daily-inquiry|review-escalation|manual|question|approval|blocker")) then "joe"
+        elif ($text | test("\?|waiting on|blocked on|clarification|approval|approve|decision|reply|respond|provide|update|choose|pick|which|what\s+should|what is the call")) then "joe"
+        elif (.assigned_to // "") != "" then .assigned_to
+        else "alfred"
+        end;
     [.[] | select((.answered // false) != true)]
     | sort_by(.createdAt // .created_at // "")
     | reverse
     | .[]
-    | (
-        .message // ""
-      ) as $msg
-    | (
-        if (.waitingOn // "") != "" then .waitingOn
-        elif ($msg | test("(?i)waiting on you|you need to do|please reply|decision needed|what you need to do|can you|could you|approve|provide|update|share with me|message me")) then "joe"
-        elif (.assigned_to // "") != "" then .assigned_to
-        else "alfred"
-        end
-      ) as $owner
-    | (
-        if (.status // "") != "" then .status
-        elif (.answered // false) == true then "answered"
-        else "awaiting-answer"
-        end
-      ) as $status
-    | (
-        if (.next_action // "") != "" then .next_action
-        elif $owner == "joe" then "review / respond"
-        else "follow up"
-        end
-      ) as $next
+    | (.message // "") as $msg
+    | (classify_owner($msg)) as $owner
+    | (if (.status // "") != "" then .status elif (.answered // false) == true then "answered" else "awaiting-answer" end) as $status
+    | (if (.next_action // "") != "" then .next_action elif $owner == "joe" then "review / respond" else "follow up" end) as $next
     | ((.title // .message // "(untitled)") | clean) as $title
-    | "| \($title) | \((.createdAt // .created_at // "unknown") | clean) | \(($owner|tostring) | clean) | \(($status|tostring) | clean) | \(($next|tostring) | clean) |"
+    | "| \($title) | \((.createdAt // .created_at // "unknown") | tostring | clean) | \(($owner|tostring) | clean) | \(($status|tostring) | clean) | \(($next|tostring) | clean) |"
   ' 2>/dev/null || true
 }
 

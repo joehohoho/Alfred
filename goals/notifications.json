@@ -720,5 +720,23 @@
     "answered": false,
     "createdAt": "2026-04-08T18:40:10.915Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775716854324_b70f2fb0",
+    "type": "[REMINDER] Bill Review MVP scope decision",
+    "title": "Context: Bill Review & Invoice Audit Automation has the blueprint and market validation done, but it is still blocked waiting on one scope choice. Specific question: should I build this as (A) a personal internal invoice-audit tool for your own operations, or (B) an external SaaS MVP for Canadian SMBs? Options: Reply A for an internal tool, or B for an external product. Recommendation: A if you want a fast practical tool without disrupting current app priorities, B only if you want this to become an active passive-income product track. If no response, the card stays blocked and I will avoid starting build work on it.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-09T06:40:54.324Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775716854336_c33bc8db",
+    "type": "[REMINDER] CoinUsUp trial free-trial last step",
+    "title": "Context: the 14-day free trial implementation for CoinUsUp is code-complete and blocked only on the Stripe dashboard step. Specific question: do you want to finish this by updating the Basic and Pro Stripe prices for the 14-day trial, or should I close/defer the trial feature for now? Options: (1) update the Stripe prices and reply 'Stripe config done', or (2) reply 'skip trial for now' and I will keep the card blocked/close it appropriately. Recommendation: do option 1, because the code is already done and this is the only remaining launch step. If no response, the card stays blocked and the trial will not ship.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-09T06:40:54.336Z",
+    "answeredAt": null
   }
 ]

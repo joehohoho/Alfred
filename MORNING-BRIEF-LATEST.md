@@ -1,4 +1,4 @@
-# Morning Brief -- Saturday, 2026-04-04 04:35 ADT
+# Morning Brief -- Thursday, 2026-04-09 04:35 ADT
 
 > Fallback mode: Haiku synthesis unavailable. Raw data snapshot included.
 
@@ -9,10 +9,10 @@ DELIVERY_HINT: Cron delivery is configured for Morning Brief. Return formatted b
 === Cron Job Health Check (last 24 hours) ===
 
 📝 Git Commits:
-  ✅       34 commit(s) in last 24 hours
-     520c291 chore: add validated idea - CoinUsUp Grant Tracker add-on (consolidation-mode, grant market demand)
-     8d0aec0 [idle:goal-progress-check] 2026-04-04 — reviewed blocked/review cards, sent Joe input reminders
-     6f34343 [idle:workspace-check] 2026-04-04 workspace health check — all repos clean, 6 notifications pending, oldest blocker is free trial stripe config (16d)
+  ✅       19 commit(s) in last 24 hours
+     ffa2cb4 docs: log skipped workspace health check
+     cafbb59 Refresh Apr 9 idle memory review state
+     fb9c54c 🔄 refresh: OPEN-LOOPS.md at 2026-04-09 03:58 UTC
 
 🔧 Ollama Health:
   ❌ Ollama not responding (may be dead)
@@ -26,11 +26,11 @@ DELIVERY_HINT: Cron delivery is configured for Morning Brief. Return formatted b
 === Check Complete ===
 
 === LaunchAgent Health Check ===
-Timestamp: Sat Apr  4 04:35:03 ADT 2026
+Timestamp: Thu Apr  9 04:35:11 ADT 2026
 
 ⚠️  com.ollama.keepalive: LOADED BUT NOT RUNNING (exit code -1)
 ⚠️  com.openclaw.imsg-responder: EXIT CODE 599 (may be normal if one-shot job)
-⚠️  com.alfred.dashboard-nextjs: EXIT CODE 33574 (may be normal if one-shot job)
+⚠️  com.alfred.dashboard-nextjs: EXIT CODE 10900 (may be normal if one-shot job)
 ⚠️  com.cloudflare.tunnel: EXIT CODE 610 (may be normal if one-shot job)
 
 Summary: 3 healthy, 1 failed
@@ -39,122 +39,49 @@ Attempting recovery for failed agents...
   → Restarting com.ollama.keepalive...
 
 === WEATHER: Dieppe, NB ===
-Light rain +0°C feels like -4°C wind →12km/h humidity 100% UV 0
-dieppe,nb: 🌦   +0°C
+Clear -3°C feels like -6°C wind ↗8km/h humidity 68% UV 0
+dieppe,nb: ☀️   -3°C
 
 === OVERNIGHT WORK ===
-# Daily Memory — 2026-04-04 (Sat, 04:00–04:10 ADT)
+# Daily Memory — 2026-04-09
 
-## Idle Activity: Goal Progress Check
+## Notes
+- [idle:generate-ideas] Added a validated CoinUsUp idea for duplicate payment and overbilling detection for small nonprofits, based on AP competitor demand research.
+- [idle:review-memory] Confirmed today's daily ops summary already existed, refreshed ACTIVE-TASK.md to keep review blockers current, and preserved continuity.
 
-### Cards Reviewed
-**2 blocked/review cards audited:**
 
-1. **Implement 14-day free trial on Basic/Pro tiers** (task_1773156748695_23b9e471) — REVIEW
-   - Status: 100% code + frontend complete, all tests passing, docs ready
-   - Blocker: Joe needs to configure 12 Stripe price IDs (Basic/Pro × US/CA × Monthly/Annual) with `trial_period_days=14`
-   - Timeline: 16 days in review, implementation done, blocking on 5-minute Stripe dashboard task
-   - Action: Sent clarification to Joe — awaiting Stripe config confirmation
-
-2. **Bill Review & Invoice Audit Automation (Canadian SMB SaaS)** (task_1774058538023_ae4bf3d2) — BLOCKED
-   - Status: Blueprint + market validation complete, Joe approved MVP build (Mar 31)
-   - Blocker: Scope clarification unanswered — Personal tool vs external SaaS? Should MVP replace current priorities?
-   - Timeline: 11 days blocked on decision, focused notification sent Mar 31
-   - Action: Sent scope decision notification (A: personal tool | B: external product)
-
-### Actions Taken
-- Examined both card comments for unblock opportunities
-- Determined both are waiting on Joe input, not execution gaps
-- Free trial card: code complete, needs Stripe price config (external dependency)
-- Bill Review card: blueprint complete, needs scope decision (Joe decision)
-- No independent technical work available for either card
-
-### Summary
-[idle:goal-progress-check] Both cards unblockable without Joe input: Trial needs Stripe dashboard update (5 min), Bill Review needs scope clarification (decision). Sent consolidated notifications.
-
----
-
-## Proactive: Passive Income Idea Scan (04:03–04:20 ADT)
-
-Executed: Passive income idea scan targeting niche SaaS in Joe's expertise areas.
-
-### Idea Generated
-[idle:generate-ideas] Created 1 validated idea: **CoinUsUp: Grant Tracking & Funder Management Add-on** (status:new, score est. 7.2). Consolidation-aligned (extends CoinUsUp without new product). Market validated: grant management SaaS market $25–99/mo, Reddit demand (40+ threads). Joe's 20-year nonprofit expertise = moat. Expected incremental revenue: $375–750/mo.
-
-### Research Summary
-Analyzed 2026 micro-SaaS trends (market: $344B projected by 2028, 13% CAGR). Focus: low-build, low-maintenance, solo-dev feasible, recurring revenue.
-
-### Top 3 Ideas (by Joe's competitive advantage)
-
-**1. SMB Regulatory Compliance Automation (Vertical SaaS)**
-- Problem: Canadian SMBs spend 40+ hours/month on manual compliance (ESG, provincial regs)
-- Market: 50–100-employee firms (underserved)
-- Est. MRR: $2–5K (10–20 customers @ $200–300/month)
-- Tech: 3/5 (rules engine, report generation, CRA/provincial APIs)
-- Competition: Medium
-- Joe fit: ⭐⭐⭐⭐ (20+ years law firm data solutions, process knowledge)
-- Thesis: Can build faster than generic competitors via data transformation expertise
-
-**2. Crypto Signal White-Label (RECOMMENDED FIRST)**
-- Problem: Retail traders want curated signals; existing platforms fragmented/expensive
-- Market: Discord/Telegram trading communities (1–10K members; charge community admins)
-- Est. MRR: $3–8K (8–20 communities @ $300/month)
-- Tech: 2/5 (signal aggregation from existing APIs, Discord/Telegram delivery, perf tracking)
-- Competition: Low–Medium (fragmented, few white-label players)
-- Joe fit: ⭐⭐⭐⭐⭐ (already built trading signal app; this is distribution layer)
-- Thesis: Lowest complexity, leverages existing product, minimal support burden (admins manage UX)
-
-**3. Law Firm Document Assembly + Automation (Vertical SaaS)**
-- Problem: Solo/small law firms (1–5 attorneys) waste 30–50% on doc drafting, templates, intake
-- Market: 500–5K solo/small practices in Canada/US (IP, family law, contracts)
-- Est. MRR: $1.5–4K (10–20 firms @ $150–250/month)
-- Tech: 2/5 (templates, variable substitution, workflow; existing doc libraries)
-- Competition: High (HotDocs/Neota Logic entrenched, but niches exist)
-- Joe fit: ⭐⭐⭐⭐ (direct law firm consulting experience)
-- Thesis: Lean "80/20" solution for one specialty (e.g., Canadian family law) vs broad competition
-
-### Recommendation Path
-**Immediate (Next 2 weeks):** Research Signal White-Label demand — DM 2–3 active crypto Discord admins; validate if they'd pay $300–400/month for signal delivery + tracking dashboard.
-**Medium-term:** Parallel research on Compliance Automation (market size, regulatory complexity, customer willingness to pay).
-**Avoid first:** Law Firm Doc Assembly (high competition, requires deep specialty knowledge of each practice area).
-
-### Next Steps
-- Validate Signal White-Label demand via Discord community outreach
-- Scope MVP (basic signal aggregation + Discord webhook delivery + Shopify-style dashboard)
-- Estimate build time (2–3 weeks for lean MVP)
+[idle:workspace-check] Report already existed for 2026-04-09, so I skipped the health check and left findings unchanged.
+- [idle:goal-progress-check] Re-checked both blocked cards, confirmed each is still waiting on Joe, added kanban updates, and sent fresh >48h reminders for Bill Review scope and CoinUsUp Stripe trial config.
 
 === YESTERDAY'S LOG ===
-- Appended 25KB+ to kanban-ideas.md
+# Daily Memory — 2026-04-08
 
-### Active Work Status
+## Notes
 
-**In Review (Joe decision-dependent):**
-1. CoinUsUp trial feature — awaiting Stripe config (5-min manual task)
-2. Bill Review SaaS — awaiting scope clarification (A or B decision)
 
-**System Health:**
-- 29/29 LaunchAgents up
-- 11 cron jobs enabled
-- Memory: 1.9M (stable)
-- All repos clean
+[idle:workspace-check] Created today's workspace health report; all 4 repos were clean, found 14 old unanswered notifications, and 0 stale in_progress cards.
 
-### Priorities for Tomorrow (Apr 4)
+[idle:goal-progress-check] Re-checked blocked/review cards: CoinUsUp 14-day trial moved from review to blocked and remains blocked on Joe's Stripe config/approval already requested; Bill Review remains blocked on Joe choosing personal tool vs external SaaS scope.
+[idle:generate-ideas] Added validated CoinUsUp grant reporting idea focused on nonprofit expense allocation and funder-ready reports.
+[idle:improve-self] Fixed OPEN-LOOPS notification parsing to read local notifications.json and normalize drifted fields.
+[idle:review-memory] Wrote daily ops summary for 2026-04-08, refreshed ACTIVE-TASK.md to reflect current blocked review state, and preserved continuity.
+[idle:review-memory] Wrote the Apr 9 daily ops summary, refreshed ACTIVE-TASK.md, and preserved continuity.
 
-1. **If Joe approves trial:** Deploy to staging (4h active, monitor 7 days)
-2. **If Joe provides Stripe keys:** Run end-to-end integration test
-3. **Monitor 2 pending notifications:** Escalate if no response by 09:00 AM
-4. **Continue idle loop:** Proactive checks, idea generation on schedule
-5. **Optional:** Begin Even Us Up UX research (if resources available)
+[idle:improve-self] Built additive self-improvement foundation: reality verification script, state-of-work continuity compiler, loop-closure snapshot, and notification-discipline report. Fixed check-decision-guard.sh control-flow/regex bugs found during verification. Verified no regression in recommendation guard; left live behavior additive/advisory only to avoid breaking current automation.
 
-### Notes
+[idle:goal-progress-check] Re-checked both blocked cards, confirmed neither could be advanced without Joe, sent fresh >48h reminder notifications for CoinUsUp Stripe trial config and Bill Review A/B scope decision, and logged both cards.
+[idle:improve-self] Improved notification-discipline parsing so malformed notifications infer owner/route from title/source text instead of defaulting to unknown.
+[idle:workspace-check] Skipped regenerating today's report because reports/workspace-health-2026-04-08.md already existed; verified latest findings remain 4 repos clean, 14 unanswered notifications older than 24h, and 0 stale in_progress cards.
 
-- Continuous 37h session successful; context managed well after morning compression
-- Decision bottleneck is clear: 2 cards, <10 min total Joe effort, >$500/mo potential unlock
-- Infrastructure health excellent; no blocker except human decisions
-- Ready to pivot immediately on any Joe approval
+[idle:surprise-delight] Ran a focused CoinUsUp security scan, wrote a report in reports/security-scan-coinusup-2026-04-08.md, and flagged 14 dependency vulnerabilities with safe next steps.
+- [idle:goal-progress-check] Re-checked the two blocked cards, confirmed both are still waiting on Joe decisions already requested today, and added fresh kanban comments without sending duplicate notifications.
+[idle:generate-ideas] Added a validated CoinUsUp vendor invoice checker idea focused on duplicate charges and overbilling detection.
 
-[idle:goal-progress-check] 23:34 ADT — 2 cards reviewed (Trial blocked 16d on Stripe config, Bill Review blocked 11d on scope decision); both need Joe action only. Kanban comments already in place. Context 30%. Ready to proceed on Joe approval.
+[idle:workspace-check] Checked repo status, old notifications, stale in-progress cards, and wrote reports/workspace-health-2026-04-09.md.
+
+- [idle:goal-progress-check] Re-verified two blocked cards, confirmed both are still waiting on Joe actions already covered by fresh 18:40 reminders, and avoided duplicate notifications.
+[idle:evaluate-idea] Validated market demand for CoinUsUp growth audit, scored it 8/10, and saved supporting research evidence in goals/ideas.json.
 
 ---
-_generated_at_utc: 2026-04-04T07:35:04Z
+_generated_at_utc: 2026-04-09T07:35:12Z
 _generator: scripts/morning-brief.sh

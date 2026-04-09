@@ -39,7 +39,7 @@ ws.on('message', (raw) => {
   if (msg.event === 'connect.challenge') {
     ws.send(JSON.stringify({type:'req',id:'s1',method:'connect',params:{
       minProtocol:3,maxProtocol:3,
-      auth:{token:'60200de64be3d9a2b7ebc716660d33f09501f12d30b2d912'},
+      auth:{token:'7169389fd91b7aa62228241006aea2bc510ed3d68f871be7'},
       client:{id:'openclaw-control-ui',displayName:'SessionSync',version:'1.0.0',platform:process.platform,mode:'backend'},
       role:'operator',scopes:['operator.read'],caps:[]
     }}));

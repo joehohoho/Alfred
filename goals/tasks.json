@@ -2578,7 +2578,7 @@
     "estimatedHours": 0,
     "completedAt": null,
     "createdAt": "2026-03-10T15:32:28.695Z",
-    "updatedAt": "2026-04-08T22:40:21.266Z",
+    "updatedAt": "2026-04-09T10:40:57.499Z",
     "assignedAt": "2026-03-18T21:00:56.448Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "281cf54c-659a-4e19-ada8-dd5d3377fe01",
@@ -2769,6 +2769,24 @@
         "author": "alfred",
         "text": "[idle:goal-progress-check 2026-04-08 19:39] Re-verified implementation status and notification state. CoinUsUp trial code/docs remain complete; the only remaining blocker is Joe's Stripe-side manual config for the 12 Basic/Pro prices, or an explicit skip decision. Multiple unanswered notifications already exist, including a fresh reminder sent at 15:39 today, so I did not send another duplicate.",
         "createdAt": "2026-04-08T22:40:21.266Z"
+      },
+      {
+        "id": "cmt_1775702446031_f556314a",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 23:40] Re-read card comments, review docs, and notification state. Trial implementation remains fully complete; the only remaining unblock is Joe's Stripe-side update of the 12 Basic/Pro prices (or an explicit skip). A fresh reminder already exists from 18:40 today, so I did not send another duplicate.",
+        "createdAt": "2026-04-09T02:40:46.031Z"
+      },
+      {
+        "id": "cmt_1775716854196_0fcec6ba",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-09 03:40] Re-read comments and notification state. Trial implementation is still genuinely blocked on Joe completing the Stripe dashboard step or explicitly skipping trials. Existing unanswered notification is older than 48h, so I sent a fresh reminder covering both options.",
+        "createdAt": "2026-04-09T06:40:54.196Z"
+      },
+      {
+        "id": "cmt_1775731257499_97cab042",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-09 07:40] Re-read comments and notification state. Trial implementation remains fully complete; I could not unblock the remaining Stripe-side step myself from this workspace. There is already a fresh unanswered reminder from 2026-04-09 03:40 covering the exact next action, so I did not send another duplicate. Card remains blocked pending Joe either updating the 12 Basic/Pro Stripe prices for the 14-day trial or explicitly saying to skip/defer the feature.",
+        "createdAt": "2026-04-09T10:40:57.499Z"
       }
     ],
     "reviewEnteredAt": "2026-03-31T19:03:53.336Z",
@@ -3595,7 +3613,7 @@
     "completedAt": null,
     "generatedBy": "sub-agent",
     "createdAt": "2026-03-21T02:02:18.023Z",
-    "updatedAt": "2026-04-08T22:40:21.258Z",
+    "updatedAt": "2026-04-09T10:40:57.508Z",
     "assignedAt": "2026-03-21T02:30:49.790Z",
     "deliveryStatus": "delivered",
     "deliveryMessageId": "e09d869a-e71b-43b5-b131-e3756766986c",
@@ -3713,6 +3731,24 @@
         "author": "alfred",
         "text": "[idle:goal-progress-check 2026-04-08 19:39] Re-read card comments and notification state again. This card is still genuinely blocked on Joe choosing the build direction: (A) personal internal invoice-audit tool or (B) external SaaS MVP. Multiple unanswered notifications already exist, including a fresh reminder sent at 15:39 today, so I did not send another duplicate.",
         "createdAt": "2026-04-08T22:40:21.257Z"
+      },
+      {
+        "id": "cmt_1775702446039_e18fe070",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-08 23:40] Re-read card comments, blueprint, and notification state. The build request is still blocked on Joe choosing the scope: (A) personal internal invoice-audit tool or (B) external SaaS MVP. A fresh A/B reminder already exists from 18:40 today, so I did not send another duplicate.",
+        "createdAt": "2026-04-09T02:40:46.039Z"
+      },
+      {
+        "id": "cmt_1775716854171_90f3fda8",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-09 03:40] Re-read comments and notification state. Card is still genuinely blocked on Joe choosing the build direction: (A) personal internal invoice-audit tool or (B) external SaaS MVP. Existing unanswered notification is older than 48h, so I sent a fresh A/B reminder to unblock the scope decision.",
+        "createdAt": "2026-04-09T06:40:54.171Z"
+      },
+      {
+        "id": "cmt_1775731257508_02ae4865",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-09 07:40] Re-read comments, blueprint state, and notification state. I still cannot responsibly start the MVP build without Joe choosing the build direction: (A) internal personal tool or (B) external SaaS MVP. A fresh unanswered reminder was already sent at 2026-04-09 03:40, so I did not send another duplicate. Card remains blocked pending that single A/B scope decision.",
+        "createdAt": "2026-04-09T10:40:57.508Z"
       }
     ]
   },
@@ -4807,7 +4843,7 @@
     "estimatedHours": 0,
     "completedAt": "2026-03-27T23:25:41.975Z",
     "createdAt": "2026-03-27T20:35:46.898Z",
-    "updatedAt": "2026-03-27T23:25:41.975Z",
+    "updatedAt": "2026-04-09T08:06:31.649Z",
     "comments": [
       {
         "id": "cmt_1774643749677_fc060ef5",
@@ -4820,6 +4856,12 @@
         "author": "alfred",
         "text": "## EVIDENCE\n\nsummary_of_changes: Completed all 5 immediate actions: (1) Pricing page + copy (PRICING-PAGE-COPY.md, 10.5 KB) - complete page layout, headlines, 3-tier pricing, feature matrix, FAQs, design notes, A/B tests. (2) Email sequences (EMAIL-SEQUENCES.md, 24.3 KB) - 13 emails across 4 sequences (Welcome, Features, Conversion, Retention), segmentation rules, metrics. (3) Accuracy dashboard (ACCURACY-DASHBOARD-SPEC.md, 13.6 KB) - 5 dashboard metrics, data architecture, frontend spec, privacy rules. (4) Stripe integration (STRIPE-INTEGRATION-SPEC.md, 19.4 KB) - 6 API endpoints, 4 webhook handlers, React components, testing checklist. (5) Launch date decision (LAUNCH-DATE-DECISION.md, 10.9 KB) - June 1 recommended with risk/revenue analysis.\n\nvalidation_steps: (1) Spec completeness verified - all 5 actions have detailed, implementable specs. (2) Cross-reference validation - pricing tiers consistent across all docs, success metrics aligned, timeline consistent. (3) Quality checks - copy is transparent, pricing justified, email sequences follow proven patterns, technical specs are detailed. (4) Dependency validation - no blocking dependencies, all specs ready for parallel team execution. (5) Decision readiness - launch date has pros/cons, revenue impact calculated, recommendation provided.\n\nvalidation_results: PASS on all fronts. Technical feasibility PASS - fully implementable with standard stack. Business alignment PASS - matches Joe's monetization strategy. Completeness PASS - all 5 immediate actions have complete specs. Launch readiness CONDITIONAL - awaiting Joe decision on launch date.\n\nartifacts: 7 files delivered in /Users/hopenclaw/.openclaw/workspace/signal-app-deliverables/: (1) PRICING-PAGE-COPY.md (10.5 KB), (2) EMAIL-SEQUENCES.md (24.3 KB), (3) ACCURACY-DASHBOARD-SPEC.md (13.6 KB), (4) STRIPE-INTEGRATION-SPEC.md (19.4 KB), (5) LAUNCH-DATE-DECISION.md (10.9 KB), (6) DELIVERABLES-SUMMARY.md (10.6 KB), (7) CARD-COMPLETION-EVIDENCE.md (8.8 KB). Total: ~80 KB production-ready specifications.",
         "createdAt": "2026-03-27T20:44:26.837Z"
+      },
+      {
+        "id": "cmt_1775721991649_3fea2598",
+        "author": "alfred",
+        "text": "Updated monetization benchmark for the Stock/Crypto Buy/Sell Signal App (Apr 9, 2026):\n\nRecommendation: keep the same core model, but tighten positioning to Freemium + single paid retail tier first, with B2B/API as phase 2 after proof of signal quality.\n\nBest early-stage pricing strategy for Joe's audience\n- Free: delayed or limited signals (for example 3-5/week, or end-of-day digest), basic watchlist, public performance dashboard.\n- Pro: C$19-29/month or C$199-249/year. Include real-time signals, portfolio/watchlist alerts, backtest snapshots, conviction score, and richer context.\n- Avoid one-time purchase as the primary offer. Signals are ongoing value, so recurring pricing fits better and supports retention + iteration.\n- Defer B2B/API licensing until there is a visible track record and stable alert infra. That can become a high-margin upsell later.\n\nWhy this is the right shape\n- Joe's likely starting audience is retail users who want practical signal help, not hedge-fund tooling.\n- Freemium lowers trust friction in a category where buyers are skeptical.\n- A single paid tier is simpler to explain, easier to test, and avoids decision paralysis early.\n- Annual plan matters: offer ~2 months free equivalent to improve cash flow and retention.\n\nCompetitor benchmark (current public pricing signals)\n1. TradingView\n- Low-cost, tiered subscription model, broad market coverage, strong alerting/chart ecosystem.\n- Competes on tool depth and habit, not curated buy/sell guidance.\n- Takeaway: market expects monthly subscription, but Joe can differentiate with clarity and actionable signals instead of chart complexity.\n\n2. TrendSpider\n- Premium subscription positioning with advanced automation/backtesting and optional add-ons.\n- Strong feature depth, but much heavier and pricier than what an early-stage retail signal app needs.\n- Takeaway: validates willingness to pay for automation, but also shows an opening for a simpler, narrower product.\n\n3. CryptoQuant\n- Subscription-driven crypto analytics, with premium/institutional orientation.\n- Strong data credibility angle.\n- Takeaway: users will pay when the product feels data-backed and trustworthy. Public evidence and transparency are part of the product.\n\nPractical pricing call\n- If Joe wants fastest adoption: launch Pro at C$19.99/mo.\n- If Joe wants slightly higher perceived value and can provide richer explanations/context: C$24.99/mo.\n- Annual: C$199 or C$249.\n- Optional intro offer: founding members at C$14.99/mo for first 100 users.\n\nWhat to emphasize in copy\n- Transparent win/loss tracking\n- Signals with reasoning, not black-box alerts\n- Focused on helping regular investors act with more confidence\n- Stock + crypto in one place\n\nWhat not to do yet\n- No multi-tier maze\n- No lifetime deal\n- No enterprise sales motion before proof\n- No underpricing to $9.99 unless the app is intentionally positioned as lightweight volume play\n\nBottom line\nStart with Freemium + one paid Pro tier. Price around C$19.99-24.99/month, add annual billing, and use transparency as the main differentiator. Treat B2B/API licensing as phase 2 after traction, not launch-day complexity.",
+        "createdAt": "2026-04-09T08:06:31.649Z"
       }
     ],
     "assignedAt": "2026-03-27T20:38:14.312Z",
@@ -4936,6 +4978,37 @@
       }
     ],
     "reviewEnteredAt": "2026-03-28T05:31:20.674Z",
+    "reviewSla72hReminderSent": false,
+    "reviewSla7dAutoPromoteEligible": true
+  },
+  {
+    "id": "task_1775721313400_1a4f9853",
+    "goalId": "",
+    "title": "Portfolio Health Snapshot — 2026-04-08",
+    "description": "**One-page portfolio snapshot**\n\n**1. CoinUsUp**\n- **Current status:** Best near-term passive-income candidate. Core app improvements are active, and the 14-day free-trial implementation is code-complete but blocked on Stripe dashboard configuration/approval. Several validated growth ideas already exist: Smart Onboarding, CoinUsUp Academy, nonprofit launch templates, and compliance reporting add-ons.\n- **Estimated current MRR:** Unknown from current workspace evidence.\n- **Estimated potential MRR (next meaningful milestone):** $500-2k/mo incremental from conversion/growth improvements already researched, with further upside from compliance add-ons.\n- **Biggest bottleneck:** Not engineering, but activation + a tiny manual deployment blocker. Marketing/UI clarity and trial launch completion are the current choke points.\n\n**2. Even Us Up**\n- **Current status:** Product exists but external adoption is weak. Workspace evidence repeatedly cites ~0-20 visitors/day and zero meaningful external traction so far. Several solid ideas exist, especially onboarding, settlement transparency, and Interac automation.\n- **Estimated current MRR:** Effectively $0/mo or negligible.\n- **Estimated potential MRR (next meaningful milestone):** Roughly $100-300/mo from an early premium/interac wedge if activation improves first.\n- **Biggest bottleneck:** User activation, not feature count. People are not getting to the aha moment fast enough.\n\n**3. Signal App / Market Signal Lab**\n- **Current status:** High upside, but still internal-quality stage. Workspace notes are consistent: market exists, but signal quality is not yet strong enough for outside use. Best immediate leverage is automated quality scoring/backtest diagnostics, not marketing.\n- **Estimated current MRR:** $0/mo.\n- **Estimated potential MRR (next meaningful milestone):** Could become meaningful later, but near-term commercialization is gated by quality. A reasonable first external milestone looks more like proof-of-quality than revenue.\n- **Biggest bottleneck:** Signal quality and validation. This is a product-readiness problem, not an audience problem.\n\n**4. Automation Consulting**\n- **Current status:** Stable active revenue source and domain knowledge engine, but not the primary passive-income frontier. Previous board/memory guidance says consulting-to-productization is generally off-limits unless explicitly reopened.\n- **Estimated current MRR:** Active but not quantified in current workspace context.\n- **Estimated potential MRR (next meaningful milestone):** Stable baseline cashflow rather than passive upside. Upside comes indirectly by funding product bets and revealing workflow pain points.\n- **Biggest bottleneck:** Scalability and repeatability. Consulting remains bespoke, which limits leverage.\n\n**Portfolio health read**\n- **Best near-term ROI:** CoinUsUp. It is the closest to turning existing work into revenue with the least additional build.\n- **Best medium-term upside:** Signal App, if quality crosses the commercialization threshold.\n- **Best turnaround candidate:** Even Us Up, but only if activation is fixed before adding more monetization ideas.\n- **Role of consulting:** Keep it as revenue ballast, not the main passive-income bet.\n\n**Recommendation**\n1. Unblock CoinUsUp trial launch and focus next on onboarding/conversion work.\n2. Treat Even Us Up as an activation problem and test one low-effort UX improvement before bigger builds.\n3. Keep Signal App in quality-improvement mode until objective metrics say it is ready.\n4. Use consulting to stabilize cash, not to distract from product leverage.",
+    "status": "done",
+    "priority": "medium",
+    "estimatedHours": 4,
+    "assignedTo": "alfred",
+    "completedAt": "2026-04-09T10:40:42.883Z",
+    "generatedBy": "sub-agent",
+    "createdAt": "2026-04-09T07:55:13.400Z",
+    "updatedAt": "2026-04-09T10:40:42.883Z",
+    "comments": [
+      {
+        "id": "cmt_1775721786959_4b0d01a1",
+        "author": "alfred",
+        "text": "## EVIDENCE\nsummary_of_changes: Created a one-page portfolio snapshot grounded in current workspace evidence, covering CoinUsUp, Even Us Up, Signal App / Market Signal Lab, and Automation Consulting, with current status, bottlenecks, portfolio read, and ranked recommendations.\nvalidation_steps: Reviewed ACTIVE-TASK.md for CoinUsUp trial blocker state; reviewed kanban-ideas.md portfolio snapshots and April updates; reviewed ideas/COINUSUP_GROWTH_AUDIT_2026-03-23.md; reviewed PROACTIVE-ANALYSIS-EVEN-US-UP-2026-03-27.md plus Apr 9 Even Us Up audit notes in kanban-ideas.md; reviewed signal-app-mvp/SIGNAL-APP-RESEARCH-2026-03-30.md and related code-review notes; reconciled conflicting MRR estimates conservatively.\nvalidation_results: Deliverable completed and written to disk. Snapshot matches the strongest current workspace evidence. Where numeric revenue estimates conflicted across older notes, the final snapshot used conservative wording and marked current MRR as unconfirmed rather than overstating precision.\nartifacts: memory/PORTFOLIO-SNAPSHOT-2026-04-08.md",
+        "createdAt": "2026-04-09T08:03:06.959Z"
+      },
+      {
+        "id": "cmt_1775731242717_e629400a",
+        "author": "alfred",
+        "text": "[idle:goal-progress-check 2026-04-09 07:40] Re-reviewed the portfolio snapshot artifact and supporting evidence. The deliverable is complete, grounded in current workspace evidence, and no unanswered question remains on this card. Moving it from review to done.",
+        "createdAt": "2026-04-09T10:40:42.717Z"
+      }
+    ],
+    "reviewEnteredAt": "2026-04-09T08:03:13.596Z",
     "reviewSla72hReminderSent": false,
     "reviewSla7dAutoPromoteEligible": true
   }

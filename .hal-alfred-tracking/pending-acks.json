@@ -1,9 +1,9 @@
 [
   {
-    "taskId": "proactive_1774982161",
-    "title": "Code review: CoinUsUp",
+    "taskId": "proactive_1775665893",
+    "title": "Security posture check",
     "agent": "hal",
-    "dispatchedAt": 1774982162.052495,
+    "dispatchedAt": 1775665894.2910342,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
