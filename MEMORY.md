@@ -3,8 +3,8 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)
-Recent: [idle:goal-progress-check] Closed Portfolio Health | [idle:review-memory] Confirmed today's daily ops s
-Updated: 10:55 AST
+Recent: [idle:review-memory] Confirmed today's daily ops s | [idle:workspace-check] Git repo status: command-ce
+Updated: 11:40 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.

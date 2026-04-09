@@ -22,5 +22,29 @@
     "dispatchedAt": 1775741971.913413,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775743044",
+    "title": "Code review: Market Signal Lab",
+    "agent": "hal",
+    "dispatchedAt": 1775743045.069099,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775743945",
+    "title": "System monitoring report",
+    "agent": "hal",
+    "dispatchedAt": 1775743946.19677,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775744846",
+    "title": "Documentation freshness audit",
+    "agent": "hal",
+    "dispatchedAt": 1775744847.218216,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

@@ -206,7 +206,7 @@ Instructions: Complete this task. When done, report your results.
 Handoff: validated (${TASK_ID})."
 
     # Dispatch directly to HAL via WebSocket (no Alfred LLM needed)
-    DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
+    DISPATCH_OUT=$(timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$TASK_MSG" 2>&1) && {
       log "DISPATCH_OK: $DISPATCH_OUT"
       bash "$SCRIPT_DIR/audit-log.sh" success "hal-dispatch" "Kanban task dispatched to HAL: $TITLE" --detail "task_id=$TASK_ID priority=$PRIORITY" --agent hal
       echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success
@@ -320,7 +320,7 @@ Instructions: Execute this proactive task. Report findings and any actions taken
 
 # Dispatch directly to HAL via WebSocket
 PROACTIVE_ID="proactive_$(date +%s)"
-DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$PROACTIVE_MSG" 2>&1) && {
+DISPATCH_OUT=$(timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$PROACTIVE_MSG" 2>&1) && {
   log "DISPATCH_PROACTIVE: pool_index=${POOL_INDEX} task=${NEXT_TASK} — $DISPATCH_OUT"
   bash "$SCRIPT_DIR/audit-log.sh" success "hal-dispatch" "Proactive task dispatched to HAL: $NEXT_TASK" --detail "pool_index=$POOL_INDEX" --agent hal
   echo "0" > "$FAIL_COUNT_FILE"  # Reset fail counter on success

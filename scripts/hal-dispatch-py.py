@@ -72,13 +72,17 @@ def main():
         except Exception:
             return None
 
-    # Read connect.challenge (may be in leftover from HTTP response)
-    raw = ws_recv(5)
-    if not raw:
-        print("ERROR: No connect.challenge", file=sys.stderr); sys.exit(1)
-    msg = json.loads(raw)
-    if msg.get("event") != "connect.challenge":
-        print(f"ERROR: Expected connect.challenge, got {msg.get('event','?')}", file=sys.stderr); sys.exit(1)
+    # Read messages until we get connect.challenge (gateway may send health events first)
+    challenge_found = False
+    for _ in range(10):
+        raw = ws_recv(5)
+        if not raw: break
+        msg = json.loads(raw)
+        if msg.get("event") == "connect.challenge":
+            challenge_found = True
+            break
+    if not challenge_found:
+        print("ERROR: No connect.challenge received", file=sys.stderr); sys.exit(1)
 
     # Authenticate
     ws_send(json.dumps({"type":"req","id":"c1","method":"connect","params":{
@@ -87,22 +91,46 @@ def main():
         "client":{"id":"openclaw-control-ui","displayName":"HAL Dispatcher","version":"1.0.0","platform":"darwin","mode":"backend"},
         "role":"operator","scopes":["operator.write","operator.read"],"caps":[]
     }}))
-    resp = json.loads(ws_recv(5) or "{}")
-    if not resp.get("ok"):
-        print(f"ERROR: Auth failed: {json.dumps(resp)}", file=sys.stderr); sys.exit(1)
+
+    # Read until we get our connect response (skip other events)
+    connected = False
+    for _ in range(10):
+        raw = ws_recv(5)
+        if not raw: break
+        resp = json.loads(raw)
+        if resp.get("id") == "c1":
+            if resp.get("ok"):
+                connected = True
+            else:
+                print(f"ERROR: Auth failed: {json.dumps(resp)}", file=sys.stderr); sys.exit(1)
+            break
+    if not connected:
+        print("ERROR: Connect response not received", file=sys.stderr); sys.exit(1)
 
     # Send task
     ws_send(json.dumps({"type":"req","id":"m1","method":"chat.send","params":{
-        "agentId":"main","sessionKey":session_key,
-        "payload":{"kind":"agentTurn","text":task_msg},
+        "sessionKey":session_key,
+        "message":task_msg,
         "idempotencyKey":f"dispatch-{int(time.time())}"
     }}))
-    chat_resp = json.loads(ws_recv(10) or "{}")
-    if chat_resp.get("ok"):
-        print(f"OK session={session_key}")
-    else:
-        print(f"ERROR: {json.dumps(chat_resp)}", file=sys.stderr); sys.exit(1)
+
+    # Read until we get our chat response
+    for _ in range(10):
+        raw = ws_recv(10)
+        if not raw: break
+        chat_resp = json.loads(raw)
+        if chat_resp.get("id") == "m1":
+            if chat_resp.get("ok"):
+                print(f"OK session={session_key}")
+                sock.close()
+                sys.exit(0)
+            else:
+                print(f"ERROR: chat.send failed: {json.dumps(chat_resp)}", file=sys.stderr)
+                sock.close()
+                sys.exit(1)
+    print("ERROR: No response to chat.send", file=sys.stderr)
     sock.close()
+    sys.exit(1)
 
 if __name__ == "__main__":
     main()
