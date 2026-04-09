@@ -286,5 +286,13 @@
     "dispatchedAt": 1775772781.049519,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775773681",
+    "title": "Documentation freshness audit",
+    "agent": "hal",
+    "dispatchedAt": 1775773682.1923058,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]
