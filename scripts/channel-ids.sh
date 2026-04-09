@@ -10,4 +10,19 @@ export DISCORD_GENERAL="1476571891043926036"               # #general
 export DISCORD_ALERTS="1476592867865657599"                # #alerts
 export DISCORD_DEVOPS="1484566371412213934"                # #devops
 
-echo "✅ Channel IDs loaded. Use \$DISCORD_DAILYCONFIG, \$DISCORD_GENERAL, etc." >&2
+# Helper function to resolve channel name/ID to numeric ID
+resolve_discord_channel() {
+  local channel="$1"
+  # Strip leading # if present
+  channel="${channel#\#}"
+  # Map friendly names to IDs
+  case "$channel" in
+    dailyconfig) echo "1476598143016505446" ;;
+    general) echo "1476571891043926036" ;;
+    alerts) echo "1476592867865657599" ;;
+    devops) echo "1484566371412213934" ;;
+    *) echo "$channel" ;;  # Assume it's already a numeric ID
+  esac
+}
+
+echo "✅ Channel IDs loaded. Use \$DISCORD_DAILYCONFIG, \$DISCORD_GENERAL, etc., or call resolve_discord_channel() for friendly names." >&2
