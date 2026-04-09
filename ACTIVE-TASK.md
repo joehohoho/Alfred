@@ -1,6 +1,6 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Last Updated:** 2026-04-09 01:25 ADT  
+**Last Updated:** 2026-04-09 05:25 ADT  
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)  
 **Session:** Main | Context: healthy (idle memory review confirmed, summary already exists)  
 **Current Session Duration:** idle activity refresh
@@ -227,4 +227,10 @@ What's the call?** (_[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step
 
 - **Context: Market validation and MVP blueprint are complete for the Bill Review & Invoice Audit app. Specific question: Should I build this as (A) a personal internal invoice-audit tool for your own use, or (B) an external SaaS MVP? Options: A = simpler internal tool with lower maintenance; B = revenue product path with a fuller MVP. Recommendation: A if you want a quick useful tool soon, B if this is meant to become a passive-income product. If no response, the card remains blocked because I can't confidently scope or prioritize the build direction.** (_[REMINDER] Bill Review MVP: choose A or B_, Apr 08 18:40)
   ID: `notif_1775673610915_bdf31aa7` — No details provided
+
+- **Context: Bill Review & Invoice Audit Automation has the blueprint and market validation done, but it is still blocked waiting on one scope choice. Specific question: should I build this as (A) a personal internal invoice-audit tool for your own operations, or (B) an external SaaS MVP for Canadian SMBs? Options: Reply A for an internal tool, or B for an external product. Recommendation: A if you want a fast practical tool without disrupting current app priorities, B only if you want this to become an active passive-income product track. If no response, the card stays blocked and I will avoid starting build work on it.** (_[REMINDER] Bill Review MVP scope decision_, Apr 09 06:40)
+  ID: `notif_1775716854324_b70f2fb0` — No details provided
+
+- **Context: the 14-day free trial implementation for CoinUsUp is code-complete and blocked only on the Stripe dashboard step. Specific question: do you want to finish this by updating the Basic and Pro Stripe prices for the 14-day trial, or should I close/defer the trial feature for now? Options: (1) update the Stripe prices and reply 'Stripe config done', or (2) reply 'skip trial for now' and I will keep the card blocked/close it appropriately. Recommendation: do option 1, because the code is already done and this is the only remaining launch step. If no response, the card stays blocked and the trial will not ship.** (_[REMINDER] CoinUsUp trial free-trial last step_, Apr 09 06:40)
+  ID: `notif_1775716854336_c33bc8db` — No details provided
 <!-- PENDING-Q-END -->
