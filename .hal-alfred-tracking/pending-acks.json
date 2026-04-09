@@ -222,5 +222,69 @@
     "dispatchedAt": 1775765572.291636,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775766472",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1775766473.346814,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775767374",
+    "title": "Dependency audit: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775767374.547349,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775768275",
+    "title": "Signal App research",
+    "agent": "hal",
+    "dispatchedAt": 1775768275.686996,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775769176",
+    "title": "Infrastructure health check",
+    "agent": "hal",
+    "dispatchedAt": 1775769176.712652,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775770077",
+    "title": "CoinUsUp SEO quick wins",
+    "agent": "hal",
+    "dispatchedAt": 1775770077.845016,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775770978",
+    "title": "Passive income idea scan (Canada-specific)",
+    "agent": "hal",
+    "dispatchedAt": 1775770978.9169989,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775771879",
+    "title": "Code review: Market Signal Lab",
+    "agent": "hal",
+    "dispatchedAt": 1775771880.0311449,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775772780",
+    "title": "System monitoring report",
+    "agent": "hal",
+    "dispatchedAt": 1775772781.049519,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

@@ -1,4 +1,41 @@
 
+## Canada-Specific Passive Income Scan (Apr 9, 18:32 ADT — Atlantic Canada / NB SMB pain points)
+
+### Opportunity 1: NB Bilingual Compliance Copilot for Small Service Businesses
+**Problem:** New Brunswick is uniquely bilingual, but most SMB software treats English/French support as an enterprise feature or ignores it entirely. Small employers and service businesses that sell to public bodies, hire bilingually, or need bilingual customer-facing docs often patch this together manually.
+**Why this is a moat:** NB is a small market that large SaaS vendors usually under-serve. A product built specifically for NB and Atlantic Canada can win on local fit instead of scale.
+**Product idea:** Lightweight SaaS that generates and checks bilingual business artifacts: invoices, quotes, contracts, onboarding docs, website/legal copy, customer notices, and internal templates. Add terminology memory for local industries (trades, clinics, municipalities, contractors).
+**Initial wedge:** Start with bilingual invoice/quote templates plus translation QA for common SMB workflows.
+**Revenue model:** $29-79/mo per business, with higher tiers for team seats and template packs.
+**Why now:** Province/government language expectations are clear, and many small firms still use generic English-first tools. Official NB language policy also reinforces the practical need for bilingual-ready systems in widely used information systems.
+
+### Opportunity 2: CRA Deadline + HST/Payroll Calendar for Atlantic SMBs
+**Problem:** Small Atlantic businesses juggle GST/HST filing, source deductions, remittance schedules, and local bookkeeping workflows, but generic accounting software still leaves owners/bookkeepers to remember filing cadence and CRA edge cases themselves.
+**Why this is a moat:** Atlantic Canada has a compact SMB base with similar compliance pain, and mainstream SaaS tends to solve for national breadth, not region-specific workflow clarity. NB-specific HST realities and Canada-wide CRA deadlines make this good for a narrow, high-trust compliance layer.
+**Product idea:** A compliance ops layer that sits above QuickBooks/Xero spreadsheets and turns CRA obligations into a practical operating calendar: remittance schedule detection, deadline alerts, month-end checklist, missing-doc flags, and bilingual reminders. Bonus feature: explainability in plain English/French, not accountant jargon.
+**Initial wedge:** Focus on sole proprietors and 2-20 employee businesses that do their own bookkeeping or rely on part-time bookkeepers.
+**Revenue model:** $19-49/mo standalone, or bundled into a bookkeeper/accountant partner plan.
+**Why now:** CRA deadlines are explicit but fragmented. Monthly/quarterly GST/HST and payroll due dates are easy to miss, and electronic filing expectations are only increasing.
+
+### Opportunity 3: Trades/Contractor Field Invoicing for Rural Atlantic Canada
+**Problem:** Contractors, trades, and field-service operators in NB often work in low-connectivity environments, deal with deposits/change orders/materials, and need invoices that correctly reflect labour/material tax treatment. Generic field apps are often US-first, online-first, or overbuilt for small crews.
+**Why this is a moat:** Rural connectivity plus Canadian tax/invoice quirks create a very local product need. Big competitors usually do not optimize for low-signal Atlantic field work because the market is too small for them.
+**Product idea:** Offline-first mobile invoicing/quote app for trades with sync-later behavior, simple deposit/change-order flows, labour vs materials line handling, HST defaults, bilingual customer docs, and photo-to-invoice capture.
+**Initial wedge:** Electricians, plumbers, HVAC, roofing, renovation crews, and independent contractors with 1-10 staff.
+**Revenue model:** $39-99/mo per company, maybe with add-on SMS reminders or financing referral revenue.
+**Why now:** Rural/spotty connectivity is still a real workflow issue, and many contractors are stuck between spreadsheets, generic invoice apps, and bloated field-service suites.
+
+### Best bets
+1. **Trades/contractor field invoicing**: strongest pain + clearest geography moat + easiest to validate locally.
+2. **CRA deadline/HST compliance layer**: broad pain, recurring value, strong partnership angle with accountants/bookkeepers.
+3. **NB bilingual compliance copilot**: most differentiated strategically, though messaging and customer segment need tighter validation first.
+
+### Evidence notes
+- CRA payroll remittance due dates and remitter types are formalized on Canada.ca, which supports a reminder/compliance-calendar product.
+- CRA GST/HST filing deadlines are explicit, with monthly/quarterly returns generally due 1 month after period end, reinforcing deadline-management pain.
+- New Brunswick government language policy emphasizes bilingual availability for regularly used information systems, which strengthens the case for bilingual-ready SMB tooling in NB contexts.
+- Contractor invoicing/tax guidance repeatedly highlights province-specific HST handling and labour/material distinctions, which generic invoicing apps often leave to the user.
+
 ## Passive Income Portfolio Health (Apr 3, 17:05 ADT — Portfolio Review)
 
 ### Current State

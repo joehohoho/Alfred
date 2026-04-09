@@ -230,3 +230,11 @@
 {"timestamp":"2026-04-09T19:42:49Z","task_id":"proactive_1775763769","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Log analysis & anomaly detection"}
 {"timestamp":"2026-04-09T19:57:51Z","task_id":"proactive_1775764670","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Security posture check"}
 {"timestamp":"2026-04-09T20:12:52Z","task_id":"proactive_1775765571","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: CoinUsUp"}
+{"timestamp":"2026-04-09T20:27:53Z","task_id":"proactive_1775766472","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Passive income idea scan"}
+{"timestamp":"2026-04-09T20:42:54Z","task_id":"proactive_1775767374","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Dependency audit: CoinUsUp"}
+{"timestamp":"2026-04-09T20:57:55Z","task_id":"proactive_1775768275","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Signal App research"}
+{"timestamp":"2026-04-09T21:12:56Z","task_id":"proactive_1775769176","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Infrastructure health check"}
+{"timestamp":"2026-04-09T21:27:57Z","task_id":"proactive_1775770077","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"CoinUsUp SEO quick wins"}
+{"timestamp":"2026-04-09T21:42:58Z","task_id":"proactive_1775770978","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Passive income idea scan (Canada-specific)"}
+{"timestamp":"2026-04-09T21:57:59Z","task_id":"proactive_1775771879","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: Market Signal Lab"}
+{"timestamp":"2026-04-09T22:13:00Z","task_id":"proactive_1775772780","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"System monitoring report"}
