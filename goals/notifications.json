@@ -519,17 +519,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1774593380697_576ed633",
-    "type": "question",
-    "title": "CoinUsUp Free Trial Stripe Config",
-    "message": "The 14-day free trial feature is code-complete and deployed (Mar 18). It's been waiting on Stripe configuration for 9 days.\\n\\n**What's needed:**\\nYou need to update 12 prices in Stripe dashboard (Basic & Pro, US/CA, Monthly/Annual):\\n- Set trial_period_days: 14 on each\\n\\nOnce done, I'll verify in staging and move to production.\\n\\n**Options:**\\n1. Update Stripe now (5 min task) — we launch this week\\n2. Skip for now — deprioritize trial feature\\n\\n**Recommendation:** Option 1. The code is ready, trial solves a key conversion blocker (no CC required for 14 days). Stripe config is a quick manual step.\\n\\n**Default:** If no response by Mar 30, I'll move card to blocked (holding until you're ready).",
-    "goalId": "task_1773156748695_23b9e471",
-    "source": "idle-progress-check",
-    "answered": false,
-    "createdAt": "2026-03-27T06:36:20.697Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1774616400961_029cb69a",
     "type": "question",
     "title": "CoinUsUp: organic growth or paid marketing?",
@@ -540,15 +529,6 @@
     "answeredAt": "2026-03-29T19:33:37.568Z",
     "userAnswer": "It's organically at the moment, there isn't a budget for marketing.",
     "deliveryStatus": "sent"
-  },
-  {
-    "id": "notif_1774689127989_0317ff88",
-    "type": "question",
-    "title": "[URGENT] 3 Review Cards Blocked — Need Your Decisions",
-    "message": "**STATUS:** 3 cards stuck in review (2-3 days, blocking passive income launch timeline).\n\n---\n\n**CARD 1: Bill Review & Invoice Audit Automation (task_1774058538023_ae4bf3d2)**\n- Status: Review (since Mar 23, 5 days)\n- What's ready: Complete market validation, MVP blueprint, 6-week execution plan\n- Blocker: Approval to proceed with 10 SMB discovery calls\n- Your task: Reply \"proceed\" or \"skip\"\n- Impact: Delays go-to-market by 1 week per day\n\n---\n\n**CARD 2: Atlantic Contractor Portal (task_1774171849501_375342e7)**\n- Status: Review (since Mar 24, 4 days)\n- What's ready: Phase 2 outreach framework, interview templates\n- Blocker: (1) Approve 10-prospect cold outreach list, (2) Provide 2-3 warm intro names\n- Your task: Reply with names or \"revise list first\"\n- Impact: Mar 31 launch target at risk if delayed further\n\n---\n\n**CARD 3: CoinUsUp 14-Day Free Trial (task_1773156748695_23b9e471)**\n- Status: Review (since Mar 18, 10 days)\n- What's ready: Code complete, deployed, 25+ tests pass, frontend live\n- Blocker: Update 12 Stripe prices (Basic/Pro, US/CA, Monthly/Annual) with trial_period_days=14\n- Your task: Update Stripe dashboard (5-min manual task) or deprioritize\n- Impact: Trial feature can't launch; blocks key conversion blocker\n\n---\n\n**OPTIONS:**\n1. **Proceed on all 3** — I launch immediately on Card 1+2, you update Stripe for Card 3\n2. **Defer all** — I move to Blocked; re-engage when ready\n3. **Selective** — Handle one or two now, defer others\n\n**RECOMMENDATION:** Proceed on all 3. Market timing is favorable (2026 passive income surge + contractor demand), code is ready, and trial is a quick Stripe config away. Small time investment now = revenue opportunity.\n\n**DEFAULT:** If no response by 9 AM Mar 31, I move all to Blocked and shift focus to other work.",
-    "answered": false,
-    "createdAt": "2026-03-28T09:12:07.989Z",
-    "answeredAt": null
   },
   {
     "id": "notif_1774702801107_390b0450",
@@ -599,15 +579,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1774981870236_bbfcb7a1",
-    "type": "Bill Review MVP — Priority Clarification Needed",
-    "title": "Bill Review & Invoice Audit card (task_1774058538023_ae4bf3d2) is in review, blocked on clarification:\n\n**Question:** In early March, you marked new product ideas off-limits to focus on improving existing apps (CoinUsUp, Even Us Up, Signal App). Your recent comment on this card suggests you may want to reconsider.\n\n**Before I proceed with an MVP**, I need clarity on 3 points:\n\n1. **Does this change the consulting→product boundary?** (It was explicitly off-limits Mar 1, 9, and 19)\n2. **Priority:** Should this be prioritized over CoinUsUp Phase 5 work or Signal App quality improvements?\n3. **Scope:** Is this a personal tool for your own invoice audits, or an external product?\n\n**If yes to 1+3:** I can scope and build the MVP this week. \n**If it's deprioritized:** I'll move the card to Archived and focus on active product work.\n\nWaiting on your decision.",
-    "message": "Please decide on the 3 clarification points above so I can unblock this card.",
-    "answered": false,
-    "createdAt": "2026-03-31T18:31:10.236Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1775048400684_f1ea860c",
     "type": "question",
     "title": "Should any of your apps become more opinionated or simpler?",
@@ -632,83 +603,33 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1775183653207_fe303fa4",
-    "type": "--title",
-    "title": "[REMINDER] Bill Review SaaS - Scope Clarification Needed (8 days pending)",
-    "message": "--question",
-    "goalId": "Is the invoice audit tool a **personal tool for your own use**, or an **external SaaS product**? This blocks MVP build and prioritization.",
-    "taskId": "--context",
-    "source": "Blueprint + market validation complete. Last decision blocked by scope clarification (personal vs external product). Once you clarify, I can unblock immediately and start building.",
-    "answered": false,
-    "createdAt": "2026-04-03T02:34:13.207Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775183656506_4f242a43",
-    "type": "--title",
-    "title": "[REMINDER] Stripe Trial Config - 12 prices need trial_period_days=14 (8 days pending)",
-    "message": "--question",
-    "goalId": "Can you update these 12 product prices on Stripe dashboard? Set trial_period_days=14: Basic Monthly (US/CA), Basic Annual (US/CA), Pro Monthly (US/CA), Pro Annual (US/CA). This unblocks staging testing.",
-    "taskId": "--context",
-    "source": "Code implementation 100% complete (backend + frontend + tests). Ready to test and deploy. Only blocker: Stripe dashboard pricing configuration for the 12 Basic/Pro prices.",
-    "answered": false,
-    "createdAt": "2026-04-03T02:34:16.506Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775198053495_07a0bf06",
-    "type": "[UNBLOCK NEEDED] Bill Review SaaS - Scope Decision (11 days pending)",
-    "title": "\n## Blueprint Complete — Waiting on ONE Clarification\n\n**Card:** Bill Review & Invoice Audit Automation (task_1774058538023_ae4bf3d2)\n**Status:** Blocked 11 days in Review\n**What's ready:** Complete market validation, MVP blueprint, 6-week execution plan (in ideas/ folder)\n\n## Your Decision (2 options)\n\n**Option A: Personal Tool**\n- Use it to audit your own invoices, consulting contract costs\n- Not a product, just for your operations\n- I build a simple, lightweight version (weekend work)\n\n**Option B: External SaaS Product**  \n- Sell to Canadian SMBs, law firms, construction companies\n- 6-week MVP build + customer validation\n- Fits passive income goals (-10k/mo target)\n\n## What I Need\n**Just reply:** \"A\" or \"B\" (in Discord, kanban comment, or notification reply)\n\n## Impact\n- If A: Move to Blocked, focus on CoinUsUp/Signal App\n- If B: Start building immediately (timeline slips to April 7 if delayed further)\n\nNo other info needed. Just the scope direction.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-03T06:34:13.495Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775198053496_cd4a5e2e",
-    "type": "[UNBLOCK NEEDED] CoinUsUp Trial — Stripe Config Last Step (16 days pending)",
-    "title": "\n## Implementation 100% Complete — Last Step: Stripe Dashboard Config\n\n**Card:** Implement 14-day free trial (task_1773156748695_23b9e471)\n**Status:** Review, 16 days pending\n**Code status:** ✅ Backend + Frontend COMPLETE. All tests passing. Ready to deploy.\n\n## What's Blocking (5-minute manual task)\n\nUpdate 12 product prices in Stripe dashboard with trial configuration:\n- **Basic Monthly (US/CA)** — set trial_period_days: 14\n- **Basic Annual (US/CA)** — set trial_period_days: 14\n- **Pro Monthly (US/CA)** — set trial_period_days: 14\n- **Pro Annual (US/CA)** — set trial_period_days: 14\n\nSteps:\n1. Go to https://dashboard.stripe.com/products\n2. For each Basic/Pro price (US/CA), edit settings → Set trial_period_days: 14\n3. Reply \"Stripe config done\" in kanban or here\n\n(Enterprise tier: NO trial, leave as-is)\n\n## If You Don't Want Trials\nNo problem — just reply \"skip trial for now\" and I'll close the card.\n\n## Timeline  \nOnce config complete: 4 hours to staging test + deploy to production (same day).\n\nWhat's the call?",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-03T06:34:13.496Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775221200747_412b67e8",
-    "type": "question",
-    "title": "For Even Us Up, what's the smallest win that would feel like real progress?",
-    "message": "Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?",
-    "source": "daily-inquiry",
-    "answered": false,
-    "createdAt": "2026-04-03T13:00:00.747Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1775394000860_0fff217c",
     "type": "question",
     "title": "How much of your time should passive income get vs. client work right now?",
     "message": "Current split works? Skewed the wrong way? What's the ideal?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-05T13:00:00.860Z",
+    "answeredAt": "2026-04-09T17:11:30.725Z",
+    "userAnswer": "Client work has diminished so passive income should be the priority.",
+    "deliveryStatus": "sent"
+  },
+  {
+    "id": "notif_1775760070628_22478b25",
+    "type": "[REMINDER - 14-Day Trial] Stripe config awaiting",
+    "title": "CoinUsUp trial implementation is production-ready (code + frontend 100% complete, all tests passing).\\n\\n**BLOCKER:** Stripe dashboard manual config needed.\\n\\n**Action:** Create 12 price IDs in Stripe:\\n- Basic Monthly US, Basic Monthly CA\\n- Basic Annual US, Basic Annual CA\\n- Pro Monthly US, Pro Monthly CA\\n- Pro Annual US, Pro Annual CA\\n- Plus 2 Enterprise prices\\n\\nFor each, set **trial_period_days = 14**.\\n\\n**Help:** See CoinUsUp repo stripe-prices.ts for exact product/price IDs to create.\\n\\n**Timeline:** 30 min work, then trial launches immediately.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-09T18:41:10.628Z",
     "answeredAt": null
   },
   {
-    "id": "notif_1775673610599_579cf698",
-    "type": "[REMINDER] CoinUsUp trial: 12 Stripe price updates still needed",
-    "title": "Context: 14-day free trial implementation for CoinUsUp is code-complete and reviewed. Specific question: Can you update the 12 Basic/Pro Stripe prices (US/CA × monthly/annual) to set trial_period_days=14, or reply 'skip trial for now'? Options: (1) Update Stripe now, 5-minute task, and I will immediately run staging verification; (2) Skip/defer the trial feature and I will close or park the card. Recommendation: Option 1, because the implementation is already done and this is the only remaining manual unblock. If no response, the card stays blocked and deployment cannot proceed.",
+    "id": "notif_1775760070634_61acb260",
+    "type": "[REMINDER - Bill Review MVP] Scope decision needed",
+    "title": "Market validation complete. Blueprint ready at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md.\\n\\n**DECISION NEEDED:** Should I build this as:\\n\\n**Option A: Personal Tool**\\nJust for your own SMB billing audits. ~2-3 day MVP. Test internally first, then expand.\\n\\n**Option B: Commercial SaaS**\\nBuilt for resale to other SMBs. Full MVP with onboarding/support/pricing. ~1-2 week build.\\n\\n**Recommend:** Start with A (personal tool). If it works for you, expand to B later.\\n\\n**What you do:** Choose A or B. I build immediately.\\n\\n**Timeline:** A = 2-3 days. B = 1-2 weeks.",
     "message": "No details provided",
     "answered": false,
-    "createdAt": "2026-04-08T18:40:10.599Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775673610915_bdf31aa7",
-    "type": "[REMINDER] Bill Review MVP: choose A or B",
-    "title": "Context: Market validation and MVP blueprint are complete for the Bill Review & Invoice Audit app. Specific question: Should I build this as (A) a personal internal invoice-audit tool for your own use, or (B) an external SaaS MVP? Options: A = simpler internal tool with lower maintenance; B = revenue product path with a fuller MVP. Recommendation: A if you want a quick useful tool soon, B if this is meant to become a passive-income product. If no response, the card remains blocked because I can't confidently scope or prioritize the build direction.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-08T18:40:10.915Z",
+    "createdAt": "2026-04-09T18:41:10.634Z",
     "answeredAt": null
   }
 ]

@@ -4,9 +4,9 @@
 
 **Maintained by:** Alfred (periodic reflection) + Claude Code (session observations)
 **Last reflection:** 2026-04-01 (23:08 UTC / 2026-04-01 19:08 AST) — Phase 1-5 complete, infrastructure reliability as critical P0 blocker
-**Last direct Q&A update:** 2026-03-31 (14:59-14:03 ADT) — CoinUsUp growth unlocks (marketing + UI), adoption metric, build preference (low-maintenance new), Even Us Up adoption gap
-**Reflection count:** 11
-**Profile version:** 2.2
+**Last direct Q&A update:** 2026-04-09 (14:11 ADT) — passive income now prioritized over client work due to diminished client workload
+**Reflection count:** 12
+**Profile version:** 2.3
 
 ---
 
@@ -229,6 +229,18 @@ Ranked by EXPLICIT SPRINT PRIORITY (Mar 23 answer: "CoinUsUp then Signals App"):
 ---
 
 ## Aspirations & Vision
+
+### Passive Income Priority Shift (DIRECT ANSWER — 2026-04-09) ⭐ VERY HIGH CONFIDENCE
+**Question:** How much of your time should passive income get vs. client work right now?  
+**Answer:** "Client work has diminished so passive income should be the priority."
+
+**Meaning:**
+- Passive income is not just the long-term goal, it is the active present-tense priority
+- Client work is now secondary because available client workload has declined
+- Alfred should bias effort toward app growth, monetization, and low-maintenance recurring revenue opportunities over consulting-adjacent work
+- When triaging ambiguous work, default toward things that compound passive income progress
+
+| Source: NOTIFICATION-ANSWER (2026-04-09 14:11 ADT) | Confidence: VERY HIGH
 
 ### Core Life Goal (explicitly stated 2026-02-25) ⭐ HIGHEST PRIORITY
 **"Stop working."** Joe wants to reach full financial independence through passive income — not client work, not freelancing, not chasing anyone. He wants to work ONLY on personal projects and AI infrastructure improvements, entirely on his own schedule, because passive income covers everything. This is the north star behind every project decision.

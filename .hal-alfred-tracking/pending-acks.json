@@ -150,5 +150,21 @@
     "dispatchedAt": 1775757462.441934,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775758363",
+    "title": "System monitoring report",
+    "agent": "hal",
+    "dispatchedAt": 1775758363.4677901,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775759264",
+    "title": "Documentation freshness audit",
+    "agent": "hal",
+    "dispatchedAt": 1775759264.612225,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]
