@@ -1398,5 +1398,53 @@
     "tags": [],
     "createdAt": "2026-04-10T06:32:47.891Z",
     "updatedAt": "2026-04-10T06:32:47.891Z"
+  },
+  {
+    "id": "idea_1775826118060_5c3c2c8b",
+    "title": "Missed-lead follow-up SaaS for Canadian service SMBs",
+    "description": "Problem: Small service businesses lose revenue when web leads and missed calls go unanswered or never get qualified. Target market: Canadian home services, clinics, agencies, and local SMBs with inbound leads. MRR potential: .5k-k in first year (20-50 accounts at -/mo), longer-term k+ if niche lands. Tech complexity: 3/5. Competition: Medium, many generic CRM tools but weak niche-specific lead recovery + qualification + Canadian workflow positioning. Why Joe can win: strong automation/integration skills, can build fast with forms/SMS/CRM sync/AI summaries, clear ROI story, solo-dev feasible with low support if onboarding is standardized.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-10T13:01:58.060Z",
+    "updatedAt": "2026-04-10T13:01:58.060Z"
+  },
+  {
+    "id": "idea_1775826118069_e0f17f57",
+    "title": "Law firm intake + conflict-precheck workflow layer",
+    "description": "Problem: Small law firms lose time and take compliance risk from slow intake, inconsistent data capture, and delayed conflict checks before matter creation. Target market: solo and small law firms, especially firms with heavy intake volume but limited ops staff. MRR potential: k-k in first year (10-25 firms at -/mo), larger if product becomes a workflow layer beside existing practice tools. Tech complexity: 4/5. Competition: Medium-high, but many incumbents are broad, expensive, and clunky for small firms. Why Joe can win: rare domain credibility from legal billing/data transformation background, understands real workflow pain, can position as lightweight overlay rather than full practice-management replacement.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-10T13:01:58.069Z",
+    "updatedAt": "2026-04-10T13:01:58.069Z"
+  },
+  {
+    "id": "idea_1775826118079_41057711",
+    "title": "Trade journal + signal execution coach for retail swing traders",
+    "description": "Problem: Retail traders receive alerts but lack structured journaling, rule-based execution, post-trade review, and performance feedback, so they churn between tools and strategies. Target market: retail swing traders using TradingView/Discord/Telegram alerts who want discipline rather than fully automated trading. MRR potential: k-k in first year (25-100 users at -/mo), with upside from premium analytics tiers. Tech complexity: 3/5. Competition: Medium, crowded signals space but weaker focus on trader workflow, journaling, and accountability loop. Why Joe can win: directly aligned with his signal-app interest, avoids hardest compliance edge of selling pure financial advice, can ship as alert ingestion + journal + review workflow first.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-10T13:01:58.079Z",
+    "updatedAt": "2026-04-10T13:01:58.079Z"
   }
 ]

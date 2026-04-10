@@ -1,6 +1,6 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Last Updated:** 2026-04-09 05:25 ADT  
+**Last Updated:** 2026-04-10 09:26 ADT  
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)  
 **Session:** Main | Context: healthy (idle memory review confirmed, summary already exists)  
 **Current Session Duration:** idle activity refresh
@@ -153,4 +153,10 @@ The blueprint and market analysis support both. But the build path, design, and 
 
 Which direction? (Reply A or B in the card comment)** (_Bill Review MVP: Scope Decision Needed_, Apr 10 02:41)
   ID: `notif_1775788889479_5d542fd8` — No details provided
+
+- **UNBLOCK: Bill Review MVP — Scope Decision (11-day wait)** (_--title_, Apr 10 10:42)
+  ID: `notif_1775817727461_86dcfd09` — --context
+
+- **[REMINDER] Free Trial on CoinUsUp — Stripe Config Blocking (9-day wait)** (_--title_, Apr 10 10:42)
+  ID: `notif_1775817727469_35364f20` — --context
 <!-- PENDING-Q-END -->

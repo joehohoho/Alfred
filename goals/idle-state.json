@@ -1,24 +1,7 @@
 {
-  "lastActivityAt": "2026-04-10T10:41:34.269Z",
-  "lastActivityType": "goal-progress-check",
+  "lastActivityAt": "2026-04-10T13:56:44.566Z",
+  "lastActivityType": "profile-reflection",
   "recentActivities": [
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-04-09T02:40:00.163Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-09T02:55:00.727Z",
-      "ideaId": "idea_1775701963853_13201580"
-    },
-    {
-      "type": "generate-ideas",
-      "dispatchedAt": "2026-04-09T03:25:02.001Z"
-    },
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-04-09T03:55:03.246Z"
-    },
     {
       "type": "review-memory",
       "dispatchedAt": "2026-04-09T04:25:04.525Z"
@@ -216,8 +199,26 @@
     {
       "type": "goal-progress-check",
       "dispatchedAt": "2026-04-10T10:41:34.269Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-10T11:41:37.439Z",
+      "ideaId": "idea_1771697587532_4a35f177"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-04-10T12:26:39.742Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-10T13:41:43.669Z",
+      "ideaId": "idea_1771697587532_4a35f177"
+    },
+    {
+      "type": "profile-reflection",
+      "dispatchedAt": "2026-04-10T13:56:44.566Z"
     }
   ],
-  "totalIdleDispatches": 827,
+  "totalIdleDispatches": 831,
   "cooldownMinutes": 15
 }
