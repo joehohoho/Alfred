@@ -438,5 +438,13 @@
     "dispatchedAt": 1775789000.9408262,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775794564",
+    "title": "Dead code & cleanup sweep",
+    "agent": "hal",
+    "dispatchedAt": 1775794565.054358,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]
