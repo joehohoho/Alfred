@@ -1563,5 +1563,53 @@
     "tags": [],
     "createdAt": "2026-04-10T18:02:40.405Z",
     "updatedAt": "2026-04-10T18:02:40.405Z"
+  },
+  {
+    "id": "idea_1775851315409_c4aa3bf8",
+    "title": "Knowledge freshness scanner for Alfred artifacts",
+    "description": "Audit workspace memory, ideas, and review artifacts for staleness, contradictions, and superseded recommendations. Auto-flag items older than a threshold when a newer artifact likely replaces them, then generate a compact refresh queue. Why it matters: current proactive scans already skip duplicate ideas manually, but there is no systemized freshness layer, so stale recommendations keep consuming attention and context. Expected payoff: lower duplicate effort, fewer outdated recommendations resurfacing, cleaner portfolio snapshots, and lower token burn during audits.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-10T20:01:55.409Z",
+    "updatedAt": "2026-04-10T20:01:55.409Z"
+  },
+  {
+    "id": "idea_1775851315646_e3128f3f",
+    "title": "Notification lifecycle auto-closer with answer reconciliation",
+    "description": "Build a close-loop reconciler that watches Command Center notifications, webhook answers, and ACTIVE-TASK pending questions, then auto-marks resolved items, links answers to originating questions, and suppresses repeated reminders once a decision is captured. Why it matters: memory and open-loop files still show lingering duplicate or stale pending questions despite prior answers, which creates unnecessary reminders and review overhead. Expected payoff: fewer repeated asks, cleaner pending-question state, and less human trust erosion from duplicate prompts.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-10T20:01:55.646Z",
+    "updatedAt": "2026-04-10T20:01:55.646Z"
+  },
+  {
+    "id": "idea_1775851315882_27842bbe",
+    "title": "Proactive task novelty guard for idle loop",
+    "description": "Add a novelty-scoring layer before Alfred proactive tasks run. It should compare the requested scan/topic against recent completed reviews, active ideas, and recent proactive outputs, then either skip, narrow, or reframe the task if the likely output would be redundant. Why it matters: the idle loop currently relies mostly on time cooldowns, so it can still trigger broad audits that produce overlapping outcomes. Expected payoff: less token waste, fewer near-duplicate Kanban ideas, and higher-value proactive work selection.",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-10T20:01:55.882Z",
+    "updatedAt": "2026-04-10T20:01:55.882Z"
   }
 ]
