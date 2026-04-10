@@ -1,5 +1,55 @@
 [
   {
+    "id": "idea_1775835600000_canada_nb_smb_micro_saas_scan",
+    "title": "Atlantic Canada SMB Micro-SaaS Wedge Scan",
+    "description": "**Prompt focus:** Atlantic Canadian and New Brunswick SMB pain points with a geography-specific moat.\n\n**What looks promising**\n\n**1. NB Bilingual Compliance Copilot for SMBs and associations**\n- **Problem:** In New Brunswick, bilingual service expectations create operational friction for small organizations that are too small to hire formal compliance or translation support, especially industry associations, clinics, service businesses, and any vendor touching government or quasi-public work. Generic compliance or website tools rarely care about NB's bilingual edge case because the market is small.\n- **Product:** Lightweight SaaS that audits websites, intake forms, invoices, PDFs, signage checklists, auto-reply templates, and customer communication flows for English/French parity. Include translation workflow, missing-page detection, bilingual template packs, and deadline reminders for public-facing updates.\n- **Why the moat is geographic:** NB is the only officially bilingual province. National competitors usually stop at generic translation or enterprise localization, leaving a neglected small-market niche where local specificity matters more than total TAM.\n- **Who pays:** SMBs serving the public, associations, clinics, local professional groups, municipalities, and vendors selling into government-adjacent environments.\n- **Revenue model:** $29 to $149 per month by organization, plus setup packs for website/document audits.\n\n**2. Atlantic Trades Tax and Invoice Guard**\n- **Problem:** Contractors, trades, and solo operators in Atlantic Canada routinely juggle 15% HST, contractor invoicing mistakes, quote-to-invoice drift, receipt capture, and CRA deadline confusion. Existing accounting tools are broad but not opinionated for small Atlantic trades businesses that mostly want fewer mistakes, not a full ERP.\n- **Product:** Mobile-first invoicing and tax guardrail tool for electricians, plumbers, HVAC, renovators, and rural service contractors. Features: estimate-to-invoice conversion, HST-safe templates, CRA filing calendar, receipt capture, subcontractor tracking, and simple job profitability. Could also include “did I charge the right tax?” checks and bilingual invoice output for NB operators.\n- **Why the moat is geographic:** The wedge is not invoicing alone, it is Atlantic-specific defaults: 15% HST, bilingual customer-facing docs where relevant, contractor workflows, and local trades simplicity. Big players optimize for generic North America, not Atlantic Canada microbusiness reality.\n- **Who pays:** Solo tradespeople and small crews.\n- **Revenue model:** $20 to $60 per user per month, maybe with annual plans and bookkeeping partner referrals.\n\n**3. Rural-Ready Field Ops Kit for Atlantic Service Businesses**\n- **Problem:** Rural connectivity remains patchy enough that field teams, home-service businesses, inspectors, and mobile contractors still hit dead zones or unreliable upload conditions. Many mainstream job tools assume always-on connectivity and degrade badly offline.\n- **Product:** Offline-first dispatch, work-order, quote, and proof-of-completion app designed for patchy connectivity. Sync later, store signatures/photos locally, queue SMS or email follow-ups, and provide connection-aware mode switching. Add simple fleet/day routing for rural service areas.\n- **Why the moat is geographic:** Remote and semi-rural Atlantic coverage gaps are meaningful, but not large enough for major SaaS vendors to tailor products aggressively. A tool that is intentionally built for patchy service can win in these overlooked regions.\n- **Who pays:** Home-service businesses, inspectors, trades, local delivery/service operators, and small municipal contractors.\n- **Revenue model:** $25 to $75 per field user per month.\n\n**Best near-term bet**\n1. **Atlantic Trades Tax and Invoice Guard** feels strongest as a practical passive-income wedge. The buyer, pain, workflow, and revenue path are all clear. It can start narrow and expand later into payroll reminders, subcontractor tracking, and bookkeeping handoff.\n2. **NB Bilingual Compliance Copilot** is the most defensible niche. Smaller market, but competitors are less likely to bother, which is exactly the point.\n3. **Rural-Ready Field Ops Kit** has real pain, but execution is heavier because offline-first products need strong sync and mobile UX.\n\n**Evidence used**\n- Canada.ca CRA GST/HST business guidance confirms formal filing/remittance burden for businesses.\n- Canada.ca payroll remittance guidance confirms employer remittance cadence complexity.\n- GNB bilingual services guidance highlights NB's unique English/French service environment.\n- CRTC broadband materials continue to note weaker service in rural/remote areas versus urban norms.\n\n**Recommendation for Kanban**\nPromote one validation sprint, not three builds. Best next move: interview and lightly validate the Atlantic trades invoicing/tax wedge first, then test whether bilingual output is enough to broaden into NB-specific differentiation.",
+    "category": "passive-income",
+    "status": "promoted",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "Micro-SaaS subscriptions, roughly $20 to $149 per month depending on wedge and team size.",
+    "synergies": [
+      "automation-consulting",
+      "CoinUsUp",
+      "Even Us Up"
+    ],
+    "evaluation": {
+      "score": 8.2,
+      "notes": "Good fit for Joe because the opportunities are specific, under-served, and local enough to avoid heavier competition. The Atlantic trades invoicing/tax wedge looks most commercially direct."
+    },
+    "promotedToGoalId": "task_1775832106858_65519e2f",
+    "tags": [
+      "passive-income",
+      "canada",
+      "new-brunswick",
+      "atlantic-canada",
+      "micro-saas",
+      "smb"
+    ],
+    "createdAt": "2026-04-10T14:37:45Z",
+    "updatedAt": "2026-04-10T14:41:46.863Z",
+    "researchEvidence": [
+      {
+        "source": "Canada.ca CRA GST/HST for businesses",
+        "finding": "GST/HST collection, remittance, and filing requirements are ongoing operational work for Canadian businesses."
+      },
+      {
+        "source": "Canada.ca CRA payroll remittance guidance",
+        "finding": "Payroll remittance obligations depend on remitter type and cadence, creating ongoing compliance complexity for employers."
+      },
+      {
+        "source": "Government of New Brunswick bilingual services guidance",
+        "finding": "New Brunswick is uniquely bilingual, with service expectations in both English and French across public-facing contexts."
+      },
+      {
+        "source": "CRTC broadband materials",
+        "finding": "Rural and remote areas still face weaker broadband availability and quality than urban areas, supporting offline-first field tooling."
+      }
+    ],
+    "demandValidation": "These ideas map to recurring compliance and workflow pain rather than novelty. The strongest market test is the Atlantic trades tax/invoicing wedge because it combines obvious pain, clear willingness to pay, and a narrow underserved regional focus."
+  },
+  {
     "id": "idea_1775662413000_portfolio_health_snapshot",
     "title": "Portfolio Health Snapshot — 2026-04-08",
     "description": "**One-page portfolio snapshot**\n\n**1. CoinUsUp**\n- **Current status:** Best near-term passive-income candidate. Core app improvements are active, and the 14-day free-trial implementation is code-complete but blocked on Stripe dashboard configuration/approval. Several validated growth ideas already exist: Smart Onboarding, CoinUsUp Academy, nonprofit launch templates, and compliance reporting add-ons.\n- **Estimated current MRR:** Unknown from current workspace evidence.\n- **Estimated potential MRR (next meaningful milestone):** $500-2k/mo incremental from conversion/growth improvements already researched, with further upside from compliance add-ons.\n- **Biggest bottleneck:** Not engineering, but activation + a tiny manual deployment blocker. Marketing/UI clarity and trial launch completion are the current choke points.\n\n**2. Even Us Up**\n- **Current status:** Product exists but external adoption is weak. Workspace evidence repeatedly cites ~0-20 visitors/day and zero meaningful external traction so far. Several solid ideas exist, especially onboarding, settlement transparency, and Interac automation.\n- **Estimated current MRR:** Effectively $0/mo or negligible.\n- **Estimated potential MRR (next meaningful milestone):** Roughly $100-300/mo from an early premium/interac wedge if activation improves first.\n- **Biggest bottleneck:** User activation, not feature count. People are not getting to the aha moment fast enough.\n\n**3. Signal App / Market Signal Lab**\n- **Current status:** High upside, but still internal-quality stage. Workspace notes are consistent: market exists, but signal quality is not yet strong enough for outside use. Best immediate leverage is automated quality scoring/backtest diagnostics, not marketing.\n- **Estimated current MRR:** $0/mo.\n- **Estimated potential MRR (next meaningful milestone):** Could become meaningful later, but near-term commercialization is gated by quality. A reasonable first external milestone looks more like proof-of-quality than revenue.\n- **Biggest bottleneck:** Signal quality and validation. This is a product-readiness problem, not an audience problem.\n\n**4. Automation Consulting**\n- **Current status:** Stable active revenue source and domain knowledge engine, but not the primary passive-income frontier. Previous board/memory guidance says consulting-to-productization is generally off-limits unless explicitly reopened.\n- **Estimated current MRR:** Active but not quantified in current workspace context.\n- **Estimated potential MRR (next meaningful milestone):** Stable baseline cashflow rather than passive upside. Upside comes indirectly by funding product bets and revealing workflow pain points.\n- **Biggest bottleneck:** Scalability and repeatability. Consulting remains bespoke, which limits leverage.\n\n**Portfolio health read**\n- **Best near-term ROI:** CoinUsUp. It is the closest to turning existing work into revenue with the least additional build.\n- **Best medium-term upside:** Signal App, if quality crosses the commercialization threshold.\n- **Best turnaround candidate:** Even Us Up, but only if activation is fixed before adding more monetization ideas.\n- **Role of consulting:** Keep it as revenue ballast, not the main passive-income bet.\n\n**Recommendation**\n1. Unblock CoinUsUp trial launch and focus next on onboarding/conversion work.\n2. Treat Even Us Up as an activation problem and test one low-effort UX improvement before bigger builds.\n3. Keep Signal App in quality-improvement mode until objective metrics say it is ready.\n4. Use consulting to stabilize cash, not to distract from product leverage.",
