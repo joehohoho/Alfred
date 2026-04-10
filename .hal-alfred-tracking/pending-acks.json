@@ -1,21 +1,5 @@
 [
   {
-    "taskId": "proactive_1775758363",
-    "title": "System monitoring report",
-    "agent": "hal",
-    "dispatchedAt": 1775758363.4677901,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775759264",
-    "title": "Documentation freshness audit",
-    "agent": "hal",
-    "dispatchedAt": 1775759264.612225,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775760165",
     "title": "Test coverage review: CoinUsUp",
     "agent": "hal",
@@ -732,6 +716,22 @@
     "title": "Signal App research",
     "agent": "hal",
     "dispatchedAt": 1775844125.61077,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775845026",
+    "title": "Infrastructure health check",
+    "agent": "hal",
+    "dispatchedAt": 1775845026.651818,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775845927",
+    "title": "CoinUsUp SEO quick wins",
+    "agent": "hal",
+    "dispatchedAt": 1775845927.841534,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
