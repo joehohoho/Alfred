@@ -99,16 +99,34 @@
     "title": "Proactive Passive Income Opportunity Detector",
     "description": "AI agent that continuously scans market gaps, new platforms, trends in Joe's expertise areas (automation, trading, SaaS) and proactively suggests ideas with market size + effort estimates.",
     "category": "passive-income",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 4,
+      "notes": "Market validated (SaaSScout competitor exists, enterprise platforms active). However: Joe lacks deep domain expertise in opportunity evaluation; automation alone doesn't guarantee signal quality; medium effort for uncertain ROI. Crowded space. Better to focus on improving existing 3 apps first (consolidation mode) before launching new opportunity detector."
+    },
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": ["opportunity-detection", "ai-agents", "market-research"],
     "createdAt": "2026-02-21T18:13:06.352Z",
-    "updatedAt": "2026-02-21T23:09:46.554Z"
+    "updatedAt": "2026-04-09T20:40:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "SaaSScout (ProductHunt 2026)",
+        "finding": "Actively markets 'AI-driven SaaS opportunity discovery' with curated database + trend analysis. Validates market demand."
+      },
+      {
+        "source": "Enterprise scouting platforms (QMarkets, Ideawake, 2026)",
+        "finding": "Growing category for corporate innovation. Scoring models + evaluation frameworks are standard. Confirms opportunity-detection market."
+      },
+      {
+        "source": "Trading signal ecosystem (TradingView, StockTwits, 2026)",
+        "finding": "Heavy competition in signal evaluation. Crowded. Winners differentiate on accuracy + credibility, not just automation."
+      }
+    ],
+    "demandValidation": "Demand is real (SaaSScout competes, enterprise platforms active). BUT: Joe's automation expertise is generic in this space. Signal quality problem remains (automation doesn't solve bad opportunity identification). Consolidation mode prioritizes improving existing 3 apps over new product launches. Archive for now."
   },
   {
     "id": "idea_1771697586945_82c18088",

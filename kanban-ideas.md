@@ -665,3 +665,104 @@ Even Us Up already has enough foundation to matter. The issue is not "missing lo
 ### Bottom Line
 The biggest remaining infrastructure opportunity is **state coherence**. The system already has lots of automation, but too much of it still relies on repeated polling, scattered files, and inferred status. A stronger shared-state + auto-resolution layer would cut duplicate effort and reduce token waste more than adding yet another standalone script.
 
+
+## CoinUsUp Growth Audit (Apr 9, 20:33 ADT — Proactive)
+
+### What I reviewed
+- Current app repo in `CoinUsUp/` (marketing pages, plan selection, onboarding sample-data flow, trial docs)
+- Prior growth research in `research/COINUSUP-GROWTH-ROADMAP-2026.md`
+- Prior audit notes in `memory/2026-04-03-coinusup-growth-audit.md`
+- SEO audit in `CoinUsUp/SEO_AUDIT_REPORT.md`
+- Joe profile constraints: user adoption is the north-star metric, growth should be organic-first, and CoinUsUp growth unlock is marketing + UI, not more features
+
+### Top 3 UX friction points
+
+**1. Messaging + positioning is still too broad**  
+**Priority:** P1 | **Effort:** 1-2 days  
+The homepage says "all-in-one fundraising management platform" for basically everyone, but the deeper docs/research keep oscillating between nonprofits, school groups, sports teams, clubs, and even older portfolio assumptions. New visitors likely do not get a sharp answer to "is this for me right now?"  
+**Why this matters:** weak positioning hurts signup conversion, content SEO, referrals, and app-store adoption all at once.  
+**Recommended fix:** pick one primary ICP for the next 60-90 days, then rewrite hero copy, feature examples, screenshots, onboarding examples, and app-store copy around that ICP.
+
+**2. Pricing trust is weakened by inconsistent plan structure**  
+**Priority:** P1 | **Effort:** 0.5-1 day  
+The public pricing page shows Free / Basic / Pro / Enterprise with one set of prices, while `src/pages/SelectPlan.tsx` shows Free / Nonprofit+ / Enterprise with different pricing and different entitlements. That creates a real trust leak right at the conversion point.  
+**Why this matters:** if users see different plans before vs after signup, they hesitate, abandon, or assume billing is unfinished.  
+**Recommended fix:** make public pricing, trial offer, Stripe config, and in-app plan selector use one canonical pricing model and naming system.
+
+**3. Onboarding shows mechanics before value**  
+**Priority:** P1 | **Effort:** 2-4 days  
+The product has a tutorial modal and sample-data helpers, which is good, but the flow still looks product-centric rather than outcome-centric. A new user needs a fast "aha" moment: what they can accomplish this week and what setup path to follow first.  
+**Why this matters:** adoption is Joe's success metric. If users don't reach first value quickly, more features won't help.  
+**Recommended fix:** add a value-frame intro, role-based quick start paths, and a prebuilt sample workspace matched to one concrete use case.
+
+### Top 3 missing features users likely want
+
+**1. A true guided launch / setup wizard**  
+**Priority:** P1 | **Effort:** 1-2 weeks  
+Not just a tutorial, a real setup assistant that asks what kind of organization this is, creates the right starter structure, and points users to their next 3 actions.  
+**Why users want it:** most small organizations do not want to "figure out the software", they want to be operational fast.
+
+**2. Referral / invite loop for team-based adoption**  
+**Priority:** P1 | **Effort:** 1 week  
+There are member and invitation concepts, but no obvious productized loop that makes inviting committee members, volunteers, or partner organizers feel like part of onboarding and growth.  
+**Why users want it:** these tools become sticky when the group adopts them together, not when one admin pokes around solo.
+
+**3. Better conversion instrumentation and lifecycle nudges**  
+**Priority:** P1 | **Effort:** 2-4 days  
+The roadmap already calls for activation tracking, countdown messaging, and trial nudges. That is still effectively a missing product capability until it is live.  
+**Why users want it:** users need help finishing setup and understanding next steps, especially during a 14-day trial.
+
+### Top 3 growth levers
+
+**1. Sharpen SEO around one niche and publish practical content**  
+**Priority:** P1 | **Effort:** 1-2 weeks for first batch  
+The SEO audit and content-hub research both point the same way: broad category terms are crowded, but long-tail how-to and comparison content is winnable.  
+**Best lever:** publish highly practical, niche-specific pages like setup guides, templates, and competitor comparisons for the chosen ICP.  
+**Why this fits Joe's constraints:** organic-first, compounding, low-cash growth.
+
+**2. App store + landing-page conversion polish**  
+**Priority:** P1 | **Effort:** 3-5 days  
+The app exists, but the storefront and landing flow still look like they need a tighter narrative, better screenshots, and clearer proof of value.  
+**Best lever:** align screenshots, hero copy, onboarding, and plan naming so a visitor sees the same story all the way through.
+
+**3. Monetization cleanup before scaling traffic**  
+**Priority:** P1 | **Effort:** 1-3 days  
+Before pushing acquisition harder, the pricing model, free-trial story, and plan ladder need to feel coherent. Right now there is risk of leaking conversions because the commercial surface area feels partly in transition.  
+**Best lever:** unify pricing/copy/trial messaging first, then scale SEO/referral work.
+
+### Prioritized recommendation list
+
+**1. Unify positioning + pricing surfaces**  
+**Impact:** Very high | **Effort:** 1-2 days  
+- Pick the primary ICP
+- Rewrite homepage hero/subhead/examples around that ICP
+- Align pricing page, select-plan page, and Stripe trial docs
+- Remove plan naming mismatches
+
+**2. Build an adoption-first onboarding flow**  
+**Impact:** Very high | **Effort:** 1-2 weeks  
+- Add role/use-case selection at first run
+- Generate tailored sample data/workspace
+- Present 3 next actions with progress tracking
+- Track first-value milestones
+
+**3. Instrument activation + trial conversion**  
+**Impact:** High | **Effort:** 2-4 days  
+- Log tutorial completion, first org, first campaign, first invite, first donation-related action
+- Add trial countdown + lifecycle nudges
+- Review drop-off weekly
+
+**4. Launch a focused organic content engine**  
+**Impact:** High | **Effort:** 1-2 weeks initial, then ongoing light cadence  
+- 5-8 long-tail SEO pages first
+- 2-3 comparison pages
+- 2-3 practical template/how-to guides
+
+**5. Add a lightweight referral/invite growth loop**  
+**Impact:** Medium-high | **Effort:** ~1 week  
+- Prompt admins to invite collaborators during setup
+- Reward or recognize referrals later if desired
+- Measure team-based activation vs solo activation
+
+### Bottom line
+CoinUsUp does **not** look blocked by missing core product breadth. It looks blocked by three things: **unclear positioning, inconsistent monetization surfaces, and a weak first-value path**. I would not add major new features before fixing those. If Joe wants user adoption, the next growth phase should be **message clarity + onboarding + organic acquisition**, in that order.
