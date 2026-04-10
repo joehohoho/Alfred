@@ -709,7 +709,9 @@
       "Signal App Quality Focus",
       "Signal App Commercialization Gate"
     ],
-    "evaluation": null,
+    "evaluation": {
+      "notes": "## Monetization strategy research update (2026-04-10)\n\n### Competitor benchmark\n1. **TradingView**\n   - Freemium with meaningful free tier, then several paid tiers.\n   - Monetizes advanced alerts, more simultaneous charts, screeners, webhook alerts, and deeper power-user features.\n   - Takeaway: free tier drives top-of-funnel, paid tiers unlock workflow scale and automation.\n\n2. **TrendSpider**\n   - Premium subscription positioning with trial, annual discount, and paid add-ons for market data / AI usage.\n   - Monetizes advanced analysis, automation, multi-factor alerts, backtesting, and optional AI/market-data extras.\n   - Takeaway: serious traders will pay recurring revenue when signal tooling saves time and improves decisions.\n\n3. **StocksToTrade**\n   - High-ticket subscription ($179.95/mo shown on pricing page, annual discount available) plus premium algorithms/mentorship upsells.\n   - Monetizes speed, curated signals, training, and trader-specific workflows.\n   - Takeaway: niche signal users tolerate high prices, but only when perceived edge and trust are strong.\n\n### Best fit for Joe's early-stage Signal App\n**Recommended model: freemium + low-friction monthly subscription, not one-time purchase.**\n\nWhy:\n- Trading/signal products benefit from recurring value, continuous updates, and evolving models, so one-time pricing is a bad fit.\n- Joe's current commercialization gate is signal quality, so pricing should reduce resistance while trust is still being earned.\n- A freemium entry point lets users validate usefulness before paying, which is especially important for signals.\n\n### Recommended pricing structure\n- **Free tier**\n  - Delayed signals or limited number of signals per week\n  - Basic performance dashboard\n  - 1 watchlist / limited assets\n  - Goal: trust-building and conversion\n\n- **Pro tier: USD $19\u201329/month**\n  - Real-time signals\n  - More assets / more alerts\n  - Basic confidence score and recent performance stats\n  - Email/Discord/Telegram delivery\n  - This is the best initial paid tier for Joe's likely audience: affordable enough for retail traders, high enough to validate demand.\n\n- **Premium tier: USD $49\u201379/month**\n  - Advanced confidence scoring\n  - Backtest transparency / signal quality analytics\n  - Strategy filters, portfolio fit, and richer risk context\n  - Best introduced only after quality is consistently strong.\n\n- **B2B / API licensing: defer for now**\n  - Potential later for newsletter writers, Discord communities, fintech creators, or advisors\n  - Too early before signal quality + product reliability are proven\n\n### Recommendation\nStart with **free + Pro at $24/month** and optionally **$240/year** once retention looks healthy.\n\nThat is the strongest early-stage pricing strategy because it:\n- keeps the offer simple,\n- matches recurring signal value,\n- lowers adoption friction,\n- avoids underpricing the product as a hobby tool,\n- leaves room for a later Premium tier once confidence scoring / backtest transparency become differentiators.\n\n### Rationale in one sentence\nFor an early-stage signal app aimed at Joe's audience, the smartest move is **freemium to earn trust, then a simple sub-$30/mo paid tier for real-time actionable value, with premium analytics added later once quality proves out**.\n"
+    },
     "promotedToGoalId": null,
     "tags": [
       "existing-app-improvement",
@@ -721,7 +723,7 @@
       "consolidation-mode"
     ],
     "createdAt": "2026-04-03T20:26:00.000Z",
-    "updatedAt": "2026-04-03T20:26:00.000Z",
+    "updatedAt": "2026-04-10T04:33:30.000Z",
     "researchEvidence": [
       {
         "source": "Joe's Mar 23 Quality Gate Answer",
