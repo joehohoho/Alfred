@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1775770978",
-    "title": "Passive income idea scan (Canada-specific)",
-    "agent": "hal",
-    "dispatchedAt": 1775770978.9169989,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775771879",
     "title": "Code review: Market Signal Lab",
     "agent": "hal",
@@ -732,6 +724,14 @@
     "title": "Passive income idea scan",
     "agent": "hal",
     "dispatchedAt": 1775856741.393737,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775857642",
+    "title": "Dependency audit: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775857642.4434502,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
