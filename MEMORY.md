@@ -3,8 +3,8 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 **Status:** in_progress (REVIEW gate — awaiting Joe approval)
-Recent: [idle:goal-progress-check] Reviewed 2 blocked card | [idle:improve-self at 18:55 ADT] Created JSON para
-Updated: 21:26 AST
+Recent: [idle:review-memory at 21:26 ADT] Confirmed daily  | [23:11 ADT] [idle:workspace-check] All git repos c
+Updated: 23:41 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
@@ -137,6 +137,10 @@ For all system updates going forward:
 3. **Re-enable cron jobs** (Evening Routine, Daily Inquiry) — disabled Mar 12-15; waiting on #1 fix
 4. **Enforce auto-move for HAL deliverables** — cleanup Review column backlog
 5. **Monitor gateway stability** — watch for further memory overflow
+6. **Game Mode Dashboard Display** ✅ FIXED (2026-04-09 22:52)
+   - Problem: Game mode widget not showing on Command Center dashboard
+   - Solution: Created Chrome extension (`dashboard/chrome-extension/`) that injects widget
+   - Status: Ready for installation (see dashboard/chrome-extension/README.md)
 
 ---
 

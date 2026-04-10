@@ -631,5 +631,23 @@
     "answered": false,
     "createdAt": "2026-04-09T18:41:10.634Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775788885611_a5021adb",
+    "type": "Trial Feature Unblock: Stripe Config Ready",
+    "title": "CoinUsUp trial code is 100% complete and deployed to staging. All you need to do is update 12 Stripe product prices with trial_period_days=14. Takes 5 minutes.\n\nBasic tier (4 prices): US Monthly, US Annual, CA Monthly, CA Annual\nPro tier (4 prices): US Monthly, US Annual, CA Monthly, CA Annual\n\nOnce done, I'll deploy to production same day.\n\n**Questions:**\n1. Ready to do Stripe dashboard update today?\n2. Or should we skip/defer free trials for now?",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-10T02:41:25.611Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775788889479_5d542fd8",
+    "type": "Bill Review MVP: Scope Decision Needed",
+    "title": "You asked me to build an MVP for the Bill Review invoice audit tool (Mar 31). I need one clarification before I start:\n\n**A) Personal Tool** — Build a personal invoice audit app for your own use (you audit invoices, catch duplicates/overcharges)\n\n**B) External SaaS MVP** — Build a product to sell to Canadian SMBs (bootstrap version, test with 3-5 pilot customers, iterate based on feedback)\n\nThe blueprint and market analysis support both. But the build path, design, and priorities differ.\n\nWhich direction? (Reply A or B in the card comment)",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-10T02:41:29.479Z",
+    "answeredAt": null
   }
 ]
