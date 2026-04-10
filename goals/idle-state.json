@@ -1,35 +1,7 @@
 {
-  "lastActivityAt": "2026-04-10T06:11:20.026Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-04-10T10:41:34.269Z",
+  "lastActivityType": "goal-progress-check",
   "recentActivities": [
-    {
-      "type": "improve-self",
-      "dispatchedAt": "2026-04-08T21:54:47.911Z"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-04-08T22:09:48.705Z"
-    },
-    {
-      "type": "surprise-delight",
-      "dispatchedAt": "2026-04-08T22:24:49.392Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-04-08T22:39:50.003Z"
-    },
-    {
-      "type": "generate-ideas",
-      "dispatchedAt": "2026-04-08T23:24:51.878Z"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-04-09T00:24:54.466Z"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-04-09T02:09:58.752Z"
-    },
     {
       "type": "goal-progress-check",
       "dispatchedAt": "2026-04-09T02:40:00.163Z"
@@ -214,8 +186,38 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-04-10T06:11:20.026Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-04-10T06:41:21.649Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-10T07:41:24.736Z",
+      "ideaId": "idea_1771697587532_4a35f177"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-04-10T08:26:27.187Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-10T09:41:31.071Z",
+      "ideaId": "idea_1771697587532_4a35f177"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-04-10T09:56:31.800Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-04-10T10:11:32.645Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-04-10T10:41:34.269Z"
     }
   ],
-  "totalIdleDispatches": 820,
+  "totalIdleDispatches": 827,
   "cooldownMinutes": 15
 }

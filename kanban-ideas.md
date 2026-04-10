@@ -766,3 +766,36 @@ Before pushing acquisition harder, the pricing model, free-trial story, and plan
 
 ### Bottom line
 CoinUsUp does **not** look blocked by missing core product breadth. It looks blocked by three things: **unclear positioning, inconsistent monetization surfaces, and a weak first-value path**. I would not add major new features before fixing those. If Joe wants user adoption, the next growth phase should be **message clarity + onboarding + organic acquisition**, in that order.
+
+---
+
+## Passive Income Portfolio Health — April 10, 2026 Snapshot
+
+**Score:** 7/10 (real revenue base exists, but portfolio is still under-monetized because the clearest unlocks are decision-gated or packaging-gated)
+
+| Project | Current status | Estimated current MRR | Estimated potential MRR | Biggest bottleneck to growth |
+|---|---|---:|---:|---|
+| **CoinUsUp** | Live, feature-complete trial path, positioned as the strongest near-term SaaS candidate | **$500-800** | **$3k-5k** | **Monetization launch friction**: 14-day trial is code-ready, but Stripe trial/price configuration is still blocking activation and conversion testing |
+| **Even Us Up** | Live, differentiated, but growth is muted | **$200-300** | **$1k-2k** | **UX and positioning friction**: settlement clarity, onboarding, and household-first value are not sharp enough to convert and retain users against Splitwise |
+| **Signal App / Market Signal Lab** | Pre-launch, technically promising, monetization research done | **$0** | **$5k-15k** | **Productization gap**: needs data-quality confidence, position ledger, and a clean MVP path to first paid users |
+| **Automation Consulting** | Active revenue stream, most stable today | **$2k-3.5k** | **$3k-5k** | **Low leverage delivery model**: too much revenue is still tied to Joe's direct time instead of productized retainers/offers |
+
+**Portfolio totals:**
+- **Current:** about **$2.7k-4.9k MRR**
+- **Near-term realistic upside (next 3-6 months):** about **$12k-27k MRR**
+- **Read on the portfolio:** one stable cash engine (consulting), one best immediate SaaS unlock (CoinUsUp), one repairable growth laggard (Even Us Up), and one long-horizon asymmetric bet (Signal App)
+
+**What stands out:**
+1. **CoinUsUp is still the cleanest revenue unlock.** The gap is no longer product breadth, it is launch and monetization execution.
+2. **Even Us Up is not a dead asset.** It looks under-positioned, not invalid. Better onboarding and Canada-first household messaging are the main levers.
+3. **Signal App has the biggest ceiling but also the longest path.** It should be treated as a strategic bet, not the thing that carries short-term passive income.
+4. **Consulting is the portfolio stabilizer.** The next win is packaging Joe's expertise into repeatable offers so it funds the app bets without eating all his time.
+
+**Priority order for portfolio health:**
+1. **Unblock CoinUsUp trial monetization**
+2. **Productize one consulting offer**
+3. **Run an Even Us Up UX/positioning sprint**
+4. **Keep Signal App on a disciplined MVP path**
+
+**Bottom line:** the portfolio is healthier than it looks because there is already real revenue and multiple credible paths to growth. But right now it is behaving like a set of partially-finished unlocks, not a coordinated passive-income system. The biggest improvement would come from converting the most obvious bottlenecks into shipped monetization, starting with **CoinUsUp**.
+

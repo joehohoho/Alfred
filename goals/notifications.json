@@ -649,5 +649,29 @@
     "answered": false,
     "createdAt": "2026-04-10T02:41:29.479Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1775817727461_86dcfd09",
+    "type": "--title",
+    "title": "UNBLOCK: Bill Review MVP — Scope Decision (11-day wait)",
+    "message": "--context",
+    "goalId": "Market validation complete (confirmed demand + revenue model). Blueprint ready. You approved MVP build Mar 31 but didn't answer the scope clarification question: Is this a PERSONAL TOOL (your own audit use) or an EXTERNAL PRODUCT (SaaS to sell)?",
+    "taskId": "--question",
+    "source": "Personal Tool (A) or External SaaS Product (B)? Just one word, and I'll unblock and start building immediately.",
+    "answered": false,
+    "createdAt": "2026-04-10T10:42:07.461Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1775817727469_35364f20",
+    "type": "--title",
+    "title": "[REMINDER] Free Trial on CoinUsUp — Stripe Config Blocking (9-day wait)",
+    "message": "--context",
+    "goalId": "Implementation complete Mar 18 (code + frontend + tests deployed). Code works; next step is Stripe dashboard config: set trial_period_days=14 on 12 prices (Basic/Pro × US/CA × Monthly/Annual). Once done, I'll run staging test → commit + push → deploy.",
+    "taskId": "--question",
+    "source": "Can you update the 12 Stripe prices today? Need 10 min on Stripe dashboard.",
+    "answered": false,
+    "createdAt": "2026-04-10T10:42:07.469Z",
+    "answeredAt": null
   }
 ]
