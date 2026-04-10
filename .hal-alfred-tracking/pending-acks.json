@@ -430,5 +430,13 @@
     "dispatchedAt": 1775788099.7831428,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775789000",
+    "title": "Performance profiling: Command Center",
+    "agent": "hal",
+    "dispatchedAt": 1775789000.9408262,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]
