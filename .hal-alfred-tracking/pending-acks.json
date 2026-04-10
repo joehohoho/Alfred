@@ -1,45 +1,5 @@
 [
   {
-    "taskId": "proactive_1775766472",
-    "title": "Passive income idea scan",
-    "agent": "hal",
-    "dispatchedAt": 1775766473.346814,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775767374",
-    "title": "Dependency audit: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1775767374.547349,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775768275",
-    "title": "Signal App research",
-    "agent": "hal",
-    "dispatchedAt": 1775768275.686996,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775769176",
-    "title": "Infrastructure health check",
-    "agent": "hal",
-    "dispatchedAt": 1775769176.712652,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775770077",
-    "title": "CoinUsUp SEO quick wins",
-    "agent": "hal",
-    "dispatchedAt": 1775770077.845016,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775770978",
     "title": "Passive income idea scan (Canada-specific)",
     "agent": "hal",
@@ -732,6 +692,46 @@
     "title": "Dead code & cleanup sweep",
     "agent": "hal",
     "dispatchedAt": 1775852235.7280982,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775853136",
+    "title": "Git hygiene",
+    "agent": "hal",
+    "dispatchedAt": 1775853136.911194,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775854037",
+    "title": "Log analysis & anomaly detection",
+    "agent": "hal",
+    "dispatchedAt": 1775854037.982486,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775854938",
+    "title": "Security posture check",
+    "agent": "hal",
+    "dispatchedAt": 1775854939.1260889,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775855839",
+    "title": "Code review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775855840.208065,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775856741",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1775856741.393737,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
