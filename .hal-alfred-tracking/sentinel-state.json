@@ -2,28 +2,28 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:30Z",
+    "lastCheck": "2026-04-10T18:12:49Z",
     "lastNotified": 1775739958.828554,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:30Z",
+    "lastCheck": "2026-04-10T18:12:49Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:35Z",
+    "lastCheck": "2026-04-10T18:12:54Z",
     "lastNotified": 1775660240.584333,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:35Z",
+    "lastCheck": "2026-04-10T18:12:54Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
@@ -39,37 +39,42 @@
         "fix": "run-cleanup",
         "success": true,
         "at": 1775832514.228055
+      },
+      {
+        "fix": "run-cleanup",
+        "success": true,
+        "at": 1775838953.239572
       }
     ],
-    "lastCheck": "2026-04-10T16:25:35Z",
+    "lastCheck": "2026-04-10T18:12:54Z",
     "lastNotified": 0,
-    "lastFixTime": 1775832514.228056
+    "lastFixTime": 1775838953.239573
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:35Z",
+    "lastCheck": "2026-04-10T18:12:55Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:36Z",
+    "lastCheck": "2026-04-10T18:12:55Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:35Z",
+    "lastCheck": "2026-04-10T18:12:55Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-10T16:25:36Z",
+    "lastCheck": "2026-04-10T18:12:55Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }

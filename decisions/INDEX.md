@@ -1,6 +1,6 @@
 # Decision Index
 
-**Updated:** 2026-03-20 18:00 UTC | **Next auto-update:** Fridays at 3 PM AST  
+**Updated:** 2026-04-10 18:00 UTC | **Next auto-update:** Fridays at 3 PM AST  
 **Purpose:** Quick reference for all active decisions. Prevents repeat questions by showing what's been decided + when to re-ask.
 
 ---
@@ -10,11 +10,7 @@ _Do NOT re-ask questions in this section until review date passes._
 
 | Decision | Asked | Decided | Review Date | Status | Link |
 |----------|-------|---------|-------------|--------|------|
-| Passive Income Targets (Q2 Growth) | 2026-02-20 | 2026-03-09 | 2026-04-10 | ✅ DECIDED | [March log](./2026-03.md#decision-passive-income-targets-q2-growth) |
-| App Growth Strategy (Priority) | 2026-02-27 | 2026-03-09 | 2026-04-10 | ✅ DECIDED | [March log](./2026-03.md#decision-app-growth-strategy-priority) |
 | Market Signal Lab Scope | 2026-03-02 | 2026-03-09 | 2026-06-01 | ✅ DECIDED | [March log](./2026-03.md#decision-market-signal-lab-scope) |
-| Reliability Infrastructure Priority | 2026-03-09 | 2026-03-09 | 2026-04-09 | ✅ DECIDED | [March log](./2026-03.md#decision-reliability-infrastructure-priority) |
-| Reliability Systems Configuration | 2026-03-09 | 2026-03-09 | 2026-04-09 | ✅ DECIDED | [March log](./2026-03.md#decision-reliability-systems-configuration) |
 
 ---
 
@@ -41,7 +37,7 @@ _Reference only. Do not re-ask._
 
 | Month | Link | Count |
 |-------|------|-------|
-| _None yet_ | — | 0 |
+| 2026-03 | [March log](./2026-03.md) | 4 reviewed / 5 total |
 
 ---
 
@@ -61,12 +57,12 @@ _Reference only. Do not re-ask._
 
 ## Weekly Decision Review (Fridays 3 PM)
 
-**Alfred generates + posts summary to Joe:**
-- How many decisions made this month?
-- How many still pending (overdue)?
-- Recommend re-asking or closing out?
+**Alfred reviews internally:**
+- Which decisions reached or passed review date?
+- Are any pending decisions overdue for re-ask?
+- Archive reviewed items and surface only true re-ask candidates.
 
-This is automated via cron + Command Center notification.
+This reminder is handled internally unless Joe explicitly asks for a summary.
 
 ---
 
