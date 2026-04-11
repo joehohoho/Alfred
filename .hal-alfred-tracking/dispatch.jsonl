@@ -407,3 +407,5 @@
 {"timestamp":"2026-04-11T17:03:49Z","task_id":"proactive_1775927028","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Security posture check"}
 {"timestamp":"2026-04-11T17:18:50Z","task_id":"proactive_1775927930","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: CoinUsUp"}
 {"timestamp":"2026-04-11T17:33:51Z","task_id":"proactive_1775928831","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Passive income idea scan"}
+{"timestamp":"2026-04-11T17:48:52Z","task_id":"proactive_1775929732","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Dependency audit: CoinUsUp"}
+{"timestamp":"2026-04-11T18:03:53Z","task_id":"proactive_1775930633","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Signal App research"}
