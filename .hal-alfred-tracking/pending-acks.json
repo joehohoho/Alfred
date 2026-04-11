@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1775829707",
-    "title": "Signal App research",
-    "agent": "hal",
-    "dispatchedAt": 1775829707.8532999,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775830608",
     "title": "Infrastructure health check",
     "agent": "hal",
@@ -764,6 +756,14 @@
     "title": "Dependency audit: CoinUsUp",
     "agent": "hal",
     "dispatchedAt": 1775915314.323781,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775916215",
+    "title": "Signal App research",
+    "agent": "hal",
+    "dispatchedAt": 1775916215.534962,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
