@@ -43,16 +43,20 @@
     "title": "Proactive task novelty guard for idle loop",
     "description": "Add a novelty-scoring layer before Alfred proactive tasks run. It should compare the requested scan/topic against recent completed reviews, active ideas, and recent proactive outputs, then either skip, narrow, or reframe the task if the likely output would be redundant. Why it matters: the idle loop currently relies mostly on time cooldowns, so it can still trigger broad audits that produce overlapping outcomes. Expected payoff: less token waste, fewer near-duplicate Kanban ideas, and higher-value proactive work selection.",
     "category": "growth",
-    "status": "new",
+    "status": "archived",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 4,
+      "notes": "Internal ops/infrastructure tool, not a growth or passive-income idea. Solves real token-waste problem but misaligned with growth backlog. Move to ops/maintenance kanban instead."
+    },
+    "rejectedReason": "Infrastructure maintenance; misaligned category (belongs in ops backlog, not growth ideas)",
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": ["ops", "infrastructure"],
     "createdAt": "2026-04-10T20:01:55.882Z",
-    "updatedAt": "2026-04-10T20:01:55.882Z"
+    "updatedAt": "2026-04-11T12:45:00.000Z"
   },
   {
     "id": "idea_1775851315646_e3128f3f",

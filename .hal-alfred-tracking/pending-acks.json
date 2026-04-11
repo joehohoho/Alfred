@@ -1,37 +1,5 @@
 [
   {
-    "taskId": "proactive_1775832410",
-    "title": "Passive income idea scan (Canada-specific)",
-    "agent": "hal",
-    "dispatchedAt": 1775832411.189127,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775833311",
-    "title": "Code review: Market Signal Lab",
-    "agent": "hal",
-    "dispatchedAt": 1775833312.225352,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775834213",
-    "title": "System monitoring report",
-    "agent": "hal",
-    "dispatchedAt": 1775834213.391039,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775835114",
-    "title": "Documentation freshness audit",
-    "agent": "hal",
-    "dispatchedAt": 1775835114.4352179,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775836015",
     "title": "Test coverage review: CoinUsUp",
     "agent": "hal",
@@ -764,6 +732,38 @@
     "title": "CoinUsUp SEO quick wins",
     "agent": "hal",
     "dispatchedAt": 1775918017.8098428,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775918918",
+    "title": "Passive income idea scan (Canada-specific)",
+    "agent": "hal",
+    "dispatchedAt": 1775918918.891586,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775919819",
+    "title": "Code review: Market Signal Lab",
+    "agent": "hal",
+    "dispatchedAt": 1775919820.072746,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775920720",
+    "title": "System monitoring report",
+    "agent": "hal",
+    "dispatchedAt": 1775920721.151076,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775921621",
+    "title": "Documentation freshness audit",
+    "agent": "hal",
+    "dispatchedAt": 1775921622.352851,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
