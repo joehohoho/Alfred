@@ -4,7 +4,7 @@
     "title": "Signal App monetization strategy",
     "description": "Research summary for Joe's early-stage Stock/Crypto Buy/Sell Signal App.\n\nRecommendation:\nStart with freemium + a single paid Pro tier, not one-time purchase and not B2B-first.\n\nSuggested pricing:\n- Free: delayed signals, limited watchlist, basic alerts, weekly digest, social proof/results snapshots\n- Pro: C$19 to C$29/month, target launch price C$24/month or C$240/year\n- Founding-member offer: C$15/month lifetime while active for first 25 to 50 users\n- Optional later tier: C$49 to C$79/month only after clear premium differentiation like SMS/Discord realtime alerts, broker/API integration, backtests, model explanations, portfolio/risk overlays\n\nWhy this fits Joe's audience:\n- Early-stage retail users are price sensitive and skeptical of signal quality claims\n- Lower-friction subscription beats a one-time fee because signals are ongoing value, not static software\n- Freemium helps trust-building, list growth, and proof collection before heavier CAC spend\n- B2B API licensing is attractive later, but too early as the primary model because it needs stable performance, documentation, SLA expectations, and outbound sales effort\n\nCompetitor benchmarks:\n1. TradingView: freemium ladder. Paid tiers roughly C$19.95/mo Essential, C$41.95/mo Plus, C$82.95/mo Premium. Strong proof that traders accept subscriptions when alerts and workflow depth increase.\n2. Cryptohopper: free plus paid ladder. Public pricing currently shows Explorer about $24.16/mo, Adventurer $57.50/mo, Hero $107.50/mo. Good example of upselling automation/power features after free entry.\n3. TrendSpider: premium-first, much higher pricing. Public pricing/schema shows Standard around $89/mo and Premium around $149/mo. Shows advanced tooling can command high ARPU, but that level is likely too expensive for Joe's early audience unless the app becomes deeply differentiated.\n\nMonetization model ranking:\n1. Best now: freemium + one core subscription tier\n2. Good later: add premium/high-touch tier for serious traders\n3. Later expansion: B2B/API licensing for newsletters, communities, or advisors\n4. Weak fit now: one-time purchase, because ongoing signals create ongoing cost and expectation\n\nExecution advice:\n- Sell outcome + trust, not complexity\n- Emphasize transparency: signal history, hit rate methodology, disclaimers, confidence score, sample alerts\n- Ask for annual only after monthly retention is proven\n- Avoid too many tiers at launch; choice overload will hurt conversion\n\nSimple launch packaging:\n- Free: 3 to 5 signals/week, delayed by 15 to 60 minutes\n- Pro monthly: real-time signals, more assets, push/Discord/email alerts, better filtering, dashboard history\n- Pro annual: 2 months free equivalent\n- Founders plan: discounted monthly for first cohort in exchange for feedback/testimonials",
     "category": "growth",
-    "status": "new",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -28,11 +28,15 @@
       }
     ],
     "demandValidation": "Market confirmed by multiple 2026 crypto signal apps using freemium pricing ($19–$30/mo). Competitors (TradingView, Cryptohopper) validate tiered subscription model. Retail traders accept recurring subscriptions when signal value is clear.",
-    "status": "evaluated",
-    "promotedToGoalId": null,
-    "tags": ["growth", "passive-income", "signal-app", "monetization"],
+    "promotedToGoalId": "task_1775915945489_012a4712",
+    "tags": [
+      "growth",
+      "passive-income",
+      "signal-app",
+      "monetization"
+    ],
     "createdAt": "2026-04-10T21:33:04.691Z",
-    "updatedAt": "2026-04-11T10:44:00.000Z"
+    "updatedAt": "2026-04-11T13:59:05.494Z"
   },
   {
     "id": "idea_1775851315882_27842bbe",

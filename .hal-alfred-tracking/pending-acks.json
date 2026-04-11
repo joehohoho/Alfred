@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1775828806",
-    "title": "Dependency audit: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1775828806.701299,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775829707",
     "title": "Signal App research",
     "agent": "hal",
@@ -764,6 +756,14 @@
     "title": "Passive income idea scan",
     "agent": "hal",
     "dispatchedAt": 1775914413.267431,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775915313",
+    "title": "Dependency audit: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1775915314.323781,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
