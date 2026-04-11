@@ -1,21 +1,5 @@
 [
   {
-    "taskId": "proactive_1775830608",
-    "title": "Infrastructure health check",
-    "agent": "hal",
-    "dispatchedAt": 1775830608.9845219,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775831509",
-    "title": "CoinUsUp SEO quick wins",
-    "agent": "hal",
-    "dispatchedAt": 1775831510.018173,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775832410",
     "title": "Passive income idea scan (Canada-specific)",
     "agent": "hal",
@@ -764,6 +748,22 @@
     "title": "Signal App research",
     "agent": "hal",
     "dispatchedAt": 1775916215.534962,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775917116",
+    "title": "Infrastructure health check",
+    "agent": "hal",
+    "dispatchedAt": 1775917116.6088781,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1775918017",
+    "title": "CoinUsUp SEO quick wins",
+    "agent": "hal",
+    "dispatchedAt": 1775918017.8098428,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }

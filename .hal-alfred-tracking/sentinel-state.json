@@ -8,28 +8,28 @@
         "at": 1775886763.043574
       }
     ],
-    "lastCheck": "2026-04-11T14:13:16Z",
+    "lastCheck": "2026-04-11T14:43:54Z",
     "lastNotified": 1775886763.565311,
     "lastFixTime": 1775886763.043575
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:16Z",
+    "lastCheck": "2026-04-11T14:43:54Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:21Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 1775660240.584333,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:21Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
@@ -42,35 +42,35 @@
         "at": 1775886147.588459
       }
     ],
-    "lastCheck": "2026-04-11T14:13:22Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 0,
     "lastFixTime": 1775886147.58846
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:22Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:22Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:22Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-11T14:13:22Z",
+    "lastCheck": "2026-04-11T14:44:00Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }
