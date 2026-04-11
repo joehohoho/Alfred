@@ -1,14 +1,10 @@
 {
-  "task_1775832106858_65519e2f": {
-    "at": 1775832139.5709739,
-    "title": "Atlantic Canada SMB Micro-SaaS Wedge Scan"
-  },
-  "task_1775839345649_5b7902cb": {
-    "at": 1775839378.4022322,
-    "title": "CoinUsUp Growth Audit Refresh \u2014 Activation, Trial, and Conversion Priorities"
-  },
   "task_1775915945489_012a4712": {
     "at": 1775915978.256095,
     "title": "Signal App monetization strategy"
+  },
+  "task_1775937596949_8c2fcda6": {
+    "at": 1775937599.435842,
+    "title": "Knowledge freshness scanner for Alfred artifacts"
   }
 }
