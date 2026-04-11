@@ -54,7 +54,10 @@
     },
     "rejectedReason": "Infrastructure maintenance; misaligned category (belongs in ops backlog, not growth ideas)",
     "promotedToGoalId": null,
-    "tags": ["ops", "infrastructure"],
+    "tags": [
+      "ops",
+      "infrastructure"
+    ],
     "createdAt": "2026-04-10T20:01:55.882Z",
     "updatedAt": "2026-04-11T12:45:00.000Z"
   },
@@ -63,16 +66,38 @@
     "title": "Notification lifecycle auto-closer with answer reconciliation",
     "description": "Build a close-loop reconciler that watches Command Center notifications, webhook answers, and ACTIVE-TASK pending questions, then auto-marks resolved items, links answers to originating questions, and suppresses repeated reminders once a decision is captured. Why it matters: memory and open-loop files still show lingering duplicate or stale pending questions despite prior answers, which creates unnecessary reminders and review overhead. Expected payoff: fewer repeated asks, cleaner pending-question state, and less human trust erosion from duplicate prompts.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7,
+      "notes": "Direct solution to Priority 1 in MEMORY.md (duplicate questions cycling every 4 days). Real market demand (documented in search results: teams actively struggle with repeated questions, multiple tools market dedup as core feature). Medium effort, strong product-market fit for personal automation. Passive potential limited since it's internal tooling, not multi-user SaaS."
+    },
+    "researchEvidence": [
+      {
+        "source": "Plane Blog (Feb 2026)",
+        "finding": "Strong documentation reduces repeated questions, improves onboarding, supports cross-team visibility. Collaboration metric."
+      },
+      {
+        "source": "McKinsey Decision Making (2 weeks ago)",
+        "finding": "Tools like ABCD, DARE, Fist-to-Five address common decision-making challenges. Implies teams struggle with repeated questions and need discipline."
+      },
+      {
+        "source": "Reddit r/ProductivityApps (Dec 2025)",
+        "finding": "Users asking 'What's your workflow for tracking decisions across multiple meetings?' Explicit pain point: repeated questions, unfinalized decisions."
+      },
+      {
+        "source": "Workmate.com (Nov 2025)",
+        "finding": "Using Notion as project handbook to reduce repeated questions. Validates demand for dedup/decision tracking systems."
+      }
+    ],
+    "demandValidation": "Real demand evidence found. Teams across enterprise and indie contexts struggle with repeated questions and decision tracking. Multiple blog posts and tools market dedup as core feature. This idea maps directly to Joe's stated Priority 1 blocker in MEMORY.md.",
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-04-10T20:01:55.646Z",
-    "updatedAt": "2026-04-10T20:01:55.646Z"
+    "updatedAt": "2026-04-11T14:44:00Z"
   },
   {
     "id": "idea_1775851315409_c4aa3bf8",
@@ -1753,5 +1778,53 @@
     "tags": [],
     "createdAt": "2026-04-11T14:32:53.102Z",
     "updatedAt": "2026-04-11T14:32:53.102Z"
+  },
+  {
+    "id": "idea_1775926962615_d1ac327b",
+    "title": "Notification answer bridge health check + fallback repair",
+    "description": "## Why\nThe scheduled reminder still tries to run `scripts/check-notification-answers.sh`, but that script is missing. Meanwhile `webhooks/` is empty and unanswered notifications are accumulating, which means the backup answer path is brittle and currently invisible when broken.\n\n## Proposed improvement\nBuild a small bridge-health task that runs every 15 min and verifies the full answer delivery chain end-to-end:\n1. Command Center unanswered count matches `goals/notifications.json`\n2. webhook backup path exists and is producing files when answers arrive\n3. reminder/cron points at the real script or API, not a deleted filename\n4. alert + self-heal when the backup path is broken for more than one cycle\n\n## Expected impact\n- Prevents silent loss of Joe answers\n- Removes repeated failed reminder noise\n- Makes notification routing trustworthy again\n\n## Evidence\n- 2026-04-11 12:15 + 13:15 reminders failed because `check-notification-answers.sh` does not exist\n- `workspace/webhooks/*.json` count = 0 during audit\n- `goals/notifications.json` still shows 10 unanswered items",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-11T17:02:42.615Z",
+    "updatedAt": "2026-04-11T17:02:42.615Z"
+  },
+  {
+    "id": "idea_1775926980783_432c3f37",
+    "title": "Open Loops integrity refresh with null-card guardrails",
+    "description": "## Why\n`OPEN-LOOPS.md` is supposed to be the morning single source of truth, but the current file still shows stale dates and `null` active kanban cards. That means one of Alfred's core dashboards can quietly drift out of trust even when the underlying board API is healthy.\n\n## Proposed improvement\nAdd validation to `refresh-open-loops.sh` so it fails loudly and repairs instead of publishing broken summaries:\n1. reject writes when active card ids/titles resolve to null\n2. compare generated counts against `/api/kanban` and `/api/notifications/unanswered` before saving\n3. stamp freshness + data-source counts into the file\n4. if validation fails, keep last known good file and raise a local alert/comment\n\n## Expected impact\n- Keeps morning standup trustworthy\n- Prevents false 'nothing active' assumptions\n- Makes state drift visible immediately instead of days later\n\n## Evidence\n- Current `OPEN-LOOPS.md` shows Last updated 2026-04-09 and four active cards rendered as `null | null` even though `/api/kanban` returns valid live data",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-11T17:03:00.783Z",
+    "updatedAt": "2026-04-11T17:03:00.783Z"
+  },
+  {
+    "id": "idea_1775926989008_2120d6e4",
+    "title": "Cron-to-state registry for dead reminders and script drift",
+    "description": "## Why\nSeveral reminders still fire by text instruction only, and at least one now points to a deleted script. Cron health currently tells us whether a job ran, but not whether the action it references is still valid against the current workspace.\n\n## Proposed improvement\nCreate a lightweight registry that maps each cron/reminder to its canonical script/API target, owner file, and verification command. Add a daily drift audit that checks:\n1. referenced scripts still exist\n2. reminders match canonical command names\n3. deprecated jobs are flagged before they spam failures\n4. missing scripts auto-suggest replacements from the workspace\n\n## Expected impact\n- Prevents zombie reminders after refactors\n- Lowers operator noise and repeated manual triage\n- Makes cron maintenance cheaper and safer\n\n## Evidence\n- The answered-notifications reminder continues to invoke a non-existent `scripts/check-notification-answers.sh`\n- Current cron runs show jobs can be healthy while reminder instructions are semantically stale",
+    "category": "growth",
+    "status": "new",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": null,
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-11T17:03:09.008Z",
+    "updatedAt": "2026-04-11T17:03:09.008Z"
   }
 ]
