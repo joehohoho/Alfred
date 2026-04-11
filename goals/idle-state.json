@@ -1,38 +1,7 @@
 {
-  "lastActivityAt": "2026-04-11T08:28:47.869Z",
-  "lastActivityType": "review-memory",
+  "lastActivityAt": "2026-04-11T13:44:04.535Z",
+  "lastActivityType": "evaluate-idea",
   "recentActivities": [
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-04-09T22:40:56.743Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-09T23:40:59.870Z",
-      "ideaId": "idea_1771697586352_aead226b"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-04-10T00:26:02.185Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-10T01:41:06.149Z",
-      "ideaId": "idea_1771697587532_4a35f177"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-04-10T02:11:07.970Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-04-10T02:41:09.569Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-10T03:41:12.537Z",
-      "ideaId": "idea_1771697587532_4a35f177"
-    },
     {
       "type": "improve-self",
       "dispatchedAt": "2026-04-10T03:56:13.306Z"
@@ -218,8 +187,39 @@
     {
       "type": "review-memory",
       "dispatchedAt": "2026-04-11T08:28:47.869Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-11T09:43:51.784Z",
+      "ideaId": "idea_1771697588127_6df837d5"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-04-11T09:58:52.648Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-04-11T10:13:53.401Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-04-11T10:43:54.980Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-11T11:43:58.245Z",
+      "ideaId": "idea_1771697588701_b527270b"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-04-11T12:29:00.565Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-11T13:44:04.535Z",
+      "ideaId": "idea_1775856784691_93450b0d"
     }
   ],
-  "totalIdleDispatches": 859,
+  "totalIdleDispatches": 866,
   "cooldownMinutes": 15
 }
