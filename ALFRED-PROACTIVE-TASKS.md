@@ -367,3 +367,40 @@ Historical workflow efficiency scans from 2026-03-06 through 2026-03-21 have bee
 1. Reminder coalescer for blocker notifications
 2. Write-time schema validation/repair for kanban + notifications
 3. Proactive publish gate tied to a trackable artifact
+
+## Workflow Efficiency Scan — 2026-04-11
+
+### Top repetitive patterns and concrete improvements
+
+1. **Blocker reminders are duplicating instead of evolving (high trust + attention cost)**
+   - **Pattern:** `ACTIVE-TASK.md` currently shows multiple separate asks for the same two blockers, especially CoinUsUp Stripe trial setup and Bill Review MVP scope. The reminders vary slightly in wording, but they are operationally the same decision request resurfacing every day.
+   - **Impact:** Joe gets repeat prompts instead of one clean decision packet, Alfred's active context is padded with duplicates, and true new blockers compete with old unresolved ones.
+   - **Improvement proposal:** implement a blocker-thread model for reminders:
+     - one open reminder per topic/card
+     - subsequent reminders update `last_asked_at`, `times_asked`, and append new evidence instead of creating a fresh notification
+     - escalation ladder: `gentle reminder` -> `strong unblock note` -> `archive as waiting on Joe`, with cooldown windows between each stage
+   - **Success metric:** reduce active duplicate blocker reminders to **1 per topic** and eliminate same-topic reminder duplication inside a 7-day window.
+
+2. **Malformed kanban and notification records are still leaking into source-of-truth views (recurring board hygiene tax)**
+   - **Pattern:** `OPEN-LOOPS.md` still contains `null | null` active cards, and `ACTIVE-TASK.md` includes malformed pending-question entries (`Untitled`, `?`, `--title`). This means invalid records are reaching the main working files before validation happens.
+   - **Impact:** Alfred spends recurring cycles cleaning and reinterpreting broken state, board trust drops, and routing logic works from partially corrupted inputs.
+   - **Improvement proposal:** add strict write-time normalization plus quarantine:
+     - reject or repair records missing required fields (`id`, `title`, `type`, `message`)
+     - write bad payloads once to `logs/kanban-notification-anomalies.jsonl`
+     - publish anomaly counts separately, never directly into `OPEN-LOOPS.md` or `ACTIVE-TASK.md`
+     - add a daily reconcile step that attempts repair in batch and reports source script/file responsible
+   - **Success metric:** **0 malformed rows** in `OPEN-LOOPS.md` and **0 placeholder pending-question records** in `ACTIVE-TASK.md` for 7 consecutive days.
+
+3. **Analysis work still lands in notes faster than in execution systems (follow-through leak)**
+   - **Pattern:** proactive scans repeatedly identify useful fixes, but the easiest landing zone is often this file or memory logs. That preserves thinking, but it does not guarantee an owner, acceptance criteria, or implementation path.
+   - **Impact:** recommendations are rediscovered instead of compounded, and workflow-improvement work stays advisory longer than it should.
+   - **Improvement proposal:** enforce a tracked-output gate for proactive work:
+     - every proactive scan must either create/update a Kanban idea artifact or add a comment to an existing card
+     - required fields: `problem`, `proposed fix`, `expected benefit`, `owner`, `next trigger`
+     - if a recommendation already exists, update its status instead of appending a new freeform scan
+   - **Success metric:** **100% of proactive scans** produce or update one trackable artifact outside the scan log itself.
+
+### Recommended implementation order (highest ROI first)
+1. Blocker-thread reminder coalescing (fastest trust win)
+2. Write-time validation + anomaly quarantine for kanban/notifications
+3. Proactive tracked-output gate to force follow-through
