@@ -34,7 +34,7 @@
     "title": "Workflow Efficiency Scan — reduce duplicate blockers, malformed records, and untracked proactive outputs",
     "description": "Top 3 repetitive workflow patterns to fix next:\n\n1. **Duplicate blocker reminders instead of one evolving decision thread**\n- Pattern: ACTIVE-TASK currently carries multiple asks for the same blockers, especially CoinUsUp Stripe trial setup and Bill Review scope. The wording changes slightly, but operationally they are the same unresolved decision resurfacing.\n- Cost: repeated attention tax for Joe, polluted working context for Alfred, and lower trust in reminder quality.\n- Improvement: implement a blocker-thread model where one topic/card owns the reminder thread. New reminders update `last_asked_at`, `times_asked`, and recommendation context instead of creating new open items. Add escalation stages with cooldowns (gentle reminder, stronger unblock note, then waiting-on-Joe).\n- Expected win: one active reminder per blocker topic, fewer duplicate nudges, and cleaner session recovery.\n\n2. **Malformed kanban and notification records are still leaking into working files**\n- Pattern: OPEN-LOOPS still shows `null | null` cards, and ACTIVE-TASK has placeholder entries like `Untitled`, `?`, and `--title`. Broken upstream data is making it into source-of-truth views before validation.\n- Cost: recurring cleanup work, unreliable dashboards, and automation decisions made from partially corrupted state.\n- Improvement: add strict write-time validation plus quarantine. Reject or repair records missing required fields (`id`, `title`, `type`, `message`), log bad payloads once to `logs/kanban-notification-anomalies.jsonl`, and keep anomaly counts out of primary views. Add one daily reconcile pass to trace source scripts and repair in batch.\n- Expected win: trustworthy board/task views and less recurring hygiene churn.\n\n3. **Proactive analysis still lands in notes faster than in execution systems**\n- Pattern: proactive scans often end up in ALFRED-PROACTIVE-TASKS.md or memory, and only sometimes become a tracked idea or card comment. Good recommendations are preserved, but not always owned.\n- Cost: rediscovery instead of compounding progress, plus repeated scans on already-known problems.\n- Improvement: enforce a tracked-output gate. Every proactive run must either create/update a Kanban idea artifact or append to an existing linked card comment with `problem`, `proposed fix`, `expected benefit`, `owner`, and `next trigger`. If the recommendation already exists, update status instead of creating another freeform scan.\n- Expected win: proactive work turns into execution more reliably, and duplicate scans become status updates instead of fresh analysis.\n\n**Recommended implementation order**\n1. Blocker-thread reminder coalescing\n2. Write-time validation + anomaly quarantine for kanban/notifications\n3. Tracked-output gate for proactive work\n\n**Estimated impact**\nRoughly 4-6 hours/week saved through less reminder noise, less board cleanup, and less rediscovery of already-known fixes.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "evaluated",
     "source": "alfred-proactive",
     "effort": "medium",
     "potential": "high",
@@ -51,10 +51,22 @@
       "notes": "Internal ops infrastructure. Solves documented active problems: duplicate-question cycling (Priority 1 in MEMORY), malformed board data, lost proactive outputs. Self-evidenced by live workflow, not market research. High operator ROI (4-6h/week saved), strong internal leverage. Recommend moving to ops backlog for implementation. Zero passive-income potential but critical for system reliability."
     },
     "researchEvidence": [
-      {"source": "MEMORY.md Priority 1 (2026-03-15)", "finding": "Daily Inquiry duplicate questions cycle every 4 days without deduplication. Erodes user trust."},
-      {"source": "OPEN-LOOPS.md (live board state)", "finding": "Board snapshots show null | null cards and malformed records leaking into primary views."},
-      {"source": "ACTIVE-TASK.md (current working state)", "finding": "Pending questions show multiple reminders for same two blockers (CoinUsUp Stripe trial, Bill Review scope). Duplicate noise confirmed."},
-      {"source": "Proactive scan analysis (Mar-Apr 2026)", "finding": "Repeated scans on same topics (Signal App monetization, Even Us Up activation, Portfolio health). Evidence of rediscovery instead of status updates."}
+      {
+        "source": "MEMORY.md Priority 1 (2026-03-15)",
+        "finding": "Daily Inquiry duplicate questions cycle every 4 days without deduplication. Erodes user trust."
+      },
+      {
+        "source": "OPEN-LOOPS.md (live board state)",
+        "finding": "Board snapshots show null | null cards and malformed records leaking into primary views."
+      },
+      {
+        "source": "ACTIVE-TASK.md (current working state)",
+        "finding": "Pending questions show multiple reminders for same two blockers (CoinUsUp Stripe trial, Bill Review scope). Duplicate noise confirmed."
+      },
+      {
+        "source": "Proactive scan analysis (Mar-Apr 2026)",
+        "finding": "Repeated scans on same topics (Signal App monetization, Even Us Up activation, Portfolio health). Evidence of rediscovery instead of status updates."
+      }
     ],
     "demandValidation": "Problems are self-evident from live operational state and documented in MEMORY.md, ACTIVE-TASK.md, and OPEN-LOOPS.md. No external market research needed; this is internal automation infrastructure. The ROI is clear: consolidating 1-2 duplicate blocker reminders per session × 2-3 sessions/day × 5-6 days/week = ~30-40h/month saved if fully implemented.",
     "promotedToGoalId": null,
@@ -67,7 +79,6 @@
       "internal-infrastructure",
       "priority-1"
     ],
-    "status": "evaluated",
     "createdAt": "2026-04-11T20:08:20Z",
     "updatedAt": "2026-04-12T00:45:00Z"
   },
@@ -219,17 +230,34 @@
     "title": "Even Us Up growth audit refresh (Apr 10)",
     "description": "Even Us Up growth audit refresh (Apr 10)\n\nExecutive read\n- Treat this as an activation and positioning problem first, not a feature-count problem.\n- Splitwise is the reference competitor, but copying Splitwise is the wrong move. Even Us Up should win on faster settlement, clearer household workflows, and Canada-first positioning.\n- Also keeping Joe's March decision in mind: CoinUsUp is still Q2 priority, so this is best framed as a focused backlog/prioritization note, not a major build push.\n\nTop 3 UX friction points\n1. Onboarding to first \"aha\" is too slow (High impact, Small-Medium effort)\n   - New users likely hit a blank or choice-heavy experience before they see \"who owes whom\" clearly.\n   - Fix: guided first-run flow, sample/demo group, one fast path to first expense + first settlement view.\n   - Effort: 1-3 days for MVP polish if foundations exist.\n\n2. Settlement clarity is still too cognitive (High impact, Small effort)\n   - The core question is not \"can it track?\" but \"what do I do now?\"\n   - Fix: dashboard-level settle card, plain-English balances, one recommended settlement path, clearer Interac-first copy.\n   - Effort: 1-2 days.\n\n3. Add-expense flow likely asks for too much too early, especially on mobile (Medium-High impact, Medium effort)\n   - Too many upfront choices raises abandonment for routine use.\n   - Fix: quick-add defaults, recent split presets, fewer visible decisions until advanced mode is needed.\n   - Effort: 3-5 days.\n\nTop 3 missing features\n1. Reminder / notification loop (High retention value, Small-Medium effort)\n   - Settlement reminders, unpaid-aging nudges, and follow-up prompts after new expenses.\n   - Why: tracking without closure leaks retention.\n   - Effort: 2-4 days.\n\n2. Splitwise/CSV import path (High acquisition value, Medium effort)\n   - Biggest use: remove migration friction for users already living in spreadsheets or Splitwise.\n   - Why: switching cost is real, and import is more valuable than many net-new features.\n   - Effort: 1-2 weeks.\n\n3. Household recurring workflow polish (High niche differentiation, Medium effort)\n   - Recurring rent/utilities/subscriptions with strong defaults and persistent household mode.\n   - Why: this is a better wedge than generic trip splitting.\n   - Effort: 3-6 days if core recurring primitives already exist.\n\nTop 3 growth levers\n1. Canada-first positioning vs Splitwise (Highest ROI, Small effort)\n   - Message: Interac-native, CAD-first, simpler for Canadian roommates/households.\n   - Deliverables: landing page copy, comparison table, app store copy, 2-3 SEO pages.\n   - Effort: 1-3 days.\n\n2. Referral trigger at successful settlement moment (High ROI, Small-Medium effort)\n   - Ask for invite/share immediately after the product proves value.\n   - Effort: 3-5 days.\n\n3. Household / couples wedge instead of generic group-expense competition (Strategic lever, Medium effort)\n   - Lean into recurring living costs, monthly closeout, and household clarity.\n   - Effort: 1-2 weeks across product + copy.\n\nWhat differentiates Even Us Up from Splitwise\n- Better opportunity to own settlement completion, not just ledger tracking.\n- Interac-native / Canada-specific angle is real and defensible.\n- Household and recurring shared-expense workflows are a stronger niche than generic friend groups.\n- Receipt/OCR and audit-style guidance can become moat later, but only after activation is repaired.\n\nRecommended priority order\n1. Settlement clarity\n2. Onboarding to first value\n3. Quick-add/mobile simplification\n4. Reminder loop\n5. Canada-first positioning assets\n6. Referral trigger\n7. Import + deeper niche features\n\nEffort summary\n- Fast wins this month: settlement clarity, onboarding MVP, Canada-first positioning, referral trigger\n- Next layer: reminder loop, quick-add/mobile polish\n- Later: Splitwise import, analytics/audit layer, bigger settlement rails\n\nRecommendation\n- Best next move is not a broad feature sprint. It is one tight activation sprint.\n- If we touch Even Us Up in Q2 despite CoinUsUp priority, the highest-leverage package is:\n  1) settlement clarity,\n  2) onboarding wizard,\n  3) Canada-first landing/app-store copy.\n- That gives the best chance of improving activation without opening a large parallel product track.",
     "category": "passive-income",
-    "status": "new",
+    "status": "evaluated",
     "source": "alfred-proactive",
     "effort": "medium",
     "potential": "medium",
     "revenueModel": "",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7,
+      "notes": "Market validated by strong competitor presence (Splitwise, Venmo active, multiple roommate apps). Clear demand evidence from web search (recent articles Feb-Apr 2026). Positioning is differentiated (Canada-first, Interac-native, household wedge). Highest risk: activation bottleneck, not market validity. Score 7 because demand is real, but CoinUsUp still primary priority per Joe."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-04-10T18:02:40.405Z",
-    "updatedAt": "2026-04-10T18:02:40.405Z"
+    "updatedAt": "2026-04-12T05:46:53.291Z",
+    "researchEvidence": [
+      {
+        "source": "Web search: household expense sharing apps",
+        "finding": "Multiple active competitors (Splitwise, Venmo, RentShare, Splittable, Cashinator) confirm market demand. Recent articles (2025-2026) highlight roommate/household pain as evergreen."
+      },
+      {
+        "source": "Brave web search results (Apr 2026)",
+        "finding": "Market articles explicitly discuss household expense pain and app solutions. RentShare, Splittable, Cashinator all live products. Demand is proven."
+      },
+      {
+        "source": "Even Us Up audit observations",
+        "finding": "OCR underutilized (friction signal), settlement clarity flagged repeatedly, onboarding gap identified. Evidence supports Joe's diagnosis: activation is bottleneck."
+      }
+    ]
   },
   {
     "id": "idea_1775842200000_coinusup_growth_audit_refresh",
