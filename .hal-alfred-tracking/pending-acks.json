@@ -1,45 +1,5 @@
 [
   {
-    "taskId": "proactive_1775942348",
-    "title": "Code review: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1775942348.600461,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775943249",
-    "title": "Passive income idea scan",
-    "agent": "hal",
-    "dispatchedAt": 1775943249.799187,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775944150",
-    "title": "Dependency audit: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1775944150.904454,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775945051",
-    "title": "Signal App research",
-    "agent": "hal",
-    "dispatchedAt": 1775945052.10756,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775945952",
-    "title": "Infrastructure health check",
-    "agent": "hal",
-    "dispatchedAt": 1775945953.1843772,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775946853",
     "title": "CoinUsUp SEO quick wins",
     "agent": "hal",
@@ -636,6 +596,46 @@
     "title": "Git hygiene",
     "agent": "hal",
     "dispatchedAt": 1776027907.9169762,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776028808",
+    "title": "Log analysis & anomaly detection",
+    "agent": "hal",
+    "dispatchedAt": 1776028809.070764,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776029709",
+    "title": "Security posture check",
+    "agent": "hal",
+    "dispatchedAt": 1776029710.273816,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776030611",
+    "title": "Code review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1776030611.438165,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776031512",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776031512.529284,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776032413",
+    "title": "Dependency audit: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1776032413.71753,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }

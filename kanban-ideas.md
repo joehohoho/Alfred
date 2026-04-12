@@ -1225,3 +1225,61 @@ Even Us Up should **not** chase broad feature parity with Splitwise right now. T
 
 **Bottom line:** The portfolio is healthier than it looks because there is already real revenue and multiple credible growth paths. But right now it behaves like a set of partially-finished unlocks, not a coordinated passive-income system. The strongest next move is still to convert the shortest, clearest bottleneck into shipped monetization, starting with **CoinUsUp**.
 
+## 🤝 Alfred ↔ HAL Discussion: Infrastructure & Automation Gaps (Apr 12, 19:02 ADT)
+
+**Topic:** What's wasteful, missing, or fragile in Alfred/HAL/Command Center?
+
+### Alfred's Perspective
+1. **Fragmented monitoring:** We're running 5 independent health monitors on overlapping timers — sentinel.sh, gateway-watchdog.sh, session-watchdog.sh, health-monitor.js, and others. This creates redundant API calls, scattered logging, and conflicting repair attempts. When gateway restarts, context-bridge reloads trigger 3x instead of once.
+2. **Silent cron failures:** Drift detection works, but broken scripts don't auto-recover. hal-backup.sh has been missing for weeks; we catch it in audits but don't fix it.
+3. **Token waste:** Duplicate health checks across all 5 monitors add unnecessary token cost. Consolidation could save 5-10% spend and make alerts actually useful instead of noise.
+
+### HAL's Technical Perspective
+**Risk Analysis:**
+- 🔴 **Critical:** hal-backup.sh missing + 2 text-only jobs (webhook-listener, GitHub backup) never actually execute. Silent failures every run.
+- 🔴 **High:** Fragmented health monitoring with 5 independent systems, no coordinated state, redundant API calls, conflicting repairs.
+- 🟡 **Medium:** No automated script recovery when cron drift detected. No cross-service deployment/rollback capability.
+
+**Root causes:** When scripts are deleted, cron jobs become orphaned. Drift auditor catches it but requires manual intervention. Service changes lack coordinated audit trail.
+
+### Consensus Recommendations
+
+**#1: Consolidate Health Monitoring into Single Sentinel Hub** ⚡
+- **Problem:** 5 health scripts competing, redundant API calls, conflicting repairs
+- **Solution:** Unify into one `sentinel-orchestrator.sh` (master) that:
+  - Subscribes to health states of all 9 components (gateway, dashboard, sessions, cron, HAL, etc.)
+  - Maintains single `sentinel-state.json` with last-check timestamps and repair cooldowns
+  - Publishes all alerts to one channel (Discord `#hal-health-alerts`)
+  - Implements exponential backoff for repeated failures
+- **Benefit:** 60% reduction in redundant API calls, coordinated repairs, single audit trail, 5-10% token savings
+- **Effort:** 3-4 hours
+
+**#2: Implement Automated Script Recovery on Cron Drift Detection** 🔧
+- **Problem:** Missing scripts cause silent failures; manual intervention required every time
+- **Solution:** Enhance `cron-drift-auditor.sh` to:
+  1. When drift detected (missing script): check git history for deleted script
+  2. If found: auto-restore from latest commit that had it
+  3. Update cron-registry.json with `RESTORED_FROM_GIT` note
+  4. Log to `.hal-alfred-tracking/cron-recovery.jsonl` with timestamp + git hash
+  5. For text-only jobs: flag as `textOnlyPlaceholder: true` in registry
+- **Immediate benefit:** Resolves hal-backup.sh issue (auto-restore from git)
+- **Preventive benefit:** Future script deletions auto-recover within audit window
+- **Effort:** 2-3 hours
+
+**#3: Create Central Deployment & Change Log for Cross-Service Atomicity** 📋
+- **Problem:** Service changes lack coordinated audit trail; no rollback on multi-service failures
+- **Solution:** Implement `deployment-registry.jsonl` (append-only log):
+  - Every edit to `service-map.json`, `cron-registry.json`, preflight rules → entry in log
+  - Format: `{ "timestamp", "service", "changeType", "oldValue", "newValue", "actor", "status" }`
+  - Runs BEFORE applying changes via UI; enables query: "What changed last 24h?" or "Revert to 2h ago checkpoint?"
+- **Benefit:** Single source of truth for changes, audit trail for compliance, foundation for future 1-click rollback
+- **Effort:** 2-3 hours
+
+### Action Items
+1. **Quick win (30 min):** Restore `hal-backup.sh` from git and verify the cron job executes
+2. **Next sprint:** Implement #1 (unify monitoring) + #2 (auto-recovery) for immediate stability
+3. **Follow-up:** Add central deployment log (#3) as foundation for rollback capability
+
+### Summary
+The infrastructure is functional but fragile. We have good observability tools (sentinel, drift auditor) but they operate independently, creating noise and token waste. Consolidating monitoring and adding automated recovery would cut operational overhead by ~40% and eliminate the most painful silent failures.
+
