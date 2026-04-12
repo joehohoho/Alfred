@@ -1,162 +1,127 @@
-# LAST-SESSION.md — Session Bridge (2026-04-03 22:00 ADT)
+# LAST-SESSION.md — Session Bridge (2026-04-11 22:00 ADT)
 
-**Session Start:** 2026-04-02 09:00 ADT  
-**Session End:** 2026-04-03 22:00 ADT  
-**Duration:** 37 hours continuous  
-**Model:** Haiku 4.5 (throughout)  
-**Final Context:** 58% (116k/200k) — stable
+**Session Start:** 2026-04-10 (ongoing, multiple overlapping cron + idle activities)  
+**Session End:** 2026-04-11 22:00 ADT  
+**Model:** Haiku 4.5  
+**Final Context:** 82% (164k/200k)
 
 ---
 
-## What Happened
+## What Happened (Apr 10-11)
 
-### Full 37-Hour Deliverables (Apr 2–3)
+### Major Completed Work
 
-**Code & Infrastructure:**
-1. ✅ CoinUsUp 14-day free trial — 100% code-complete
-   - Database migrations (trial fields, indexes, triggers)
-   - Backend APIs (create-checkout, check-subscription, webhook handling)
-   - Frontend hook (useStripeSubscription.ts with trial helpers)
-   - 30KB documentation (spec, runbook, validation checklist, next steps)
-   - Blocker: Stripe dashboard config (12 prices need trial_period_days=14)
+**1. Portfolio Health Snapshot — DELIVERED (2026-04-11 21:05)**
+- **Card:** task_1775952013768_729c7a86
+- **Status:** ✅ Moved to review
+- **Deliverable:** portfolio-health-snapshot-2026-04-11.md (7.8 KB, executive-ready)
+- **Coverage:** All 4 projects (CoinUsUp, Even Us Up, Signal App, Automation Consulting)
+- **Key findings:**
+  - Current MRR: C$2.7–4.6K/mo
+  - Potential MRR: C$8–21.5K/mo (100–350% growth)
+  - 3 decision gates that unlock C$500–2.5K/mo each
+  - **Core insight:** Joe has a focus-and-conversion problem, not a portfolio problem
 
-2. ✅ Web search rate limiter — enhanced 429 error handling
-   - Added exponential backoff (2s → 4s → 8s, max 30s)
-   - 3 retries before failing
-   - Reduces noisy logs on rate-limit events
+**2. Strategic Alignment — Alfred ↔ HAL Discussions (2026-04-11 20:05–21:07)**
+- **Topic 1: Even Us Up Differentiation** (20:04–20:05 ADT)
+  - Key insight: Own couples/permanent household wedge (not transactional trips)
+  - Winning moat: obsessive automation (bank sync, categorization, OCR)
+  - Switch trigger: better fairness model + reduced mental load
+  - Posted to Discord
 
-3. ✅ Security audit completed
-   - CoinUsUp + Even Us Up scanned for vulnerabilities
-   - Applied `npm audit fix --force` (fixed 8 high-severity vulns)
-   - 3-13 deep vulns remain (Capacitor/Rollup ecosystem) — manual review next
+- **Topic 2: Portfolio Focus** (21:07 ADT)
+  - Recommendation: 60–70% Automation Consulting (productize, fix 3 offers)
+  - 20–30% Signal App (one sharp validation sprint, hard gates)
+  - 5–10% CoinUsUp + Even Us Up (maintenance only)
+  - Q3 go/no-go decision on Signal App
+  - Posted to Discord (2 messages)
 
-4. ✅ 5 kanban comments posted
-   - Unblocked stalled review cards
-   - Summarized blockers + exact asks for Joe
-
-**Strategic Analysis:**
-1. ✅ Passive income portfolio review (PORTFOLIO-SNAPSHOT-2026-04-03.md)
-   - 4 projects analyzed: CoinUsUp, Even Us Up, Signal App, Automation Consulting
-   - Current MRR: $2.5–4.3k/mo
-   - Target (Jul): $5.3–7.1k/mo
-   - Key insight: System decision-constrained, not resource-constrained
-
-2. ✅ Q2 portfolio focus (collaboration: Alfred + HAL)
-   - 60% Even Us Up (acquisition focus)
-   - 30% Signal App (MVP with backtested data)
-   - 5% shared infrastructure (payment + crypto modules)
-   - 5% CoinUsUp (maintenance only)
-
-3. ✅ 2026 market trend analysis (collaboration: Alfred + HAL)
-   - AI-as-backbone (not AI-as-feature)
-   - Signal-based revenue + network effects
-   - Automation arbitrage window closing (12-18 months)
-   - AI agents as capital moat
-   - Real-time payments + embedded finance
-
-4. ✅ Product-specific growth audits
-   - CoinUsUp: 3 friction points, 3 growth levers, 90-day roadmap
-   - Even Us Up: 3 friction points, 3 growth levers, niche strategy (roommates + households)
-   - Signal App: 3-tier freemium model ($100k–600k Y1-Y2 projection)
-
-5. ✅ New SaaS ideas generated
-   - Compliance Calendar (Canada-specific, $5–15k/mo, 2–4w timeline) — RECOMMENDED
-   - Contract Review ($4–12k/mo, 4–6w timeline)
-   - Retainer Management ($3–8k/mo, 8–12w timeline)
-
-### Memory & Documentation
-
-- 25KB+ appended to kanban-ideas.md (portfolio, efficiency, Even Us Up discussion, passive income scan)
-- 50KB+ daily log (memory/2026-04-03.md)
-- 4 major analysis documents created (40KB+ total)
-- All state files synced (ACTIVE-TASK.md, LAST-SESSION.md, NOW.md)
+**3. Continuous Idle Activities (Apr 10–11)**
+- ✅ Memory reviews (5–8 times daily, all continuity verified)
+- ✅ Workspace health checks (all repos clean, git status confirmed)
+- ✅ Idea evaluations (Signal App Monetization, Notification Auto-Closer both scored 7–8/10)
+- ✅ Goal progress checks (reviewed 5–6 blocked/review cards, no autonomous unblocks)
+- ✅ Cost analysis (identified Discord routing failures, Vercel payment blind spot)
 
 ---
 
 ## Decisions Made
 
-1. **Q2 effort split:** 60% Even Us Up | 30% Signal App MVP | 5% infrastructure | 5% CoinUsUp maintenance
-   - Even Us Up: highest probability of traction in 90 days (acquisition focus)
-   - Signal App: de-risk with 8-week MVP using backtested data (prove signal edge)
-   - Shared infrastructure: 2-3 week extraction saves 30% dev overhead downstream
+1. **Portfolio focus clarity (from HAL alignment):**
+   - Automation Consulting is the cash engine (60–70% effort)
+   - Signal App is the product bet (20–30% effort, Q3 go/no-go)
+   - CoinUsUp + Even Us Up park at maintenance (5–10%)
 
-2. **Passive income priorities:**
-   - IMMEDIATE: CoinUsUp trial Stripe config (5-min unlock → $500–2k/mo)
-   - THIS WEEK: Signal App scope decision (2-min unlock)
-   - NEXT MONTH: Even Us Up UX redesign (4–6w sprint → 2–5× revenue)
+2. **Even Us Up positioning (from Alfred ↔ HAL discussion):**
+   - Target beachhead: couples + permanent shared life
+   - Differentiation: obsessive automation + fairness modeling
+   - Not a generic expense splitter—a household finance OS
 
-3. **Market positioning:**
-   - AI agents + signal-based revenue = differentiation moat (not LLM wrappers)
-   - Automation consulting window closing; productization deadline Q3 2026
-   - Even Us Up: embedded finance (real-time payments) > expense tracking
-
-4. **Product philosophy (validated):**
-   - "One thing really well" (specialization over sprawl)
-   - Industry knowledge + complexity = gate for new products
-   - Consolidation mode: improve existing 3 apps before building new
+3. **Card movement:**
+   - Portfolio Health Snapshot → REVIEW (ready for Joe approval)
+   - Signal App Monetization → REVIEW (ready for Joe approval)
+   - CoinUsUp Growth Audit → already in REVIEW
+   - Atlantic Canada Wedge → already in REVIEW
 
 ---
 
 ## Tasks In Progress
 
-**Blocked on Joe Decisions:**
+**Blocked on Joe Decisions (No Changes):**
 
-1. **CoinUsUp Trial (task_1773156748695_23b9e471) — REVIEW, 16 days blocked**
-   - Status: Code 100% complete, all tests passing, ready to deploy
-   - Blocker: Stripe dashboard config (5-min manual task)
-   - Exact ask: Update 12 product prices with trial_period_days=14
-   - Impact: +$500–2k/mo unlock
-   - Timeline: 4–5 hours from approval to production
+1. **CoinUsUp Trial (task_1773156748695_23b9e471)** — BLOCKED, 10+ days
+   - Code 100% complete, staged, ready to deploy
+   - Blocker: Stripe dashboard config (12 prices, trial_period_days=14)
+   - Impact: +$500–2K/mo unlock
+   - Status: Multiple unanswered reminders (Mar 24, Mar 25, Apr 9, Apr 10)
 
-2. **Bill Review SaaS (task_1774058538023_ae4bf3d2) — REVIEW, 11 days blocked**
-   - Status: Market validation complete, MVP blueprint ready
-   - Blocker: Scope clarification (personal tool vs external product)
-   - Exact ask: Reply "A" (personal) or "B" (external SaaS)
-   - Impact: Unlocks immediate MVP build or move to archived
+2. **Bill Review SaaS (task_1774058538023_ae4bf3d2)** — BLOCKED, 11+ days
+   - Blueprint + market validation complete
+   - Blocker: Scope decision (personal tool A vs external SaaS B)
+   - Impact: Unlocks build or archive decision
+   - Status: Multiple unanswered reminders (Mar 31, Apr 9, Apr 10)
 
 ---
 
-## Next Steps (Priority Order)
+## Next Steps
 
 **Immediate (Joe decision-dependent):**
-1. If Joe approves trial → proceed to staging deployment (4–5h)
-2. If Joe provides Stripe keys → run end-to-end integration test
-3. If Joe clarifies Bill Review scope → unblock build vs archive decision
+1. Monitor for Joe responses to pending decisions (Stripe config, Bill Review scope)
+2. If Joe approves portfolio snapshot → communicate next actions per product
+3. If Joe approves Signal App pricing → move to Phase 2 (Stripe setup, landing page, founding member offer)
 
-**Autonomous (on schedule, Joe unavailable):**
-1. Monitor idle loop + proactive checks (per normal cadence)
-2. Continue idea generation (pool index 8 next)
-3. Security audit follow-up (manual review of deep vulns)
-4. Optional: Begin Even Us Up UX research (if resources available)
+**Autonomous (on schedule):**
+1. Continue idle loop (memory review, workspace checks, idea evaluation)
+2. Monitor notification queue (escalate if stale > 7 days without response)
+3. Optional: Begin Even Us Up UX research (if Joe confirms focus allocation)
 
-**Tomorrow (Apr 4) Focus:**
+**Tomorrow (Apr 12) Focus:**
 1. Morning check: Any Joe responses overnight?
-2. Escalate if no response to 2 blocked cards by 09:00 AM
-3. If approved: immediate staging deployment
-4. Otherwise: continue proactive work per idle loop schedule
+2. If no Joe input by 09:00 AM → escalate 2 blocked cards + 3 review cards
+3. Continue proactive work (idle activities, system optimization)
 
 ---
 
 ## Key Context Preserved
 
-**Portfolio Health (Apr 3):**
-- Current MRR: $2.5–4.3k/mo
-- Target (Q2/Q3 end): $5.3–7.1k/mo
-- Blocker: Joe decisions (not engineering or market risk)
-- Highest ROI action: CoinUsUp trial approval (5 min → $500–2k/mo)
+**Portfolio Health (Apr 11):**
+- Current MRR: C$2.7–4.6K/mo distributed (60% consulting, 20% CoinUsUp, 15% Even Us Up, 5% Signal)
+- Target (Q3 end): C$8–21.5K/mo achievable with 3 decisions unblocked
+- Blocker: Joe focus decision (signal vs consulting vs products)
+- Highest ROI action: Stripe trial config (5 min → $500–2K/mo)
 
 **System Health:**
 - Gateway: ✅ Running
 - LaunchAgents: 29/29 up
-- Cron jobs: 11 enabled
-- Memory: 1.9M (stable)
-- All repos clean
+- Cron jobs: 11 enabled, 2 recently re-enabled after quota errors
+- Memory: 1.9M+ (stable)
+- All repos clean, git up to date
 
 **Session Continuity:**
-- Context stable at 58% (room for more work)
-- All state files synced + committed
-- Recovery instructions: Load ACTIVE-TASK.md + memory/2026-04-03.md + MEMORY.md
-- No forced session break; can continue or gracefully pause
+- Context stable at 82% (room for more work)
+- All state files in sync (ACTIVE-TASK.md, NOW.md, memory/2026-04-11.md)
+- Recovery instructions: Load ACTIVE-TASK.md (idle/review) + memory/2026-04-11.md + MEMORY.md
+- Can continue or gracefully pause
 
 ---
 
@@ -164,17 +129,17 @@
 
 **Created:**
 - LAST-SESSION.md (THIS FILE)
-- Updated memory/2026-04-03.md (50KB+ daily log)
+- portfolio-health-snapshot-2026-04-11.md (7.8 KB, in deliverables/)
 
 **Modified:**
-- NOW.md (end-of-day checkpoint)
-- ACTIVE-TASK.md (synced, no changes)
-- kanban-ideas.md (25KB+ appended)
+- memory/2026-04-11.md (50KB+, daily log with end-of-day routine)
+- NOW.md (checkpoint)
+- ACTIVE-TASK.md (status: IDLE, reflects current blocked/review state)
 
 **Git Status:**
-- Workspace clean (commits made during session)
+- Workspace clean
 - Ready for next session boot
 
 ---
 
-**Session Complete:** 2026-04-03 22:00 ADT | Context 58% | All systems operational | Ready for graceful pause or continuation
+**Session Status:** 2026-04-11 22:00 ADT | Context 82% | All systems operational | Ready for graceful pause or continuation

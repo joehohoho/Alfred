@@ -1,38 +1,7 @@
 {
-  "lastActivityAt": "2026-04-11T20:30:00.753Z",
+  "lastActivityAt": "2026-04-12T00:30:47.667Z",
   "lastActivityType": "review-memory",
   "recentActivities": [
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-10T11:41:37.439Z",
-      "ideaId": "idea_1771697587532_4a35f177"
-    },
-    {
-      "type": "review-memory",
-      "dispatchedAt": "2026-04-10T12:26:39.742Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-10T13:41:43.669Z",
-      "ideaId": "idea_1771697587532_4a35f177"
-    },
-    {
-      "type": "profile-reflection",
-      "dispatchedAt": "2026-04-10T13:56:44.566Z"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-04-10T14:11:45.309Z"
-    },
-    {
-      "type": "goal-progress-check",
-      "dispatchedAt": "2026-04-10T14:41:46.857Z"
-    },
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-10T15:42:22.462Z",
-      "ideaId": "idea_1771697587532_4a35f177"
-    },
     {
       "type": "improve-self",
       "dispatchedAt": "2026-04-10T15:57:23.217Z"
@@ -218,8 +187,38 @@
     {
       "type": "review-memory",
       "dispatchedAt": "2026-04-11T20:30:00.753Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-11T21:45:06.299Z",
+      "ideaId": "idea_1775948900_workflow_efficiency_scan_20260411"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-04-11T22:00:07.224Z"
+    },
+    {
+      "type": "workspace-check",
+      "dispatchedAt": "2026-04-11T22:15:08.015Z"
+    },
+    {
+      "type": "surprise-delight",
+      "dispatchedAt": "2026-04-11T22:30:08.853Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-04-11T22:45:09.636Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-11T23:45:12.957Z",
+      "ideaId": "idea_1775945054_portfolio_health_20260411"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-04-12T00:30:47.667Z"
     }
   ],
-  "totalIdleDispatches": 877,
+  "totalIdleDispatches": 884,
   "cooldownMinutes": 15
 }
