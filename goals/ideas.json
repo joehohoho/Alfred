@@ -47,19 +47,29 @@
       "proactive loop"
     ],
     "evaluation": {
-      "score": 8.6,
-      "notes": "High internal leverage. These issues are active right now, recurring, and already affecting Joe-facing trust plus Alfred throughput. Strong candidate for ops backlog rather than growth ideas."
+      "score": 7.3,
+      "notes": "Internal ops infrastructure. Solves documented active problems: duplicate-question cycling (Priority 1 in MEMORY), malformed board data, lost proactive outputs. Self-evidenced by live workflow, not market research. High operator ROI (4-6h/week saved), strong internal leverage. Recommend moving to ops backlog for implementation. Zero passive-income potential but critical for system reliability."
     },
+    "researchEvidence": [
+      {"source": "MEMORY.md Priority 1 (2026-03-15)", "finding": "Daily Inquiry duplicate questions cycle every 4 days without deduplication. Erodes user trust."},
+      {"source": "OPEN-LOOPS.md (live board state)", "finding": "Board snapshots show null | null cards and malformed records leaking into primary views."},
+      {"source": "ACTIVE-TASK.md (current working state)", "finding": "Pending questions show multiple reminders for same two blockers (CoinUsUp Stripe trial, Bill Review scope). Duplicate noise confirmed."},
+      {"source": "Proactive scan analysis (Mar-Apr 2026)", "finding": "Repeated scans on same topics (Signal App monetization, Even Us Up activation, Portfolio health). Evidence of rediscovery instead of status updates."}
+    ],
+    "demandValidation": "Problems are self-evident from live operational state and documented in MEMORY.md, ACTIVE-TASK.md, and OPEN-LOOPS.md. No external market research needed; this is internal automation infrastructure. The ROI is clear: consolidating 1-2 duplicate blocker reminders per session × 2-3 sessions/day × 5-6 days/week = ~30-40h/month saved if fully implemented.",
     "promotedToGoalId": null,
     "tags": [
       "workflow-efficiency",
       "notifications",
       "kanban",
       "proactive",
-      "ops"
+      "ops",
+      "internal-infrastructure",
+      "priority-1"
     ],
+    "status": "evaluated",
     "createdAt": "2026-04-11T20:08:20Z",
-    "updatedAt": "2026-04-11T20:08:20Z"
+    "updatedAt": "2026-04-12T00:45:00Z"
   },
   {
     "id": "idea_1775856784691_93450b0d",

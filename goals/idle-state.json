@@ -1,16 +1,7 @@
 {
-  "lastActivityAt": "2026-04-12T02:15:53.235Z",
-  "lastActivityType": "workspace-check",
+  "lastActivityAt": "2026-04-12T03:45:58.216Z",
+  "lastActivityType": "evaluate-idea",
   "recentActivities": [
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-10T17:43:01.126Z",
-      "ideaId": "idea_1771697587532_4a35f177"
-    },
-    {
-      "type": "workspace-check",
-      "dispatchedAt": "2026-04-10T18:13:02.716Z"
-    },
     {
       "type": "goal-progress-check",
       "dispatchedAt": "2026-04-10T18:43:04.286Z"
@@ -218,8 +209,17 @@
     {
       "type": "workspace-check",
       "dispatchedAt": "2026-04-12T02:15:53.235Z"
+    },
+    {
+      "type": "goal-progress-check",
+      "dispatchedAt": "2026-04-12T02:45:55.456Z"
+    },
+    {
+      "type": "evaluate-idea",
+      "dispatchedAt": "2026-04-12T03:45:58.216Z",
+      "ideaId": "idea_1775948900_workflow_efficiency_scan_20260411"
     }
   ],
-  "totalIdleDispatches": 886,
+  "totalIdleDispatches": 888,
   "cooldownMinutes": 15
 }
