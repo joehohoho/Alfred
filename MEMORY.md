@@ -2,10 +2,11 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-**Status:** IDLE (waiting for next card assignment)
-Review: Portfolio Health Snapshot — CoinUsUp, Ev; Knowledge freshness scanner for Alfred a; Signal App monetization strategy
-Recent: [idle:review-memory] Confirmed previous daily-ops 
-Updated: 11:01 AST
+**Status:** IN_PROGRESS
+In-progress: Cron-to-state registry for dead reminder
+Review: Open Loops self-healing refresh with sch; Even Us Up: Smart Settlement Breakdown (; Workflow Efficiency: single review queue
+Recent: [idle:profile-reflection] No new patterns found in | [idle:workspace-check] All git repos clean; 3 unan
+Updated: 17:02 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.

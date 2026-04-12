@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "description": "Canonical registry of cron jobs and their referenced scripts/targets. Used by daily drift audit to detect missing scripts, stale references, and deprecated reminders.",
+  "generatedAtMs": 1776099600000,
+  "generatedBy": "cron-registry-builder.sh",
+  "jobs": [
+    {
+      "jobId": "morning-brief-snapshot",
+      "jobName": "Morning Brief Snapshot (Nightly Haiku Synthesis)",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/morning-brief.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/morning-brief.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "backup-tier2-github",
+      "jobName": "Alfred Backup - Tier 2 (GitHub Push Hourly)",
+      "enabled": true,
+      "references": [
+        {
+          "type": "text-instruction",
+          "target": "Running hourly GitHub push backup...",
+          "verifyCmd": null
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": [
+        "Text-only instruction with no associated script — should be linked to concrete backup script if one exists"
+      ]
+    },
+    {
+      "jobId": "webhook-listener-answers",
+      "jobName": "Webhook Listener - Check for Answers",
+      "enabled": true,
+      "references": [
+        {
+          "type": "text-instruction",
+          "target": "Checking for answered notifications via webhook listener...",
+          "verifyCmd": null
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "warning",
+      "warnings": [
+        "Text-only instruction. Historical name suggests deprecated script 'check-notification-answers.sh' (which does not exist).",
+        "No associated script found for webhook listening. Verify this job actually executes via Gateway webhook mechanism."
+      ]
+    },
+    {
+      "jobId": "log-rotation",
+      "jobName": "Log Rotation",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "/Users/hopenclaw/.openclaw/workspace/scripts/log-rotate.sh",
+          "verifyCmd": "test -x /Users/hopenclaw/.openclaw/workspace/scripts/log-rotate.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "session-checkpoint",
+      "jobName": "Session Checkpoint (Memory Continuity)",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/sync-pending-questions.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/sync-pending-questions.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "kanban-stale-check",
+      "jobName": "Kanban Stale Assignment Check",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "/Users/hopenclaw/.openclaw/workspace/scripts/kanban-stale-scan.sh",
+          "verifyCmd": "test -x /Users/hopenclaw/.openclaw/workspace/scripts/kanban-stale-scan.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "kanban-idle-loop",
+      "jobName": "Kanban Idle Loop",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/kanban-idle-loop.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/kanban-idle-loop.sh"
+        },
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/alfred-proactive-check.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/alfred-proactive-check.sh"
+        },
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/alfred-hal-discussion.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/alfred-hal-discussion.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "hal-idle-check",
+      "jobName": "HAL Idle Check & Dispatch",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/hal-idle-dispatch-cron.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/hal-idle-dispatch-cron.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "maintenance-weekly",
+      "jobName": "OpenClaw Maintenance — Weekly Self-Heal",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "/Users/hopenclaw/.openclaw/workspace/scripts/openclaw-maintenance-weekly.sh",
+          "verifyCmd": "test -x /Users/hopenclaw/.openclaw/workspace/scripts/openclaw-maintenance-weekly.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "alfred-hal-discussion",
+      "jobName": "Alfred ↔ HAL Daily Discussion",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/alfred-hal-discussion.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/alfred-hal-discussion.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "weekly-wins-digest",
+      "jobName": "Weekly Wins & Impact Digest → Discord",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "/Users/hopenclaw/.openclaw/workspace/scripts/weekly-digest.sh",
+          "verifyCmd": "test -x /Users/hopenclaw/.openclaw/workspace/scripts/weekly-digest.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "hal-backup-state",
+      "jobName": "HAL Backup - State Snapshot",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "/Users/hopenclaw/.openclaw/workspace/scripts/hal-backup.sh",
+          "verifyCmd": "test -x /Users/hopenclaw/.openclaw/workspace/scripts/hal-backup.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "error",
+      "warnings": [
+        "MISSING SCRIPT: /Users/hopenclaw/.openclaw/workspace/scripts/hal-backup.sh — This script is referenced by the cron job but does not exist."
+      ]
+    },
+    {
+      "jobId": "refresh-open-loops",
+      "jobName": "Refresh OPEN-LOOPS Dashboard",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/refresh-open-loops.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/refresh-open-loops.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "nightly-git-commit",
+      "jobName": "Nightly Git Commit",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "/Users/hopenclaw/.openclaw/workspace/scripts/nightly-git-commit.sh",
+          "verifyCmd": "test -x /Users/hopenclaw/.openclaw/workspace/scripts/nightly-git-commit.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "kanban-idle-dispatch",
+      "jobName": "HAL Idle Dispatch with Safeguards",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/hal-idle-dispatch-cron.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/hal-idle-dispatch-cron.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "kanban-executor-phase2",
+      "jobName": "Kanban Work Executor (Option C)",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/kanban-work-executor-phase2.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/kanban-work-executor-phase2.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "daily-inquiry",
+      "jobName": "Daily Inquiry Questions",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/daily-inquiry.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/daily-inquiry.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "memory-size-monitor",
+      "jobName": "Memory Size Monitor",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/memory-size-monitor.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/memory-size-monitor.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "memory-archival",
+      "jobName": "Daily Memory Archival",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/memory-smart-archive.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/memory-smart-archive.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "memory-guard",
+      "jobName": "Daily Memory File Guard",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/ensure-daily-memory.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/ensure-daily-memory.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    },
+    {
+      "jobId": "daytime-rate-limit",
+      "jobName": "Daytime Codex Rate-Limit Guard",
+      "enabled": true,
+      "references": [
+        {
+          "type": "script",
+          "target": "~/.openclaw/workspace/scripts/daytime-rate-limit-guard.sh",
+          "verifyCmd": "test -x ~/.openclaw/workspace/scripts/daytime-rate-limit-guard.sh"
+        }
+      ],
+      "lastAuditMs": 1776099600000,
+      "driftStatus": "ok",
+      "warnings": []
+    }
+  ],
+  "summary": {
+    "totalJobs": 23,
+    "healthyJobs": 21,
+    "warningJobs": 1,
+    "errorJobs": 1,
+    "lastFullAuditMs": 1776099600000
+  }
+}

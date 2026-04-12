@@ -1,8 +1,4 @@
 {
-  "task_1775915945489_012a4712": {
-    "at": 1775915978.256095,
-    "title": "Signal App monetization strategy"
-  },
   "task_1775937596949_8c2fcda6": {
     "at": 1775937599.435842,
     "title": "Knowledge freshness scanner for Alfred artifacts"
@@ -10,5 +6,9 @@
   "task_1775952013768_729c7a86": {
     "at": 1775952046.486979,
     "title": "Portfolio Health Snapshot \u2014 CoinUsUp, Even Us Up, Signal App, and Automation Consulting"
+  },
+  "goal_1776009448607_c4e75a5a": {
+    "at": 1776009702.502285,
+    "title": "Command Center: add source-of-truth resolver for UI/service tasks"
   }
 }

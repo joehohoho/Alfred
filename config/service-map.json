@@ -1,0 +1,235 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-04-12T16:00:00Z",
+  "metadata": {
+    "description": "Canonical mapping of service names to repo paths, launch agents, URLs, and ownership. Update whenever a service moves or configuration changes.",
+    "maintainer": "Alfred",
+    "updatePolicy": "When service location or launch agent changes, update this file and run validation tests."
+  },
+  "services": {
+    "command-center": {
+      "name": "Command Center (Control UI)",
+      "aliases": [
+        "dashboard",
+        "control-ui",
+        "cc",
+        "command center",
+        "openclaw-control-ui",
+        "command-center-ui"
+      ],
+      "repo_path": "/Users/hopenclaw/command-center",
+      "source_repo": "https://github.com/hopenclaw/command-center",
+      "local_url": "http://localhost:3000",
+      "public_url": "https://command-center.openclaw.ai",
+      "launch_agent": "com.alfred.dashboard-nextjs",
+      "owner": "Alfred",
+      "owner_contact": "Alfred (internal ops)",
+      "port": 3000,
+      "language": "TypeScript/Node.js",
+      "docker": false,
+      "git_remote": "origin",
+      "package_manager": "npm",
+      "build_command": "npm run build",
+      "restart_safe": true,
+      "notes": "Next.js dashboard for OpenClaw control and monitoring"
+    },
+    "gateway": {
+      "name": "OpenClaw Gateway (Core)",
+      "aliases": [
+        "openclaw-gateway",
+        "gateway",
+        "core",
+        "api-server",
+        "backend"
+      ],
+      "repo_path": "/Users/hopenclaw/.openclaw/gateway",
+      "source_repo": "https://github.com/openclaw/gateway",
+      "local_url": "http://localhost:18789",
+      "public_url": "ws://remote-gateway.openclaw.ai:18789",
+      "launch_agent": "com.alfred.gateway-core",
+      "owner": "Joe",
+      "owner_contact": "Joe (maintainer)",
+      "port": 18789,
+      "language": "Go",
+      "docker": true,
+      "git_remote": "origin",
+      "build_command": "docker build -t openclaw-gateway .",
+      "restart_safe": false,
+      "restart_requires_approval": true,
+      "notes": "Core OpenClaw service; restart may cause outages. Requires Joe approval for config changes."
+    },
+    "workspace": {
+      "name": "OpenClaw Workspace",
+      "aliases": [
+        "workspace",
+        "home",
+        "~",
+        "openclaw-workspace",
+        "local-workspace"
+      ],
+      "repo_path": "/Users/hopenclaw/.openclaw/workspace",
+      "source_repo": "https://github.com/hopenclaw/workspace",
+      "local_url": null,
+      "public_url": null,
+      "launch_agent": null,
+      "owner": "Alfred",
+      "owner_contact": "Alfred (content + memory)",
+      "port": null,
+      "language": "Markdown/Shell/Config",
+      "docker": false,
+      "git_remote": "origin",
+      "build_command": null,
+      "restart_safe": true,
+      "notes": "Local workspace directory; safe to edit. Contains SOUL.md, AGENTS.md, memory, scripts, configuration."
+    },
+    "cron-scheduler": {
+      "name": "Cron Scheduler (Background Jobs)",
+      "aliases": [
+        "cron",
+        "scheduler",
+        "jobs",
+        "background-tasks",
+        "cron-jobs"
+      ],
+      "repo_path": "/Users/hopenclaw/.openclaw/cron/jobs.json",
+      "source_repo": "https://github.com/openclaw/gateway",
+      "local_url": "http://localhost:18789/api/cron",
+      "public_url": null,
+      "launch_agent": "com.alfred.gateway-core",
+      "owner": "Alfred",
+      "owner_contact": "Alfred (manages job payload)",
+      "port": 18789,
+      "language": "JSON",
+      "docker": true,
+      "git_remote": "origin",
+      "build_command": null,
+      "restart_safe": false,
+      "restart_requires_approval": false,
+      "notes": "Cron job definitions. Changes take effect on gateway restart. Use SENTINEL for health monitoring."
+    },
+    "sentinel": {
+      "name": "Sentinel (Health Monitor & Self-Healer)",
+      "aliases": [
+        "sentinel",
+        "health-monitor",
+        "self-heal",
+        "watchdog"
+      ],
+      "repo_path": "/Users/hopenclaw/.openclaw/workspace/scripts",
+      "source_repo": "https://github.com/hopenclaw/workspace",
+      "local_url": null,
+      "public_url": null,
+      "launch_agent": "com.alfred.sentinel",
+      "owner": "Alfred",
+      "owner_contact": "Alfred (monitors + repairs)",
+      "port": null,
+      "language": "Bash",
+      "docker": false,
+      "git_remote": "origin",
+      "build_command": null,
+      "restart_safe": true,
+      "notes": "Runs every 5 min. Monitors 9 system components and auto-fixes known issues. See MEMORY.md for playbook."
+    }
+  },
+  "preflight_rules": {
+    "command-center": {
+      "safe_edits": [
+        "src/",
+        "package.json",
+        "tsconfig.json",
+        "README.md",
+        ".env.local"
+      ],
+      "dangerous_edits": [
+        "LaunchAgent plist",
+        "gateway config",
+        "workspace config"
+      ],
+      "restart_command": "launchctl restart com.alfred.dashboard-nextjs",
+      "restart_required_for": [
+        "Environment variable changes",
+        "Port configuration",
+        "LaunchAgent config"
+      ],
+      "rollback_command": "git checkout HEAD -- src/ package.json && npm install && npm run build"
+    },
+    "gateway": {
+      "safe_edits": [],
+      "dangerous_edits": [
+        "All changes to gateway code or config"
+      ],
+      "approval_required": true,
+      "approval_contact": "Joe",
+      "restart_command": "launchctl restart com.alfred.gateway-core",
+      "restart_required_for": [
+        "Any code or configuration change"
+      ],
+      "rollback_command": "git checkout HEAD -- . && docker build -t openclaw-gateway ."
+    },
+    "workspace": {
+      "safe_edits": [
+        "memory/",
+        "scripts/",
+        "SOUL.md",
+        "AGENTS.md",
+        "IDENTITY.md",
+        "config/",
+        "plans/",
+        "reports/"
+      ],
+      "dangerous_edits": [
+        "PROTECTED files: AGENTS.md security rules, protected config references"
+      ],
+      "restart_command": null,
+      "restart_required_for": []
+    },
+    "cron-scheduler": {
+      "safe_edits": [
+        "Job payload additions",
+        "New job definitions"
+      ],
+      "dangerous_edits": [
+        "Deleting existing jobs",
+        "Changing job schedule without testing",
+        "Modifying job delivery channels"
+      ],
+      "approval_required_for": [
+        "Deleting active jobs",
+        "Changing production job schedules"
+      ],
+      "restart_command": "launchctl restart com.alfred.gateway-core",
+      "restart_required_for": [
+        "Any changes to jobs.json"
+      ]
+    },
+    "sentinel": {
+      "safe_edits": [
+        "sentinel-playbook.json",
+        "sentinel.sh"
+      ],
+      "dangerous_edits": [
+        "Removing monitoring components",
+        "Disabling auto-healing"
+      ],
+      "restart_command": "launchctl restart com.alfred.sentinel",
+      "restart_required_for": [
+        "Changes to monitoring logic"
+      ]
+    }
+  },
+  "validation_notes": {
+    "required_fields": [
+      "name",
+      "aliases",
+      "repo_path",
+      "owner"
+    ],
+    "optional_fields": [
+      "source_repo",
+      "public_url",
+      "docker",
+      "restart_requires_approval",
+      "notes"
+    ]
+  }
+}
