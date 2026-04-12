@@ -364,16 +364,42 @@
     "title": "Trade journal + signal execution coach for retail swing traders",
     "description": "Problem: Retail traders receive alerts but lack structured journaling, rule-based execution, post-trade review, and performance feedback, so they churn between tools and strategies. Target market: retail swing traders using TradingView/Discord/Telegram alerts who want discipline rather than fully automated trading. MRR potential: k-k in first year (25-100 users at -/mo), with upside from premium analytics tiers. Tech complexity: 3/5. Competition: Medium, crowded signals space but weaker focus on trader workflow, journaling, and accountability loop. Why Joe can win: directly aligned with his signal-app interest, avoids hardest compliance edge of selling pure financial advice, can ship as alert ingestion + journal + review workflow first.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
+    "synergies": [
+      "Signal App",
+      "Trader Workflow"
+    ],
+    "evaluation": {
+      "score": 6,
+      "notes": "Market demand validated: TradesViz, Trademetria, Trade-Journal Pro all active. Traders need journaling + execution discipline. Synergizes with Signal App, but creates new product vs extending existing. Secondary priority behind CoinUsUp unblock + Signal App quality."
+    },
+    "researchEvidence": [
+      {
+        "source": "Web search: retail swing trader journaling tools",
+        "finding": "TradesViz, Trademetria, Trade-Journal Pro, TradingView journal tools all live. Multiple competitors confirm market demand."
+      },
+      {
+        "source": "TradingView ecosystem",
+        "finding": "Trade-Journal Pro indicator shows explicit demand for structured post-trade review + accountability loops (green/red/discipline prompts)."
+      },
+      {
+        "source": "Competitor positioning",
+        "finding": "Competitors validate demand (TradesViz = AI insights, Trademetria = TradingView integration). Alert ingestion + execution coaching less saturated than pure signals."
+      }
+    ],
+    "demandValidation": "Multiple established competitors (TradesViz, Trademetria) validate demand. TradingView ecosystem shows traders actively seeking journaling + accountability. Market is proven but crowded.",
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": [
+      "growth",
+      "trader-tools",
+      "signal-app-synergy",
+      "secondary-priority"
+    ],
     "createdAt": "2026-04-10T13:01:58.079Z",
-    "updatedAt": "2026-04-10T13:01:58.079Z"
+    "updatedAt": "2026-04-12T06:46:00.000Z"
   },
   {
     "id": "idea_1775826118069_e0f17f57",

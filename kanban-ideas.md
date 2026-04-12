@@ -1104,3 +1104,74 @@ Implement the three changes above by tomorrow for immediate usefulness improveme
 ---
 
 **Key Insight:** The bottleneck is not capability, it is operational coherence. Better contracts, clearer boundaries, and lightweight feedback loops will compound usefulness faster than more autonomous behaviors.
+
+
+## Even Us Up Growth Audit Refresh (Apr 12, 06:01 ADT — Proactive Audit)
+
+### Reality Check
+Even Us Up still looks more like an **under-activated personal tool** than a broadly validated consumer SaaS. That matters. The next wins should optimize for **activation, clarity, and organic group spread**, not feature sprawl. Splitwise's moat is habit + network density, so Even Us Up should win by being **more obvious to settle with, more useful for Canadian households, and easier to invite into a real shared-life workflow.**
+
+### Prioritized Recommendations
+
+#### 1) Top 3 UX Friction Points
+
+**P1. Settlement action is not obvious enough**  
+**Why it matters:** This is still the make-or-break moment. If a user cannot instantly see who owes what and how to resolve it, the app feels like bookkeeping instead of closure. Splitwise wins here mostly because the path is familiar.  
+**What to change:** Put a persistent settlement summary card on the main dashboard, use blunt language ("You owe", "You are owed"), make Interac the default action copy, and reduce settlement confirmation to one clear flow.  
+**Effort:** Small to Medium, about **6-10 hours**
+
+**P2. First-run experience is too empty and too generic**  
+**Why it matters:** New users likely hit a blank state before they understand the product's value. That is deadly when external traffic is already low.  
+**What to change:** Add scenario-based onboarding for **roommates, couples, and trips**, seed one sample expense, and make the first real action obvious within the first minute.  
+**Effort:** Medium, about **8-14 hours**
+
+**P3. Mobile usage likely feels secondary instead of primary**  
+**Why it matters:** Expense sharing is usually captured in the moment, on a phone. If adding, reviewing, or settling expenses feels web-first, users will assume the app is weaker than Splitwise even if the logic is better.  
+**What to change:** Tighten mobile layout for add expense, settle up, reminders, and receipt correction. Optimize thumb reach and reduce taps.  
+**Effort:** Medium, about **12-20 hours**
+
+#### 2) Top 3 Missing Features
+
+**P1. Reminder and nudge system tied to real settlement behavior**  
+**Why it matters:** Groups drift unless the app pulls them back in. This is the retention loop Splitwise benefits from.  
+**Differentiator:** Make reminders feel practical and Canadian, for example Interac-oriented payment prompts and monthly household close reminders, instead of generic notification spam.  
+**Effort:** Medium, about **10-16 hours**
+
+**P2. Household mode with recurring shared-life workflows**  
+**Why it matters:** This is the cleanest niche wedge. Splitwise is broad, but Even Us Up can be meaningfully better for couples and roommates with repeating bills and monthly routines.  
+**Differentiator:** Recurring utilities, grocery cadence, monthly closeout, shared budget snapshot, softer accountability.  
+**Effort:** Medium to Large, about **16-28 hours**
+
+**P3. Splitwise migration path or import-lite flow**  
+**Why it matters:** If a user is curious but switching means starting from zero, curiosity dies there. Even a partial importer is a growth feature, not just a convenience feature.  
+**Differentiator:** "Move from Splitwise to a Canada-first Interac workflow in minutes."  
+**Effort:** Large, about **18-28 hours**
+
+#### 3) Top 3 Growth Levers
+
+**P1. Sharpen the positioning around Canada-first settlement**  
+**Why it matters:** This is the clearest wedge that does not require outbuilding Splitwise. The value proposition should be obvious on the landing page, onboarding, and inside the app.  
+**Message:** **Built for Canadian shared expenses. Interac-native. Better for households and roommates.**  
+**Effort:** Small, about **4-8 hours** for copy + landing updates
+
+**P2. Optimize for activation before traffic generation**  
+**Why it matters:** With only 0-20 visitors/day and no external adoption, pushing more people into a leaky funnel is wasteful. Improve signup-to-first-group-to-first-settlement first.  
+**What to measure:** signup to first group, first expense within 24 hours, first settlement within 7 days, invite sent rate.  
+**Effort:** Medium, about **1-2 weeks** combined with UX fixes
+
+**P3. Build an organic invite/referral loop around real groups**  
+**Why it matters:** Expense apps spread group by group, not by broad top-of-funnel marketing. The right growth mechanic is a useful invite moment, not paid acquisition.  
+**What to ship:** Better invite prompts after first expense or first settlement, lightweight referral copy, and dedicated landing sections for roommates, couples, and trips.  
+**Effort:** Small to Medium, about **6-12 hours**
+
+### Recommended Order
+1. **Settlement clarity**  
+2. **Onboarding activation flow**  
+3. **Reminder/nudge loop**  
+4. **Canada-first positioning refresh**  
+5. **Household mode**  
+6. **Referral loop**  
+7. **Splitwise importer**
+
+### Bottom Line
+Even Us Up should **not** chase broad feature parity with Splitwise right now. The smarter move is to become the **clearest, easiest settlement app for Canadian households and roommates**, then let that positioning power activation and organic spread.
