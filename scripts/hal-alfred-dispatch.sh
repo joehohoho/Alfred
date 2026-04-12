@@ -13,12 +13,20 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE="${SCRIPT_DIR%/scripts}"
 ROUTER="$SCRIPT_DIR/hal-alfred-route-auto.sh"
-DISPATCHER="$SCRIPT_DIR/hal-dispatch-ws.js"
+DISPATCHER="$SCRIPT_DIR/hal-dispatch-py.py"
 TRACKER="$SCRIPT_DIR/hal-alfred-track.sh"
 TRACK_DIR="$WORKSPACE/.hal-alfred-tracking"
 DISPATCH_LOG="$TRACK_DIR/dispatch.jsonl"
+FORCED_IDLE_FILE="$TRACK_DIR/hal-forced-idle.json"
 
 mkdir -p "$TRACK_DIR"
+
+# Check HAL sleep mode — exit early if sleeping
+HAL_SLEEPING=$(python3 -c "import json; print(json.load(open('$FORCED_IDLE_FILE')).get('forcedIdle', False))" 2>/dev/null || echo "False")
+if [[ "$HAL_SLEEPING" == "True" ]]; then
+  echo '{"route":"ALFRED","reason":"HAL is sleeping (forced idle)","dispatched":false}'
+  exit 0
+fi
 
 TASK=""
 OUTPUT_JSON=0
@@ -98,7 +106,7 @@ DISPATCH_RESULT="pending"
 # ── Step 3: Dispatch ──────────────────────────────────────────────────────────
 HAL_SESSION_KEY=""
 if [[ "$ROUTE" == "HAL" ]]; then
-  DISPATCH_OUT=$(node "$DISPATCHER" "$TASK" 2>/tmp/hal-dispatch-err) && DISPATCH_OK=1 || DISPATCH_OK=0
+  DISPATCH_OUT=$(python3 "$DISPATCHER" "$TASK" 2>/tmp/hal-dispatch-err) && DISPATCH_OK=1 || DISPATCH_OK=0
   if [[ $DISPATCH_OK -eq 1 ]]; then
     DISPATCH_RESULT="dispatched_to_hal"
     # Extract session key from output (format: "OK session=agent:hal:task-...")

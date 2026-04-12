@@ -282,6 +282,15 @@ check_command_center() {
 
 check_hal() {
   local component="hal"
+
+  # Skip HAL health check if HAL is sleeping (forced idle)
+  local hal_sleeping=$(python3 -c "import json; print(json.load(open('$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-forced-idle.json')).get('forcedIdle', False))" 2>/dev/null || echo "False")
+  if [[ "$hal_sleeping" == "True" ]]; then
+    log "CHECK $component: SLEEPING (forced idle — skipping health check)"
+    update_component "$component" "status" "\"sleeping\""
+    return
+  fi
+
   local http=$(curl -s --max-time 3 -o /dev/null -w "%{http_code}" http://192.168.2.79:18789 2>/dev/null || echo "000")
 
   if [[ "$http" != "200" ]]; then

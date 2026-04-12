@@ -85,7 +85,7 @@ dispatch_hal() {
   fi
   
   # Call actual dispatcher
-  OUTPUT=$(python3 /Users/hopenclaw/.openclaw/workspace/scripts/hal-dispatch-py.py "$TASK_DESC" 2>&1 || true)
+  OUTPUT=$(node /Users/hopenclaw/.openclaw/workspace/scripts/hal-dispatch-ws.js "$TASK_DESC" 2>&1 || true)
   EXIT_CODE=$?
   
   if [[ $EXIT_CODE -eq 0 ]] && [[ "$OUTPUT" =~ "OK" ]]; then

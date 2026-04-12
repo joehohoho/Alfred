@@ -44,7 +44,7 @@ if [[ "$ELAPSED_SEC" -gt 1500 ]]; then
   log "COMPLETION_DETECTED: HAL idle for ${ELAPSED_SEC}s, ready for next task"
   
   # Dispatch next proactive task immediately
-  DISPATCH_OUT=$(timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" \
+  DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" \
     "[AUTO-NEXT-TASK] Previous task completed. Pick next from proactive pool." 2>&1) && {
     log "AUTO_DISPATCH_SUCCESS: $DISPATCH_OUT"
     echo "[ACTION:NEXT_DISPATCHED] auto_dispatch_completed"

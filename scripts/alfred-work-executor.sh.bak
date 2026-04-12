@@ -100,7 +100,7 @@ Instructions: Complete this task. Report results in a comment on the Kanban card
   
   log "  Dispatching to HAL: $title"
   
-  timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$task_msg" 2>&1 && {
+  timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$task_msg" 2>&1 && {
     log "  ✓ Dispatched to HAL: $card_id"
     return 0
   } || {

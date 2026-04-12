@@ -37,19 +37,26 @@ get_token_remaining() {
 }
 
 can_dispatch() {
+  # Check HAL sleep mode first
+  local hal_sleeping=$(python3 -c "import json; print(json.load(open('$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-forced-idle.json')).get('forcedIdle', False))" 2>/dev/null || echo "False")
+  if [[ "$hal_sleeping" == "True" ]]; then
+    log "HAL sleeping — skipping dispatch"
+    return 1
+  fi
+
   local tokens=$(get_token_remaining)
   local context=$(get_context_usage)
-  
+
   if [[ $context -gt $CONTEXT_USAGE_THRESHOLD ]]; then
     log "⚠️  Context usage too high ($context > $CONTEXT_USAGE_THRESHOLD). Skipping dispatch."
     return 1
   fi
-  
+
   if [[ $tokens -lt $TOKEN_BUDGET_MIN ]]; then
     log "⚠️  Insufficient token budget ($tokens < $TOKEN_BUDGET_MIN). Skipping dispatch."
     return 1
   fi
-  
+
   return 0
 }
 
@@ -124,7 +131,7 @@ process_queue() {
     log "🚀 Retry $((retry_count + 1))/$MAX_RETRIES_PER_TASK: $task_id ($task_desc)"
     
     # Call the actual dispatcher
-    if node "$SCRIPT_DIR/hal-dispatch-ws.js" "$task_desc" >/dev/null 2>&1; then
+    if python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$task_desc" >/dev/null 2>&1; then
       # Success
       local updated=$(echo "$line" | jq ".status=\"success\" | .last_retry_at=\"$(ts)\"")
       echo "$updated" >> "$temp_file"

@@ -67,7 +67,7 @@ Description: $CARD_DESC
 
 Complete this task. Report progress in card comments."
     
-    DISPATCH_OUT=$(timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$TASK_MSG" 2>&1) && {
+    DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1) && {
       log "  DISPATCHED_TO_HAL: success"
       echo "[EXECUTED] card=$CARD_ID type=hal"
     } || {

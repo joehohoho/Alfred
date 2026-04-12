@@ -264,10 +264,17 @@ IMPORTANT: This is an autonomous diagnostic task. Fix the issue, don't just repo
 dispatch_to_hal() {
   local diag_context="$1"
 
+  # Check HAL sleep mode — don't dispatch if sleeping
+  local hal_sleeping=$(python3 -c "import json; print(json.load(open('$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-forced-idle.json')).get('forcedIdle', False))" 2>/dev/null || echo "False")
+  if [[ "$hal_sleeping" == "True" ]]; then
+    log "HAL sleeping — skipping diagnostic dispatch, falling back to Alfred"
+    return 1
+  fi
+
   local message="[SENTINEL-DIAGNOSTIC] Investigate and fix: $COMPONENT ($STATUS). Context: $diag_context"
 
-  # Try HAL dispatch
-  timeout 20 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$message" 2>/dev/null && {
+  # Try HAL dispatch via Python (node blocked by macOS LaunchAgent sandbox)
+  timeout 20 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$message" 2>/dev/null && {
     log "Dispatched diagnostic to HAL for $COMPONENT"
     return 0
   } || {

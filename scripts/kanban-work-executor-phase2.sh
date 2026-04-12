@@ -566,7 +566,7 @@ Description: $CARD_DESC
 Complete this task. Report progress in card comments.
 Handoff: validated ($CARD_ID)."
 
-    if DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1); then
+    if DISPATCH_OUT=$(timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$TASK_MSG" 2>&1); then
       # Extract session key from output for tracking (B2)
       SESSION_KEY=$(echo "$DISPATCH_OUT" | grep "session=" | head -1 | cut -d= -f2 || echo "unknown")
       

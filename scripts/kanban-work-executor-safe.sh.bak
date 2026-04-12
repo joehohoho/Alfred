@@ -204,7 +204,7 @@ Description: $CARD_DESC
 
 Complete this task. Report progress in card comments."
 
-    if DISPATCH_OUT=$(timeout 45 python3 "$SCRIPT_DIR/hal-dispatch-py.py" "$TASK_MSG" 2>&1); then
+    if DISPATCH_OUT=$(timeout 45 node "$SCRIPT_DIR/hal-dispatch-ws.js" "$TASK_MSG" 2>&1); then
       log "  ✅ DISPATCHED_TO_HAL: $DISPATCH_OUT"
       
       # Clear failure count on success

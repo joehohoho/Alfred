@@ -336,7 +336,11 @@ if echo "$CLEANUP_OUTPUT" | grep -q "FLAG:MAIN_RESET"; then
   fi
 fi
 
-# --- HAL remote gateway health check ---
+# --- HAL remote gateway health check (skip if HAL is sleeping) ---
+HAL_FORCED_IDLE=$(python3 -c "import json; print(json.load(open('$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-forced-idle.json')).get('forcedIdle', False))" 2>/dev/null || echo "False")
+if [[ "$HAL_FORCED_IDLE" == "True" ]]; then
+  log "HAL sleeping — skipping gateway health check"
+else
 HAL_URL="http://192.168.2.79:18789"
 HAL_STATUS_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-gateway-health.txt"
 HAL_LAST_ALERT_FILE="$HOME/.openclaw/workspace/.hal-alfred-tracking/hal-alert-cooldown.txt"
@@ -359,6 +363,7 @@ if [[ "$HAL_REACHABLE" == "000" ]]; then
 else
   echo "up" > "$HAL_STATUS_FILE"
 fi
+fi # end HAL sleep check
 
 # --- Codex OAuth token expiry check ---
 AUTH_FILE="$HOME/.openclaw/agents/main/agent/auth-profiles.json"

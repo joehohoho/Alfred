@@ -8,28 +8,28 @@
         "at": 1775886763.043574
       }
     ],
-    "lastCheck": "2026-04-12T01:01:55Z",
+    "lastCheck": "2026-04-12T02:13:13Z",
     "lastNotified": 1775886763.565311,
     "lastFixTime": 1775886763.043575
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:01:55Z",
+    "lastCheck": "2026-04-12T02:13:13Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
-    "status": "healthy",
+    "status": "sleeping",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:02:00Z",
+    "lastCheck": "2026-04-12T02:13:13Z",
     "lastNotified": 1775921704.993925,
     "lastFixTime": 0
   },
   "idle_loop": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:02:00Z",
+    "lastCheck": "2026-04-12T02:13:13Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
@@ -45,37 +45,42 @@
         "fix": "run-cleanup",
         "success": true,
         "at": 1775952350.3885949
+      },
+      {
+        "fix": "run-cleanup",
+        "success": true,
+        "at": 1775959391.986374
       }
     ],
-    "lastCheck": "2026-04-12T01:02:00Z",
+    "lastCheck": "2026-04-12T02:13:14Z",
     "lastNotified": 0,
-    "lastFixTime": 1775952350.388596
+    "lastFixTime": 1775959391.9863749
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:02:00Z",
+    "lastCheck": "2026-04-12T02:13:14Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:02:01Z",
+    "lastCheck": "2026-04-12T02:13:14Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:02:00Z",
+    "lastCheck": "2026-04-12T02:13:14Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-12T01:02:01Z",
+    "lastCheck": "2026-04-12T02:13:14Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }
