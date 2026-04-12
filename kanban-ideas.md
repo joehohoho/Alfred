@@ -1175,3 +1175,23 @@ Even Us Up still looks more like an **under-activated personal tool** than a bro
 
 ### Bottom Line
 Even Us Up should **not** chase broad feature parity with Splitwise right now. The smarter move is to become the **clearest, easiest settlement app for Canadian households and roommates**, then let that positioning power activation and organic spread.
+
+## Alfred Infrastructure Improvement Scan (Apr 12, 08:31 ADT)
+
+### 1. HAL proactive circuit breaker + timeout-aware backoff
+**Problem:** HAL keeps receiving proactive tasks on a tight loop even when prior proactive jobs are timing out, which creates duplicate effort, misleading activity, and wasted orchestration.
+**Evidence:** `dispatch.jsonl` shows repeated 15-minute proactive HAL dispatches for many consecutive hours; `.hal-alfred-tracking/pending-acks.json` shows many matching proactive tasks in `timed_out` state.
+**Improvement:** Add a dispatcher guard that pauses new proactive HAL dispatches after a small streak of proactive timeouts, applies exponential backoff, and routes the next proactive slot to Alfred or marks HAL as cooling down until one successful ACK resets the breaker.
+**Impact:** Reduces wasted cycles, makes HAL health more truthful, and cuts compute/token waste from repeated doomed dispatches.
+
+### 2. Open Loops self-healing refresh with schema validation
+**Problem:** `OPEN-LOOPS.md` is supposed to be the single source of truth, but it is stale and currently contains `null` active-card rows.
+**Evidence:** Last updated Apr 9 while today is Apr 12; active-card table has multiple `null | null` rows.
+**Improvement:** Add validation to `refresh-open-loops.sh` that rejects null rows, falls back to last-known-good content, logs an audit event, and triggers a repair fetch from the kanban API. Also alert if freshness exceeds 24 hours.
+**Impact:** Restores trust in morning briefings, reduces context confusion, and prevents stale/garbled board state from leaking into reminders and proactive scans.
+
+### 3. Notification hygiene compactor for pending questions
+**Problem:** Duplicate, untitled, and superseded questions still accumulate in hot state, especially in `ACTIVE-TASK.md`, despite the existing notification-discipline logic.
+**Evidence:** Current pending questions include multiple untitled entries plus repeated Stripe/Bill Review reminders; `notification-discipline-report.json` already classifies routing but cleanup is not collapsing duplicates.
+**Improvement:** Build a nightly compactor that fingerprints topics, suppresses stale duplicates, auto-labels malformed entries, and writes one canonical pending-question summary back into `ACTIVE-TASK.md` with `superseded by` references.
+**Impact:** Cleaner blocker visibility, fewer repeat asks, better operator trust, and lower token cost because future sessions scan less noise.
