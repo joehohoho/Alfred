@@ -11,7 +11,7 @@ TASK_MSG="${1:?Usage: hal-dispatch-curl.sh <message> [session-key]}"
 SESSION_KEY="${2:-agent:main:task-$(date +%s)-$(head -c3 /dev/urandom | xxd -p)}"
 HAL_URL="http://192.168.2.79:18789"
 HAL_TOKEN="7169389fd91b7aa62228241006aea2bc510ed3d68f871be7"
-TIMEOUT=30
+TIMEOUT=60
 
 # Use openclaw CLI to send message to HAL's gateway via its REST-like interface
 # Since the gateway only supports WebSocket, we'll use a Python one-liner as fallback
