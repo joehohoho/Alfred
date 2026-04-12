@@ -1,6 +1,6 @@
 # Open Loops — Single Source of Truth
 
-**Last updated:** 2026-04-12 19:48 UTC  
+**Last updated:** 2026-04-12 19:49 UTC  
 **Next sync:** 2026-04-13 09:00 ADT (morning standup)  
 **Auto-refresh:** Daily at 08:55 AM via `scripts/refresh-open-loops.sh`
 
@@ -33,7 +33,7 @@ _Source: Command Center notifications (manual review + input)_
 ---
 
 ## 📊 Active Kanban Cards (In Progress or Blocked)
-_Source: Auto-populated by refresh script (last sync: 2026-04-12 19:48 UTC)_
+_Source: Auto-populated by refresh script (last sync: 2026-04-12 19:49 UTC)_
 
 | Card ID | Title | Owner | Priority | Status | Blocker | Due |
 |---------|-------|-------|----------|--------|---------|-----|
@@ -45,7 +45,7 @@ _Source: Auto-populated by refresh script (last sync: 2026-04-12 19:48 UTC)_
 ---
 
 ## 🔔 Pending Notifications (Unanswered)
-_Source: Auto-populated from `/goals/notifications.json` (last sync: 2026-04-12 19:48 UTC)_
+_Source: Auto-populated from `/goals/notifications.json` (last sync: 2026-04-12 19:49 UTC)_
 
 | Title | Asked | Assigned To | Status | Next Action |
 |-------|-------|-------------|--------|-------------|
@@ -54,7 +54,7 @@ _Source: Auto-populated from `/goals/notifications.json` (last sync: 2026-04-12 
 ---
 
 ## 📋 Tasks Pending HAL Dispatch (To Do Queue)
-_Source: Auto-populated from kanban board (last sync: 2026-04-12 19:48 UTC)_
+_Source: Auto-populated from kanban board (last sync: 2026-04-12 19:49 UTC)_
 
 | Priority | Card ID | Title | Est. Hours | Age | Blocker? |
 |----------|---------|-------|-----------|-----|----------|
@@ -63,7 +63,7 @@ _Source: Auto-populated from kanban board (last sync: 2026-04-12 19:48 UTC)_
 ---
 
 ## 📅 Upcoming Deadlines (Next 7 Days)
-_Source: Kanban board + Calendar (last sync: 2026-04-12 19:48 UTC)_
+_Source: Kanban board + Calendar (last sync: 2026-04-12 19:49 UTC)_
 
 - No deadlines in next 7 days ✅
 
