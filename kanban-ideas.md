@@ -1,4 +1,99 @@
 
+## CoinUsUp Growth Audit (Apr 12, 03:34 ADT)
+
+### Quick read
+CoinUsUp looks stronger than a generic fundraiser tool because it bundles campaigns, donations, events, volunteers, chat, tasks, and reporting in one place. The main risk is not lack of features, it is activation friction and weak growth packaging. Right now the product appears to ask users to understand the whole platform before they feel the first win.
+
+### Top 3 user experience friction points
+
+#### 1. First-value moment is too delayed
+**Why:** The app has an onboarding checklist, but it relies on creating sample organizations/campaigns/invitations and appears to hide until a group exists. That creates a chicken-and-egg moment, and sample data can feel fake instead of useful.
+**User impact:** New users may sign up, see complexity, and bounce before creating a real campaign or collecting a real donation.
+**Recommendation:** Replace sample-data-first onboarding with a guided real setup flow: create organization, launch first real campaign, publish donation page, share link.
+**Effort:** 2-4 days
+
+#### 2. Pricing/plan architecture feels inconsistent and potentially confusing
+**Why:** The marketing homepage shows Free / Basic / Pro / Enterprise pricing, while the in-app SelectPlan page shows Free / Nonprofit+ / Enterprise with different price points and feature framing.
+**User impact:** Trust drop during conversion. Users who compare pages may hesitate because the offer feels unstable or unfinished.
+**Recommendation:** Unify pricing names, feature gates, and CTA flow across homepage, pricing page, and in-app upgrade path.
+**Effort:** 1-2 days for copy/UI alignment, 3-5 days if billing logic also needs cleanup.
+
+#### 3. Home page messaging is broad, not wedge-sharp
+**Why:** "All-in-one fundraising management platform" is accurate but generic. It does not quickly tell a school, team, club, or nonprofit why CoinUsUp is better than spreadsheets, Facebook groups, or donor tools they already know.
+**User impact:** Lower conversion from cold traffic because the value proposition is not painfully specific.
+**Recommendation:** Tighten hero/subhead around a core buyer, probably schools, teams, and community groups running campaigns plus volunteer coordination.
+**Effort:** 1-2 days for messaging and page copy tests.
+
+### Top 3 missing features users likely want
+
+#### 1. Public donation page and campaign sharing flow that feels launch-ready
+**Why it matters:** Users want to create a fundraiser and immediately share it. The existing materials emphasize management, but the obvious growth loop is donor-facing campaign pages plus frictionless sharing.
+**What to build:** Better campaign publish flow, cleaner public page, copy templates, preview mode, one-tap share kit for email/social/text.
+**Effort:** 1-2 weeks
+
+#### 2. Donor CRM basics and follow-up automation
+**Why it matters:** Organizations do not just want to collect donations, they want repeat donations, thank-you messages, segmentation, and reactivation.
+**What to build:** Donor tags, last-gift filters, thank-you automations, lapsed donor nudges, campaign recap email templates.
+**Effort:** 2-3 weeks
+
+#### 3. Mobile-first volunteer and event ops
+**Why it matters:** Volunteer-heavy groups need fast check-in, shift reminders, attendance, and event-day coordination from phones, not desktop dashboards.
+**What to build:** Cleaner volunteer mobile flows, SMS/push reminders, simplified event-day mode, QR check-in or roster mode.
+**Effort:** 2-4 weeks
+
+### Top 3 growth levers
+
+#### 1. SEO around high-intent long-tail fundraising jobs
+**Why:** There is already an SEO audit showing technical issues, but the bigger opportunity is intent capture. CoinUsUp can target "fundraising software for schools", "team fundraiser tracker", "church fundraiser management", "volunteer scheduling for nonprofit events", and similar narrow terms.
+**Priority actions:** Fix sitemap/rendering gaps, then build vertical landing pages for schools, sports teams, clubs, and nonprofits.
+**Effort:** 1 week technical fixes, then ongoing content.
+
+#### 2. Product-led virality through sharing and collaborator invites
+**Why:** Fundraising is inherently multi-person. Every campaign should naturally invite admins, volunteers, donors, and parents into the loop.
+**Priority actions:** Add launch checklist, collaborator invites, share-ready campaign assets, referral prompts after campaign setup.
+**Effort:** 1-2 weeks
+
+#### 3. Monetization via trial + clearer upgrade trigger
+**Why:** The 14-day trial work appears complete but blocked on approval. This is likely the highest-leverage short-term monetization move, especially if trial users hit visible value moments before paywall pressure.
+**Priority actions:** Ship trial, instrument activation milestones, trigger upgrades when donations/volunteers/reporting value becomes concrete.
+**Effort:** 1 day for approval plus deployment/testing already largely prepared.
+
+### Prioritized recommendation list
+
+#### Priority 1: Unify pricing + ship the trial funnel
+- **Why first:** Fastest route to revenue lift and conversion trust.
+- **Impact:** High
+- **Effort:** Low to medium
+
+#### Priority 2: Rework onboarding toward a real first fundraiser launch
+- **Why second:** Best activation fix. Reduces "looks powerful but feels like work" problem.
+- **Impact:** High
+- **Effort:** Medium
+
+#### Priority 3: Build donor-facing publish/share flow
+- **Why third:** Turns product from back-office organizer into something that actually helps money come in.
+- **Impact:** High
+- **Effort:** Medium
+
+#### Priority 4: Choose and dominate one vertical landing-page wedge
+- **Why fourth:** Better growth than generic nonprofit messaging.
+- **Impact:** Medium-high
+- **Effort:** Low-medium
+
+#### Priority 5: Add donor retention automation
+- **Why fifth:** Raises LTV and makes paid tiers more defensible.
+- **Impact:** Medium
+- **Effort:** Medium-high
+
+### Best immediate bet
+If Joe wants the highest ROI path, I would do this in order:
+1. approve and deploy trial,
+2. unify pricing/plan messaging everywhere,
+3. redesign onboarding around launching a real campaign,
+4. build one strong vertical acquisition page, likely for schools or community groups.
+
+---
+
 ## Canada-Specific Passive Income Scan (Apr 12, 01:34 ADT — Atlantic Canada / NB SMB pain points, refreshed)
 
 ### Refreshed angle
