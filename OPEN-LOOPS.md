@@ -1,7 +1,7 @@
 # Open Loops — Single Source of Truth
 
-**Last updated:** 2026-04-09 09:59 UTC  
-**Next sync:** 2026-04-10 09:00 ADT (morning standup)  
+**Last updated:** 2026-04-12 19:48 UTC  
+**Next sync:** 2026-04-13 09:00 ADT (morning standup)  
 **Auto-refresh:** Daily at 08:55 AM via `scripts/refresh-open-loops.sh`
 
 ---
@@ -33,19 +33,19 @@ _Source: Command Center notifications (manual review + input)_
 ---
 
 ## 📊 Active Kanban Cards (In Progress or Blocked)
-_Source: Auto-populated by refresh script (last sync: 2026-04-09 09:59 UTC)_
+_Source: Auto-populated by refresh script (last sync: 2026-04-12 19:48 UTC)_
 
 | Card ID | Title | Owner | Priority | Status | Blocker | Due |
 |---------|-------|-------|----------|--------|---------|-----|
-| null | null | unassigned | NORMAL | in_progress | none | TBD |
-| null | null | unassigned | NORMAL | in_progress | none | TBD |
-| null | null | unassigned | NORMAL | 🚫 blocked | unspecified | TBD |
-| null | null | unassigned | NORMAL | 🚫 blocked | unspecified | TBD |
+| goal_1776009974446_1ba69792 | Open Loops self-healing refresh with schema validation | unassigned | normal | in_progress | none | TBD |
+| goal_1776009929600_ddc355f8 | Cron-to-state registry for dead reminders and script drift | unassigned | normal | in_progress | none | TBD |
+| task_1774058538023_ae4bf3d2 | Bill Review & Invoice Audit Automation (Canadian SMB SaaS) | alfred | normal | 🚫 blocked | unspecified | TBD |
+| task_1773156748695_23b9e471 | Implement 14-day free trial on Basic/Pro tiers | unassigned | urgent | 🚫 blocked | unspecified | TBD |
 
 ---
 
 ## 🔔 Pending Notifications (Unanswered)
-_Source: Auto-populated from `/goals/notifications.json` (last sync: 2026-04-09 09:59 UTC)_
+_Source: Auto-populated from `/goals/notifications.json` (last sync: 2026-04-12 19:48 UTC)_
 
 | Title | Asked | Assigned To | Status | Next Action |
 |-------|-------|-------------|--------|-------------|
@@ -54,16 +54,16 @@ _Source: Auto-populated from `/goals/notifications.json` (last sync: 2026-04-09 
 ---
 
 ## 📋 Tasks Pending HAL Dispatch (To Do Queue)
-_Source: Auto-populated from kanban board (last sync: 2026-04-09 09:59 UTC)_
+_Source: Auto-populated from kanban board (last sync: 2026-04-12 19:48 UTC)_
 
 | Priority | Card ID | Title | Est. Hours | Age | Blocker? |
 |----------|---------|-------|-----------|-----|----------|
-
+| — | — | No tasks pending (queue clear) | — | — | — |
 
 ---
 
 ## 📅 Upcoming Deadlines (Next 7 Days)
-_Source: Kanban board + Calendar (last sync: 2026-04-09 09:59 UTC)_
+_Source: Kanban board + Calendar (last sync: 2026-04-12 19:48 UTC)_
 
 - No deadlines in next 7 days ✅
 
