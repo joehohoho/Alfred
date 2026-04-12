@@ -1195,3 +1195,33 @@ Even Us Up should **not** chase broad feature parity with Splitwise right now. T
 **Evidence:** Current pending questions include multiple untitled entries plus repeated Stripe/Bill Review reminders; `notification-discipline-report.json` already classifies routing but cleanup is not collapsing duplicates.
 **Improvement:** Build a nightly compactor that fingerprints topics, suppresses stale duplicates, auto-labels malformed entries, and writes one canonical pending-question summary back into `ACTIVE-TASK.md` with `superseded by` references.
 **Impact:** Cleaner blocker visibility, fewer repeat asks, better operator trust, and lower token cost because future sessions scan less noise.
+
+## Portfolio Health Snapshot (Apr 12, 17:33 ADT)
+
+### One-page view
+| Project | Current status | Estimated current MRR | Estimated potential MRR | Biggest bottleneck to growth |
+| --- | --- | ---: | ---: | --- |
+| **CoinUsUp** | Live, growth work and trial path largely ready | **$500-800** | **$3k-5k** | **Monetization activation gap**. The 14-day trial and pricing flow appear close, but Stripe trial/price configuration is still the main blocker to testing conversion and compounding growth. |
+| **Even Us Up** | Live, differentiated, but growth is muted | **$200-300** | **$1k-2k** | **UX + positioning friction**. The product likely has enough core value, but settlement clarity, onboarding, and Canada-first household messaging are not sharp enough to improve activation or retention. |
+| **Signal App** | Pre-launch, monetization strategy researched, still productizing | **$0** | **$5k-15k** | **MVP productization gap**. Revenue upside is strong, but it still needs a disciplined first paid-user path, confidence in signal quality, and a narrower launch scope. |
+| **Automation Consulting** | Active and currently the most stable cash engine | **$2k-3.5k** | **$3k-5k** | **Low leverage delivery model**. Too much revenue still depends on Joe's direct time instead of productized retainers, offers, or reusable automation packages. |
+
+### Portfolio read
+- **Current portfolio MRR:** about **$2.7k-4.9k/mo**
+- **Near-term upside:** about **$12k-27k/mo** if the obvious bottlenecks are cleared in sequence
+- **Health mix:** one stable cash engine (**consulting**), one best immediate SaaS unlock (**CoinUsUp**), one recoverable underperformer (**Even Us Up**), and one asymmetric longer-term bet (**Signal App**)
+
+### What matters most
+1. **CoinUsUp is still the cleanest revenue unlock.** It has the shortest path from bottleneck to new recurring revenue.
+2. **Even Us Up looks under-positioned, not invalid.** Better onboarding and clearer settlement UX could materially improve conversion.
+3. **Signal App has the highest ceiling, but it should not carry short-term passive-income expectations.**
+4. **Consulting is healthy but not passive enough.** Productization is the lever if the goal is more freedom, not just more billable work.
+
+### Recommended focus order
+1. **Unblock CoinUsUp trial monetization**
+2. **Run an Even Us Up activation + settlement UX sprint**
+3. **Keep Signal App on a strict MVP path to first paid users**
+4. **Package consulting into repeatable offers/retainers**
+
+**Bottom line:** The portfolio is healthier than it looks because there is already real revenue and multiple credible growth paths. But right now it behaves like a set of partially-finished unlocks, not a coordinated passive-income system. The strongest next move is still to convert the shortest, clearest bottleneck into shipped monetization, starting with **CoinUsUp**.
+
