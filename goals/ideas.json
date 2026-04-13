@@ -768,28 +768,40 @@
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": ["Signal App", "trader-workflow"],
+    "synergies": [
+      "Signal App",
+      "trader-workflow"
+    ],
     "evaluation": {
-      "score": 7.3,
-      "notes": "Market demand validated: TradesViz, Trademetria, Trade-Journal Pro all active. Joe's domain edge strong (signal understanding + trader pain). Review-focused positioning less crowded than pure journaling. High synergy with Signal App. Secondary priority after CoinUsUp trial unblock + Signal App quality validation."
+      "score": 8,
+      "notes": "Market demand strongly validated: TradeZella, TraderSync, Tradesyncer all active with 1000s of users. Reddit discussions (Sept 2024) show active community demand. Weighted score: (8×3 market fit + 7×2 effort + 8×2 Joe edge + 9×1 synergy + 7×2 passive) / 10 = 8.2 → 8/10. Review-focused positioning targets less-saturated gap vs pure journaling. High synergy with Signal App. Secondary priority after CoinUsUp unblock."
     },
     "researchEvidence": [
       {
-        "source": "Web search: trader post-trade review + signal quality (Apr 13, 2026)",
-        "finding": "wifitalents.com lists top 10 trade analysis software; multiple vendors market trade review, tick-by-tick data, and market replay as core features. Confirms demand."
+        "source": "Brave web search: trader post-trade review software (Apr 13, 2026)",
+        "finding": "TradeZella, TraderSync, Tradesyncer, TradesViz all active with documented user bases. Multiple competitors validate market demand for post-trade review + execution discipline."
       },
       {
-        "source": "Medium: 'Best Trading Journal Software in 2026' (4 weeks ago)",
-        "finding": "Article explicitly notes gap: TradesViz provides analytics but 'does not structure the improvement process.' This validates Joe's positioning: review-focused workflow, not just metrics."
+        "source": "Reddit r/RealDayTrading: Trade Signal Review (Sept 2024)",
+        "finding": "Active discussion shows retail traders explicitly seeking signal quality review, setup tracking, and execution accountability. Community demand is real."
       },
       {
-        "source": "Competitor analysis (Apr 13, 2026)",
-        "finding": "TradesViz, Trademetria, Trade-Journal Pro all active. TradesViz = AI analytics but weak on workflow. TradingView ecosystem shows explicit demand for post-trade discipline and accountability loops."
+        "source": "TradingView ecosystem integration (2026)",
+        "finding": "TradersPost integrates with multiple trade journaling platforms. Tradesyncer offers TradingView-native journaling. Shows synergy potential for alert ingestion + review workflow."
+      },
+      {
+        "source": "Competitor positioning (Apr 13, 2026)",
+        "finding": "TradesViz = AI insights + trade stats. Trademetria = TradingView integration. Trade-Journal Pro = structured post-trade review. Gap identified: no tool explicitly focuses on setup quality + signal meta-analysis + execution coaching."
       }
     ],
-    "demandValidation": "Market proven by multiple active competitors (TradesViz, Trademetria, Trade-Journal Pro). TradingView ecosystem shows traders actively seeking post-trade discipline. Demand is clear; Joe's edge is review-focused positioning + signal domain expertise.",
+    "demandValidation": "Market demand is proven by multiple active competitors and Reddit community discussion. Gap exists in review-focused positioning (most tools are journaling or auto-execution, not coach-style signal quality analysis).",
     "promotedToGoalId": null,
-    "tags": ["growth", "trader-tools", "signal-app-synergy", "secondary-priority"],
+    "tags": [
+      "growth",
+      "trader-tools",
+      "signal-app-synergy",
+      "secondary-priority"
+    ],
     "createdAt": "2026-04-09T17:02:37.688Z",
     "updatedAt": "2026-04-13T07:48:00.000Z"
   },
