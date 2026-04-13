@@ -1,77 +1,5 @@
 [
   {
-    "taskId": "proactive_1775998168",
-    "title": "Log analysis & anomaly detection",
-    "agent": "hal",
-    "dispatchedAt": 1775998168.998074,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775999069",
-    "title": "Security posture check",
-    "agent": "hal",
-    "dispatchedAt": 1775999070.074983,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1775999970",
-    "title": "Code review: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1775999971.261041,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776000871",
-    "title": "Passive income idea scan",
-    "agent": "hal",
-    "dispatchedAt": 1776000872.335747,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776001773",
-    "title": "Dependency audit: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1776001773.522777,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776002674",
-    "title": "Signal App research",
-    "agent": "hal",
-    "dispatchedAt": 1776002674.598377,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776003575",
-    "title": "Infrastructure health check",
-    "agent": "hal",
-    "dispatchedAt": 1776003575.815265,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776004476",
-    "title": "CoinUsUp SEO quick wins",
-    "agent": "hal",
-    "dispatchedAt": 1776004476.989883,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776005377",
-    "title": "Passive income idea scan (Canada-specific)",
-    "agent": "hal",
-    "dispatchedAt": 1776005378.060132,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1776006278",
     "title": "Code review: Market Signal Lab",
     "agent": "hal",
@@ -764,6 +692,78 @@
     "title": "Performance profiling: Command Center",
     "agent": "hal",
     "dispatchedAt": 1776083781.249789,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776084682",
+    "title": "Dead code & cleanup sweep",
+    "agent": "hal",
+    "dispatchedAt": 1776084682.4643478,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776085583",
+    "title": "Git hygiene",
+    "agent": "hal",
+    "dispatchedAt": 1776085583.747929,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776086484",
+    "title": "Log analysis & anomaly detection",
+    "agent": "hal",
+    "dispatchedAt": 1776086484.8682501,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776087385",
+    "title": "Security posture check",
+    "agent": "hal",
+    "dispatchedAt": 1776087386.111305,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776088574",
+    "title": "Code review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1776088575.081921,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776089475",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776089476.4502752,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776090377",
+    "title": "Dependency audit: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1776090377.574485,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776091278",
+    "title": "Signal App research",
+    "agent": "hal",
+    "dispatchedAt": 1776091278.8580701,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776092179",
+    "title": "Infrastructure health check",
+    "agent": "hal",
+    "dispatchedAt": 1776092180.0832498,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }

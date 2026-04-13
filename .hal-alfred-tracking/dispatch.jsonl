@@ -563,3 +563,12 @@
 {"timestamp":"2026-04-13T12:06:18Z","task_id":"proactive_1776081978","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Documentation freshness audit"}
 {"timestamp":"2026-04-13T12:21:20Z","task_id":"proactive_1776082879","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Test coverage review: CoinUsUp"}
 {"timestamp":"2026-04-13T12:36:21Z","task_id":"proactive_1776083780","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Performance profiling: Command Center"}
+{"timestamp":"2026-04-13T12:51:22Z","task_id":"proactive_1776084682","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Dead code & cleanup sweep"}
+{"timestamp":"2026-04-13T13:06:23Z","task_id":"proactive_1776085583","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Git hygiene"}
+{"timestamp":"2026-04-13T13:21:24Z","task_id":"proactive_1776086484","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Log analysis & anomaly detection"}
+{"timestamp":"2026-04-13T13:36:26Z","task_id":"proactive_1776087385","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Security posture check"}
+{"timestamp":"2026-04-13T13:56:14Z","task_id":"proactive_1776088574","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Code review: CoinUsUp"}
+{"timestamp":"2026-04-13T14:11:16Z","task_id":"proactive_1776089475","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Passive income idea scan"}
+{"timestamp":"2026-04-13T14:26:17Z","task_id":"proactive_1776090377","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Dependency audit: CoinUsUp"}
+{"timestamp":"2026-04-13T14:41:18Z","task_id":"proactive_1776091278","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Signal App research"}
+{"timestamp":"2026-04-13T14:56:19Z","task_id":"proactive_1776092179","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Infrastructure health check"}

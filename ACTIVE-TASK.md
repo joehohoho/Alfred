@@ -102,9 +102,6 @@ The blueprint and market analysis support both. But the build path, design, and 
 Which direction? (Reply A or B in the card comment)** (_Bill Review MVP: Scope Decision Needed_, Apr 10 02:41)
   ID: `notif_1775788889479_5d542fd8` — No details provided
 
-- **task_1775937596949_8c2fcda6** (_--card_, Apr 13 00:18)
-  ID: `notif_1776039515675_f94d7b43` — --context
-
 - **You approved the MVP build on Mar 31, but we're blocked on the scope direction. Quick decision needed:
 
 **Option A (Personal Tool):** Internal invoice-audit tool for your own use (You get an audit queue UI, I handle detection backend)
@@ -128,4 +125,7 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 **Timeline:** 30 min to review, 20 min to execute if approved.** (_Knowledge Freshness Scanner — CLEANUP APPROVAL NEEDED_, Apr 13 04:18)
   ID: `notif_1776053904561_9e9d7720` — No details provided
+
+- **For Even Us Up, what's the smallest win that would feel like real progress?** (_question_, Apr 13 13:00)
+  ID: `notif_1776085200829_3538e76a` — Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?
 <!-- PENDING-Q-END -->

@@ -13,3 +13,4 @@
 {"ts": 1775221200, "iso": "2026-04-03T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-03:For Even Us Up, what's the smallest win that would feel like real progress?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
 {"ts": 1775307600, "iso": "2026-04-04T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-04:What would make your consulting work more systematic or scalable?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
 {"ts": 1775394000, "iso": "2026-04-05T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-05:How much of your time should passive income get vs. client work right now?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
+{"ts": 1776085200, "iso": "2026-04-13T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-13:For Even Us Up, what's the smallest win that would feel like real progress?", "script": "send-notification.sh", "action": "notify", "result": "allow"}

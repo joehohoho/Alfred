@@ -651,18 +651,6 @@
     "answeredAt": null
   },
   {
-    "id": "notif_1776039515675_f94d7b43",
-    "type": "--card",
-    "title": "task_1775937596949_8c2fcda6",
-    "message": "--context",
-    "goalId": "Knowledge freshness scanner flagged 4 stale artifacts (2 superseded, 3 contradictions across docs). Consolidation plan is ready.",
-    "taskId": "--question",
-    "source": "Which artifacts should be archived? What are the canonical docs for Signal App strategy, CoinUsUp growth, and Even Us Up roadmap?",
-    "answered": false,
-    "createdAt": "2026-04-13T00:18:35.675Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1776053901200_0aeb3bd0",
     "type": "Bill Review & Invoice Audit Automation MVP — SCOPE DECISION NEEDED",
     "title": "You approved the MVP build on Mar 31, but we're blocked on the scope direction. Quick decision needed:\n\n**Option A (Personal Tool):** Internal invoice-audit tool for your own use (You get an audit queue UI, I handle detection backend)\n\n**Option B (External SaaS MVP):** Revenue-focused MVP to test-sell to Canadian SMBs (requires go-to-market plan)\n\nBlueprint complete + market validation done either way. \n\n**What should I do?** Reply with A or B so I can unblock the build. No other details needed.",
@@ -678,6 +666,16 @@
     "message": "No details provided",
     "answered": false,
     "createdAt": "2026-04-13T04:18:24.561Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1776085200829_3538e76a",
+    "type": "question",
+    "title": "For Even Us Up, what's the smallest win that would feel like real progress?",
+    "message": "Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-13T13:00:00.829Z",
     "answeredAt": null
   }
 ]

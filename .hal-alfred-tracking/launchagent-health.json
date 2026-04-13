@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-04-13T12:48:37+0000",
+  "timestamp": "2026-04-13T15:04:09+0000",
   "agents": [
-    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "82508"},
+    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "7798"},
     {"name": "application.com.apple.ActivityMonitor.1152921500311906413.1152921500311906418", "status": "RUNNING", "exit_code": "396"},
     {"name": "application.com.apple.Family.1152921500312071725.1152921500312071734", "status": "RUNNING", "exit_code": "47890"},
     {"name": "application.com.apple.MobileSMS.1152921500311887877.1152921500311887946", "status": "RUNNING", "exit_code": "397"},
@@ -21,7 +21,7 @@
     {"name": "com.alfred.health-server", "status": "RUNNING", "exit_code": "36627"},
     {"name": "com.alfred.job-tracker", "status": "RUNNING", "exit_code": "612"},
     {"name": "com.alfred.kanban-stale-scan", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "6494"},
+    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "36104"},
     {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "56383"},
     {"name": "com.alfred.log-rotation", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.maintenance-weekly", "status": "DOWN", "exit_code": "-"},
