@@ -710,5 +710,21 @@
     "dispatchedAt": 1776053140.840485,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776054041",
+    "title": "Test coverage review: CoinUsUp",
+    "agent": "hal",
+    "dispatchedAt": 1776054042.124272,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776054942",
+    "title": "Performance profiling: Command Center",
+    "agent": "hal",
+    "dispatchedAt": 1776054943.310456,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

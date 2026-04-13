@@ -593,7 +593,7 @@
     "title": "Notification system: add semantic dedup + stale escalation window",
     "description": "Current notifications are tracked as answered/unanswered, but duplicate-question fatigue is still an active issue. Add semantic fingerprinting by topic/scope plus cooldown windows and stale escalation tiers: suppress near-duplicate questions within 7 to 14 days, roll repeated asks into the existing notification thread, and escalate only when new evidence or deadline risk exists. Also expose duplicate suppression metrics in Command Center so Joe can trust the alert stream again.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "evaluated",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "high",
@@ -605,19 +605,40 @@
       "decision memory"
     ],
     "evaluation": {
-      "score": 9,
-      "notes": "Solves a known trust erosion problem and reduces duplicate manual review cost."
+      "score": 8.7,
+      "notes": "Directly solves Priority 1 in MEMORY.md (duplicate questions cycling every 4 days). Market-validated: Opsgenie, Squadcast, Upstat, OneUptime all market alert deduplication as core feature. Medium effort (~2-3 weeks), high operator ROI (estimated 4-7h/week saved). Blocks better decision velocity and system trust until implemented."
     },
+    "researchEvidence": [
+      {
+        "source": "Opsgenie (Atlassian)",
+        "finding": "Alert deduplication via alias field is standard feature: 'one open alert with same alias at any time'. https://support.atlassian.com/opsgenie/docs/what-is-alert-de-duplication/"
+      },
+      {
+        "source": "Squadcast",
+        "finding": "Teams receive single notification with subsequent updates appended instead of duplicate alerts. Key-based deduplication reduces alert noise. https://medium.com/@squadcast/reduce-alert-noise-and-streamline-incident-management-with-key-based-deduplication-11ccdbcbdd82"
+      },
+      {
+        "source": "OneUptime",
+        "finding": "Alert deduplication with notification thresholds (1, 5, 10, 50, 100, 500, 1000) prevents notification storms while keeping teams informed. https://oneuptime.com/blog/post/2026-01-30-alert-deduplication/view"
+      },
+      {
+        "source": "Upstat",
+        "finding": "Alert fatigue is recognized problem. Solution: alert deduplication, intelligent rate limiting, automatic suppression. Core anti-fatigue features. https://upstat.io/blog/alert-fatigue"
+      }
+    ],
+    "demandValidation": "Enterprise incident management platforms (Opsgenie, Squadcast, Upstat) all position alert deduplication as a required feature to prevent notification fatigue and alert storms. Problem is well-documented. This validates both the pain point and the solution pattern. Joe's case (duplicate questions cycling every 4 days) is a direct parallel to alert fatigue in DevOps teams.",
     "promotedToGoalId": null,
     "tags": [
       "notifications",
       "dedup",
       "trust",
-      "operator-experience"
+      "operator-experience",
+      "priority-1-fix",
+      "memory-backed"
     ],
     "id": "idea_1775801002644_d97ab059",
     "createdAt": "2026-04-10T03:03:22Z",
-    "updatedAt": "2026-04-10T03:03:22Z"
+    "updatedAt": "2026-04-13T01:47:00.000Z"
   },
   {
     "title": "HAL/Alfred dispatch observability panel with queue debt + token-aware routing",
