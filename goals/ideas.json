@@ -727,16 +727,37 @@
     "title": "Even Us Up: prioritize onboarding + settlement clarity before new features",
     "description": "Synthesis of prior Even Us Up audits. Recommendation: focus next sprint on the highest-leverage differentiators and adoption blockers, not broad feature parity with Splitwise.\n\nPrioritized list:\n\nTop 3 UX friction points\n1. Settlement clarity and actionability (Small-Medium, ~1 day)\n   - Problem: users do not immediately understand who owes whom, how to settle, or what to do next.\n   - Fix: dashboard-level Settle Up card, clearer Interac-first wording, net balance per person, visible settlement history.\n   - Why first: this is core product value, and confusion here kills trust.\n\n2. Onboarding to first expense (Medium, ~1-2 days)\n   - Problem: blank-state gap after signup/group creation.\n   - Fix: 3-step first-run flow, seeded sample group, guided first expense CTA, smart defaults.\n   - Why second: activation is the real bottleneck, more than lack of features.\n\n3. Add expense / split setup complexity, especially on mobile (Medium, ~1 week)\n   - Problem: too many decisions and manual split entry too early.\n   - Fix: compress split setup into smart defaults + quick split card, reduce scrolling, improve thumb-friendly layout.\n   - Why third: directly improves daily use and lowers abandonment.\n\nTop 3 missing features\n1. Bill review / audit insights (Medium-Large, ~3-4 weeks)\n   - Differentiate with audit-style intelligence: fairness, anomalies, receipt discrepancies, settlement optimization.\n   - Strongest moat vs Splitwise because it is not just another ledger.\n\n2. Notifications and reminder loops (Medium, ~2-3 days)\n   - Settlement reminders, inactivity nudges, confirmation emails/push.\n   - Important for retention once onboarding/settlement UX is fixed.\n\n3. Household / recurring workflows polish (Medium, ~2-4 days if core exists)\n   - Lean into couples/roommates/shared-home use cases with recurring templates and a more persistent household mode.\n   - Best niche wedge if Joe wants growth, not just maintenance.\n\nTop 3 growth levers\n1. Canada-first positioning (Small-Medium, ~1 day)\n   - Interac-native, CAD-first, household-friendly messaging.\n   - Explicit comparison vs Splitwise on landing page.\n\n2. Household/couples niche focus (Medium, ~1-2 weeks)\n   - This is more defensible than generic group-expense competition.\n   - Recurring rent/utilities + ongoing shared budgets creates stickiness.\n\n3. Audit/reporting premium layer (Medium-Large, ~3-4 weeks)\n   - Monetizable and differentiated. Moves product from utility to insight tool.\n\nRecommendation\n- Next sprint should be: (1) settlement clarity, (2) onboarding, (3) mobile/add-expense simplification.\n- After that: notifications + household recurring polish.\n- Only then invest in bigger moat work like audit/reporting.\n\nWhy this order\n- Splitwise can copy features, but clarity + onboarding + positioning improve activation now.\n- Even Us Up wins by feeling simpler for Canadian households, not by matching every checkbox.\n\nSuggested immediate roadmap\n- Week 1: settlement clarity + onboarding\n- Week 2: add-expense/mobile simplification\n- Week 3: notifications + recurring polish\n- Week 4+: audit/reporting prototype",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
     "synergies": [],
-    "evaluation": null,
+    "evaluation": {
+      "score": 7.5,
+      "notes": "Market demand validated: expense sharing market proven (Splitwise, Venmo active). Onboarding friction + settlement clarity are core SaaS pain points per Usability Geek, Userflow. Joe's edge moderate (billing/UX background, Canada-first defensible but not unique). Realistic effort estimates. Secondary bet after CoinUsUp trial unblock."
+    },
     "promotedToGoalId": null,
     "tags": [],
     "createdAt": "2026-04-10T01:31:53.763Z",
-    "updatedAt": "2026-04-10T01:31:53.763Z"
+    "updatedAt": "2026-04-13T05:48:00.000Z",
+    "researchEvidence": [
+      {
+        "source": "Usability Geek (2019-2025)",
+        "finding": "First-time UX friction documented onboarding problem: users invest in app, onboarding quality directly impacts retention."
+      },
+      {
+        "source": "Userflow guide (Dec 2025)",
+        "finding": "Key drop-off pattern: users leave at same point when friction/instructions unclear. Interactive walkthroughs + progress indicators reduce drop-off."
+      },
+      {
+        "source": "Business of Apps SaaS retention (3 weeks ago)",
+        "finding": "Onboarding must guide users to first meaningful result ASAP. Contextual prompts + clear progress reduce friction + improve activation."
+      },
+      {
+        "source": "Even Us Up prior audits",
+        "finding": "Settlement clarity + onboarding flagged repeatedly as primary activation blockers, not feature gaps."
+      }
+    ]
   },
   {
     "id": "idea_1775754157688_7544801d",
