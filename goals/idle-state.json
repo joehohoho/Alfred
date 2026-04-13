@@ -1,12 +1,7 @@
 {
-  "lastActivityAt": "2026-04-13T08:48:04.858Z",
-  "lastActivityType": "evaluate-idea",
+  "lastActivityAt": "2026-04-13T09:03:05.812Z",
+  "lastActivityType": "improve-self",
   "recentActivities": [
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-11T21:45:06.299Z",
-      "ideaId": "idea_1775948900_workflow_efficiency_scan_20260411"
-    },
     {
       "type": "improve-self",
       "dispatchedAt": "2026-04-11T22:00:07.224Z"
@@ -218,8 +213,12 @@
       "type": "evaluate-idea",
       "dispatchedAt": "2026-04-13T08:48:04.858Z",
       "ideaId": "idea_1775784713763_cb106740"
+    },
+    {
+      "type": "improve-self",
+      "dispatchedAt": "2026-04-13T09:03:05.812Z"
     }
   ],
-  "totalIdleDispatches": 927,
+  "totalIdleDispatches": 928,
   "cooldownMinutes": 15
 }

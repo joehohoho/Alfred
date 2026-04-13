@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1775983750",
-    "title": "Log analysis & anomaly detection",
-    "agent": "hal",
-    "dispatchedAt": 1775983750.6656861,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775984651",
     "title": "Security posture check",
     "agent": "hal",
@@ -764,6 +756,14 @@
     "title": "Performance profiling: Command Center",
     "agent": "hal",
     "dispatchedAt": 1776069362.48139,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776070263",
+    "title": "Dead code & cleanup sweep",
+    "agent": "hal",
+    "dispatchedAt": 1776070263.5964239,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
