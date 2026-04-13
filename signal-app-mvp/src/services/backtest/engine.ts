@@ -203,6 +203,12 @@ export class BacktestEngine {
       }
       const dayData = priceByDate.get(dateKey)!;
 
+      // Compute ATR-based stop distances (adaptive to current volatility)
+      const dayIdx = dayData.idx;
+      const atrVal = !isNaN(atrValues[dayIdx]) ? atrValues[dayIdx] : 0;
+      const atrMult = this.risk.atrStopMultiplier ?? 2.5;
+      const useAtr = this.risk.useAtrStops !== false && atrVal > 0;
+
       // Check risk management exits FIRST (before processing new signals)
       if (this.position.direction === 'long') {
         // Update highest price for trailing stop
@@ -215,18 +221,31 @@ export class BacktestEngine {
           (dayData.timestamp.getTime() - this.position.entryTime.getTime()) / (1000 * 60 * 60 * 24)
         );
 
-        // Stop-loss check: price drops below entry
-        if (this.risk.stopLossPercent && dayData.low <= entryPrice * (1 - this.risk.stopLossPercent / 100)) {
-          const stopPrice = entryPrice * (1 - this.risk.stopLossPercent / 100);
-          this.closeTrade(stopPrice, dayData.timestamp, `stop-loss (${this.risk.stopLossPercent}%)`, trades);
-          // Don't continue — let signals process so we can enter opposite direction
+        // Stop-loss: use ATR-based or fixed %, whichever gives more room
+        const fixedStopPct = this.risk.stopLossPercent ?? 8;
+        const fixedStopPrice = entryPrice * (1 - fixedStopPct / 100);
+        const atrStopPrice = useAtr ? entryPrice - (atrMult * atrVal) : 0;
+        const effectiveStopPrice = useAtr ? Math.min(fixedStopPrice, atrStopPrice) : fixedStopPrice;
+
+        if (dayData.low <= effectiveStopPrice) {
+          const reason = useAtr && atrStopPrice < fixedStopPrice
+            ? `atr-stop (${atrMult}x ATR)`
+            : `stop-loss (${fixedStopPct}%)`;
+          this.closeTrade(effectiveStopPrice, dayData.timestamp, reason, trades);
         }
 
-        // Trailing stop check
-        else if (this.risk.trailingStopPercent && this.position.highestPrice > 0) {
-          const trailPrice = this.position.highestPrice * (1 - this.risk.trailingStopPercent / 100);
-          if (dayData.low <= trailPrice) {
-            this.closeTrade(trailPrice, dayData.timestamp, `trailing-stop (${this.risk.trailingStopPercent}%)`, trades);
+        // Trailing stop: use ATR-based or fixed %, whichever gives more room
+        else if (this.position.highestPrice > 0) {
+          const fixedTrailPct = this.risk.trailingStopPercent ?? 5;
+          const fixedTrailPrice = this.position.highestPrice * (1 - fixedTrailPct / 100);
+          const atrTrailPrice = useAtr ? this.position.highestPrice - (atrMult * atrVal) : 0;
+          const effectiveTrailPrice = useAtr ? Math.min(fixedTrailPrice, atrTrailPrice) : fixedTrailPrice;
+
+          if (dayData.low <= effectiveTrailPrice) {
+            const reason = useAtr && atrTrailPrice < fixedTrailPrice
+              ? `atr-trail (${atrMult}x ATR)`
+              : `trailing-stop (${fixedTrailPct}%)`;
+            this.closeTrade(effectiveTrailPrice, dayData.timestamp, reason, trades);
           }
         }
 
@@ -251,17 +270,31 @@ export class BacktestEngine {
           (dayData.timestamp.getTime() - this.position.entryTime.getTime()) / (1000 * 60 * 60 * 24)
         );
 
-        // Stop-loss check for short: price RISES above entry + stopLossPercent
-        if (this.risk.stopLossPercent && dayData.high >= entryPrice * (1 + this.risk.stopLossPercent / 100)) {
-          const stopPrice = entryPrice * (1 + this.risk.stopLossPercent / 100);
-          this.closeTrade(stopPrice, dayData.timestamp, `stop-loss (${this.risk.stopLossPercent}%)`, trades);
+        // Stop-loss for short: use ATR-based or fixed %, whichever gives more room
+        const fixedShortStopPct = this.risk.stopLossPercent ?? 8;
+        const fixedShortStopPrice = entryPrice * (1 + fixedShortStopPct / 100);
+        const atrShortStopPrice = useAtr ? entryPrice + (atrMult * atrVal) : Infinity;
+        const effectiveShortStop = useAtr ? Math.max(fixedShortStopPrice, atrShortStopPrice) : fixedShortStopPrice;
+
+        if (dayData.high >= effectiveShortStop) {
+          const reason = useAtr && atrShortStopPrice > fixedShortStopPrice
+            ? `atr-stop (${atrMult}x ATR)`
+            : `stop-loss (${fixedShortStopPct}%)`;
+          this.closeTrade(effectiveShortStop, dayData.timestamp, reason, trades);
         }
 
-        // Trailing stop for short: price rises from lowest
-        else if (this.risk.trailingStopPercent && this.position.lowestPrice < Infinity) {
-          const trailPrice = this.position.lowestPrice * (1 + this.risk.trailingStopPercent / 100);
-          if (dayData.high >= trailPrice) {
-            this.closeTrade(trailPrice, dayData.timestamp, `trailing-stop (${this.risk.trailingStopPercent}%)`, trades);
+        // Trailing stop for short: ATR-based or fixed %
+        else if (this.position.lowestPrice < Infinity) {
+          const fixedShortTrailPct = this.risk.trailingStopPercent ?? 5;
+          const fixedShortTrailPrice = this.position.lowestPrice * (1 + fixedShortTrailPct / 100);
+          const atrShortTrailPrice = useAtr ? this.position.lowestPrice + (atrMult * atrVal) : Infinity;
+          const effectiveShortTrail = useAtr ? Math.max(fixedShortTrailPrice, atrShortTrailPrice) : fixedShortTrailPrice;
+
+          if (dayData.high >= effectiveShortTrail) {
+            const reason = useAtr && atrShortTrailPrice > fixedShortTrailPrice
+              ? `atr-trail (${atrMult}x ATR)`
+              : `trailing-stop (${fixedShortTrailPct}%)`;
+            this.closeTrade(effectiveShortTrail, dayData.timestamp, reason, trades);
           }
         }
 
@@ -300,7 +333,6 @@ export class BacktestEngine {
         if (passesStrength) {
 
         // Compute ATR% for position sizing & slippage
-        const dayIdx = dayData.idx;
         const atrPct = (!isNaN(atrValues[dayIdx]) && dayData.close > 0)
           ? (atrValues[dayIdx] / dayData.close) * 100
           : 2; // default 2% if ATR unavailable
