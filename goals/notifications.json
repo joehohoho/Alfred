@@ -649,5 +649,17 @@
     "answered": false,
     "createdAt": "2026-04-10T02:41:29.479Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776039515675_f94d7b43",
+    "type": "--card",
+    "title": "task_1775937596949_8c2fcda6",
+    "message": "--context",
+    "goalId": "Knowledge freshness scanner flagged 4 stale artifacts (2 superseded, 3 contradictions across docs). Consolidation plan is ready.",
+    "taskId": "--question",
+    "source": "Which artifacts should be archived? What are the canonical docs for Signal App strategy, CoinUsUp growth, and Even Us Up roadmap?",
+    "answered": false,
+    "createdAt": "2026-04-13T00:18:35.675Z",
+    "answeredAt": null
   }
 ]

@@ -757,14 +757,12 @@
     "title": "Command Center: add source-of-truth resolver for UI/service tasks",
     "description": "Add a mandatory preflight resolver that maps phrases like dashboard, apps page, Command Center, gateway, and service names to the canonical repo path, launch agent, local/public URL, and owner system before any UI or infrastructure change. Motivation: time was lost previously editing the wrong dashboard path, and tonight the game mode task initially targeted workspace/dashboard instead of /Users/hopenclaw/command-center. Deliverables: resolver script + machine-readable map + preflight hook used by dashboard-related scripts.",
     "priority": "high",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-04-13T00:18:09.859Z",
+    "metadata": {},
     "createdAt": "2026-04-12T15:57:28.607Z",
-    "updatedAt": "2026-04-12T16:05:52.882Z",
+    "updatedAt": "2026-04-13T00:18:09.859Z",
     "comments": [
       {
         "id": "cmt_1776009932447_2c1f99b8",
@@ -785,14 +783,12 @@
     "title": "Cron-to-state registry for dead reminders and script drift",
     "description": "## Why\nSeveral reminders still fire by text instruction only, and at least one now points to a deleted script. Cron health currently tells us whether a job ran, but not whether the action it references is still valid against the current workspace.\n\n## Proposed improvement\nCreate a lightweight registry that maps each cron/reminder to its canonical script/API target, owner file, and verification command. Add a daily drift audit that checks:\n1. referenced scripts still exist\n2. reminders match canonical command names\n3. deprecated jobs are flagged before they spam failures\n4. missing scripts auto-suggest replacements from the workspace\n\n## Expected impact\n- Prevents zombie reminders after refactors\n- Lowers operator noise and repeated manual triage\n- Makes cron maintenance cheaper and safer\n\n## Evidence\n- The answered-notifications reminder continues to invoke a non-existent `scripts/check-notification-answers.sh`\n- Current cron runs show jobs can be healthy while reminder instructions are semantically stale",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-04-13T00:18:01.051Z",
+    "metadata": {},
     "createdAt": "2026-04-12T16:05:29.600Z",
-    "updatedAt": "2026-04-12T20:06:20.232Z",
+    "updatedAt": "2026-04-13T00:18:01.051Z",
     "comments": [
       {
         "id": "cmt_1776023410960_c8fafd77",
@@ -819,14 +815,12 @@
     "title": "Open Loops self-healing refresh with schema validation",
     "description": "Add validation to refresh-open-loops.sh that rejects null rows, falls back to last-known-good content, logs an audit event, and triggers a repair fetch from the kanban API. Also alert if OPEN-LOOPS.md freshness exceeds 24h.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-04-13T00:18:01.290Z",
+    "metadata": {},
     "createdAt": "2026-04-12T16:06:14.446Z",
-    "updatedAt": "2026-04-12T19:50:01.567Z",
+    "updatedAt": "2026-04-13T00:18:01.290Z",
     "comments": [
       {
         "id": "cmt_1776023363053_6972bb9c",
@@ -853,14 +847,12 @@
     "title": "Even Us Up: Smart Settlement Breakdown (UX + Transparency)",
     "description": "**Problem:** Even Us Up has 0-20 visitors/day with zero external adoption. Users sign up but abandon after not understanding settlement mechanics.\n\n**Root Cause:** Splitwise/Venmo users expect transparent calculation breakdowns. Even Us Up lacks this clarity → activation failure.\n\n---\n\n## Solution: Settlement Breakdown Explainer Modal\n\n### Four-Section Explainer\n\n**Section A: Visual Split Breakdown**\n- Table/card showing who owes whom and amounts\n- Arrow icon showing money flow direction\n- Color coding: blue (you receive), red (you owe), neutral (settled)\n- Mobile-optimized responsive layout\n\n**Section B: Step-by-Step Algorithm Explanation**\n- 3-5 numbered steps in plain English\n- Example: \"You and 3 others spent $40 on Dinner\" → \"Your share: $10\" → \"Person B paid full $40\" → \"You owe them $10\"\n- Include actual input values from the settlement\n\n**Section C: Quick Settlement Actions**\n- Copy to Clipboard: \"Person B owes me $10.00 for Dinner (Even Us Up)\"\n- Venmo Link: Deep link pre-filled with amount + memo\n- Interac (Canada): E-transfer pre-fill or email template\n- Toast confirmation on copy\n\n**Section D: Completion & Closure**\n- Checkbox: \"Mark as settled in Even Us Up\"\n- Button: \"Complete Settlement\"\n- Shows \"✅ Settled\" badge after completion\n\n---\n\n## Implementation: 5 Phases (5-6 hours total)\n\n**Phase 1 (2-3h):** Frontend modal structure (4 React components, responsive layout)\n**Phase 2 (1h):** Backend integration (GET /api/settlements/:id, PATCH /complete endpoint)\n**Phase 3 (1.5h):** Action buttons (Clipboard, Venmo deep link, Interac e-transfer)\n**Phase 4 (1h):** Completion logic + mobile testing\n**Phase 5 (30m):** Polish, staging test, production deploy\n\n**Timeline:** Day 1 (Phases 1-2) → Day 2 (Phases 3-4) → Day 2-3 (Phase 5)\n\n---\n\n## Success Criteria\n\n✅ Modal appears frictionlessly on \"Settle Up\" click\n✅ Plain English explanation (non-technical users understand)\n✅ At least one quick-settle action works (Venmo or Clipboard)\n✅ Settlement status updates correctly\n✅ Mobile UX smooth (no horizontal scroll)\n✅ Post-launch: 20%+ increase in settlement completion rate\n\n---\n\n## Revenue Impact\n\n**Current State:** 0-20 daily visitors, zero adoption\n**Target:** Clarity → activation improvement → premium tier trials\n**Expected Win:** 10-15% activation improvement (high-leverage given current baseline)\n\n**Why This Works:** Not a feature gap—it’s a transparency/clarity gap. Splitwise succeeds on clarity. This unblocks the activation pathway.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-04-13T00:18:01.526Z",
+    "metadata": {},
     "createdAt": "2026-04-12T16:25:17.601Z",
-    "updatedAt": "2026-04-12T18:50:13.809Z",
+    "updatedAt": "2026-04-13T00:18:01.526Z",
     "comments": [
       {
         "id": "cmt_1776019794886_3271311a",
@@ -881,14 +873,12 @@
     "title": "Workflow Efficiency: single review queue + decision packet automation",
     "description": "## Problem Summary\n\n1. **Review-Lane Blockage:** Mixed approval types (true gates + scope choices) in same queue → manual re-surfacing\n2. **Pending-Question Sprawl:** 8 pending questions, several duplicates on same blockers → noisy resumes\n3. **Board/API Anomalies:** Malformed records in OPEN-LOOPS → untrusted dashboards\n\n**Current Impact:** 4-7 hours/week wasted on notification noise, stale re-surfaces, duplicate questions.\n\n---\n\n## Solution: Three-Prong Implementation\n\n### Prong 1: Collapse Pending Questions by Semantic Topic\n\n**Goal:** Collapse 8 questions into 2-3 active topics (one per blocker)\n\n**Output Format (ACTIVE-TASK.md):**\n- Topic: CoinUsUp Trial Stripe Configuration\n  - Latest ask: \"What API key for trial?\"\n  - Prior asks: 3 (dates)\n  - Recommendation: Use test key from Stripe Dashboard\n  - Status: Awaiting approval\n\n**Implementation:**\n- New script: `collapse-pending-questions.sh` (semantic clustering)\n- Archive audit trail to `pending-questions-archive.jsonl`\n- Runs as part of `sync-pending-questions.sh`\n- Backend endpoints for collapsed topics + full history\n\n---\n\n### Prong 2: Decision Packet Automation + Split Review Lanes\n\n**Goal:** Split review queue into two explicit flows with SLA + escalation\n\n**Flow A: Approval Gates (24h SLA)**\n- Decision packet includes: context, what, why, risk, impact, exact choice, recommended default, consequences, next step\n- New Kanban column: \"approvals\"\n- New card type: \"approval\"\n- Escalation at 20h → urgent notification at 24h\n\n**Flow B: Scope Exploration (48h SLA)**\n- Decision packet includes: options (name, effort, risk, upside), recommended default, auto-apply default if no reply\n- New Kanban column: \"scope\"\n- New card type: \"scope_choice\"\n- Escalation at 40h → auto-apply default at 48h unless overridden\n\n**Example Decisions:**\n1. CoinUsUp Stripe: Test key approach (approval gate)\n2. Bill Review: Manual vs auto historical import (scope choice)\n\n---\n\n### Prong 3: Board Source-of-Truth Resolver\n\n**Goal:** Validate board state daily, quarantine malformed records, trust OPEN-LOOPS again\n\n**Daily 6 AM Job:**\n- Fetch all Kanban cards via API\n- Validate: id, title, column, type, timestamps, priority\n- Quarantine invalid records to \"quarantine\" column\n- Log validation audit trail to `board-validation.jsonl`\n- Regenerate OPEN-LOOPS only from validated records\n\n**Implementation:**\n- New script: `board-source-of-truth.sh`\n- New endpoint: `POST /api/kanban/validate-all`\n- New column: \"quarantine\"\n\n---\n\n## Implementation: 5 Phases (9-11 hours total)\n\n**Phase 1 (2h):** Collapse pending questions → ACTIVE-TASK drops from 8 to 2-3 rows\n**Phase 2 (3h):** Approval flow + decision packets → 24h SLA, escalation at 20h\n**Phase 3 (2h):** Scope choice flow → 48h SLA, auto-apply default at 48h\n**Phase 4 (2h):** Board validation → daily 6 AM job, catches 100% malformed records\n**Phase 5 (2h):** Integration + monitoring → dashboard panel, Discord alerts, full workflow\n\n**Timeline:** Days 1-2 → Days 2-3 → Days 3-4 live deployment\n\n---\n\n## Success Criteria\n\n✅ Pending questions collapse 60%+ (8 → 2-3)\n✅ Approval cards have explicit SLA + escalation (clear unblock path)\n✅ Scope choices capture decision + auto-apply default (faster decisions)\n✅ Board validation catches 100% of malformed records (trust restored)\n✅ ACTIVE-TASK.md resume context is cleaner\n✅ False-positive rate on validation <2%\n✅ Saves estimated 4-7 hours/week on notification noise + decision-making\n\n---\n\n## Why This Matters\n\nThese are NOT nice-to-have optimizations—they're active pain points in live work:\n- CoinUsUp trial config is blocked (approval gate ambiguity)\n- Bill Review scope keeps getting re-asked (duplicate sprawl)\n- OPEN-LOOPS shows stale data (board trust issue)\n\nFixes reduce context switching, improve decision velocity, and make system trustworthy again.",
     "priority": "medium",
-    "status": "active",
+    "status": "completed",
     "dueDate": null,
-    "completedAt": null,
-    "metadata": {
-      "inReview": true
-    },
+    "completedAt": "2026-04-13T00:18:09.634Z",
+    "metadata": {},
     "createdAt": "2026-04-12T16:31:13.490Z",
-    "updatedAt": "2026-04-12T16:50:11.499Z",
+    "updatedAt": "2026-04-13T00:18:09.634Z",
     "comments": [
       {
         "id": "cmt_1776012577796_a9334c52",
