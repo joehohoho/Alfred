@@ -449,16 +449,47 @@
     "title": "Missed-lead follow-up SaaS for Canadian service SMBs",
     "description": "Problem: Small service businesses lose revenue when web leads and missed calls go unanswered or never get qualified. Target market: Canadian home services, clinics, agencies, and local SMBs with inbound leads. MRR potential: .5k-k in first year (20-50 accounts at -/mo), longer-term k+ if niche lands. Tech complexity: 3/5. Competition: Medium, many generic CRM tools but weak niche-specific lead recovery + qualification + Canadian workflow positioning. Why Joe can win: strong automation/integration skills, can build fast with forms/SMS/CRM sync/AI summaries, clear ROI story, solo-dev feasible with low support if onboarding is standardized.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
+    "synergies": [
+      "automation-consulting"
+    ],
+    "evaluation": {
+      "score": 7.4,
+      "notes": "Market demand validated: Invoca, TalkerIQ, NextPhone, Manager Tools all active competitors confirm pain + willingness to pay. Joe's automation/integration edge is strong. Clear ROI story for SMBs. Secondary priority behind CoinUsUp trial unblock + Signal App quality validation, but solid foundation for Q3 exploration phase."
+    },
+    "researchEvidence": [
+      {
+        "source": "Web search: missed calls lead recovery SaaS (Apr 12, 2026)",
+        "finding": "Multiple active competitors (Invoca, TalkerIQ, NextPhone, Manager Tools) confirm market demand. Recent articles (Mar-Apr 2026) describe missed call revenue loss as evergreen pain point for service businesses."
+      },
+      {
+        "source": "Invoca lead recovery solution",
+        "finding": "Isolates high-intent missed calls (e.g., defined by IVR keypresses), auto-dials back, captures lead info. Shows explicit demand for lead recovery automation."
+      },
+      {
+        "source": "NextPhone missed call text-back blog (Mar 2026)",
+        "finding": "Emphasizes AI answering service covering 24/7 lead capture. Validates demand for automated qualification layer."
+      },
+      {
+        "source": "TalkerIQ positioning",
+        "finding": "Markets to home services, healthcare, real estate specifically. Validates vertical focus and messaging around missed-call revenue recovery."
+      }
+    ],
+    "demandValidation": "Market demand is real and proven. Competitors actively serve home services, healthcare, real estate. Multiple tools market AI callback + SMS follow-up as core features. Missed-call revenue loss is an explicit pain point with high willingness to pay.",
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": [
+      "growth",
+      "canadian-smb",
+      "service-business",
+      "lead-recovery",
+      "sms-automation",
+      "evaluated"
+    ],
     "createdAt": "2026-04-10T13:01:58.060Z",
-    "updatedAt": "2026-04-10T13:01:58.060Z"
+    "updatedAt": "2026-04-12T23:47:00.000Z"
   },
   {
     "id": "idea_1775802767891_b2c44e08",
