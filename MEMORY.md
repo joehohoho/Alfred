@@ -3,8 +3,8 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 **Status:** idle
-Recent: [idle:review-memory] Verified previous daily-ops-2 | [idle:evaluate-idea] Trader Signal Post-Mortem Ass
-Updated: 12:03 AST
+Recent: [idle:improve-self] Created JSON safety helpers +  | [idle:workspace-check] Repos clean, 8 unanswered n
+Updated: 14:03 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
@@ -93,9 +93,12 @@ Updated: 12:03 AST
 
 **Location:** Dieppe, NB (AST/ADT)  
 **Family-first:** Primary priority; build passive income to enjoy time with kids  
-**Current Projects:** CoinUsUp, Even Us Up, Stock/Crypto Signal App, Automation Consulting  
+**Current Projects:** [[Projects/CoinUsUp]], [[Projects/Even-Us-Up]], [[Projects/Signal-App]], Automation Consulting  
 **What Joe Values:** Proactive work, overnight execution, surprises, system improvement  
 **Decision Boundaries:** Act autonomously on tech/coding; notify on security/costs/major changes  
+
+**Active Blockers:** See [[Blockers/Active]] (5 total; 2 critical)  
+**Open Decisions:** See [[Decisions/Open]] (5 decisions awaiting input)  
 
 ---
 

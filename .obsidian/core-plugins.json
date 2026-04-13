@@ -1,0 +1,16 @@
+{
+  "backlinks": true,
+  "command-palette": true,
+  "daily-notes": true,
+  "file-explorer": true,
+  "global-search": true,
+  "graph": true,
+  "markdown-importer": true,
+  "note-composer": true,
+  "outline": true,
+  "page-preview": true,
+  "switcher": true,
+  "tag-pane": true,
+  "templates": true,
+  "word-count": true
+}

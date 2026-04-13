@@ -177,6 +177,7 @@ export class SmartStrategy extends BaseStrategy {
       const pullback = pullbackSmaArr[i];
       const prevPullback = pullbackSmaArr[i - 1];
       const currRSI = rsi[i];
+      const prevRSI = rsi[i - 1];
       const currADX = adx[i];
       const upperBand = bb.upper[i];
       const lowerBand = bb.lower[i];
@@ -228,21 +229,37 @@ export class SmartStrategy extends BaseStrategy {
         }
       }
 
-      // --- DOWNTREND: sell bounces to 20-SMA ---
+      // --- DOWNTREND: multiple short entry methods ---
       if (isDowntrend && !signalType) {
-        // Price touches or crosses 20-SMA from below
+        // Method 1: Classic pullback to SMA (price bounced up to 20-SMA)
         const touchedPullback =
           (prevClose < prevPullback && close >= pullback) || // crossed above
           (close >= pullback * 0.99 && close <= pullback * 1.01); // within 1%
 
+        // Method 2: Price falling through SMA (breakdown confirmation)
+        const fallingThroughSMA = prevClose >= pullback && close < pullback;
+
+        // Method 3: Overbought bounce in downtrend (RSI popped up then rolling over)
+        const overboughtInDowntrend = currRSI >= 55 && prevRSI > currRSI; // RSI turning down from elevated
+
+        // Method 4: Continued downtrend — price below both SMAs and making lower lows
+        const persistentBear = close < pullback && close < trend &&
+          i >= 3 && closes[i] < closes[i - 3]; // price lower than 3 bars ago
+
         if (touchedPullback) confirmingFactors++;
-        if (currRSI >= 50 && currRSI <= 65) confirmingFactors++;
+        if (fallingThroughSMA) confirmingFactors++;
+        if (overboughtInDowntrend) confirmingFactors++;
         if (trendSlope < 0) confirmingFactors++;
         if (adxValid && currADX > 25) confirmingFactors++;
-        if (!isNaN(currATR) && currATR > 0 && (upperBand - close) > currATR) confirmingFactors++;
 
-        if (touchedPullback && currRSI >= 50 && currRSI <= 65) {
+        // Short on any of these conditions with RSI confirmation
+        if ((touchedPullback || fallingThroughSMA || overboughtInDowntrend) && currRSI >= 40 && currRSI <= 75) {
           signalType = 'SELL';
+        }
+        // Persistent bear — short even without a bounce, if trend is strong
+        else if (persistentBear && adxValid && currADX > 30 && currRSI >= 35 && currRSI <= 60) {
+          signalType = 'SELL';
+          confirmingFactors++; // strong trend confirmation
         }
       }
 

@@ -59,6 +59,8 @@ export interface RiskManagement {
   maxHoldDays?: number;          // e.g., 30 = force exit after 30 days
   minSignalStrength?: number;    // e.g., 0.3 = skip signals with strength < 0.3
   allowShorts?: boolean;         // e.g., true = allow short selling (default: true)
+  useAtrStops?: boolean;         // e.g., true = use ATR-based dynamic stops instead of fixed %
+  atrStopMultiplier?: number;    // e.g., 2 = stop at 2x ATR from entry/peak (default: 2.5)
 }
 
 const DEFAULT_RISK: RiskManagement = {
@@ -68,6 +70,8 @@ const DEFAULT_RISK: RiskManagement = {
   maxHoldDays: 30,
   minSignalStrength: 0,
   allowShorts: true,
+  useAtrStops: true,
+  atrStopMultiplier: 2.5,
 };
 
 export class BacktestEngine {

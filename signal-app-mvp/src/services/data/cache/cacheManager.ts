@@ -3,7 +3,7 @@ import path from 'path';
 import type { PriceSeries } from '@/models/PriceData';
 
 const CACHE_DIR = path.join(process.cwd(), '.cache', 'price_data');
-const CACHE_VALIDITY_MS = 24 * 60 * 60 * 1000; // 24 hours
+const CACHE_VALIDITY_MS = 4 * 60 * 60 * 1000; // 4 hours — ensures prices refresh multiple times per day
 
 interface CacheEntry {
   data: PriceSeries;

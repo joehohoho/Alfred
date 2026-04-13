@@ -241,7 +241,7 @@ export function filterSignals(
     // Each filter contributes a penalty score. Signal is blocked only if total penalty is too high.
     // This prevents over-filtering in volatile markets where individual conditions often flip.
     let penaltyScore = 0;
-    const BLOCK_THRESHOLD = 3; // Need 3+ penalty points to block a signal
+    const BLOCK_THRESHOLD = 4; // Need 4+ penalty points to block a signal (was 3, too aggressive in bear markets)
 
     // --- 1. Trend filter (penalty for counter-trend entries, not hard block) ---
     // Only penalize extreme counter-trend entries. Normal oscillation around SMA is fine.

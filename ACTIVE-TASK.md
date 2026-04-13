@@ -60,6 +60,8 @@
 
 ## Pending Questions
 
+**Navigation:** See [[Decisions/Open]] for detailed analysis + recommendations
+
 <!-- PENDING-Q-START -->
 - **CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing** (_question_, Mar 24 10:37)
   ID: `notif_1774348633358_ebc3c96c` — Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end...
