@@ -29,6 +29,7 @@ The Command Center is Joe's primary dashboard for monitoring and interacting wit
 | `/improvements` | Improvements | Enhancements roadmap, innovation ideas |
 | `/infrastructure` | Infrastructure | Model tiers, cron schedules, agent architecture |
 | `/learnings` | Learnings | Curated memory, decisions, query analysis |
+| `/dispatch-observability` | Dispatch Observability | HAL/Alfred queue debt, retry backlog, anomalies, token budget, health metrics |
 
 **Note:** `/goals` and `/ideas` redirect to `/kanban` (replaced by Kanban board).
 
@@ -110,6 +111,9 @@ All routes are at `/api/...` on port 3001.
 - `POST /api/google/calendar/events/:id/approve` — Approve event & send invites (notifies Alfred `[CALENDAR-EVENT-APPROVED]`)
 - `POST /api/google/calendar/events/:id/reject` — Reject event (notifies Alfred `[CALENDAR-EVENT-REJECTED]`)
 - `GET /api/google/activity` — Activity audit log (query: `actionPrefix`, `limit`, `offset`)
+
+### Dispatch Observability (HAL/Alfred Queue Management)
+- `GET /api/dispatch/observability` — Unified queue metrics: dispatch summary, queue depth, retry backlog, pending ACKs, fallback events, anomalies, token budget, and health score
 
 ### Other
 - `GET /api/cron` — List cron jobs

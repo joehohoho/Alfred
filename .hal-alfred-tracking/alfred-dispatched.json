@@ -6,5 +6,9 @@
   "task_1776056568350_550ca791": {
     "at": 1776056570.928406,
     "title": "Notification system: add semantic dedup + stale escalation window"
+  },
+  "task_1776063776962_b8004ba1": {
+    "at": 1776063779.538217,
+    "title": "HAL/Alfred dispatch observability panel with queue debt + token-aware routing"
   }
 }

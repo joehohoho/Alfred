@@ -207,3 +207,10 @@ If no Discord channel exists for a topic, ask Joe to create one before posting.
 **Status:** Week 1 exceeded expectations. Week 2 ready.
 
 ---
+
+## Daily Logs (Most Recent First)
+
+| Date | Summary | Status |
+|------|---------|--------|
+| [2026-04-13](2026-04-13.md) | Dispatch Observability Panel: aggregator, React component, test suite (25/25 pass), docs | ✅ Complete → Review |
+| [2026-04-12](2026-04-12.md) | Notification dedup system, knowledge freshness scanner | ✅ (if exists) |

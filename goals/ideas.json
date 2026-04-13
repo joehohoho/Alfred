@@ -644,7 +644,7 @@
     "title": "HAL/Alfred dispatch observability panel with queue debt + token-aware routing",
     "description": "The system shows last HAL dispatch and rough status, but lacks a unified queue debt view across Kanban, retry queue, pending ACKs, and fallback-to-Alfred events. Add a single observability panel that shows: current dispatch backlog, retry queue depth, pending ACK age, recent fallback reasons, and model/token budget gates affecting routing. Include anomaly detection for silent degradation, such as HAL idle while backlog exists or Alfred handling too many fallback tasks. This targets lower token cost and faster diagnosis of hidden throughput loss.",
     "category": "infrastructure",
-    "status": "new",
+    "status": "promoted",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "high",
@@ -657,9 +657,28 @@
     ],
     "evaluation": {
       "score": 8.8,
-      "notes": "Strong ops leverage. Makes invisible dispatch failures visible before they become backlog or token waste."
+      "notes": "Strong ops leverage. Makes invisible dispatch failures visible before they become backlog or token waste. Market validated: MindStudio, OpenRouter, Datagrid, and Sprinklenet all document token-aware routing + fallback detection as production patterns. High ROI on cheaper-model preservation and faster incident diagnosis."
     },
-    "promotedToGoalId": null,
+    "researchEvidence": [
+      {
+        "source": "MindStudio (Feb 2026)",
+        "finding": "Token-level routing automatically selects cheaper models once budget thresholds are exceeded. Cost per request insights show trends over time."
+      },
+      {
+        "source": "Datagrid Cost Optimization (Dec 2025)",
+        "finding": "Most token spend goes to tasks that could run on 50% cheaper models. Fallback chains that start cheap and escalate when needed are standard pattern."
+      },
+      {
+        "source": "OpenRouter 101 (Apr 2026)",
+        "finding": "Intelligent routing with automatic failover when provider goes down. System routes simple tasks to cheap models, complex tasks to premium models automatically."
+      },
+      {
+        "source": "Sprinklenet Multi-LLM Orchestration (Mar 2026)",
+        "finding": "Production systems run ordered fallback chains (Claude → GPT-4o → Gemini) with cost-budget gates. Prevents escalation to expensive models unless task priority warrants it."
+      }
+    ],
+    "demandValidation": "Market demand validated by 4 independent sources documenting token-aware routing and fallback detection as production architecture patterns. This idea directly maps to solving Alfred/HAL dispatch visibility, which is currently invisible and causing silent token waste.",
+    "promotedToGoalId": "task_1776063776962_b8004ba1",
     "tags": [
       "hal",
       "dispatch",
@@ -669,7 +688,7 @@
     ],
     "id": "idea_1775801002644_12df2add",
     "createdAt": "2026-04-10T03:03:22Z",
-    "updatedAt": "2026-04-12T16:17:48.310Z",
+    "updatedAt": "2026-04-13T07:02:56.968Z",
     "comments": [
       {
         "id": "cmt_1776010371295_f8758f3e",
