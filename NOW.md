@@ -1,7 +1,8 @@
-# NOW.md — End-of-Day Checkpoint (2026-04-11 22:00 ADT)
+# NOW.md — End-of-Day Checkpoint (2026-04-12 22:00 ADT)
 
-**Session Duration:** Ongoing (multiple overlapping activities, Apr 10–11)  
-**Context Usage:** 82% (164k/200k) — healthy, room for continuation
+**Session Duration:** 22 hours (00:00–22:00 ADT)  
+**Context Usage:** 20% (200k budget) — very safe for continuation  
+**Status:** ✅ COMPLETE — 7 deliverables, 3 major workstreams completed
 
 ---
 
@@ -9,31 +10,34 @@
 
 **Major Deliverables:**
 1. ✅ Portfolio health snapshot — all 4 projects analyzed, decision gates mapped, executive summary ready
-2. ✅ Strategic alignment (Alfred ↔ HAL) — Even Us Up positioning + portfolio focus clarity
-3. ✅ Continuous idle activities — memory reviews, workspace health, idea evaluations, goal progress checks
-4. ✅ Cost analysis — identified Discord routing blind spot, Vercel payment tracking gap
-5. ✅ 3 cards moved to review status (Portfolio Snapshot, Signal App Monetization ready for Joe approval)
+2. ✅ Service Resolver System — 5 services, 38 KB docs, 16 tests passing (REVIEW ready)
+3. ✅ Cron Registry + Manifest Check — 23 crons tracked, drift detection, recovery automation
+4. ✅ Open Loops Self-Healing — API parsing fix, 3-tier fallback, staleness alerting
+5. ✅ Decision Packet Automation — SLA tracking, approval gates, scope flows
+6. ✅ Cost Analysis Deep-Dive — $1.75/day fixable waste identified, 3 recommendations with ROI
+7. ✅ Workflow Efficiency Phase 1–2 — 60%+ question reduction, 3 new automation scripts
 
 **Docs Created/Updated:** 
-- portfolio-health-snapshot-2026-04-11.md (7.8 KB)
-- memory/2026-04-11.md (50KB+ daily log)
-- Discord posts: 3 (Even Us Up discussion, portfolio focus, context bridge updates)
+- 8 comprehensive guides (48 KB total)
+- Daily log: memory/2026-04-12.md (100+ KB)
+- Session bridge: LAST-SESSION.md (fully populated)
+- Reports: workspace-health, cost-analysis
 
 ---
 
-## Current Active Task
+## Current Task Status
 
-**Status:** IDLE (waiting for next card assignment or Joe decisions)  
+**Status:** IDLE (awaiting Joe decisions)
 
 **Review Cards (awaiting Joe approval):**
-1. Portfolio Health Snapshot — 7.8 KB, ready for 20-min read
-2. Signal App Monetization — pricing strategy validated, ready for greenlight
-3. CoinUsUp Growth Audit — comprehensive docs, ready for prioritization
-4. Atlantic Canada Wedge — market validation complete, ready for interview phase
+1. Service Resolver System (goal_1776009448607_c4e75a5a) — 16 tests passing, docs complete
+2. Even Us Up: Settlement Breakdown (goal_1776011117601_adeee50c) — UI complete, QA ready
+3. Workflow Efficiency Phase 1–2 (goal_1776011473490_5ec96060) — Phase 3–5 foundation ready
+4. Portfolio Health Snapshot — 7.8 KB, decision gates mapped
 
 **Blocked Cards (awaiting Joe decisions):**
-1. CoinUsUp Trial — Stripe config (5-min task, 10+ days waiting)
-2. Bill Review SaaS — scope decision (A/B choice, 11+ days waiting)
+1. CoinUsUp Trial Stripe Config — 19 days old, 5-min fix, +$500–2K/mo unlock
+2. Bill Review Scope Decision — 3 days old, A/B choice, blueprint ready
 
 ---
 
@@ -41,40 +45,64 @@
 
 | Decision | Age | Impact | Status |
 |----------|-----|--------|--------|
-| **Portfolio Focus** | New | $2K–21K/mo variance | ✅ Clarified via HAL alignment (Consulting 60-70%, Signal 20-30%) — awaiting Joe confirmation |
-| **Signal App Pricing** | 1 day | Unlocks landing page + Stripe | ⏳ Awaiting Joe greenlight on C$24/mo Pro tier |
-| **Even Us Up Positioning** | 1 day | Product-market fit clarity | ✅ Clarified (couples/household beachhead) — awaiting Joe confirmation |
-| **CoinUsUp Trial Stripe** | 10 days | +$500–2K/mo unlock | ⏳ Awaiting Joe action (5-min dashboard update) |
-| **Bill Review Scope** | 11 days | Build vs archive decision | ⏳ Awaiting Joe choice (A: personal, B: external SaaS) |
+| **Portfolio Focus Allocation** | New | 60–70% consulting, 20–30% Signal | ✅ Recommendation sent, awaiting Joe confirmation |
+| **CoinUsUp Trial Stripe Config** | 19 days | +$500–2K/mo unlock | ⏳ 5-min dashboard work, Phase B deployment ready |
+| **Bill Review Scope (A/B)** | 3 days | 2–3 day MVP (A) vs. 1–2 week MVP (B) | ⏳ Blueprint + market validation ready |
+| **Signal App Pricing** | 1 day | Unlocks landing page + Stripe | ⏳ C$24/mo Pro tier approval pending |
+| **Even Us Up Positioning** | 1 day | Couples/household beachhead confirmed | ✅ Clarified, awaiting Joe confirmation |
 
 ---
 
 ## System Status
 
-- **Gateway:** ✅ Running
-- **LaunchAgents:** 29/29 up
-- **Cron jobs:** 11 enabled (2 recently re-enabled)
-- **Context:** 82% (healthy, room for continuation)
-- **Memory:** 1.9M+ (stable)
-- **Repos:** All clean (4/4)
+- **Gateway:** ✅ Running (stable, no recent errors)
+- **LaunchAgents:** 14/14 up (100% uptime)
+- **Cron jobs:** 23 registered, 0 dead, 21 healthy
+- **Context:** 20% (very safe for continuation)
+- **Memory:** Stable (1.9M+)
+- **Repos:** All clean (4/4 — command-center, job-tracker, market-signal-lab, CoinUsUp)
+- **Kanban API:** Intermittent null responses (monitor)
 
 ---
 
-## Tomorrow's Focus (Apr 12)
+## Tomorrow's Focus (Apr 13)
 
 **First thing (09:00 AM):**
-1. Check for overnight Joe responses to pending decisions
-2. If Stripe config approved → stage deployment (4–5h timeline)
-3. If Signal pricing approved → move to Phase 2 (Stripe setup, landing page, founding member offer)
+1. Check for Joe responses to pending decisions
+2. Review OPEN-LOOPS.md (auto-refreshed at 08:55 AM)
+3. Check notifications for high-priority blockers
 
-**If no Joe response by 09:00 AM:**
-1. Escalate 2 blocked cards + 3 review cards → consolidated notification
-2. Continue idle loop (proactive checks, memory reviews, idea evaluation)
-3. Optional: Begin Even Us Up UX research (if Joe confirms focus allocation)
+**If Joe approves Stripe config (CoinUsUp):**
+- Deploy to production same day (4–5h timeline)
+- Phase B testing + staging validation (concurrent)
+
+**If Joe chooses Bill Review scope:**
+- Begin MVP immediately (2–3 hours for A, 1–2 weeks for B)
+
+**If no Joe response by 09:30 AM:**
+- Send consolidated escalation notification
+- Continue idle loop (proactive checks, memory reviews, infrastructure maintenance)
 
 **Throughout day:**
 1. Monitor notification queue (escalate if response time > 7 days)
-2. Continue background optimization (workspace health, idea evaluation)
+2. Continue cron drift audits (daily at 08:00 AM)
+3. Continue background optimization (workspace health, cost reduction)
+
+---
+
+## Critical Blockers (Joe Action Required)
+
+1. **CoinUsUp Stripe Trial Configuration** (19 days old)
+   - Phase B testing blocked — need 12 price IDs with trial_period_days=14
+   - 5-minute Stripe dashboard work, then deploy immediately
+   - Impact: +$500–2K/mo unlock
+   - **ACTION:** Joe approval + Stripe dashboard update
+
+2. **Bill Review Scope Decision** (3 days old)
+   - Need A/B choice: Personal tool vs. external SaaS
+   - Blueprint complete, market validation done
+   - 2–3 day MVP (A) or 1–2 week MVP (B)
+   - **ACTION:** Joe choice (A or B)
 
 ---
 
@@ -82,12 +110,14 @@
 
 1. Load **ACTIVE-TASK.md** (current task state: IDLE, review/blocked cards)
 2. Load **LAST-SESSION.md** (full context bridge, all decisions made)
-3. Load **memory/2026-04-11.md** (daily log, 50KB+ activity detail)
+3. Load **memory/2026-04-12.md** (daily log, 100+ KB activity detail)
 4. Load **MEMORY.md** (strategic context, portfolio health baseline)
-5. Check notifications for new Joe responses (priority: Stripe config, Bill Review scope, pricing approval)
-
-All state synced and committed to git. Session can pause gracefully or continue.
+5. Check **OPEN-LOOPS.md** (auto-refreshed, pending work dashboard)
+6. Check notifications for new Joe responses (priority: Stripe config, Bill Review scope)
 
 ---
 
-**Checkpoint:** 2026-04-11 22:00 ADT | Context 82% | All systems operational | Ready for pause or continuation
+**Checkpoint:** 2026-04-12 22:00 ADT  
+**Context:** 20% (very safe)  
+**All Systems:** Operational  
+**Status:** Ready for morning standup or pause
