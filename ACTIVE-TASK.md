@@ -1,8 +1,8 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle  
-**Last Updated:** 2026-04-13 05:27 ADT  
-**Last Assignment:** [IDLE ACTIVITY COMPLETED]
+**Status:** idle → completed proactive task (Obsidian integration)  
+**Last Updated:** 2026-04-13 14:09 ADT  
+**Last Assignment:** Obsidian Integration — Phase 1 + 2 Complete
 
 ## Status
 
