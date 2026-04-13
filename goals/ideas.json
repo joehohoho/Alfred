@@ -775,16 +775,16 @@
     },
     "researchEvidence": [
       {
-        "source": "Web search: retail trader journaling + post-trade review (Apr 13, 2026)",
-        "finding": "TradesViz, Trademetria, Trade-Journal Pro all active. Multiple competitors confirm traders seek structured post-trade review + accountability."
+        "source": "Web search: trader post-trade review + signal quality (Apr 13, 2026)",
+        "finding": "wifitalents.com lists top 10 trade analysis software; multiple vendors market trade review, tick-by-tick data, and market replay as core features. Confirms demand."
       },
       {
-        "source": "TradingView ecosystem + indicator library",
-        "finding": "Trade-Journal Pro indicator shows explicit demand for post-trade performance tracking and rule-discipline prompts."
+        "source": "Medium: 'Best Trading Journal Software in 2026' (4 weeks ago)",
+        "finding": "Article explicitly notes gap: TradesViz provides analytics but 'does not structure the improvement process.' This validates Joe's positioning: review-focused workflow, not just metrics."
       },
       {
-        "source": "Competitor analysis",
-        "finding": "TradesViz = AI-driven trade insights. Trademetria = TradingView + mobile integration. Gap exists for signal-quality-focused review positioning."
+        "source": "Competitor analysis (Apr 13, 2026)",
+        "finding": "TradesViz, Trademetria, Trade-Journal Pro all active. TradesViz = AI analytics but weak on workflow. TradingView ecosystem shows explicit demand for post-trade discipline and accountability loops."
       }
     ],
     "demandValidation": "Market proven by multiple active competitors (TradesViz, Trademetria, Trade-Journal Pro). TradingView ecosystem shows traders actively seeking post-trade discipline. Demand is clear; Joe's edge is review-focused positioning + signal domain expertise.",

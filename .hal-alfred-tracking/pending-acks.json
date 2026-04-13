@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1775997267",
-    "title": "Git hygiene",
-    "agent": "hal",
-    "dispatchedAt": 1775997267.8414972,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1775998168",
     "title": "Log analysis & anomaly detection",
     "agent": "hal",
@@ -764,6 +756,14 @@
     "title": "Test coverage review: CoinUsUp",
     "agent": "hal",
     "dispatchedAt": 1776082880.132531,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776083780",
+    "title": "Performance profiling: Command Center",
+    "agent": "hal",
+    "dispatchedAt": 1776083781.249789,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
