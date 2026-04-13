@@ -764,7 +764,7 @@
     "title": "Trader Signal Post-Mortem Assistant",
     "description": "Problem: Retail traders collect alerts and entries but rarely review signal quality systematically, so they repeat bad setups and overvalue noisy indicators.\n\nSolution: a post-trade review assistant that ingests TradingView alerts or trade logs, groups signals by setup, tracks follow-through quality, and produces weekly 'what actually worked' summaries. Focus on review and decision hygiene, not auto-execution.\n\nMRR potential: $1.5k-$6k MRR (50-150 traders at $29-$59/mo to start).\nTech complexity: 3/5.\nCompetition: Medium, but many tools are generic journals or signal sellers, not review-focused workflow tools.\nWhy Joe can win: Joe is already building signal-related products and understands the pain of turning noisy market data into actionable decisions.",
     "category": "growth",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
@@ -795,7 +795,7 @@
       }
     ],
     "demandValidation": "Market demand is proven by multiple active competitors and Reddit community discussion. Gap exists in review-focused positioning (most tools are journaling or auto-execution, not coach-style signal quality analysis).",
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1776103351415_8db335c2",
     "tags": [
       "growth",
       "trader-tools",
@@ -803,7 +803,7 @@
       "secondary-priority"
     ],
     "createdAt": "2026-04-09T17:02:37.688Z",
-    "updatedAt": "2026-04-13T07:48:00.000Z"
+    "updatedAt": "2026-04-13T18:02:31.419Z"
   },
   {
     "id": "idea_1775754157453_f5440245",

@@ -677,5 +677,17 @@
     "answered": false,
     "createdAt": "2026-04-13T13:00:00.829Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776111569945_1142976b",
+    "type": "Review: Trader Signal Post-Mortem Assistant",
+    "title": "5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for your review and go/no-go decision. All files at /workspace/ideas/TRADER_SIGNAL_* (total 68KB, ~15 min read time). Key insight: Setup-based review workflow is missing from competitors—this fills a gap.",
+    "message": "Approve for build",
+    "goalId": "Need clarifications",
+    "taskId": "Recommend: Approve for build",
+    "source": "This is fresh and complete; no blocking dependencies.",
+    "answered": false,
+    "createdAt": "2026-04-13T20:19:29.945Z",
+    "answeredAt": null
   }
 ]

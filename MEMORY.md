@@ -2,9 +2,9 @@
 
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
-**Status:** idle → completed proactive task (Obsidian integration)
-Recent: [idle:improve-self] Created JSON safety helpers +  | [idle:workspace-check] Repos clean, 8 unanswered n
-Updated: 14:18 AST
+**Status:** completed → review
+Review: Trader Signal Post-Mortem Assistant
+Updated: 17:33 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.
