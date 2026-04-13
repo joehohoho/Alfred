@@ -764,16 +764,34 @@
     "title": "Trader Signal Post-Mortem Assistant",
     "description": "Problem: Retail traders collect alerts and entries but rarely review signal quality systematically, so they repeat bad setups and overvalue noisy indicators.\n\nSolution: a post-trade review assistant that ingests TradingView alerts or trade logs, groups signals by setup, tracks follow-through quality, and produces weekly 'what actually worked' summaries. Focus on review and decision hygiene, not auto-execution.\n\nMRR potential: $1.5k-$6k MRR (50-150 traders at $29-$59/mo to start).\nTech complexity: 3/5.\nCompetition: Medium, but many tools are generic journals or signal sellers, not review-focused workflow tools.\nWhy Joe can win: Joe is already building signal-related products and understands the pain of turning noisy market data into actionable decisions.",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
+    "synergies": ["Signal App", "trader-workflow"],
+    "evaluation": {
+      "score": 7.3,
+      "notes": "Market demand validated: TradesViz, Trademetria, Trade-Journal Pro all active. Joe's domain edge strong (signal understanding + trader pain). Review-focused positioning less crowded than pure journaling. High synergy with Signal App. Secondary priority after CoinUsUp trial unblock + Signal App quality validation."
+    },
+    "researchEvidence": [
+      {
+        "source": "Web search: retail trader journaling + post-trade review (Apr 13, 2026)",
+        "finding": "TradesViz, Trademetria, Trade-Journal Pro all active. Multiple competitors confirm traders seek structured post-trade review + accountability."
+      },
+      {
+        "source": "TradingView ecosystem + indicator library",
+        "finding": "Trade-Journal Pro indicator shows explicit demand for post-trade performance tracking and rule-discipline prompts."
+      },
+      {
+        "source": "Competitor analysis",
+        "finding": "TradesViz = AI-driven trade insights. Trademetria = TradingView + mobile integration. Gap exists for signal-quality-focused review positioning."
+      }
+    ],
+    "demandValidation": "Market proven by multiple active competitors (TradesViz, Trademetria, Trade-Journal Pro). TradingView ecosystem shows traders actively seeking post-trade discipline. Demand is clear; Joe's edge is review-focused positioning + signal domain expertise.",
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": ["growth", "trader-tools", "signal-app-synergy", "secondary-priority"],
     "createdAt": "2026-04-09T17:02:37.688Z",
-    "updatedAt": "2026-04-09T17:02:37.688Z"
+    "updatedAt": "2026-04-13T07:48:00.000Z"
   },
   {
     "id": "idea_1775754157453_f5440245",
