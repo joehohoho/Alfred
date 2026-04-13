@@ -593,7 +593,7 @@
     "title": "Notification system: add semantic dedup + stale escalation window",
     "description": "Current notifications are tracked as answered/unanswered, but duplicate-question fatigue is still an active issue. Add semantic fingerprinting by topic/scope plus cooldown windows and stale escalation tiers: suppress near-duplicate questions within 7 to 14 days, roll repeated asks into the existing notification thread, and escalate only when new evidence or deadline risk exists. Also expose duplicate suppression metrics in Command Center so Joe can trust the alert stream again.",
     "category": "infrastructure",
-    "status": "evaluated",
+    "status": "promoted",
     "source": "alfred-generated",
     "effort": "medium",
     "potential": "high",
@@ -627,7 +627,7 @@
       }
     ],
     "demandValidation": "Enterprise incident management platforms (Opsgenie, Squadcast, Upstat) all position alert deduplication as a required feature to prevent notification fatigue and alert storms. Problem is well-documented. This validates both the pain point and the solution pattern. Joe's case (duplicate questions cycling every 4 days) is a direct parallel to alert fatigue in DevOps teams.",
-    "promotedToGoalId": null,
+    "promotedToGoalId": "task_1776056568350_550ca791",
     "tags": [
       "notifications",
       "dedup",
@@ -638,7 +638,7 @@
     ],
     "id": "idea_1775801002644_d97ab059",
     "createdAt": "2026-04-10T03:03:22Z",
-    "updatedAt": "2026-04-13T01:47:00.000Z"
+    "updatedAt": "2026-04-13T05:02:48.354Z"
   },
   {
     "title": "HAL/Alfred dispatch observability panel with queue debt + token-aware routing",

@@ -531,3 +531,5 @@
 {"timestamp":"2026-04-13T04:05:40Z","task_id":"proactive_1776053140","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Documentation freshness audit"}
 {"timestamp":"2026-04-13T04:20:42Z","task_id":"proactive_1776054041","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Test coverage review: CoinUsUp"}
 {"timestamp":"2026-04-13T04:35:43Z","task_id":"proactive_1776054942","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Performance profiling: Command Center"}
+{"timestamp":"2026-04-13T04:50:44Z","task_id":"proactive_1776055844","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Dead code & cleanup sweep"}
+{"timestamp":"2026-04-13T05:05:45Z","task_id":"proactive_1776056745","route":"HAL","dispatch_result":"dispatched_proactive","dispatch_type":"proactive","task":"Git hygiene"}

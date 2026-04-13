@@ -726,5 +726,21 @@
     "dispatchedAt": 1776054943.310456,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776055844",
+    "title": "Dead code & cleanup sweep",
+    "agent": "hal",
+    "dispatchedAt": 1776055844.584091,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776056745",
+    "title": "Git hygiene",
+    "agent": "hal",
+    "dispatchedAt": 1776056745.780981,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

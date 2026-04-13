@@ -3,9 +3,9 @@
 <!-- CONTEXT-BRIDGE-START -->
 ## Current Work (auto-updated every 15 min)
 **Status:** idle
-Review: Knowledge freshness scanner for Alfred a
-Recent: [idle:goal-progress-check 2026-04-13 01:17] Review | [idle:workspace-check] All repos clean, 1 notifica
-Updated: 01:47 AST
+Review: Notification system: add semantic dedup ; Knowledge freshness scanner for Alfred a
+Recent: [idle:workspace-check] All repos clean, 1 notifica | [idle:evaluate-idea] Notification dedup system (id
+Updated: 02:17 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.

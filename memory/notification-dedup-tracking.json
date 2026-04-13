@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-04-13T05:06:11.900Z",
+  "last_updated": "2026-04-13T05:06:11.903Z",
+  "topics": {
+    "even-us-up": {
+      "last_asked_at": "2026-04-13T05:06:11.903Z",
+      "count": 1,
+      "escalation_tier": 1,
+      "blocked_until": "2026-04-16T05:06:12.171Z",
+      "evidence_updated_at": "2026-04-13T05:06:12.171Z"
+    }
+  },
+  "suppressed": [
+    {
+      "timestamp": "2026-04-13T05:06:12.037Z",
+      "title": "For Even Us Up, what's the smallest win?",
+      "topic": "even-us-up",
+      "reason": "cooldown_active",
+      "fingerprint": {
+        "topic": "even-us-up",
+        "confidence": 0.6666666666666666,
+        "patterns_matched": [
+          "even us up|evenusup",
+          "smallest.*win|win.*feel|progress"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-04-13T05:06:12.171Z",
+      "action": "evidence_added",
+      "topic": "even-us-up",
+      "evidence": "Joe mentioned new family metrics"
+    },
+    {
+      "timestamp": "2026-04-13T05:06:12.309Z",
+      "title": "For Even Us Up, what's the smallest win?",
+      "topic": "even-us-up",
+      "reason": "cooldown_active",
+      "fingerprint": {
+        "topic": "even-us-up",
+        "confidence": 0.6666666666666666,
+        "patterns_matched": [
+          "even us up|evenusup",
+          "smallest.*win|win.*feel|progress"
+        ]
+      }
+    }
+  ],
+  "metrics": {
+    "total_checked": 3,
+    "total_suppressed": 2,
+    "total_escalated": 1,
+    "by_reason": {
+      "cooldown_active": 2
+    }
+  }
+}

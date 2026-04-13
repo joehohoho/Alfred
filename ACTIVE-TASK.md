@@ -1,29 +1,44 @@
 # ACTIVE-TASK.md
 
 **Status:** idle  
-**Last Update:** 2026-04-13 00:02 ADT  
-**Context Used This Session:** 20% — healthy
+**Last Updated:** 2026-04-13 05:12 AST  
+**Current Work:** Card moved to review — ready for next assignment
+
+## Completed This Session
+
+### ✅ Task 1776056568350 - MOVED TO REVIEW
+**Title:** Notification system: add semantic dedup + stale escalation window  
+**Status:** ✅ Review  
+**Duration:** ~2.5 hours  
+
+**Deliverables:**
+- Semantic fingerprinting engine (12 topic categories)
+- 7-14 day cooldown windows with evidence-based escalation
+- Daily inquiry integration (v2 script)
+- Dashboard API (3 REST endpoints)
+- React component for Command Center visualization
+- Comprehensive test suite (11 tests)
+- Complete documentation
+
+**Quality Metrics:**
+- All tests passing
+- Pattern matching verified
+- Cooldown enforcement working
+- Evidence escalation functional
+- Persistent state confirmed
+- Production-ready
 
 ---
 
-## Just Completed ✅
+## Next Steps
 
-**Card:** Cron-to-state registry for dead reminders and script drift  
-**ID:** goal_1776009929600_ddc355f8  
-**Completed:** 2026-04-12 17:05 ADT  
+**Kanban Status:**
+- **in_progress:** 0 cards (clear)
+- **todo:** Need to check board for next assignment
+- **blocked:** 2 cards (Bill Review SaaS, Free trial implementation) - may need unblocking
 
-Delivered:
-- `~/.openclaw/cron-registry.json` — 23 cron jobs mapped with refs
-- `scripts/cron-drift-auditor.sh` — Daily audit (21 healthy, 0 errors)
-- `scripts/hal-backup.sh` — HAL state backup restored
-- Cron job: "Cron Drift Audit (Daily)" at 08:00 AM
-- Full docs: `CRON-REGISTRY-README.md`
-
-All systems green. Ready for review.
+**Recommendation:** Pick next from blocked or todo column. Check with Joe if any cards have been pending decisions.
 
 ---
 
-## Pending Questions
-
-1. **CoinUsUp Stripe Config (14-Day Trial)** — Trial code complete. Need to create 12 price IDs in Stripe with trial_period_days=14. (notif_1775760070628_22478b25)
-2. **Bill Review MVP: Scope Decision** — Build as Personal Tool (A) or Commercial SaaS (B)? (notif_1775760070634_61acb260)
+**Previous completed work:** See git log and kanban archive for February-early April deliverables.

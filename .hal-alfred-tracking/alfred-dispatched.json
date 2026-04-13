@@ -1,14 +1,10 @@
 {
-  "task_1775937596949_8c2fcda6": {
-    "at": 1775937599.435842,
-    "title": "Knowledge freshness scanner for Alfred artifacts"
-  },
-  "task_1775952013768_729c7a86": {
-    "at": 1775952046.486979,
-    "title": "Portfolio Health Snapshot \u2014 CoinUsUp, Even Us Up, Signal App, and Automation Consulting"
-  },
   "goal_1776009448607_c4e75a5a": {
     "at": 1776009702.502285,
     "title": "Command Center: add source-of-truth resolver for UI/service tasks"
+  },
+  "task_1776056568350_550ca791": {
+    "at": 1776056570.928406,
+    "title": "Notification system: add semantic dedup + stale escalation window"
   }
 }
