@@ -34,7 +34,7 @@ yarn-error.log*
 Thumbs.db
 
 # Data (signal tracking outcomes)
-data/
+/data/
 
 # Misc
 *.tsbuildinfo
