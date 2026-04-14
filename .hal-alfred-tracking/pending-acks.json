@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1776101191",
-    "title": "Log analysis & anomaly detection",
-    "agent": "hal",
-    "dispatchedAt": 1776101192.465545,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1776102093",
     "title": "Security posture check",
     "agent": "hal",
@@ -748,6 +740,14 @@
     "title": "Passive income idea scan",
     "agent": "hal",
     "dispatchedAt": 1776186809.435203,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776187710",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776187710.683285,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }

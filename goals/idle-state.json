@@ -1,12 +1,7 @@
 {
-  "lastActivityAt": "2026-04-14T17:19:55.182Z",
-  "lastActivityType": "generate-ideas",
+  "lastActivityAt": "2026-04-14T17:34:55.973Z",
+  "lastActivityType": "review-memory",
   "recentActivities": [
-    {
-      "type": "evaluate-idea",
-      "dispatchedAt": "2026-04-13T06:47:56.063Z",
-      "ideaId": "idea_1775801002644_12df2add"
-    },
     {
       "type": "goal-progress-check",
       "dispatchedAt": "2026-04-13T08:18:03.221Z"
@@ -211,8 +206,12 @@
     {
       "type": "generate-ideas",
       "dispatchedAt": "2026-04-14T17:19:55.182Z"
+    },
+    {
+      "type": "review-memory",
+      "dispatchedAt": "2026-04-14T17:34:55.973Z"
     }
   ],
-  "totalIdleDispatches": 973,
+  "totalIdleDispatches": 974,
   "cooldownMinutes": 15
 }
