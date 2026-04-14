@@ -1,29 +1,5 @@
 [
   {
-    "taskId": "proactive_1776086484",
-    "title": "Log analysis & anomaly detection",
-    "agent": "hal",
-    "dispatchedAt": 1776086484.8682501,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776087385",
-    "title": "Security posture check",
-    "agent": "hal",
-    "dispatchedAt": 1776087386.111305,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776088574",
-    "title": "Code review: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1776088575.081921,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1776089475",
     "title": "Passive income idea scan",
     "agent": "hal",
@@ -750,5 +726,29 @@
     "dispatchedAt": 1776172390.0319612,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776173290",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776173291.259809,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776174192",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776174192.506042,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776175093",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776175093.6599538,
+    "timeoutSeconds": 300,
+    "status": "pending"
   }
 ]
