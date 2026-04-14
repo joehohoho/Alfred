@@ -21,6 +21,9 @@ logs/
 *.tmp
 *.swp
 *~
+*.bak
+test-*.sh
+scripts/*.bak
 
 # API keys & secrets - NEVER commit
 *.key
