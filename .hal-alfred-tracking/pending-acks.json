@@ -1,13 +1,5 @@
 [
   {
-    "taskId": "proactive_1776082879",
-    "title": "Test coverage review: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1776082880.132531,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1776083780",
     "title": "Performance profiling: Command Center",
     "agent": "hal",
@@ -748,6 +740,14 @@
     "title": "Passive income idea scan",
     "agent": "hal",
     "dispatchedAt": 1776168785.223627,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776169686",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776169686.486636,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }

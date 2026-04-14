@@ -320,4 +320,7 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for your review and go/no-go decision. All files at /workspace/ideas/TRADER_SIGNAL_* (total 68KB, ~15 min read time). Key insight: Setup-based review workflow is missing from competitors—this fills a gap.** (_Review: Trader Signal Post-Mortem Assistant_, Apr 13 20:19)
   ID: `notif_1776111569945_1142976b` — Approve for build
+
+- **Alfred has a question** (_--list_, Apr 14 12:19)
+  ID: `notif_1776169189767_5c6cb67f` — No details provided
 <!-- PENDING-Q-END -->
