@@ -1,0 +1,42 @@
+{
+  "id": "idea_1776098740000_smb_onboarding_workflow_ca",
+  "title": "Small-Ops Onboarding Automation for Canadian SMBs",
+  "description": "**Problem**\nCanadian small business owners and contractors still manage new-hire and contractor onboarding through email, spreadsheets, and manual form collection. It's repetitive, error-prone, and eats 15-30 min per person. Bigger competitors have Rippling or BambooHR, but those are $8-20/user/month — too expensive for a 3-5 person team.\n\n**Solution**\nA lightweight, SMB-focused onboarding automation tool that captures new-hire info once, auto-generates checklists, distributes forms/docs (direct deposit, tax, emergency contact, NDA, onboarding checklist), and tracks progress. Include basic templates for Canada (CRA, provincial tax, HST, payroll deduction). Freemium: 2 people/month free, paid tiers at $29/mo (5 people) and $79/mo (25 people).\n\n**Revenue Model**\n$1.2k-$4k MRR (50-150 SMBs at $29-$79/mo). Upside from higher-tier usage and template marketplace (templates for trades, clinics, hospitality).\n\n**Why Joe**\nJoe's automation consulting background proves demand and pain. The workflow is straightforward (form, checklist, document distribution, task tracking), tech stack is simple (Next.js, Stripe, basic scheduling), and Canada-first defaults (CRA, HST, provincial rules) are a defensible wedge vs generic US tools.\n\n**Evidence**\n- Forward Funding Canada (Feb 2026): SMBs investing in automation + AI tools to reduce manual labor and improve efficiency\n- Activepieces (Jan 2026): Workflow automation adoption in 2026 saves time and cuts costs, helping small businesses compete with bigger competitors\n- Paychex (Mar 2026): Workflow automation creates dynamic task sequences tailored to role/location/department instead of one-size-fits-all checklists\n- Leena AI, Rippling, BambooHR all market onboarding automation, validating demand but also proving most solutions are expensive for micro-SMBs",
+  "category": "passive-income",
+  "status": "new",
+  "source": "alfred-generated",
+  "effort": "medium",
+  "potential": "medium",
+  "revenueModel": "SaaS subscription: $29/mo (5 hires/mo), $79/mo (25 hires/mo), freemium tier (2 hires/mo). Expansion via template marketplace.",
+  "synergies": ["automation-consulting", "Even Us Up"],
+  "evaluation": {
+    "score": 7.6,
+    "notes": "Real market demand: Forward Funding + Activepieces confirm SMB automation adoption. Price-sensitive gap: BambooHR ($8-20/user) is too expensive for micro-SMBs. Tech fit: simple workflow, no heavy integration complexity, bootstrappable. Defensible wedge: Canada-first templates (CRA, HST, payroll deduction rules) are hard for US tools to localize. Secondary priority vs CoinUsUp trial, but solid fit for Q2-Q3 build."
+  },
+  "researchEvidence": [
+    {
+      "source": "Forward Funding Canada (Feb 10, 2026)",
+      "finding": "Canadian SMBs investing in automation + AI tools to reduce manual labor and improve productivity in 2026. Clear investment trend."
+    },
+    {
+      "source": "Activepieces (Jan 12, 2026)",
+      "finding": "Workflow automation in 2026 saves time and cuts costs, helping small businesses compete. Adoption is growing."
+    },
+    {
+      "source": "Paychex (Mar 2026)",
+      "finding": "AI workflow automation creates dynamic task sequences tailored to role/location/department. Moves away from static checklists."
+    },
+    {
+      "source": "Enboarder (Oct 2025)",
+      "finding": "Existing solutions: Workday (enterprise), Rippling ($449-749/mo base), BambooHR ($8-20/user). Gap: no affordable focused onboarding tool for 3-10 person teams."
+    },
+    {
+      "source": "Joe's automation consulting background (USER.md)",
+      "finding": "Active consulting revenue validates recurring onboarding pain. Direct customer feedback on where small teams struggle with manual workflows."
+    }
+  ],
+  "demandValidation": "Demand validated by multiple sources: Forward Funding + Activepieces confirm SMB automation adoption trend in Canada, Paychex documents workflow automation as best practice, existing competitors (Rippling, BambooHR) prove willingness-to-pay. Gap: all existing tools are expensive for micro-SMBs or US-centric. Joe's automation consulting provides direct pipeline + validation.",
+  "tags": ["passive-income", "canadian-smb", "onboarding-automation", "workflow", "saas", "recurring-revenue"],
+  "createdAt": "2026-04-14T02:19:00Z",
+  "updatedAt": "2026-04-14T02:19:00Z"
+}
