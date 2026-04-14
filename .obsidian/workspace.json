@@ -179,6 +179,8 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "memory/2026-04-14.md",
+    "reports/daily-ops-2026-04-14.md",
     "goals/ideas-new-1775941560000.json",
     "reports/workspace-health-2026-04-14.md",
     "reports/security-audit-coinusup-2026-04-13.md",
@@ -205,7 +207,6 @@
     "scratch/PARTNER-MODE-V1.md",
     "scratch/METRIC-CONTRACT.md",
     "scratch/LEARNINGS.md",
-    "scratch/INNOVATION-LOG.md",
     "infrastructure/monitoring",
     "infrastructure/system-design",
     "docs/policies",
@@ -213,7 +214,6 @@
     "docs/operational",
     "projects/passive-income",
     "infrastructure/deployments",
-    "infrastructure/cron",
-    "templates"
+    "infrastructure/cron"
   ]
 }
