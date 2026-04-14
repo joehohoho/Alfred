@@ -1,101 +1,5 @@
 [
   {
-    "taskId": "proactive_1776028808",
-    "title": "Log analysis & anomaly detection",
-    "agent": "hal",
-    "dispatchedAt": 1776028809.070764,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776029709",
-    "title": "Security posture check",
-    "agent": "hal",
-    "dispatchedAt": 1776029710.273816,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776030611",
-    "title": "Code review: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1776030611.438165,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776031512",
-    "title": "Passive income idea scan",
-    "agent": "hal",
-    "dispatchedAt": 1776031512.529284,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776032413",
-    "title": "Dependency audit: CoinUsUp",
-    "agent": "hal",
-    "dispatchedAt": 1776032413.71753,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776033314",
-    "title": "Signal App research",
-    "agent": "hal",
-    "dispatchedAt": 1776033314.8205519,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776034215",
-    "title": "Infrastructure health check",
-    "agent": "hal",
-    "dispatchedAt": 1776034216.033737,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776035116",
-    "title": "CoinUsUp SEO quick wins",
-    "agent": "hal",
-    "dispatchedAt": 1776035117.1983821,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776036017",
-    "title": "Passive income idea scan (Canada-specific)",
-    "agent": "hal",
-    "dispatchedAt": 1776036018.30613,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776036919",
-    "title": "Code review: Market Signal Lab",
-    "agent": "hal",
-    "dispatchedAt": 1776036919.5097651,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776037820",
-    "title": "System monitoring report",
-    "agent": "hal",
-    "dispatchedAt": 1776037820.6915069,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776038721",
-    "title": "Documentation freshness audit",
-    "agent": "hal",
-    "dispatchedAt": 1776038721.7936902,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1776039622",
     "title": "Test coverage review: CoinUsUp",
     "agent": "hal",
@@ -764,6 +668,102 @@
     "title": "Passive income idea scan",
     "agent": "hal",
     "dispatchedAt": 1776114712.377305,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776115613",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776115613.632989,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776116514",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776116514.774698,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776117415",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776117416.0471199,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776118316",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776118317.305734,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776119218",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776119218.464809,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776120119",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776120119.69583,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776121020",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776121020.821804,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776121921",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776121922.090917,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776122822",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776122823.24518,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776123724",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776123724.4703848,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776124625",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776124625.584497,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776125526",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776125526.850825,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }
