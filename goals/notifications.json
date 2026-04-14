@@ -689,5 +689,14 @@
     "answered": false,
     "createdAt": "2026-04-13T20:19:29.945Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776169189767_5c6cb67f",
+    "type": "--list",
+    "title": "Alfred has a question",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-14T12:19:49.767Z",
+    "answeredAt": null
   }
 ]
