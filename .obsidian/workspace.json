@@ -179,6 +179,7 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "MORNING-BRIEF-LATEST.md",
     "goals/ideas-new.json",
     "memory/2026-04-14.md",
     "reports/daily-ops-2026-04-14.md",
@@ -213,7 +214,6 @@
     "docs/guides",
     "docs/operational",
     "projects/passive-income",
-    "infrastructure/deployments",
-    "infrastructure/cron"
+    "infrastructure/deployments"
   ]
 }

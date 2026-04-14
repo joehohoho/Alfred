@@ -61,14 +61,10 @@ mkdir -p "$REPORT_DIR"
   echo "## 3. Kanban Board Health"
   echo ""
 
-  # Check kanban via API
-  if curl -s http://localhost:3001/api/kanban > /dev/null 2>&1; then
-    IN_PROGRESS=$(curl -s http://localhost:3001/api/kanban | jq '.columns.in_progress | length' 2>/dev/null || echo "?")
-    echo "✅ Kanban API reachable"
-    echo "**In Progress Cards:** $IN_PROGRESS"
-  else
-    echo "⚠️ Kanban API unreachable"
-  fi
+  # NOTE: Kanban API is blocked by gateway security (localhost calls denied).
+  # Use Command Center UI directly at http://localhost:3002 to check kanban status.
+  echo "**Status:** Kanban API unavailable (blocked by gateway security)"
+  echo "**Action:** Check kanban manually via Command Center UI at http://localhost:3002"
   echo ""
   echo "---"
   echo ""
