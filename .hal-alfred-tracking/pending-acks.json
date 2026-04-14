@@ -1,29 +1,5 @@
 [
   {
-    "taskId": "proactive_1776098488",
-    "title": "Performance profiling: Command Center",
-    "agent": "hal",
-    "dispatchedAt": 1776098488.5185668,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776099389",
-    "title": "Dead code & cleanup sweep",
-    "agent": "hal",
-    "dispatchedAt": 1776099389.830132,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
-    "taskId": "proactive_1776100290",
-    "title": "Git hygiene",
-    "agent": "hal",
-    "dispatchedAt": 1776100291.125304,
-    "timeoutSeconds": 300,
-    "status": "timed_out"
-  },
-  {
     "taskId": "proactive_1776101191",
     "title": "Log analysis & anomaly detection",
     "agent": "hal",
@@ -748,6 +724,30 @@
     "title": "Passive income idea scan",
     "agent": "hal",
     "dispatchedAt": 1776184105.8541949,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776185006",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776185007.0124218,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776185907",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776185908.2942731,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776186809",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776186809.435203,
     "timeoutSeconds": 300,
     "status": "timed_out"
   }

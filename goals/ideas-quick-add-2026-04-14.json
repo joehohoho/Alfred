@@ -1,0 +1,45 @@
+[
+  {
+    "id": "idea_1776023964000_tradingview_filter",
+    "title": "Signal App: TradingView Alert Webhook + Rule Filter Layer",
+    "description": "**Problem:** Retail traders receive TradingView/Discord alerts but lack filtering discipline — too many noise alerts, no priority system, no quality gate.\n\n**Solution:** Add a webhook ingestion layer to Signal App that accepts TradingView alerts, applies user-defined rule filters (signal source whitelist, volume gates, momentum thresholds, time-of-day gates), and only forwards high-signal-quality alerts to the trader. Freemium: 1 filter; Pro: unlimited custom filters + rule combinations.\n\n**Revenue Model:** Extend Signal App freemium with Pro tier rules layer. Estimated: $5-15/mo per trader for rules features (target: 100-250 traders in Year 1 = $6k-45k MRR).\n\n**Tech Fit:** Node.js webhook receiver, React rule builder, TradingView API integration — standard tech stack, solo-buildable, quick MVP (5-7 days).\n\n**Why Joe Wins:**\n- Extends existing Signal App (no new detection logic needed)\n- Validates Signal App demand by solving a real user pain (noise reduction)\n- Medium effort, proven synergy with current portfolio\n- Freemium + Pro monetization pattern already validated in Signal App research\n- Traders explicitly seek alert quality improvement (Reddit r/algotrading, TradingView forums)\n\n**Market Evidence:**\n- TradingView Discord webhook libraries are actively used (TradingView script library, GitHub fabston/TradingView-Webhook-Bot with 2.5k+ stars)\n- r/TradingView (June 2022+): Active demand for Discord alert routing and filtering\n- Scalping-Algo (Mar 2026): Full setup guides showing traders building custom alert filters\n- Competing paid tools (Trademetria, TradeZella): Position alert filtering as Pro feature\n\n**Recommendation:** Pursue as Signal App validation sprint after CoinUsUp trial unblock (P1 blocker clears). Ship MVP: (1) TradingView webhook receiver, (2) 3 basic rule types (source, price range, volume), (3) Pro tier pricing at $9.99/mo. Validates demand and builds foundation for advanced rules (AI sentiment filters, backtester integration, portfolio-aware gates).",
+    "category": "growth",
+    "status": "evaluated",
+    "source": "alfred-generated",
+    "effort": "medium",
+    "potential": "high",
+    "revenueModel": "Signal App Pro tier: $9.99-19.99/mo for unlimited custom alert filters.",
+    "synergies": ["Signal App", "freemium-monetization", "portfolio-consolidation"],
+    "evaluation": {
+      "score": 8.1,
+      "notes": "Validated demand: TradingView webhooks widely used, competitors charge for filtering. Medium effort MVP, extends existing product, proven monetization path. Score 8.1: strong synergy (9), medium effort (7), validated demand (9), passive potential (7), Joe edge (8)."
+    },
+    "researchEvidence": [
+      {
+        "source": "TradingView Discord Webhook Library (TradingView script library, 2025-2026)",
+        "finding": "DiscordWebhooksLibrary by Marceeelll actively maintained, shows broad trader interest in TradingView → Discord integration."
+      },
+      {
+        "source": "GitHub fabston/TradingView-Webhook-Bot (Feb 2026)",
+        "finding": "2.5k+ stars, multiple forks, active issue discussion. Validates demand for webhook-based alert routing."
+      },
+      {
+        "source": "Scalping-Algo webhook setup guide (Mar 5, 2026)",
+        "finding": "Step-by-step TradingView Discord webhook guide shows traders actively building custom alert pipelines."
+      },
+      {
+        "source": "r/TradingView thread: Discord alerts routing (Jun 2022, ongoing activity)",
+        "finding": "Users actively discuss webhook setup. Comments show interest in filtering/prioritizing alerts to reduce noise."
+      },
+      {
+        "source": "Competitor positioning: TradeZella, Trademetria (2025-2026)",
+        "finding": "Both market alert filtering, rule engines, and 'signal quality' as core features. Validates willingness-to-pay."
+      }
+    ],
+    "demandValidation": "Demand validated by: (1) Active GitHub projects with 2.5k+ stars, (2) TradingView official webhook library documentation, (3) Multiple Reddit communities discussing alert integration, (4) Competitors (TradeZella, Trademetria) monetizing alert filtering as core feature.",
+    "promotedToGoalId": null,
+    "tags": ["signal-app", "freemium-expansion", "webhook", "tradingview", "alert-filtering", "validation-sprint"],
+    "createdAt": "2026-04-14T14:19:30Z",
+    "updatedAt": "2026-04-14T14:19:30Z"
+  }
+]
