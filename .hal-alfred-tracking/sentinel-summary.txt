@@ -1,1 +1,1 @@
-DEGRADED: idle_loop
+ALL HEALTHY

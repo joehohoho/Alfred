@@ -179,6 +179,9 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "goals/idea-alert-journal-2026-04-14.json",
+    "scripts/pre-flight-json-check.sh",
+    "scripts/agent-json-validator.sh",
     "goals/ideas-quick-add-2026-04-14.json",
     "JOE-PROFILE.md",
     "MORNING-BRIEF-LATEST.md",
@@ -211,9 +214,6 @@
     "infrastructure/monitoring",
     "infrastructure/system-design",
     "docs/policies",
-    "docs/guides",
-    "docs/operational",
-    "projects/passive-income",
-    "infrastructure/deployments"
+    "docs/guides"
   ]
 }
