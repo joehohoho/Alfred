@@ -323,4 +323,7 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **Alfred has a question** (_--list_, Apr 14 12:19)
   ID: `notif_1776169189767_5c6cb67f` — No details provided
+
+- **What would make your consulting work more systematic or scalable?** (_question_, Apr 14 13:00)
+  ID: `notif_1776171600763_0cfd371b` — Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?
 <!-- PENDING-Q-END -->

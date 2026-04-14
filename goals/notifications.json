@@ -698,5 +698,15 @@
     "answered": false,
     "createdAt": "2026-04-14T12:19:49.767Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776171600763_0cfd371b",
+    "type": "question",
+    "title": "What would make your consulting work more systematic or scalable?",
+    "message": "Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-14T13:00:00.763Z",
+    "answeredAt": null
   }
 ]
