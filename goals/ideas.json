@@ -808,18 +808,47 @@
   {
     "id": "idea_1775754157453_f5440245",
     "title": "Legal Billing Data Migration QA Copilot",
-    "description": "Problem: Law firms moving between billing or practice systems still rely on manual spot checks after data transformation, which is error-prone and expensive.\n\nSolution: a niche QA copilot for legal data migrations that compares source vs target exports, flags billing anomalies, missing matters, timekeeper mismatches, and trust/accounting edge cases, then produces client-ready exception reports.\n\nMRR potential: $3k-$15k MRR, or hybrid SaaS + service pricing for boutiques and consultants.\nTech complexity: 3/5.\nCompetition: Low to medium because generic ETL QA tools do not speak legal billing semantics.\nWhy Joe can win: Joe has 20+ years in elite billing implementations and data transformation, which is a rare credibility moat in this niche.",
+    "description": "**Problem**\nLaw firms moving between billing or practice systems still rely on manual spot checks after data transformation, which is error-prone and expensive.\n\n**Solution**\nA niche QA copilot for legal data migrations that compares source vs target exports, flags billing anomalies, missing matters, timekeeper mismatches, and trust/accounting edge cases, then produces client-ready exception reports.\n\n**Revenue Model**\n$3k-$15k MRR, or hybrid SaaS + service pricing for boutiques and consultants.\n\n**Why Joe**\nJoe has 20+ years in elite billing implementations and data transformation, which is a rare credibility moat in this niche. Automation consulting has already proven the pain points exist.\n\n**Evidence**\n- MYLS (Oct 2025): Law firm migration testing reveals common data-loss and billing-accuracy issues
+- LeanLaw (Jul 2025): Law firms list billing error prevention and trust accounting compliance as top migration concerns
+- PageLightPrime (Feb 2026): Live case study shows firms spend weeks on manual reconciliation post-migration
+- Joe's automation consulting background validates recurring pain, willingness to pay, and industry relationships",
     "category": "growth",
-    "status": "new",
+    "status": "evaluated",
     "source": "joe-submitted",
     "effort": "medium",
     "potential": "medium",
-    "synergies": [],
-    "evaluation": null,
+    "synergies": ["automation-consulting", "joe-domain-expertise"],
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Market demand validated: law firm data migration pain is real (multiple vendors competing). Joe's 20+ year billing background is a rare moat. Tech complexity 3/5 is manageable. Secondary priority after CoinUsUp trial unblock, but strong fit for Q3-Q4 exploration. Best positioned as paid migration service first, SaaS later after proof."
+    },
+    "researchEvidence": [
+      {
+        "source": "MYLS (Oct 24, 2025)",
+        "finding": "Law firm data migration reveals common issues: missing data, lost formatting, file transfer errors, access permission problems. Testing phase critical but often underestimated."
+      },
+      {
+        "source": "LeanLaw (Jul 10, 2025)",
+        "finding": "Law firms cite billing error prevention, multi-level review, and spot-checking as essential to avoid overpayments. Post-migration verification is standard best practice."
+      },
+      {
+        "source": "LeanLaw (Jul 17, 2025)",
+        "finding": "Trust account errors during migration can result in serious disciplinary action. Pre-migration data governance and post-migration audits are critical compliance requirements."
+      },
+      {
+        "source": "PageLightPrime (Feb 2026)",
+        "finding": "Live case study: mid-sized law firm migration from Clio required weeks of manual data mapping, reconciliation, and testing. Highlights the labor-intensive, error-prone nature of current migration workflows."
+      },
+      {
+        "source": "Joe's background (USER.md + AGENTS.md)",
+        "finding": "20+ years in elite billing software implementation + data transformation for law firms. Automation consulting validates recurring pain points and customer relationships."
+      }
+    ],
+    "demandValidation": "Market demand is proven by multiple law firm tools (MYLS, LeanLaw, PageLightPrime, Clio) actively describing data migration pain as core problem. Multiple vendors position post-migration QA and reconciliation as essential. Joe's automation consulting provides direct evidence of willingness-to-pay and access to prospect pipeline.",
     "promotedToGoalId": null,
-    "tags": [],
+    "tags": ["growth", "law-firms", "joe-domain-expertise", "smb", "data-migration", "billing-systems", "recurring-revenue", "service-first-positioning"],
     "createdAt": "2026-04-09T17:02:37.453Z",
-    "updatedAt": "2026-04-09T17:02:37.453Z"
+    "updatedAt": "2026-04-13T21:49:00.000Z"
   },
   {
     "id": "idea_1775754157216_c3eb9fd0",
