@@ -21,27 +21,12 @@
     "manuallyResolved": true
   },
   "idle_loop": {
-    "status": "degraded",
-    "fixAttempts": [
-      {
-        "fix": "reset-cooldown",
-        "success": true,
-        "at": 1776239893.6960409
-      },
-      {
-        "fix": "reset-cooldown",
-        "success": true,
-        "at": 1776240198.548543
-      },
-      {
-        "fix": "reset-cooldown",
-        "success": true,
-        "at": 1776240503.548139
-      }
-    ],
-    "lastCheck": "2026-04-15T08:08:23Z",
-    "lastNotified": 0,
-    "lastFixTime": 1776240503.54814
+    "status": "healthy",
+    "reason": "idle_loop running normally (15-min cooldown is intentional)",
+    "lastCheck": 1776240579.526309,
+    "fixAttempts": [],
+    "onCooldown": true,
+    "cooldownExpiry": 1776241479.52631
   },
   "sessions": {
     "status": "healthy",
