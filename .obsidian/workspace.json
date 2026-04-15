@@ -179,6 +179,8 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "reports/workspace-health-2026-04-15.md",
+    "reports/cost-analysis-2026-04-14.md",
     "goals/idea-alert-journal-2026-04-14.json",
     "scripts/pre-flight-json-check.sh",
     "scripts/agent-json-validator.sh",
@@ -210,10 +212,8 @@
     "scratch/TASK-TRACKING.md",
     "scratch/STATE-OF-WORK.md",
     "scratch/SCHEDULE.md",
-    "scratch/PRODUCTIVITY-PLAN.md",
     "infrastructure/monitoring",
     "infrastructure/system-design",
-    "docs/policies",
-    "docs/guides"
+    "docs/policies"
   ]
 }
