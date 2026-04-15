@@ -16,5 +16,13 @@
       "addedAt": "2026-03-29T23:45:25Z",
       "addedBy": "agent"
     }
-  ]
+  ],
+  "components": {
+    "hal": {
+      "description": "HAL Windows gateway (192.168.2.79:18789) is offline. Implemented graceful degradation: switch to Alfred-only dispatch mode when HAL unavailable. Created hal-unavailability-handler.sh. Reset sentinel state to avoid repeated failed attempts. Alfred can handle all proactive work without HAL.",
+      "fix_script": "hal-unavailability-handler.sh",
+      "last_updated": "2026-04-15T07:53:36Z",
+      "added_by": "Alfred"
+    }
+  }
 }
