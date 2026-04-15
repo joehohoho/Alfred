@@ -1,14 +1,6 @@
 {
-  "goal_1776009448607_c4e75a5a": {
-    "at": 1776009702.502285,
-    "title": "Command Center: add source-of-truth resolver for UI/service tasks"
-  },
-  "task_1776056568350_550ca791": {
-    "at": 1776056570.928406,
-    "title": "Notification system: add semantic dedup + stale escalation window"
-  },
-  "task_1776063776962_b8004ba1": {
-    "at": 1776063779.538217,
-    "title": "HAL/Alfred dispatch observability panel with queue debt + token-aware routing"
+  "task_1776231233660_b4350b92": {
+    "at": 1776231347.825644,
+    "title": "AI Grant Writer for Nonprofits \u2014 Freemium SaaS"
   }
 }

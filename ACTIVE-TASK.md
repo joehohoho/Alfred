@@ -1,18 +1,19 @@
 # ACTIVE-TASK.md — Current Work Status
 
 **Status:** completed → review  
-**Assignment:** Trader Signal Post-Mortem Assistant (task_1776103351415_8db335c2)  
-**Timeline:** 2026-04-13 15:03-17:18 ADT (2h 15m)  
+**Assignment:** AI Grant Writer for Nonprofits — Freemium SaaS (task_1776231233660_b4350b92)  
+**Timeline:** 2026-04-15 02:35-04:32 ADT (2h 57m)  
 **Card Status:** ✅ MOVED TO REVIEW  
 
 ---
 
-## Objective (COMPLETED)
+## Objective
 
-Build comprehensive MVP specification for post-trade review assistant:
-- **Problem:** Traders collect 20-100+ alerts/week but don't review signal quality → repeat bad setups
-- **Solution:** Signal ingestion → grouping by setup → outcome tracking → weekly "what worked" reports
-- **Target:** $1.5k-$6k MRR (50-150 traders at $29-$59/mo)
+Build comprehensive MVP specification and business validation for AI Grant Writer SaaS:
+- **Problem:** Nonprofits lack dedicated grant writers; proposals take weeks to draft; funder prospecting is manual
+- **Solution:** AI copilot for drafting + funder discovery + templates + collaboration
+- **Target:** $2.5k-$15k MRR (50-200 Pro users at $50-$99/mo)
+- **Synergy:** Direct complement to CoinUsUp (warm nonprofit prospect base)
 
 ---
 

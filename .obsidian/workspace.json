@@ -179,6 +179,13 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "reports/daily-ops-2026-04-15.md",
+    "ideas/GRANT_WRITER_COMPLETION_EVIDENCE_2026-04-15.md",
+    "ideas/GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md",
+    "ideas/GRANT_WRITER_PROJECT_BOOTSTRAP_2026-04-15.md",
+    "ideas/GRANT_WRITER_MVP_PLAN_2026-04-15.md",
+    "ideas/GRANT_WRITER_TECH_SPEC_2026-04-15.md",
+    "ideas/GRANT_WRITER_BLUEPRINT_2026-04-15.md",
     "scripts/cleanup-read-errors.sh",
     "scripts/validate-read-path.sh",
     "memory/2026-04-15.md",
@@ -206,14 +213,7 @@
     "scratch/RESOLVER.md",
     "scratch/PRD.md",
     "infrastructure/config/LOCAL-MODEL-OPTIMIZATION.md",
-    "infrastructure/config/GIT-CONFIG.md",
     "infrastructure/config",
-    "scratch/security-posture-2026-03-31.md",
-    "scratch/YOUTUBE-VIDEO-ACTION-PLAN.md",
-    "scratch/UTILIZATION-FIX-COMPLETE-2026-03-10.md",
-    "scratch/TEST-RESULTS-2026-02-17.md",
-    "scratch/TASK-TRACKING.md",
-    "infrastructure/monitoring",
-    "infrastructure/system-design"
+    "infrastructure/monitoring"
   ]
 }
