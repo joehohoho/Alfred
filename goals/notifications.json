@@ -708,5 +708,17 @@
     "answered": false,
     "createdAt": "2026-04-14T13:00:00.763Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776241279641_df89d307",
+    "type": "--card-id",
+    "title": "task_1773156748695_23b9e471",
+    "message": "--question",
+    "goalId": "[REMINDER] 14-day free trial code is 100% ready. Need 5 min: update 12 Stripe product prices (Basic/Pro × US/CA × Monthly/Annual) with trial_period_days=14. Want to proceed?",
+    "taskId": "--context",
+    "source": "All code, tests, frontend, migrations complete. Staging ready. Only blocker: Stripe dashboard config.",
+    "answered": false,
+    "createdAt": "2026-04-15T08:21:19.641Z",
+    "answeredAt": null
   }
 ]

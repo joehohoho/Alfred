@@ -2,31 +2,56 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T08:08:19Z",
+    "lastCheck": "2026-04-15T08:18:57Z",
     "lastNotified": 1776231031.084927,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T08:08:19Z",
+    "lastCheck": "2026-04-15T08:18:57Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
-    "status": "degraded",
-    "reason": "Windows gateway offline — using Alfred-only dispatch mode (auto-recovery when HAL returns)",
-    "lastCheck": 1776240546.896693,
-    "fixAttempts": [],
-    "manuallyResolved": true
+    "status": "down",
+    "reason": "Windows gateway offline \u2014 using Alfred-only dispatch mode (auto-recovery when HAL returns)",
+    "lastCheck": "2026-04-15T08:19:00Z",
+    "fixAttempts": [
+      {
+        "fix": "reset-fail-counter",
+        "success": false,
+        "at": 1776240835.8008242
+      },
+      {
+        "fix": "reset-fail-counter",
+        "success": false,
+        "at": 1776241141.0892658
+      }
+    ],
+    "manuallyResolved": true,
+    "lastFixTime": 1776241141.0892658,
+    "lastNotified": 1776240836.294493
   },
   "idle_loop": {
-    "status": "healthy",
+    "status": "degraded",
     "reason": "idle_loop running normally (15-min cooldown is intentional)",
-    "lastCheck": 1776240579.526309,
-    "fixAttempts": [],
+    "lastCheck": "2026-04-15T08:19:01Z",
+    "fixAttempts": [
+      {
+        "fix": "reset-cooldown",
+        "success": true,
+        "at": 1776240836.675734
+      },
+      {
+        "fix": "reset-cooldown",
+        "success": true,
+        "at": 1776241141.6829371
+      }
+    ],
     "onCooldown": true,
-    "cooldownExpiry": 1776241479.52631
+    "cooldownExpiry": 1776241479.52631,
+    "lastFixTime": 1776241141.682938
   },
   "sessions": {
     "status": "healthy",
@@ -37,35 +62,35 @@
         "at": 1776098304.1097338
       }
     ],
-    "lastCheck": "2026-04-15T08:08:23Z",
+    "lastCheck": "2026-04-15T08:19:01Z",
     "lastNotified": 0,
     "lastFixTime": 1776098304.109735
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T08:08:23Z",
+    "lastCheck": "2026-04-15T08:19:01Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T08:08:24Z",
+    "lastCheck": "2026-04-15T08:19:02Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T08:08:23Z",
+    "lastCheck": "2026-04-15T08:19:01Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T08:08:23Z",
+    "lastCheck": "2026-04-15T08:19:02Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }

@@ -179,6 +179,14 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "memory/idle-loop-fix-2026-04-15.md",
+    "memory/idle-loop-diagnostic-2026-04-15.md",
+    "memory/hal-sentinel-fix-2026-04-15.md",
+    "scripts/hal-unavailability-handler.sh",
+    "memory/hal-fix-2026-04-15.md",
+    "memory/hal-diagnostic-2026-04-15.md",
+    "memory/income-scan-2-2026-04-15.md",
+    "memory/income-scan-2026-04-15.md",
     "reports/daily-ops-2026-04-15.md",
     "ideas/GRANT_WRITER_COMPLETION_EVIDENCE_2026-04-15.md",
     "ideas/GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md",
@@ -206,14 +214,6 @@
     "HEARTBEAT.md",
     "START-HERE.md",
     "INDEX.md",
-    "ideas/kanban-ideas.md",
-    "scratch/SECURITY-POSTURE-CHECK-2026-03-30.md",
-    "scratch/SECURITY-POSTURE-CHECK-2026-03-27.md",
-    "scratch/INFRASTRUCTURE-IMPROVEMENTS-2026-03-27.md",
-    "scratch/RESOLVER.md",
-    "scratch/PRD.md",
-    "infrastructure/config/LOCAL-MODEL-OPTIMIZATION.md",
-    "infrastructure/config",
-    "infrastructure/monitoring"
+    "infrastructure/config"
   ]
 }
