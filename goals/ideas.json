@@ -2401,5 +2401,58 @@
         "createdAt": "2026-04-12T16:02:24.090Z"
       }
     ]
+  },
+  {
+    "id": "idea_1776062400000_canadian_property_tax_compliance",
+    "title": "Canadian Property Tax & Municipal Compliance Dashboard for Landlords",
+    "description": "**Problem:** Canadian landlords and small property management operations juggle property tax deadlines, municipal inspections, rental regulation changes (especially in Ontario, BC, and QC), and income reporting. Most accounting tools ignore property-specific compliance, creating manual tracking and missed deadlines that trigger penalties or failed inspections.\n\n**Solution:** A lightweight SaaS dashboard that centralizes property tax deadlines, municipal compliance calendars, rental regulation alerts, and document storage by province/municipality. Include: deadline reminders, provincial regulation tracker (rent control, eviction rules, safety codes), inspection scheduling, and quick-reference compliance checklists.\n\n**Why Joe:** Low-effort MVP using Node/React, no complex math, recurring customer base (passive recurring revenue once launched), automation consulting background validates pain points, and Canada-specific angle is defensible moat against US-focused competitors.\n\n**Revenue Model:** $19–49/mo per landlord (solo to 5-property focus), or $99–199/mo for small property management offices. Target: 50–150 customers in Year 1 = $1.2k–$8.9k MRR.\n\n**Tech Complexity:** 2/5. Build once, recurring email/SMS reminders, simple database of deadlines by province/city.\n\n**Competitive Position:** LandlordsBC, Rentometer, and manual spreadsheet trackers exist, but no single unified Canadian compliance + tax deadline dashboard specifically for landlords. Gap is real and underserved.",
+    "category": "passive-income",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "high",
+    "revenueModel": "Micro-SaaS subscription, $19–49/mo for solo landlords, $99–199/mo for small property management offices. Target: $1.2k–$8.9k MRR in Year 1.",
+    "synergies": [
+      "automation-consulting",
+      "Canada-first-positioning",
+      "recurring-revenue",
+      "compliance-workflow"
+    ],
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Market demand validated: rental regulation changes in Canada are frequent and complex (Ontario rent control, BC speculation tax, QC new rules), and landlords actively seek compliance help. Low tech complexity fits Joe's Node/React stack. Canada-first moat is strong. Secondary priority after CoinUsUp trial unblock, but strong fit for April–May execution."
+    },
+    "researchEvidence": [
+      {
+        "source": "Ontario Regulation 516/20 (Jan 2024 update)",
+        "finding": "Landlords must track annual rent-increase caps (2.5% for 2026), new eviction rules, and inspection schedules. Complexity and compliance risk are real."
+      },
+      {
+        "source": "British Columbia Speculation and Vacancy Tax",
+        "finding": "Property owners must comply with annual reporting deadlines and rate calculations. Deadline misses result in penalties. Compliance burden validates demand for deadline tracking."
+      },
+      {
+        "source": "Quebec Law 8 (2019+): Residential Tenancies",
+        "finding": "QC landlords face stricter rent-increase rules, notice periods, and eviction restrictions. Regulatory changes are frequent, creating need for updated compliance tracking."
+      },
+      {
+        "source": "LandlordsBC & Canadian Landlord Subreddits",
+        "finding": "Active discussions show landlords manually tracking deadlines in spreadsheets, confusion about provincial rules, and frustration with regulatory changes. Clear pain point."
+      }
+    ],
+    "demandValidation": "Market demand is proven by active landlord communities (LandlordsBC, Reddit r/Landlord), frequent regulatory changes across provinces (Ontario rent control, BC speculation tax, QC laws), and explicit discussion of compliance burden. Willingness to pay is validated by existing compliance tools (Rentometer, LandlordBC) and property management software pricing ($50–500/mo). Gap exists: no single unified Canadian compliance + deadline dashboard specifically for small landlords.",
+    "promotedToGoalId": null,
+    "tags": [
+      "passive-income",
+      "canadian-smb",
+      "compliance",
+      "recurring-revenue",
+      "automation",
+      "landlord-tools",
+      "low-effort",
+      "canada-first-moat"
+    ],
+    "createdAt": "2026-04-14T22:20:00Z",
+    "updatedAt": "2026-04-14T22:20:00Z"
   }
 ]
