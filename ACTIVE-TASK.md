@@ -333,4 +333,10 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **Implementation is complete. To finish: either (A) Update the 12 Basic/Pro tier prices in Stripe dashboard to enable trials, or (B) Skip this feature for now. Which would you prefer?** (_[REMINDER] 14-day Free Trial — Stripe Configuration Needed_, Apr 15 16:21)
   ID: `notif_1776270113597_79b10ca4` — task_1773156748695_23b9e471
+
+- **Card task_1774058538023_ae4bf3d2 has been blocked since 2026-04-08 waiting for you to choose the build direction. Last reminder was Apr 9.** (_Bill Review & Invoice Audit Automation — Scope Decision Needed (Reminder)_, Apr 15 20:22)
+  ID: `notif_1776284521725_0c434a2c` — Please select ONE:\n\n**A) Personal Internal Tool** — Build a simple invoice audit tool for your own use first\n\n**B) External SaaS MVP** — Build fre...
+
+- **Card task_1773156748695_23b9e471 has been fully implemented and is waiting for your Stripe dashboard update since 2026-04-09. Last reminder was Apr 9.** (_14-day Trial Implementation — Stripe Config Step (Reminder)_, Apr 15 20:22)
+  ID: `notif_1776284524796_1d6fca66` — **Next Step:**\nLog into Stripe dashboard and create/update 12 Basic/Pro price objects with 14-day trial. Once done, the feature goes live.\n\n**Or:**...
 <!-- PENDING-Q-END -->

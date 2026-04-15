@@ -726,5 +726,27 @@
     "answered": false,
     "createdAt": "2026-04-15T16:21:53.597Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776284521725_0c434a2c",
+    "type": "Bill Review & Invoice Audit Automation — Scope Decision Needed (Reminder)",
+    "title": "Card task_1774058538023_ae4bf3d2 has been blocked since 2026-04-08 waiting for you to choose the build direction. Last reminder was Apr 9.",
+    "message": "Please select ONE:\\n\\n**A) Personal Internal Tool** — Build a simple invoice audit tool for your own use first\\n\\n**B) External SaaS MVP** — Build freemium SaaS targeting Canadian SMBs (.5k-15k MRR potential)\\n\\nWhich approach would you prefer? Or should we defer this project?",
+    "goalId": "Need a single direction choice to unblock development",
+    "taskId": "Bill Review invoice audit SaaS",
+    "answered": false,
+    "createdAt": "2026-04-15T20:22:01.725Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1776284524796_1d6fca66",
+    "type": "14-day Trial Implementation — Stripe Config Step (Reminder)",
+    "title": "Card task_1773156748695_23b9e471 has been fully implemented and is waiting for your Stripe dashboard update since 2026-04-09. Last reminder was Apr 9.",
+    "message": "**Next Step:**\\nLog into Stripe dashboard and create/update 12 Basic/Pro price objects with 14-day trial. Once done, the feature goes live.\\n\\n**Or:** If you'd prefer to skip the trial feature for now, just say 'defer' and I'll move it to the backlog.",
+    "goalId": "Stripe dashboard configuration required or explicit skip decision",
+    "taskId": "14-day free trial Stripe setup",
+    "answered": false,
+    "createdAt": "2026-04-15T20:22:04.796Z",
+    "answeredAt": null
   }
 ]
