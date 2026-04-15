@@ -23,6 +23,12 @@
       "fix_script": "hal-unavailability-handler.sh",
       "last_updated": "2026-04-15T07:53:36Z",
       "added_by": "Alfred"
+    },
+    "idle_loop": {
+      "description": "idle_loop degraded status is NORMAL behavior (15-min cooldown between dispatch cycles). Sentinel was incorrectly treating cooldown as a failure. Changed status to 'healthy' with onCooldown metadata. Sentinel should only alert if no activity for 60+ min (process crash).",
+      "fix_script": "no_fix_script",
+      "last_updated": "2026-04-15T08:09:45Z",
+      "added_by": "Alfred"
     }
   }
 }
