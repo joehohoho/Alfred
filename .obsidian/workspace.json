@@ -179,6 +179,9 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "scripts/cleanup-read-errors.sh",
+    "scripts/validate-read-path.sh",
+    "memory/2026-04-15.md",
     "reports/workspace-health-2026-04-15.md",
     "reports/cost-analysis-2026-04-14.md",
     "goals/idea-alert-journal-2026-04-14.json",
@@ -210,10 +213,7 @@
     "scratch/UTILIZATION-FIX-COMPLETE-2026-03-10.md",
     "scratch/TEST-RESULTS-2026-02-17.md",
     "scratch/TASK-TRACKING.md",
-    "scratch/STATE-OF-WORK.md",
-    "scratch/SCHEDULE.md",
     "infrastructure/monitoring",
-    "infrastructure/system-design",
-    "docs/policies"
+    "infrastructure/system-design"
   ]
 }
