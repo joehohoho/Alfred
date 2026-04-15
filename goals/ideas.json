@@ -136,5 +136,58 @@
     ],
     "createdAt": "2026-04-15T10:20:00Z",
     "updatedAt": "2026-04-15T10:20:00Z"
+  },
+  {
+    "id": "idea_1776492860000_donor_churn_prediction",
+    "title": "AI Donor Churn Predictor — Lean SaaS for Nonprofit Retention",
+    "description": "**Problem**\nNonprofit donor retention is abysmal: industry average is 18.5% for first-time donors, yet top performers (Bloomerang users) achieve 47%—a 28.5-point gap. Nonprofits use expensive CRM tools (Bloomerang, DonorPerfect start at $100–300/mo) to manually track engagement, but lack predictive intelligence to prevent churn before it happens. Retention decisions are still reactive (post-dropout analysis) rather than proactive (predict and intervene).\n\n**Solution**\nA lightweight AI-powered churn prediction tool for nonprofits. Input: donor history (gifts, engagement, last contact). Output: per-donor churn risk (high/medium/low) + AI-generated retention action plan. Core features:\n- AI churn risk score: ML model trained on nonprofit retention benchmarks (identifies at-risk donors)\n- Retention action recommendations: personalized next steps (email template, event invite, personal call, gift ask)\n- Integration: embed in existing CRM (Bloomerang, Salesforce Nonprofit Cloud, Donor Perfect) OR simple CSV upload\n- Simple dashboard: see at-risk cohort, track intervention success rates\n- Free tier: analyze 100 donor records/month; Pro: unlimited, advanced reporting, Slack alerts\n\n**Revenue Model**\nFreemium SaaS + integrations. Free tier (100 donors/mo); Pro at $39–79/month (unlimited donors, Slack alerts, custom cohorts). Secondary: CRM integrations (revenue share with Bloomerang, Salesforce orgs when customers upsell).\n\n**Why Joe**\n1. **CoinUsUp synergy:** Nonprofits in CoinUsUp are direct customers. Churn predictor is a natural upsell (retention = more donations = larger CoinUsUp transaction volume).\n2. **Fast build:** AI churn scoring uses existing ML libraries (scikit-learn, XGBoost); MVP is 2–3 weeks (model training + simple API + web UI).\n3. **High margins:** No infrastructure overhead; pure SaaS with Claude API for recommendations.\n4. **Underserved niche:** While Bloomerang has dashboards, no standalone churn prediction tool exists. CRM vendors have not built this feature.\n\n**Evidence**\n- **Market pain:** Industry average 18.5% first-time donor retention (Neon One, Feb 2026). Top performers achieve 47% with better engagement (Bloomerang case study, Jan 2026).\n- **Demand:** Bloomerang, Kindful, Keela, DonorPerfect—all emphasize retention features in 2026 marketing. 16+ donor management platforms actively position retention as a selling point.\n- **Willingness to pay:** Nonprofits already spend $100–300/mo on CRM tools. A $39–79/mo add-on for churn prediction is <1% of a mid-size nonprofit budget.\n- **Market size:** Nonprofit accounting software market $373.75M in 2026 → $908.75M by 2035 (10.5% CAGR). Retention tech is subset of this growth.\n\n**Differentiation**\n- **Predictive, not reactive:** Churn prediction is fundamentally different from CRM reporting. Most CRMs report engagement post-hoc; this tool predicts churn before it happens.\n- **AI-generated actions:** Recommendations are personalized per donor (not generic playbooks). Saves fundraiser time.\n- **CRM agnostic:** Works with Bloomerang, Salesforce, DonorPerfect, or CSV. No lock-in.\n- **Affordable:** $39–79/mo vs $100–300/mo CRM replacements. Perfect for small to mid-size nonprofits (budgets $10k–100k/year for software).\n\n**Execution Path**\n1. **MVP (2–3 weeks):** Train churn model on public nonprofit data (Kaggle nonprofit datasets or synthesized benchmarks). Build API (FastAPI or Node) + simple web dashboard (React). CSV import only.\n2. **Beta launch:** Free tier + Pro tier ($49/mo). Recruit 20–30 nonprofits from CoinUsUp + nonprofit Slack communities.\n3. **Quick wins (Month 2):** Slack alert integration, CSV export of recommendations, A/B testing framework (track if recommended actions improve retention).\n4. **CRM integrations (Month 3+):** Salesforce Nonprofit Cloud connector, Bloomerang API integration (if possible via partner program).\n\n**MRR Potential**\n- Conservative: 30 Pro users × $49/mo = $1.47k/mo after 6 months\n- Mid-case: 100 Pro users × $60/mo = $6k/mo after 12 months\n- Aggressive: 250+ Pro users × $70/mo = $17.5k/mo if CoinUsUp integration drives adoption\n\n**Why Now**\nDonor retention is a hot topic in nonprofit tech (2026 focus for all major CRM vendors). Churn prediction is table-stakes in fintech + B2B SaaS; nonprofits haven't adopted it yet. Massive untapped opportunity. Build before major CRM vendors (Salesforce, HubSpot) add native churn prediction features.\n\n**Low Risks**\n- Lean tech stack (FastAPI/Node + scikit-learn + React).\n- No heavy ML infrastructure needed; churn models are simple to train.\n- Strong market validation: 10.5% CAGR nonprofit software market, 47% retention achievable (proven by Bloomerang top 20%).\n- CoinUsUp users are natural warm leads + distribution channel.",
+    "category": "passive-income",
+    "status": "idea",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "high",
+    "revenueModel": "Freemium SaaS: Free tier (100 donor records/mo); Pro tier $39–79/mo (unlimited donors, Slack alerts, advanced reporting). Secondary: CRM integration revenue share.",
+    "synergies": [
+      "CoinUsUp",
+      "Nonprofit monetization",
+      "ML/AI expertise",
+      "Retention analytics"
+    ],
+    "evaluation": {
+      "score": 8.4,
+      "notes": "Market demand validated: nonprofit retention is critical pain point (18.5% baseline vs 47% achievable). 16+ CRM competitors confirm market. Nonprofit software market growing 10.5% CAGR. Churn prediction is unique feature gap (not commoditized yet). Strong CoinUsUp synergy. Lean MVP (2–3 weeks), high margins, recurring revenue. MRR potential $1.5k–$17.5k. Positioned as Q2 opportunistic build if CoinUsUp trial unblocks quickly."
+    },
+    "researchEvidence": [
+      {
+        "source": "Neon One (Feb 2026)",
+        "finding": "Industry average first-time donor retention rate: 18.5%. Nonprofit retention is critical KPI with massive variance across organizations."
+      },
+      {
+        "source": "Bloomerang (Jan 2026 case study)",
+        "finding": "Top 20% of Bloomerang users achieve 47% first-time donor retention—28.5 points higher than industry average. Proves retention is achievable with better engagement + data."
+      },
+      {
+        "source": "Kindful, Keela, DonorPerfect, Salesforce Nonprofit Cloud (2026 marketing)",
+        "finding": "All major CRM vendors emphasizing retention features in 2026. Retention is now table-stakes for donor management software."
+      },
+      {
+        "source": "MarketGrowthReports (Dec 2025)",
+        "finding": "Nonprofit accounting software market: $373.75M in 2026 → $908.75M by 2035 (10.5% CAGR). Retention tech is subset of this market."
+      }
+    ],
+    "demandValidation": "Demand validated by: (1) Explicit 28.5-point retention gap between baseline (18.5%) and achievable (47%), (2) 16+ CRM competitors all marketing retention features (proves pain point is real and willingness to pay exists), (3) Nonprofit software market growing 10.5% CAGR, (4) CoinUsUp user base as warm leads + distribution channel, (5) Churn prediction is proven in fintech/B2B but not yet commoditized in nonprofit tech.",
+    "tags": [
+      "passive-income",
+      "ai",
+      "saas",
+      "nonprofit",
+      "donor-retention",
+      "churn-prediction",
+      "coinusup-synergy",
+      "market-validated",
+      "recurring-revenue"
+    ],
+    "createdAt": "2026-04-15T10:21:00Z",
+    "updatedAt": "2026-04-15T10:21:00Z"
   }
 ]

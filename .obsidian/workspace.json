@@ -179,6 +179,10 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "scripts/read-memory.sh",
+    "DISCORD-POSTING-GUIDE.md",
+    "scripts/discord-post-safe.sh",
+    "reports/passive-income-scan-2026-04-15.md",
     "memory/idle-loop-fix-2026-04-15.md",
     "memory/idle-loop-diagnostic-2026-04-15.md",
     "memory/hal-sentinel-fix-2026-04-15.md",
@@ -210,10 +214,6 @@
     "reports/daily-ops-2026-04-14.md",
     "goals/ideas-new-1775941560000.json",
     "reports/workspace-health-2026-04-14.md",
-    "reports/security-audit-coinusup-2026-04-13.md",
-    "HEARTBEAT.md",
-    "START-HERE.md",
-    "INDEX.md",
-    "infrastructure/config"
+    "reports/security-audit-coinusup-2026-04-13.md"
   ]
 }

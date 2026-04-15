@@ -322,9 +322,15 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 - **5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for your review and go/no-go decision. All files at /workspace/ideas/TRADER_SIGNAL_* (total 68KB, ~15 min read time). Key insight: Setup-based review workflow is missing from competitors—this fills a gap.** (_Review: Trader Signal Post-Mortem Assistant_, Apr 13 20:19)
   ID: `notif_1776111569945_1142976b` — Approve for build
 
-- **Alfred has a question** (_--list_, Apr 14 12:19)
-  ID: `notif_1776169189767_5c6cb67f` — No details provided
-
 - **What would make your consulting work more systematic or scalable?** (_question_, Apr 14 13:00)
   ID: `notif_1776171600763_0cfd371b` — Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?
+
+- **All 6 specification documents are complete and validated (87.9 KB, ~22K words). Market, product, technical, and business validation all PASS. Ready to handoff to development. Question: Approve to start 4-week development sprint this week? See GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md for decision summary.** (_AI Grant Writer — Ready for Approval + Development Start_, Apr 15 16:21)
+  ID: `notif_1776270105660_d1330128` — task_1776231233660_b4350b92
+
+- **Implementation complete & waiting on your build direction choice: (A) Personal internal invoice-audit tool, or (B) External SaaS MVP. Which should we build? Once you choose, I can start immediately.** (_[REMINDER] Bill Review & Invoice Audit — Scope Decision Needed_, Apr 15 16:21)
+  ID: `notif_1776270111548_b0cde226` — task_1774058538023_ae4bf3d2
+
+- **Implementation is complete. To finish: either (A) Update the 12 Basic/Pro tier prices in Stripe dashboard to enable trials, or (B) Skip this feature for now. Which would you prefer?** (_[REMINDER] 14-day Free Trial — Stripe Configuration Needed_, Apr 15 16:21)
+  ID: `notif_1776270113597_79b10ca4` — task_1773156748695_23b9e471
 <!-- PENDING-Q-END -->
