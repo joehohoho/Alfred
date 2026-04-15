@@ -2,30 +2,46 @@
   "gateway": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:40Z",
+    "lastCheck": "2026-04-15T08:08:19Z",
     "lastNotified": 1776231031.084927,
     "lastFixTime": 0
   },
   "cc": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:41Z",
+    "lastCheck": "2026-04-15T08:08:19Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "hal": {
     "status": "degraded",
+    "reason": "Windows gateway offline — using Alfred-only dispatch mode (auto-recovery when HAL returns)",
+    "lastCheck": 1776240546.896693,
     "fixAttempts": [],
-    "lastCheck": 1776239612.295808,
-    "lastNotified": 1776238955.3190908,
-    "lastFixTime": 1776239564.519941
+    "manuallyResolved": true
   },
   "idle_loop": {
-    "status": "healthy",
-    "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:44Z",
+    "status": "degraded",
+    "fixAttempts": [
+      {
+        "fix": "reset-cooldown",
+        "success": true,
+        "at": 1776239893.6960409
+      },
+      {
+        "fix": "reset-cooldown",
+        "success": true,
+        "at": 1776240198.548543
+      },
+      {
+        "fix": "reset-cooldown",
+        "success": true,
+        "at": 1776240503.548139
+      }
+    ],
+    "lastCheck": "2026-04-15T08:08:23Z",
     "lastNotified": 0,
-    "lastFixTime": 0
+    "lastFixTime": 1776240503.54814
   },
   "sessions": {
     "status": "healthy",
@@ -36,35 +52,35 @@
         "at": 1776098304.1097338
       }
     ],
-    "lastCheck": "2026-04-15T07:52:44Z",
+    "lastCheck": "2026-04-15T08:08:23Z",
     "lastNotified": 0,
     "lastFixTime": 1776098304.109735
   },
   "config": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:44Z",
+    "lastCheck": "2026-04-15T08:08:23Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "disk": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:45Z",
+    "lastCheck": "2026-04-15T08:08:24Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "models": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:45Z",
+    "lastCheck": "2026-04-15T08:08:23Z",
     "lastNotified": 0,
     "lastFixTime": 0
   },
   "dispatch": {
     "status": "healthy",
     "fixAttempts": [],
-    "lastCheck": "2026-04-15T07:52:45Z",
+    "lastCheck": "2026-04-15T08:08:23Z",
     "lastNotified": 0,
     "lastFixTime": 0
   }
