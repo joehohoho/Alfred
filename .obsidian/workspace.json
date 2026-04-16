@@ -179,6 +179,7 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "reports/passive-income-scan-2026-04-16.md",
     "reports/alfred-infrastructure-audit-2026-04-16.md",
     "reports/passive-income-portfolio-review-2026-04-16.md",
     "reports/daily-ops-2026-04-16.md",
@@ -212,7 +213,6 @@
     "ideas/GRANT_WRITER_BLUEPRINT_2026-04-15.md",
     "scripts/cleanup-read-errors.sh",
     "scripts/validate-read-path.sh",
-    "memory/2026-04-15.md",
     "goals/idea-alert-journal-2026-04-14.json",
     "scripts/pre-flight-json-check.sh"
   ]
