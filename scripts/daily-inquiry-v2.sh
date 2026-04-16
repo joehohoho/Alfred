@@ -56,7 +56,10 @@ BODY="${REST%%|*}"
 TOPIC="${ENTRY##*|}"
 
 # ===== SEMANTIC DEDUPLICATION CHECK =====
-# Run the dedup engine to check if this question should be suppressed
+# CRITICAL: Enforces 7-14 day cooldown windows to prevent duplicate-question fatigue.
+# Engine fingerprints questions semantically (not just titles) and blocks repeat topics.
+# This ensures each topic gets asked at most once every 7-14 days.
+# See notification-dedup-tracking.json for active cooldown windows.
 DEDUP_RESULT=$(node "$DEDUP_ENGINE" check --title "$TITLE" --body "$BODY" --source "daily-inquiry" --json 2>/dev/null || echo "{}")
 SUPPRESSED=$(echo "$DEDUP_RESULT" | jq -r '.suppressed // false' 2>/dev/null)
 SUPPRESS_REASON=$(echo "$DEDUP_RESULT" | jq -r '.reason // "unknown"' 2>/dev/null)
@@ -65,10 +68,6 @@ TOPIC_KEY=$(echo "$DEDUP_RESULT" | jq -r '.topic // ""' 2>/dev/null)
 if [ "$SUPPRESSED" = "true" ]; then
   DAYS_REMAINING=$(echo "$DEDUP_RESULT" | jq -r '.days_remaining // "?"' 2>/dev/null)
   echo "{\"date\":\"$TODAY\",\"title\":\"SUPPRESSED\",\"topic\":\"$TOPIC_KEY\",\"reason\":\"$SUPPRESS_REASON\",\"days_remaining\":$DAYS_REMAINING}" >> "$INQUIRY_LOG"
-  
-  # Log suppression to Discord (optional, for visibility)
-  # bash "$SCRIPT_DIR/send-notification.sh" alert "Daily Inquiry Suppressed" "Topic: $TOPIC_KEY\nReason: $SUPPRESS_REASON\nDays remaining: $DAYS_REMAINING" "" "" "daily-inquiry-dedup" 2>/dev/null || true
-  
   exit 0
 fi
 

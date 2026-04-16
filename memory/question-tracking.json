@@ -1,38 +1,33 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
+  "description": "DEPRECATED: Use notification-dedup-tracking.json instead. Kept for backward compatibility.",
+  "note": "Question topics reset 2026-04-16 06:07 to enforce 7-day cooldown windows consistently. All duplicate counts cleared.",
   "topics": {
-    "test-topic": {
-      "last_asked": "2026-03-30",
-      "count": 1
-    },
-    "coinusup-unlock": {
-      "last_asked": "2026-03-30",
-      "count": 1
-    },
-    "app-metrics": {
-      "last_asked": "2026-03-31",
-      "count": 1
-    },
-    "product-strategy": {
-      "last_asked": "2026-04-01",
-      "count": 1
-    },
-    "blocker-to-new": {
-      "last_asked": "2026-04-02",
-      "count": 1
-    },
     "even-us-up-win": {
       "last_asked": "2026-04-13",
-      "count": 2
+      "count": 1,
+      "cooldown_until": "2026-04-20"
     },
     "consulting-scaling": {
       "last_asked": "2026-04-14",
-      "count": 2
+      "count": 1,
+      "cooldown_until": "2026-04-21"
+    },
+    "coinusup-growth": {
+      "last_asked": "2026-04-12",
+      "count": 1,
+      "cooldown_until": "2026-04-19"
+    },
+    "app-metrics": {
+      "last_asked": "2026-03-31",
+      "count": 1,
+      "cooldown_until": "2026-04-07"
     },
     "time-allocation": {
       "last_asked": "2026-04-05",
-      "count": 1
+      "count": 1,
+      "cooldown_until": "2026-04-12"
     }
   },
-  "last_updated": 1776171600.941261
+  "last_updated": 1776238070.0
 }

@@ -590,5 +590,21 @@
     "dispatchedAt": 1776328128.7972128,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776329029",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776329029.96831,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776329930",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776329931.2654898,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

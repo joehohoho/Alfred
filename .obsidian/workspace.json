@@ -179,6 +179,7 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "reports/alfred-infrastructure-audit-2026-04-16.md",
     "reports/passive-income-portfolio-review-2026-04-16.md",
     "reports/daily-ops-2026-04-16.md",
     "goals/ideas.json.backup",
@@ -212,7 +213,6 @@
     "scripts/cleanup-read-errors.sh",
     "scripts/validate-read-path.sh",
     "memory/2026-04-15.md",
-    "reports/workspace-health-2026-04-15.md",
     "goals/idea-alert-journal-2026-04-14.json",
     "scripts/pre-flight-json-check.sh"
   ]
