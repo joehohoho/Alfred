@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-04-16T05:52:51+0000",
+  "timestamp": "2026-04-16T08:37:39+0000",
   "agents": [
-    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "18878"},
+    {"name": "ai.openclaw.gateway", "status": "RUNNING", "exit_code": "58870"},
     {"name": "application.com.apple.ActivityMonitor.1152921500311906413.1152921500311906418", "status": "RUNNING", "exit_code": "396"},
     {"name": "application.com.apple.MobileSMS.1152921500311887877.1152921500311887946", "status": "RUNNING", "exit_code": "397"},
     {"name": "application.com.apple.Terminal.1152921500311911760.1152921500311911765", "status": "RUNNING", "exit_code": "392"},
@@ -21,7 +21,7 @@
     {"name": "com.alfred.health-server", "status": "RUNNING", "exit_code": "36627"},
     {"name": "com.alfred.job-tracker", "status": "RUNNING", "exit_code": "612"},
     {"name": "com.alfred.kanban-stale-scan", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "45623"},
+    {"name": "com.alfred.launchagent-monitor", "status": "RUNNING", "exit_code": "80569"},
     {"name": "com.alfred.legal-bill-ai", "status": "RUNNING", "exit_code": "56383"},
     {"name": "com.alfred.log-rotation", "status": "DOWN", "exit_code": "-"},
     {"name": "com.alfred.maintenance-weekly", "status": "DOWN", "exit_code": "-"},
@@ -337,7 +337,7 @@
     {"name": "com.apple.mdmclient.agent", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.mail", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.shared", "status": "DOWN", "exit_code": "-"},
-    {"name": "com.apple.mdworker.shared.02000000-0500-0000-0000-000000000000", "status": "RUNNING", "exit_code": "45564"},
+    {"name": "com.apple.mdworker.shared.09000000-0000-0000-0000-000000000000", "status": "RUNNING", "exit_code": "80568"},
     {"name": "com.apple.mdworker.single.arm64", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.single.x86_64", "status": "DOWN", "exit_code": "-"},
     {"name": "com.apple.mdworker.sizing", "status": "RUNNING", "exit_code": "1365"},

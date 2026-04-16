@@ -25,3 +25,6 @@
 {"component": "hal", "status": "down", "agent": "alfred", "success": true, "recurring": false, "dispatchedAt": 1776239589.258199, "timestamp": "2026-04-15T07:53:09Z"}
 {"component": "hal", "status": "down", "agent": "alfred", "success": true, "recurring": false, "dispatchedAt": 1776240518.426868, "timestamp": "2026-04-15T08:08:38Z"}
 {"component": "idle_loop", "status": "degraded", "agent": "alfred", "success": true, "recurring": false, "dispatchedAt": 1776240531.776166, "timestamp": "2026-04-15T08:08:51Z"}
+{"component": "idle_loop", "status": "degraded", "agent": "hal", "success": true, "recurring": false, "dispatchedAt": 1776327018.052107, "timestamp": "2026-04-16T08:10:18Z"}
+{"component": "idle_loop", "status": "degraded", "agent": "hal", "success": true, "recurring": false, "dispatchedAt": 1776327328.766206, "timestamp": "2026-04-16T08:15:28Z"}
+{"component": "idle_loop", "status": "degraded", "agent": "hal", "success": true, "recurring": false, "dispatchedAt": 1776327637.215508, "timestamp": "2026-04-16T08:20:37Z"}
