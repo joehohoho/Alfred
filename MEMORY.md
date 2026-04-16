@@ -4,8 +4,8 @@
 ## Current Work (auto-updated every 15 min)
 **Status:** idle (last: quarterly portfolio review) — waiting for Joe decisions
 Review: AI Grant Writer for Nonprofits — Freemiu
-Recent: [idle:generate-ideas] Generated 1 new idea: Donor  | [idle:workspace-check] ✅ Git clean (4 repos). 6 un
-Updated: 06:07 AST
+Recent: [idle:workspace-check] ✅ Git clean (4 repos). 6 un | [idle:improve-self] **PRIORITY 1 Fix: Daily Inquir
+Updated: 06:22 AST
 
 **Discord sessions — MANDATORY context recovery:**
 1. FIRST: Run `bash scripts/lookup-discord-thread.sh CHANNEL_ID` to find the thread you posted. Also try `--search KEYWORDS`.

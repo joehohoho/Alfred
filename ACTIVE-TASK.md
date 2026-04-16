@@ -360,4 +360,7 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **Card task_1773156748695_23b9e471 has been fully implemented and is waiting for your Stripe dashboard update since 2026-04-09. Last reminder was Apr 9.** (_14-day Trial Implementation — Stripe Config Step (Reminder)_, Apr 15 20:22)
   ID: `notif_1776284524796_1d6fca66` — **Next Step:**\nLog into Stripe dashboard and create/update 12 Basic/Pro price objects with 14-day trial. Once done, the feature goes live.\n\n**Or:**...
+
+- **Daily Inquiry Dedup Fix (PRIORITY 1)** (_info_, Apr 16 09:08)
+  ID: `notif_1776330500210_678ffc1c` — Reset question-tracking.json to enforce 7-day cooldown windows. Topics now properly separated. Duplicate-question fatigue resolved.
 <!-- PENDING-Q-END -->

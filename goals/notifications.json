@@ -748,5 +748,15 @@
     "answered": false,
     "createdAt": "2026-04-15T20:22:04.796Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776330500210_678ffc1c",
+    "type": "info",
+    "title": "Daily Inquiry Dedup Fix (PRIORITY 1)",
+    "message": "Reset question-tracking.json to enforce 7-day cooldown windows. Topics now properly separated. Duplicate-question fatigue resolved.",
+    "source": "daily-config",
+    "answered": false,
+    "createdAt": "2026-04-16T09:08:20.210Z",
+    "answeredAt": null
   }
 ]
