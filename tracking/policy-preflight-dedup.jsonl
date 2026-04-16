@@ -15,3 +15,4 @@
 {"ts": 1775394000, "iso": "2026-04-05T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-05:How much of your time should passive income get vs. client work right now?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
 {"ts": 1776085200, "iso": "2026-04-13T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-13:For Even Us Up, what's the smallest win that would feel like real progress?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
 {"ts": 1776171600, "iso": "2026-04-14T10:00:00-0300", "dedupKey": "daily-inquiry:2026-04-14:What would make your consulting work more systematic or scalable?", "script": "send-notification.sh", "action": "notify", "result": "allow"}
+{"ts": 1776352122, "iso": "2026-04-16T12:08:42-0300", "dedupKey": "daily-inquiry:2026-04-16:blocker-to-new", "script": "send-notification.sh", "action": "notify", "result": "allow"}

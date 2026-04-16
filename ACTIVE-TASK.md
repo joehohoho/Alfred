@@ -363,4 +363,7 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **Daily Inquiry Dedup Fix (PRIORITY 1)** (_info_, Apr 16 09:08)
   ID: `notif_1776330500210_678ffc1c` — Reset question-tracking.json to enforce 7-day cooldown windows. Topics now properly separated. Duplicate-question fatigue resolved.
+
+- **What would stop you from building something new right now?** (_question_, Apr 16 15:08)
+  ID: `notif_1776352122477_85658abf` — Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?
 <!-- PENDING-Q-END -->

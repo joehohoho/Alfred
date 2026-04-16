@@ -758,5 +758,27 @@
     "answered": false,
     "createdAt": "2026-04-16T09:08:20.210Z",
     "answeredAt": null
+  },
+  {
+    "id": "notif_1776352122477_85658abf",
+    "type": "question",
+    "title": "What would stop you from building something new right now?",
+    "message": "Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-16T15:08:42.477Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1776356587211_c82a8d78",
+    "type": "AI Grant Writer MVP — Ready for Development Approval",
+    "title": "6 comprehensive specification documents (87.9 KB, 22K words) are complete and validated: Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary, and Completion Evidence. All validation gates passed (market, product, technical, business, development). Ready to start 4-week development cycle week of Apr 22.",
+    "message": "—",
+    "goalId": "Approve + start development week of Apr 22",
+    "taskId": "Review docs first, decide later",
+    "source": "Defer — focus on unblocking CoinUsUp trial first",
+    "answered": false,
+    "createdAt": "2026-04-16T16:23:07.211Z",
+    "answeredAt": null
   }
 ]

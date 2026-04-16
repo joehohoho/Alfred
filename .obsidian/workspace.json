@@ -179,6 +179,9 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "reports/coinusup-audit-2026-04-16.md",
+    "scripts/daily-inquiry-v3.sh",
+    "reports/canada-passive-income-2026-04-16.md",
     "reports/passive-income-scan-2026-04-16.md",
     "reports/alfred-infrastructure-audit-2026-04-16.md",
     "reports/passive-income-portfolio-review-2026-04-16.md",
@@ -209,11 +212,8 @@
     "ideas/GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md",
     "ideas/GRANT_WRITER_PROJECT_BOOTSTRAP_2026-04-15.md",
     "ideas/GRANT_WRITER_MVP_PLAN_2026-04-15.md",
-    "ideas/GRANT_WRITER_TECH_SPEC_2026-04-15.md",
-    "ideas/GRANT_WRITER_BLUEPRINT_2026-04-15.md",
     "scripts/cleanup-read-errors.sh",
     "scripts/validate-read-path.sh",
-    "goals/idea-alert-journal-2026-04-14.json",
-    "scripts/pre-flight-json-check.sh"
+    "goals/idea-alert-journal-2026-04-14.json"
   ]
 }
