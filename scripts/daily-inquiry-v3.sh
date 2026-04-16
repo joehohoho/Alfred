@@ -1,11 +1,10 @@
 #!/bin/bash
-# daily-inquiry.sh — Smart rotation with fallback to next available topic
+# daily-inquiry-v3.sh — Smart rotation with fallback to next available topic
 # Purpose: Send daily questions while respecting 7-day cooldown per topic
-# FIX (2026-04-16 12:10): Fixed 9-day gap issue by rotating through ALL questions
-#      until one is available (not just next-in-line)
+# FIX: Rotates through ALL questions until one is available (not just next-in-line)
 # Runs: Daily at 10 AM AST via cron
 #
-# IMPROVEMENTS:
+# IMPROVEMENTS OVER V2:
 # - Tries all topics in rotation order, skips those in cooldown
 # - Guarantees at least one question sends every day (no 9-day gaps)
 # - Still respects semantic dedup + 7-day cooldown windows
