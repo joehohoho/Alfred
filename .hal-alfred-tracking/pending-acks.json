@@ -446,5 +446,45 @@
     "dispatchedAt": 1776300548.494408,
     "timeoutSeconds": 300,
     "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776312804",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776312807.384165,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776313708",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776313708.752286,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776314609",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776314609.980639,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776315510",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776315511.3275452,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
+  },
+  {
+    "taskId": "proactive_1776316412",
+    "title": "Passive income idea scan",
+    "agent": "hal",
+    "dispatchedAt": 1776316412.566539,
+    "timeoutSeconds": 300,
+    "status": "timed_out"
   }
 ]

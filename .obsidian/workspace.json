@@ -179,6 +179,13 @@
   },
   "active": "ed2862ee26673574",
   "lastOpenFiles": [
+    "goals/ideas.json.backup",
+    "reports/workspace-health-2026-04-16.md",
+    "reports/workflow-efficiency-2026-04-16.md",
+    "ALFRED-PROACTIVE-TASKS.md",
+    "PENDING-DECISIONS.md",
+    "scripts/consolidate-pending-decisions.sh",
+    "memory/2026-04-16.md",
     "reports/security-audit-2026-04-15.md",
     "scripts/curl-safe.sh",
     "scripts/read-memory.sh",
@@ -207,13 +214,6 @@
     "reports/cost-analysis-2026-04-14.md",
     "goals/idea-alert-journal-2026-04-14.json",
     "scripts/pre-flight-json-check.sh",
-    "scripts/agent-json-validator.sh",
-    "goals/ideas-quick-add-2026-04-14.json",
-    "JOE-PROFILE.md",
-    "MORNING-BRIEF-LATEST.md",
-    "memory/2026-04-14.md",
-    "reports/daily-ops-2026-04-14.md",
-    "reports/workspace-health-2026-04-14.md",
-    "reports/security-audit-coinusup-2026-04-13.md"
+    "scripts/agent-json-validator.sh"
   ]
 }
