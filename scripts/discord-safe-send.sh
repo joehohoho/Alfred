@@ -16,27 +16,26 @@ source ~/.openclaw/workspace/scripts/channel-ids.sh 2>/dev/null || {
 discord_send() {
     local CHANNEL="$1"
     local MESSAGE="$2"
-    
+
     if [[ -z "$CHANNEL" || -z "$MESSAGE" ]]; then
         echo "ERROR: discord_send requires channel and message" >&2
         echo "Usage: discord_send \"channel_name\" \"message\"" >&2
         return 1
     fi
-    
-    # Resolve friendly channel name to ID
-    local CHANNEL_ID="$CHANNEL"
-    
-    if [[ ! "$CHANNEL" =~ ^[0-9]+$ ]]; then
-        # Not already a numeric ID, try to resolve
-        CHANNEL_ID=$(resolve_discord_channel "$CHANNEL" 2>/dev/null)
-        if [[ -z "$CHANNEL_ID" ]]; then
-            echo "ERROR: Could not resolve Discord channel: $CHANNEL" >&2
-            echo "Available channels: $(resolve_discord_channel | grep -o '^\w\+' | tr '\n' ',')" >&2
-            return 1
-        fi
+
+    local CHANNEL_ID
+    CHANNEL_ID=$(resolve_discord_channel "$CHANNEL" 2>/dev/null || true)
+    if [[ -z "$CHANNEL_ID" ]]; then
+        echo "ERROR: Could not resolve Discord channel: $CHANNEL" >&2
+        echo "Available channels: dailyconfig, general, alerts, devops" >&2
+        return 1
     fi
-    
-    # Call the message tool with the numeric ID
-    # Using the OpenClaw message tool indirectly via system event
-    echo "[discord-safe-send] → #$CHANNEL ($CHANNEL_ID): $MESSAGE" >&2
+
+    # Return a clean JSON payload that callers can hand to the message tool.
+    jq -cn \
+      --arg action "send" \
+      --arg channel "discord" \
+      --arg to "$CHANNEL_ID" \
+      --arg message "$MESSAGE" \
+      '{action: $action, channel: $channel, to: $to, message: $message}'
 }
