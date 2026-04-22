@@ -1,30 +1,34 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: quarterly portfolio review) — waiting for Joe decisions  
-**Last Assignment:** Passive Income Portfolio Review Q2 Checkpoint (2026-04-16 04:07 ADT)  
-**Last Active:** 2026-04-16 04:00-04:15 ADT (15 min)  
-**Current Action:** Idle loop complete; Proactive check executed → passive income portfolio review completed  
+**Status:** idle (last: memory review + daily ops summary) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-04-21 23:00 ADT)  
+**Last Active:** 2026-04-21 20:31-23:00 ADT  
+**Current Action:** Daily ops summary written, ACTIVE-TASK refreshed, still no active kanban work requiring execution  
 
 ---
 
-## Current Completion (2026-04-16 04:07 ADT)
+## Current Completion (2026-04-21 23:00 ADT)
 
-✅ **Passive Income Portfolio Review Q2** (Completed)
-- Comprehensive quarterly review of 4 active projects (CoinUsUp, Even Us Up, Signal App, Consulting)
-- Output: `reports/passive-income-portfolio-review-2026-04-16.md` (19.5KB, 4K+ words)
-- Key deliverable: Ranked execution roadmap with $500-2K/month immediate upside identified
-- Memory logged: `memory/2026-04-16.md` with key findings and next actions
+✅ **Daily Operations Summary / Memory Review** (Completed)
+- Reviewed recent memory and current operational artifacts available in workspace
+- Wrote `reports/daily-ops-2026-04-22.md`
+- Confirmed current blockers, notification debt, and stale state in `ACTIVE-TASK.md`
+- Refreshed this file to reflect the current idle state and latest completed idle-loop work
+
+✅ **Recent Idle-Loop Deliverables**
+- `reports/workflow-efficiency-2026-04-21.md`
+- `reports/passive-income-portfolio-review-2026-04-21.md`
+- `reports/workspace-health-2026-04-22.md`
 
 ---
 
-## Pending Decisions for Joe (From Portfolio Review)
+## Pending Decisions for Joe (Current High-Leverage)
 
-1. **CoinUsUp Trial (CRITICAL):** Stripe manual setup (5-10 min) or Alfred API automation (1-2h)?
-2. **Even Us Up Priority:** Top-3 for next 90 days? (Blocks settlement UI redesign approval)
-3. **Signal App Timeline:** Start development early May or defer to June?
-4. **Consulting Retainer:** Pursue $300-750/month retainer model? Which clients target first?
+1. **CoinUsUp Trial (CRITICAL):** Do the Stripe dashboard setup now, or defer the 14-day trial feature?
+2. **Bill Review Scope (CRITICAL):** Build as a Personal Tool first, or as an External SaaS MVP?
+3. **AI Grant Writer:** Approve or defer the proposed development sprint.
 
-**See:** `reports/passive-income-portfolio-review-2026-04-16.md` for full analysis + recommendations.
+**See:** `reports/daily-ops-2026-04-22.md`, `reports/passive-income-portfolio-review-2026-04-21.md`, and pending notifications below.
 
 ---
 
@@ -369,4 +373,19 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **6 comprehensive specification documents (87.9 KB, 22K words) are complete and validated: Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary, and Completion Evidence. All validation gates passed (market, product, technical, business, development). Ready to start 4-week development cycle week of Apr 22.** (_AI Grant Writer MVP — Ready for Development Approval_, Apr 16 16:23)
   ID: `notif_1776356587211_c82a8d78` — —
+
+- **For Even Us Up, what's the smallest win that would feel like real progress?** (_question_, Apr 17 13:00)
+  ID: `notif_1776430800563_27e507ba` — Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?
+
+- **What would make your consulting work more systematic or scalable?** (_question_, Apr 18 13:00)
+  ID: `notif_1776517200629_d2e568fe` — Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?
+
+- **How much of your time should passive income get vs. client work right now?** (_question_, Apr 19 13:00)
+  ID: `notif_1776603600489_10de5492` — Current split works? Skewed the wrong way? What's the ideal?
+
+- **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Apr 20 13:00)
+  ID: `notif_1776690000517_e5933c28` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
+
+- **Is there a metric you watch daily on any of your apps?** (_question_, Apr 21 13:00)
+  ID: `notif_1776776400579_ddcc5fcb` — What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?
 <!-- PENDING-Q-END -->
