@@ -5,8 +5,15 @@
 
 DASHBOARD_API="http://localhost:3001/api/kanban"
 
-# Fetch all review-column cards
-REVIEW_CARDS=$(curl -s "$DASHBOARD_API" 2>/dev/null | jq -r '.[] | select(.column == "review") | @json' 2>/dev/null)
+# Fetch all review-column cards, supporting both legacy flat-array and current {columns:{review:[]}} API shapes
+KANBAN_JSON=$(curl -s "$DASHBOARD_API" 2>/dev/null)
+REVIEW_CARDS=$(printf '%s' "$KANBAN_JSON" | jq -r '
+  if type == "array" then
+    .[] | select(.column == "review") | @json
+  else
+    .columns.review[]? | @json
+  end
+' 2>/dev/null)
 
 if [ -z "$REVIEW_CARDS" ]; then
   exit 0
