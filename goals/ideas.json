@@ -423,5 +423,52 @@
     ],
     "createdAt": "2026-04-22T01:54:00Z",
     "updatedAt": "2026-04-22T01:54:00Z"
+  },
+  {
+    "id": "idea_1776835880_change_order_tracker",
+    "title": "Change Order Tracker for Small Contractors \u2014 Lean SaaS for Margin Protection",
+    "description": "**Problem**\nSmall contractors still track change orders in Excel, email, and paper forms, which creates missed approvals, billing leakage, and project margin loss. Existing construction platforms handle change orders, but many are too expensive or too broad for small trade teams that mainly need a clean approval and tracking workflow.\n\n**Solution**\nA simple web app for creating, sending, approving, and logging change orders with status history, signatures, and QuickBooks-friendly exports. Start narrow: mobile-friendly change order forms, approval tracking, and an audit trail for small contractors and subcontractors.\n\n**Revenue Model**\nSubscription SaaS, for example $29\u2013$79/month per company based on active projects or users, with optional premium PDF/signature features.\n\n**Why Joe**\nThis fits Joe's automation and workflow background well because it is a narrow operational pain point with clear ROI and a realistic MVP in Node.js, React, TypeScript, or Python. It also matches his preference for focused products that do one thing well and can run with relatively low maintenance once stable.\n\n**Evidence**\n- Reddit r/ConstructionManagers (Feb 2025): a PM said they still use an Excel workbook as a change order log tracking costs, approvals, and dates, and asked for more efficient software, showing the workflow is still painful.\n- Reddit r/Construction (Feb 2024): subcontractors described Procore as expensive and too big for day-to-day use, and discussed cheaper alternatives for project management and change order handling.\n- Buildertrend, Procore, Autodesk Construction Cloud, Sage, Contractor Foreman, JobTread, and Buildxact are all actively positioned around change order management in 2025\u20132026 comparisons, which validates an established paid market and ongoing buyer demand.",
+    "category": "passive-income",
+    "status": "new",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "medium-high",
+    "revenueModel": "Subscription SaaS: roughly $29\u2013$79/month per company, with optional higher tiers for signatures, branded PDFs, or QuickBooks integrations.",
+    "researchEvidence": [
+      {
+        "source": "Reddit r/ConstructionManagers (Feb 7 2025)",
+        "finding": "A construction manager said they use an Excel workbook as a COR log tracking submissions, costs, approval status, and dates, and asked for software or more efficient methods."
+      },
+      {
+        "source": "Reddit r/Construction (Feb 11 2024)",
+        "finding": "Subcontractors said Procore felt expensive and too big for day-to-day use, and discussed needing cheaper tools that still handle scheduling and change orders."
+      },
+      {
+        "source": "Buildertrend / Jobber / TechRepublic / INGENIOUS.BUILD comparison content (2024\u20132026)",
+        "finding": "Multiple active vendors and comparison guides highlight change order management as a key buying category for construction software, confirming real demand and monetization."
+      }
+    ],
+    "demandValidation": "Demand is validated by contractors still managing change orders in Excel, repeated complaints that Procore-class tools are too expensive or too broad for small teams, and a crowded competitor landscape proving companies already pay for this workflow.",
+    "synergies": [
+      "Automation consulting",
+      "Workflow automation",
+      "SMB SaaS",
+      "Low-maintenance focused product"
+    ],
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Clear pain point, obvious ROI, and proven willingness to pay. Strong fit with Joe's stack and preference for focused, practical tools. Lower synergy than nonprofit ideas, but attractive as a simple horizontal SMB product."
+    },
+    "tags": [
+      "passive-income",
+      "saas",
+      "construction",
+      "contractors",
+      "change-orders",
+      "workflow",
+      "market-validated"
+    ],
+    "createdAt": "2026-04-22T05:31:20Z",
+    "updatedAt": "2026-04-22T05:31:20Z"
   }
 ]
