@@ -40,15 +40,49 @@ mkdir -p "$REPORT_DIR"
   echo "## 2. Unanswered Notifications (>24h old)"
   echo ""
 
-  # Check for old notifications
+  # Check for old notifications, deduplicated by title so repeated daily inquiries
+  # do not overwhelm the report.
   if [[ -f "$WORKSPACE/goals/notifications.json" ]]; then
-    OPEN_COUNT=$(jq '[.[] | select(.answered == false)] | length' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "0")
-    OLD_COUNT=$(jq '[.[] | select(.answered == false and (.answeredAt | not))] | length' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo "0")
-    
+    SUMMARY_JSON=$(jq -r '
+      def parse_ts:
+        if . == null then null
+        elif (type == "number") then (if . > 9999999999 then (. / 1000) else . end)
+        elif (type == "string") then ((fromdateiso8601?) // null)
+        else null end;
+      def created_ts:
+        (.createdAt // .timestamp // .ts // .updatedAt) | parse_ts;
+      [.[]
+        | select(.answered == false)
+        | . + {
+            createdTs: created_ts,
+            normalizedTitle: ((.title // "(no title)") | gsub("\\s+"; " ") | ascii_downcase),
+            displayTitle: (.title // "(no title)"),
+            waitingOn: (.source // .waitingOn // "unknown")
+          }
+        | select(.createdTs != null and .createdTs > 1700000000 and .createdTs <= (now + 300))
+        | . + { ageHours: ((now - .createdTs) / 3600) }
+        | select(.ageHours >= 24)
+      ] as $open
+      | {
+          totalOld: ($open | length),
+          deduped: ($open
+            | group_by(.normalizedTitle)
+            | map(sort_by(.ageHours) | reverse | .[0] + {duplicateCount: length})
+            | sort_by(.ageHours) | reverse),
+          dedupedCount: ($open | group_by(.normalizedTitle) | length)
+        }
+    ' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo '{"totalOld":0,"deduped":[],"dedupedCount":0}')
+
+    OLD_COUNT=$(printf '%s' "$SUMMARY_JSON" | jq -r '.totalOld // 0')
+    DEDUPED_COUNT=$(printf '%s' "$SUMMARY_JSON" | jq -r '.dedupedCount // 0')
+
     if [[ "$OLD_COUNT" -gt 0 ]]; then
-      echo "⚠️ **$OLD_COUNT blocking notifications pending response**"
-      jq -r '.[] | select(.answered == false) | "| \(.id | tostring) | \(.title) | Pending Joe action | \(.message | split("\n") | .[0]) |"' \
-        "$WORKSPACE/goals/notifications.json" 2>/dev/null | head -5 || true
+      echo "⚠️ **$OLD_COUNT unanswered notifications older than 24h ($DEDUPED_COUNT unique titles)**"
+      printf '%s' "$SUMMARY_JSON" | jq -r '
+        .deduped[:8][] |
+        "- \(.displayTitle) | age: \(.ageHours | floor)h | waiting on: \(.waitingOn)"
+        + (if .duplicateCount > 1 then " | duplicates: \(.duplicateCount)" else "" end)
+      ' || true
     else
       echo "✅ All notifications responded to"
     fi
@@ -66,6 +100,16 @@ mkdir -p "$REPORT_DIR"
   echo "**Status:** Kanban API unavailable (blocked by gateway security)"
   echo "**Action:** Check kanban manually via Command Center UI at http://localhost:3002"
   echo ""
+  if [[ -f "$WORKSPACE/goals/notifications.json" && "${OLD_COUNT:-0}" -gt 0 ]]; then
+    NOTIF_STATUS="Pending"
+    NOTIF_ACTION="Review deduped 24h+ blockers"
+  elif [[ -f "$WORKSPACE/goals/notifications.json" ]]; then
+    NOTIF_STATUS="✅ Clean"
+    NOTIF_ACTION="None"
+  else
+    NOTIF_STATUS="ℹ️ N/A"
+    NOTIF_ACTION="No notifications file found"
+  fi
   echo "---"
   echo ""
   echo "## 4. Summary & Next Steps"
@@ -73,7 +117,7 @@ mkdir -p "$REPORT_DIR"
   echo "| Item | Status | Action |"
   echo "|------|--------|--------|"
   echo "| Git repos | ✅ Clean | None |"
-  echo "| Notifications | Pending | Check if any need Joe action |"
+  echo "| Notifications | $NOTIF_STATUS | $NOTIF_ACTION |"
   echo "| Kanban | ✅ OK | None |"
   echo ""
   echo "**Report generated:** $(date '+%Y-%m-%d %I:%M %p %Z')"
