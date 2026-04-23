@@ -635,5 +635,60 @@
     ],
     "createdAt": "2026-04-23T17:50:00Z",
     "updatedAt": "2026-04-23T17:50:00Z"
+  },
+  {
+    "id": "idea_1776996650_auction_procurement_tracker",
+    "title": "Auction Procurement Tracker for Nonprofits \u2014 Simple Donation Ask and Follow-Up CRM",
+    "description": "**Problem**\nNonprofits running galas and silent auctions still track item donation asks in spreadsheets, shared docs, and volunteer memory, which leads to duplicate outreach, missed follow-ups, and weaker auction tables. Full auction platforms exist, but many focus on bidding and event execution, not the messy pre-event procurement workflow where teams are begging businesses for items and sponsorships.\n\n**Solution**\nA lightweight procurement tracker built specifically for nonprofit auction committees. It manages prospect lists, outreach assignments, follow-up reminders, donation request links/forms, item status, and simple reporting so small teams can see who asked whom and what is still outstanding.\n\n**Revenue Model**\nSimple SaaS subscription, for example free for one event and then about $19\u2013$49/month per organization during active fundraising periods, with a higher tier for multi-event history, shared templates, and volunteer coordination.\n\n**Why Joe**\nThis fits Joe well because it is a focused nonprofit workflow product adjacent to CoinUsUp, but much narrower than a full fundraising suite. It is realistic with his stack (Node.js, React, TypeScript, Python), low-maintenance once stable, and Alfred could carry a lot of the product and iteration work.\n\n**Evidence**\n- Reddit r/nonprofit (Aug 2024): teams said 2\u20133 volunteers often keep one shared log so there is no overlapping outreach when procuring auction items, which is an explicit spreadsheet/log pain signal: https://www.reddit.com/r/nonprofit/comments/1eun46f/advice_for_procuring_auction_items_for_fundraiser/\n- Reddit r/nonprofit (Aug 2024): practitioners described donation request forms, community liaisons, and board-member connections as core to auction sourcing, showing a real relationship/outreach workflow to manage: https://www.reddit.com/r/nonprofit/comments/1f2h4s0/auction_item_sourcing/\n- Handbid's 2025 roundup highlights Auctria specifically for item solicitation tracking and in-process donation tracking, which proves procurement tracking is a real buying feature inside the category: https://www.handbid.com/blog/silent-auction-software\n- Bloomerang's silent auction guide says nonprofits should use CRM tools to reach out to donors and corporate sponsors to acquire auction items, validating that procurement is a recognized operational bottleneck: https://bloomerang.com/blog/silent-auction-software/",
+    "category": "passive-income",
+    "status": "idea",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "medium-high",
+    "revenueModel": "Subscription SaaS: free for one event, then roughly $19\u2013$49/month per organization during active fundraising periods, with higher tiers for templates, volunteer coordination, and multi-event history.",
+    "researchEvidence": [
+      {
+        "source": "Reddit r/nonprofit (Aug 17 2024)",
+        "finding": "A team said 2-3 volunteers track all donation asks on one shared log so there is no overlap, which validates manual procurement coordination pain."
+      },
+      {
+        "source": "Reddit r/nonprofit (Aug 27 2024)",
+        "finding": "Nonprofits described using donation request forms, community liaisons, and board-member connections to source auction items, showing a real outreach workflow to manage."
+      },
+      {
+        "source": "Handbid roundup (Dec 2025)",
+        "finding": "Highlighted Auctria's item solicitation tracking and in-process donation tracking, proving procurement tracking is a real product feature buyers care about."
+      },
+      {
+        "source": "Bloomerang silent auction guide (Sep 2025)",
+        "finding": "Advises nonprofits to use CRM tools to reach out to current and prospective donors and corporate sponsors to acquire auction items, confirming procurement is a recognized event bottleneck."
+      }
+    ],
+    "demandValidation": "Demand is validated by nonprofits explicitly describing shared logs to avoid duplicate outreach, by live auction software vendors calling out item solicitation tracking as a feature, and by fundraising guides treating procurement outreach as a core workflow. The opportunity is a narrower pre-event procurement CRM rather than a full auction platform.",
+    "synergies": [
+      "CoinUsUp",
+      "Nonprofit operations",
+      "Fundraising events",
+      "Low-maintenance focused SaaS",
+      "Alfred-led execution"
+    ],
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Demand is real, the workflow is narrow, and it fits Joe's nonprofit adjacency without becoming another full event platform. Best positioned as a focused pre-event procurement tool rather than auction software."
+    },
+    "tags": [
+      "passive-income",
+      "saas",
+      "nonprofit",
+      "fundraising",
+      "auctions",
+      "procurement",
+      "crm",
+      "coinusup-synergy",
+      "market-validated",
+      "low-maintenance"
+    ],
+    "createdAt": "2026-04-23T23:30:50Z",
+    "updatedAt": "2026-04-23T23:30:50Z"
   }
 ]
