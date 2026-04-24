@@ -1,24 +1,26 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: verified 2026-04-24 daily ops summary exists, refreshed stale state) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-04-24 03:49 ADT)  
-**Last Active:** 2026-04-24 03:49 ADT  
-**Current Action:** Confirmed `reports/daily-ops-2026-04-24.md` already exists, re-read the latest five available dated memory logs (`2026-04-21`, `2026-04-22`, `2026-04-23`, `2026-04-24`, plus next-most-recent available `2026-04-18` because Apr 19-20 are missing), and refreshed this file to reflect the current idle review pass  
+**Status:** idle (last: reviewed recent memory, confirmed today's ops summary already existed, and refreshed task state) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-04-24 07:49 ADT)  
+**Last Active:** 2026-04-24 07:49 ADT  
+**Current Action:** Confirmed `reports/daily-ops-2026-04-24.md` already exists, reviewed the latest five available daily memory logs, and refreshed `ACTIVE-TASK.md` to reflect the current idle state and active Joe-dependent blockers  
 
 ---
 
-## Current Completion (2026-04-24 03:49 ADT)
+## Current Completion (2026-04-24 07:49 ADT)
 
-✅ **Daily Operations Summary / Memory Review** (Completed)
-- Confirmed `reports/daily-ops-2026-04-24.md` already exists, so no duplicate report was written
-- Reviewed the latest five available dated daily memory logs: `2026-04-18`, `2026-04-21`, `2026-04-22`, `2026-04-23`, and `2026-04-24`; confirmed there is still a gap because `memory/2026-04-19.md` and `memory/2026-04-20.md` do not exist
-- Refreshed this file to reflect the current idle state and latest review pass
-- Reconfirmed the active blockers are still the CoinUsUp Stripe trial decision, Bill Review scope/direction, and AI Grant Writer go/no-go
+✅ **Memory Review Refresh** (Completed)
+- Confirmed `reports/daily-ops-2026-04-24.md` already exists, so no duplicate report was generated
+- Reviewed the latest five available daily memory logs: `2026-04-24`, `2026-04-23`, `2026-04-22`, `2026-04-21`, and `2026-04-16`
+- Refreshed `ACTIVE-TASK.md` so it no longer points at the earlier Even Us Up-only state
+- Reconfirmed the current highest-leverage blockers are still Joe decisions, not technical unknowns
 
 ✅ **Recent Idle-Loop Deliverables**
 - `reports/workflow-efficiency-2026-04-21.md`
 - `reports/passive-income-portfolio-review-2026-04-21.md`
 - `reports/workspace-health-2026-04-22.md`
+- `reports/even-us-up-audit-2026-04-24.md`
+- `reports/daily-ops-2026-04-24.md`
 
 ---
 
@@ -364,4 +366,16 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **What would stop you from building something new right now?** (_question_, Apr 23 13:00)
   ID: `notif_1776949200561_df1aa500` — Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?
+
+- **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — Go / No-Go Decision Needed_, Apr 24 08:34)
+  ID: `notif_1777008840000_grantwriter_reminder` — task_1776231233660_b4350b92
+
+- **CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.** (_[REMINDER] 14-day Trial — Stripe Step or Defer Decision_, Apr 24 08:34)
+  ID: `notif_1777008840001_trial_reminder` — task_1773156748695_23b9e471
+
+- **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — Go / No-Go Decision Needed_, Apr 24 08:35)
+  ID: `notif_1777019732011_077ed8a9` — No details provided
+
+- **CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.** (_[REMINDER] 14-day Trial — Stripe Step or Defer Decision_, Apr 24 08:35)
+  ID: `notif_1777019732333_ffa3a0a8` — No details provided
 <!-- PENDING-Q-END -->
