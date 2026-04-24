@@ -40,25 +40,48 @@ mkdir -p "$REPORT_DIR"
   echo "## 2. Unanswered Notifications (>24h old)"
   echo ""
 
-  # Check for old notifications, deduplicated by title so repeated daily inquiries
-  # do not overwhelm the report.
+  # Check for old notifications, grouped by actionable topic instead of exact
+  # title text so repeated reminders with slightly different wording collapse.
   if [[ -f "$WORKSPACE/goals/notifications.json" ]]; then
     SUMMARY_JSON=$(jq -r '
       def parse_ts:
         if . == null then null
         elif (type == "number") then (if . > 9999999999 then (. / 1000) else . end)
-        elif (type == "string") then ((fromdateiso8601?) // null)
+        elif (type == "string") then ((sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601?) // (fromdateiso8601?) // null)
         else null end;
       def created_ts:
         (.createdAt // .timestamp // .ts // .updatedAt) | parse_ts;
-      [.[]
+      def text_blob:
+        [(.title // ""), (.message // ""), (.source // ""), (.waitingOn // ""), (.taskId // ""), (.goalId // ""), (.cardId // "")]
+        | map(tostring | ascii_downcase)
+        | join(" ");
+      def topic_key:
+        text_blob as $t
+        | if (.taskId // .cardId // "") != "" then "card:" + (.taskId // .cardId)
+          elif ($t | test("stripe") and ($t | test("trial|price|prices|14-day|14 day|coinusup"))) then "topic:coinusup-trial-stripe"
+          elif ($t | test("bill review|invoice audit|build direction|personal tool|saas mvp|option a|option b")) then "topic:bill-review-scope"
+          elif ($t | test("grant writer|4-week mvp build|go/no-go|go/no go")) then "topic:grant-writer-go-no-go"
+          elif ($t | test("freshness scanner|superseded|contradiction zones|archive")) then "topic:freshness-cleanup"
+          elif ($t | test("trader signal|spec documents|development sprint")) then "topic:trader-signal-approval"
+          else "title:" + ((.title // "(no title)") | gsub("\\s+"; " ") | ascii_downcase)
+          end;
+      def topic_label:
+        if .topicKey == "topic:coinusup-trial-stripe" then "CoinUsUp trial Stripe unblock"
+        elif .topicKey == "topic:bill-review-scope" then "Bill Review scope decision"
+        elif .topicKey == "topic:grant-writer-go-no-go" then "AI Grant Writer go/no-go"
+        elif .topicKey == "topic:freshness-cleanup" then "Freshness cleanup follow-up"
+        elif .topicKey == "topic:trader-signal-approval" then "Trader Signal approval"
+        else (.title // "(no title)")
+        end;
+      [.[ ]
         | select(.answered == false)
         | . + {
             createdTs: created_ts,
-            normalizedTitle: ((.title // "(no title)") | gsub("\\s+"; " ") | ascii_downcase),
             displayTitle: (.title // "(no title)"),
-            waitingOn: (.source // .waitingOn // "unknown")
+            waitingOn: (.waitingOn // .source // "unknown"),
+            topicKey: topic_key
           }
+        | . + { topicLabel: topic_label }
         | select(.createdTs != null and .createdTs > 1700000000 and .createdTs <= (now + 300))
         | . + { ageHours: ((now - .createdTs) / 3600) }
         | select(.ageHours >= 24)
@@ -66,10 +89,10 @@ mkdir -p "$REPORT_DIR"
       | {
           totalOld: ($open | length),
           deduped: ($open
-            | group_by(.normalizedTitle)
+            | group_by(.topicKey)
             | map(sort_by(.ageHours) | reverse | .[0] + {duplicateCount: length})
             | sort_by(.ageHours) | reverse),
-          dedupedCount: ($open | group_by(.normalizedTitle) | length)
+          dedupedCount: ($open | group_by(.topicKey) | length)
         }
     ' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo '{"totalOld":0,"deduped":[],"dedupedCount":0}')
 
@@ -77,10 +100,10 @@ mkdir -p "$REPORT_DIR"
     DEDUPED_COUNT=$(printf '%s' "$SUMMARY_JSON" | jq -r '.dedupedCount // 0')
 
     if [[ "$OLD_COUNT" -gt 0 ]]; then
-      echo "⚠️ **$OLD_COUNT unanswered notifications older than 24h ($DEDUPED_COUNT unique titles)**"
+      echo "⚠️ **$OLD_COUNT unanswered notifications older than 24h ($DEDUPED_COUNT actionable topics)**"
       printf '%s' "$SUMMARY_JSON" | jq -r '
         .deduped[:8][] |
-        "- \(.displayTitle) | age: \(.ageHours | floor)h | waiting on: \(.waitingOn)"
+        "- \(.topicLabel) | age: \(.ageHours | floor)h | waiting on: \(.waitingOn)"
         + (if .duplicateCount > 1 then " | duplicates: \(.duplicateCount)" else "" end)
       ' || true
     else
