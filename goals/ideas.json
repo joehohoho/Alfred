@@ -845,5 +845,38 @@
     ],
     "createdAt": "2026-04-24T10:35:20Z",
     "updatedAt": "2026-04-24T10:35:20Z"
+  },
+  {
+    "id": "idea_1777028581986_4cd4d6b4",
+    "title": "Workflow health dashboard and decision dedup pipeline",
+    "description": "**Problem**\nRepeated reminders, stale continuity files, blocked-card ambiguity, and Discord delivery drift create avoidable recovery friction and duplicate decision asks.\n\n**Solution**\nCreate a compact workflow health artifact that combines canonical pending decision topics, blocked-card ownership metadata, stale continuity file detection, and Discord delivery health into one operational view, plus a dedup pipeline for reminders and decision prompts.\n\n**Revenue Model**\nInternal system leverage rather than direct revenue. Value comes from reduced coordination drag, fewer duplicate reminders, faster recovery after context loss, and better follow-through on blocked work.\n\n**Why Joe**\nJoe already runs a multi-surface Alfred/HAL system where coordination hygiene matters. This idea fits his actual bottleneck, improves daily reliability, and compounds the value of existing automation instead of starting another new product.\n\n**Evidence**\nOperational dashboard demand is validated by workflow-health tracking in engineering teams, workflow dashboard case studies showing better visibility and issue detection, and devops discussion around dashboards connected to remediation.",
+    "category": "growth",
+    "status": "evaluated",
+    "source": "joe-submitted",
+    "effort": "medium",
+    "potential": "medium",
+    "synergies": [],
+    "evaluation": {
+      "score": 8.0,
+      "notes": "Strong internal leverage idea, even if it is not a broad standalone product category. Evidence supports real operational demand for consolidated workflow monitoring and action-oriented dashboards, and this maps directly to Joe's repeated reminder, stale continuity, and Discord delivery friction. Best value is as Alfred/HAL infrastructure that reduces coordination drag and duplicate decision asks."
+    },
+    "promotedToGoalId": null,
+    "tags": [],
+    "createdAt": "2026-04-24T11:03:01.986Z",
+    "updatedAt": "2026-04-24T11:03:01.986Z",
+    "researchEvidence": [
+      {
+        "source": "GitHub Actions workflow health dashboard issue (Mar 2026)",
+        "finding": "Teams actively track workflow health artifacts to monitor failing pipelines, stale lockfiles, and operational reliability in one compact view."
+      },
+      {
+        "source": "act digital workflow dashboard case study (2025)",
+        "finding": "Automated workflow dashboards improved activity visibility, deadline tracking, and issue identification, validating operational demand for consolidated workflow monitoring."
+      },
+      {
+        "source": "Reddit r/devops monitoring dashboards and automated responses thread (Feb 2026)",
+        "finding": "Practitioners discuss connecting monitoring dashboards to automated remediation, showing real ops demand for dashboards tied to follow-up actions instead of passive reporting."
+      }
+    ]
   }
 ]
