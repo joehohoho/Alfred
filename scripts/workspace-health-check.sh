@@ -58,11 +58,12 @@ mkdir -p "$REPORT_DIR"
       def topic_key:
         text_blob as $t
         | if (.taskId // .cardId // "") != "" then "card:" + (.taskId // .cardId)
+          elif ($t | test("task_[0-9]+_[a-z0-9]+")) then "card:" + (($t | capture("(?<id>task_[0-9]+_[a-z0-9]+)").id) // "unknown")
           elif ($t | test("stripe") and ($t | test("trial|price|prices|14-day|14 day|coinusup"))) then "topic:coinusup-trial-stripe"
           elif ($t | test("bill review|invoice audit|build direction|personal tool|saas mvp|option a|option b")) then "topic:bill-review-scope"
           elif ($t | test("grant writer|4-week mvp build|go/no-go|go/no go")) then "topic:grant-writer-go-no-go"
           elif ($t | test("freshness scanner|superseded|contradiction zones|archive")) then "topic:freshness-cleanup"
-          elif ($t | test("trader signal|spec documents|development sprint")) then "topic:trader-signal-approval"
+          elif ($t | test("trader signal|spec documents|development sprint|blueprint|tech spec|mvp plan|bootstrap guide|executive summary")) then "topic:trader-signal-approval"
           else "title:" + ((.title // "(no title)") | gsub("\\s+"; " ") | ascii_downcase)
           end;
       def topic_label:
@@ -73,8 +74,16 @@ mkdir -p "$REPORT_DIR"
         elif .topicKey == "topic:trader-signal-approval" then "Trader Signal approval"
         else (.title // "(no title)")
         end;
+      def is_superseded_or_archived:
+        text_blob as $t
+        | (
+            ($t | test("\\bsuperseded\\b|\\barchiv(?:e|ed|ing)\\b|obsolete|no longer relevant|replaced by"))
+            or ((.status // "") | tostring | ascii_downcase | test("superseded|archived|obsolete"))
+            or ((.deliveryStatus // "") | tostring | ascii_downcase | test("superseded|archived"))
+          );
       [.[ ]
         | select(.answered == false)
+        | select(is_superseded_or_archived | not)
         | . + {
             createdTs: created_ts,
             displayTitle: (.title // "(no title)"),
