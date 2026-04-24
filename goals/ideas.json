@@ -792,5 +792,58 @@
     ],
     "createdAt": "2026-04-24T06:35:35Z",
     "updatedAt": "2026-04-24T06:35:35Z"
+  },
+  {
+    "id": "idea_1777026920_volunteer_shift_fill_assistant_v2",
+    "title": "Volunteer Shift Fill Assistant \u2014 AI Scheduling Copilot for Small Nonprofits",
+    "description": "**Problem**\nSmall nonprofits still manage volunteer scheduling with spreadsheets, weekly emails, and manual replies, which makes last-minute shift gaps painful and burns coordinator time. Existing tools prove demand, but smaller teams still complain about clunky workflows, weak partial-shift handling, and pricing that does not fit nonprofit budgets.\n\n**Solution**\nA lightweight scheduling copilot that spots open shifts, recommends the best volunteers to ask, and drafts personalized fill messages by email or SMS. Start narrow with Google Sheets/CSV import, simple availability matching, reminder automation, and a clear fill-the-gap workflow instead of a full volunteer platform.\n\n**Revenue Model**\nSaaS subscription for small nonprofits, for example free for one program and then about $19\u2013$49/month based on active volunteers, locations, or message volume. Potential add-on or companion product for CoinUsUp-adjacent nonprofit users.\n\n**Why Joe**\nThis fits Joe well because it is a focused, low-maintenance workflow product in a nonprofit niche he already understands through CoinUsUp. It is realistic with his stack (Node.js, React, TypeScript, Python), and Alfred could carry a large share of the build and iteration while Joe stays focused on leverage-heavy work.\n\n**Evidence**\n- Reddit r/nonprofit (Mar 2024): one nonprofit said they were using a Google Spreadsheet for volunteer scheduling and it was \"low tech/clumsy\" and poor for notifying volunteers, which is direct workflow pain: https://www.reddit.com/r/nonprofit/comments/1bpdb3k/volunteer_management_and_scheduling_software/\n- Reddit r/nonprofit (Feb 2024): another nonprofit described sending weekly emails to about 409 volunteers, manually replying to roughly 50 people a week, then entering availability into a spreadsheet, showing strong evidence of manual coordination pain: https://www.reddit.com/r/nonprofit/comments/1apjpbc/volunteer_scheduling_help/\n- VolunteerHub roundup (Jan 2026) says nonprofits use volunteer management software to automate registration, scheduling, communication, notifications, and reminders, confirming an active paid category with established competitors: https://volunteerhub.com/blog/10-volunteer-management-solutions-for-nonprofits\n- Better Impact 2026 positioning emphasizes self-scheduling, automated reminders, and mobile access, which shows that reminder and scheduling reliability are core buying criteria in this market: https://www.betterimpact.com/solutions-volunteer-impact",
+    "category": "passive-income",
+    "status": "idea",
+    "source": "alfred-generated",
+    "effort": "low",
+    "potential": "medium-high",
+    "revenueModel": "Subscription SaaS: free for one program, then roughly $19\u2013$49/month for small nonprofits, with premium options for SMS reminders, templates, and multi-location coordination.",
+    "researchEvidence": [
+      {
+        "source": "Reddit r/nonprofit (Mar 27 2024)",
+        "finding": "A nonprofit reported using a Google Spreadsheet for volunteer scheduling and called it low-tech and clumsy, especially for notifications and tracking."
+      },
+      {
+        "source": "Reddit r/nonprofit (Feb 13 2024)",
+        "finding": "A volunteer coordinator described emailing about 409 people weekly, manually replying to around 50 volunteers, and entering availability into a spreadsheet."
+      },
+      {
+        "source": "VolunteerHub roundup (Jan 6 2026)",
+        "finding": "Highlights volunteer management software as a category for automating registration, scheduling, communication, notifications, reminders, and reporting for nonprofits."
+      },
+      {
+        "source": "Better Impact positioning / roundup (Jan-Mar 2026)",
+        "finding": "Emphasizes self-scheduling in a few clicks plus automated reminders and mobile access, showing that scheduling automation and reliability are central buying criteria."
+      }
+    ],
+    "demandValidation": "Demand is validated by direct nonprofit complaints about spreadsheet and email-based scheduling, plus multiple active commercial vendors centered on scheduling, reminders, and self-signup. The opportunity is a smaller, fill-the-open-shift workflow for budget-sensitive nonprofits rather than another full volunteer management suite.",
+    "synergies": [
+      "CoinUsUp",
+      "Nonprofit operations",
+      "Scheduling automation",
+      "Low-maintenance SaaS"
+    ],
+    "evaluation": {
+      "score": 7.8,
+      "notes": "Validated workflow pain, real paid market, and narrow enough for a lean MVP. Stronger fit than generic ops ideas because it stays nonprofit-adjacent and focused."
+    },
+    "tags": [
+      "passive-income",
+      "saas",
+      "nonprofit",
+      "volunteer-management",
+      "scheduling",
+      "reminders",
+      "coinusup-adjacent",
+      "market-validated",
+      "low-maintenance"
+    ],
+    "createdAt": "2026-04-24T10:35:20Z",
+    "updatedAt": "2026-04-24T10:35:20Z"
   }
 ]
