@@ -1,58 +1,49 @@
-# Workspace Health Check - 2026-04-24
+# Workspace Health Check — 2026-04-24
 
-## 1. Git status of key repos
+**Time:** 08:51 PM ADT | **Status:** IDLE — Workspace Check
 
-- `~/command-center`
-  - Uncommitted changes found:
-    - `backend/src/gateway.ts`
-    - `backend/src/readers/hal.ts`
-    - `frontend/src/pages/Chat.tsx`
-  - Summary: meaningful in-progress changes related to control UI gateway scopes, HAL token handling via env/keychain, and chat rendering/performance improvements.
-  - Action: not committed during this check because they appear to be active feature/work-in-progress changes that should be reviewed in that repo context before committing.
-- `~/job-tracker`
-  - Clean working tree.
-- `~/market-signal-lab`
-  - Clean working tree.
-- `~/CoinUsUp`
-  - Clean working tree.
+---
 
-## 2. Unanswered notifications older than 24h
+## 1. Git Repository Status
 
-Found unanswered notifications older than 24h in `goals/notifications.json`:
+⚠️ **command-center:** 3 file(s) modified
+✅ **job-tracker:** Clean
+✅ **market-signal-lab:** Clean
+✅ **CoinUsUp:** Clean
 
-| Title | Age | Waiting on |
-|---|---:|---|
-| CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing | 30d 16h | unknown |
-| (untitled) | 29d 10h | unknown |
-| (untitled) | 29d 10h | unknown |
-| (untitled) | 29d 10h | unknown |
-| CoinUsUp trial implementation is production-ready (code + frontend 100% complete, all tests passing). BLOCKER: Stripe dashboard manual config needed. | 14d 8h | unknown |
-| Market validation complete. Blueprint ready at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md. Decision needed: personal tool or commercial SaaS. | 14d 8h | unknown |
-| CoinUsUp trial code is 100% complete and deployed to staging. Update 12 Stripe product prices with trial_period_days=14 or skip/defer free trials. | 14d 0h | unknown |
-| You asked me to build an MVP for the Bill Review invoice audit tool. Need scope direction: A) Personal Tool or B) External SaaS MVP. | 14d 0h | unknown |
-| You approved the MVP build on Mar 31, but scope direction is still blocked. Choose A or B. | 10d 22h | unknown |
-| Freshness scanner found 148 artifacts with 4 stale, 2 superseded, and 3 contradiction zones. | 10d 22h | unknown |
-| 5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for review/go-no-go. | 10d 6h | unknown |
-| All 6 specification documents are complete and validated. Approve 4-week development sprint this week? | 8d 10h | unknown |
-| Implementation complete, waiting on build direction choice: A) Personal internal invoice-audit tool, or B) External SaaS MVP. | 8d 10h | unknown |
-| Implementation is complete. Finish by either updating 12 Stripe prices for trials or skipping the feature. | 8d 10h | unknown |
-| Card `task_1774058538023_ae4bf3d2` has been blocked since 2026-04-08 waiting for build direction. | 8d 6h | unknown |
-| Card `task_1773156748695_23b9e471` has been fully implemented and is waiting for Stripe dashboard update since 2026-04-09. | 8d 6h | unknown |
-| 6 comprehensive specification documents are complete and validated, ready to start 4-week development cycle week of Apr 22. | 7d 10h | unknown |
+**Action:** Review modified repos: command-center (3 modified)
 
-Notes:
-- Several notifications appear duplicated or near-duplicated.
-- `waitingOn` metadata is mostly absent, so these currently resolve to `unknown`.
+---
 
-## 3. Stale kanban cards
+## 2. Unanswered Notifications (>24h old)
 
-Checked the kanban board for cards in `in_progress` with no update in 6+ hours.
+⚠️ **14 unanswered notifications older than 24h (11 actionable topics)**
+- CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing | age: 757h | waiting on: unknown
+- Bill Review scope decision | age: 365h | waiting on: unknown | duplicates: 3
+- CoinUsUp trial Stripe unblock | age: 365h | waiting on: unknown | duplicates: 2
+- 5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for your review and go/no-go decision. All files at /workspace/ideas/TRADER_SIGNAL_* (total 68KB, ~15 min read time). Key insight: Setup-based review workflow is missing from competitors—this fills a gap. | age: 267h | waiting on: This is fresh and complete; no blocking dependencies.
+- All 6 specification documents are complete and validated (87.9 KB, ~22K words). Market, product, technical, and business validation all PASS. Ready to handoff to development. Question: Approve to start 4-week development sprint this week? See GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md for decision summary. | age: 223h | waiting on: unknown
+- Implementation complete & waiting on your build direction choice: (A) Personal internal invoice-audit tool, or (B) External SaaS MVP. Which should we build? Once you choose, I can start immediately. | age: 223h | waiting on: unknown
+- Implementation is complete. To finish: either (A) Update the 12 Basic/Pro tier prices in Stripe dashboard to enable trials, or (B) Skip this feature for now. Which would you prefer? | age: 223h | waiting on: unknown
+- Card task_1774058538023_ae4bf3d2 has been blocked since 2026-04-08 waiting for you to choose the build direction. Last reminder was Apr 9. | age: 219h | waiting on: unknown
 
-- No stale `in_progress` cards found at the time of this check.
+---
 
-## 4. Summary
+## 3. Kanban Board Health
 
-- One repo has meaningful uncommitted changes: `~/command-center`.
-- Three repos are clean: `~/job-tracker`, `~/market-signal-lab`, `~/CoinUsUp`.
-- `goals/notifications.json` contains 17 unanswered notifications older than 24 hours.
-- No stale `in_progress` kanban cards were found.
+**Status:** API reachable
+**Counts:** todo 0, in_progress 0, review 0, done 117
+**Action:** None required
+
+---
+
+## 4. Summary & Next Steps
+
+| Item | Status | Action |
+|------|--------|--------|
+| Git repos | ⚠️ Dirty (1 repo(s)) | Review modified repos |
+| Notifications | Pending | Review deduped 24h+ blockers |
+| Kanban | ✅ Clean | None |
+
+**Report generated:** 2026-04-24 08:51 PM ADT
+**Next check:** Idle activity in ~30 min

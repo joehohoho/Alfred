@@ -22,18 +22,26 @@ mkdir -p "$REPORT_DIR"
   echo ""
 
   # Check each repo for uncommitted changes
+  DIRTY_REPOS=0
+  DIRTY_REPO_LINES=()
   for repo in ~/command-center ~/job-tracker ~/market-signal-lab ~/CoinUsUp; do
     if [[ -d "$repo" ]]; then
-      status=$(cd "$repo" && git status --short 2>/dev/null | wc -l)
+      status=$(cd "$repo" && git status --short 2>/dev/null | wc -l | tr -d ' ')
       if [[ $status -eq 0 ]]; then
         echo "✅ **$(basename "$repo"):** Clean"
       else
         echo "⚠️ **$(basename "$repo"):** $status file(s) modified"
+        DIRTY_REPOS=$((DIRTY_REPOS + 1))
+        DIRTY_REPO_LINES+=("$(basename "$repo") ($status modified)")
       fi
     fi
   done
   echo ""
-  echo "**Action:** None required"
+  if [[ "$DIRTY_REPOS" -gt 0 ]]; then
+    echo "**Action:** Review modified repos: ${DIRTY_REPO_LINES[*]}"
+  else
+    echo "**Action:** None required"
+  fi
   echo ""
   echo "---"
   echo ""
@@ -174,7 +182,14 @@ mkdir -p "$REPORT_DIR"
   echo ""
   echo "| Item | Status | Action |"
   echo "|------|--------|--------|"
-  echo "| Git repos | ✅ Clean | None |"
+  if [[ "${DIRTY_REPOS:-0}" -gt 0 ]]; then
+    GIT_STATUS="⚠️ Dirty ($DIRTY_REPOS repo(s))"
+    GIT_ACTION="Review modified repos"
+  else
+    GIT_STATUS="✅ Clean"
+    GIT_ACTION="None"
+  fi
+  echo "| Git repos | $GIT_STATUS | $GIT_ACTION |"
   echo "| Notifications | $NOTIF_STATUS | $NOTIF_ACTION |"
   if [[ -n "${KANBAN_JSON:-}" ]] && printf '%s' "$KANBAN_JSON" | jq -e '.' >/dev/null 2>&1; then
     if [[ "${KANBAN_IN_PROGRESS:-0}" -gt 0 || "${KANBAN_REVIEW:-0}" -gt 0 ]]; then
