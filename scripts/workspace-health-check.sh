@@ -60,9 +60,18 @@ mkdir -p "$REPORT_DIR"
       def created_ts:
         (.createdAt // .timestamp // .ts // .updatedAt) | parse_ts;
       def text_blob:
-        [(.title // ""), (.message // ""), (.source // ""), (.waitingOn // ""), (.taskId // ""), (.goalId // ""), (.cardId // "")]
+        [(.title // ""), (.message // ""), (.source // ""), (.sourceTag // ""), (.waitingOn // .waiting_on // ""), (.taskId // ""), (.goalId // ""), (.cardId // "")]
         | map(tostring | ascii_downcase)
         | join(" ");
+      def classify_waiting_on:
+        text_blob as $t
+        | if (.waitingOn // .waiting_on // "") != "" then (.waitingOn // .waiting_on)
+          elif ($t | test("waiting on you|you need to do|please reply|decision needed|what you need to do|can you|could you|would you|should i|approve|provide|update|reply with|your decision|need your decision|need your approval|scope clarification|clarification needed|which option|a or b|stripe|dashboard|manual config|manual task|unblocks testing")) then "joe"
+          elif ((.source // .sourceTag // "") | tostring | ascii_downcase | test("^daily-inquiry$|daily-inquiry|review-escalation|manual|question|approval|blocker")) then "joe"
+          elif ($t | test("[?]|waiting on|blocked on|clarification|approval|approve|decision|reply|respond|provide|update|choose|pick|which|what should|what do you")) then "joe"
+          elif (.assigned_to // "") != "" then .assigned_to
+          else "alfred"
+          end;
       def topic_key:
         text_blob as $t
         | if (.taskId // .cardId // "") != "" then "card:" + (.taskId // .cardId)
@@ -89,13 +98,15 @@ mkdir -p "$REPORT_DIR"
             or ((.status // "") | tostring | ascii_downcase | test("superseded|archived|obsolete"))
             or ((.deliveryStatus // "") | tostring | ascii_downcase | test("superseded|archived"))
           );
-      [.[ ]
+      . as $root
+      | (if ($root | type) == "array" then $root elif ($root | type) == "object" and ($root | has("items")) then $root.items else [] end) as $items
+      | [$items[]
         | select(.answered == false)
         | select(is_superseded_or_archived | not)
         | . + {
             createdTs: created_ts,
             displayTitle: (.title // "(no title)"),
-            waitingOn: (.waitingOn // .source // "unknown"),
+            waitingOn: classify_waiting_on,
             topicKey: topic_key
           }
         | . + { topicLabel: topic_label }
