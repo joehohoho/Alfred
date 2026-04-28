@@ -65,8 +65,36 @@ const SEMANTIC_TOPICS = {
   // Product Strategy & Philosophy
   "product-philosophy": [
     /opinionated|simpler|one.*thing.*well/i,
-    /metric.*watch|feature.*strategy/i,
+    /feature.*strategy/i,
     /user.*ask|what.*users/i,
+  ],
+
+  // App Metrics
+  "app-metrics": [
+    /metric.*watch|watch.*daily|number.*check.*first/i,
+    /dau|mrr|churn|feature.*usage|bug.*count/i,
+    /celebrate|what.*number/i,
+  ],
+
+  // Blockers To New Builds
+  "blocker-to-new": [
+    /stop.*building.*something.*new|build.*something.*new/i,
+    /actual.*blocker|technical.*risk|support.*burden/i,
+    /not.*time.*or.*money|not.*knowing.*the.*idea/i,
+  ],
+
+  // Consulting Scaling
+  "consulting-scaling": [
+    /consulting.*systematic|systematic.*consulting/i,
+    /scalable|scale.*consulting|productize|repeatable.*template/i,
+    /bespoke|1-on-1|one-on-one/i,
+  ],
+
+  // Time Allocation
+  "time-allocation": [
+    /how.*much.*time.*should|time.*passive.*income|passive.*income.*client.*work/i,
+    /current.*split|ideal.*split|skewed.*the.*wrong.*way/i,
+    /client.*work.*right.*now|maintain.*vs.*build/i,
   ],
 
   // Workflow & System
