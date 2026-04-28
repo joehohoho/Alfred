@@ -390,4 +390,10 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Apr 27 13:00)
   ID: `notif_1777294800691_b9172371` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
+
+- **CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please choose one: (A) update the 12 Basic/Pro Stripe prices for the 14-day trial, or (B) reply defer/skip and I will move it out of blocked. No further coding is needed until that choice is made.** (_[REMINDER] 14-day Trial — Stripe step or defer_, Apr 28 08:40)
+  ID: `notif_1777365610188_41a28dfc` — No details provided
+
+- **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: choose A only if you want this to become an active build in the next month, otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — go / defer / close_, Apr 28 08:40)
+  ID: `notif_1777365610509_8751e17c` — No details provided
 <!-- PENDING-Q-END -->
