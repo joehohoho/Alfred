@@ -1,13 +1,13 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: confirmed today's daily ops summary already existed, re-read the latest five available memory logs, and verified task state is current) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-04-28 15:54 ADT)  
-**Last Active:** 2026-04-28 15:54 ADT  
-**Current Action:** Confirmed `reports/daily-ops-2026-04-28.md` already exists, re-reviewed the latest available daily memory logs (`2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`, `2026-04-22`), and verified `ACTIVE-TASK.md` remains current for the present idle state and Joe-dependent blockers  
+**Status:** idle (last: re-confirmed today's daily ops summary already existed, re-read the latest five available memory logs, and refreshed task timestamps for the current idle pass) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-04-28 20:04 ADT)  
+**Last Active:** 2026-04-28 20:04 ADT  
+**Current Action:** Reconfirmed `reports/daily-ops-2026-04-28.md` already exists, re-reviewed the latest available daily memory logs (`2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`, `2026-04-22`), and refreshed `ACTIVE-TASK.md` timestamps while keeping the same Joe-dependent blockers  
 
 ---
 
-## Current Completion (2026-04-28 15:54 ADT)
+## Current Completion (2026-04-28 20:04 ADT)
 
 ✅ **Memory Review Refresh** (Completed)
 - Confirmed `reports/daily-ops-2026-04-28.md` already existed, so no duplicate report was created
@@ -290,65 +290,6 @@ Ready for next assignment once this card transitions to done.
 - **Untitled** (_unknown_, Mar 25 16:18)
   ID: `?` — 
 
-- **CoinUsUp trial implementation is production-ready (code + frontend 100% complete, all tests passing).\n\n**BLOCKER:** Stripe dashboard manual config needed.\n\n**Action:** Create 12 price IDs in Stripe:\n- Basic Monthly US, Basic Monthly CA\n- Basic Annual US, Basic Annual CA\n- Pro Monthly US, Pro Monthly CA\n- Pro Annual US, Pro Annual CA\n- Plus 2 Enterprise prices\n\nFor each, set **trial_period_days = 14**.\n\n**Help:** See CoinUsUp repo stripe-prices.ts for exact product/price IDs to create.\n\n**Timeline:** 30 min work, then trial launches immediately.** (_[REMINDER - 14-Day Trial] Stripe config awaiting_, Apr 09 18:41)
-  ID: `notif_1775760070628_22478b25` — No details provided
-
-- **Market validation complete. Blueprint ready at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md.\n\n**DECISION NEEDED:** Should I build this as:\n\n**Option A: Personal Tool**\nJust for your own SMB billing audits. ~2-3 day MVP. Test internally first, then expand.\n\n**Option B: Commercial SaaS**\nBuilt for resale to other SMBs. Full MVP with onboarding/support/pricing. ~1-2 week build.\n\n**Recommend:** Start with A (personal tool). If it works for you, expand to B later.\n\n**What you do:** Choose A or B. I build immediately.\n\n**Timeline:** A = 2-3 days. B = 1-2 weeks.** (_[REMINDER - Bill Review MVP] Scope decision needed_, Apr 09 18:41)
-  ID: `notif_1775760070634_61acb260` — No details provided
-
-- **CoinUsUp trial code is 100% complete and deployed to staging. All you need to do is update 12 Stripe product prices with trial_period_days=14. Takes 5 minutes.
-
-Basic tier (4 prices): US Monthly, US Annual, CA Monthly, CA Annual
-Pro tier (4 prices): US Monthly, US Annual, CA Monthly, CA Annual
-
-Once done, I'll deploy to production same day.
-
-**Questions:**
-1. Ready to do Stripe dashboard update today?
-2. Or should we skip/defer free trials for now?** (_Trial Feature Unblock: Stripe Config Ready_, Apr 10 02:41)
-  ID: `notif_1775788885611_a5021adb` — No details provided
-
-- **You asked me to build an MVP for the Bill Review invoice audit tool (Mar 31). I need one clarification before I start:
-
-**A) Personal Tool** — Build a personal invoice audit app for your own use (you audit invoices, catch duplicates/overcharges)
-
-**B) External SaaS MVP** — Build a product to sell to Canadian SMBs (bootstrap version, test with 3-5 pilot customers, iterate based on feedback)
-
-The blueprint and market analysis support both. But the build path, design, and priorities differ.
-
-Which direction? (Reply A or B in the card comment)** (_Bill Review MVP: Scope Decision Needed_, Apr 10 02:41)
-  ID: `notif_1775788889479_5d542fd8` — No details provided
-
-- **You approved the MVP build on Mar 31, but we're blocked on the scope direction. Quick decision needed:
-
-**Option A (Personal Tool):** Internal invoice-audit tool for your own use (You get an audit queue UI, I handle detection backend)
-
-**Option B (External SaaS MVP):** Revenue-focused MVP to test-sell to Canadian SMBs (requires go-to-market plan)
-
-Blueprint complete + market validation done either way. 
-
-**What should I do?** Reply with A or B so I can unblock the build. No other details needed.** (_Bill Review & Invoice Audit Automation MVP — SCOPE DECISION NEEDED_, Apr 13 04:18)
-  ID: `notif_1776053901200_0aeb3bd0` — No details provided
-
-- **The freshness scanner found 148 artifacts with 4 stale, 2 superseded, and 3 contradiction zones.
-
-**What I need from you:**
-1. Review FRESHNESS-SCANNER-REPORT.md (findings)
-2. Confirm which superseded items to archive (e.g., Apr 2 portfolio vs Apr 11 portfolio)
-3. Review the 3 contradiction zones (Signal App, CoinUsUp Growth, Even Us Up Roadmap)
-4. Approve cleanup automation
-
-Once you confirm, I'll auto-archive stale items and consolidate contradiction zones.
-
-**Timeline:** 30 min to review, 20 min to execute if approved.** (_Knowledge Freshness Scanner — CLEANUP APPROVAL NEEDED_, Apr 13 04:18)
-  ID: `notif_1776053904561_9e9d7720` — No details provided
-
-- **5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for your review and go/no-go decision. All files at /workspace/ideas/TRADER_SIGNAL_* (total 68KB, ~15 min read time). Key insight: Setup-based review workflow is missing from competitors—this fills a gap.** (_Review: Trader Signal Post-Mortem Assistant_, Apr 13 20:19)
-  ID: `notif_1776111569945_1142976b` — Approve for build
-
-- **All 6 specification documents are complete and validated (87.9 KB, ~22K words). Market, product, technical, and business validation all PASS. Ready to handoff to development. Question: Approve to start 4-week development sprint this week? See GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md for decision summary.** (_AI Grant Writer — Ready for Approval + Development Start_, Apr 15 16:21)
-  ID: `notif_1776270105660_d1330128` — task_1776231233660_b4350b92
-
 - **Implementation complete & waiting on your build direction choice: (A) Personal internal invoice-audit tool, or (B) External SaaS MVP. Which should we build? Once you choose, I can start immediately.** (_[REMINDER] Bill Review & Invoice Audit — Scope Decision Needed_, Apr 15 16:21)
   ID: `notif_1776270111548_b0cde226` — task_1774058538023_ae4bf3d2
 
@@ -363,9 +304,6 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **6 comprehensive specification documents (87.9 KB, 22K words) are complete and validated: Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary, and Completion Evidence. All validation gates passed (market, product, technical, business, development). Ready to start 4-week development cycle week of Apr 22.** (_AI Grant Writer MVP — Ready for Development Approval_, Apr 16 16:23)
   ID: `notif_1776356587211_c82a8d78` — —
-
-- **What would stop you from building something new right now?** (_question_, Apr 23 13:00)
-  ID: `notif_1776949200561_df1aa500` — Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?
 
 - **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — Go / No-Go Decision Needed_, Apr 24 08:34)
   ID: `notif_1777008840000_grantwriter_reminder` — task_1776231233660_b4350b92
