@@ -28,15 +28,36 @@ fi
 
 if [ -n "$BOARD" ]; then
   MOVED=$(echo "$BOARD" | python3 -c "
-import json, sys, subprocess, re
+import json, sys, subprocess
 from datetime import datetime, timezone
 
 STALE_HOURS = $STALE_WORK_HOURS
 now = datetime.now(timezone.utc)
 board = json.load(sys.stdin)
-in_progress = board.get('columns', {}).get('in_progress', [])
 moved = 0
 skipped = 0
+
+# Accept both board['columns'] as a dict keyed by column id and as a list of column objects.
+def extract_in_progress_cards(board):
+    columns = board.get('columns', {}) if isinstance(board, dict) else {}
+
+    if isinstance(columns, dict):
+        in_progress = columns.get('in_progress', [])
+        return in_progress if isinstance(in_progress, list) else []
+
+    if isinstance(columns, list):
+        for col in columns:
+            if not isinstance(col, dict):
+                continue
+            col_id = str(col.get('id') or '').strip().lower()
+            col_name = str(col.get('name') or col.get('title') or '').strip().lower()
+            if col_id == 'in_progress' or col_name in ('in progress', 'in_progress'):
+                cards = col.get('cards', [])
+                return cards if isinstance(cards, list) else []
+
+    return []
+
+in_progress = extract_in_progress_cards(board)
 
 # Valid card ID pattern: non-empty, non-null string (not 'null', not empty)
 def is_valid_id(cid):
@@ -60,7 +81,7 @@ def is_valid_ts(ts):
 for card in in_progress:
     card_id = card.get('id')
     title = card.get('title', '(no title)')[:60]
-    updated = card.get('updatedAt', '')
+    updated = card.get('updatedAt') or card.get('updated_at') or card.get('lastUpdatedAt') or ''
 
     # GUARD: skip null/invalid IDs
     if not is_valid_id(card_id):
@@ -75,7 +96,7 @@ for card in in_progress:
         continue
 
     try:
-        dt = datetime.fromisoformat(updated.replace('Z', '+00:00'))
+        dt = datetime.fromisoformat(str(updated).replace('Z', '+00:00'))
         hours = (now - dt).total_seconds() / 3600
         if hours > STALE_HOURS:
             result = subprocess.run(
