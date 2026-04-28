@@ -149,11 +149,18 @@ mkdir -p "$REPORT_DIR"
   KANBAN_JSON=$(curl -s --max-time 5 http://localhost:3001/api/kanban 2>/dev/null || true)
   if [[ -n "$KANBAN_JSON" ]] && printf '%s' "$KANBAN_JSON" | jq -e '.' >/dev/null 2>&1; then
     KANBAN_SUMMARY=$(printf '%s' "$KANBAN_JSON" | jq -r '
-      def col_len(name): (.columns[name] // []) | length;
+      def normalized_columns:
+        if type == "dict" then (.columns // {})
+        else {}
+        end;
+      def col_len(name): (normalized_columns[name] // []) | if type == "array" then length else 0 end;
       {
         ideas: col_len("ideas"),
+        goals: col_len("goals"),
+        later: col_len("later"),
         todo: col_len("todo"),
         in_progress: col_len("in_progress"),
+        blocked: col_len("blocked"),
         review: col_len("review"),
         done: col_len("done")
       }
@@ -161,16 +168,70 @@ mkdir -p "$REPORT_DIR"
 
     KANBAN_TODO=$(printf '%s' "$KANBAN_SUMMARY" | jq -r '.todo // 0')
     KANBAN_IN_PROGRESS=$(printf '%s' "$KANBAN_SUMMARY" | jq -r '.in_progress // 0')
+    KANBAN_BLOCKED=$(printf '%s' "$KANBAN_SUMMARY" | jq -r '.blocked // 0')
     KANBAN_REVIEW=$(printf '%s' "$KANBAN_SUMMARY" | jq -r '.review // 0')
     KANBAN_DONE=$(printf '%s' "$KANBAN_SUMMARY" | jq -r '.done // 0')
 
     echo "**Status:** API reachable"
-    echo "**Counts:** todo $KANBAN_TODO, in_progress $KANBAN_IN_PROGRESS, review $KANBAN_REVIEW, done $KANBAN_DONE"
+    echo "**Counts:** todo $KANBAN_TODO, in_progress $KANBAN_IN_PROGRESS, blocked $KANBAN_BLOCKED, review $KANBAN_REVIEW, done $KANBAN_DONE"
 
-    if [[ "$KANBAN_IN_PROGRESS" -gt 0 || "$KANBAN_REVIEW" -gt 0 ]]; then
-      echo "**Action:** Check active/review cards for follow-up"
+    if [[ "$KANBAN_IN_PROGRESS" -gt 0 || "$KANBAN_REVIEW" -gt 0 || "$KANBAN_BLOCKED" -gt 0 ]]; then
+      echo "**Action:** Check active/blocked/review cards for follow-up"
     else
       echo "**Action:** None required"
+    fi
+
+    STALE_SUMMARY=$(printf '%s' "$KANBAN_JSON" | python3 -c '
+import json, sys
+from datetime import datetime, timezone
+
+try:
+    board = json.load(sys.stdin)
+except Exception:
+    print("0|0")
+    raise SystemExit
+
+cards = []
+columns = board.get("columns", {}) if isinstance(board, dict) else {}
+for column_name in ("in_progress", "review"):
+    col_cards = columns.get(column_name, []) if isinstance(columns, dict) else []
+    if isinstance(col_cards, list):
+        for card in col_cards:
+            if isinstance(card, dict):
+                cards.append((column_name, card))
+
+now = datetime.now(timezone.utc)
+stale = []
+invalid = 0
+for column_name, card in cards:
+    updated = card.get("updatedAt") or card.get("updated_at") or card.get("lastUpdatedAt")
+    if not updated:
+        invalid += 1
+        continue
+    try:
+        dt = datetime.fromisoformat(str(updated).replace("Z", "+00:00"))
+        age_h = (now - dt).total_seconds() / 3600
+        if age_h >= 24:
+            stale.append((age_h, column_name, str(card.get("id") or "?"), str(card.get("title") or "(no title)")))
+    except Exception:
+        invalid += 1
+
+print(f"{len(stale)}|{invalid}")
+for age_h, column_name, card_id, title in sorted(stale, reverse=True)[:5]:
+    title = title.replace("\n", " ")[:90]
+    print(f"- {title} ({card_id}) | {column_name} | stale {age_h:.1f}h")
+' 2>/dev/null || true)
+
+    STALE_COUNT=$(printf '%s' "$STALE_SUMMARY" | head -n1 | cut -d'|' -f1)
+    INVALID_COUNT=$(printf '%s' "$STALE_SUMMARY" | head -n1 | cut -d'|' -f2)
+    if [[ "${STALE_COUNT:-0}" =~ ^[0-9]+$ ]] && [[ "$STALE_COUNT" -gt 0 ]]; then
+      echo "**Stale cards:** $STALE_COUNT in in_progress/review older than 24h"
+      printf '%s\n' "$STALE_SUMMARY" | tail -n +2
+    else
+      echo "**Stale cards:** none older than 24h in in_progress/review"
+    fi
+    if [[ "${INVALID_COUNT:-0}" =~ ^[0-9]+$ ]] && [[ "$INVALID_COUNT" -gt 0 ]]; then
+      echo "**Data quality:** $INVALID_COUNT card(s) skipped due to missing/invalid updatedAt"
     fi
   else
     echo "**Status:** Kanban API unavailable"
