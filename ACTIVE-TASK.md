@@ -1,19 +1,19 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: reviewed the latest available memory logs, confirmed today's daily ops summary already exists, and refreshed task state) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-04-25 03:50 ADT)  
-**Last Active:** 2026-04-25 03:50 ADT  
-**Current Action:** Reviewed the latest five available daily memory logs, confirmed `reports/daily-ops-2026-04-25.md` already exists, and refreshed `ACTIVE-TASK.md` to reflect the current idle state and active Joe-dependent blockers  
+**Status:** idle (last: reviewed the latest available memory logs, wrote today's daily ops summary, and refreshed task state) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-04-28 03:54 ADT)  
+**Last Active:** 2026-04-28 03:54 ADT  
+**Current Action:** Reviewed the latest five available daily memory logs, wrote `reports/daily-ops-2026-04-28.md`, and refreshed `ACTIVE-TASK.md` to reflect the current idle state and active Joe-dependent blockers  
 
 ---
 
-## Current Completion (2026-04-25 03:50 ADT)
+## Current Completion (2026-04-28 03:54 ADT)
 
 ✅ **Memory Review Refresh** (Completed)
-- Reviewed the latest five available daily memory logs: `2026-04-25`, `2026-04-24`, `2026-04-23`, `2026-04-22`, and `2026-04-21`
-- Confirmed `reports/daily-ops-2026-04-25.md` already exists, so no duplicate report was generated
+- Reviewed the latest five available daily memory logs: `2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`, and `2026-04-22`
+- Wrote `reports/daily-ops-2026-04-28.md`
 - Refreshed `ACTIVE-TASK.md` to reflect the current idle state instead of the earlier stale completion note
-- Reconfirmed the current highest-leverage blockers are still Joe decisions, not technical unknowns
+- Reconfirmed the current highest-leverage blockers are still Joe decisions and workflow-state cleanup, not core technical unknowns
 
 ✅ **Recent Idle-Loop Deliverables**
 - `reports/workflow-efficiency-2026-04-21.md`
@@ -381,4 +381,13 @@ Once you confirm, I'll auto-archive stale items and consolidate contradiction zo
 
 - **For Even Us Up, what's the smallest win that would feel like real progress?** (_question_, Apr 24 13:00)
   ID: `notif_1777035600535_9eecbe4e` — Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?
+
+- **What would make your consulting work more systematic or scalable?** (_question_, Apr 25 13:00)
+  ID: `notif_1777122000519_272fa790` — Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?
+
+- **How much of your time should passive income get vs. client work right now?** (_question_, Apr 26 13:00)
+  ID: `notif_1777208400486_a41de4b5` — Current split works? Skewed the wrong way? What's the ideal?
+
+- **What's the one thing that would unlock the next growth phase for CoinUsUp?** (_question_, Apr 27 13:00)
+  ID: `notif_1777294800691_b9172371` — Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?
 <!-- PENDING-Q-END -->
