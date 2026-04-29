@@ -1,18 +1,19 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: re-read the latest five daily memory logs, confirmed today's ops summary already exists, refreshed the idle-state bookkeeping, and kept the same Joe-dependent blockers active) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-04-29 12:03 ADT)  
-**Last Active:** 2026-04-29 12:03 ADT  
-**Current Action:** Re-read the latest five daily memory logs (`2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`), confirmed `reports/daily-ops-2026-04-29.md` already exists, refreshed `ACTIVE-TASK.md`, and kept the same Joe-dependent blockers  
+**Status:** idle (last: re-read the latest five daily memory logs, confirmed today's ops summary already exists, refreshed the idle-state bookkeeping, and narrowed the live blockers to the remaining Joe decisions) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-04-29 16:03 ADT)  
+**Last Active:** 2026-04-29 16:03 ADT  
+**Current Action:** Re-read the latest five daily memory logs (`2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`), confirmed `reports/daily-ops-2026-04-29.md` already exists, refreshed `ACTIVE-TASK.md`, and removed stale Bill Review emphasis from the live blocker summary  
 
 ---
 
-## Current Completion (2026-04-29 12:03 ADT)
+## Current Completion (2026-04-29 16:03 ADT)
 
 ✅ **Memory Review Refresh** (Completed)
 - Re-read the latest five daily memory logs: `2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`, and `2026-04-23`
 - Confirmed `reports/daily-ops-2026-04-29.md` already exists, so no duplicate summary was written
 - Refreshed `ACTIVE-TASK.md` timestamps/state for the current idle context
+- Removed stale Bill Review priority from the live blocker summary because the MVP delivery path was already completed
 - Reconfirmed the current highest-leverage blockers are still Joe decisions plus workflow/infrastructure cleanup, not a missing technical next step
 
 ✅ **Recent Idle-Loop Deliverables**
@@ -27,8 +28,8 @@
 ## Pending Decisions for Joe (Current High-Leverage)
 
 1. **CoinUsUp Trial (CRITICAL):** Do the Stripe dashboard setup now, or defer the 14-day trial feature?
-2. **Bill Review Scope (CRITICAL):** Build as a Personal Tool first, or as an External SaaS MVP?
-3. **AI Grant Writer:** Approve or defer the proposed development sprint.
+2. **AI Grant Writer (CRITICAL):** Approve, defer, or close the proposed development sprint.
+3. **Workflow/Infrastructure Cleanup:** Reduce reminder-state drift and fix the Apr 28 reliability issues (HAL ACK timeout noise, stale continuity files, `health-monitor.js`).
 
 **See:** `reports/daily-ops-2026-04-23.md`, `reports/passive-income-portfolio-review-2026-04-21.md`, and pending notifications below.
 
@@ -281,14 +282,14 @@ Ready for next assignment once this card transitions to done.
 - **CoinUsUp Recurring Donations — Stripe Keys Needed to Proceed with Testing** (_question_, Mar 24 10:37)
   ID: `notif_1774348633358_ebc3c96c` — Phase B testing is blocked on Stripe configuration. The feature is 100% code-complete (builds, all hooks work, UI integrated), but I can't run the end...
 
-- **Untitled** (_unknown_, Mar 25 16:18)
-  ID: `?` — 
+- **Ready to proceed with 10 SMB discovery calls starting Mar 25 to validate market demand and refine business model? Blueprint and market analysis complete.** (_question_, Mar 25 16:18)
+  ID: `task_1774058538023_ae4bf3d2` — Market validation complete (3.4B→8.9B market, 14.3% CAGR). Competitors identified (Stampli, BILL). Next: approval to start cold outreach.
 
-- **Untitled** (_unknown_, Mar 25 16:18)
-  ID: `?` — 
+- **Can you: (1) approve the 10-prospect cold outreach list, and (2) provide 2-3 warm intro names in the Atlantic construction industry to jump-start validation?** (_question_, Mar 25 16:18)
+  ID: `task_1774171849501_375342e7` — Phase 1 research complete. Phase 2 framework ready. Waiting on prospect list approval + warm intros to start customer discovery interviews.
 
-- **Untitled** (_unknown_, Mar 25 16:18)
-  ID: `?` — 
+- **Can you update 12 product prices on the Stripe dashboard to add trial_period_days=14 for Basic/Pro tiers? This unblocks testing.** (_question_, Mar 25 16:18)
+  ID: `task_1773156748695_23b9e471` — Frontend code complete. Edge Functions ready. Blocked on Stripe dashboard configuration for trial periods on 12 prices.
 
 - **Implementation complete & waiting on your build direction choice: (A) Personal internal invoice-audit tool, or (B) External SaaS MVP. Which should we build? Once you choose, I can start immediately.** (_[REMINDER] Bill Review & Invoice Audit — Scope Decision Needed_, Apr 15 16:21)
   ID: `notif_1776270111548_b0cde226` — task_1774058538023_ae4bf3d2
@@ -305,16 +306,10 @@ Ready for next assignment once this card transitions to done.
 - **6 comprehensive specification documents (87.9 KB, 22K words) are complete and validated: Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary, and Completion Evidence. All validation gates passed (market, product, technical, business, development). Ready to start 4-week development cycle week of Apr 22.** (_AI Grant Writer MVP — Ready for Development Approval_, Apr 16 16:23)
   ID: `notif_1776356587211_c82a8d78` — —
 
-- **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — Go / No-Go Decision Needed_, Apr 24 08:34)
-  ID: `notif_1777008840000_grantwriter_reminder` — task_1776231233660_b4350b92
-
-- **CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.** (_[REMINDER] 14-day Trial — Stripe Step or Defer Decision_, Apr 24 08:34)
-  ID: `notif_1777008840001_trial_reminder` — task_1773156748695_23b9e471
-
-- **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — Go / No-Go Decision Needed_, Apr 24 08:35)
+- **AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.** (_[REMINDER] AI Grant Writer — Go / No-Go Decision Needed_, Apr 24 08:35, duplicates: 2)
   ID: `notif_1777019732011_077ed8a9` — No details provided
 
-- **CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.** (_[REMINDER] 14-day Trial — Stripe Step or Defer Decision_, Apr 24 08:35)
+- **CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.** (_[REMINDER] 14-day Trial — Stripe Step or Defer Decision_, Apr 24 08:35, duplicates: 2)
   ID: `notif_1777019732333_ffa3a0a8` — No details provided
 
 - **For Even Us Up, what's the smallest win that would feel like real progress?** (_question_, Apr 24 13:00)
@@ -337,4 +332,7 @@ Ready for next assignment once this card transitions to done.
 
 - **Is there a metric you watch daily on any of your apps?** (_question_, Apr 28 13:00)
   ID: `notif_1777381200531_babaa893` — What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?
+
+- **Should any of your apps become more opinionated or simpler?** (_question_, Apr 29 13:00)
+  ID: `notif_1777467600462_821913d5` — Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?
 <!-- PENDING-Q-END -->
