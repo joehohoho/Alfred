@@ -50,7 +50,35 @@ mkdir -p "$REPORT_DIR"
 
   # Check for old notifications, grouped by actionable topic instead of exact
   # title text so repeated reminders with slightly different wording collapse.
-  if [[ -f "$WORKSPACE/goals/notifications.json" ]]; then
+  NOTIF_FILE="$WORKSPACE/goals/notifications.json"
+  API_NOTIFICATIONS_JSON=$(curl -s --max-time 5 'http://localhost:3001/api/notifications?answered=false' 2>/dev/null || true)
+  API_NOTIFICATIONS_VALID=0
+  API_OPEN_COUNT=""
+  if [[ -n "$API_NOTIFICATIONS_JSON" ]] && printf '%s' "$API_NOTIFICATIONS_JSON" | jq -e 'type == "array"' >/dev/null 2>&1; then
+    API_NOTIFICATIONS_VALID=1
+    API_OPEN_COUNT=$(printf '%s' "$API_NOTIFICATIONS_JSON" | jq -r 'length')
+  fi
+
+  NOTIF_SOURCE_PATH=""
+  NOTIF_SOURCE_LABEL=""
+  FILE_OPEN_COUNT=""
+  if [[ -f "$NOTIF_FILE" ]]; then
+    NOTIF_SOURCE_PATH="$NOTIF_FILE"
+    NOTIF_SOURCE_LABEL="goals/notifications.json"
+    FILE_OPEN_COUNT=$(jq -r '
+      . as $root
+      | (if ($root | type) == "array" then $root elif ($root | type) == "object" and ($root | has("items")) then $root.items else [] end)
+      | map(select(.answered == false))
+      | length
+    ' "$NOTIF_FILE" 2>/dev/null || echo "")
+  elif [[ "$API_NOTIFICATIONS_VALID" -eq 1 ]]; then
+    NOTIF_TMP=$(mktemp)
+    printf '%s' "$API_NOTIFICATIONS_JSON" > "$NOTIF_TMP"
+    NOTIF_SOURCE_PATH="$NOTIF_TMP"
+    NOTIF_SOURCE_LABEL="Command Center API fallback"
+  fi
+
+  if [[ -n "$NOTIF_SOURCE_PATH" ]]; then
     SUMMARY_JSON=$(jq -r '
       def parse_ts:
         if . == null then null
@@ -72,15 +100,23 @@ mkdir -p "$REPORT_DIR"
           elif (.assigned_to // "") != "" then .assigned_to
           else "alfred"
           end;
+      def task_ref:
+        (.taskId // .cardId // "") as $direct
+        | if (($direct | type) == "string") and ($direct | test("^(task|card)_[0-9]+_[a-z0-9]+$")) then $direct
+          elif ($direct | type) == "string" and ($direct | ascii_downcase | test("^task_[0-9]+_[a-z0-9]+$")) then ($direct | ascii_downcase)
+          elif (.message // "" | tostring | ascii_downcase | test("task_[0-9]+_[a-z0-9]+")) then ((.message // "" | tostring | ascii_downcase | capture("(?<id>task_[0-9]+_[a-z0-9]+)").id) // null)
+          elif (.title // "" | tostring | ascii_downcase | test("task_[0-9]+_[a-z0-9]+")) then ((.title // "" | tostring | ascii_downcase | capture("(?<id>task_[0-9]+_[a-z0-9]+)").id) // null)
+          else null
+          end;
       def topic_key:
         text_blob as $t
-        | if (.taskId // .cardId // "") != "" then "card:" + (.taskId // .cardId)
-          elif ($t | test("task_[0-9]+_[a-z0-9]+")) then "card:" + (($t | capture("(?<id>task_[0-9]+_[a-z0-9]+)").id) // "unknown")
-          elif ($t | test("stripe") and ($t | test("trial|price|prices|14-day|14 day|coinusup"))) then "topic:coinusup-trial-stripe"
+        | (task_ref) as $ref
+        | if ($t | test("stripe") and ($t | test("trial|price object|price objects|basic/pro|basic pro|14-day|14 day|trial_period_days"))) then "topic:coinusup-trial-stripe"
           elif ($t | test("bill review|invoice audit|build direction|personal tool|saas mvp|option a|option b")) then "topic:bill-review-scope"
-          elif ($t | test("grant writer|4-week mvp build|go/no-go|go/no go")) then "topic:grant-writer-go-no-go"
+          elif ($t | test("grant writer|4-week mvp build|go/no-go|go/no go|22k words|completion evidence|review docs first, decide later")) then "topic:grant-writer-go-no-go"
           elif ($t | test("freshness scanner|superseded|contradiction zones|archive")) then "topic:freshness-cleanup"
-          elif ($t | test("trader signal|spec documents|development sprint|blueprint|tech spec|mvp plan|bootstrap guide|executive summary")) then "topic:trader-signal-approval"
+          elif ($t | test("trader signal|development sprint|tradingview|setup-based review workflow")) then "topic:trader-signal-approval"
+          elif $ref != null then "card:" + $ref
           else "title:" + ((.title // "(no title)") | gsub("\\s+"; " ") | ascii_downcase)
           end;
       def topic_label:
@@ -122,10 +158,15 @@ mkdir -p "$REPORT_DIR"
             | sort_by(.ageHours) | reverse),
           dedupedCount: ($open | group_by(.topicKey) | length)
         }
-    ' "$WORKSPACE/goals/notifications.json" 2>/dev/null || echo '{"totalOld":0,"deduped":[],"dedupedCount":0}')
+    ' "$NOTIF_SOURCE_PATH" 2>/dev/null || echo '{"totalOld":0,"deduped":[],"dedupedCount":0}')
 
     OLD_COUNT=$(printf '%s' "$SUMMARY_JSON" | jq -r '.totalOld // 0')
     DEDUPED_COUNT=$(printf '%s' "$SUMMARY_JSON" | jq -r '.dedupedCount // 0')
+
+    echo "**Source:** $NOTIF_SOURCE_LABEL"
+    if [[ -n "$FILE_OPEN_COUNT" && "$API_NOTIFICATIONS_VALID" -eq 1 && -n "$API_OPEN_COUNT" && "$FILE_OPEN_COUNT" != "$API_OPEN_COUNT" ]]; then
+      echo "**Data quality:** file shows $FILE_OPEN_COUNT unanswered, API shows $API_OPEN_COUNT unanswered — investigate notification sync drift"
+    fi
 
     if [[ "$OLD_COUNT" -gt 0 ]]; then
       echo "⚠️ **$OLD_COUNT unanswered notifications older than 24h ($DEDUPED_COUNT actionable topics)**"
@@ -138,7 +179,11 @@ mkdir -p "$REPORT_DIR"
       echo "✅ All notifications responded to"
     fi
   else
-    echo "ℹ️ No notifications file found"
+    echo "ℹ️ No notifications source found"
+  fi
+
+  if [[ -n "${NOTIF_TMP:-}" && -f "$NOTIF_TMP" ]]; then
+    rm -f "$NOTIF_TMP"
   fi
   echo ""
   echo "---"
