@@ -1,20 +1,19 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: re-read the latest five daily memory logs, confirmed today's ops summary already exists, refreshed the idle-state bookkeeping, and narrowed the live blockers to the remaining Joe decisions) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-04-29 16:03 ADT)  
-**Last Active:** 2026-04-29 16:03 ADT  
-**Current Action:** Re-read the latest five daily memory logs (`2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`), confirmed `reports/daily-ops-2026-04-29.md` already exists, refreshed `ACTIVE-TASK.md`, and removed stale Bill Review emphasis from the live blocker summary  
+**Status:** idle (last: re-read the latest five daily memory logs, confirmed today's ops summary already exists, refreshed the idle-state bookkeeping, and kept the live blockers narrowed to Joe decisions plus workflow cleanup) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-04-29 20:03 ADT)  
+**Last Active:** 2026-04-29 20:03 ADT  
+**Current Action:** Re-read the latest five daily memory logs (`2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`, `2026-04-23`), confirmed `reports/daily-ops-2026-04-29.md` already exists so no duplicate report was written, and refreshed `ACTIVE-TASK.md` for the current idle state  
 
 ---
 
-## Current Completion (2026-04-29 16:03 ADT)
+## Current Completion (2026-04-29 20:03 ADT)
 
 ✅ **Memory Review Refresh** (Completed)
 - Re-read the latest five daily memory logs: `2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`, and `2026-04-23`
 - Confirmed `reports/daily-ops-2026-04-29.md` already exists, so no duplicate summary was written
 - Refreshed `ACTIVE-TASK.md` timestamps/state for the current idle context
-- Removed stale Bill Review priority from the live blocker summary because the MVP delivery path was already completed
-- Reconfirmed the current highest-leverage blockers are still Joe decisions plus workflow/infrastructure cleanup, not a missing technical next step
+- Reconfirmed the active blockers are still Joe decisions plus reminder/workflow cleanup, not a missing technical deliverable
 
 ✅ **Recent Idle-Loop Deliverables**
 - `reports/workflow-efficiency-2026-04-21.md`
