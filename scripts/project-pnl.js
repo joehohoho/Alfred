@@ -58,6 +58,29 @@ function daysInMonth(date) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 }
 
+function latestDate(rows) {
+  const dates = rows.map(r => r.date).filter(Boolean).sort();
+  return dates.length ? dates[dates.length - 1] : null;
+}
+
+function ageInDays(dateStr, now = new Date()) {
+  if (!dateStr) return null;
+  const date = new Date(`${dateStr}T00:00:00Z`);
+  return Math.floor((now - date) / (1000 * 60 * 60 * 24));
+}
+
+function sourceStatus(name, rows, now = new Date()) {
+  const latest = latestDate(rows);
+  const ageDays = ageInDays(latest, now);
+  return {
+    name,
+    rowCount: rows.length,
+    latestDate: latest,
+    ageDays,
+    stale: ageDays === null ? true : ageDays > 7
+  };
+}
+
 function load() {
   const projects = readCsv(path.join(DATA_DIR, 'projects.csv'));
   const time = readCsv(path.join(DATA_DIR, 'time_entries.csv'));
@@ -71,6 +94,12 @@ function compute() {
   const now = new Date();
   const mKey = monthKey(now);
   const { projects, time, costs, revenue, acquisition } = load();
+  const sources = {
+    time: sourceStatus('time', time, now),
+    costs: sourceStatus('costs', costs, now),
+    revenue: sourceStatus('revenue', revenue, now),
+    acquisition: sourceStatus('acquisition', acquisition, now)
+  };
 
   const monthTime = time.filter(r => (r.date || '').startsWith(mKey));
   const monthCosts = costs.filter(r => (r.date || '').startsWith(mKey));
@@ -160,6 +189,8 @@ function compute() {
     };
   });
 
+  const staleSources = Object.values(sources).filter(source => source.stale).map(source => source.name);
+
   const portfolio = {
     month: mKey,
     totalRevenue: round2(sum(projectMetrics, p => p.revenue)),
@@ -169,6 +200,11 @@ function compute() {
       mtd: round2(sum(projectMetrics, p => p.economics.burnRate.mtd)),
       daily: round2(sum(projectMetrics, p => p.economics.burnRate.daily)),
       projectedMonthEnd: round2(sum(projectMetrics, p => p.economics.burnRate.projectedMonthEnd))
+    },
+    dataFreshness: {
+      stale: staleSources.length > 0,
+      staleSources,
+      sources
     },
     generatedAt: new Date().toISOString()
   };

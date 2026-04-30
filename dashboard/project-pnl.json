@@ -1,6 +1,6 @@
 {
   "portfolio": {
-    "month": "2026-03",
+    "month": "2026-04",
     "totalRevenue": 0,
     "totalCost": 0,
     "totalProfit": 0,
@@ -9,12 +9,51 @@
       "daily": 0,
       "projectedMonthEnd": 0
     },
-    "generatedAt": "2026-03-26T17:50:17.698Z"
+    "dataFreshness": {
+      "stale": true,
+      "staleSources": [
+        "time",
+        "costs",
+        "revenue",
+        "acquisition"
+      ],
+      "sources": {
+        "time": {
+          "name": "time",
+          "rowCount": 8,
+          "latestDate": "2026-02-08",
+          "ageDays": 81,
+          "stale": true
+        },
+        "costs": {
+          "name": "costs",
+          "rowCount": 8,
+          "latestDate": "2026-02-04",
+          "ageDays": 85,
+          "stale": true
+        },
+        "revenue": {
+          "name": "revenue",
+          "rowCount": 4,
+          "latestDate": "2026-02-01",
+          "ageDays": 88,
+          "stale": true
+        },
+        "acquisition": {
+          "name": "acquisition",
+          "rowCount": 4,
+          "latestDate": "2026-02-01",
+          "ageDays": 88,
+          "stale": true
+        }
+      }
+    },
+    "generatedAt": "2026-04-30T23:51:55.270Z"
   },
   "projects": [
     {
       "project": "CoinUsUp",
-      "month": "2026-03",
+      "month": "2026-04",
       "inputs": {
         "hours": 0,
         "devHourlyRate": 90,
@@ -45,7 +84,7 @@
     },
     {
       "project": "EvenUsUp",
-      "month": "2026-03",
+      "month": "2026-04",
       "inputs": {
         "hours": 0,
         "devHourlyRate": 90,
@@ -76,7 +115,7 @@
     },
     {
       "project": "SignalApp",
-      "month": "2026-03",
+      "month": "2026-04",
       "inputs": {
         "hours": 0,
         "devHourlyRate": 90,
@@ -107,7 +146,7 @@
     },
     {
       "project": "AutomationConsulting",
-      "month": "2026-03",
+      "month": "2026-04",
       "inputs": {
         "hours": 0,
         "devHourlyRate": 110,
