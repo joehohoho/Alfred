@@ -487,8 +487,14 @@
     "question": "Ready to proceed with 10 SMB discovery calls starting Mar 25 to validate market demand and refine business model? Blueprint and market analysis complete.",
     "context": "Market validation complete (3.4B→8.9B market, 14.3% CAGR). Competitors identified (Stampli, BILL). Next: approval to start cold outreach.",
     "createdAt": "2026-03-25T16:18:58.368Z",
-    "answeredAt": null,
-    "answer": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "answer": null,
+    "answered": true,
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-task:task_1774058538023_ae4bf3d2",
+    "supersededBy": "notif_1776284521725_0c434a2c"
   },
   {
     "cardId": "task_1774171849501_375342e7",
@@ -503,8 +509,14 @@
     "question": "Can you update 12 product prices on the Stripe dashboard to add trial_period_days=14 for Basic/Pro tiers? This unblocks testing.",
     "context": "Frontend code complete. Edge Functions ready. Blocked on Stripe dashboard configuration for trial periods on 12 prices.",
     "createdAt": "2026-03-25T16:18:58.370Z",
-    "answeredAt": null,
-    "answer": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "answer": null,
+    "answered": true,
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-task:task_1773156748695_23b9e471",
+    "supersededBy": "notif_1777008840001_trial_reminder"
   },
   {
     "id": "notif_1774530000927_4b7f1dba",
@@ -615,60 +627,6 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1775760070628_22478b25",
-    "type": "[REMINDER - 14-Day Trial] Stripe config awaiting",
-    "title": "CoinUsUp trial implementation is production-ready (code + frontend 100% complete, all tests passing).\\n\\n**BLOCKER:** Stripe dashboard manual config needed.\\n\\n**Action:** Create 12 price IDs in Stripe:\\n- Basic Monthly US, Basic Monthly CA\\n- Basic Annual US, Basic Annual CA\\n- Pro Monthly US, Pro Monthly CA\\n- Pro Annual US, Pro Annual CA\\n- Plus 2 Enterprise prices\\n\\nFor each, set **trial_period_days = 14**.\\n\\n**Help:** See CoinUsUp repo stripe-prices.ts for exact product/price IDs to create.\\n\\n**Timeline:** 30 min work, then trial launches immediately.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-09T18:41:10.628Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775760070634_61acb260",
-    "type": "[REMINDER - Bill Review MVP] Scope decision needed",
-    "title": "Market validation complete. Blueprint ready at ideas/BILL_REVIEW_INVOICE_AUDIT_AUTOMATION_BLUEPRINT_2026-03-20.md.\\n\\n**DECISION NEEDED:** Should I build this as:\\n\\n**Option A: Personal Tool**\\nJust for your own SMB billing audits. ~2-3 day MVP. Test internally first, then expand.\\n\\n**Option B: Commercial SaaS**\\nBuilt for resale to other SMBs. Full MVP with onboarding/support/pricing. ~1-2 week build.\\n\\n**Recommend:** Start with A (personal tool). If it works for you, expand to B later.\\n\\n**What you do:** Choose A or B. I build immediately.\\n\\n**Timeline:** A = 2-3 days. B = 1-2 weeks.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-09T18:41:10.634Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775788885611_a5021adb",
-    "type": "Trial Feature Unblock: Stripe Config Ready",
-    "title": "CoinUsUp trial code is 100% complete and deployed to staging. All you need to do is update 12 Stripe product prices with trial_period_days=14. Takes 5 minutes.\n\nBasic tier (4 prices): US Monthly, US Annual, CA Monthly, CA Annual\nPro tier (4 prices): US Monthly, US Annual, CA Monthly, CA Annual\n\nOnce done, I'll deploy to production same day.\n\n**Questions:**\n1. Ready to do Stripe dashboard update today?\n2. Or should we skip/defer free trials for now?",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-10T02:41:25.611Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1775788889479_5d542fd8",
-    "type": "Bill Review MVP: Scope Decision Needed",
-    "title": "You asked me to build an MVP for the Bill Review invoice audit tool (Mar 31). I need one clarification before I start:\n\n**A) Personal Tool** — Build a personal invoice audit app for your own use (you audit invoices, catch duplicates/overcharges)\n\n**B) External SaaS MVP** — Build a product to sell to Canadian SMBs (bootstrap version, test with 3-5 pilot customers, iterate based on feedback)\n\nThe blueprint and market analysis support both. But the build path, design, and priorities differ.\n\nWhich direction? (Reply A or B in the card comment)",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-10T02:41:29.479Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1776053901200_0aeb3bd0",
-    "type": "Bill Review & Invoice Audit Automation MVP — SCOPE DECISION NEEDED",
-    "title": "You approved the MVP build on Mar 31, but we're blocked on the scope direction. Quick decision needed:\n\n**Option A (Personal Tool):** Internal invoice-audit tool for your own use (You get an audit queue UI, I handle detection backend)\n\n**Option B (External SaaS MVP):** Revenue-focused MVP to test-sell to Canadian SMBs (requires go-to-market plan)\n\nBlueprint complete + market validation done either way. \n\n**What should I do?** Reply with A or B so I can unblock the build. No other details needed.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-13T04:18:21.200Z",
-    "answeredAt": null
-  },
-  {
-    "id": "notif_1776053904561_9e9d7720",
-    "type": "Knowledge Freshness Scanner — CLEANUP APPROVAL NEEDED",
-    "title": "The freshness scanner found 148 artifacts with 4 stale, 2 superseded, and 3 contradiction zones.\n\n**What I need from you:**\n1. Review FRESHNESS-SCANNER-REPORT.md (findings)\n2. Confirm which superseded items to archive (e.g., Apr 2 portfolio vs Apr 11 portfolio)\n3. Review the 3 contradiction zones (Signal App, CoinUsUp Growth, Even Us Up Roadmap)\n4. Approve cleanup automation\n\nOnce you confirm, I'll auto-archive stale items and consolidate contradiction zones.\n\n**Timeline:** 30 min to review, 20 min to execute if approved.",
-    "message": "No details provided",
-    "answered": false,
-    "createdAt": "2026-04-13T04:18:24.561Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1776085200829_3538e76a",
     "type": "question",
     "title": "For Even Us Up, what's the smallest win that would feel like real progress?",
@@ -679,18 +637,6 @@
     "answeredAt": "2026-04-22T23:18:55.391Z",
     "userAnswer": "performance optimization",
     "deliveryStatus": "sent"
-  },
-  {
-    "id": "notif_1776111569945_1142976b",
-    "type": "Review: Trader Signal Post-Mortem Assistant",
-    "title": "5 spec documents delivered: Product Blueprint, Tech Spec, MVP Plan, Bootstrap Guide, Executive Summary. Ready for your review and go/no-go decision. All files at /workspace/ideas/TRADER_SIGNAL_* (total 68KB, ~15 min read time). Key insight: Setup-based review workflow is missing from competitors—this fills a gap.",
-    "message": "Approve for build",
-    "goalId": "Need clarifications",
-    "taskId": "Recommend: Approve for build",
-    "source": "This is fresh and complete; no blocking dependencies.",
-    "answered": false,
-    "createdAt": "2026-04-13T20:19:29.945Z",
-    "answeredAt": null
   },
   {
     "id": "notif_1776171600763_0cfd371b",
@@ -705,31 +651,32 @@
     "deliveryStatus": "sent"
   },
   {
-    "id": "notif_1776270105660_d1330128",
-    "type": "AI Grant Writer — Ready for Approval + Development Start",
-    "title": "All 6 specification documents are complete and validated (87.9 KB, ~22K words). Market, product, technical, and business validation all PASS. Ready to handoff to development. Question: Approve to start 4-week development sprint this week? See GRANT_WRITER_EXECUTIVE_SUMMARY_2026-04-15.md for decision summary.",
-    "message": "task_1776231233660_b4350b92",
-    "answered": false,
-    "createdAt": "2026-04-15T16:21:45.660Z",
-    "answeredAt": null
-  },
-  {
     "id": "notif_1776270111548_b0cde226",
     "type": "[REMINDER] Bill Review & Invoice Audit — Scope Decision Needed",
     "title": "Implementation complete & waiting on your build direction choice: (A) Personal internal invoice-audit tool, or (B) External SaaS MVP. Which should we build? Once you choose, I can start immediately.",
     "message": "task_1774058538023_ae4bf3d2",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-15T16:21:51.548Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-task:task_1774058538023_ae4bf3d2",
+    "supersededBy": "notif_1776284521725_0c434a2c"
   },
   {
     "id": "notif_1776270113597_79b10ca4",
     "type": "[REMINDER] 14-day Free Trial — Stripe Configuration Needed",
     "title": "Implementation is complete. To finish: either (A) Update the 12 Basic/Pro tier prices in Stripe dashboard to enable trials, or (B) Skip this feature for now. Which would you prefer?",
     "message": "task_1773156748695_23b9e471",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-15T16:21:53.597Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-task:task_1773156748695_23b9e471",
+    "supersededBy": "notif_1777008840001_trial_reminder"
   },
   {
     "id": "notif_1776284521725_0c434a2c",
@@ -749,9 +696,14 @@
     "message": "**Next Step:**\\nLog into Stripe dashboard and create/update 12 Basic/Pro price objects with 14-day trial. Once done, the feature goes live.\\n\\n**Or:** If you'd prefer to skip the trial feature for now, just say 'defer' and I'll move it to the backlog.",
     "goalId": "Stripe dashboard configuration required or explicit skip decision",
     "taskId": "14-day free trial Stripe setup",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-15T20:22:04.796Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-task:task_1773156748695_23b9e471",
+    "supersededBy": "notif_1777008840001_trial_reminder"
   },
   {
     "id": "notif_1776352122477_85658abf",
@@ -855,27 +807,39 @@
     "title": "What would stop you from building something new right now?",
     "message": "Not time or money—what's the actual blocker? Not knowing the idea? Technical risk? Support burden?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-23T13:00:00.561Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-28T21:44:34.939Z",
+    "userAnswer": "Not knowing the right idea, it can't be overly complex.",
+    "deliveryStatus": "sent"
   },
   {
     "id": "notif_1777008840000_grantwriter_reminder",
     "type": "[REMINDER] AI Grant Writer — Go / No-Go Decision Needed",
     "title": "AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.",
     "message": "task_1776231233660_b4350b92",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-24T08:34:00.000Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-title",
+    "supersededBy": "notif_1777019732011_077ed8a9"
   },
   {
     "id": "notif_1777008840001_trial_reminder",
     "type": "[REMINDER] 14-day Trial — Stripe Step or Defer Decision",
     "title": "CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.",
     "message": "task_1773156748695_23b9e471",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-24T08:34:00.000Z",
-    "answeredAt": null
+    "answeredAt": "2026-04-30T00:10:35Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-title",
+    "supersededBy": "notif_1777019732333_ffa3a0a8"
   },
   {
     "id": "notif_1777019732011_077ed8a9",
@@ -901,8 +865,113 @@
     "title": "For Even Us Up, what's the smallest win that would feel like real progress?",
     "message": "Not 'become the next Splitwise'—what would feel like legitimate traction in the next 3 months?",
     "source": "daily-inquiry",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-24T13:00:00.535Z",
+    "answeredAt": "2026-04-30T12:07:06Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "daily-inquiry-backlog-cap:3",
+    "supersededBy": "notif_1777467600462_821913d5"
+  },
+  {
+    "id": "notif_1777122000519_272fa790",
+    "type": "question",
+    "title": "What would make your consulting work more systematic or scalable?",
+    "message": "Right now it's bespoke. Could you build repeatable templates, productize pieces, or just accept it's 1-on-1?",
+    "source": "daily-inquiry",
+    "answered": true,
+    "createdAt": "2026-04-25T13:00:00.519Z",
+    "answeredAt": "2026-04-30T12:07:06Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "daily-inquiry-backlog-cap:3",
+    "supersededBy": "notif_1777467600462_821913d5"
+  },
+  {
+    "id": "notif_1777208400486_a41de4b5",
+    "type": "question",
+    "title": "How much of your time should passive income get vs. client work right now?",
+    "message": "Current split works? Skewed the wrong way? What's the ideal?",
+    "source": "daily-inquiry",
+    "answered": true,
+    "createdAt": "2026-04-26T13:00:00.486Z",
+    "answeredAt": "2026-04-30T12:07:06Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "daily-inquiry-backlog-cap:3",
+    "supersededBy": "notif_1777467600462_821913d5"
+  },
+  {
+    "id": "notif_1777294800691_b9172371",
+    "type": "question",
+    "title": "What's the one thing that would unlock the next growth phase for CoinUsUp?",
+    "message": "Not what you're working on now—what if you changed one thing, would unlock the next phase? UI, pricing, features, marketing, partnerships?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-27T13:00:00.691Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1777365610188_41a28dfc",
+    "type": "[REMINDER] 14-day Trial — Stripe step or defer",
+    "title": "CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please choose one: (A) update the 12 Basic/Pro Stripe prices for the 14-day trial, or (B) reply defer/skip and I will move it out of blocked. No further coding is needed until that choice is made.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-28T08:40:10.188Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1777365610509_8751e17c",
+    "type": "[REMINDER] AI Grant Writer — go / defer / close",
+    "title": "AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: choose A only if you want this to become an active build in the next month, otherwise choose B so the board stays clean.",
+    "message": "No details provided",
+    "answered": false,
+    "createdAt": "2026-04-28T08:40:10.509Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1777381200531_babaa893",
+    "type": "question",
+    "title": "Is there a metric you watch daily on any of your apps?",
+    "message": "What number do you check first thing—DAU, MRR, churn, feature usage, bug count? What would make you celebrate?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-28T13:00:00.531Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1777467600462_821913d5",
+    "type": "question",
+    "title": "Should any of your apps become more opinionated or simpler?",
+    "message": "Some apps try to be everything; others own one thing really well. Where are you on that spectrum, and should you shift?",
+    "source": "daily-inquiry",
+    "answered": false,
+    "createdAt": "2026-04-29T13:00:00.462Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1777539067664_70d60748",
+    "type": "question",
+    "title": "[REMINDER] CoinUsUp 14-day trial — Stripe step or defer",
+    "message": "Context: I re-checked the blocked CoinUsUp free-trial card and the implementation is still fully complete on my side. The only remaining step is a Stripe-side/manual decision from you.\n\nQuestion: Which path do you want for task_1773156748695_23b9e471?\n\nOptions:\n1. Update the 12 Basic/Pro Stripe prices to add a 14-day trial, then I will finish staging/prod rollout.\n2. Reply defer/skip and I will keep the feature parked and clean up the blocked queue.\n\nRecommendation: Option 2 unless you want to launch this trial in the immediate next push, because there is no more engineering value to squeeze out until the Stripe step is done.\n\nDefault if no response: I will leave the card blocked and avoid more duplicate reminders until a later follow-up window.",
+    "taskId": "task_1773156748695_23b9e471",
+    "source": "idle-goal-progress-check",
+    "answered": false,
+    "createdAt": "2026-04-30T08:51:07.664Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1777539067982_48ff5bd2",
+    "type": "question",
+    "title": "[REMINDER] AI Grant Writer — approve, defer, or close",
+    "message": "Context: I re-checked the blocked AI Grant Writer card and re-verified the 6-document spec package is still complete and development-ready in the workspace. The next step is a prioritization decision from you, not more research.\n\nQuestion: What do you want to do with task_1776231233660_b4350b92?\n\nOptions:\n1. Approve the 4-week MVP build and I will turn it into an active implementation plan.\n2. Defer it for now so the board reflects current priorities cleanly.\n3. Close it entirely if you are no longer interested.\n\nRecommendation: Option 2 unless you already expect to start this within the next month, because the package is ready and further idle re-checks will not add value.\n\nDefault if no response: I will leave the card blocked and avoid more duplicate reminders until a later follow-up window.",
+    "taskId": "task_1776231233660_b4350b92",
+    "source": "idle-goal-progress-check",
+    "answered": false,
+    "createdAt": "2026-04-30T08:51:07.982Z",
     "answeredAt": null
   }
 ]
