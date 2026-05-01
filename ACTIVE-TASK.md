@@ -1,279 +1,38 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: re-read the latest five dated memory logs, confirmed `reports/daily-ops-2026-04-30.md` already existed, refreshed `ACTIVE-TASK.md`, and completed the required bookkeeping for this idle review) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-04-30 12:04 ADT)  
-**Last Active:** 2026-04-30 12:04 ADT  
-**Current Action:** Re-read the latest five dated memory logs (`2026-04-30`, `2026-04-29`, `2026-04-28`, `2026-04-25`, `2026-04-24`), confirmed today's ops summary already existed, refreshed `ACTIVE-TASK.md`, and closed the required memory/commit/Discord bookkeeping  
+**Status:** idle (last: reviewed the five most recent memory logs, wrote `reports/daily-ops-2026-05-01.md`, and refreshed this file for the current idle state) — waiting for Joe decisions  
+**Last Assignment:** Idle Activity: Memory Review (2026-05-01 00:05 ADT)  
+**Last Active:** 2026-05-01 00:05 ADT  
+**Current Action:** Daily ops review complete; bookkeeping now reflects the current state and the main blockers remain Joe decisions plus infrastructure/reminder cleanup.  
 
 ---
 
-## Current Completion (2026-04-30 12:04 ADT)
+## Current Completion (2026-05-01 00:05 ADT)
 
-✅ **Memory Review Refresh** (Completed)
-- Re-read the latest five daily memory logs: `2026-04-30`, `2026-04-29`, `2026-04-28`, `2026-04-25`, and `2026-04-24`
-- Confirmed `reports/daily-ops-2026-04-30.md` already existed, so skipped duplicate report writing
-- Refreshed `ACTIVE-TASK.md` timestamps/state for the current idle context
-- Reconfirmed the active blockers are still Joe decisions plus reminder/workflow cleanup, not a missing technical deliverable
+✅ **Memory Review + Daily Ops Summary** (Completed)
+- Re-read the five most recent daily memory logs: `2026-04-30`, `2026-04-29`, `2026-04-28`, `2026-04-25`, and `2026-04-24`
+- Wrote `reports/daily-ops-2026-05-01.md`
+- Replaced stale task-state content here so `ACTIVE-TASK.md` reflects the live idle state instead of older project-history narrative
+- Reconfirmed the biggest open issues are still Joe decisions on CoinUsUp / AI Grant Writer plus infrastructure hygiene from the Apr 28 audit
 
-✅ **Recent Idle-Loop Deliverables**
-- `reports/workflow-efficiency-2026-04-21.md`
-- `reports/passive-income-portfolio-review-2026-04-21.md`
-- `reports/workspace-health-2026-04-22.md`
-- `reports/even-us-up-audit-2026-04-24.md`
-- `reports/daily-ops-2026-04-24.md`
+## Current High-Leverage Blockers
+1. **CoinUsUp Trial (CRITICAL):** Joe needs to either update the 12 Stripe prices for the 14-day trial or explicitly defer/skip the feature.
+2. **AI Grant Writer (CRITICAL):** Joe needs to choose build / defer / close so the board stops carrying a finished-but-undecided package.
+3. **Infrastructure Cleanup:** HAL ACK timeout noise, stale continuity files, `health-monitor.js`, and reminder-state drift still need a focused cleanup pass.
+4. **Discord Delivery Reliability:** `#dailyconfig` posting from this session path has been unreliable and should be treated as a tooling issue until it succeeds consistently.
 
----
+## Recent Relevant Deliverables
+- `reports/daily-ops-2026-05-01.md`
+- `reports/daily-ops-2026-04-30.md`
+- `reports/workspace-health-2026-04-30.md`
+- `reports/cost-analysis-2026-04-30.md`
+- `reports/coinusup-security-scan-2026-04-29.md`
+- `reports/alfred-infrastructure-audit-2026-04-28.md`
 
-## Pending Decisions for Joe (Current High-Leverage)
-
-1. **CoinUsUp Trial (CRITICAL):** Do the Stripe dashboard setup now, or defer the 14-day trial feature?
-2. **AI Grant Writer (CRITICAL):** Approve, defer, or close the proposed development sprint.
-3. **Workflow/Infrastructure Cleanup:** Reduce reminder-state drift and fix the Apr 28 reliability issues (HAL ACK timeout noise, stale continuity files, `health-monitor.js`).
-
-**See:** `reports/daily-ops-2026-04-23.md`, `reports/passive-income-portfolio-review-2026-04-21.md`, and pending notifications below.
-
----
-
-## Previous Objective (Paused)
-
-Build comprehensive MVP specification and business validation for AI Grant Writer SaaS:
-- **Problem:** Nonprofits lack dedicated grant writers; proposals take weeks to draft; funder prospecting is manual
-- **Solution:** AI copilot for drafting + funder discovery + templates + collaboration
-- **Target:** $2.5k-$15k MRR (50-200 Pro users at $50-$99/mo)
-- **Synergy:** Direct complement to CoinUsUp (warm nonprofit prospect base)
-
----
-
-## Summary of Work Completed
-
-### 5 Production-Grade Deliverables (~68 KB total)
-
-#### 1. Product Blueprint (13.5 KB)
-**File:** `TRADER_SIGNAL_POSTMORTEM_BLUEPRINT_2026-04-13.md`
-- Market landscape (5+ competitors analyzed)
-- Competitive differentiation (setup-based review workflow)
-- Problem statement + solution architecture
-- Core MVP features (5 feature areas)
-- Data model with SQL
-- Go-to-market strategy + pricing
-- Unit economics (CAC $50-$100, LTV $400-$600, 4-8x LTV:CAC)
-- User personas (3 detailed)
-- Risk mitigation
-
-#### 2. Technical Specification (17.5 KB)
-**File:** `TRADER_SIGNAL_TECH_SPEC_2026-04-13.md`
-- Architecture diagram (TradingView → Backend → DB → Frontend)
-- Complete PostgreSQL schema (6 tables, 50+ fields, indexed)
-- 20+ RESTful API endpoints (full contracts)
-- Signal parsing algorithm (TradingView alert → structured data)
-- Weekly report generation algorithm (aggregation + pattern detection)
-- Implementation phases (Phase 1: MVP, Phase 2: enhancements)
-- Security (JWT, webhook validation, data privacy)
-- Performance targets (< 100ms ingestion, < 500ms API)
-- Monitoring + observability plan
-
-#### 3. MVP Development Plan (13.2 KB)
-**File:** `TRADER_SIGNAL_MVP_PLAN_2026-04-13.md`
-- Week-by-week breakdown (4 weeks, 80-100 hours solo)
-  - Week 1: Auth + Setup CRUD
-  - Week 2: Signal ingestion (TradingView + manual)
-  - Week 3: Outcomes + review workflow
-  - Week 4: Reports + deployment
-- Day-by-day deliverables per week
-- Development checklist (40+ items)
-- Tech stack finalized (TypeScript, Express, React, Tailwind, Recharts)
-- Resource allocation (solo vs. agency options)
-- Key milestones + dates
-- Risk mitigation table
-- Definition of MVP completion
-
-#### 4. Project Bootstrap Guide (13.1 KB)
-**File:** `TRADER_SIGNAL_PROJECT_BOOTSTRAP.md`
-- One-command setup (< 10 minutes to first run)
-- Backend initialization (Node.js, TypeScript, Express)
-- Database setup (PostgreSQL via Docker Compose)
-- Frontend initialization (Create React App, TailwindCSS)
-- Complete folder structure (file tree provided)
-- Database migrations (SQL-ready, copy-paste)
-- Backend skeleton code (Express app entry point)
-- Frontend skeleton (Login page component)
-- Development workflow (3 terminals documented)
-- Useful commands (git, docker, database)
-- Architecture decision log
-
-#### 5. Executive Summary (10.1 KB)
-**File:** `TRADER_SIGNAL_EXECUTIVE_SUMMARY_2026-04-13.md`
-- One-page overview (problem, solution, market opportunity)
-- Why Joe wins (domain expertise, market understanding)
-- Competitive positioning (vs. 5 major competitors)
-- GTM strategy (organic + paid acquisition channels)
-- Financial projections (conservative: $1.5k MRR / optimistic: $6k MRR)
-- Next steps for Joe (immediate, week 1-4, week 5+)
-- Key decisions needing Joe's input (5 decisions with recommendations)
-- Success metrics (NPS, churn, completion rates)
-- Why this wins (5 competitive advantages)
-- Risk summary + mitigation applied
-
-### Supporting Documentation
-
-#### 6. Completion Evidence Document (10.2 KB)
-**File:** `TRADER_SIGNAL_COMPLETION_EVIDENCE_2026-04-13.md`
-- Summary of changes
-- Validation steps + results (market, technical, business, development)
-- Artifacts delivered
-- Quality checklist
-- Evidence summary
-
----
-
-## Validation Results
-
-### ✅ Market Validation: PASS
-- Problem confirmed (setup-based review missing from TraderSync, Tradervue, Edgewonk)
-- Solution differentiated (workflow focus vs. generic journals)
-- Market size adequate (500k TAM, 50-150 SAM realistic)
-- GTM achievable (organic channels: Twitter, Reddit, TradingView)
-
-### ✅ Technical Validation: PASS
-- Architecture sound (React + Node + PostgreSQL proven stack)
-- Schema tested (6 tables, optimized indexes, no gaps)
-- API contracts clear (20+ endpoints defined)
-- Implementation feasible (no architectural risks)
-- Timeline realistic (80-100 hours solo, 4 weeks)
-
-### ✅ Business Validation: PASS
-- Unit economics healthy (LTV:CAC 4-8x, venture-scale ratio)
-- Pricing competitive (lower entry than TraderSync/$99-$199)
-- Path to profitability clear (break-even at 10-15 users)
-- Revenue realistic ($1.5k-$6k MRR year 1)
-
-### ✅ Development Validation: PASS
-- Tech stack proven (no new dependencies)
-- Bootstrap executable (< 10 min setup, no friction)
-- Skeleton code provided (TypeScript, React boilerplate ready)
-- MVP scope lean but complete (5 core features, no creep)
-- No blocking questions (all decisions made)
-
----
-
-## Artifacts Delivered
-
-### Documentation (6 files)
-| File | Size | Purpose |
-|------|------|---------|
-| Blueprint | 13.5 KB | Market + product spec |
-| Tech Spec | 17.5 KB | Build contract |
-| MVP Plan | 13.2 KB | Development roadmap |
-| Bootstrap | 13.1 KB | Setup + skeleton |
-| Executive Summary | 10.1 KB | Decision doc |
-| Completion Evidence | 10.2 KB | Validation audit |
-
-### Code Artifacts
-- ✅ PostgreSQL schema (6 tables, migrations ready)
-- ✅ Docker Compose (Postgres + setup docs)
-- ✅ Backend scaffold (TypeScript + Express entry point)
-- ✅ Frontend scaffold (React + TailwindCSS login page)
-- ✅ .env.example (configuration template)
-- ✅ Development workflow (3-terminal setup)
-
-### Decision Artifacts
-- ✅ Pricing tiers ($29/$59/$199)
-- ✅ Go-to-market strategy (organic + paid)
-- ✅ User personas (3 detailed)
-- ✅ Risk mitigation matrix (5 risks, all mitigated)
-- ✅ Key decisions for Joe (5 recommendations)
-
----
-
-## Kanban Card Status
-
-**Status:** ✅ MOVED TO REVIEW (2026-04-13 18:08 ADT)
-
-**Evidence Posted:** ✅ 
-- summary_of_changes: ✅
-- validation_steps: ✅
-- validation_results: ✅
-- artifacts: ✅
-
-**Next Step:** Awaits Joe's review + approval to proceed to development
-
----
-
-## Key Decision Points for Joe
-
-| Decision | Options | Recommendation |
-|----------|---------|-----------------|
-| Build solo or with agency? | Solo (80h) / Agency ($3-5k) | Agency for backend (lower risk) |
-| Launch timing | ASAP / Defer | ASAP (validate market quickly) |
-| Pricing | Basic $29 / Pro $59 / Enterprise | As proposed (flexible post-beta) |
-| First user segment | Day traders / Swing / Scalpers | Swing traders (cleaner signals) |
-| Pre-launch validation | Pre-sell / Build then sell | Pre-sell 3-5 traders (validates demand) |
-
----
-
-## Expected Outcomes
-
-### If Approved This Week
-- Week 1 (Apr 13-19): Auth + Setup CRUD complete
-- Week 2 (Apr 20-26): Signal ingestion live
-- Week 3 (Apr 27-May 3): Outcomes + review UI
-- Week 4 (May 4-10): Reports + production deployment
-- Week 5-6 (May 11-24): Beta testing with 5-10 traders
-- Week 7+ (May 25+): Public launch, organic growth
-
-### Financial Timeline
-- Month 0 (Apr): MVP build ($0 solo, $3-5k if agency)
-- Month 1 (May): Beta testing, zero revenue
-- Month 2 (Jun): Public launch, first paying users
-- Month 3 (Jul): 10-15 paying users, break-even achieved
-- Month 6 (Sep): 30-50 paying users, $1-2k MRR
-- Month 12 (Apr 2027): 50-150 paying users, $1.5-6k MRR
-
----
-
-## File Locations
-
-All files in `/Users/hopenclaw/.openclaw/workspace/ideas/`:
-
-1. ✅ `TRADER_SIGNAL_POSTMORTEM_BLUEPRINT_2026-04-13.md`
-2. ✅ `TRADER_SIGNAL_TECH_SPEC_2026-04-13.md`
-3. ✅ `TRADER_SIGNAL_MVP_PLAN_2026-04-13.md`
-4. ✅ `TRADER_SIGNAL_PROJECT_BOOTSTRAP.md`
-5. ✅ `TRADER_SIGNAL_EXECUTIVE_SUMMARY_2026-04-13.md`
-6. ✅ `TRADER_SIGNAL_COMPLETION_EVIDENCE_2026-04-13.md`
-
----
-
-## Transition Notes for Next Session
-
-**For Joe:**
-- Review executive summary + blueprint (15 min decision)
-- Approve or request changes (low friction to iterate)
-- Initialize GitHub repo (5 min setup from bootstrap guide)
-- Begin Week 1 development (or hire agency developer)
-
-**For Backend Developer (if agency hired):**
-- Read tech spec (full build contract)
-- Follow bootstrap guide (initialize in < 10 min)
-- Execute week 1 checklist (auth + setup CRUD)
-
-**For Frontend Developer:**
-- Review blueprint (product context)
-- Follow bootstrap guide (React scaffold ready)
-- Build week 2-4 UI (review workflow, performance dashboard)
-
----
-
-## Work Complete ✅
-
-**Total Effort:** 2h 15m  
-**Output Quality:** Production-grade  
-**Readiness Level:** Ready to build  
-**Confidence:** High (all validations passed)  
-
-**Status:** REVIEW COLUMN (awaiting Joe's approval to proceed to development)
-
-Ready for next assignment once this card transitions to done.
+## Next Recommended Moves
+- Get Joe’s two pending product decisions cleared first.
+- Then do a focused reliability pass on the Apr 28 infrastructure findings.
+- Keep `ACTIVE-TASK.md` as a live status document, not a historical archive.
 
 ## Pending Questions
 
