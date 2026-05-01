@@ -6,7 +6,9 @@
 #        CHANNEL_ID=$(resolve_discord_channel "dailyconfig")
 
 # VERIFIED Discord Channel IDs (from active cron jobs + manual verification)
-export DISCORD_DAILYCONFIG="1476598143016505446"           # #dailyconfig
+# `dailyconfig` is kept as a legacy alias for the current `config-and-memory-review` channel.
+export DISCORD_DAILYCONFIG="1476943999515496530"           # #config-and-memory-review (legacy alias: #dailyconfig)
+export DISCORD_CONFIG_AND_MEMORY_REVIEW="1476943999515496530"  # #config-and-memory-review
 export DISCORD_GENERAL="1476571891043926036"               # #general
 export DISCORD_ALERTS="1476592867865657599"                # #alerts
 export DISCORD_DEVOPS="1484566371412213934"                # #devops
@@ -31,7 +33,7 @@ resolve_discord_channel() {
 
   # Map friendly names to IDs
   case "$channel" in
-    dailyconfig) echo "$DISCORD_DAILYCONFIG" ;;
+    dailyconfig|config-and-memory-review) echo "$DISCORD_DAILYCONFIG" ;;
     general) echo "$DISCORD_GENERAL" ;;
     alerts) echo "$DISCORD_ALERTS" ;;
     devops) echo "$DISCORD_DEVOPS" ;;

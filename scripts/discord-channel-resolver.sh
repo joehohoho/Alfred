@@ -5,7 +5,8 @@
 set -e
 
 CHANNEL_MAP='{
-  "dailyconfig": "1476598143016505446",
+  "dailyconfig": "1476943999515496530",
+  "config-and-memory-review": "1476943999515496530",
   "evening-routine": "1476571891043926036",
   "hal-completions": "1476450612634976400",
   "alfred-hal-sync": "1476641676821794958",

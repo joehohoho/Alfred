@@ -1,9 +1,9 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: re-read the five most recent daily memory logs, confirmed `reports/daily-ops-2026-05-01.md` already existed, refreshed this file, and re-logged the required bookkeeping) — waiting for Joe decisions  
-**Last Assignment:** Idle Activity: Memory Review (2026-05-01 12:06 ADT)  
-**Last Active:** 2026-05-01 12:06 ADT  
-**Current Action:** Daily ops review is still current; no duplicate report was needed, bookkeeping has been refreshed for this midday idle pass, and the main blockers remain Joe decisions plus infrastructure/reminder cleanup.  
+**Status:** idle (last: fixed stale Discord `dailyconfig` alias routing in shared helper scripts so it now resolves to `config-and-memory-review` / `1476943999515496530`, tested the alias resolution, and logged the idle improvement)  
+**Last Assignment:** Idle Activity: Self-Improvement (2026-05-01 15:06 ADT)  
+**Last Active:** 2026-05-01 15:06 ADT  
+**Current Action:** Idle self-improvement is complete; shared Discord posting helpers now route both `dailyconfig` and `config-and-memory-review` to the live channel ID, reducing webchat/idle summary delivery failures.  
 
 ---
 

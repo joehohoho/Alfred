@@ -10,8 +10,8 @@ MESSAGE="${2:?Message required}"
 
 # Map friendly names to verified numeric Discord IDs
 case "$CHANNEL_NAME" in
-  dailyconfig|"#dailyconfig")
-    CHANNEL_ID="1476598143016505446"
+  dailyconfig|"#dailyconfig"|config-and-memory-review|"#config-and-memory-review")
+    CHANNEL_ID="1476943999515496530"
     ;;
   general|"#general")
     CHANNEL_ID="1476571891043926036"

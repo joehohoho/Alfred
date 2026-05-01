@@ -4,7 +4,8 @@
 # Automatically converts friendly channel names to numeric IDs
 # Usage:
 #   source ~/.openclaw/workspace/scripts/discord-safe-send.sh
-#   discord_send "dailyconfig" "Your message here"
+#   discord_send "dailyconfig" "Your message here"  # legacy alias → config-and-memory-review
+#   discord_send "config-and-memory-review" "Your message here"
 
 # Source channel ID mappings
 source ~/.openclaw/workspace/scripts/channel-ids.sh 2>/dev/null || {
@@ -27,7 +28,7 @@ discord_send() {
     CHANNEL_ID=$(resolve_discord_channel "$CHANNEL" 2>/dev/null || true)
     if [[ -z "$CHANNEL_ID" ]]; then
         echo "ERROR: Could not resolve Discord channel: $CHANNEL" >&2
-        echo "Available channels: dailyconfig, general, alerts, devops" >&2
+        echo "Available channels: dailyconfig, config-and-memory-review, general, alerts, devops" >&2
         return 1
     fi
 

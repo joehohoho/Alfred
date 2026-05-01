@@ -5,7 +5,8 @@
 
 # JSON mapping stored inline
 CHANNEL_MAP='{
-  "dailyconfig": "1476598143016505446",
+  "dailyconfig": "1476943999515496530",
+  "config-and-memory-review": "1476943999515496530",
   "evening-routine": "1476571891043926036",
   "hal-completions": "1476450612634976400",
   "alfred-hal-sync": "1476641676821794958",
@@ -16,18 +17,18 @@ CHANNEL_MAP='{
 
 resolve_discord_channel() {
     local channel_name="$1"
-    
+
     if [[ -z "$channel_name" ]]; then
         echo "ERROR: No channel name provided" >&2
         return 1
     fi
-    
+
     # Remove leading # if present
     channel_name="${channel_name#\#}"
-    
+
     local result
     result=$(echo "$CHANNEL_MAP" | jq -r ".\"$channel_name\" // empty" 2>/dev/null)
-    
+
     if [[ -n "$result" && "$result" != "null" ]]; then
         echo "$result"
         return 0
