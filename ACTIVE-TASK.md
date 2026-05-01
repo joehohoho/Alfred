@@ -1,18 +1,18 @@
 # ACTIVE-TASK.md — Current Work Status
 
-**Status:** idle (last: fixed stale Discord `dailyconfig` alias routing in shared helper scripts so it now resolves to `config-and-memory-review` / `1476943999515496530`, tested the alias resolution, and logged the idle improvement)  
-**Last Assignment:** Idle Activity: Self-Improvement (2026-05-01 15:06 ADT)  
-**Last Active:** 2026-05-01 15:06 ADT  
-**Current Action:** Idle self-improvement is complete; shared Discord posting helpers now route both `dailyconfig` and `config-and-memory-review` to the live channel ID, reducing webchat/idle summary delivery failures.  
+**Status:** idle (last: completed the 16:06 ADT memory review pass, re-read the latest five daily logs, confirmed today's ops summary already existed, and refreshed this status file for the current idle state)  
+**Last Assignment:** Idle Activity: Memory Review (2026-05-01 16:06 ADT)  
+**Last Active:** 2026-05-01 16:06 ADT  
+**Current Action:** Idle memory review is complete; today's daily ops report already existed, the latest five daily memory logs were re-read, and the live blockers remain Joe's CoinUsUp/AI Grant Writer decisions plus the Apr 28 reliability cleanup.  
 
 ---
 
-## Current Completion (2026-05-01 12:06 ADT)
+## Current Completion (2026-05-01 16:06 ADT)
 
 ✅ **Memory Review + Daily Ops Bookkeeping** (Completed)
 - Re-read the five most recent daily memory logs: `2026-05-01`, `2026-04-30`, `2026-04-29`, `2026-04-28`, and `2026-04-25`
 - Confirmed `reports/daily-ops-2026-05-01.md` already existed, so no duplicate report was created
-- Refreshed `ACTIVE-TASK.md` timestamps/state so it reflects the current midday idle review
+- Refreshed `ACTIVE-TASK.md` timestamps/state so it reflects the current 16:06 idle review
 - Reconfirmed the biggest open issues are still Joe decisions on CoinUsUp / AI Grant Writer plus infrastructure hygiene from the Apr 28 audit
 
 ## Current High-Leverage Blockers
