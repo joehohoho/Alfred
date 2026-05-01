@@ -19,7 +19,7 @@
 1. **CoinUsUp Trial (CRITICAL):** Joe needs to either update the 12 Stripe prices for the 14-day trial or explicitly defer/skip the feature.
 2. **AI Grant Writer (CRITICAL):** Joe needs to choose build / defer / close so the board stops carrying a finished-but-undecided package.
 3. **Infrastructure Cleanup:** HAL ACK timeout noise, stale continuity files, `health-monitor.js`, and reminder-state drift still need a focused cleanup pass.
-4. **Discord Delivery Reliability:** `#dailyconfig` posting from this session path has been unreliable and should be treated as a tooling issue until it succeeds consistently.
+4. **Discord Routing Cleanup:** the legacy `#dailyconfig` target/id is stale; this work delivered successfully to Discord channel `config-and-memory-review` (`1476943999515496530`) and the old reference should be treated as obsolete.
 
 ## Recent Relevant Deliverables
 - `reports/daily-ops-2026-05-01.md`
