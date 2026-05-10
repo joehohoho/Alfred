@@ -725,9 +725,14 @@
     "goalId": "Approve + start development week of Apr 22",
     "taskId": "Review docs first, decide later",
     "source": "Defer — focus on unblocking CoinUsUp trial first",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-16T16:23:07.211Z",
-    "answeredAt": null
+    "answeredAt": "2026-05-01T12:08:52Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-topic:topic:grant-writer-go-no-go",
+    "supersededBy": "notif_1777539067982_48ff5bd2"
   },
   {
     "id": "notif_1776430800563_27e507ba",
@@ -846,18 +851,28 @@
     "type": "[REMINDER] AI Grant Writer — Go / No-Go Decision Needed",
     "title": "AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: A only if you want this to become an active build in the next month; otherwise choose B so the board stays clean.",
     "message": "No details provided",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-24T08:35:32.011Z",
-    "answeredAt": null
+    "answeredAt": "2026-05-01T12:08:52Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-topic:topic:grant-writer-go-no-go",
+    "supersededBy": "notif_1777539067982_48ff5bd2"
   },
   {
     "id": "notif_1777019732333_ffa3a0a8",
     "type": "[REMINDER] 14-day Trial — Stripe Step or Defer Decision",
     "title": "CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please either (A) update the 12 Basic/Pro Stripe prices for a 14-day trial, or (B) reply defer/skip and I'll move it out of the blocked queue. No further coding is needed on my side until that choice is made.",
     "message": "No details provided",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-24T08:35:32.333Z",
-    "answeredAt": null
+    "answeredAt": "2026-05-01T12:08:52Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-topic:topic:coinusup-trial-stripe",
+    "supersededBy": "notif_1777539067664_70d60748"
   },
   {
     "id": "notif_1777035600535_9eecbe4e",
@@ -919,18 +934,28 @@
     "type": "[REMINDER] 14-day Trial — Stripe step or defer",
     "title": "CoinUsUp 14-day trial is fully implemented in code/docs. To unblock it, please choose one: (A) update the 12 Basic/Pro Stripe prices for the 14-day trial, or (B) reply defer/skip and I will move it out of blocked. No further coding is needed until that choice is made.",
     "message": "No details provided",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-28T08:40:10.188Z",
-    "answeredAt": null
+    "answeredAt": "2026-05-01T12:08:52Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-topic:topic:coinusup-trial-stripe",
+    "supersededBy": "notif_1777539067664_70d60748"
   },
   {
     "id": "notif_1777365610509_8751e17c",
     "type": "[REMINDER] AI Grant Writer — go / defer / close",
     "title": "AI Grant Writer spec package is complete and validated. To unblock the card, please choose one: (A) approve starting the 4-week MVP build, (B) defer this project for now, or (C) close it. Recommend: choose A only if you want this to become an active build in the next month, otherwise choose B so the board stays clean.",
     "message": "No details provided",
-    "answered": false,
+    "answered": true,
     "createdAt": "2026-04-28T08:40:10.509Z",
-    "answeredAt": null
+    "answeredAt": "2026-05-01T12:08:52Z",
+    "status": "superseded",
+    "deliveryStatus": "archived",
+    "autoResolvedBy": "notification-backlog-hygiene",
+    "autoResolveReason": "older-duplicate-topic:topic:grant-writer-go-no-go",
+    "supersededBy": "notif_1777539067982_48ff5bd2"
   },
   {
     "id": "notif_1777381200531_babaa893",
@@ -972,6 +997,28 @@
     "source": "idle-goal-progress-check",
     "answered": false,
     "createdAt": "2026-04-30T08:51:07.982Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1778427114716_500056ab",
+    "type": "question",
+    "title": "[REMINDER] CoinUsUp 14-day trial — Stripe step or defer",
+    "message": "Context: I re-checked the blocked CoinUsUp 14-day trial card during idle goal-progress. The implementation remains complete in code/docs; the only remaining step is a Stripe-side/manual decision. The existing unanswered reminder is from 2026-04-30, so I am re-sending because it is >48h old.\n\nQuestion: Which path do you want for task_1773156748695_23b9e471?\n\nOptions:\n1. Update the 12 Basic/Pro Stripe prices to add a 14-day trial, then I will finish staging/prod rollout.\n2. Reply defer/skip and I will keep the feature parked and clean up the blocked queue.\n\nRecommendation: Option 2 unless you want to launch this trial in the immediate next push, because there is no more engineering value to add until the Stripe step is done.\n\nDefault if no response: I will leave the card blocked and avoid more duplicate reminders until a later follow-up window.",
+    "taskId": "task_1773156748695_23b9e471",
+    "source": "idle-goal-progress-check",
+    "answered": false,
+    "createdAt": "2026-05-10T15:31:54.716Z",
+    "answeredAt": null
+  },
+  {
+    "id": "notif_1778427115106_b6f39b58",
+    "type": "question",
+    "title": "[REMINDER] AI Grant Writer — approve, defer, or close",
+    "message": "Context: I re-checked the blocked AI Grant Writer card during idle goal-progress. The 6-document spec package remains complete and development-ready; the next step is a prioritization decision, not more research. The existing unanswered reminder is from 2026-04-30, so I am re-sending because it is >48h old.\n\nQuestion: What do you want to do with task_1776231233660_b4350b92?\n\nOptions:\n1. Approve the 4-week MVP build and I will turn it into an active implementation plan.\n2. Defer it for now so the board reflects current priorities cleanly.\n3. Close it entirely if you are no longer interested.\n\nRecommendation: Option 2 unless you already expect to start this within the next month, because the package is ready and repeated idle checks will not add value.\n\nDefault if no response: I will leave the card blocked and avoid more duplicate reminders until a later follow-up window.",
+    "taskId": "task_1776231233660_b4350b92",
+    "source": "idle-goal-progress-check",
+    "answered": false,
+    "createdAt": "2026-05-10T15:31:55.106Z",
     "answeredAt": null
   }
 ]
