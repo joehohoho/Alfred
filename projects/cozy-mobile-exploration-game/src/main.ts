@@ -1,5 +1,6 @@
 import './ui/base.css';
-import { boot, groundHeight } from './game/bootstrap.ts';
+import { boot } from './game/bootstrap.ts';
+import { PLACES, groundHeight, isInsideSafeZone } from './core/world/layout.ts';
 
 const canvas = document.getElementById('stage');
 const hud = document.getElementById('hud');
@@ -9,17 +10,20 @@ if (!(canvas instanceof HTMLCanvasElement) || !(hud instanceof HTMLElement)) {
 
 const game = boot({ canvas, hud });
 
-// The running game is exposed on `window` so end-to-end tests and the manual
-// screenshot tool can drive a real session — move the player, grant materials,
-// jump the arc — instead of only being able to click at pixels. It is a
-// deliberate, documented hook, not a leak: the build ships no other globals.
-declare global {
-  interface Window {
-    wispmere: typeof game;
-  }
-}
-window.wispmere = game;
+/**
+ * The running game, exposed for tooling.
+ *
+ * End-to-end tests and the screenshot tour drive a real session through this —
+ * walking, gathering, fighting, restoring — rather than only being able to
+ * click at pixels. It is a deliberate, documented hook: one namespaced global,
+ * no other globals, and nothing here bypasses a game rule. `interact()`,
+ * `resetProgress()` and the systems behind them are the same code paths the
+ * player's thumb reaches.
+ */
+export const wispmere = Object.assign(game, {
+  places: PLACES,
+  groundHeight,
+  isInsideSafeZone,
+});
 
-// Also expose the ground-height function used by the world, so tooling can
-// compare a mesh's height against the terrain it is supposed to sit on.
-(window as unknown as Record<string, unknown>).wispmere_groundHeight = groundHeight;
+window.wispmere = wispmere;

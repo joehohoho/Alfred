@@ -40,6 +40,10 @@ await new Promise((resolve) => server.listen(PORT, resolve));
 const browser = await chromium.launch({
   executablePath: '/opt/pw-browsers/chromium',
   args: [
+    // Root container: Chromium's sandbox will not start. Only our own bundle
+    // from localhost is ever loaded.
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
     '--use-gl=angle',
     '--use-angle=swiftshader',
     '--enable-unsafe-swiftshader',

@@ -170,6 +170,30 @@ describe('journey targets', () => {
   });
 });
 
+describe('steps that can legitimately be skipped', () => {
+  it('stops pointing at the merchant once the first spire is lit', () => {
+    // Nothing in the game requires the Bright Chime, so a player can reach the
+    // Dawnspire having never met Ossa. The card must move on with them.
+    let state = give(createNewGameState(), COSTS.landmarkMeadow);
+    state = restoreLandmark(state, 'meadow-dawnspire', T0).state;
+    expect(state.flags.weaponUpgraded).toBe(false);
+    expect(selectJourneyStep(state)).toBe('build-shelter');
+  });
+
+  it('shows free exploration after the finale even if the shelter was skipped', () => {
+    let state = give(createNewGameState(), {
+      sunpetal: 9, boughwood: 9, riverstone: 9, glimmercore: 9,
+    });
+    state = restoreLandmark(state, 'meadow-dawnspire', T0).state;
+    state = defeatGuardian(state);
+    state = markRegionSeen(state, 'glade');
+    state = restoreLandmark(state, 'moonmere-dawnspire', T0 + 1).state;
+    expect(state.flags.shelterBuilt).toBe(false);
+    expect(state.flags.companionBefriended).toBe(false);
+    expect(selectJourneyStep(state)).toBe('explore-freely');
+  });
+});
+
 describe('post-finale', () => {
   it('keeps recommending free exploration no matter what the player does next', () => {
     const { final } = walkTheArc();

@@ -33,11 +33,23 @@ export const PLAYER_RADIUS = 0.38;
 const WALK_SPEED = 4.7;
 /** How fast the character turns to face the direction of travel, rad/s. */
 const TURN_RATE = 13;
+/** Faster still when snapping onto a target, so a tap lands on the first swing. */
+const ASSIST_TURN_RATE = 22;
 
 export interface PlayerInput {
   move: Vec2;
   attackHeld: boolean;
   dodgePressed: boolean;
+  /**
+   * Nearest creature worth swinging at, or null.
+   *
+   * This is the brief's "simple target selection or nearest-target behaviour",
+   * and it is what makes the attack button usable with one thumb: pressing
+   * attack should hit the thing you are next to, not the direction you happened
+   * to stop facing. Steering always wins — the assist only turns the player
+   * while they are not actively pushing the stick.
+   */
+  aimAt?: { x: number; z: number } | null;
 }
 
 export interface SwingEvent {
@@ -179,6 +191,17 @@ export function createPlayer(
         facing = dodge.heading;
       } else if (magnitude > 0.01) {
         facing = turnTowards(facing, Math.atan2(dirX, dirZ), TURN_RATE * dt);
+      }
+
+      // Aim assist: turn toward the nearest target while attacking, but only
+      // when the player is not steering, so it can never fight the stick.
+      const aim = input.aimAt;
+      if (canAct && aim && input.attackHeld && magnitude < 0.35 && !isDodging(dodge)) {
+        facing = turnTowards(
+          facing,
+          Math.atan2(aim.x - position.x, aim.z - position.z),
+          ASSIST_TURN_RATE * dt,
+        );
       }
 
       // Swinging roots the player briefly. It is short — 0.16s — because a

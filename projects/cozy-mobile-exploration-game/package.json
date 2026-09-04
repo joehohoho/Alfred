@@ -18,9 +18,12 @@
     "shots": "npm run build:fast && node scripts/shoot.mjs \"$(node scripts/tour.mjs)\""
   },
   "dependencies": {
+    "@capacitor/core": "^8.5.1",
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.1",
+    "@capacitor/ios": "^8.5.1",
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.4.1",
     "@types/three": "^0.185.4",

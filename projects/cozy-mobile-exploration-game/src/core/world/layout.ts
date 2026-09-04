@@ -254,6 +254,23 @@ export const REGION_BOUNDS: readonly RegionBounds[] = [
   { region: 'meadow', minX: -46, maxX: 30, minZ: -30, maxZ: 40 },
 ];
 
+/**
+ * Which regions are reachable, from the two gate flags alone.
+ *
+ * A flag-level twin of `progression.accessibleRegions`, for callers that hold
+ * the gates but not a whole `GameState`. Both must agree — a unit test pins
+ * them together.
+ */
+export function accessibleRegionsFor(
+  meadowLandmarkRestored: boolean,
+  guardianDefeated: boolean,
+): Set<RegionId> {
+  const regions = new Set<RegionId>(['meadow']);
+  if (meadowLandmarkRestored) regions.add('grove');
+  if (guardianDefeated) regions.add('glade');
+  return regions;
+}
+
 export function regionAt(position: Vec3): RegionId {
   for (const bounds of REGION_BOUNDS) {
     if (
@@ -424,6 +441,14 @@ function buildResourceNodes(): ResourceNodeDef[] {
           cluster.centre.z + Math.sin(angle) * distance,
         );
         if (placed.some((p) => Math.hypot(p.x - candidate.x, p.z - candidate.z) < 1.9)) continue;
+        // Never inside a landmark's interaction range — see RESERVED_POINTS.
+        if (
+          Object.values(PLACES).some(
+            (place) => Math.hypot(place.x - candidate.x, place.z - candidate.z) < 5.5,
+          )
+        ) {
+          continue;
+        }
 
         const clearance = distanceToAnyPath(candidate);
         if (clearance >= 1.5) {
@@ -601,9 +626,15 @@ function insideMoonmerePool(position: Vec3): boolean {
   return dx * dx + dz * dz <= 1;
 }
 
-/** Nodes and named places both reject scenery, so nothing buries a gather point. */
+/**
+ * Exclusion discs. Nothing is scattered inside one.
+ *
+ * The radius around a named place is larger than the widest interaction radius
+ * in the game (4.2, for a Dawnspire) on purpose: a gather node standing inside
+ * a landmark's interaction range competes with it for the interact button.
+ */
 const RESERVED_POINTS: readonly { position: Vec3; radius: number }[] = [
-  ...Object.values(PLACES).map((position) => ({ position, radius: 3.4 })),
+  ...Object.values(PLACES).map((position) => ({ position, radius: 5.5 })),
   ...RESOURCE_NODES.map((node) => ({ position: node.position, radius: 1.7 })),
   ...CREATURE_POSTS.map((post) => ({ position: post.home, radius: 2.2 })),
 ];

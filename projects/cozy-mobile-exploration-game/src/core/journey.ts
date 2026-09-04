@@ -168,39 +168,82 @@ function card(
 }
 
 /**
- * Picks the one next step.
+ * Whether each step counts as finished.
  *
- * The chain is ordered by dependency, and the *first* unmet condition wins, so
- * the card is always the earliest thing the player can actually act on. Two
- * details are deliberate:
+ * Note that later milestones imply earlier ones. That is not tidiness — the
+ * merchant is genuinely skippable: nothing in the game *requires* the Bright
+ * Chime, so a player can gather 3/3/3, settle a thistlebur for a core, and wake
+ * the Meadow Dawnspire having never met Ossa. With a naive first-unmet-flag
+ * chain the card would then say "Visit Ossa" forever, through the guardian,
+ * through the finale, and into the open-ended state. Implication closes that.
+ */
+function isStepDone(step: JourneyStepId, state: GameState): boolean {
+  const { flags, pouch } = state;
+  // Anything from the first spire onward means the whole opening is behind us.
+  const pastOpening = flags.meadowLandmarkRestored || flags.guardianDefeated;
+
+  switch (step) {
+    case 'gather-starter':
+      return hasStarterStock(state) || flags.weaponUpgraded || flags.shelterBuilt || pastOpening;
+    case 'find-core':
+      return pouch.glimmercore >= 1 || flags.weaponUpgraded || flags.shelterBuilt || pastOpening;
+    case 'visit-merchant':
+      return flags.weaponUpgraded || pastOpening;
+    case 'build-shelter':
+      return flags.shelterBuilt;
+    case 'rest-at-shelter':
+      return flags.restedAtShelter;
+    case 'befriend-companion':
+      return flags.companionBefriended;
+    case 'restore-meadow-dawnspire':
+      return flags.meadowLandmarkRestored;
+    case 'find-grove-guardian':
+      return flags.guardianDefeated;
+    case 'explore-moonmere':
+      return flags.moonmereVisited;
+    case 'restore-moonmere-dawnspire':
+      return flags.moonmereLandmarkRestored;
+    case 'explore-freely':
+      // The arc never completes; after the finale this is the standing answer.
+      return false;
+  }
+}
+
+/** The materials a step consumes, if any. */
+function requirementFor(step: JourneyStepId): ResourceBundle | undefined {
+  switch (step) {
+    case 'gather-starter':
+      return STARTER_STOCK;
+    case 'visit-merchant':
+      return COSTS.weaponUpgrade;
+    case 'build-shelter':
+      return COSTS.shelter;
+    case 'restore-meadow-dawnspire':
+      return COSTS.landmarkMeadow;
+    case 'restore-moonmere-dawnspire':
+      return COSTS.landmarkMoonmere;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Picks the one next step: the earliest in `JOURNEY_ORDER` that is not done.
  *
- *  - The three pre-merchant steps are nested inside `!weaponUpgraded`. Without
- *    that nesting, a player who later spends their pouch down to nothing would
- *    be told to "gather what the meadow offers" again, long after that step
- *    stopped being the point.
- *  - A step with a cost is still shown when the player cannot yet afford it;
- *    the card carries `missing` so the UI can say "2 more boughwood" instead of
- *    silently swapping to a different instruction and losing the thread.
+ * A step with a cost is still shown when the player cannot yet afford it; the
+ * card carries `missing` so the UI can say "1 more Boughwood" rather than
+ * silently swapping instruction and losing the thread.
  */
 export function selectJourneyCard(state: GameState): JourneyCard {
-  const { flags } = state;
+  // The finale ends the guided arc outright, even if optional beats were
+  // skipped along the way — the shelter, the rest, and Pim are all skippable,
+  // and a card still nagging about the Hearthnest after both spires are lit
+  // would contradict the completion state the brief asks for. Those things stay
+  // available; the world advertises them on its own.
+  if (isFinaleComplete(state)) return card(state, 'explore-freely');
 
-  if (!flags.weaponUpgraded) {
-    if (!hasStarterStock(state)) return card(state, 'gather-starter', STARTER_STOCK);
-    if (state.pouch.glimmercore < 1) return card(state, 'find-core');
-    return card(state, 'visit-merchant', COSTS.weaponUpgrade);
-  }
-
-  if (!flags.shelterBuilt) return card(state, 'build-shelter', COSTS.shelter);
-  if (!flags.restedAtShelter) return card(state, 'rest-at-shelter');
-  if (!flags.companionBefriended) return card(state, 'befriend-companion');
-  if (!flags.meadowLandmarkRestored) {
-    return card(state, 'restore-meadow-dawnspire', COSTS.landmarkMeadow);
-  }
-  if (!flags.guardianDefeated) return card(state, 'find-grove-guardian');
-  if (!flags.moonmereVisited) return card(state, 'explore-moonmere');
-  if (!flags.moonmereLandmarkRestored) {
-    return card(state, 'restore-moonmere-dawnspire', COSTS.landmarkMoonmere);
+  for (const step of JOURNEY_ORDER) {
+    if (!isStepDone(step, state)) return card(state, step, requirementFor(step));
   }
   return card(state, 'explore-freely');
 }

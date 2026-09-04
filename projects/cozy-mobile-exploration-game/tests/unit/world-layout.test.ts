@@ -122,6 +122,17 @@ describe('play lanes stay clear', () => {
     }
   });
 
+  it('keeps gathering nodes out of every landmark\'s interaction range', () => {
+    // A node inside a landmark's radius competes with it for the one interact
+    // button, which is how a sunpetal bush once stole the "Build" prompt.
+    const crowding = RESOURCE_NODES.filter((node) =>
+      Object.values(PLACES).some(
+        (place) => Math.hypot(place.x - node.position.x, place.z - node.position.z) < 4.6,
+      ),
+    );
+    expect(crowding.map((n) => n.id)).toEqual([]);
+  });
+
   it('gives every blocking prop kind a collision radius', () => {
     for (const kind of BLOCKING_PROP_KINDS) {
       expect(PROP_COLLISION_RADIUS[kind], `${kind} needs a radius`).toBeGreaterThan(0);

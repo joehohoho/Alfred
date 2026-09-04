@@ -155,10 +155,10 @@ without losing the game design.
 | M1 | Deterministic core rules + unit tests | ✅ Done — 144 tests green, `tsc` clean |
 | M2 | World layout + procedural low-poly art | ✅ Done — full art set, tuned against screenshots |
 | M3 | Renderer, camera, input, player controller | ✅ Done — renders, moves, collides; HUD controls pending in M5 |
-| M4 | Gathering, combat, companion, merchant, shelter, landmarks | ⬜ Not started |
-| M5 | UI/HUD, Journey card, accessibility, audio | ⬜ Not started |
-| M6 | Integration + Playwright verification | ⬜ Not started |
-| M7 | Capacitor iOS shell, docs, push | ⬜ Not started |
+| M4 | Gathering, combat, companion, merchant, shelter, landmarks | ✅ Done |
+| M5 | UI/HUD, Journey card, accessibility, audio | ✅ Done |
+| M6 | Integration + Playwright verification | ✅ Done — 178 unit/integration + 3 browser route tests |
+| M7 | Capacitor iOS shell, docs | ✅ Config + `docs/IOS.md`; the Xcode half needs a Mac |
 
 ---
 
@@ -199,27 +199,46 @@ without losing the game design.
    point of its own cross-section. Path flattening runs after the carve and lifts one bank.
 14. **The ground mesh extends 26 units past the play bounds.** The camera can see ~18 units
    past the player at maximum zoom, and without a skirt the world visibly ended mid-frame.
+15. **Journey steps are implication-closed.** The merchant, the shelter, the rest and Pim are
+   all genuinely skippable — nothing in the game requires them — so a naive first-unmet-flag
+   chain got permanently stuck on "Visit Ossa". Later milestones now mark earlier ones done,
+   and the finale short-circuits the whole arc to `explore-freely`.
+16. **The interact button ranks structures above gathering.** Nearest-wins let a sunpetal bush
+   growing beside the Hearthnest clearing steal the "Build" prompt. Gathering is the one
+   repeatable interaction, so it always ranks last. Nodes are also kept 5.5 units clear of
+   every named place, which is wider than the largest interaction radius.
+17. **Attacking has aim assist.** Pressing attack turns the player toward the nearest target,
+   but only while they are *not* pushing the stick, so it can never fight the player's
+   steering. Without it, a one-thumb attack swung at whatever direction you stopped facing.
+18. **Region entry is one function.** `teleport` used to set `currentRegion` itself, so the
+   next frame saw no transition and silently skipped the banner, the "seen" flag and the save.
+19. **Headless Chromium only advances `requestAnimationFrame` when frames are requested.**
+   A `waitForTimeout` between Playwright calls lets wall-clock time pass while the game loop
+   stays frozen. The e2e helpers pump frames from inside the page instead.
+20. **`devices['iPhone … landscape']` defaults to WebKit.** Launching the Chromium binary
+   under WebKit's protocol fails with an unhelpful "browser has been closed"; the config pins
+   `browserName: 'chromium'` explicitly.
 
 ---
 
 ## 8. Not yet built — the live backlog
 
-### Required by the brief, still outstanding
+### Required by the brief — all delivered
 - [x] Procedural low-poly art for every prop kind, characters and creatures (M2)
 - [x] Three.js renderer, orthographic isometric camera, pinch zoom, lighting (M3)
-- [x] Input hub: keyboard/mouse/gamepad/pinch. On-screen controls land with the HUD (M5)
-- [x] Player controller, collision against blocking props, gate blocking (M3)
-- [ ] Gathering interaction + depleted-node visual + countdown display (M4)
-- [ ] Enemies, guardian encounter, dodge feedback, defeat → return home (M4)
-- [ ] Merchant, shelter construction, resting, befriending, both restorations (M4)
-- [ ] Journey card UI + off-screen wisp indicator (must vanish when target is visible) (M5)
-- [ ] Accessibility settings panel wired to the settings model (M5)
-- [ ] Visible development/reset action clearing all local progress (M5)
-- [ ] Original Web Audio sound design, SOUND toggle on by default, headless-safe (M5)
-- [ ] Ambient particles, foliage/water motion, restoration transformation VFX (M5)
-- [ ] Integration tests: bootstrap, persistence-through-restart, reset, unlock, guidance (M6)
-- [ ] Playwright full-route playthrough + landscape iPhone screenshots (M6)
-- [ ] Capacitor iOS project, landscape lock, safe-area, offline verification (M7)
+- [x] Input hub: touch, keyboard, mouse, gamepad, pinch (M3/M5)
+- [x] Player controller, sliding collision, gate blocking, aim assist (M3/M4)
+- [x] Gathering + hold-to-repeat + depleted-node visual + countdown (M4)
+- [x] Creatures, guardian encounter, dodge i-frames, defeat → return home (M4)
+- [x] Merchant, shelter construction, resting, befriending, both restorations (M4)
+- [x] Journey card UI + off-screen wisp that vanishes when the target is visible (M5)
+- [x] Accessibility settings panel wired to the saved settings model (M5)
+- [x] Visible reset action, behind a two-tap confirmation (M5)
+- [x] Original Web Audio sound design, SOUND on by default, headless-safe (M5)
+- [x] Ambient particles, foliage/water motion, restoration VFX (M5)
+- [x] Integration tests: bootstrap, restart, reset, unlock, guidance, gathering (M6)
+- [x] Browser route test from clean reset through the finale and beyond (M6)
+- [x] Capacitor config, landscape/safe-area instructions, offline by construction (M7)
 
 ### Known gaps we cannot close in this environment
 - [ ] **Xcode build / iOS Simulator / physical iPhone testing.** No macOS here. Will be
