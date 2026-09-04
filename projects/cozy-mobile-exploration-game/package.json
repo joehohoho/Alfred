@@ -14,12 +14,14 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "ios:sync": "npm run build && npx cap sync ios",
-    "ios:open": "npx cap open ios"
+    "ios:open": "npx cap open ios",
+    "shots": "npm run build:fast && node scripts/shoot.mjs \"$(node scripts/tour.mjs)\""
   },
   "dependencies": {
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@types/node": "^26.4.1",
     "@types/three": "^0.185.4",
     "jsdom": "^30.0.1",

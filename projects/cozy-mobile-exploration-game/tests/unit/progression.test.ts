@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { addToPouch, canAfford } from '../../src/core/inventory.ts';
 import { COSTS } from '../../src/core/recipes.ts';
+import { PLACES, distanceToCreek } from '../../src/core/world/layout.ts';
 import {
   PLAYER_MAX_HEALTH,
+  RETURN_POINTS,
   accessibleRegions,
   befriendCompanion,
   buildShelter,
@@ -152,8 +154,7 @@ describe('defeat is forgiving', () => {
     expect(defeated.flags.weaponUpgraded).toBe(true);
     expect(defeated.stats.timesDefeated).toBe(1);
     // Sent to the waking stone, because they have not rested yet.
-    expect(defeated.playerPosition.x).toBeCloseTo(-16, 6);
-    expect(defeated.playerPosition.z).toBeCloseTo(14, 6);
+    expect(defeated.playerPosition).toEqual(RETURN_POINTS['meadow-waking-stone'].position);
   });
 
   it('returns to the Hearthnest once it is the active point', () => {
@@ -162,8 +163,28 @@ describe('defeat is forgiving', () => {
     ).state;
     state = restAtShelter(state).state;
     const defeated = returnHome({ ...state, playerHealth: 0 });
-    expect(defeated.playerPosition.x).toBeCloseTo(-4.5, 6);
-    expect(defeated.playerPosition.z).toBeCloseTo(20.5, 6);
+    expect(defeated.playerPosition).toEqual(RETURN_POINTS.hearthnest.position);
+  });
+
+  it('never returns the player inside the landmark they return to', () => {
+    // Spawning on the Waking Stone's own coordinates put the player inside the
+    // rock. Return points must stand clear of the solid thing they name.
+    const pairs: Array<[keyof typeof RETURN_POINTS, { x: number; z: number }]> = [
+      ['meadow-waking-stone', PLACES.wakingStone],
+      ['hearthnest', PLACES.shelterClearing],
+    ];
+    for (const [id, landmark] of pairs) {
+      const point = RETURN_POINTS[id].position;
+      const distance = Math.hypot(point.x - landmark.x, point.z - landmark.z);
+      expect(distance, `${id} must stand clear of its landmark`).toBeGreaterThan(2.2);
+    }
+  });
+
+  it('keeps every return point out of the creek and off a blocked tile', () => {
+    for (const id of Object.keys(RETURN_POINTS) as Array<keyof typeof RETURN_POINTS>) {
+      const point = RETURN_POINTS[id].position;
+      expect(distanceToCreek(point), `${id} is in the creek`).toBeGreaterThan(0.5);
+    }
   });
 });
 

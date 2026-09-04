@@ -12,6 +12,8 @@ Environment: Linux container, Node 22.22.2, npm 10.9.7, headless Chromium 1194.
 |---|---|---|---|
 | 2026-09-04 | Core rule unit tests | `npx vitest run` | 144 passed / 144 |
 | 2026-09-04 | Type safety | `npx tsc --noEmit` | clean |
+| 2026-09-04 | Production build | `npm run build` | clean; 555 kB three chunk (140 kB gzipped), 65 kB game |
+| 2026-09-04 | Renders in a landscape iPhone viewport | `npm run shots` at 852x393 @2x | all ten landmarks render; no console errors |
 
 ## Not verified — and why
 

@@ -36,7 +36,7 @@ export const WORLD = {
 
 export const PLACES = {
   wakingStone: vec3(-16, 0, 14),
-  hollowStump: vec3(-22.5, 0, -4),
+  hollowStump: vec3(-25, 0, -1.5),
   shelterClearing: vec3(-4.5, 0, 20.5),
   pimMeeting: vec3(-9.5, 0, 2.5),
   meadowDawnspire: vec3(18, 0, -4),
@@ -63,55 +63,56 @@ export const PATHS: readonly PathDef[] = [
   {
     id: 'waking-to-crossing',
     region: 'meadow',
-    width: 2.7,
+    width: 2.0,
     points: [vec3(-16, 0, 14), vec3(-13.5, 0, 9), vec3(-10, 0, 4.5), vec3(-7.5, 0, 0.5)],
   },
   {
     id: 'crossing-to-stump',
     region: 'meadow',
-    width: 2.4,
-    points: [vec3(-7.5, 0, 0.5), vec3(-11, 0, -2.5), vec3(-16.5, 0, -4), vec3(-21, 0, -4)],
+    width: 1.8,
+    // Crosses the creek at a ford; Ossa keeps her stump on the far bank.
+    points: [vec3(-7.5, 0, 0.5), vec3(-12, 0, -1), vec3(-17, 0, -1.6), vec3(-22.6, 0, -1.6)],
   },
   {
     id: 'crossing-to-clearing',
     region: 'meadow',
-    width: 2.5,
+    width: 1.9,
     points: [vec3(-9, 0, 3.5), vec3(-7.5, 0, 10), vec3(-6, 0, 16), vec3(-4.8, 0, 20)],
   },
   {
     id: 'crossing-to-spire',
     region: 'meadow',
-    width: 2.8,
+    width: 2.1,
     points: [vec3(-7.5, 0, 0.5), vec3(0, 0, -1.5), vec3(8, 0, -3), vec3(15.5, 0, -3.8)],
   },
   {
     id: 'spire-to-gate',
     region: 'meadow',
-    width: 2.6,
+    width: 2.0,
     points: [vec3(19.5, 0, -4.2), vec3(23.5, 0, -4.8), vec3(27, 0, -5.5)],
   },
   {
     id: 'gate-to-ring',
     region: 'grove',
-    width: 2.6,
+    width: 2.0,
     points: [vec3(27, 0, -5.5), vec3(32, 0, -8), vec3(37.5, 0, -11), vec3(42, 0, -13.5)],
   },
   {
     id: 'ring-to-mistveil',
     region: 'grove',
-    width: 2.3,
+    width: 1.8,
     points: [vec3(44, 0, -16.5), vec3(46.5, 0, -22), vec3(48.5, 0, -27)],
   },
   {
     id: 'mistveil-to-spire',
     region: 'glade',
-    width: 2.5,
+    width: 1.9,
     points: [vec3(49, 0, -30.5), vec3(50.5, 0, -36), vec3(51.5, 0, -41), vec3(52, 0, -44)],
   },
   {
     id: 'spire-to-shore',
     region: 'glade',
-    width: 2.2,
+    width: 1.7,
     points: [vec3(53.5, 0, -47), vec3(57, 0, -49.5), vec3(60, 0, -52)],
   },
 ];
@@ -131,7 +132,7 @@ export const CREEK: readonly Vec3[] = [
   vec3(-9, 0, 31),
 ];
 
-export const CREEK_WIDTH = 3.6;
+export const CREEK_WIDTH = 3.2;
 
 /** The still water Moonmere is named for. */
 export const MOONMERE_POOL = { centre: vec3(58, 0, -50), radiusX: 11, radiusZ: 8 };
@@ -222,7 +223,11 @@ export function groundHeight(x: number, z: number): number {
   // ford, not drop into the channel.
   if (creekDistance < 2.2) {
     const depth = 1 - Math.min(Math.max(creekDistance / 2.2, 0), 1);
-    height -= depth * 0.55;
+    // *Level* the channel floor as well as lowering it. Subtracting a depth
+    // from undulating ground leaves a channel whose floor still rolls by ~0.1
+    // across its width — enough for the far bank to rise through a flat water
+    // surface and swallow the creek entirely.
+    height = height * (1 - depth * 0.8) - depth * 0.62;
   }
   if (pathDistance < 2.5) {
     const flatten = 1 - Math.min(Math.max(pathDistance / 2.5, 0), 1);
@@ -439,7 +444,7 @@ function buildResourceNodes(): ResourceNodeDef[] {
         yieldMax: cluster.yieldMax,
         variant: rng.int(0, 2),
         rotation: rng.range(0, Math.PI * 2),
-        scale: rng.range(0.88, 1.18),
+        scale: rng.range(1.05, 1.35),
       });
     }
   }
@@ -558,23 +563,23 @@ const SCATTERS: readonly ScatterDef[] = [
   { id: 'meadow-broadleaf-south', kind: 'broadleaf', region: 'meadow', centre: vec3(-14, 0, 33), radiusX: 22, radiusZ: 6, count: 18, scaleMin: 0.9, scaleMax: 1.3, pathClearance: 3.4, avoidSafeZones: true },
   { id: 'meadow-birch', kind: 'birch', region: 'meadow', centre: vec3(-24, 0, 14), radiusX: 8, radiusZ: 8, count: 14, scaleMin: 0.9, scaleMax: 1.25, pathClearance: 3, avoidSafeZones: true },
   { id: 'meadow-birch-east', kind: 'birch', region: 'meadow', centre: vec3(14, 0, 14), radiusX: 10, radiusZ: 9, count: 13, scaleMin: 0.9, scaleMax: 1.2, pathClearance: 3, avoidSafeZones: true },
-  { id: 'meadow-shrub', kind: 'shrub', region: 'meadow', centre: vec3(-5, 0, 4), radiusX: 30, radiusZ: 26, count: 54, scaleMin: 0.7, scaleMax: 1.15, pathClearance: 2.2 },
-  { id: 'meadow-fern', kind: 'fern', region: 'meadow', centre: vec3(-18, 0, 6), radiusX: 20, radiusZ: 22, count: 46, scaleMin: 0.7, scaleMax: 1.1, pathClearance: 1.9 },
-  { id: 'meadow-grass', kind: 'grassTuft', region: 'meadow', centre: vec3(-6, 0, 6), radiusX: 34, radiusZ: 30, count: 150, scaleMin: 0.6, scaleMax: 1.15, pathClearance: 1.5 },
-  { id: 'meadow-flowers', kind: 'flowerTuft', region: 'meadow', centre: vec3(-6, 0, 6), radiusX: 32, radiusZ: 28, count: 96, scaleMin: 0.65, scaleMax: 1.1, pathClearance: 1.4 },
-  { id: 'meadow-rocks', kind: 'rock', region: 'meadow', centre: vec3(-8, 0, 2), radiusX: 30, radiusZ: 26, count: 42, scaleMin: 0.6, scaleMax: 1.2, pathClearance: 2 },
+  { id: 'meadow-shrub', kind: 'shrub', region: 'meadow', centre: vec3(-5, 0, 4), radiusX: 30, radiusZ: 26, count: 78, scaleMin: 0.7, scaleMax: 1.15, pathClearance: 2.2 },
+  { id: 'meadow-fern', kind: 'fern', region: 'meadow', centre: vec3(-18, 0, 6), radiusX: 20, radiusZ: 22, count: 70, scaleMin: 0.7, scaleMax: 1.1, pathClearance: 1.9 },
+  { id: 'meadow-grass', kind: 'grassTuft', region: 'meadow', centre: vec3(-6, 0, 6), radiusX: 34, radiusZ: 30, count: 260, scaleMin: 0.6, scaleMax: 1.15, pathClearance: 1.5 },
+  { id: 'meadow-flowers', kind: 'flowerTuft', region: 'meadow', centre: vec3(-6, 0, 6), radiusX: 32, radiusZ: 28, count: 190, scaleMin: 0.65, scaleMax: 1.1, pathClearance: 1.4 },
+  { id: 'meadow-rocks', kind: 'rock', region: 'meadow', centre: vec3(-8, 0, 2), radiusX: 30, radiusZ: 26, count: 56, scaleMin: 0.6, scaleMax: 1.2, pathClearance: 2 },
   { id: 'meadow-boulders', kind: 'boulder', region: 'meadow', centre: vec3(-20, 0, -12), radiusX: 16, radiusZ: 12, count: 9, scaleMin: 0.9, scaleMax: 1.5, pathClearance: 4, avoidSafeZones: true },
   { id: 'meadow-logs', kind: 'log', region: 'meadow', centre: vec3(-12, 0, 16), radiusX: 22, radiusZ: 18, count: 11, scaleMin: 0.85, scaleMax: 1.2, pathClearance: 3 },
   { id: 'meadow-stumps', kind: 'stump', region: 'meadow', centre: vec3(0, 0, -10), radiusX: 24, radiusZ: 16, count: 10, scaleMin: 0.8, scaleMax: 1.15, pathClearance: 2.6 },
-  { id: 'meadow-mushrooms', kind: 'mushroom', region: 'meadow', centre: vec3(-22, 0, 2), radiusX: 18, radiusZ: 20, count: 26, scaleMin: 0.7, scaleMax: 1.1, pathClearance: 1.8 },
+  { id: 'meadow-mushrooms', kind: 'mushroom', region: 'meadow', centre: vec3(-22, 0, 2), radiusX: 18, radiusZ: 20, count: 40, scaleMin: 0.7, scaleMax: 1.1, pathClearance: 1.8 },
   { id: 'meadow-reeds', kind: 'reed', region: 'meadow', centre: vec3(-14, 0, 6), radiusX: 26, radiusZ: 26, count: 40, scaleMin: 0.8, scaleMax: 1.2, pathClearance: 1.2, hugCreek: 2.6 },
 
   // --- Thornhollow Grove: taller, tighter, a little more shadowed ----------
   { id: 'grove-conifer', kind: 'conifer', region: 'grove', centre: vec3(40, 0, -8), radiusX: 15, radiusZ: 14, count: 26, scaleMin: 1, scaleMax: 1.55, pathClearance: 3.6, avoidSafeZones: true },
   { id: 'grove-conifer-north', kind: 'conifer', region: 'grove', centre: vec3(45, 0, -24), radiusX: 13, radiusZ: 8, count: 18, scaleMin: 1, scaleMax: 1.5, pathClearance: 3.4, avoidSafeZones: true },
-  { id: 'grove-shrub', kind: 'shrub', region: 'grove', centre: vec3(40, 0, -12), radiusX: 16, radiusZ: 15, count: 38, scaleMin: 0.75, scaleMax: 1.25, pathClearance: 2.2 },
-  { id: 'grove-fern', kind: 'fern', region: 'grove', centre: vec3(39, 0, -13), radiusX: 15, radiusZ: 14, count: 34, scaleMin: 0.8, scaleMax: 1.2, pathClearance: 1.9 },
-  { id: 'grove-grass', kind: 'grassTuft', region: 'grove', centre: vec3(41, 0, -12), radiusX: 17, radiusZ: 16, count: 70, scaleMin: 0.6, scaleMax: 1.1, pathClearance: 1.5 },
+  { id: 'grove-shrub', kind: 'shrub', region: 'grove', centre: vec3(40, 0, -12), radiusX: 16, radiusZ: 15, count: 56, scaleMin: 0.75, scaleMax: 1.25, pathClearance: 2.2 },
+  { id: 'grove-fern', kind: 'fern', region: 'grove', centre: vec3(39, 0, -13), radiusX: 15, radiusZ: 14, count: 54, scaleMin: 0.8, scaleMax: 1.2, pathClearance: 1.9 },
+  { id: 'grove-grass', kind: 'grassTuft', region: 'grove', centre: vec3(41, 0, -12), radiusX: 17, radiusZ: 16, count: 120, scaleMin: 0.6, scaleMax: 1.1, pathClearance: 1.5 },
   { id: 'grove-rocks', kind: 'rock', region: 'grove', centre: vec3(44, 0, -14), radiusX: 15, radiusZ: 14, count: 24, scaleMin: 0.65, scaleMax: 1.25, pathClearance: 2 },
   { id: 'grove-mushrooms', kind: 'mushroom', region: 'grove', centre: vec3(38, 0, -16), radiusX: 12, radiusZ: 12, count: 22, scaleMin: 0.75, scaleMax: 1.2, pathClearance: 1.8 },
   { id: 'grove-logs', kind: 'log', region: 'grove', centre: vec3(43, 0, -19), radiusX: 12, radiusZ: 10, count: 7, scaleMin: 0.9, scaleMax: 1.25, pathClearance: 3 },
@@ -582,9 +587,9 @@ const SCATTERS: readonly ScatterDef[] = [
   // --- Moonmere Glade: pale trunks, cool blooms, quartz ---------------------
   { id: 'glade-palepine', kind: 'palePine', region: 'glade', centre: vec3(52, 0, -44), radiusX: 19, radiusZ: 19, count: 30, scaleMin: 1, scaleMax: 1.6, pathClearance: 3.6, avoidSafeZones: true },
   { id: 'glade-palepine-far', kind: 'palePine', region: 'glade', centre: vec3(64, 0, -62), radiusX: 12, radiusZ: 10, count: 16, scaleMin: 1, scaleMax: 1.5, pathClearance: 3.4 },
-  { id: 'glade-moonbloom', kind: 'moonbloom', region: 'glade', centre: vec3(52, 0, -47), radiusX: 20, radiusZ: 18, count: 62, scaleMin: 0.7, scaleMax: 1.2, pathClearance: 1.4 },
-  { id: 'glade-crystal', kind: 'crystalShard', region: 'glade', centre: vec3(55, 0, -45), radiusX: 18, radiusZ: 17, count: 20, scaleMin: 0.7, scaleMax: 1.4, pathClearance: 2.4 },
-  { id: 'glade-grass', kind: 'grassTuft', region: 'glade', centre: vec3(53, 0, -47), radiusX: 20, radiusZ: 19, count: 76, scaleMin: 0.6, scaleMax: 1.1, pathClearance: 1.5 },
+  { id: 'glade-moonbloom', kind: 'moonbloom', region: 'glade', centre: vec3(52, 0, -47), radiusX: 20, radiusZ: 18, count: 96, scaleMin: 0.7, scaleMax: 1.2, pathClearance: 1.4 },
+  { id: 'glade-crystal', kind: 'crystalShard', region: 'glade', centre: vec3(55, 0, -45), radiusX: 18, radiusZ: 17, count: 30, scaleMin: 0.7, scaleMax: 1.4, pathClearance: 2.4 },
+  { id: 'glade-grass', kind: 'grassTuft', region: 'glade', centre: vec3(53, 0, -47), radiusX: 20, radiusZ: 19, count: 128, scaleMin: 0.6, scaleMax: 1.1, pathClearance: 1.5 },
   { id: 'glade-rocks', kind: 'rock', region: 'glade', centre: vec3(56, 0, -50), radiusX: 17, radiusZ: 15, count: 22, scaleMin: 0.65, scaleMax: 1.2, pathClearance: 2 },
   { id: 'glade-lilypad', kind: 'lilypad', region: 'glade', centre: MOONMERE_POOL.centre, radiusX: 9, radiusZ: 6.5, count: 16, scaleMin: 0.75, scaleMax: 1.25, pathClearance: 0, inPool: true },
   { id: 'glade-reeds', kind: 'reed', region: 'glade', centre: MOONMERE_POOL.centre, radiusX: 12.5, radiusZ: 9.5, count: 26, scaleMin: 0.85, scaleMax: 1.25, pathClearance: 1 },

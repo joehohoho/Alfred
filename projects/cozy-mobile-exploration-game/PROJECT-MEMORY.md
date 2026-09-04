@@ -153,8 +153,8 @@ without losing the game design.
 |---|---|---|
 | M0 | Scaffold, ADR, memory file | ✅ Done |
 | M1 | Deterministic core rules + unit tests | ✅ Done — 144 tests green, `tsc` clean |
-| M2 | World layout + procedural low-poly art | 🔄 Layout done; art in progress |
-| M3 | Renderer, camera, input, player controller | ⬜ Not started |
+| M2 | World layout + procedural low-poly art | ✅ Done — full art set, tuned against screenshots |
+| M3 | Renderer, camera, input, player controller | ✅ Done — renders, moves, collides; HUD controls pending in M5 |
 | M4 | Gathering, combat, companion, merchant, shelter, landmarks | ⬜ Not started |
 | M5 | UI/HUD, Journey card, accessibility, audio | ⬜ Not started |
 | M6 | Integration + Playwright verification | ⬜ Not started |
@@ -183,16 +183,32 @@ without losing the game design.
    an obstacle, not an invitation.
 8. **Creature posts are asserted to be outside every safe zone by a test**, so a future
    edit that drags a spawn onto the Hearthnest fails the build instead of shipping.
+9. **Colour is authored as sRGB hex and converted exactly once.** `THREE.Color.setHex`
+   already converts into the linear working space when `ColorManagement` is enabled;
+   calling `convertSRGBToLinear()` on top applied the transfer function twice and darkened
+   every colour in the game. If the world ever looks muddy again, check this first.
+10. **The camera is orthographic, so fog must be tuned against the boom length**, not against
+   world distances. Everything on screen sits at roughly the same camera distance, so
+   `fogNear` set below the boom fogs the entire scene at once.
+11. **The key light sits on the camera's side of the world.** Lighting from the far side
+   left every camera-facing surface — including the player's front — in shade.
+12. **Water is double-sided.** The creek is a hand-built triangle strip; its winding follows
+   the polyline, so parts of it face down and get back-face culled. That made the creek
+   invisible for several iterations.
+13. **The creek channel is levelled, not just lowered**, and the ribbon clears the highest
+   point of its own cross-section. Path flattening runs after the carve and lifts one bank.
+14. **The ground mesh extends 26 units past the play bounds.** The camera can see ~18 units
+   past the player at maximum zoom, and without a skirt the world visibly ended mid-frame.
 
 ---
 
 ## 8. Not yet built — the live backlog
 
 ### Required by the brief, still outstanding
-- [ ] Procedural low-poly art for every prop kind, characters and creatures (M2)
-- [ ] Three.js renderer, orthographic isometric camera, pinch zoom, lighting (M3)
-- [ ] Virtual joystick, right-hand action cluster, hold-to-repeat, keyboard/mouse/gamepad (M3)
-- [ ] Player controller, collision against blocking props, region/gate transitions (M3)
+- [x] Procedural low-poly art for every prop kind, characters and creatures (M2)
+- [x] Three.js renderer, orthographic isometric camera, pinch zoom, lighting (M3)
+- [x] Input hub: keyboard/mouse/gamepad/pinch. On-screen controls land with the HUD (M5)
+- [x] Player controller, collision against blocking props, gate blocking (M3)
 - [ ] Gathering interaction + depleted-node visual + countdown display (M4)
 - [ ] Enemies, guardian encounter, dodge feedback, defeat → return home (M4)
 - [ ] Merchant, shelter construction, resting, befriending, both restorations (M4)
@@ -252,4 +268,12 @@ npm run dev        # http://localhost:5173
 npm test           # unit + integration
 npm run typecheck  # tsc --noEmit
 npm run build      # typecheck + production bundle
+npm run shots      # render the world tour to screenshots/ (headless Chromium)
 ```
+
+### Reviewing art changes
+
+`npm run shots` boots the built game in a landscape iPhone viewport and captures every
+landmark. Look at the set, not one frame — most of the art bugs found so far (the buried
+creek, the black Dawnspire, the merchant standing in the water) were only obvious when
+comparing locations side by side.

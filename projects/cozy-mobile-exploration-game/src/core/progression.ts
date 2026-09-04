@@ -78,9 +78,15 @@ export interface GameState {
 
 export const PLAYER_MAX_HEALTH = 100;
 
-/** Where a brand-new player wakes up, and the return point until they rest. */
-export const WAKING_STONE_POSITION: Vec3 = vec3(-16, 0, 14);
-export const HEARTHNEST_POSITION: Vec3 = vec3(-4.5, 0, 20.5);
+/**
+ * Return points stand *beside* their landmark, not on it.
+ *
+ * The Waking Stone and the Hearthnest are solid objects at
+ * `PLACES.wakingStone` and `PLACES.shelterClearing`; spawning at those exact
+ * coordinates puts the player inside the geometry.
+ */
+export const WAKING_STONE_POSITION: Vec3 = vec3(-14.2, 0, 16.6);
+export const HEARTHNEST_POSITION: Vec3 = vec3(-2.1, 0, 22.7);
 
 export const RETURN_POINTS: Record<ReturnPointId, { name: string; position: Vec3 }> = {
   'meadow-waking-stone': { name: 'the Waking Stone', position: WAKING_STONE_POSITION },
