@@ -9,8 +9,9 @@
 |---|---|
 | **Working title** | Wispmere *(temporary — see [Open decisions](#open-decisions))* |
 | **Repo path** | `projects/cozy-mobile-exploration-game/` inside `joehohoho/Alfred` |
+| **Pushed?** | **No — GitHub writes are blocked (403).** See [Open decisions](#9-open-decisions--need-the-owner). |
 | **Branch** | `claude/game-build-memory-1t9ac6` |
-| **Status** | In active build — see [Milestones](#milestones) |
+| **Status** | **First playable complete.** Full arc playable and verified end to end. See [Milestones](#milestones). |
 | **Last updated** | 2026-09-04 |
 
 ---
