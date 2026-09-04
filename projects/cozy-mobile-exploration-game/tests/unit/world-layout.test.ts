@@ -3,6 +3,7 @@ import {
   BLOCKING_PROP_KINDS,
   CREATURE_POSTS,
   GATES,
+  MOONMERE_POOL,
   PATHS,
   PLACES,
   PROPS,
@@ -168,6 +169,15 @@ describe('resource distribution', () => {
     }
   });
 
+  it('keeps every gathering node out of the Moonmere', () => {
+    const submerged = RESOURCE_NODES.filter((node) => {
+      const dx = (node.position.x - MOONMERE_POOL.centre.x) / MOONMERE_POOL.radiusX;
+      const dz = (node.position.z - MOONMERE_POOL.centre.z) / MOONMERE_POOL.radiusZ;
+      return dx * dx + dz * dz <= 1;
+    });
+    expect(submerged.map((n) => n.id)).toEqual([]);
+  });
+
   it('sits every node on the ground', () => {
     for (const node of RESOURCE_NODES) {
       expect(node.position.y).toBeCloseTo(groundHeight(node.position.x, node.position.z), 6);
@@ -176,6 +186,16 @@ describe('resource distribution', () => {
 });
 
 describe('regions and gates', () => {
+  it('keeps every named place out of the Moonmere', () => {
+    // The finale Dawnspire once stood in the middle of the lake, with the water
+    // surface drawn straight through it.
+    for (const [name, place] of Object.entries(PLACES)) {
+      const dx = (place.x - MOONMERE_POOL.centre.x) / MOONMERE_POOL.radiusX;
+      const dz = (place.z - MOONMERE_POOL.centre.z) / MOONMERE_POOL.radiusZ;
+      expect(Math.hypot(dx, dz), `${name} is underwater`).toBeGreaterThan(1);
+    }
+  });
+
   it('classifies the named places into the right regions', () => {
     expect(regionAt(PLACES.wakingStone)).toBe('meadow');
     expect(regionAt(PLACES.hollowStump)).toBe('meadow');

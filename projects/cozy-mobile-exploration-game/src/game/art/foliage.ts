@@ -56,22 +56,38 @@ export function makeBroadleaf(region: RegionId, variant: number): BufferGeometry
   return combine(parts);
 }
 
-/** A conifer: stacked cones, wider at the bottom. */
+/**
+ * A conifer: stacked cones, wider at the bottom.
+ *
+ * The three variants differ in *silhouette*, not just in colour — a tall narrow
+ * spire, a broad four-tier, and a squat wide one. A grove built from three
+ * near-identical cones reads as a tiled texture no matter how much the
+ * per-instance tint varies.
+ */
 export function makeConifer(region: RegionId, variant: number): BufferGeometry {
   const rng = artRng(`conifer-${region}`, variant);
   const palette = PALETTES[region];
-  const height = rng.range(3.4, 4.6);
+  const shape = [
+    { height: 4.9, tiers: 3, spread: 0.82, taper: 0.5 },
+    { height: 4.1, tiers: 4, spread: 1.12, taper: 0.38 },
+    { height: 3.1, tiers: 2, spread: 1.32, taper: 0.3 },
+  ][variant % 3]!;
+
+  const height = shape.height * rng.range(0.92, 1.08);
   const parts: BufferGeometry[] = [];
 
   const trunk = cyl(0.12, 0.2, height * 0.42, 5);
   trunk.translate(0, height * 0.21, 0);
   parts.push(paint(trunk, pickColour(palette.bark, variant)));
 
-  const tiers = 3;
-  for (let i = 0; i < tiers; i++) {
-    const t = i / tiers;
-    const skirt = cone(rng.range(0.95, 1.2) * (1 - t * 0.42), height * 0.42, 7);
-    skirt.translate(0, height * (0.32 + t * 0.26), 0);
+  for (let i = 0; i < shape.tiers; i++) {
+    const t = i / shape.tiers;
+    const skirt = cone(
+      shape.spread * rng.range(0.94, 1.06) * (1 - t * shape.taper),
+      (height * 0.5) / Math.sqrt(shape.tiers) + height * 0.16,
+      7,
+    );
+    skirt.translate(0, height * (0.3 + t * (0.62 / shape.tiers)), 0);
     skirt.rotateY(rng.range(0, Math.PI));
     jitter(skirt, 0.05, rng);
     parts.push(

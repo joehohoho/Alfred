@@ -218,6 +218,12 @@ without losing the game design.
 20. **`devices['iPhone … landscape']` defaults to WebKit.** Launching the Chromium binary
    under WebKit's protocol fails with an unhelpful "browser has been closed"; the config pins
    `browserName: 'chromium'` explicitly.
+21. **The Moonmere has a carved basin, and nothing is allowed in it.** The finale Dawnspire
+   originally stood in the middle of the lake with the water drawn through it, and a
+   riverstone cluster scattered into open water. Node placement now rejects the pool, and
+   tests assert that no named place or gathering node is submerged.
+22. **The wisp is clamped into a rectangle that excludes the HUD**, not merely inset by a
+   fraction of the viewport — the top-right corner is exactly where the Journey card lives.
 
 ---
 
@@ -254,14 +260,52 @@ generation · crafting trees · economy. **The brief forbids adding these withou
 
 ---
 
+## 8b. What a device pass will probably want
+
+Nothing here is a defect; these are the knobs most likely to need a turn once someone runs
+the game on real hardware, and where to turn them.
+
+| Knob | Where | Why it may need changing |
+|---|---|---|
+| Quality tier thresholds | `src/game/renderer.ts` → `QUALITY_PROFILES`, `PerfProbe` | Tuned against a 55 fps target that has never seen a GPU |
+| Ambient particle budget | same | Fill rate is the usual first thing to cost a phone frames |
+| Terrain resolution | `src/game/art/terrain.ts` → `RESOLUTION` | ~28k triangles in one draw call; cheap to halve if needed |
+| Camera zoom range | `src/game/camera.ts` → `ZOOM` | Character size on a real 6.1" screen is a feel judgement |
+| Button sizes | `src/ui/hud.css` → `--btn`, `--stick` | Currently ≥44pt; real thumbs may still want more |
+
 ## 9. Open decisions — need the owner
 
 | # | Question | Why it matters | Default if no answer |
 |---|---|---|---|
 | 1 | **Final game title.** "Wispmere" is a working title. | Appears in the app name, bundle id, README. | Ship as Wispmere. |
-| 2 | **Dedicated GitHub repo.** The brief asked for a private `cozy-mobile-exploration-game` repo. Repo creation returned `403 Resource not accessible by integration` — the GitHub App backing this session cannot create repos in the personal account. | Currently living inside the Alfred repo. | Stay in `Alfred/projects/`. Extraction later is `git subtree split`, ~2 minutes, history preserved. |
+| 2 | **GitHub access is blocked entirely — this needs action.** Every write path returns 403: `create_repository`, `create_branch`, and `git push` (which reports "Claude doesn't have GitHub access to joehohoho/Alfred for your organization"). Reads work. | **The three commits exist only in the session container.** Nothing is on GitHub. | Grant access, then push. See below. |
 | 3 | **Licence.** None chosen; the brief said only add one if the owner selects it. | | No licence file. |
 | 4 | **Repo visibility if extracted.** Brief says private by default, ask before public. | | Private. |
+
+### Recovering the work if the container is gone
+
+The branch was exported as a git bundle and a source tarball. To restore:
+
+```bash
+# From the bundle (keeps all three commits and their messages)
+git clone wispmere-branch.bundle wispmere       # standalone
+# ...or into an existing Alfred clone:
+git fetch ../wispmere-branch.bundle claude/game-build-memory-1t9ac6:claude/game-build-memory-1t9ac6
+
+# Or just the files
+tar xzf wispmere-source.tar.gz
+```
+
+To unblock pushing: install the Claude GitHub App for the account at
+<https://github.com/apps/claude/installations/select_target>, or reconnect GitHub from
+claude.ai Settings → Connectors. Then `git push -u origin claude/game-build-memory-1t9ac6`.
+
+To split the game into its own repository, preserving history:
+
+```bash
+git subtree split --prefix=projects/cozy-mobile-exploration-game -b wispmere-only
+# then push wispmere-only to a new private repo as its main branch
+```
 
 ---
 

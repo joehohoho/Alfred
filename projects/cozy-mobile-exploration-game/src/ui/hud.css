@@ -177,12 +177,18 @@
 
 /* ---------------------------------------------------------------- journey */
 
+/*
+ * "Compact, non-blocking" is a requirement, not a preference, so the card is
+ * kept deliberately short: tight leading, a two-line hint clamp, and no
+ * vertical gaps beyond what keeps the rows legible. On a 343pt-tall landscape
+ * screen every 10px it grows is 3% of the play area.
+ */
 .journey {
-  padding: calc(9px * var(--ui-scale)) calc(12px * var(--ui-scale));
-  max-width: calc(268px * var(--ui-scale));
+  padding: calc(7px * var(--ui-scale)) calc(11px * var(--ui-scale));
+  max-width: calc(244px * var(--ui-scale));
   display: flex;
   flex-direction: column;
-  gap: calc(3px * var(--ui-scale));
+  gap: calc(1px * var(--ui-scale));
 }
 
 .journey-eyebrow {
@@ -216,21 +222,27 @@
 }
 
 .journey-title {
-  font-size: calc(14.5px * var(--ui-scale));
+  font-size: calc(14px * var(--ui-scale));
   font-weight: 800;
-  line-height: 1.22;
+  line-height: 1.18;
 }
 
 .journey-hint {
-  font-size: calc(11.5px * var(--ui-scale));
-  line-height: 1.35;
+  font-size: calc(11px * var(--ui-scale));
+  line-height: 1.28;
   opacity: 0.74;
+  /* Two lines at most. A long hint must not grow the card down the screen. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .journey-cost {
   display: flex;
   gap: calc(5px * var(--ui-scale));
-  margin-top: calc(3px * var(--ui-scale));
+  margin-top: calc(2px * var(--ui-scale));
   flex-wrap: wrap;
 }
 
@@ -241,7 +253,7 @@
   font-size: calc(11px * var(--ui-scale));
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  padding: calc(2px * var(--ui-scale)) calc(6px * var(--ui-scale));
+  padding: calc(1px * var(--ui-scale)) calc(6px * var(--ui-scale));
   border-radius: 999px;
   background: rgba(47, 143, 122, 0.13);
 }
@@ -408,11 +420,17 @@
 
 /* --------------------------------------------------------------- messages */
 
+/*
+ * The region banner sits below the top row of cards, not level with them: at
+ * 21% it ran underneath the Journey card on a landscape phone. The width cap
+ * keeps a long region name from reaching the card even so.
+ */
 .banner {
   position: absolute;
-  top: calc(var(--safe-top) + 21%);
+  top: calc(var(--safe-top) + 33%);
   left: 50%;
   transform: translateX(-50%);
+  width: min(56vw, calc(420px * var(--ui-scale)));
   text-align: center;
   opacity: 0;
   transition: opacity 0.5s ease-out;
@@ -421,7 +439,7 @@
 .banner[data-shown='true'] { opacity: 1; }
 
 .banner-title {
-  font-size: calc(25px * var(--ui-scale));
+  font-size: calc(23px * var(--ui-scale));
   font-weight: 800;
   letter-spacing: 0.01em;
   color: var(--parchment);
@@ -667,8 +685,17 @@
   color: #8f3c22;
 }
 
-/* Short landscape phones: shrink the chrome rather than let it stack. */
-@media (max-height: 420px) {
+/*
+ * Short landscape phones: shrink the chrome rather than let it stack.
+ *
+ * The breakpoint is below an iPhone 15 Pro's 343pt landscape height on purpose.
+ * At 420 it was firing on the primary target device and hiding the Journey
+ * hint — the one line that explains *why* the current step matters.
+ */
+@media (max-height: 400px) {
   #hud { --btn: calc(58px * var(--ui-scale)); --stick: calc(100px * var(--ui-scale)); }
+}
+
+@media (max-height: 320px) {
   .journey-hint { display: none; }
 }

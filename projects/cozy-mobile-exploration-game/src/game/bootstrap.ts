@@ -453,14 +453,17 @@ export function boot(options: BootOptions): Game {
     const height = options.canvas.clientHeight || 1;
     projected.set(target.x, target.y + 1, target.z).project(camera.camera);
 
-    // Push the point out to the screen edge along its own direction, then inset
-    // so the indicator never sits under the notch or a rounded corner.
+    // Push the point out to the screen edge along its own direction, then clamp
+    // it into a rectangle that excludes the HUD. Insetting by a fraction of the
+    // viewport was not enough: the top-right corner is exactly where the
+    // Journey card sits, so a target behind the player put the wisp on top of
+    // the card. The margins below are the HUD's own footprint plus a little air.
     const length = Math.max(Math.abs(projected.x), Math.abs(projected.y), 0.0001);
     const edgeX = projected.x / length;
     const edgeY = projected.y / length;
-    const inset = 0.86;
-    const x = ((edgeX * inset + 1) / 2) * width;
-    const y = ((1 - edgeY * inset) / 2) * height;
+    const margin = { top: 104, bottom: 118, side: 76 };
+    const x = clamp(((edgeX + 1) / 2) * width, margin.side, width - margin.side);
+    const y = clamp(((1 - edgeY) / 2) * height, margin.top, height - margin.bottom);
     return { x, y, angle: Math.atan2(edgeX, edgeY) };
   };
 

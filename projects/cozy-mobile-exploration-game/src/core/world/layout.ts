@@ -44,7 +44,7 @@ export const PLACES = {
   bramblehornRing: vec3(43, 0, -14),
   mistveil: vec3(49, 0, -29),
   moonmereDawnspire: vec3(52, 0, -46),
-  moonmereShore: vec3(60, 0, -52),
+  moonmereShore: vec3(53, 0, -56),
 } as const;
 
 /**
@@ -113,7 +113,7 @@ export const PATHS: readonly PathDef[] = [
     id: 'spire-to-shore',
     region: 'glade',
     width: 1.7,
-    points: [vec3(53.5, 0, -47), vec3(57, 0, -49.5), vec3(60, 0, -52)],
+    points: [vec3(53.5, 0, -47.5), vec3(53.5, 0, -51.5), vec3(53, 0, -56)],
   },
 ];
 
@@ -135,7 +135,7 @@ export const CREEK: readonly Vec3[] = [
 export const CREEK_WIDTH = 3.2;
 
 /** The still water Moonmere is named for. */
-export const MOONMERE_POOL = { centre: vec3(58, 0, -50), radiusX: 11, radiusZ: 8 };
+export const MOONMERE_POOL = { centre: vec3(64, 0, -52), radiusX: 9, radiusZ: 6.5 };
 
 // ---------------------------------------------------------------------------
 // Safe zones — the brief requires that these never hold hostile creatures
@@ -229,6 +229,17 @@ export function groundHeight(x: number, z: number): number {
     // surface and swallow the creek entirely.
     height = height * (1 - depth * 0.8) - depth * 0.62;
   }
+  // The Moonmere's basin. Without this the pool is a flat disc laid over
+  // undulating ground: it buries its own edge on the high side and hovers on
+  // the low side.
+  const poolDx = (x - MOONMERE_POOL.centre.x) / MOONMERE_POOL.radiusX;
+  const poolDz = (z - MOONMERE_POOL.centre.z) / MOONMERE_POOL.radiusZ;
+  const poolDistance = Math.hypot(poolDx, poolDz);
+  if (poolDistance < 1.25) {
+    const depth = 1 - Math.min(Math.max((poolDistance - 0.7) / 0.55, 0), 1);
+    height = height * (1 - depth * 0.85) - depth * 0.7;
+  }
+
   if (pathDistance < 2.5) {
     const flatten = 1 - Math.min(Math.max(pathDistance / 2.5, 0), 1);
     height = height * (1 - flatten * 0.85);
@@ -371,7 +382,7 @@ const NODE_CLUSTERS: readonly NodeClusterDef[] = [
   // --- Moonmere Glade: the richest, and the reason to come back ------------
   { id: 'petal-moonbloom', resource: 'sunpetal', region: 'glade', centre: vec3(44, 0, -42), radius: 4.4, count: 5, yieldMin: 2, yieldMax: 3 },
   { id: 'wood-palewood', resource: 'boughwood', region: 'glade', centre: vec3(62, 0, -40), radius: 4.6, count: 4, yieldMin: 2, yieldMax: 3 },
-  { id: 'stone-mereshore', resource: 'riverstone', region: 'glade', centre: vec3(63, 0, -57), radius: 4.8, count: 5, yieldMin: 2, yieldMax: 3 },
+  { id: 'stone-mereshore', resource: 'riverstone', region: 'glade', centre: vec3(57, 0, -62), radius: 4.5, count: 5, yieldMin: 2, yieldMax: 3 },
   { id: 'petal-southmere', resource: 'sunpetal', region: 'glade', centre: vec3(46, 0, -58), radius: 4.2, count: 4, yieldMin: 2, yieldMax: 3 },
 ];
 
@@ -381,6 +392,12 @@ const NODE_CLUSTERS: readonly NodeClusterDef[] = [
  * Placement retries a few times per node to keep nodes off the walking lanes —
  * a gathering prop standing in the road reads as an obstacle, not an invitation.
  */
+function insideMoonmerePool(position: Vec3): boolean {
+  const dx = (position.x - MOONMERE_POOL.centre.x) / MOONMERE_POOL.radiusX;
+  const dz = (position.z - MOONMERE_POOL.centre.z) / MOONMERE_POOL.radiusZ;
+  return dx * dx + dz * dz <= 1;
+}
+
 /**
  * Walks a point away from the nearest walking lane until it has `minClearance`.
  *
@@ -449,6 +466,8 @@ function buildResourceNodes(): ResourceNodeDef[] {
         ) {
           continue;
         }
+        // ...and never underwater.
+        if (insideMoonmerePool(candidate)) continue;
 
         const clearance = distanceToAnyPath(candidate);
         if (clearance >= 1.5) {
@@ -619,12 +638,6 @@ const SCATTERS: readonly ScatterDef[] = [
   { id: 'glade-lilypad', kind: 'lilypad', region: 'glade', centre: MOONMERE_POOL.centre, radiusX: 9, radiusZ: 6.5, count: 16, scaleMin: 0.75, scaleMax: 1.25, pathClearance: 0, inPool: true },
   { id: 'glade-reeds', kind: 'reed', region: 'glade', centre: MOONMERE_POOL.centre, radiusX: 12.5, radiusZ: 9.5, count: 26, scaleMin: 0.85, scaleMax: 1.25, pathClearance: 1 },
 ];
-
-function insideMoonmerePool(position: Vec3): boolean {
-  const dx = (position.x - MOONMERE_POOL.centre.x) / MOONMERE_POOL.radiusX;
-  const dz = (position.z - MOONMERE_POOL.centre.z) / MOONMERE_POOL.radiusZ;
-  return dx * dx + dz * dz <= 1;
-}
 
 /**
  * Exclusion discs. Nothing is scattered inside one.

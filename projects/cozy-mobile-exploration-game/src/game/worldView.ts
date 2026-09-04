@@ -231,9 +231,10 @@ export function buildWorldView(materials: MaterialSet): WorldView {
       dummy.updateMatrix();
       instanced.setMatrixAt(index, dummy.matrix);
 
-      // Per-instance value shift: no two bushes are quite the same green.
-      const shift = rng.range(-0.09, 0.09);
-      tintColour.setRGB(1, 1, 1).offsetHSL(rng.range(-0.012, 0.012), 0, shift);
+      // Per-instance hue and value shift: no two bushes are quite the same
+      // green. Wide enough to break up a stand of trees, narrow enough that
+      // nothing leaves the region's palette.
+      tintColour.setRGB(1, 1, 1).offsetHSL(rng.range(-0.02, 0.02), 0, rng.range(-0.14, 0.14));
       instanced.setColorAt(index, tintColour);
     });
 

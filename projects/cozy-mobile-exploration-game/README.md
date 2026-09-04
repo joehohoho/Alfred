@@ -38,16 +38,18 @@ device toolbar set to an iPhone in landscape.
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run build` | Typecheck, then production bundle into `dist/` |
 | `npm run preview` | Serve the production bundle locally |
-| `npm run test:e2e` | Playwright play-through against the built game |
+| `npm run test:e2e` | Playwright: the full route plus HUD layout, in an iPhone landscape viewport |
+| `npm run shots` | Render the world tour to `screenshots/` |
 | `npm run ios:sync` | Build and sync the Capacitor iOS project |
 | `npm run ios:open` | Open the iOS project in Xcode *(macOS only)* |
 
 ## Controls
 
 **Touch (the design target)** — left virtual joystick to move; right cluster for
-interact/gather, attack, and dodge. Hold to repeat gathering and attacks. Hold attack to
-charge. Pinch to zoom. The joystick and action cluster swap sides for left- or
-right-handed play.
+interact/gather, attack, dodge and zoom. Hold to repeat gathering and attacks; hold
+attack to charge. Pinch to zoom, or tap Zoom to cycle three framings. The joystick and
+the action cluster swap sides for left- or right-handed play, and the whole interface
+scales.
 
 **Desktop, for development** — `WASD`/arrows to move, `E` interact, `Space`/left click
 attack (hold to charge), `Shift` dodge, scroll to zoom, `Esc` pause. A gamepad works too.
@@ -64,6 +66,16 @@ docs/        Architecture decision, validation record.
 
 The boundary between `core/` and everything else is enforced by
 `tests/unit/core-purity.test.ts`, not by convention.
+
+## Accessibility
+
+In the pause panel: sound on/off with separate ambience and effects levels, subtitles
+(which caption sounds as well as the companion), reduced motion, reduced flash, high
+contrast, camera-shake amount down to zero, stick handedness, and interface scale.
+Everything is saved with the game.
+
+There is also a **Start over** action there that clears all local progress and puts the
+new-player route back. It needs two taps.
 
 ## Status
 
