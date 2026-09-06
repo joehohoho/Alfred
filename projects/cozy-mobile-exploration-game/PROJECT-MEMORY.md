@@ -8,9 +8,9 @@
 | | |
 |---|---|
 | **Working title** | Wispmere *(temporary — see [Open decisions](#open-decisions))* |
-| **Repo path** | `projects/cozy-mobile-exploration-game/` inside `joehohoho/Alfred` |
-| **Pushed?** | **No — GitHub writes are blocked (403).** See [Open decisions](#9-open-decisions--need-the-owner). |
-| **Branch** | `claude/game-build-memory-1t9ac6` |
+| **Repo** | `joehohoho/cozy-mobile-exploration-game` (private) |
+| **Default branch** | `main` |
+| **History** | Extracted from `joehohoho/Alfred` with `git subtree split`; all five original commits preserved. |
 | **Status** | **First playable complete.** Full arc playable and verified end to end. See [Milestones](#milestones). |
 | **Last updated** | 2026-09-04 |
 
@@ -279,34 +279,28 @@ the game on real hardware, and where to turn them.
 | # | Question | Why it matters | Default if no answer |
 |---|---|---|---|
 | 1 | **Final game title.** "Wispmere" is a working title. | Appears in the app name, bundle id, README. | Ship as Wispmere. |
-| 2 | **GitHub access is blocked entirely — this needs action.** Every write path returns 403: `create_repository`, `create_branch`, and `git push` (which reports "Claude doesn't have GitHub access to joehohoho/Alfred for your organization"). Reads work. | **The three commits exist only in the session container.** Nothing is on GitHub. | Grant access, then push. See below. |
+| 2 | ~~**Dedicated repo.**~~ **Resolved.** The game now lives in its own private repository, `joehohoho/cozy-mobile-exploration-game`, extracted with `git subtree split` so all five commits keep their history and messages. | | Done. |
 | 3 | **Licence.** None chosen; the brief said only add one if the owner selects it. | | No licence file. |
 | 4 | **Repo visibility if extracted.** Brief says private by default, ask before public. | | Private. |
 
-### Recovering the work if the container is gone
+### How this repository was created
 
-The branch was exported as a git bundle and a source tarball. To restore:
-
-```bash
-# From the bundle (keeps all three commits and their messages)
-git clone wispmere-branch.bundle wispmere       # standalone
-# ...or into an existing Alfred clone:
-git fetch ../wispmere-branch.bundle claude/game-build-memory-1t9ac6:claude/game-build-memory-1t9ac6
-
-# Or just the files
-tar xzf wispmere-source.tar.gz
-```
-
-To unblock pushing: install the Claude GitHub App for the account at
-<https://github.com/apps/claude/installations/select_target>, or reconnect GitHub from
-claude.ai Settings → Connectors. Then `git push -u origin claude/game-build-memory-1t9ac6`.
-
-To split the game into its own repository, preserving history:
+The game was first built inside `joehohoho/Alfred` under
+`projects/cozy-mobile-exploration-game/`, because GitHub repository creation was
+unavailable at the time. It was later extracted into this standalone repository:
 
 ```bash
-git subtree split --prefix=projects/cozy-mobile-exploration-game -b wispmere-only
-# then push wispmere-only to a new private repo as its main branch
+git subtree split --prefix=projects/cozy-mobile-exploration-game -b wispmere-standalone
+git push git@github.com:joehohoho/cozy-mobile-exploration-game.git wispmere-standalone:main
 ```
+
+`git subtree split` rewrites the commits so the game sits at the repository root while
+keeping every original commit, message and author. The Alfred copy is historical only —
+**this repository is the source of truth.**
+
+> **Note for anyone reading old commit messages:** the first five commits were authored
+> when the project lived inside Alfred, so a few of them mention that path. The code they
+> describe is the code here.
 
 ---
 

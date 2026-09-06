@@ -21,6 +21,8 @@ art or sound assets. Reasoning and rejected alternatives:
 ## Getting started
 
 ```bash
+git clone git@github.com:joehohoho/cozy-mobile-exploration-game.git
+cd cozy-mobile-exploration-game
 npm install
 npm run dev          # dev server with HMR at http://localhost:5173
 ```
